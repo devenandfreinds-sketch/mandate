@@ -93,6 +93,23 @@ npm run db:seed -w server
 - `https://<client-domain>/` should load the app, and `https://<client-domain>/dashboard` should load directly (not 404) — this confirms the SPA fallback is working.
 - `https://<client-domain>/admin/login` should let you log in with the password you hashed into `ADMIN_PASSWORD_HASH`, and land you on `/admin/imports` — this confirms the cross-origin cookie (`CLIENT_URL`, `SESSION_SECRET`, `sameSite=None; Secure`) is configured correctly.
 
+## Troubleshooting
+
+### `Error: Environment variable not found: DATABASE_URL` (Prisma error P1012)
+
+The server's `start` script now checks for this up front and fails with a clearer message before Prisma even runs (`server/scripts/check-env.js`) — if you still see Prisma's raw P1012 error, redeploy after pulling the latest code so that check is in effect.
+
+The underlying cause is always the same: `DATABASE_URL` isn't actually present in the `mandate-server` service's environment at runtime. Check, in order:
+
+1. **Does the variable exist on the correct service?** Railway → your project → `mandate-server` service → Variables tab. If `DATABASE_URL` isn't listed at all, add it.
+2. **Did a `${{Postgres.DATABASE_URL}}`-style reference actually resolve?** Click into the variable's value in the Variables tab — if it still shows the literal `${{...}}` text instead of a real `postgresql://...` connection string, the reference didn't resolve. This almost always means the name before the dot doesn't match your Postgres service's actual name in this project (Railway auto-names it, e.g. `Postgres` or `Postgres-abc1`) — open the Postgres service and copy its exact name into the reference.
+3. **Are both services in the same Railway environment?** Variable references only resolve across services within the same environment (e.g. both in "production"). If you've split services across environments, either move them together or hardcode the connection string instead of using a reference.
+4. **Did you redeploy after adding/fixing the variable?** Railway doesn't always trigger an automatic redeploy for variable-only changes, depending on project settings. Trigger one manually (Deployments → Redeploy) after confirming step 2 shows a real value.
+
+### Admin login works locally but not in production
+
+Almost always a `CLIENT_URL`/cookie issue: confirm `NODE_ENV=production` is set on `mandate-server` (this is what switches the session cookie to `SameSite=None; Secure`, required cross-origin), and that you're accessing the client over `https://` (Railway's public domains are HTTPS by default, but custom domains need to be configured for it).
+
 ## Alternative: single-service deployment
 
 If you'd rather run one Railway service instead of two, the server already supports it: build both shared+client+server (`npm run build`), and the Express server will detect `client/dist` at runtime and serve it directly (see `server/src/app.ts`) alongside the API, with no `VITE_API_URL`/`CLIENT_URL` needed since everything is same-origin. Build Command: `npm run build`. Start Command: `npm run start` (root). This trades independent scaling/deploys of the two halves for a simpler single-service setup.
