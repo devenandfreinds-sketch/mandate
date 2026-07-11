@@ -16,10 +16,15 @@ export function issueAdminToken(): string {
 }
 
 export function setAdminCookie(res: Response, token: string) {
+  const isProduction = process.env.NODE_ENV === "production";
   res.cookie(COOKIE_NAME, token, {
     httpOnly: true,
-    sameSite: "lax",
-    secure: process.env.NODE_ENV === "production",
+    // Client and server are typically separate origins in production (e.g. two Railway services),
+    // which requires SameSite=None (and Secure, which browsers mandate alongside it) for the cookie
+    // to be sent on cross-origin fetches. Locally, client and server share an origin via the Vite
+    // proxy, where Lax is safer and sufficient.
+    sameSite: isProduction ? "none" : "lax",
+    secure: isProduction,
     maxAge: 12 * 60 * 60 * 1000,
   });
 }
