@@ -1,0 +1,9 @@
+jurisdiction,metric,year,value,confidence,notes
+minneapolis,housing_permits_issued,,,,"TODO: Census Bureau Building Permits Survey (BPS), place-level annual data for Minneapolis, or HUD SOCDS mirror."
+minneapolis,housing_starts,,,,"TODO: No clean official city-level 'starts' series exists; if used, document BPS permits as an explicit proxy rather than true starts."
+minneapolis,housing_completions,,,,"TODO: Minneapolis CPED (Community Planning and Economic Development) or Metropolitan Council permit/completions series."
+minneapolis,affordable_housing_completions,,,,"TODO: Minneapolis CPED annual affordable housing production reports."
+minneapolis,vacancy_rate,,,,"TODO: ACS 1-Year Estimates, Table B25004, place-level for Minneapolis (no 2020 estimate published)."
+minneapolis,median_rent,,,,"TODO: ACS 1-Year Estimates, Table B25064, place-level for Minneapolis (no 2020 estimate published)."
+minneapolis,homelessness_count,,,,"TODO: HUD Point-in-Time Count for the MN-500 Continuum of Care (Hennepin County), via HUD Exchange CoC Homeless Populations and Subpopulations Reports."
+minneapolis,planning_approval_days,,,,"TODO: No clean official series found; check Minneapolis CPED permit performance reports."

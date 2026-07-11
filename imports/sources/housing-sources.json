@@ -1,0 +1,47 @@
+{
+  "description": "Source Registry entries backing the Housing category real-data import. These are seeded into the Source table by server/prisma/seed/data/sources.ts (upserted by name) — this file is a human-readable manifest of which sources back which metrics, not a separate ingestion path.",
+  "sources": [
+    {
+      "sourceKey": "us_census_acs",
+      "name": "American Community Survey",
+      "backsMetrics": ["median_rent", "vacancy_rate"],
+      "jurisdictions": ["new-york-city", "chicago", "minneapolis", "seattle", "washington-dc"],
+      "note": "No 1-year ACS estimates exist for 2020. Requires a data.census.gov account/API key for programmatic bulk pulls as of 2026; figures in this pass were compiled via published secondary citations, not direct API calls."
+    },
+    {
+      "sourceKey": "nyu_furman_center",
+      "name": "State of New York City's Housing and Neighborhoods",
+      "backsMetrics": ["median_rent"],
+      "jurisdictions": ["new-york-city"],
+      "note": "Used for NYC citywide median gross rent, which the Furman Center reports annually from ACS/NYCHVS data."
+    },
+    {
+      "sourceKey": "chicago_pit_report",
+      "name": "Chicago Point-in-Time Count & Survey Report",
+      "backsMetrics": ["homelessness_count"],
+      "jurisdictions": ["chicago"],
+      "note": "2023 figure includes a large one-time increase attributable to newly arrived asylum seekers in city shelter — a real methodological discontinuity, not a data error."
+    },
+    {
+      "sourceKey": "mwcog_pit_report",
+      "name": "Regional Point-in-Time Count of Homelessness",
+      "backsMetrics": ["homelessness_count"],
+      "jurisdictions": ["washington-dc"],
+      "note": null
+    },
+    {
+      "sourceKey": "kcrha_pit_report",
+      "name": "King County Point-in-Time Count",
+      "backsMetrics": ["homelessness_count"],
+      "jurisdictions": ["seattle"],
+      "note": "County-wide, not city-of-Seattle-only; methodology changed from a literal count to statistical Respondent-Driven Sampling starting in 2022, and some years were skipped under HUD's every-other-year unsheltered-count schedule."
+    },
+    {
+      "sourceKey": "hud_scds",
+      "name": "State of the Cities Data Systems",
+      "backsMetrics": ["housing_permits_issued", "housing_starts", "housing_completions"],
+      "jurisdictions": [],
+      "note": "Still flagged isPlaceholder in the Source Registry — identified as the right official source for these metrics, but not yet pulled into real MetricValue rows this pass. See per-jurisdiction CSV TODOs."
+    }
+  ]
+}

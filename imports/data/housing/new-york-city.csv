@@ -1,0 +1,9 @@
+jurisdiction,metric,year,value,confidence,notes
+new-york-city,median_rent,2018,1443,high,"NYC citywide gross median rent per NYU Furman Center State of the City report (cites ACS/NYCHVS-based analysis)."
+new-york-city,housing_permits_issued,,,,"TODO: Census Bureau Building Permits Survey (BPS), place-level annual data for New York city, or HUD SOCDS mirror. https://www.census.gov/construction/bps/"
+new-york-city,housing_starts,,,,"TODO: No clean official city-level 'starts' series exists for most US cities (Census New Residential Construction is national/regional only). If used, document BPS permits as an explicit proxy rather than true starts."
+new-york-city,housing_completions,,,,"TODO: NYC HPD / Department of City Planning Certificates of Occupancy data, or NYC Open Data 'Building Permits Issued' / Furman Center State of the City completions series."
+new-york-city,affordable_housing_completions,,,,"TODO: NYC HPD 'Housing New York' / 'Housing Our Neighbors' annual progress reports (units financed vs. completed)."
+new-york-city,vacancy_rate,,,,"TODO: NYC Housing and Vacancy Survey (NYCHVS) is triennial (2014, 2017, 2021, 2023) and is the authoritative NYC-specific source; ACS rental vacancy rate is an annual alternative with wider margins of error for a single city."
+new-york-city,homelessness_count,,,,"TODO: HUD Point-in-Time Count for the NY-600 Continuum of Care, via HUD Exchange CoC Homeless Populations and Subpopulations Reports."
+new-york-city,planning_approval_days,,,,"TODO: No clean official citywide series found; check NYC Department of Buildings / Department of City Planning performance/dashboard reports."

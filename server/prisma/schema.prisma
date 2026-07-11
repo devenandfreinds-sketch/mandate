@@ -1,0 +1,357 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// =========================================================
+// CORE HIERARCHY: GovernanceModel -> Jurisdiction -> Administration
+// =========================================================
+
+model GovernanceModel {
+  id               String   @id @default(cuid())
+  slug             String   @unique
+  name             String
+  shortName        String?
+  summary          String
+  overview         String
+  history          String
+  politicalContext String
+  foundedYear      Int?
+  colorHex         String?
+  isPlaceholder    Boolean  @default(true)
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  jurisdictions  Jurisdiction[]
+  corePriorities CorePriority[]
+  timelineEvents TimelineEvent[]
+}
+
+model CorePriority {
+  id                String  @id @default(cuid())
+  governanceModelId String
+  title             String
+  description       String
+  sortOrder         Int     @default(0)
+  isPlaceholder     Boolean @default(true)
+
+  governanceModel GovernanceModel @relation(fields: [governanceModelId], references: [id], onDelete: Cascade)
+
+  @@index([governanceModelId])
+}
+
+model Jurisdiction {
+  id                String   @id @default(cuid())
+  governanceModelId String
+  slug              String   @unique
+  name              String
+  kind              String // "city" | "metro_region" (data-driven, not enum)
+  stateOrRegion     String?
+  country           String
+  population        Int?
+  populationYear    Int?
+  latitude          Float?
+  longitude         Float?
+  summary           String
+  description       String
+  isPlaceholder     Boolean  @default(true)
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  governanceModel     GovernanceModel       @relation(fields: [governanceModelId], references: [id], onDelete: Restrict)
+  administrations     Administration[]
+  metricValues        MetricValue[]
+  timelineEvents      TimelineEvent[]
+  pipelineAssessments PipelineAssessment[]
+
+  @@index([governanceModelId])
+}
+
+model Administration {
+  id                   String    @id @default(cuid())
+  jurisdictionId       String
+  leaderName           String
+  leaderTitle          String // "Mayor", "Metro Mayor" (data-driven)
+  politicalParty       String?
+  coalitionDescription String?
+  termNumber           Int?
+  startDate            DateTime
+  endDate              DateTime?
+  photoUrl             String?
+  isPlaceholder        Boolean   @default(true)
+  createdAt            DateTime  @default(now())
+  updatedAt            DateTime  @updatedAt
+
+  jurisdiction        Jurisdiction         @relation(fields: [jurisdictionId], references: [id], onDelete: Cascade)
+  campaignPromises    CampaignPromise[]
+  metricValues        MetricValue[]
+  timelineEvents      TimelineEvent[]
+  pipelineAssessments PipelineAssessment[]
+
+  @@index([jurisdictionId, startDate])
+}
+
+model CampaignPromise {
+  id               String    @id @default(cuid())
+  administrationId String
+  categoryId       String?
+  title            String
+  description      String
+  status           String // "proposed" | "in_progress" | "fulfilled" | "broken" | "stalled"
+  datePromised     DateTime?
+  isPlaceholder    Boolean   @default(true)
+
+  administration Administration @relation(fields: [administrationId], references: [id], onDelete: Cascade)
+  category       Category?      @relation(fields: [categoryId], references: [id])
+
+  @@index([administrationId])
+}
+
+// =========================================================
+// SHARED TAXONOMY: Category -> MetricDefinition -> MetricValue
+// =========================================================
+
+model Category {
+  id          String  @id @default(cuid())
+  slug        String  @unique
+  name        String
+  description String
+  icon        String?
+  colorHex    String?
+  sortOrder   Int     @default(0)
+
+  metricDefinitions MetricDefinition[]
+  campaignPromises  CampaignPromise[]
+  policyAreas       PolicyArea[]
+}
+
+model MetricDefinition {
+  id               String  @id @default(cuid())
+  categoryId       String
+  slug             String  @unique
+  name             String
+  description      String
+  unit             String // "count" | "usd" | "percent" | "years" | "index"
+  higherIsBetter   Boolean @default(true)
+  decimalPrecision Int     @default(0)
+  sortOrder        Int     @default(0)
+  isPlaceholder    Boolean @default(true)
+
+  calculationMethod String? // free text: how this metric is calculated
+  coverageNote      String? // free text: period/jurisdiction coverage caveats
+  limitations       String? // free text: known limitations of this metric
+  primarySourceId   String? // canonical Source shown on the metric detail page
+
+  category      Category      @relation(fields: [categoryId], references: [id], onDelete: Restrict)
+  primarySource Source?       @relation(fields: [primarySourceId], references: [id], onDelete: SetNull)
+  metricValues  MetricValue[]
+
+  @@index([categoryId])
+  @@index([primarySourceId])
+}
+
+model MetricValue {
+  id                 String    @id @default(cuid())
+  metricDefinitionId String
+  jurisdictionId     String
+  administrationId   String?
+  sourceId           String
+  periodType         String // "year" | "quarter" | "month"
+  periodStart        DateTime
+  periodEnd          DateTime
+  periodLabel        String // "2019", "2019-Q3", display convenience
+  value              Decimal   @db.Decimal(16, 4)
+  confidence         String? // "high" | "estimated" | "modeled"
+  notes              String?
+  ingestionMethod    String    @default("seed") // "seed" | "csv" | "api" | "manual"
+  dataQuality        String    @default("placeholder") // "official" | "estimated" | "placeholder"
+  isPlaceholder      Boolean   @default(true)
+  createdAt          DateTime  @default(now())
+  updatedAt          DateTime  @updatedAt
+
+  metricDefinition MetricDefinition @relation(fields: [metricDefinitionId], references: [id], onDelete: Restrict)
+  jurisdiction     Jurisdiction     @relation(fields: [jurisdictionId], references: [id], onDelete: Cascade)
+  administration   Administration?  @relation(fields: [administrationId], references: [id], onDelete: SetNull)
+  source           Source           @relation(fields: [sourceId], references: [id], onDelete: Restrict)
+
+  @@unique([metricDefinitionId, jurisdictionId, periodType, periodStart])
+  @@index([jurisdictionId, periodStart])
+  @@index([metricDefinitionId, jurisdictionId])
+  @@index([administrationId])
+}
+
+// =========================================================
+// SOURCE / ATTRIBUTION (first-class, linkable from any metric value)
+// =========================================================
+
+model Source {
+  id            String    @id @default(cuid())
+  name          String    @unique
+  publisher     String?
+  url           String?
+  sourceType    String // "government_dataset" | "academic" | "news" | "placeholder" | "api"
+  citation      String?
+  retrievedAt   DateTime?
+  isPlaceholder Boolean   @default(true)
+  createdAt     DateTime  @default(now())
+
+  publicationDate   DateTime? // vintage/publication date of the cited dataset
+  updateFrequency   String? // "annual" | "quarterly" | "monthly" | "one_time"
+  methodology       String? // free text: how the source org collects/calculates this data
+  defaultConfidence String? // "high" | "estimated" | "modeled" fallback for MetricValue.confidence
+
+  metricValues      MetricValue[]
+  metricDefinitions MetricDefinition[]
+  timelineEvents    TimelineEvent[]
+  evidenceLinks     EvidenceLink[]
+  legislation       SupportingLegislation[]
+
+  @@index([sourceType])
+}
+
+// =========================================================
+// TIMELINE (reused across GovernanceModel / Jurisdiction / Administration)
+// =========================================================
+
+model TimelineEvent {
+  id                String    @id @default(cuid())
+  governanceModelId String?
+  jurisdictionId    String?
+  administrationId  String?
+  eventDate         DateTime
+  title             String
+  description       String
+  eventType         String // "election" | "legislation" | "program_launch" | "milestone"
+  sourceId          String?
+  isPlaceholder     Boolean   @default(true)
+
+  governanceModel GovernanceModel? @relation(fields: [governanceModelId], references: [id], onDelete: Cascade)
+  jurisdiction    Jurisdiction?    @relation(fields: [jurisdictionId], references: [id], onDelete: Cascade)
+  administration  Administration?  @relation(fields: [administrationId], references: [id], onDelete: Cascade)
+  source          Source?          @relation(fields: [sourceId], references: [id])
+
+  @@index([governanceModelId])
+  @@index([jurisdictionId])
+  @@index([administrationId])
+  @@index([eventDate])
+}
+
+// =========================================================
+// INSTITUTIONAL PIPELINE TRACKER (lightweight stub for future full build)
+// =========================================================
+
+model PolicyArea {
+  id            String  @id @default(cuid())
+  categoryId    String?
+  slug          String  @unique
+  name          String
+  description   String
+  sortOrder     Int     @default(0)
+  isPlaceholder Boolean @default(true)
+
+  category    Category?             @relation(fields: [categoryId], references: [id])
+  assessments PipelineAssessment[]
+
+  @@index([categoryId])
+}
+
+model PipelineAssessment {
+  id               String    @id @default(cuid())
+  jurisdictionId   String
+  policyAreaId     String
+  administrationId String?
+  stage            Int // 0-5: see PIPELINE_STAGE_LABELS in shared/src/types/pipeline.ts
+  assessmentDate   DateTime
+  isCurrent        Boolean   @default(true)
+  timelineNotes    String?
+  evidenceSummary  String?
+  isPlaceholder    Boolean   @default(true)
+  createdAt        DateTime  @default(now())
+
+  jurisdiction   Jurisdiction            @relation(fields: [jurisdictionId], references: [id], onDelete: Cascade)
+  policyArea     PolicyArea              @relation(fields: [policyAreaId], references: [id], onDelete: Cascade)
+  administration Administration?         @relation(fields: [administrationId], references: [id], onDelete: SetNull)
+  legislation    SupportingLegislation[]
+  evidenceLinks  EvidenceLink[]
+
+  @@index([jurisdictionId, policyAreaId, assessmentDate])
+  @@index([isCurrent])
+}
+
+model SupportingLegislation {
+  id                   String    @id @default(cuid())
+  pipelineAssessmentId String
+  title                String
+  billNumber           String?
+  status               String? // "proposed" | "passed" | "enacted"
+  dateEnacted          DateTime?
+  url                  String?
+  sourceId             String?
+  isPlaceholder        Boolean   @default(true)
+
+  pipelineAssessment PipelineAssessment @relation(fields: [pipelineAssessmentId], references: [id], onDelete: Cascade)
+  source             Source?            @relation(fields: [sourceId], references: [id])
+
+  @@index([pipelineAssessmentId])
+}
+
+model EvidenceLink {
+  id                   String  @id @default(cuid())
+  pipelineAssessmentId String
+  label                String
+  url                  String
+  evidenceType         String // "dataset" | "article" | "legislation_text" | "report"
+  sourceId             String?
+  isPlaceholder        Boolean @default(true)
+
+  pipelineAssessment PipelineAssessment @relation(fields: [pipelineAssessmentId], references: [id], onDelete: Cascade)
+  source             Source?            @relation(fields: [sourceId], references: [id])
+
+  @@index([pipelineAssessmentId])
+}
+
+// =========================================================
+// DATA IMPORT SYSTEM (CSV / JSON / manual script / API ingestion)
+// =========================================================
+
+model ImportJob {
+  id           String    @id @default(cuid())
+  filename     String
+  importType   String // "csv" | "json" | "manual" | "api"
+  categorySlug String?
+  status       String // "previewed" | "completed" | "failed" | "rolled_back"
+  totalRows    Int       @default(0)
+  validRows    Int       @default(0)
+  invalidRows  Int       @default(0)
+  createdCount Int       @default(0)
+  updatedCount Int       @default(0)
+  errorSummary String?
+  triggeredBy  String? // "cli" | "admin:<identifier>"
+  createdAt    DateTime  @default(now())
+  completedAt  DateTime?
+  rolledBackAt DateTime?
+
+  rows ImportRowResult[]
+
+  @@index([status])
+  @@index([createdAt])
+}
+
+model ImportRowResult {
+  id                String  @id @default(cuid())
+  importJobId       String
+  rowNumber         Int
+  status            String // "created" | "updated" | "skipped" | "rejected"
+  message           String?
+  metricValueId     String?
+  previousValueJson String? // JSON snapshot of the prior MetricValue, for rollback of updates
+  rawData           String // JSON of the input row, for audit
+
+  importJob ImportJob @relation(fields: [importJobId], references: [id], onDelete: Cascade)
+
+  @@index([importJobId])
+}

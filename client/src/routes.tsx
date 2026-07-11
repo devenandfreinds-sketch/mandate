@@ -1,0 +1,36 @@
+import { Route, Routes } from "react-router-dom";
+import { LandingPage } from "@/pages/LandingPage";
+import { DashboardPage } from "@/pages/DashboardPage";
+import { GovernanceModelsListPage } from "@/pages/GovernanceModelsListPage";
+import { GovernanceModelDetailPage } from "@/pages/GovernanceModelDetailPage";
+import { PlaceProfilePage } from "@/pages/PlaceProfilePage";
+import { MetricDetailPage } from "@/pages/MetricDetailPage";
+import { DataCatalogPage } from "@/pages/DataCatalogPage";
+import { AdminLoginPage } from "@/pages/admin/AdminLoginPage";
+import { AdminImportsPage } from "@/pages/admin/AdminImportsPage";
+import { RequireAdmin } from "@/components/admin/RequireAdmin";
+import { NotFoundPage } from "@/pages/NotFoundPage";
+
+export function AppRoutes() {
+  return (
+    <Routes>
+      <Route path="/" element={<LandingPage />} />
+      <Route path="/dashboard" element={<DashboardPage />} />
+      <Route path="/governance-models" element={<GovernanceModelsListPage />} />
+      <Route path="/governance-models/:slug" element={<GovernanceModelDetailPage />} />
+      <Route path="/places/:slug" element={<PlaceProfilePage />} />
+      <Route path="/metrics/:slug" element={<MetricDetailPage />} />
+      <Route path="/data-catalog" element={<DataCatalogPage />} />
+      <Route path="/admin/login" element={<AdminLoginPage />} />
+      <Route
+        path="/admin/imports"
+        element={
+          <RequireAdmin>
+            <AdminImportsPage />
+          </RequireAdmin>
+        }
+      />
+      <Route path="*" element={<NotFoundPage />} />
+    </Routes>
+  );
+}

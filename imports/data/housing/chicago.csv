@@ -1,0 +1,10 @@
+jurisdiction,metric,year,value,confidence,notes
+chicago,homelessness_count,2022,3875,high,"Chicago Point-in-Time Count & Survey Report (IL-510 Continuum of Care), City of Chicago Dept. of Family and Support Services."
+chicago,homelessness_count,2023,6139,high,"Chicago PIT Count; the year-over-year jump is largely attributable to 2,176 newly arrived asylum seekers in city shelter, a real one-time methodological/compositional discontinuity, not a data error."
+chicago,housing_permits_issued,,,,"TODO: Census Bureau Building Permits Survey (BPS), place-level annual data for Chicago, or HUD SOCDS mirror."
+chicago,housing_starts,,,,"TODO: No clean official city-level 'starts' series exists; if used, document BPS permits as an explicit proxy rather than true starts."
+chicago,housing_completions,,,,"TODO: Chicago Department of Housing or Chicago Data Portal permit/completions series."
+chicago,affordable_housing_completions,,,,"TODO: Chicago Department of Housing annual affordable housing production reports."
+chicago,vacancy_rate,,,,"TODO: ACS 1-Year Estimates, Table B25004, place-level for Chicago (no 2020 estimate published)."
+chicago,median_rent,,,,"TODO: ACS 1-Year Estimates, Table B25064, place-level for Chicago (no 2020 estimate published)."
+chicago,planning_approval_days,,,,"TODO: No clean official series found; check Chicago Department of Buildings permit turnaround reports."

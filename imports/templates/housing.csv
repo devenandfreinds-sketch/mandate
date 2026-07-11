@@ -1,0 +1,2 @@
+jurisdiction,metric,year,value,confidence,notes
+new-york-city,median_rent,2019,1500,high,"Example row: replace with a real annual figure. jurisdiction must match an existing Jurisdiction.slug; metric must match an existing MetricDefinition.slug (see /imports/README.md for the Housing metric slugs); year is a 4-digit calendar year; value is numeric only (no currency symbols/commas); confidence is optional (high|estimated|modeled); notes is optional free text, useful for citing the exact page/table a figure came from or explaining why a cell is left blank."

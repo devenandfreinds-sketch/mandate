@@ -1,0 +1,11 @@
+{
+  "columns": {
+    "jurisdiction": "jurisdiction",
+    "metric": "metric",
+    "period": "year",
+    "value": "value",
+    "confidence": "confidence",
+    "notes": "notes"
+  },
+  "periodType": "year"
+}

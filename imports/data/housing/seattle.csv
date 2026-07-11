@@ -1,0 +1,9 @@
+jurisdiction,metric,year,value,confidence,notes
+seattle,homelessness_count,2022,13368,estimated,"King County Point-in-Time Count, King County Regional Homelessness Authority (WA-500 Continuum of Care). County-wide, not city-of-Seattle-only; 2022 onward uses a statistical Respondent-Driven Sampling method rather than a literal street count, and some years were skipped under HUD's every-other-year unsheltered-count schedule."
+seattle,housing_permits_issued,,,,"TODO: Census Bureau Building Permits Survey (BPS), place-level annual data for Seattle, or HUD SOCDS mirror."
+seattle,housing_starts,,,,"TODO: No clean official city-level 'starts' series exists; if used, document BPS permits as an explicit proxy rather than true starts."
+seattle,housing_completions,,,,"TODO: Seattle Dept. of Construction and Inspections (SDCI) or Puget Sound Regional Council (PSRC) permit/completions series."
+seattle,affordable_housing_completions,,,,"TODO: Seattle Office of Housing annual production reports (incl. MFTE / Incentive Zoning programs)."
+seattle,vacancy_rate,,,,"TODO: ACS 1-Year Estimates, Table B25004, place-level for Seattle (no 2020 estimate published)."
+seattle,median_rent,,,,"TODO: ACS 1-Year Estimates, Table B25064, place-level for Seattle (no 2020 estimate published)."
+seattle,planning_approval_days,,,,"TODO: SDCI permit timeliness dashboard / annual performance reports."

@@ -1,0 +1,9 @@
+jurisdiction,metric,year,value,confidence,notes
+washington-dc,homelessness_count,2023,4922,high,"Regional Point-in-Time Count of Homelessness, Metropolitan Washington Council of Governments (DC-500 Continuum of Care); reported as a 12% increase from 2022."
+washington-dc,housing_permits_issued,,,,"TODO: Census Bureau Building Permits Survey (BPS), place-level annual data for Washington, D.C., or HUD SOCDS mirror."
+washington-dc,housing_starts,,,,"TODO: No clean official city-level 'starts' series exists; if used, document BPS permits as an explicit proxy rather than true starts."
+washington-dc,housing_completions,,,,"TODO: DC Office of Planning 'Housing Monitor' or DHCD annual reports."
+washington-dc,affordable_housing_completions,,,,"TODO: DC Department of Housing and Community Development annual production reports."
+washington-dc,vacancy_rate,,,,"TODO: ACS 1-Year Estimates, Table B25004, place-level for Washington, D.C. (no 2020 estimate published)."
+washington-dc,median_rent,,,,"TODO: ACS 1-Year Estimates, Table B25064, place-level for Washington, D.C. (no 2020 estimate published)."
+washington-dc,planning_approval_days,,,,"TODO: No clean official series found; check DC Department of Consumer and Regulatory Affairs (DLCP) permit performance reports."

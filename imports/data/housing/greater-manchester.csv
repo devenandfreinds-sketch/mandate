@@ -1,0 +1,9 @@
+jurisdiction,metric,year,value,confidence,notes
+greater-manchester,housing_permits_issued,,,,"TODO: England has no direct 'building permit' equivalent; nearest analogue is planning permissions granted for residential units, via MHCLG/DLUHC 'Planning applications' statistics live tables, aggregated across the 10 GM boroughs."
+greater-manchester,housing_starts,,,,"TODO: MHCLG/DLUHC Live Tables on House Building, 'permanent dwellings started', by local authority — a genuine official series, unlike most US cities."
+greater-manchester,housing_completions,,,,"TODO: MHCLG/DLUHC Live Tables on House Building, 'permanent dwellings completed', by local authority."
+greater-manchester,affordable_housing_completions,,,,"TODO: MHCLG/DLUHC 'Affordable housing supply' statistical release (live tables), by local authority."
+greater-manchester,vacancy_rate,,,,"TODO: No direct UK equivalent to a US-style rental vacancy rate; closest proxy is MHCLG council tax base long-term empty homes statistics, which measures a different concept (all long-term vacant dwellings, not specifically rental vacancy) — flag clearly if substituted."
+greater-manchester,median_rent,,,,"TODO: ONS or VOA 'Private rental market summary statistics in England', by region, or Greater Manchester Combined Authority open data."
+greater-manchester,homelessness_count,,,,"TODO: MHCLG/DLUHC 'Rough sleeping snapshot in England' statistics, aggregated across the 10 GM boroughs. Definitionally narrower than the US HUD Point-in-Time count (rough sleeping only, not sheltered+unsheltered) — flag clearly if used alongside US PIT figures."
+greater-manchester,planning_approval_days,,,,"TODO: MHCLG/DLUHC 'Planning applications in England' statistics report percent of major/minor applications decided within 13/8 weeks by local planning authority — a percentage, not literal days; map/caveat explicitly if used for this metric."
