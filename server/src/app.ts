@@ -16,6 +16,13 @@ export function createApp() {
   app.use(cors({ origin: process.env.CLIENT_URL || true, credentials: true }));
   app.use(cookieParser());
   app.use(express.json());
+
+  // Basic liveness check used by Railway's healthcheck. Must exist before other
+  // routes so it never gets caught by the client fallback or notFoundHandler.
+  app.get("/health", (_req, res) => {
+    res.status(200).json({ status: "ok" });
+  });
+
   app.use("/api/v1", apiRouter);
   app.use("/api", notFoundHandler);
 
