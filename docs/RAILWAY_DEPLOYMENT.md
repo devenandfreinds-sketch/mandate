@@ -80,12 +80,35 @@ This runs `serve -s dist -l tcp://0.0.0.0:${PORT}` from the `client` workspace �
 4. Set `VITE_API_URL` on **mandate-client** to the server's domain from step 2, then deploy the client.
 5. Once the client has its own public domain, go back to the server's variables, set `CLIENT_URL` to it, and redeploy the server so CORS is scoped correctly (or leave `CLIENT_URL` unset if you'd rather CORS stay permissive — it falls back to reflecting any origin).
 
-## One-time setup: seeding placeholder data
+## One-time setup: seeding the database
 
-The build/start commands above don't seed the database — that's a one-off task, not something that should run on every deploy. After the first successful deploy, run it once via Railway's shell (Service → the `mandate-server` service → "..." menu → Run a command, or `railway run` from the CLI):
+The build/start commands above don't seed the database — that's a deliberate one-off task, not something that should run on every deploy or restart. Do it once, after the first successful deploy (and again any time you need to re-sync reference data — it's safe to re-run, see below).
+
+**The seed command is production-gated.** Because `NODE_ENV=production` is set on the `mandate-server` service (per the variables table above), `npm run db:seed -w server` will refuse to run unless you also pass `SEED_CONFIRM=yes` — this exists so the seed script can never fire as an accidental side effect of some other automated process. The full command is always:
 ```
-npm run db:seed -w server
+SEED_CONFIRM=yes npm run db:seed -w server
 ```
+
+What it does — and doesn't do — to an existing database: reference data (sources, categories, metric definitions, governance models, jurisdictions) is upserted by stable keys, so re-running is safe and idempotent. Metric values are regenerated *only* for rows still flagged placeholder; any real observations already imported (`dataQuality` official/estimated) are left untouched. This means you can safely re-run it later after a code change to the seed data without wiping real data you've since imported.
+
+### Option 1 — temporarily swap the Start Command (no CLI needed)
+
+1. `mandate-server` service → **Settings** → **Deploy** → **Start Command**. Note the current value (`npm run start:server`) so you can restore it.
+2. Change it to:
+   ```
+   SEED_CONFIRM=yes npm run db:seed -w server
+   ```
+3. Trigger a deploy (Railway does this automatically when you change a setting, or use **Deploy** → **Redeploy**).
+4. Watch the **Deploy Logs** tab for `Done. Seeded 3168 metric values across 6 jurisdictions and 48 metrics.` The process will then exit — that's expected for this one-off command, but it means Railway will show the deployment as "crashed" or "stopped" once it does. That's fine and expected; you're about to replace the Start Command anyway.
+5. **Immediately change the Start Command back** to `npm run start:server` and redeploy, so the service resumes actually serving the API.
+
+### Option 2 — Railway CLI
+
+If you have the [Railway CLI](https://docs.railway.app/guides/cli) installed and linked to this project (`railway login`, `railway link`):
+```
+railway run --service mandate-server -- sh -c "SEED_CONFIRM=yes npm run db:seed -w server"
+```
+`railway run` executes the command with that service's environment variables (including `DATABASE_URL`) injected. Note this runs *on your local machine*, not inside Railway's infrastructure — it only works if your machine can actually reach the database, which requires the Postgres plugin's public networking/TCP proxy to be enabled (internal `*.railway.internal` hostnames are only reachable from other Railway services). If it hangs or fails to connect, use Option 1 instead — it runs the command inside the actual deployed environment, so networking is never a concern.
 
 ## Verifying the deployment
 

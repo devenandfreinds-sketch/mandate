@@ -32,7 +32,25 @@ const metricsByCategory: Record<string, MetricSeedSpec[]> = {
   "fiscal-health": fiscalHealthMetrics,
 };
 
+function assertSafeToRun() {
+  if (process.env.NODE_ENV !== "production") return;
+  if (process.env.SEED_CONFIRM === "yes") return;
+
+  console.error(
+    "\n✖ Refusing to run against a production environment (NODE_ENV=production) without confirmation.\n\n" +
+      "This is safe to run on an empty or placeholder-only database — reference data (sources,\n" +
+      "categories, metric definitions, governance models, jurisdictions) is upserted, and only\n" +
+      "placeholder metric values are regenerated. Real imported observations (dataQuality\n" +
+      "official/estimated) are never touched.\n\n" +
+      "If you intend to run this now, re-run with SEED_CONFIRM=yes, e.g.:\n" +
+      "  SEED_CONFIRM=yes npm run db:seed -w server\n"
+  );
+  process.exit(1);
+}
+
 async function main() {
+  assertSafeToRun();
+
   console.log("[1/11] Seeding sources...");
   const sourceIdByKey = new Map<string, string>();
   for (const s of sources) {
