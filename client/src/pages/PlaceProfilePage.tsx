@@ -15,6 +15,7 @@ import { useAdministrationDetail, usePlace } from "@/hooks/usePlace";
 import { usePlaceMetrics, usePlacePipeline } from "@/hooks/usePlaceMetrics";
 import { useCategories } from "@/hooks/useCategories";
 import { formatMetricValue } from "@/lib/utils";
+import { api } from "@/lib/api";
 import type { AdministrationSummary } from "@mandate/shared";
 
 export function PlaceProfilePage() {
@@ -132,7 +133,7 @@ export function PlaceProfilePage() {
         <h2 className="mb-4 text-xl font-semibold">Downloadable Datasets</h2>
         <a
           className={buttonClassName({ variant: "outline" })}
-          href={`/api/v1/jurisdictions/${slug}/export?format=csv${activeCategory ? `&category=${activeCategory}` : ""}`}
+          href={api.url(`/jurisdictions/${slug}/export?format=csv${activeCategory ? `&category=${activeCategory}` : ""}`)}
         >
           Download CSV ({categories?.find((c) => c.slug === activeCategory)?.name ?? "all"})
         </a>

@@ -25,13 +25,21 @@ async function handle<T>(res: Response): Promise<T> {
   return body.data;
 }
 
+// Every API URL — whether hit via fetch() or used directly as an <a href>/download link —
+// MUST be built through this function. Never inline `/api/v1${path}` or `/api${path}` anywhere
+// else in the client; that bypasses VITE_API_URL and silently breaks in any deployment where the
+// client and server aren't the same origin (e.g. two separate Railway services).
+function buildUrl(path: string): string {
+  return `${API_ORIGIN}/api/v1${path}`;
+}
+
 async function get<T>(path: string): Promise<T> {
-  return handle<T>(await fetch(`${API_ORIGIN}/api/v1${path}`, { credentials: "include" }));
+  return handle<T>(await fetch(buildUrl(path), { credentials: "include" }));
 }
 
 async function postJson<T>(path: string, payload: unknown): Promise<T> {
   return handle<T>(
-    await fetch(`${API_ORIGIN}/api/v1${path}`, {
+    await fetch(buildUrl(path), {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       credentials: "include",
@@ -41,8 +49,8 @@ async function postJson<T>(path: string, payload: unknown): Promise<T> {
 }
 
 async function postForm<T>(path: string, formData: FormData): Promise<T> {
-  return handle<T>(await fetch(`${API_ORIGIN}/api/v1${path}`, { method: "POST", credentials: "include", body: formData }));
+  return handle<T>(await fetch(buildUrl(path), { method: "POST", credentials: "include", body: formData }));
 }
 
-export const api = { get, postJson, postForm };
+export const api = { get, postJson, postForm, url: buildUrl };
 export { ApiRequestError };
