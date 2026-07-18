@@ -57,7 +57,7 @@ export const metricSourceAssignments: MetricSourceAssignment[] = [
     sourceKey: null,
     calculationMethod: "Median calendar days from application submission to planning/zoning approval decision.",
     limitations:
-      "No standardized federal source exists for US cities; figures would need to come from individual city planning-department performance reports where published. Greater Manchester has a genuine official UK series (MHCLG 'Planning applications' statistics), but reported as % of applications decided within 8/13 weeks, not literal days — would require an explicit unit mapping/caveat if used alongside US figures.",
+      "No standardized federal source exists for US cities; figures come from individual city building/planning-department open data where published — Chicago's City Data Portal Building Permits dataset now backs this metric for Chicago (median processing_time across all permit types, not new-residential permits specifically). Other US cities still need their own city-specific source identified. Greater Manchester has a genuine official UK series (MHCLG 'Planning applications' statistics), but reported as % of applications decided within 8/13 weeks, not literal days — would require an explicit unit mapping/caveat if used alongside US figures.",
   },
 
   // Innovation

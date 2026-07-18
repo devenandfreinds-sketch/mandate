@@ -86,6 +86,19 @@ export const sources: SourceSeedSpec[] = [
     defaultConfidence: "high",
   },
   {
+    key: "chicago_building_permits",
+    name: "Building Permits",
+    publisher: "City of Chicago Department of Buildings",
+    url: "https://data.cityofchicago.org/Buildings/Building-Permits/ydr8-5enu",
+    sourceType: "government_dataset",
+    citation: "City of Chicago Data Portal, Building Permits dataset (record-level permits issued since 2006, updated daily).",
+    isPlaceholder: false,
+    updateFrequency: "daily",
+    methodology:
+      "Record-level City of Chicago building permit data. Planning approval time is computed as the median of each permit's `processing_time` field (calendar days from application_start_date to issue_date) for permits issued in the given calendar year, computed via the Socrata Open Data API's median() aggregate. Each annual figure is backed by roughly 14,000-24,000 permit records across all permit types (not residential housing permits specifically).",
+    defaultConfidence: "high",
+  },
+  {
     key: "mwcog_pit_report",
     name: "Regional Point-in-Time Count of Homelessness",
     publisher: "Metropolitan Washington Council of Governments",

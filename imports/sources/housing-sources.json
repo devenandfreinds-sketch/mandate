@@ -42,6 +42,13 @@
       "backsMetrics": ["housing_permits_issued", "housing_starts", "housing_completions"],
       "jurisdictions": [],
       "note": "Still flagged isPlaceholder in the Source Registry — identified as the right official source for these metrics, but not yet pulled into real MetricValue rows this pass. See per-jurisdiction CSV TODOs."
+    },
+    {
+      "sourceKey": "chicago_building_permits",
+      "name": "Building Permits",
+      "backsMetrics": ["planning_approval_days"],
+      "jurisdictions": ["chicago"],
+      "note": "City of Chicago Data Portal (Socrata), dataset ydr8-5enu. Median of the processing_time field (calendar days from application_start_date to issue_date), computed server-side via Socrata's median() aggregate, grouped by issue year. Each annual figure is backed by ~14,000-24,000 permit records across all permit types (signs, renovations, new construction, etc.) — not new-residential permits specifically, since this dataset doesn't cleanly separate residential unit permits from other permit types without unreliable text classification of work descriptions."
     }
   ]
 }
