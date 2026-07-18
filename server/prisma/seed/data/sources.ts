@@ -99,6 +99,20 @@ export const sources: SourceSeedSpec[] = [
     defaultConfidence: "high",
   },
   {
+    key: "us_census_bps_place",
+    name: "Building Permits Survey",
+    publisher: "U.S. Census Bureau",
+    url: "https://www2.census.gov/econ/bps/Place/Midwest%20Region/",
+    sourceType: "government_dataset",
+    citation:
+      "U.S. Census Bureau, Building Permits Survey (BPS), place-level annual data files (Chicago, IL, FIPS place 1714000).",
+    isPlaceholder: false,
+    updateFrequency: "annual",
+    methodology:
+      "Official Census Bureau count of residential buildings authorized by building permit, published annually by place and structure-size category (1-unit, 2-unit, 3-4 unit, 5+ unit). Housing permits issued is computed as the sum of the 'Bldgs' (buildings authorized) column across all four structure-size categories for the calendar year. The same files also report a 'Units' column (individual housing units authorized), which is not used here — see limitations.",
+    defaultConfidence: "high",
+  },
+  {
     key: "mwcog_pit_report",
     name: "Regional Point-in-Time Count of Homelessness",
     publisher: "Metropolitan Washington Council of Governments",

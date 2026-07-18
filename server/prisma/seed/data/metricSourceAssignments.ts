@@ -10,9 +10,11 @@ export const metricSourceAssignments: MetricSourceAssignment[] = [
   // Housing
   {
     metricSlug: "housing_permits_issued",
-    sourceKey: "hud_scds",
-    calculationMethod: "Total residential building permits issued, summed across all permit types, for the calendar year.",
-    limitations: "Greater Manchester has no direct 'permit' equivalent; the closest UK analogue is residential planning permissions granted (MHCLG Live Tables).",
+    sourceKey: null,
+    calculationMethod:
+      "Number of residential buildings authorized by building permit in the calendar year, summed across all structure-size categories (1-unit, 2-unit, 3-4 unit, 5+ unit). Chicago's figures come directly from the U.S. Census Bureau's Building Permits Survey (BPS) place-level annual files; other jurisdictions not yet pulled would likely use HUD's State of the Cities Data Systems (SOCDS) mirror of the same BPS data.",
+    limitations:
+      "BPS counts buildings authorized, not housing units — a single 5+-unit building can contain hundreds of units, so this figure understates total housing supply added relative to a units-authorized count (also present in the same BPS files but not used here). Greater Manchester has no direct 'permit' equivalent; the closest UK analogue is residential planning permissions granted (MHCLG Live Tables), which would need an explicit unit mapping/caveat if used alongside US figures. Other US cities still need this metric pulled from their own BPS place rows.",
   },
   {
     metricSlug: "housing_starts",
