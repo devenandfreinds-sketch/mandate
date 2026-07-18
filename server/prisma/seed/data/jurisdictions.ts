@@ -26,7 +26,7 @@ export const jurisdictions: JurisdictionSeedSpec[] = [
     longitude: -74.006,
     summary: "The largest U.S. city, with a large and organizationally significant DSA chapter shaping council and state-legislative races.",
     description:
-      "New York City's municipal government spans five boroughs and roughly 8.3 million residents. The New York City chapter of the Democratic Socialists of America is among the largest and most electorally active in the country, having helped elect multiple state legislators and city council members, though the mayoralty itself has been held by mainstream Democratic administrations.",
+      "New York City's municipal government spans five boroughs and roughly 8.3 million residents. The New York City chapter of the Democratic Socialists of America is among the largest and most electorally active in the country, having helped elect multiple state legislators and city council members, and, with Zohran Mamdani's 2025 mayoral victory, the mayoralty itself.",
     governanceModelSlug: "democratic-socialism",
   },
   {

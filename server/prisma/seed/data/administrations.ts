@@ -29,6 +29,16 @@ export const administrations: AdministrationSeedSpec[] = [
     coalitionDescription: "Public-safety-focused Democratic coalition with outer-borough and law-enforcement support.",
     termNumber: 1,
     startDate: "2022-01-01",
+    endDate: "2025-12-31",
+  },
+  {
+    jurisdictionSlug: "new-york-city",
+    leaderName: "Zohran Mamdani",
+    leaderTitle: "Mayor",
+    politicalParty: "Democratic",
+    coalitionDescription: "Democratic Socialists of America-backed coalition of tenant, labor, and grassroots organizations.",
+    termNumber: 1,
+    startDate: "2026-01-01",
     endDate: null,
   },
   // Chicago
@@ -102,6 +112,16 @@ export const administrations: AdministrationSeedSpec[] = [
     coalitionDescription: "Broad Democratic coalition (nonpartisan office).",
     termNumber: 1,
     startDate: "2022-01-01",
+    endDate: "2025-12-31",
+  },
+  {
+    jurisdictionSlug: "seattle",
+    leaderName: "Katie Wilson",
+    leaderTitle: "Mayor",
+    politicalParty: "Democratic",
+    coalitionDescription: "Democratic socialist and progressive coalition (nonpartisan office).",
+    termNumber: 1,
+    startDate: "2026-01-01",
     endDate: null,
   },
   // Washington, D.C.
@@ -164,6 +184,17 @@ export const administrations: AdministrationSeedSpec[] = [
     coalitionDescription: "Cross-borough combined authority coalition, Labour-led.",
     termNumber: 3,
     startDate: "2024-05-07",
+    endDate: "2026-06-19",
+  },
+  {
+    jurisdictionSlug: "greater-manchester",
+    leaderName: "Paul Dennett",
+    leaderTitle: "Acting Metro Mayor",
+    politicalParty: "Labour",
+    coalitionDescription:
+      "Caretaker administration pending the 2026 mayoral by-election; Dennett previously served as Deputy Mayor of Greater Manchester and Mayor of Salford.",
+    termNumber: 1,
+    startDate: "2026-06-19",
     endDate: null,
   },
 ];
