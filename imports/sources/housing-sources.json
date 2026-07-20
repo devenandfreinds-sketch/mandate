@@ -6,7 +6,7 @@
       "name": "American Community Survey",
       "backsMetrics": ["median_rent", "vacancy_rate"],
       "jurisdictions": ["new-york-city", "chicago", "minneapolis", "seattle", "washington-dc"],
-      "note": "No 1-year ACS estimates exist for 2020. Requires a data.census.gov account/API key for programmatic bulk pulls as of 2026; figures in this pass were compiled via published secondary citations, not direct API calls."
+      "note": "No 1-year ACS estimates exist for 2020, and the 2025 1-year estimate is not yet released as of this import. Requires a data.census.gov API key as of 2026 (unkeyed requests now return 'Missing Key' even for single reads). Chicago's 2015-2019/2021-2024 figures were pulled directly from the api.census.gov ACS 1-year endpoint (place 1714000) with a user-supplied key: median_rent is B25064_001E directly; vacancy_rate is computed as vacant-for-rent (B25004_002E) divided by (vacant-for-rent + renter-occupied [B25003_003E]). Other jurisdictions' figures in this pass were compiled via published secondary citations, not direct API calls."
     },
     {
       "sourceKey": "nyu_furman_center",
@@ -49,6 +49,13 @@
       "backsMetrics": ["planning_approval_days"],
       "jurisdictions": ["chicago"],
       "note": "City of Chicago Data Portal (Socrata), dataset ydr8-5enu. Median of the processing_time field (calendar days from application_start_date to issue_date), computed server-side via Socrata's median() aggregate, grouped by issue year. Each annual figure is backed by ~14,000-24,000 permit records across all permit types (signs, renovations, new construction, etc.) — not new-residential permits specifically, since this dataset doesn't cleanly separate residential unit permits from other permit types without unreliable text classification of work descriptions."
+    },
+    {
+      "sourceKey": "chicago_doh_annual_report",
+      "name": "Chicago Department of Housing Annual Report",
+      "backsMetrics": ["affordable_housing_completions"],
+      "jurisdictions": ["chicago"],
+      "note": "City of Chicago DOH Annual Report (2022 edition), 'Total units produced per year' chart, p. 16 (https://www.chicago.gov/content/dam/city/depts/doh/plans/Annual%20Report%20Final%208.29.23.pdf). No data table accompanies the chart, so 2015-2022 figures were derived by measuring bar-top pixel position against the chart's calibrated gridlines and rounding to the nearest 10 — imported as dataQuality=estimated, not official. housing_starts and housing_completions remain placeholder: no official or academic/alternative source publishes a city-level series for either (checked DePaul's Institute for Housing Studies, Chicago Rehab Network, and NHPD — none track annual starts/completions counts, and NHPD requires account registration to access its data)."
     },
     {
       "sourceKey": "us_census_bps_place",

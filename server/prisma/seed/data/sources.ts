@@ -113,6 +113,20 @@ export const sources: SourceSeedSpec[] = [
     defaultConfidence: "high",
   },
   {
+    key: "chicago_doh_annual_report",
+    name: "Chicago Department of Housing Annual Report",
+    publisher: "City of Chicago Department of Housing",
+    url: "https://www.chicago.gov/content/dam/city/depts/doh/plans/Annual%20Report%20Final%208.29.23.pdf",
+    sourceType: "government_report",
+    citation:
+      "City of Chicago Department of Housing, Annual Report (2022 edition), 'Total units produced per year by Area Median Income percentage' chart, p. 16.",
+    isPlaceholder: false,
+    updateFrequency: "annual",
+    methodology:
+      "DOH's own annual report presents total affordable multi-family units produced per year (2014-2022) as a stacked bar chart with no accompanying data table. Figures here were extracted by measuring bar-top pixel position against the chart's gridlines (calibrated using the 0/500/1000/1500/2000/2500 axis labels) rather than read from published exact digits, since none exist in this report. Values are rounded to the nearest 10 to reflect that precision.",
+    defaultConfidence: "estimated",
+  },
+  {
     key: "mwcog_pit_report",
     name: "Regional Point-in-Time Count of Homelessness",
     publisher: "Metropolitan Washington Council of Governments",

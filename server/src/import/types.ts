@@ -1,5 +1,7 @@
 export type PeriodType = "year" | "quarter" | "month";
 
+export type DataQuality = "government" | "academic" | "alternative" | "estimated" | "unavailable" | "placeholder" | "official";
+
 export interface RawRow {
   rowNumber: number;
   data: Record<string, string>;
@@ -64,7 +66,7 @@ export interface RunImportOptions {
   rawRows: RawRow[];
   mapping: ImportMappingConfig;
   sourceId: string;
-  dataQuality: "official" | "estimated" | "placeholder";
+  dataQuality: DataQuality;
   confidenceOverride?: string;
   importType: "csv" | "json" | "manual" | "api";
   filename: string;

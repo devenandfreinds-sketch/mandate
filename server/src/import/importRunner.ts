@@ -46,7 +46,7 @@ async function writeValidatedRow(
     notes: row.notes,
     ingestionMethod: options.importType,
     dataQuality: options.dataQuality,
-    isPlaceholder: options.dataQuality === "placeholder",
+    isPlaceholder: options.dataQuality === "placeholder" || options.dataQuality === "unavailable",
   };
 
   if (existing) {

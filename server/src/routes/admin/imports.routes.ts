@@ -8,7 +8,7 @@ import { parseCsv } from "../../import/csvParser.js";
 import { parseJson } from "../../import/jsonParser.js";
 import { runImport } from "../../import/importRunner.js";
 import { rollbackImport } from "../../import/rollback.js";
-import type { ImportMappingConfig, RawRow } from "../../import/types.js";
+import type { ImportMappingConfig, RawRow, DataQuality } from "../../import/types.js";
 
 export const adminImportsRouter = Router();
 adminImportsRouter.use(requireAdmin);
@@ -48,7 +48,7 @@ function runImportFromUpload(dryRun: boolean) {
       rawRows,
       mapping,
       sourceId,
-      dataQuality: (quality as "official" | "estimated" | "placeholder") ?? "official",
+      dataQuality: (quality as DataQuality) ?? "government",
       importType: file.originalname.toLowerCase().endsWith(".json") ? "json" : "csv",
       filename: file.originalname,
       categorySlug: category,
@@ -88,7 +88,7 @@ adminImportsRouter.post(
       rawRows,
       mapping,
       sourceId,
-      dataQuality: (quality as "official" | "estimated" | "placeholder") ?? "official",
+      dataQuality: (quality as DataQuality) ?? "government",
       importType: "api",
       filename: filename ?? "api-ingestion",
       categorySlug: category,

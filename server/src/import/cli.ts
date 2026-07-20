@@ -5,7 +5,7 @@ import { prisma } from "../db.js";
 import { parseCsv } from "./csvParser.js";
 import { parseJson } from "./jsonParser.js";
 import { runImport } from "./importRunner.js";
-import type { ImportMappingConfig } from "./types.js";
+import type { ImportMappingConfig, DataQuality } from "./types.js";
 
 function parseArgs(argv: string[]): Record<string, string | boolean> {
   const args: Record<string, string | boolean> = {};
@@ -37,7 +37,7 @@ async function main() {
   const filePath = args.file as string | undefined;
   if (!filePath) {
     console.error(
-      "Usage: npm run import -w server -- --file <path.csv|.json> --source <sourceIdOrName> [--metric <slug>] [--mapping <mapping.json>] [--quality official|estimated|placeholder] [--category <slug>] [--dry-run]"
+      "Usage: npm run import -w server -- --file <path.csv|.json> --source <sourceIdOrName> [--metric <slug>] [--mapping <mapping.json>] [--quality government|academic|alternative|estimated|unavailable|placeholder] [--category <slug>] [--dry-run]"
     );
     process.exit(1);
   }
@@ -73,7 +73,7 @@ async function main() {
     rawRows,
     mapping,
     sourceId,
-    dataQuality: quality as "official" | "estimated" | "placeholder",
+    dataQuality: quality as DataQuality,
     importType: ext === ".json" ? "json" : "csv",
     filename: path.basename(absPath),
     categorySlug,

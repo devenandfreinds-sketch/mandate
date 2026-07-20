@@ -31,9 +31,11 @@ export const metricSourceAssignments: MetricSourceAssignment[] = [
   },
   {
     metricSlug: "affordable_housing_completions",
-    sourceKey: "hud_scds",
-    calculationMethod: "Completed units that are deed-restricted or subsidized as below-market-rate housing during the calendar year.",
-    limitations: "No standardized federal source; each US city publishes its own affordable-housing production reports. Greater Manchester has a genuine official series via MHCLG 'Affordable housing supply' statistics.",
+    sourceKey: null,
+    calculationMethod:
+      "Completed units that are deed-restricted or subsidized as below-market-rate housing during the calendar year. Chicago's figures come from the City of Chicago Department of Housing's own Annual Report, which presents total units produced per year as a chart; since no data table is published alongside it, values were derived by measuring bar height against the chart's gridlines and rounding to the nearest 10.",
+    limitations:
+      "No standardized federal source; each US city publishes its own affordable-housing production reports. Chicago's DOH Annual Report data is chart-only (no underlying table), so its figures carry real reading uncertainty and are marked dataQuality=estimated rather than official; the report edition used only covers 2014-2022, so 2023-2025 remain unfilled until a newer edition is found. Greater Manchester has a genuine official series via MHCLG 'Affordable housing supply' statistics. Other US cities still need their own source identified.",
   },
   {
     metricSlug: "median_rent",

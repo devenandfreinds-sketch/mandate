@@ -4,7 +4,7 @@ export type MetricUnit = "count" | "usd" | "percent" | "years" | "index" | "days
 export type PeriodType = "year" | "quarter" | "month";
 export type Confidence = "high" | "estimated" | "modeled";
 export type IngestionMethod = "seed" | "csv" | "json" | "manual" | "api";
-export type DataQuality = "official" | "estimated" | "placeholder";
+export type DataQuality = "government" | "academic" | "alternative" | "estimated" | "unavailable" | "placeholder" | "official";
 
 export interface MetricDefinition {
   id: string;

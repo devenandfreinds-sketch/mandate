@@ -17,6 +17,7 @@ import { campaignPromises } from "./data/campaignPromises.js";
 import { timelineEvents } from "./data/timelineEvents.js";
 import { policyAreas } from "./data/policyAreas.js";
 import { metricSourceAssignments } from "./data/metricSourceAssignments.js";
+import { unavailableMetrics } from "./data/unavailableMetrics.js";
 import { generateAnnualSeries, type MetricSeedSpec, type AdministrationWindow } from "./generators/timeSeries.js";
 import { generatePipelineAssessment } from "./generators/pipelineAssessment.js";
 
@@ -225,10 +226,12 @@ async function main() {
 
   console.log("[6/11] Seeding administrations...");
   // Clear dependents that cascade/reference administrations before recreating them.
-  // Only placeholder MetricValue rows are cleared here — real imported observations (dataQuality
-  // official/estimated) must survive a reseed, since they came from the CSV/admin import pipeline,
-  // not this script. Administration deletion SetNulls their administrationId rather than erroring.
-  await prisma.metricValue.deleteMany({ where: { dataQuality: "placeholder" } });
+  // Only synthetic MetricValue rows are cleared here — real imported observations (dataQuality
+  // government/academic/alternative/estimated) must survive a reseed, since they came from the
+  // CSV/admin import pipeline, not this script. "unavailable" rows are still synthetic under the
+  // hood (same placeholder generator), just labeled differently, so they're cleared and
+  // regenerated too. Administration deletion SetNulls their administrationId rather than erroring.
+  await prisma.metricValue.deleteMany({ where: { dataQuality: { in: ["placeholder", "unavailable"] } } });
   await prisma.evidenceLink.deleteMany({});
   await prisma.supportingLegislation.deleteMany({});
   await prisma.pipelineAssessment.deleteMany({});
@@ -373,22 +376,30 @@ async function main() {
       const metricDefinitionId = metricDefIdBySlug.get(spec.slug)!;
       const points = generateAnnualSeries(spec, j.slug, j.population, adminWindows);
 
+      const unavailableSpec = unavailableMetrics.find(
+        (u) => u.metricSlug === spec.slug && u.jurisdictionSlug === j.slug
+      );
+
       await prisma.metricValue.createMany({
-        data: points.map((p) => ({
-          metricDefinitionId,
-          jurisdictionId,
-          administrationId: p.administrationId,
-          sourceId: placeholderSourceId,
-          periodType: "year",
-          periodStart: p.periodStart,
-          periodEnd: p.periodEnd,
-          periodLabel: p.periodLabel,
-          value: p.value,
-          confidence: "modeled",
-          ingestionMethod: "seed",
-          dataQuality: "placeholder",
-          isPlaceholder: true,
-        })),
+        data: points.map((p) => {
+          const isUnavailable =
+            unavailableSpec && (!unavailableSpec.years || unavailableSpec.years.includes(p.periodStart.getUTCFullYear()));
+          return {
+            metricDefinitionId,
+            jurisdictionId,
+            administrationId: p.administrationId,
+            sourceId: placeholderSourceId,
+            periodType: "year",
+            periodStart: p.periodStart,
+            periodEnd: p.periodEnd,
+            periodLabel: p.periodLabel,
+            value: p.value,
+            confidence: "modeled",
+            ingestionMethod: "seed",
+            dataQuality: isUnavailable ? "unavailable" : "placeholder",
+            isPlaceholder: true,
+          };
+        }),
         skipDuplicates: true,
       });
       totalValues += points.length;
