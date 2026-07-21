@@ -21,3 +21,12 @@ export function usePlacePipeline(slug: string | undefined) {
     enabled: Boolean(slug),
   });
 }
+
+/** Full history (not just the current assessment) for one jurisdiction + policy area, oldest to newest. */
+export function usePipelineHistory(jurisdictionSlug: string | undefined, policyAreaSlug: string | undefined) {
+  return useQuery({
+    queryKey: ["pipeline-history", jurisdictionSlug, policyAreaSlug],
+    queryFn: () => api.get<PipelineAssessment[]>(`/jurisdictions/${jurisdictionSlug}/pipeline/${policyAreaSlug}`),
+    enabled: Boolean(jurisdictionSlug) && Boolean(policyAreaSlug),
+  });
+}

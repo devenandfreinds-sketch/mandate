@@ -5,9 +5,12 @@ import { GovernanceModelsListPage } from "@/pages/GovernanceModelsListPage";
 import { GovernanceModelDetailPage } from "@/pages/GovernanceModelDetailPage";
 import { PlaceProfilePage } from "@/pages/PlaceProfilePage";
 import { MetricDetailPage } from "@/pages/MetricDetailPage";
+import { PipelineDetailPage } from "@/pages/PipelineDetailPage";
+import { PipelineMethodologyPage } from "@/pages/PipelineMethodologyPage";
 import { DataCatalogPage } from "@/pages/DataCatalogPage";
 import { AdminLoginPage } from "@/pages/admin/AdminLoginPage";
 import { AdminImportsPage } from "@/pages/admin/AdminImportsPage";
+import { AdminPipelinePage } from "@/pages/admin/AdminPipelinePage";
 import { RequireAdmin } from "@/components/admin/RequireAdmin";
 import { NotFoundPage } from "@/pages/NotFoundPage";
 
@@ -19,7 +22,9 @@ export function AppRoutes() {
       <Route path="/governance-models" element={<GovernanceModelsListPage />} />
       <Route path="/governance-models/:slug" element={<GovernanceModelDetailPage />} />
       <Route path="/places/:slug" element={<PlaceProfilePage />} />
+      <Route path="/places/:jurisdictionSlug/pipeline/:policyAreaSlug" element={<PipelineDetailPage />} />
       <Route path="/metrics/:slug" element={<MetricDetailPage />} />
+      <Route path="/methodology/pipeline" element={<PipelineMethodologyPage />} />
       <Route path="/data-catalog" element={<DataCatalogPage />} />
       <Route path="/admin/login" element={<AdminLoginPage />} />
       <Route
@@ -27,6 +32,14 @@ export function AppRoutes() {
         element={
           <RequireAdmin>
             <AdminImportsPage />
+          </RequireAdmin>
+        }
+      />
+      <Route
+        path="/admin/pipeline"
+        element={
+          <RequireAdmin>
+            <AdminPipelinePage />
           </RequireAdmin>
         }
       />

@@ -18,6 +18,7 @@ import { timelineEvents } from "./data/timelineEvents.js";
 import { policyAreas } from "./data/policyAreas.js";
 import { metricSourceAssignments } from "./data/metricSourceAssignments.js";
 import { unavailableMetrics } from "./data/unavailableMetrics.js";
+import { chicagoResearchedPipelineAssessments } from "./data/chicagoResearchedPipeline.js";
 import { generateAnnualSeries, type MetricSeedSpec, type AdministrationWindow } from "./generators/timeSeries.js";
 import { generatePipelineAssessment } from "./generators/pipelineAssessment.js";
 
@@ -320,9 +321,17 @@ async function main() {
   }
 
   console.log("[10/11] Seeding pipeline assessments...");
+  // Chicago's "affordable-housing-institution" policy area is real, researched data (see
+  // chicagoResearchedPipeline.ts) — skip the synthetic generator for that one pair only.
+  const researchedPairs = new Set(
+    chicagoResearchedPipelineAssessments.map((r) => `${r.jurisdictionSlug}::${r.policyAreaSlug}`)
+  );
+
   for (const j of jurisdictions) {
     const jurisdictionId = jurisdictionIdBySlug.get(j.slug)!;
     for (const pa of policyAreas) {
+      if (researchedPairs.has(`${j.slug}::${pa.slug}`)) continue;
+
       const policyAreaId = policyAreaIdBySlug.get(pa.slug)!;
       const generated = generatePipelineAssessment(j.slug, j.name, pa.slug, pa.name);
 
@@ -331,6 +340,7 @@ async function main() {
           jurisdictionId,
           policyAreaId,
           stage: generated.stage,
+          dataQuality: generated.dataQuality,
           assessmentDate: generated.assessmentDate,
           isCurrent: true,
           timelineNotes: generated.timelineNotes,
@@ -362,6 +372,57 @@ async function main() {
           },
         });
       }
+    }
+  }
+
+  console.log("[10b/11] Seeding researched pipeline assessments (Chicago pilot)...");
+  for (const r of chicagoResearchedPipelineAssessments) {
+    const jurisdictionId = jurisdictionIdBySlug.get(r.jurisdictionSlug)!;
+    const policyAreaId = policyAreaIdBySlug.get(r.policyAreaSlug)!;
+
+    const assessment = await prisma.pipelineAssessment.create({
+      data: {
+        jurisdictionId,
+        policyAreaId,
+        stage: r.stage,
+        dataQuality: r.dataQuality,
+        assessmentDate: new Date(r.assessmentDate),
+        isCurrent: r.isCurrent,
+        evidenceSummary: r.evidenceSummary,
+        limitations: r.limitations,
+        isPlaceholder: false,
+      },
+    });
+
+    if (r.legislation) {
+      await prisma.supportingLegislation.create({
+        data: {
+          pipelineAssessmentId: assessment.id,
+          title: r.legislation.title,
+          billNumber: r.legislation.billNumber,
+          status: r.legislation.status,
+          dateEnacted: r.legislation.dateEnacted ? new Date(r.legislation.dateEnacted) : null,
+          url: r.legislation.url,
+          sourceId: r.legislation.sourceKey ? sourceIdByKey.get(r.legislation.sourceKey) ?? null : null,
+          isPlaceholder: false,
+        },
+      });
+    }
+    for (const link of r.evidenceLinks) {
+      await prisma.evidenceLink.create({
+        data: {
+          pipelineAssessmentId: assessment.id,
+          label: link.label,
+          description: link.description,
+          url: link.url,
+          evidenceType: link.evidenceType,
+          publicationDate: link.publicationDate ? new Date(link.publicationDate) : null,
+          publisher: link.publisher,
+          sourceTier: link.sourceTier,
+          sourceId: link.sourceKey ? sourceIdByKey.get(link.sourceKey) ?? null : null,
+          isPlaceholder: false,
+        },
+      });
     }
   }
 

@@ -1,4 +1,5 @@
 import { useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import { PageContainer } from "@/components/layout/PageContainer";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -64,9 +65,14 @@ export function AdminImportsPage() {
     <PageContainer>
       <div className="flex items-center justify-between">
         <h1 className="text-2xl font-semibold">Admin — Data Imports</h1>
-        <Button variant="outline" size="sm" onClick={() => logout.mutate()}>
-          Log out
-        </Button>
+        <div className="flex items-center gap-3">
+          <Link to="/admin/pipeline" className="text-sm text-muted-foreground hover:underline">
+            Pipeline Assessments →
+          </Link>
+          <Button variant="outline" size="sm" onClick={() => logout.mutate()}>
+            Log out
+          </Button>
+        </div>
       </div>
 
       <Card className="mt-6">

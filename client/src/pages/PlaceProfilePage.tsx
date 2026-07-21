@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { PageContainer } from "@/components/layout/PageContainer";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -9,6 +9,7 @@ import { AdministrationTimeline } from "@/components/governance/AdministrationTi
 import { CampaignPromiseList } from "@/components/governance/CampaignPromiseList";
 import { CategorySection } from "@/components/governance/CategorySection";
 import { SourceCitation } from "@/components/governance/SourceCitation";
+import { DataQualityBadge } from "@/components/governance/DataQualityBadge";
 import { PipelineStageBadge } from "@/components/charts/PipelineStageBadge";
 import { buttonClassName } from "@/components/ui/button";
 import { useAdministrationDetail, usePlace } from "@/hooks/usePlace";
@@ -69,15 +70,25 @@ export function PlaceProfilePage() {
 
       {pipeline && pipeline.length > 0 && (
         <section className="mt-10">
-          <h2 className="mb-4 text-xl font-semibold">Institutional Pipeline Scores</h2>
+          <div className="mb-4 flex flex-wrap items-baseline justify-between gap-2">
+            <h2 className="text-xl font-semibold">Institutional Pipeline Scores</h2>
+            <Link to="/methodology/pipeline" className="text-xs text-muted-foreground hover:underline">
+              How is this scored?
+            </Link>
+          </div>
           <div className="grid gap-3 sm:grid-cols-2">
             {pipeline.map((p) => (
-              <Card key={p.id}>
-                <CardContent className="flex items-center justify-between py-4">
-                  <span className="text-sm font-medium">{p.policyAreaName}</span>
-                  <PipelineStageBadge stage={p.stage} label={p.stageLabel} />
-                </CardContent>
-              </Card>
+              <Link key={p.id} to={`/places/${slug}/pipeline/${p.policyAreaSlug}`}>
+                <Card className="transition-colors hover:border-foreground/30">
+                  <CardContent className="flex items-center justify-between gap-3 py-4">
+                    <span className="text-sm font-medium">{p.policyAreaName}</span>
+                    <div className="flex items-center gap-2">
+                      <DataQualityBadge dataQuality={p.dataQuality} />
+                      <PipelineStageBadge stage={p.stage} label={p.stageLabel} />
+                    </div>
+                  </CardContent>
+                </Card>
+              </Link>
             ))}
           </div>
         </section>

@@ -1,16 +1,9 @@
 import { seededRandom } from "./prng.js";
-
-const STAGE_LABELS: Record<number, string> = {
-  0: "Campaign Promise",
-  1: "Legislation Proposed",
-  2: "Institution Created",
-  3: "Program Operating",
-  4: "Measurable Outputs Improving",
-  5: "Institution Producing Durable Results",
-};
+import { PIPELINE_STAGE_LABELS } from "@mandate/shared";
 
 export interface GeneratedPipelineAssessment {
   stage: number;
+  dataQuality: string;
   assessmentDate: Date;
   timelineNotes: string;
   evidenceSummary: string;
@@ -32,7 +25,7 @@ export function generatePipelineAssessment(
   const assessmentYear = 2022 + Math.floor(rng() * 4); // 2022-2025
   const assessmentDate = new Date(Date.UTC(assessmentYear, Math.floor(rng() * 12), 1));
 
-  const timelineNotes = `As of ${assessmentYear}, ${jurisdictionName}'s "${policyAreaName}" effort is assessed at stage ${stage} (${STAGE_LABELS[stage]}).`;
+  const timelineNotes = `As of ${assessmentYear}, ${jurisdictionName}'s "${policyAreaName}" effort is assessed at stage ${stage} (${PIPELINE_STAGE_LABELS[stage]}). This is a synthetic placeholder assessment, not a researched finding.`;
   const evidenceSummary =
     stage <= 1
       ? `Public commitments and/or proposed legislation exist, but no operating institution has yet been established.`
@@ -61,5 +54,5 @@ export function generatePipelineAssessment(
         ]
       : [];
 
-  return { stage, assessmentDate, timelineNotes, evidenceSummary, legislation, evidenceLinks };
+  return { stage, dataQuality: "placeholder", assessmentDate, timelineNotes, evidenceSummary, legislation, evidenceLinks };
 }

@@ -88,6 +88,15 @@ jurisdictionsRouter.get(
 );
 
 jurisdictionsRouter.get(
+  "/:slug/pipeline/:policyAreaSlug",
+  asyncHandler(async (req, res) => {
+    const data = await pipelineService.getPipelineAssessmentHistory(req.params.slug, req.params.policyAreaSlug);
+    if (data === null) throw ApiError.notFound(`Jurisdiction "${req.params.slug}" or policy area "${req.params.policyAreaSlug}" not found`);
+    res.json({ data });
+  })
+);
+
+jurisdictionsRouter.get(
   "/:slug/export",
   asyncHandler(async (req, res) => {
     const format = typeof req.query.format === "string" ? req.query.format : "json";

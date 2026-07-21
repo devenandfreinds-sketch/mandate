@@ -127,6 +127,20 @@ export const sources: SourceSeedSpec[] = [
     defaultConfidence: "estimated",
   },
   {
+    key: "chicago_aro",
+    name: "Chicago Affordable Requirements Ordinance (ARO)",
+    publisher: "City of Chicago Department of Housing",
+    url: "https://www.chicago.gov/city/en/sites/affordable-requirements-ordinance/home.html",
+    sourceType: "government_dataset",
+    citation:
+      "Affordable Requirements Ordinance, Municipal Code of Chicago Ch. 2-44-085 (2021 amendment, effective October 1, 2021, superseding the 2015 ARO at Ch. 2-44-080).",
+    isPlaceholder: false,
+    updateFrequency: "one_time",
+    methodology:
+      "Chicago's inclusionary housing ordinance: qualifying residential developments of 10+ units that receive a zoning change, City land, City financial assistance, or Downtown planned-development approval must make 10% of units affordable (20% if City financial assistance is received). Administered by the Department of Housing.",
+    defaultConfidence: "high",
+  },
+  {
     key: "mwcog_pit_report",
     name: "Regional Point-in-Time Count of Homelessness",
     publisher: "Metropolitan Washington Council of Governments",

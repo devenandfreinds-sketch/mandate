@@ -264,13 +264,16 @@ model PipelineAssessment {
   jurisdictionId   String
   policyAreaId     String
   administrationId String?
-  stage            Int // 0-5: see PIPELINE_STAGE_LABELS in shared/src/types/pipeline.ts
+  stage            Int // 0-5: see PIPELINE_STAGE_DEFINITIONS in shared/src/types/pipeline.ts
+  dataQuality      String    @default("placeholder") // same vocabulary as MetricValue.dataQuality: government|academic|alternative|estimated|unavailable|placeholder
   assessmentDate   DateTime
   isCurrent        Boolean   @default(true)
   timelineNotes    String?
   evidenceSummary  String?
+  limitations      String?
   isPlaceholder    Boolean   @default(true)
   createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @updatedAt
 
   jurisdiction   Jurisdiction            @relation(fields: [jurisdictionId], references: [id], onDelete: Cascade)
   policyArea     PolicyArea              @relation(fields: [policyAreaId], references: [id], onDelete: Cascade)
@@ -300,13 +303,17 @@ model SupportingLegislation {
 }
 
 model EvidenceLink {
-  id                   String  @id @default(cuid())
+  id                   String    @id @default(cuid())
   pipelineAssessmentId String
   label                String
+  description          String?
   url                  String
   evidenceType         String // "dataset" | "article" | "legislation_text" | "report"
+  publicationDate      DateTime?
+  publisher            String? // organization/publisher, independent of a linked Source registry entry
+  sourceTier           String? // "government" | "academic" | "alternative" (Tier 1/2/3) - describes evidence that exists, unlike PipelineAssessment.dataQuality
   sourceId             String?
-  isPlaceholder        Boolean @default(true)
+  isPlaceholder        Boolean   @default(true)
 
   pipelineAssessment PipelineAssessment @relation(fields: [pipelineAssessmentId], references: [id], onDelete: Cascade)
   source             Source?            @relation(fields: [sourceId], references: [id])
