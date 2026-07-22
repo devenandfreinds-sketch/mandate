@@ -689,4 +689,31 @@ export const sources: SourceSeedSpec[] = [
     methodology:
       "CTA-only total (bus + rail unlinked passenger trips), not combined with Metra/Pace — both of those agencies' service areas cover the entire multi-county region, not Chicago specifically, and neither publishes a Chicago-only boarding breakdown. CTA's own service area (~3.2M) is the closest of the three to the city (~2.7M), and its figures match FTA NTD exactly for the years both were checked (2022-2024).",
   },
+  {
+    key: "activetrans_mode_share_report",
+    name: "Active Transportation Alliance — Regional Mode Share Report",
+    publisher: "Active Transportation Alliance",
+    url: "https://activetrans.org/",
+    sourceType: "advocacy_report",
+    citation:
+      "Active Transportation Alliance, \"2020 Regional Mode Share Report\" (February 2020), citing U.S. Census Bureau ACS Table B08301 walk/bicycle commute figures for Chicago, 2015-2018.",
+    isPlaceholder: false,
+    publicationDate: "2020-02-01",
+    defaultConfidence: "estimated",
+    methodology:
+      "A Chicago-region transportation-advocacy nonprofit (not an independent research institute), so treated as a Tier 3 named alternative source rather than academic, even though its underlying figures are themselves drawn from Census ACS. Cross-checked against Streetsblog Chicago's independent citations of Census bike-mode-share for the same years, which matched.",
+  },
+  {
+    key: "cta_capital_project_records",
+    name: "CTA / CDOT Capital Project & Service Change Records",
+    publisher: "Chicago Transit Authority / Chicago Department of Transportation",
+    url: "https://www.chicago.gov/city/en/depts/cdot/provdrs/transit_facilities/news/2015/march/city-to-start-construction-on-loop-link-transit-project-march-16.html",
+    sourceType: "government_report",
+    citation:
+      "Compiled from CTA and CDOT capital-project press releases and service-change announcements (e.g. Loop Link BRT corridor, Belmont Flyover, Red-Purple Modernization Phase One track structures, Damen Green Line infill station), cross-referenced against transit trade press and local journalism to confirm which years saw new route-miles enter revenue service versus reconstruction of existing track.",
+    isPlaceholder: false,
+    defaultConfidence: "estimated",
+    methodology:
+      "Requires researcher synthesis across multiple agency announcements per year rather than a single published annual table, so scored 'estimated' even where individual announcements are Tier 1 government sources. Only new route-miles extending service to previously unserved track or corridor count; station reconstructions, infill stations on existing track, and signal/track modernization on already-operating alignments do not, even when substantial (e.g. the ~$2.1B, 9.6-route-mile Red-Purple Modernization program is a rebuild of existing alignment, not new miles). The 2021 Belmont Flyover (CTA's first new elevated track structure in 28 years) was evaluated and scored 0 new route-miles under this strict definition, since it grade-separates an existing junction rather than extending the network to new track or a new destination, and no citable mileage figure for the structure itself could be found — flagged as the strongest case for a future analyst to override.",
+  },
 ];

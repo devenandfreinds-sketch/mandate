@@ -1,0 +1,2 @@
+jurisdiction,metric,year,value,confidence,notes
+chicago,active_transportation_mode_share,2024,8.9,high,"Walk 7.1% + Bike 1.8% of commute trips. Source: U.S. Census Bureau, ACS 2024 1-Year Estimates, Table B08301, Chicago city, IL. Total workers 16+ = 1,430,663; walked = 102,022; bicycle = 25,352; worked from home = 251,656 (17.6% of total, part of the denominator)."

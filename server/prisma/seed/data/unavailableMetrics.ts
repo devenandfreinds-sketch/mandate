@@ -22,4 +22,10 @@ export const unavailableMetrics: UnavailableMetricSpec[] = [
   // 1-year estimates lag ~9 months after the survey year ends) — a temporary, not permanent, gap;
   // revisit after the ~September 2026 release.
   { metricSlug: "median_wages", jurisdictionSlug: "chicago", years: [2020, 2025] },
+  // Active Transportation Alliance's 2020 mode-share report covers 2015-2018; ACS itself was
+  // pulled directly for 2024. 2019/2021-2023 could not be independently verified (Census API
+  // access requires a key not available in this research pass; data.census.gov's UI could not be
+  // reliably scraped for historical vintages), and 2020/2025 are the same permanent/temporary ACS
+  // gaps as above. Revisit 2019/2021-2023 with a Census API key.
+  { metricSlug: "active_transportation_mode_share", jurisdictionSlug: "chicago", years: [2019, 2020, 2021, 2022, 2023, 2025] },
 ];

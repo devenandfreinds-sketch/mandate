@@ -1,0 +1,5 @@
+jurisdiction,metric,year,value,confidence,notes
+chicago,active_transportation_mode_share,2015,8.5,estimated,"Walk 6.7% + Bike 1.8% of commute trips. Source: Active Transportation Alliance, 2020 Regional Mode Share Report (Feb 2020), citing Census ACS Table B08301. Cross-checked against Streetsblog Chicago's independent bike-mode-share citations for nearby years, which matched."
+chicago,active_transportation_mode_share,2016,8.3,estimated,"Walk 6.6% + Bike 1.7%. Same source as 2015."
+chicago,active_transportation_mode_share,2017,8.3,estimated,"Walk 6.6% + Bike 1.7%. Same source as 2015."
+chicago,active_transportation_mode_share,2018,7.4,estimated,"Walk 5.6% + Bike 1.8%. Same source as 2015. Report notes a real, sharp drop in walking share 2017-to-2018."

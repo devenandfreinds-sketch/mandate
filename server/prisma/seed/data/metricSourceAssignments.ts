@@ -241,14 +241,18 @@ export const metricSourceAssignments: MetricSourceAssignment[] = [
   },
   {
     metricSlug: "public_transport_expansion_miles",
-    sourceKey: "fta_ntd",
-    calculationMethod: "Miles of new rail line or dedicated bus rapid transit corridor opened during the year, from agency/NTD reporting or transit authority press releases.",
+    sourceKey: null,
+    calculationMethod:
+      "Miles of new rail line or dedicated bus rapid transit corridor entering revenue service during the year, from agency/NTD reporting or transit authority press releases. Most years legitimately score 0 — new route-mile openings are rare events, not an annual occurrence — and 0 is treated as a real observed value, not a placeholder, once a year has been researched and no opening was found.",
+    limitations:
+      "This flow definition undercounts real transit capital investment for agencies whose capital programs are dominated by reconstruction/modernization rather than network extension (station rebuilds, signal upgrades, track modernization on existing alignment do not count); a companion metric (capital dollars invested, or stations rebuilt/made accessible) would better capture that investment. Real per-jurisdiction sourcing is documented at the row level; no single national source covers this consistently across jurisdictions.",
   },
   {
     metricSlug: "active_transportation_mode_share",
-    sourceKey: "us_census_acs",
-    calculationMethod: "Share of commute trips made by walking or bicycling, from ACS Table B08301 (Means of Transportation to Work).",
-    limitations: "No ACS 1-year estimate exists for 2020; ACS only captures commute trips, not all trip purposes.",
+    sourceKey: null,
+    calculationMethod: "Share of commute trips made by walking or bicycling, from ACS Table B08301 (Means of Transportation to Work), universe = workers 16+ (including those working from home).",
+    limitations:
+      "No ACS 1-year estimate exists for 2020; ACS only captures commute trips, not all trip purposes. The share of the denominator working from home rose sharply after 2020 (roughly 4-5% pre-2020 to high-teens/20% after), which mechanically compresses every other mode's share, including walk+bike, even where raw walk/bike commuter counts are unchanged — pre- and post-2020 figures are not directly comparable without accounting for this. Where a direct ACS pull wasn't available for a given year, figures are drawn from secondary sources citing the same ACS table and are scored accordingly at a lower tier.",
   },
 
   // Public Safety

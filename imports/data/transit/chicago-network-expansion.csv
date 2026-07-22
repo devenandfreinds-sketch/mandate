@@ -1,0 +1,12 @@
+jurisdiction,metric,year,value,confidence,notes
+chicago,public_transport_expansion_miles,2015,2.0,estimated,"Loop Link downtown BRT corridor (dedicated bus-only lanes on Washington/Madison/Canal/Clinton) opened Dec 21, 2015. Source: Chicago Department of Transportation press release; corroborated by Streetsblog Chicago and WTTW."
+chicago,public_transport_expansion_miles,2016,0,estimated,"No new rail line or dedicated BRT corridor identified as opening in 2016."
+chicago,public_transport_expansion_miles,2017,0,estimated,"Washington/Wabash Loop 'L' station opened Aug 31, 2017, but is a consolidation/replacement infill station on existing elevated track -- no new route-miles."
+chicago,public_transport_expansion_miles,2018,0,estimated,"No new rail line or dedicated BRT corridor identified as opening in 2018."
+chicago,public_transport_expansion_miles,2019,0,estimated,"Garfield Green Line station rebuilt (Jan 2019) is a reconstruction of an existing station, not new route-miles."
+chicago,public_transport_expansion_miles,2020,0,estimated,"No new rail line or dedicated BRT corridor identified as opening in 2020."
+chicago,public_transport_expansion_miles,2021,0,estimated,"Belmont Flyover (Red-Purple Bypass) entered service Nov 19, 2021 -- CTA's first new elevated track structure in 28 years, but it grade-separates an existing junction rather than extending the network to new track or a new destination; no citable new-route-mileage figure found. Scored 0 under this metric's strict definition; flagged as the strongest case for a future analyst to override."
+chicago,public_transport_expansion_miles,2022,0,estimated,"No new rail line or dedicated BRT corridor identified as opening in 2022."
+chicago,public_transport_expansion_miles,2023,0,estimated,"Red-Purple Modernization Phase One: new elevated track structures between Belmont/Addison entered service (July 2023), but this is a reconstruction of the existing Red/Purple alignment, not new route-miles."
+chicago,public_transport_expansion_miles,2024,0,estimated,"Damen Green Line infill station opened Aug 5, 2024, filling a gap between two existing stations on existing track -- no new route-miles."
+chicago,public_transport_expansion_miles,2025,0,estimated,"No new rail line or dedicated BRT corridor identified as opening in 2025. The Red Line Extension to 130th Street (5.5 mi) broke ground in April 2026 and is expected to open around 2030 -- outside this window."
