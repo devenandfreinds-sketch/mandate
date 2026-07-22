@@ -67,6 +67,7 @@ model Jurisdiction {
   metricValues        MetricValue[]
   timelineEvents      TimelineEvent[]
   pipelineAssessments PipelineAssessment[]
+  researchTasks       ResearchTask[]
 
   @@index([governanceModelId])
 }
@@ -149,6 +150,7 @@ model MetricDefinition {
   category      Category      @relation(fields: [categoryId], references: [id], onDelete: Restrict)
   primarySource Source?       @relation(fields: [primarySourceId], references: [id], onDelete: SetNull)
   metricValues  MetricValue[]
+  researchTasks ResearchTask[]
 
   @@index([categoryId])
   @@index([primarySourceId])
@@ -168,7 +170,7 @@ model MetricValue {
   confidence         String? // "high" | "estimated" | "modeled"
   notes              String?
   ingestionMethod    String    @default("seed") // "seed" | "csv" | "api" | "manual"
-  dataQuality        String    @default("placeholder") // "official" | "estimated" | "placeholder"
+  dataQuality        String    @default("placeholder") // government|academic|alternative|estimated|unavailable|placeholder ("official" is a legacy value on old rows only — never used for new data, see shared/src/types/pipeline.ts::DATA_QUALITY_LEVELS)
   isPlaceholder      Boolean   @default(true)
   createdAt          DateTime  @default(now())
   updatedAt          DateTime  @updatedAt
@@ -193,7 +195,7 @@ model Source {
   name          String    @unique
   publisher     String?
   url           String?
-  sourceType    String // "government_dataset" | "academic" | "news" | "placeholder" | "api"
+  sourceType    String // "government_dataset" | "government_report" | "academic" | "news" | "financial_data" | "placeholder"
   citation      String?
   retrievedAt   DateTime?
   isPlaceholder Boolean   @default(true)
@@ -253,8 +255,9 @@ model PolicyArea {
   sortOrder     Int     @default(0)
   isPlaceholder Boolean @default(true)
 
-  category    Category?             @relation(fields: [categoryId], references: [id])
-  assessments PipelineAssessment[]
+  category      Category?             @relation(fields: [categoryId], references: [id])
+  assessments   PipelineAssessment[]
+  researchTasks ResearchTask[]
 
   @@index([categoryId])
 }
@@ -281,6 +284,10 @@ model PipelineAssessment {
   legislation    SupportingLegislation[]
   evidenceLinks  EvidenceLink[]
 
+  // Prevents literal duplicate assessments for the same pair on the same date — both a data-integrity
+  // backstop for the admin write path and what makes reseeding the hardcoded researched-pipeline seed
+  // data idempotent (create-if-missing instead of blind create on every run).
+  @@unique([jurisdictionId, policyAreaId, assessmentDate])
   @@index([jurisdictionId, policyAreaId, assessmentDate])
   @@index([isCurrent])
 }
@@ -319,6 +326,42 @@ model EvidenceLink {
   source             Source?            @relation(fields: [sourceId], references: [id])
 
   @@index([pipelineAssessmentId])
+}
+
+// =========================================================
+// RESEARCH QUEUE (lightweight "what should I work on next" tracker for a
+// distributed research team — deliberately not a project-management system)
+// =========================================================
+
+model ResearchTask {
+  id     String @id @default(cuid())
+  // Stable key used only by the seed script to upsert without duplicating or resetting a
+  // researcher's progress on reseed (see server/prisma/seed/data/researchQueue.ts) — never shown
+  // in the UI.
+  key    String @unique
+
+  jurisdictionId     String
+  policyAreaId       String? // set when taskType is "pipeline_assessment"
+  metricDefinitionId String? // set when taskType is "metric"
+  taskType           String // "metric" | "pipeline_assessment"
+
+  researchQuestion String // free text: exactly what needs to be researched, and why it matters
+  priority         Int    @default(3) // 1 (highest) - 5 (lowest), matches the research roadmap's ranking
+
+  status             String  @default("unassigned") // unassigned | in_progress | awaiting_review | complete | unavailable
+  assignedResearcher String? // free text name/email — no per-researcher account system exists yet
+  sourceStatus       String? // free text progress note, e.g. "Tier 1 source identified, not yet pulled"
+  notes              String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  jurisdiction     Jurisdiction      @relation(fields: [jurisdictionId], references: [id], onDelete: Cascade)
+  policyArea       PolicyArea?       @relation(fields: [policyAreaId], references: [id], onDelete: SetNull)
+  metricDefinition MetricDefinition? @relation(fields: [metricDefinitionId], references: [id], onDelete: SetNull)
+
+  @@index([status])
+  @@index([jurisdictionId])
 }
 
 // =========================================================

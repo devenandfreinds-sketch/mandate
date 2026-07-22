@@ -4,11 +4,9 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { DataQualityBadge } from "@/components/governance/DataQualityBadge";
 import { useMetricDefinition } from "@/hooks/useMetricDefinitions";
+import { formatUtcDate } from "@/lib/utils";
 
-function formatDate(iso: string | null): string {
-  if (!iso) return "Unknown";
-  return new Date(iso).toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" });
-}
+const formatDate = formatUtcDate;
 
 export function MetricDetailPage() {
   const { slug } = useParams<{ slug: string }>();

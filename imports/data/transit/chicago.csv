@@ -1,0 +1,12 @@
+jurisdiction,metric,year,value,confidence,notes
+chicago,transit_ridership,2015,515964831,high,"CTA (bus + rail) total annual unlinked passenger trips. Source: Chicago Data Portal, 'CTA - Ridership - Annual Boarding Totals' (w8km-9pzd)."
+chicago,transit_ridership,2016,497704252,high,"CTA total. Same source as above."
+chicago,transit_ridership,2017,479435218,high,"CTA total. Same source as above."
+chicago,transit_ridership,2018,468067963,high,"CTA total. Same source as above."
+chicago,transit_ridership,2019,455743541,high,"CTA total. Pre-COVID baseline. Same source as above."
+chicago,transit_ridership,2020,197499793,high,"CTA total. COVID-era collapse: -56.7% vs. 2019. Same source as above."
+chicago,transit_ridership,2021,195980563,high,"CTA total. Actual ridership trough (slightly below 2020). Same source as above."
+chicago,transit_ridership,2022,243538803,high,"CTA total. Matches FTA National Transit Database's independently reported figure exactly (cross-validated). Same source as above."
+chicago,transit_ridership,2023,279146501,high,"CTA total. Matches FTA NTD exactly. Same source as above."
+chicago,transit_ridership,2024,309197026,high,"CTA total. Matches FTA NTD exactly. Same source as above."
+chicago,transit_ridership,2025,338041687,high,"CTA total. Recovered to only ~74% of 2019 pre-COVID ridership. Same source as above."

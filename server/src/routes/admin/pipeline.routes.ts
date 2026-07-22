@@ -3,7 +3,7 @@ import { asyncHandler } from "../../middleware/asyncHandler.js";
 import { ApiError } from "../../middleware/errorHandler.js";
 import { requireAdmin } from "../../middleware/adminAuth.js";
 import * as pipelineService from "../../services/pipeline.service.js";
-import { PipelineNotFoundError } from "../../services/pipeline.service.js";
+import { PipelineNotFoundError, PipelineConflictError } from "../../services/pipeline.service.js";
 
 export const adminPipelineRouter = Router();
 adminPipelineRouter.use(requireAdmin);
@@ -71,6 +71,7 @@ adminPipelineRouter.post(
       res.status(201).json({ data });
     } catch (err) {
       if (err instanceof PipelineNotFoundError) throw ApiError.notFound(err.message);
+      if (err instanceof PipelineConflictError) throw ApiError.conflict(err.message);
       if (err instanceof RangeError) throw ApiError.badRequest(err.message);
       throw err;
     }

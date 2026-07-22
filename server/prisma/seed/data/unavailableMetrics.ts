@@ -18,4 +18,8 @@ export const unavailableMetrics: UnavailableMetricSpec[] = [
   // permanent gap, unlike other still-placeholder years which just haven't been imported yet.
   { metricSlug: "median_rent", jurisdictionSlug: "chicago", years: [2020] },
   { metricSlug: "vacancy_rate", jurisdictionSlug: "chicago", years: [2020] },
+  // Same ACS 1-year 2020 gap as above. 2025 is not yet released as of this research pass (ACS
+  // 1-year estimates lag ~9 months after the survey year ends) — a temporary, not permanent, gap;
+  // revisit after the ~September 2026 release.
+  { metricSlug: "median_wages", jurisdictionSlug: "chicago", years: [2020, 2025] },
 ];

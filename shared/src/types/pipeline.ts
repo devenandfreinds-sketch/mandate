@@ -73,6 +73,74 @@ export const SOURCE_TIERS = [
   { tier: "alternative", label: "Tier 3 — Alternative", description: "Nonprofits, industry data providers, or credible news reporting, used when no government or academic source exists." },
 ] as const;
 
+/**
+ * The 6-level data-quality vocabulary shared by MetricValue and PipelineAssessment. This deliberately
+ * separates four distinct concepts that are easy to conflate:
+ *  - SOURCE quality (who published the underlying evidence — government/academic/alternative)
+ *  - EVIDENCE quality (does verifiable evidence exist at all for this specific claim)
+ *  - RESEARCHER SYNTHESIS (did a human have to interpret/combine evidence to reach a conclusion,
+ *    vs. reading a single number directly off one authoritative publication)
+ *  - ABSENCE of data (no credible evidence exists — an honest gap, not a guess)
+ * A label of "government" describes the SOURCE tier of the evidence, not the confidence of the
+ * conclusion drawn from it — a stage score can cite a Tier-1 government document and still be
+ * labeled "estimated" if reaching that stage required the researcher's own synthesis across
+ * fragmented evidence rather than a single government publication stating the conclusion outright.
+ * See docs/PIPELINE_METHODOLOGY.md for the full specification and worked examples.
+ */
+export interface DataQualityLevel {
+  level: string;
+  label: string;
+  /** Relative strength for summary/rollup purposes only — NOT a substitute for reading the label itself. */
+  tierRank: number;
+  description: string;
+}
+
+export const DATA_QUALITY_LEVELS: DataQualityLevel[] = [
+  {
+    level: "government",
+    label: "Government",
+    tierRank: 3,
+    description:
+      "The evidence is an official government agency publication (dataset, report, filing, or legal record), AND the conclusion follows directly from it without requiring the researcher to interpret or combine multiple sources.",
+  },
+  {
+    level: "academic",
+    label: "Academic",
+    tierRank: 3,
+    description: "The evidence is peer-reviewed research or a university/research-institute publication, used the same way a government source would be.",
+  },
+  {
+    level: "alternative",
+    label: "Alternative",
+    tierRank: 3,
+    description:
+      "The evidence is a named, credible non-government/non-academic source (an established nonprofit, industry data provider, or specific credible news outlet) — used only when no government or academic source exists for this claim.",
+  },
+  {
+    level: "estimated",
+    label: "Estimated",
+    tierRank: 2,
+    description:
+      "A researcher's synthesis or numerical estimate drawn from cited evidence, not a conclusion read directly off one authoritative publication. The evidence itself may well be Tier 1 government material — this label flags that reaching the stated conclusion required interpretation, aggregation across fragmented sources, or approximation, not that the underlying sources are weak.",
+  },
+  {
+    level: "unavailable",
+    label: "Unavailable",
+    tierRank: 1,
+    description:
+      "No credible evidence was found for this metric or assessment after a genuine search. This is an honest absence-of-data marker — prefer it over fabricating a number or a stage.",
+  },
+  {
+    level: "placeholder",
+    label: "Placeholder",
+    tierRank: 0,
+    description:
+      "Synthetic demonstration data generated for development purposes. Not a research finding of any kind, and must never be presented to end users as a real assessment or measurement.",
+  },
+] as const;
+
+export const DATA_QUALITY_LEVEL_SLUGS = DATA_QUALITY_LEVELS.map((d) => d.level);
+
 export interface PolicyArea {
   id: string;
   categoryId: string | null;

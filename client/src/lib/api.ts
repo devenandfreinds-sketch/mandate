@@ -52,5 +52,16 @@ async function postForm<T>(path: string, formData: FormData): Promise<T> {
   return handle<T>(await fetch(buildUrl(path), { method: "POST", credentials: "include", body: formData }));
 }
 
-export const api = { get, postJson, postForm, url: buildUrl };
+async function patchJson<T>(path: string, payload: unknown): Promise<T> {
+  return handle<T>(
+    await fetch(buildUrl(path), {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      credentials: "include",
+      body: JSON.stringify(payload),
+    })
+  );
+}
+
+export const api = { get, postJson, postForm, patchJson, url: buildUrl };
 export { ApiRequestError };

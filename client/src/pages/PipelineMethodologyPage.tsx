@@ -27,6 +27,24 @@ export function PipelineMethodologyPage() {
       </section>
 
       <section className="mt-8">
+        <h2 className="mb-3 text-lg font-semibold">The unit of analysis: the pipeline, not a project</h2>
+        <p className="max-w-3xl text-sm text-muted-foreground">
+          A score describes the institutional pipeline for a policy area as a whole — the durable
+          mechanism(s) capable of planning, funding, and executing that policy — not whichever single
+          project within it happens to be furthest along. A jurisdiction does <strong>not</strong>{" "}
+          receive a Stage 4 or Stage 5 score merely because one flagship project is operating or has
+          shown results; the overall institutional mechanism must support that score. If a city has one
+          completed program alongside several others still stuck at proposal or under-construction
+          stages, the composite score reflects the ecosystem's actual maturity, not its best individual
+          output. When governance is fragmented across multiple agencies or levels of government (a
+          transit network jointly run by a city, a regional authority, and federal funders, for example),
+          the score should reflect the pipeline's overall coherence and durability, not the single
+          strongest agency's output in isolation. This is a deliberate, conservative rule: it is meant to
+          make Mandate resistant to cherry-picking a good headline as evidence of institutional maturity.
+        </p>
+      </section>
+
+      <section className="mt-8">
         <h2 className="mb-3 text-lg font-semibold">What does it not measure?</h2>
         <p className="max-w-3xl text-sm text-muted-foreground">
           It does not measure whether the underlying policy is good or bad, whether Mandate agrees with

@@ -19,6 +19,7 @@ import { policyAreas } from "./data/policyAreas.js";
 import { metricSourceAssignments } from "./data/metricSourceAssignments.js";
 import { unavailableMetrics } from "./data/unavailableMetrics.js";
 import { chicagoResearchedPipelineAssessments } from "./data/chicagoResearchedPipeline.js";
+import { researchQueueSeed } from "./data/researchQueue.js";
 import { generateAnnualSeries, type MetricSeedSpec, type AdministrationWindow } from "./generators/timeSeries.js";
 import { generatePipelineAssessment } from "./generators/pipelineAssessment.js";
 
@@ -232,10 +233,17 @@ async function main() {
   // CSV/admin import pipeline, not this script. "unavailable" rows are still synthetic under the
   // hood (same placeholder generator), just labeled differently, so they're cleared and
   // regenerated too. Administration deletion SetNulls their administrationId rather than erroring.
+  //
+  // PipelineAssessment/EvidenceLink/SupportingLegislation deletes are scoped to isPlaceholder: true
+  // only. Real rows — both the hardcoded Chicago research in chicagoResearchedPipeline.ts (created
+  // with isPlaceholder: false, see [10b/11] below) and anything a researcher submits later via the
+  // admin write path (also isPlaceholder: false, see pipeline.service.ts createPipelineAssessment) —
+  // must survive a reseed. An earlier version of this script deleted these tables unconditionally,
+  // which would silently destroy real research on every reseed; do not revert this scoping.
   await prisma.metricValue.deleteMany({ where: { dataQuality: { in: ["placeholder", "unavailable"] } } });
-  await prisma.evidenceLink.deleteMany({});
-  await prisma.supportingLegislation.deleteMany({});
-  await prisma.pipelineAssessment.deleteMany({});
+  await prisma.evidenceLink.deleteMany({ where: { isPlaceholder: true } });
+  await prisma.supportingLegislation.deleteMany({ where: { isPlaceholder: true } });
+  await prisma.pipelineAssessment.deleteMany({ where: { isPlaceholder: true } });
   await prisma.campaignPromise.deleteMany({});
   await prisma.timelineEvent.deleteMany({});
   await prisma.administration.deleteMany({});
@@ -304,11 +312,23 @@ async function main() {
   }
 
   console.log("[9/11] Seeding policy areas...");
+  // Upsert by slug — NOT delete-all-then-recreate. PolicyArea previously used deleteMany({}) here,
+  // which (via PipelineAssessment's onDelete: Cascade on policyAreaId) silently cascaded away every
+  // PipelineAssessment row on every single reseed, including real research — regardless of the
+  // isPlaceholder scoping added to the deletes in [6/11] above. That scoping only matters if
+  // PolicyArea rows themselves survive a reseed, which requires upserting them by their stable slug
+  // (same pattern as categories, metric definitions, governance models, and jurisdictions above).
   const policyAreaIdBySlug = new Map<string, string>();
-  await prisma.policyArea.deleteMany({});
   for (const pa of policyAreas) {
-    const row = await prisma.policyArea.create({
-      data: {
+    const row = await prisma.policyArea.upsert({
+      where: { slug: pa.slug },
+      update: {
+        categoryId: categoryIdBySlug.get(pa.categorySlug) ?? null,
+        name: pa.name,
+        description: pa.description,
+        sortOrder: pa.sortOrder,
+      },
+      create: {
         categoryId: categoryIdBySlug.get(pa.categorySlug) ?? null,
         slug: pa.slug,
         name: pa.name,
@@ -376,9 +396,28 @@ async function main() {
   }
 
   console.log("[10b/11] Seeding researched pipeline assessments (Chicago pilot)...");
+  // Create-if-missing per (jurisdiction, policyArea, assessmentDate) — never update. This makes
+  // reseeding idempotent (running this script twice does not duplicate real research) while never
+  // clobbering a row that a researcher may have since edited via the admin UI for this exact date.
+  // To intentionally correct a mistake in this file's data, either bump the assessmentDate to a new
+  // value or manually remove the specific stale row from the database — this script will not do it
+  // for you, by design (see [6/11] above for why real rows are never blanket-deleted).
+  let researchedCreated = 0;
+  let researchedSkipped = 0;
   for (const r of chicagoResearchedPipelineAssessments) {
     const jurisdictionId = jurisdictionIdBySlug.get(r.jurisdictionSlug)!;
     const policyAreaId = policyAreaIdBySlug.get(r.policyAreaSlug)!;
+    const assessmentDate = new Date(r.assessmentDate);
+
+    const existing = await prisma.pipelineAssessment.findUnique({
+      where: { jurisdictionId_policyAreaId_assessmentDate: { jurisdictionId, policyAreaId, assessmentDate } },
+      select: { id: true },
+    });
+    if (existing) {
+      researchedSkipped++;
+      continue;
+    }
+    researchedCreated++;
 
     const assessment = await prisma.pipelineAssessment.create({
       data: {
@@ -386,7 +425,7 @@ async function main() {
         policyAreaId,
         stage: r.stage,
         dataQuality: r.dataQuality,
-        assessmentDate: new Date(r.assessmentDate),
+        assessmentDate,
         isCurrent: r.isCurrent,
         evidenceSummary: r.evidenceSummary,
         limitations: r.limitations,
@@ -425,6 +464,50 @@ async function main() {
       });
     }
   }
+  console.log(`  → ${researchedCreated} created, ${researchedSkipped} already present (untouched).`);
+
+  console.log("[10c/11] Seeding research queue (create-if-missing, never overwrites researcher progress)...");
+  // Same discipline as [10b/11] above: upsert by a stable `key`, and on the update branch touch ONLY
+  // the fields this seed file owns (jurisdiction/policyArea/metric linkage, taskType, researchQuestion,
+  // priority) — never status/assignedResearcher/sourceStatus/notes, which belong to whichever
+  // researcher picked the task up. A reseed must never reset a researcher's progress on a task.
+  let queueCreated = 0;
+  let queueUpdated = 0;
+  for (const item of researchQueueSeed) {
+    const jurisdictionId = jurisdictionIdBySlug.get(item.jurisdictionSlug)!;
+    const policyAreaId = item.policyAreaSlug ? policyAreaIdBySlug.get(item.policyAreaSlug) ?? null : null;
+    const metricDefinitionId = item.metricSlug ? metricDefIdBySlug.get(item.metricSlug) ?? null : null;
+
+    const existing = await prisma.researchTask.findUnique({ where: { key: item.key } });
+    if (existing) {
+      queueUpdated++;
+      await prisma.researchTask.update({
+        where: { key: item.key },
+        data: {
+          jurisdictionId,
+          policyAreaId,
+          metricDefinitionId,
+          taskType: item.taskType,
+          researchQuestion: item.researchQuestion,
+          priority: item.priority,
+        },
+      });
+      continue;
+    }
+    queueCreated++;
+    await prisma.researchTask.create({
+      data: {
+        key: item.key,
+        jurisdictionId,
+        policyAreaId,
+        metricDefinitionId,
+        taskType: item.taskType,
+        researchQuestion: item.researchQuestion,
+        priority: item.priority,
+      },
+    });
+  }
+  console.log(`  → ${queueCreated} created, ${queueUpdated} refreshed (status/assignee/notes untouched).`);
 
   console.log("[11/11] Generating metric value time series...");
   const allMetricSpecs = Object.values(metricsByCategory).flat();

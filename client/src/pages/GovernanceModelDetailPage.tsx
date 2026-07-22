@@ -6,6 +6,7 @@ import { PlaceCard } from "@/components/governance/PlaceCard";
 import { SourceCitation } from "@/components/governance/SourceCitation";
 import { PipelineStageBadge } from "@/components/charts/PipelineStageBadge";
 import { useGovernanceModel, usePipelineSummary } from "@/hooks/useGovernanceModel";
+import { formatUtcDate } from "@/lib/utils";
 
 export function GovernanceModelDetailPage() {
   const { slug } = useParams<{ slug: string }>();
@@ -63,7 +64,7 @@ export function GovernanceModelDetailPage() {
           <ol className="space-y-4 border-l border-border pl-4">
             {model.timelineEvents.map((e) => (
               <li key={e.id}>
-                <div className="text-xs text-muted-foreground">{new Date(e.eventDate).toLocaleDateString("en-US", { year: "numeric", month: "short" })}</div>
+                <div className="text-xs text-muted-foreground">{formatUtcDate(e.eventDate, { year: "numeric", month: "short" })}</div>
                 <div className="font-medium">{e.title}</div>
                 <p className="text-sm text-muted-foreground">{e.description}</p>
               </li>

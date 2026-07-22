@@ -11,6 +11,7 @@ import { DataCatalogPage } from "@/pages/DataCatalogPage";
 import { AdminLoginPage } from "@/pages/admin/AdminLoginPage";
 import { AdminImportsPage } from "@/pages/admin/AdminImportsPage";
 import { AdminPipelinePage } from "@/pages/admin/AdminPipelinePage";
+import { AdminResearchQueuePage } from "@/pages/admin/AdminResearchQueuePage";
 import { RequireAdmin } from "@/components/admin/RequireAdmin";
 import { NotFoundPage } from "@/pages/NotFoundPage";
 
@@ -40,6 +41,14 @@ export function AppRoutes() {
         element={
           <RequireAdmin>
             <AdminPipelinePage />
+          </RequireAdmin>
+        }
+      />
+      <Route
+        path="/admin/research-queue"
+        element={
+          <RequireAdmin>
+            <AdminResearchQueuePage />
           </RequireAdmin>
         }
       />

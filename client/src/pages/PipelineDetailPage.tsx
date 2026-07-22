@@ -5,13 +5,11 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { DataQualityBadge } from "@/components/governance/DataQualityBadge";
 import { PipelineStageBadge } from "@/components/charts/PipelineStageBadge";
 import { usePipelineHistory } from "@/hooks/usePlaceMetrics";
+import { formatUtcDate } from "@/lib/utils";
 import { SOURCE_TIERS } from "@mandate/shared";
 import type { EvidenceLink, SupportingLegislation } from "@mandate/shared";
 
-function formatDate(iso: string | null): string {
-  if (!iso) return "Unknown";
-  return new Date(iso).toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" });
-}
+const formatDate = formatUtcDate;
 
 function tierLabel(tier: string | null): string {
   return SOURCE_TIERS.find((t) => t.tier === tier)?.label ?? (tier ?? "Unspecified tier");

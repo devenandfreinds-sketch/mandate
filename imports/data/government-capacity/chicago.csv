@@ -1,0 +1,12 @@
+jurisdiction,metric,year,value,confidence,notes
+chicago,permit_approval_days,2015,16,estimated,"Median calendar days from APPLICATION_START_DATE to ISSUE_DATE, Standard Plan Review permits only. Source: Chicago Data Portal, Building Permits dataset (ydr8-5enu), computed via Socrata SoQL MEDIAN() aggregate."
+chicago,permit_approval_days,2016,15,estimated,"Same source/methodology as above."
+chicago,permit_approval_days,2017,18,estimated,"Same source/methodology as above."
+chicago,permit_approval_days,2018,13,estimated,"Same source/methodology as above."
+chicago,permit_approval_days,2019,21,estimated,"Same source/methodology as above."
+chicago,permit_approval_days,2020,28,estimated,"Same source/methodology as above."
+chicago,permit_approval_days,2021,26,estimated,"Same source/methodology as above."
+chicago,permit_approval_days,2022,30,estimated,"Same source/methodology as above."
+chicago,permit_approval_days,2023,52,estimated,"Closely matches DOB's own historical performance target of 53 days for Standard Plan Review permits. Same source/methodology as above."
+chicago,permit_approval_days,2024,62,estimated,"Consistent with independent reporting (Illinois Policy Institute) describing waits 'often more than 80 days' on a mean basis. Same source/methodology as above."
+chicago,permit_approval_days,2025,77,estimated,"Same source/methodology as above."

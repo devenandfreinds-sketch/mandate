@@ -5,6 +5,19 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
+/**
+ * Formats a date-only ISO timestamp (always UTC midnight, e.g. from a Prisma `DateTime` used as a
+ * calendar date) using UTC so the displayed day never shifts based on the viewer's local timezone.
+ * Use this for assessment dates, enactment dates, publication dates, event dates, etc. — anything
+ * that represents a calendar day rather than a precise instant. For true instants (e.g. createdAt
+ * timestamps where local-time display is actually desired), use toLocaleString()/toLocaleDateString()
+ * directly instead.
+ */
+export function formatUtcDate(iso: string | null, options: Intl.DateTimeFormatOptions = { year: "numeric", month: "short", day: "numeric" }): string {
+  if (!iso) return "Unknown";
+  return new Date(iso).toLocaleDateString("en-US", { ...options, timeZone: "UTC" });
+}
+
 const CATEGORY_CHART_VAR: Record<string, string> = {
   housing: "--chart-1",
   innovation: "--chart-2",

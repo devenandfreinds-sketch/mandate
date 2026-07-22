@@ -9,3 +9,4 @@ export * from "./types/jurisdiction.js";
 export * from "./types/governanceModel.js";
 export * from "./types/import.js";
 export * from "./types/catalog.js";
+export * from "./types/researchTask.js";

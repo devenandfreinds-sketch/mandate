@@ -80,9 +80,9 @@ export function PlaceProfilePage() {
             {pipeline.map((p) => (
               <Link key={p.id} to={`/places/${slug}/pipeline/${p.policyAreaSlug}`}>
                 <Card className="transition-colors hover:border-foreground/30">
-                  <CardContent className="flex items-center justify-between gap-3 py-4">
+                  <CardContent className="flex flex-wrap items-center justify-between gap-x-3 gap-y-2 py-4">
                     <span className="text-sm font-medium">{p.policyAreaName}</span>
-                    <div className="flex items-center gap-2">
+                    <div className="flex flex-wrap items-center gap-2">
                       <DataQualityBadge dataQuality={p.dataQuality} />
                       <PipelineStageBadge stage={p.stage} label={p.stageLabel} />
                     </div>

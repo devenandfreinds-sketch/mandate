@@ -17,6 +17,10 @@ export class ApiError extends Error {
   static badRequest(message: string) {
     return new ApiError(400, message, "bad_request");
   }
+
+  static conflict(message: string) {
+    return new ApiError(409, message, "conflict");
+  }
 }
 
 export function notFoundHandler(_req: Request, res: Response) {

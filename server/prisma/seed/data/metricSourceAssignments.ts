@@ -135,7 +135,9 @@ export const metricSourceAssignments: MetricSourceAssignment[] = [
   {
     metricSlug: "unemployment_rate",
     sourceKey: "bls_laus",
-    calculationMethod: "Unemployed share of the labor force, annual average, from Local Area Unemployment Statistics.",
+    calculationMethod:
+      "Unemployed share of the labor force, BLS's own published annual-average figure (the 'M13'/Annual period of the relevant LAUS series), not derived by averaging monthly values. Uses the CITY-level LAUS series (e.g. Chicago's is LAUCT171400000000003, 'Chicago city, IL'), not the surrounding metro/MSA area.",
+    limitations: "LAUS annual figures undergo periodic benchmark revisions (typically each spring); the most recent 1-2 years should be treated as most likely to shift in a future revision.",
   },
   {
     metricSlug: "labor_force_participation",
@@ -145,8 +147,9 @@ export const metricSourceAssignments: MetricSourceAssignment[] = [
   {
     metricSlug: "median_wages",
     sourceKey: "us_census_acs",
-    calculationMethod: "Median annual earnings for the civilian employed population 16 years and over, from ACS Table B20002.",
-    limitations: "No ACS 1-year estimate exists for 2020.",
+    calculationMethod: "Median annual earnings for the civilian employed population 16 years and over, from ACS Table B20002 ('Total', both sexes), city-level (place) geography — not county or metro area.",
+    limitations:
+      "No ACS 1-year estimate exists for 2020 (COVID-19 data collection disruption); the most recent year is also typically unavailable until roughly September of the following year. Figures are nominal (current-year) dollars, not adjusted for inflation across years — ACS's own 'inflation-adjusted' label only harmonizes the 12 monthly sub-samples within a single survey year, it does not make different years' figures comparable in real terms.",
   },
   {
     metricSlug: "graduate_employment_rate",
@@ -169,9 +172,11 @@ export const metricSourceAssignments: MetricSourceAssignment[] = [
   // Government Capacity
   {
     metricSlug: "permit_approval_days",
-    sourceKey: "muni_open_data",
-    calculationMethod: "Median calendar days to approve a standard building or business permit.",
-    limitations: "No standardized federal source; each jurisdiction publishes (or does not publish) this via its own open data portal or department dashboard.",
+    sourceKey: null,
+    calculationMethod:
+      "Median calendar days from application to issuance for a standard (non-fast-track, non-specialty) building or business permit. No standardized federal source exists; each jurisdiction publishes (or does not publish) this via its own open data portal. Chicago's figure uses the City Data Portal's Building Permits dataset, filtered to 'Standard Plan Review' permits specifically (excluding same-day Easy/Express Permit fast-track permits and large-project Developer Services permits, both of which would otherwise skew a combined median toward one extreme).",
+    limitations:
+      "Deliberately distinct from planning_approval_days, which currently uses an unfiltered 'all permit types' median from the same Chicago dataset — that filter choice makes the two metrics measure different things (a near-instant all-types median vs. a substantive-review median) even though they draw on the same underlying source. Other jurisdictions still need their own source and permit-type filter identified.",
   },
   {
     metricSlug: "procurement_timeline_days",
@@ -211,9 +216,11 @@ export const metricSourceAssignments: MetricSourceAssignment[] = [
   // Transit
   {
     metricSlug: "transit_ridership",
-    sourceKey: "fta_ntd",
-    calculationMethod: "Total annual unlinked passenger trips reported to the National Transit Database by transit agencies serving the jurisdiction.",
-    limitations: "A single city can be served by multiple transit agencies; totals require aggregating agency-level NTD filings to the jurisdiction.",
+    sourceKey: null,
+    calculationMethod:
+      "Total annual unlinked passenger trips (boardings) on the jurisdiction's primary transit operator(s). A single city can be served by multiple transit agencies; when that agency's own service area is materially larger than the city (e.g. a regional commuter-rail or suburban-bus operator), including it would import ridership from outside the jurisdiction with no defensible way to apportion it. Chicago's figure uses CTA (bus + rail) only — CTA's service area is the closest of the region's three operators (CTA/Metra/Pace) to the city itself — cross-validated against FTA National Transit Database agency filings.",
+    limitations:
+      "Excludes Metra and Pace, both of which serve parts of Chicago but whose service areas cover the entire multi-county region; neither publishes a Chicago-only boarding breakdown. This means the figure understates total transit trips touching Chicago, but including those agencies without a geographic attribution method would overstate it far more. Other jurisdictions still need their own primary-operator determination.",
   },
   {
     metricSlug: "transit_reliability",
@@ -247,13 +254,18 @@ export const metricSourceAssignments: MetricSourceAssignment[] = [
   // Public Safety
   {
     metricSlug: "violent_crime_rate",
-    sourceKey: "fbi_ucr",
-    calculationMethod: "Reported violent crime offenses (murder, rape, robbery, aggravated assault) per 100,000 residents, from FBI UCR/NIBRS agency submissions.",
+    sourceKey: null,
+    calculationMethod:
+      "Reported violent crime offenses (murder, rape, robbery, aggravated assault) per 100,000 residents. Chicago's figure is compiled directly from the responsible police department's own annual reporting rather than routed through the FBI's UCR/NIBRS pipeline, where available, since state-to-FBI data relay defects have affected some jurisdictions in some years (documented for Chicago 2022-early 2025, see limitations).",
+    limitations:
+      "For Chicago, the FBI's state-relayed NIBRS pipeline significantly under-reported Aggravated Assault from 2022 through early 2025; the Chicago Police Department's own Annual Report figures are used instead for that reason, cross-referenced against a 2015 FBI Table 8 figure for the one year with no standalone CPD report. Other jurisdictions still need their own source reliability checked before defaulting to FBI UCR/NIBRS.",
   },
   {
     metricSlug: "property_crime_rate",
-    sourceKey: "fbi_ucr",
-    calculationMethod: "Reported property crime offenses (burglary, larceny-theft, motor vehicle theft) per 100,000 residents, from FBI UCR/NIBRS agency submissions.",
+    sourceKey: null,
+    calculationMethod:
+      "Reported property crime offenses (burglary, larceny-theft, motor vehicle theft) per 100,000 residents, from the responsible police department's own annual reporting where available (see violent_crime_rate for the same reasoning).",
+    limitations: "See violent_crime_rate's limitations — same source and reliability reasoning apply.",
   },
   {
     metricSlug: "clearance_rate",

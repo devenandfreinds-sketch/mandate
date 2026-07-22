@@ -110,6 +110,62 @@ railway run --service mandate-server -- sh -c "SEED_CONFIRM=yes npm run db:seed 
 ```
 `railway run` executes the command with that service's environment variables (including `DATABASE_URL`) injected. Note this runs *on your local machine*, not inside Railway's infrastructure — it only works if your machine can actually reach the database, which requires the Postgres plugin's public networking/TCP proxy to be enabled (internal `*.railway.internal` hostnames are only reachable from other Railway services). If it hangs or fails to connect, use Option 1 instead — it runs the command inside the actual deployed environment, so networking is never a concern.
 
+## Database backup & recovery
+
+Mandate's production database (Railway's managed Postgres plugin, one volume — `postgres-volume`, mounted at `/var/lib/postgresql/data`, currently on a size-capped Hobby-tier plan) is not currently covered by any automated, verified backup process. This section is the procedure until one is automated.
+
+**Do not confuse this with reseeding.** `npm run db:seed` (see above) only ever adds/upserts data and is safe to re-run — it is not a backup mechanism and does not protect against a bad migration, a mistaken production SQL statement, or Railway-side data loss on the volume.
+
+### Who should have access
+
+Production backups and the ability to restore one are a **founder-level responsibility** (see `docs/DECISION_OWNERSHIP.md`) — not something delegated to researchers, and not something a new contributor should be handed by default. A designated technical lead can hold this responsibility alongside the founder, but it should be an explicit, named decision, not something that drifts by default. Researchers interact with production data exclusively through the app's admin UI and import pipeline (see `CONTRIBUTING.md`) — never through a raw backup file or a direct database connection.
+
+### How to create a backup
+
+There is no dedicated backup button in this project's current Railway plan tier, so the reliable, plan-independent method is a manual `pg_dump`, run from a machine that already has this repo checked out (so `railway` CLI + Postgres client tools are available — `brew install postgresql@16` per the README covers `pg_dump`):
+
+```bash
+railway run --service server -- sh -c 'pg_dump "$DATABASE_URL" --format=custom --file=/dev/stdout' > mandate_backup_$(date +%Y%m%d).dump
+```
+
+Notes specific to this project's actual setup:
+- The live service is named **`server`** (confirmed via `railway status`) — not `mandate-server`, despite that name appearing elsewhere in this doc for the hypothetical/generic case. Always confirm the exact current service name with `railway status` before running this.
+- Like the reseed command above, `railway run` executes **on your local machine** and requires the Postgres plugin's public networking/TCP proxy to be enabled to reach the database from outside Railway's internal network. If the command hangs, that's almost always why.
+- `--format=custom` produces a compressed, `pg_restore`-compatible file (smaller and more robust than plain SQL text) — prefer it over plain `pg_dump ... > file.sql`.
+- Separately, check the Postgres service's own Railway dashboard (**Settings** tab) for a native "Backups" feature — Railway has offered automated volume snapshots on some plans. If available on the current plan, enabling it is a good *supplement* to the manual procedure above, but do not rely on it exclusively without confirming it's actually enabled and actually producing restorable snapshots — verify by attempting a real restore (see below) at least once.
+
+### Where the backup should be stored
+
+Store the `.dump` file in a private, access-restricted location the founder controls directly — e.g. a password-protected/encrypted personal cloud storage folder. Specifically:
+- **Never** commit a backup file to this Git repository, even privately — it contains real production data (and the repo's history is effectively permanent).
+- **Never** store it in a shared, publicly-linkable, or unencrypted location.
+- Keep at least the two most recent backups, not just the latest one, in case a problem with the database predates the most recent backup.
+
+### How often
+
+- **Weekly**, at minimum, as a standing routine — Mandate's irreplaceable data (real Chicago pipeline research, real imported metrics, Research Queue researcher progress) changes gradually, not continuously, so weekly is a reasonable baseline rather than needing continuous/hourly backups.
+- **Immediately before any operation with real risk**: a schema migration that transforms or drops a column, a manual production SQL statement of any kind, a Prisma major-version upgrade, or any operation on this list even if it's expected to be safe. Treat "I'm confident this is safe" as the exact moment a backup is cheapest and most valuable, not a reason to skip it.
+
+### How to restore a backup
+
+Restoring directly into production should never be the first step. Always verify a backup is actually restorable before trusting it, and never do so with a fabricated sense of confidence:
+
+1. **Restore into a scratch/local database first**, not production:
+   ```bash
+   createdb mandate_restore_test
+   pg_restore --dbname=mandate_restore_test --clean --if-exists mandate_backup_YYYYMMDD.dump
+   ```
+2. Spot-check the restored data (e.g. confirm the Chicago Housing/Transit pipeline rows and their expected row counts are present — see the verification queries used in past hardening passes) before considering the backup good.
+3. Only after that verification, if an actual production restore is genuinely necessary, treat it as a founder-authorized, one-time, carefully-supervised operation — not a routine command to memorize and run confidently under pressure. At minimum: take a fresh backup of the *current* (broken) production state first, in case the restore itself needs to be undone; confirm with the founder immediately beforehand, every time, regardless of urgency.
+
+### What should never be done directly against production
+
+- No raw `DELETE`, `DROP`, `TRUNCATE`, or `UPDATE` statements against the production database outside of a founder-authorized, deliberate, one-time operation with a fresh backup taken immediately before.
+- No `prisma migrate reset` (this drops and recreates the entire database) against production, ever.
+- No restoring a backup into production without first restoring it into a scratch database and verifying it, per above.
+- No disabling the `SEED_CONFIRM=yes` gate on the seed script, and no editing `server/prisma/seed/index.ts` to skip it.
+- No treating a backup file as a casual export to inspect data — use the admin UI or `/data-catalog` for that; a backup file is a production-data asset and should be handled with the same care as the live database.
+
 ## Verifying the deployment
 
 - `https://<server-domain>/api/v1/governance-models` should return JSON.

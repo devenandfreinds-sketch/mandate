@@ -10,6 +10,7 @@ import { useCommitImport, useImportJobs, usePreviewImport, useRollbackImport } f
 import { useMetricDefinitions } from "@/hooks/useMetricDefinitions";
 import { useSources } from "@/hooks/useSources";
 import { useCategories } from "@/hooks/useCategories";
+import { DATA_QUALITY_LEVELS } from "@mandate/shared";
 import type { ImportSummary } from "@mandate/shared";
 
 const ROW_STATUS_VARIANT: Record<string, "default" | "secondary" | "outline" | "destructive"> = {
@@ -29,7 +30,10 @@ export function AdminImportsPage() {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [metric, setMetric] = useState("");
   const [source, setSource] = useState("");
-  const [quality, setQuality] = useState("official");
+  // No legacy default — "official" is deprecated (kept only for old rows created before the current
+  // 6-level vocabulary existed). A new import must explicitly choose a real level; defaulting silently
+  // to a deprecated label is exactly how a new researcher would mislabel real source quality.
+  const [quality, setQuality] = useState("government");
   const [category, setCategory] = useState("");
   const [summary, setSummary] = useState<ImportSummary | null>(null);
 
@@ -66,6 +70,9 @@ export function AdminImportsPage() {
       <div className="flex items-center justify-between">
         <h1 className="text-2xl font-semibold">Admin — Data Imports</h1>
         <div className="flex items-center gap-3">
+          <Link to="/admin/research-queue" className="text-sm text-muted-foreground hover:underline">
+            Research Queue
+          </Link>
           <Link to="/admin/pipeline" className="text-sm text-muted-foreground hover:underline">
             Pipeline Assessments →
           </Link>
@@ -118,9 +125,11 @@ export function AdminImportsPage() {
                 onChange={(e) => setQuality(e.target.value)}
                 className="w-full rounded-md border border-border bg-background px-3 py-2 text-sm"
               >
-                <option value="official">Official</option>
-                <option value="estimated">Estimated</option>
-                <option value="placeholder">Placeholder</option>
+                {DATA_QUALITY_LEVELS.map((q) => (
+                  <option key={q.level} value={q.level}>
+                    {q.label}
+                  </option>
+                ))}
               </select>
             </Field>
             <Field label="Category (optional, for logging)">

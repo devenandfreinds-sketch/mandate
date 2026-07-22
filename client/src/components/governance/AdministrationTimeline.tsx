@@ -1,10 +1,10 @@
 import type { AdministrationSummary } from "@mandate/shared";
 import { Badge } from "@/components/ui/badge";
-import { cn } from "@/lib/utils";
+import { cn, formatUtcDate } from "@/lib/utils";
 
 function formatDate(iso: string | null): string {
   if (!iso) return "present";
-  return new Date(iso).toLocaleDateString("en-US", { year: "numeric", month: "short" });
+  return formatUtcDate(iso, { year: "numeric", month: "short" });
 }
 
 export function AdministrationTimeline({

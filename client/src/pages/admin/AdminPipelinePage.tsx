@@ -12,9 +12,8 @@ import { usePolicyAreas } from "@/hooks/usePolicyAreas";
 import { usePipelineHistory } from "@/hooks/usePlaceMetrics";
 import { useSources } from "@/hooks/useSources";
 import { useCreatePipelineAssessment, type CreatePipelineAssessmentPayload } from "@/hooks/useAdminPipeline";
-import { PIPELINE_STAGE_DEFINITIONS, SOURCE_TIERS } from "@mandate/shared";
-
-const DATA_QUALITY_OPTIONS = ["government", "academic", "alternative", "estimated", "unavailable", "placeholder"];
+import { formatUtcDate } from "@/lib/utils";
+import { PIPELINE_STAGE_DEFINITIONS, SOURCE_TIERS, DATA_QUALITY_LEVELS } from "@mandate/shared";
 
 type EvidenceDraft = CreatePipelineAssessmentPayload["evidence"][number];
 
@@ -41,13 +40,21 @@ export function AdminPipelinePage() {
   const create = useCreatePipelineAssessment();
 
   const stageDefinition = PIPELINE_STAGE_DEFINITIONS.find((d) => d.stage === stage);
+  const dataQualityDefinition = DATA_QUALITY_LEVELS.find((d) => d.level === dataQuality);
+
+  const validEvidenceRows = evidence.filter((e) => e.label && e.url);
+  const hasLegislation = includeLegislation && Boolean(legislation.title);
+  // Every assessment above stage 0 should be backed by at least one citable record (see the
+  // methodology page) — this makes that rule hard to skip by accident rather than merely advisory.
+  const missingEvidence = stage > 0 && validEvidenceRows.length === 0 && !hasLegislation;
+  const canSubmit = Boolean(jurisdictionSlug && policyAreaSlug && assessmentDate) && !missingEvidence;
 
   function updateEvidenceRow(index: number, patch: Partial<EvidenceDraft>) {
     setEvidence((rows) => rows.map((r, i) => (i === index ? { ...r, ...patch } : r)));
   }
 
   function submit() {
-    if (!jurisdictionSlug || !policyAreaSlug || !assessmentDate) return;
+    if (!canSubmit) return;
     const payload: CreatePipelineAssessmentPayload = {
       jurisdictionSlug,
       policyAreaSlug,
@@ -56,7 +63,7 @@ export function AdminPipelinePage() {
       assessmentDate,
       evidenceSummary: evidenceSummary || undefined,
       limitations: limitations || undefined,
-      evidence: evidence.filter((e) => e.label && e.url),
+      evidence: validEvidenceRows,
       legislation: includeLegislation && legislation.title ? legislation : undefined,
     };
     create.mutate(payload, {
@@ -76,6 +83,9 @@ export function AdminPipelinePage() {
         <div className="flex items-center gap-3">
           <Link to="/admin/imports" className="text-sm text-muted-foreground hover:underline">
             ← Data Imports
+          </Link>
+          <Link to="/admin/research-queue" className="text-sm text-muted-foreground hover:underline">
+            Research Queue →
           </Link>
           <Button variant="outline" size="sm" onClick={() => logout.mutate()}>
             Log out
@@ -124,7 +134,7 @@ export function AdminPipelinePage() {
           <CardContent className="space-y-2">
             {history.map((a) => (
               <div key={a.id} className="flex flex-wrap items-center gap-2 text-sm">
-                <span className="text-muted-foreground">{new Date(a.assessmentDate).toLocaleDateString()}</span>
+                <span className="text-muted-foreground">{formatUtcDate(a.assessmentDate)}</span>
                 <PipelineStageBadge stage={a.stage} label={a.stageLabel} />
                 <DataQualityBadge dataQuality={a.dataQuality} />
                 {a.isCurrent && <Badge variant="outline">Current</Badge>}
@@ -151,12 +161,13 @@ export function AdminPipelinePage() {
           </Field>
           <Field label="Data quality">
             <select value={dataQuality} onChange={(e) => setDataQuality(e.target.value)} className={selectClass}>
-              {DATA_QUALITY_OPTIONS.map((q) => (
-                <option key={q} value={q}>
-                  {q}
+              {DATA_QUALITY_LEVELS.map((q) => (
+                <option key={q.level} value={q.level}>
+                  {q.label}
                 </option>
               ))}
             </select>
+            {dataQualityDefinition && <p className="mt-1 text-xs text-muted-foreground">{dataQualityDefinition.description}</p>}
           </Field>
           <Field label="Assessment date">
             <input type="date" value={assessmentDate} onChange={(e) => setAssessmentDate(e.target.value)} className={selectClass} />
@@ -286,9 +297,12 @@ export function AdminPipelinePage() {
       </Card>
 
       <div className="mt-6 flex items-center gap-3">
-        <Button onClick={submit} disabled={!jurisdictionSlug || !policyAreaSlug || !assessmentDate || create.isPending}>
+        <Button onClick={submit} disabled={!canSubmit || create.isPending}>
           {create.isPending ? "Saving…" : "Save assessment"}
         </Button>
+        {missingEvidence && (
+          <span className="text-sm text-amber-600">Stage {stage} needs at least one evidence record or legislation citation before it can be saved.</span>
+        )}
         {create.isSuccess && <span className="text-sm text-emerald-600">Saved.</span>}
         {create.isError && <span className="text-sm text-red-500">{(create.error as Error).message}</span>}
       </div>

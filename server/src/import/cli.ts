@@ -43,7 +43,14 @@ async function main() {
   }
 
   const dryRun = Boolean(args["dry-run"]);
-  const quality = (args.quality as string) ?? "official";
+  // No default: silently falling back to a legacy label ("official" was used before the current
+  // 6-level vocabulary existed) is exactly how a new researcher would mislabel real source quality.
+  // Require an explicit, current choice every time instead.
+  const quality = args.quality as string | undefined;
+  if (!quality) {
+    console.error("Missing --quality <government|academic|alternative|estimated|unavailable|placeholder>");
+    process.exit(1);
+  }
   const categorySlug = args.category as string | undefined;
   const sourceArg = args.source as string | undefined;
   if (!sourceArg) {

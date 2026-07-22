@@ -1,6 +1,6 @@
 import { prisma } from "../db.js";
 import { toIso } from "../utils/serialize.js";
-import { PIPELINE_STAGE_LABELS } from "@mandate/shared";
+import { PIPELINE_STAGE_LABELS, DATA_QUALITY_LEVEL_SLUGS } from "@mandate/shared";
 import type { PipelineAssessment } from "@mandate/shared";
 import type { Prisma } from "@prisma/client";
 
@@ -103,6 +103,7 @@ export interface CreatePipelineAssessmentInput {
 }
 
 export class PipelineNotFoundError extends Error {}
+export class PipelineConflictError extends Error {}
 
 async function resolveSourceIdByName(name: string | null | undefined): Promise<string | null> {
   if (!name) return null;
@@ -112,10 +113,14 @@ async function resolveSourceIdByName(name: string | null | undefined): Promise<s
 }
 
 /**
- * Researcher write path: creates a new assessment (a new stage/evidence/date record), and flips any
- * previously-current assessment for the same jurisdiction+policyArea to isCurrent: false in the same
- * transaction. This is how the timeline in getPipelineAssessmentHistory() is built up over time — each
- * call adds one more point in the institutional-development history rather than overwriting it.
+ * Researcher write path: creates a new assessment (a new stage/evidence/date record). The new row only
+ * becomes `isCurrent` — and only flips the previous current row to false — if its assessmentDate is on
+ * or after the latest existing assessment for this jurisdiction+policyArea (or there is no existing
+ * assessment at all). An earlier-dated submission is a historical backfill: it's inserted into the
+ * timeline as isCurrent: false without touching whichever row is genuinely most recent. Without this
+ * check, backfilling an old milestone would incorrectly steal the "current" flag from the real current
+ * score. This is how the timeline in getPipelineAssessmentHistory() is built up over time — each call
+ * adds one more point in the institutional-development history rather than overwriting it.
  */
 export async function createPipelineAssessment(input: CreatePipelineAssessmentInput): Promise<PipelineAssessment> {
   const jurisdiction = await prisma.jurisdiction.findUnique({ where: { slug: input.jurisdictionSlug }, select: { id: true } });
@@ -127,62 +132,84 @@ export async function createPipelineAssessment(input: CreatePipelineAssessmentIn
   if (!Number.isInteger(input.stage) || input.stage < 0 || input.stage > 5) {
     throw new RangeError(`stage must be an integer 0-5, got ${input.stage}`);
   }
+  if (!DATA_QUALITY_LEVEL_SLUGS.includes(input.dataQuality)) {
+    throw new RangeError(`dataQuality must be one of ${DATA_QUALITY_LEVEL_SLUGS.join(", ")}, got "${input.dataQuality}"`);
+  }
 
   const evidenceWithSourceIds = await Promise.all(
     input.evidence.map(async (e) => ({ ...e, sourceId: await resolveSourceIdByName(e.sourceName) }))
   );
   const legislationSourceId = input.legislation ? await resolveSourceIdByName(input.legislation.sourceName) : null;
 
-  const created = await prisma.$transaction(async (tx) => {
-    await tx.pipelineAssessment.updateMany({
-      where: { jurisdictionId: jurisdiction.id, policyAreaId: policyArea.id, isCurrent: true },
-      data: { isCurrent: false },
-    });
+  let created: AssessmentRow;
+  try {
+    created = await prisma.$transaction(async (tx) => {
+      const latestExisting = await tx.pipelineAssessment.findFirst({
+        where: { jurisdictionId: jurisdiction.id, policyAreaId: policyArea.id },
+        orderBy: { assessmentDate: "desc" },
+        select: { assessmentDate: true },
+      });
+      const isCurrent = !latestExisting || input.assessmentDate >= latestExisting.assessmentDate;
 
-    return tx.pipelineAssessment.create({
-      data: {
-        jurisdictionId: jurisdiction.id,
-        policyAreaId: policyArea.id,
-        administrationId: input.administrationId ?? null,
-        stage: input.stage,
-        dataQuality: input.dataQuality,
-        assessmentDate: input.assessmentDate,
-        isCurrent: true,
-        evidenceSummary: input.evidenceSummary ?? null,
-        limitations: input.limitations ?? null,
-        isPlaceholder: false,
-        evidenceLinks: {
-          create: evidenceWithSourceIds.map((e) => ({
-            label: e.label,
-            description: e.description ?? null,
-            url: e.url,
-            evidenceType: e.evidenceType,
-            publicationDate: e.publicationDate ?? null,
-            publisher: e.publisher ?? null,
-            sourceTier: e.sourceTier ?? null,
-            sourceId: e.sourceId,
-            isPlaceholder: false,
-          })),
+      if (isCurrent) {
+        await tx.pipelineAssessment.updateMany({
+          where: { jurisdictionId: jurisdiction.id, policyAreaId: policyArea.id, isCurrent: true },
+          data: { isCurrent: false },
+        });
+      }
+
+      return tx.pipelineAssessment.create({
+        data: {
+          jurisdictionId: jurisdiction.id,
+          policyAreaId: policyArea.id,
+          administrationId: input.administrationId ?? null,
+          stage: input.stage,
+          dataQuality: input.dataQuality,
+          assessmentDate: input.assessmentDate,
+          isCurrent,
+          evidenceSummary: input.evidenceSummary ?? null,
+          limitations: input.limitations ?? null,
+          isPlaceholder: false,
+          evidenceLinks: {
+            create: evidenceWithSourceIds.map((e) => ({
+              label: e.label,
+              description: e.description ?? null,
+              url: e.url,
+              evidenceType: e.evidenceType,
+              publicationDate: e.publicationDate ?? null,
+              publisher: e.publisher ?? null,
+              sourceTier: e.sourceTier ?? null,
+              sourceId: e.sourceId,
+              isPlaceholder: false,
+            })),
+          },
+          legislation: input.legislation
+            ? {
+                create: [
+                  {
+                    title: input.legislation.title,
+                    billNumber: input.legislation.billNumber ?? null,
+                    status: input.legislation.status ?? null,
+                    dateEnacted: input.legislation.dateEnacted ?? null,
+                    url: input.legislation.url ?? null,
+                    sourceId: legislationSourceId,
+                    isPlaceholder: false,
+                  },
+                ],
+              }
+            : undefined,
         },
-        legislation: input.legislation
-          ? {
-              create: [
-                {
-                  title: input.legislation.title,
-                  billNumber: input.legislation.billNumber ?? null,
-                  status: input.legislation.status ?? null,
-                  dateEnacted: input.legislation.dateEnacted ?? null,
-                  url: input.legislation.url ?? null,
-                  sourceId: legislationSourceId,
-                  isPlaceholder: false,
-                },
-              ],
-            }
-          : undefined,
-      },
-      include: ASSESSMENT_INCLUDE,
+        include: ASSESSMENT_INCLUDE,
+      });
     });
-  });
+  } catch (err) {
+    if (err && typeof err === "object" && "code" in err && err.code === "P2002") {
+      throw new PipelineConflictError(
+        `An assessment for this jurisdiction, policy area, and exact assessment date already exists. Use a different date, or edit the existing entry directly.`
+      );
+    }
+    throw err;
+  }
 
   return mapAssessment(created);
 }

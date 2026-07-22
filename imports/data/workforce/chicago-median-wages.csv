@@ -1,0 +1,10 @@
+jurisdiction,metric,year,value,confidence,notes
+chicago,median_wages,2015,32326,high,"ACS Table B20002 (Total, both sexes), Chicago city place-level geography, 1-year estimate. Nominal (current-year) dollars, not inflation-adjusted across years."
+chicago,median_wages,2016,35317,high,"Same source/methodology as above."
+chicago,median_wages,2017,36069,high,"Same source/methodology as above."
+chicago,median_wages,2018,38778,high,"Same source/methodology as above."
+chicago,median_wages,2019,41024,high,"Same source/methodology as above."
+chicago,median_wages,2021,43752,high,"Same source/methodology as above. Margin of error +/-1,392."
+chicago,median_wages,2022,47110,high,"Same source/methodology as above."
+chicago,median_wages,2023,50657,high,"Same source/methodology as above. Margin of error +/-575."
+chicago,median_wages,2024,51881,high,"Same source/methodology as above. Cross-validated against Census Reporter's independent cache."

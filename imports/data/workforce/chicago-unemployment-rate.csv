@@ -1,0 +1,12 @@
+jurisdiction,metric,year,value,confidence,notes
+chicago,unemployment_rate,2015,6.7,high,"BLS LAUS series LAUCT171400000000003 (Chicago city, IL — not the metro area), annual average (BLS's own published M13/Annual figure, not user-averaged)."
+chicago,unemployment_rate,2016,6.3,high,"Same source/series as above."
+chicago,unemployment_rate,2017,5.2,high,"Same source/series as above."
+chicago,unemployment_rate,2018,4.2,high,"Same source/series as above."
+chicago,unemployment_rate,2019,3.9,high,"Pre-COVID low. Same source/series as above."
+chicago,unemployment_rate,2020,11.2,high,"COVID-era spike. Same source/series as above."
+chicago,unemployment_rate,2021,7.3,high,"Same source/series as above."
+chicago,unemployment_rate,2022,5.0,high,"Same source/series as above."
+chicago,unemployment_rate,2023,4.5,high,"Same source/series as above."
+chicago,unemployment_rate,2024,5.5,high,"Same source/series as above."
+chicago,unemployment_rate,2025,4.9,high,"BLS footnote: this is an 11-month average excluding October 2025, due to that month's data not being collected during the federal government shutdown. Not a full 12-month calendar-year average."
