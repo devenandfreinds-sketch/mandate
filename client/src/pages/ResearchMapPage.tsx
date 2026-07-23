@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { PageContainer } from "@/components/layout/PageContainer";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { buttonClassName } from "@/components/ui/button";
 import { CoverageBar, CoverageLegend } from "@/components/research/CoverageBar";
 import { useResearchMap } from "@/hooks/useResearchMap";
 import { formatUtcDate } from "@/lib/utils";
@@ -208,6 +209,23 @@ export function ResearchMapPage() {
               ))}
             </ul>
           )}
+        </CardContent>
+      </Card>
+
+      {/* External research network */}
+      <Card className="mt-8">
+        <CardHeader>
+          <CardTitle className="text-base">Outside Mandate's Research Organization?</CardTitle>
+        </CardHeader>
+        <CardContent className="flex flex-wrap items-center justify-between gap-3">
+          <p className="max-w-xl text-sm text-muted-foreground">
+            Professors, other researchers, practitioners, and journalists can challenge Mandate's methodology,
+            flag errors, or contribute datasets and sources. Submissions go through internal review before
+            anything changes in the knowledge base.
+          </p>
+          <Link to="/contribute" className={buttonClassName({ variant: "outline", size: "sm" })}>
+            Submit a contribution
+          </Link>
         </CardContent>
       </Card>
     </PageContainer>

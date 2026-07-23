@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { useAdminLogout } from "@/hooks/useAdminAuth";
 import { useCreateUser, useUpdateUser, useUsers } from "@/hooks/useUsers";
-import { USER_ROLES, CERTIFICATION_LEVELS } from "@mandate/shared";
+import { USER_ROLES, CERTIFICATION_LEVELS, AFFILIATIONS } from "@mandate/shared";
 import type { User } from "@mandate/shared";
 
 /**
@@ -24,6 +24,7 @@ export function AdminUsersPage() {
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [affiliation, setAffiliation] = useState("internal");
   const [role, setRole] = useState("researcher");
   const [certificationLevel, setCertificationLevel] = useState("new_researcher");
   const [error, setError] = useState<string | null>(null);
@@ -31,11 +32,12 @@ export function AdminUsersPage() {
   function handleCreate() {
     setError(null);
     createUser.mutate(
-      { name, email, role, certificationLevel },
+      { name, email, affiliation, role, certificationLevel },
       {
         onSuccess: () => {
           setName("");
           setEmail("");
+          setAffiliation("internal");
           setRole("researcher");
           setCertificationLevel("new_researcher");
         },
@@ -59,7 +61,9 @@ export function AdminUsersPage() {
       </div>
       <p className="mt-2 max-w-2xl text-sm text-muted-foreground">
         The roster of real people who can be assigned tasks, act as reviewer, or be attributed on research. This
-        is identity, not login — everyone still authenticates with the one shared admin password. See{" "}
+        is identity, not login — everyone still authenticates with the one shared admin password. Affiliation
+        (internal/external) is who they are to the organization; role is what they're capable of doing — the two
+        are independent (see docs/MANDATE_RESEARCH_NETWORK.md). See{" "}
         <Link to="/admin/research-queue" className="underline">
           the Research Queue
         </Link>{" "}
@@ -70,12 +74,25 @@ export function AdminUsersPage() {
         <CardHeader>
           <CardTitle className="text-base">Add a researcher</CardTitle>
         </CardHeader>
-        <CardContent className="grid grid-cols-1 gap-3 sm:grid-cols-4">
+        <CardContent className="grid grid-cols-1 gap-3 sm:grid-cols-5">
           <Field label="Name">
             <input value={name} onChange={(e) => setName(e.target.value)} className="w-full rounded-md border border-border bg-background px-2 py-1 text-sm" />
           </Field>
           <Field label="Email">
             <input value={email} onChange={(e) => setEmail(e.target.value)} className="w-full rounded-md border border-border bg-background px-2 py-1 text-sm" />
+          </Field>
+          <Field label="Affiliation">
+            <select
+              value={affiliation}
+              onChange={(e) => setAffiliation(e.target.value)}
+              className="w-full rounded-md border border-border bg-background px-2 py-1 text-sm"
+            >
+              {AFFILIATIONS.map((a) => (
+                <option key={a.affiliation} value={a.affiliation}>
+                  {a.label}
+                </option>
+              ))}
+            </select>
           </Field>
           <Field label="Role">
             <select value={role} onChange={(e) => setRole(e.target.value)} className="w-full rounded-md border border-border bg-background px-2 py-1 text-sm">
@@ -99,7 +116,7 @@ export function AdminUsersPage() {
               ))}
             </select>
           </Field>
-          <div className="sm:col-span-4">
+          <div className="sm:col-span-5">
             <Button size="sm" onClick={handleCreate} disabled={!name || !email || createUser.isPending}>
               {createUser.isPending ? "Adding…" : "Add researcher"}
             </Button>
@@ -117,6 +134,7 @@ export function AdminUsersPage() {
               <TableRow>
                 <TableHead>Name</TableHead>
                 <TableHead>Email</TableHead>
+                <TableHead>Affiliation</TableHead>
                 <TableHead>Role</TableHead>
                 <TableHead>Certification</TableHead>
                 <TableHead>Active</TableHead>
@@ -134,11 +152,30 @@ export function AdminUsersPage() {
   );
 }
 
-function UserRow({ user, onUpdate }: { user: User; onUpdate: (payload: { id: string; role?: string; certificationLevel?: string; isActive?: boolean }) => void }) {
+function UserRow({
+  user,
+  onUpdate,
+}: {
+  user: User;
+  onUpdate: (payload: { id: string; affiliation?: string; role?: string; certificationLevel?: string; isActive?: boolean }) => void;
+}) {
   return (
     <TableRow>
       <TableCell className="font-medium">{user.name}</TableCell>
       <TableCell className="text-sm text-muted-foreground">{user.email}</TableCell>
+      <TableCell>
+        <select
+          value={user.affiliation}
+          onChange={(e) => onUpdate({ id: user.id, affiliation: e.target.value })}
+          className="rounded-md border border-border bg-background px-2 py-1 text-xs"
+        >
+          {AFFILIATIONS.map((a) => (
+            <option key={a.affiliation} value={a.affiliation}>
+              {a.label}
+            </option>
+          ))}
+        </select>
+      </TableCell>
       <TableCell>
         <select
           value={user.role}

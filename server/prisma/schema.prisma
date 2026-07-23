@@ -21,20 +21,29 @@ model User {
   id                 String   @id @default(cuid())
   name               String
   email              String   @unique
-  role               String   @default("researcher") // researcher | reviewer | jurisdiction_lead | methodology_lead | founder
+  // Affiliation is WHO this person is to the organization (continuity vs. outside challenge);
+  // role is WHAT they're capable of doing. The two are independent -- see docs/MANDATE_RESEARCH_NETWORK.md,
+  // "The Critical Distinction". Most external contributors never get a User row at all (see
+  // ExternalContribution.contributorName/Email below, used for one-off/unaffiliated submissions);
+  // this field is for the smaller set of recurring external participants worth tracking on the roster.
+  affiliation        String   @default("internal") // internal | external
+  role               String   @default("researcher") // researcher | reviewer | jurisdiction_lead | methodology_lead | admin | advisor | practitioner | contributor
   certificationLevel String   @default("new_researcher") // new_researcher | certified_researcher | senior_researcher | research_lead | methodology_reviewer
   isActive           Boolean  @default(true)
   createdAt          DateTime @default(now())
   updatedAt          DateTime @updatedAt
 
-  assignedResearchTasks         ResearchTask[]       @relation("AssignedResearcher")
-  reviewingResearchTasks        ResearchTask[]       @relation("ReviewerOnTask")
-  researchedMetricValues        MetricValue[]        @relation("ResearchedByOnMetricValue")
-  reviewedMetricValues          MetricValue[]        @relation("ReviewedByOnMetricValue")
-  researchedPipelineAssessments PipelineAssessment[] @relation("ResearchedByOnAssessment")
-  reviewedPipelineAssessments   PipelineAssessment[] @relation("ReviewedByOnAssessment")
+  assignedResearchTasks           ResearchTask[]         @relation("AssignedResearcher")
+  reviewingResearchTasks          ResearchTask[]         @relation("ReviewerOnTask")
+  researchedMetricValues          MetricValue[]          @relation("ResearchedByOnMetricValue")
+  reviewedMetricValues            MetricValue[]          @relation("ReviewedByOnMetricValue")
+  researchedPipelineAssessments   PipelineAssessment[]   @relation("ResearchedByOnAssessment")
+  reviewedPipelineAssessments     PipelineAssessment[]   @relation("ReviewedByOnAssessment")
+  submittedExternalContributions  ExternalContribution[] @relation("ContributorOnExternalContribution")
+  reviewedExternalContributions   ExternalContribution[] @relation("ReviewerOnExternalContribution")
 
   @@index([role])
+  @@index([affiliation])
 }
 
 // =========================================================
@@ -93,11 +102,12 @@ model Jurisdiction {
   updatedAt         DateTime @updatedAt
 
   governanceModel     GovernanceModel      @relation(fields: [governanceModelId], references: [id], onDelete: Restrict)
-  administrations     Administration[]
-  metricValues        MetricValue[]
-  timelineEvents      TimelineEvent[]
-  pipelineAssessments PipelineAssessment[]
-  researchTasks       ResearchTask[]
+  administrations       Administration[]
+  metricValues          MetricValue[]
+  timelineEvents        TimelineEvent[]
+  pipelineAssessments   PipelineAssessment[]
+  researchTasks         ResearchTask[]
+  externalContributions ExternalContribution[]
 
   @@index([governanceModelId])
 }
@@ -436,6 +446,49 @@ model ResearchTask {
   @@index([jurisdictionId])
   @@index([assignedResearcherId])
   @@index([reviewerId])
+}
+
+// =========================================================
+// EXTERNAL CONTRIBUTION (lightweight submit -> internal review workflow for
+// people outside the internal research organization -- professors, other
+// researchers, practitioners, journalists. See docs/MANDATE_RESEARCH_NETWORK.md,
+// "External Contribution System". Deliberately a single flat table, not a
+// peer-review platform: one row per submission, reviewed by an internal User,
+// never auto-incorporated into production data.
+// =========================================================
+
+model ExternalContribution {
+  id String @id @default(cuid())
+
+  contributorName        String
+  contributorEmail       String?
+  contributorAffiliation String? // free text org, e.g. "NYU", "Brookings Institution" -- independent of contributorUserId below
+  contributorUserId      String? // set only if this person already has a User roster row (affiliation: external); most submitters won't
+
+  contributionType String // methodological_critique | dataset | academic_research | policy_analysis | expert_commentary | source_recommendation | data_correction | report_review
+  topic            String
+  jurisdictionId   String?
+
+  description                 String
+  evidenceUrl                 String? // link to the dataset/paper/article being submitted, if any
+  relationToExistingResearch  String? // free text: how this challenges, extends, or relates to current Mandate research
+  limitations                 String?
+
+  status      String    @default("submitted") // submitted | under_review | accepted | rejected | incorporated | cited
+  reviewerId  String?
+  reviewNotes String?
+  reviewedAt  DateTime?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  jurisdiction    Jurisdiction? @relation(fields: [jurisdictionId], references: [id], onDelete: SetNull)
+  contributorUser User?        @relation("ContributorOnExternalContribution", fields: [contributorUserId], references: [id], onDelete: SetNull)
+  reviewer        User?        @relation("ReviewerOnExternalContribution", fields: [reviewerId], references: [id], onDelete: SetNull)
+
+  @@index([status])
+  @@index([jurisdictionId])
+  @@index([contributorUserId])
 }
 
 // =========================================================

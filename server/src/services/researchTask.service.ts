@@ -69,6 +69,19 @@ export async function listResearchTasks(): Promise<ResearchTask[]> {
 export class ResearchTaskNotFoundError extends Error {}
 export class ResearchTaskStateError extends Error {}
 
+/**
+ * A person can never review/accept their own submitted research (see docs/MANDATE_RESEARCH_NETWORK.md,
+ * "Software Architecture"). There's no per-person login to enforce this at the auth layer (see
+ * docs/DECISION_OWNERSHIP.md's "Known limitation"), so this compares whichever assignedResearcherId/
+ * reviewerId the caller declares -- the same trust model every other identity field in this app
+ * already relies on. It's a data-integrity guard, not a security boundary.
+ */
+function assertNotSelfReview(assignedResearcherId: string | null | undefined, reviewerId: string | null | undefined) {
+  if (assignedResearcherId && reviewerId && assignedResearcherId === reviewerId) {
+    throw new ResearchTaskStateError("A researcher cannot review or accept their own submitted work — assign a different reviewer.");
+  }
+}
+
 export interface UpdateResearchTaskInput {
   status?: string;
   assignedResearcher?: string | null;
@@ -103,6 +116,11 @@ export async function updateResearchTask(id: string, input: UpdateResearchTaskIn
 
   const existing = await prisma.researchTask.findUnique({ where: { id } });
   if (!existing) throw new ResearchTaskNotFoundError(`Research task "${id}" not found`);
+
+  assertNotSelfReview(
+    input.assignedResearcherId !== undefined ? input.assignedResearcherId : existing.assignedResearcherId,
+    input.reviewerId !== undefined ? input.reviewerId : existing.reviewerId
+  );
 
   const updated = await prisma.researchTask.update({
     where: { id },
@@ -142,6 +160,7 @@ export async function acceptResearchTask(id: string, reviewerId?: string | null)
   if (existing.status !== "awaiting_review") {
     throw new ResearchTaskStateError(`Only a task with status "awaiting_review" can be accepted (this task is "${existing.status}").`);
   }
+  assertNotSelfReview(existing.assignedResearcherId, reviewerId ?? existing.reviewerId);
 
   const updated = await prisma.researchTask.update({
     where: { id },
@@ -162,6 +181,7 @@ export async function requestRevision(id: string, reviewerId?: string | null, re
   if (existing.status !== "awaiting_review") {
     throw new ResearchTaskStateError(`Only a task with status "awaiting_review" can have revisions requested (this task is "${existing.status}").`);
   }
+  assertNotSelfReview(existing.assignedResearcherId, reviewerId ?? existing.reviewerId);
 
   const updated = await prisma.researchTask.update({
     where: { id },

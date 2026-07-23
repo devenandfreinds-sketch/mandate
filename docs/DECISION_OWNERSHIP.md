@@ -71,14 +71,20 @@ governs what's available in the admin UI in spirit, not by server-enforced permi
 above) — treat it as binding team policy, the same way "never delete production data without founder
 sign-off" in `CONTRIBUTING.md` is binding despite not being a database constraint.
 
-| Decision | researcher | reviewer | jurisdiction_lead | methodology_lead | founder |
+The `founder` column below is the same `role: admin` value described in
+`docs/MANDATE_RESEARCH_NETWORK.md`, §8 — "founder" and "founding team member" are organizational
+titles, not distinct system roles. Affiliation (internal/external) is a separate dimension from role
+and doesn't appear in this matrix; see `docs/MANDATE_RESEARCH_NETWORK.md`, §3–4 for that distinction
+and how external advisors/practitioners/contributors fit in.
+
+| Decision | researcher | reviewer | jurisdiction_lead | methodology_lead | founder (`role: admin`) |
 |---|---|---|---|---|---|
 | Pick up an unassigned task | ✅ Autonomous | ✅ Autonomous | ✅ Autonomous | ✅ Autonomous | ✅ Autonomous |
 | Select a source within the existing hierarchy | ✅ Autonomous | ✅ Autonomous | ✅ Autonomous | ✅ Autonomous | ✅ Autonomous |
 | Document limitations / uncertainty | ✅ Autonomous | ✅ Autonomous | ✅ Autonomous | ✅ Autonomous | ✅ Autonomous |
 | Propose a pipeline stage / data-quality label for a task they researched | ✅ Autonomous | ✅ Autonomous | ✅ Autonomous | ✅ Autonomous | ✅ Autonomous |
 | Mark their own task `awaiting_review` | ✅ Autonomous | ✅ Autonomous | ✅ Autonomous | ✅ Autonomous | ✅ Autonomous |
-| Review someone else's submitted work, request changes or approve | ❌ Not their own work | ✅ Autonomous | ✅ Autonomous (within their jurisdiction) | ✅ Autonomous | ✅ Autonomous |
+| Review someone else's submitted work, request changes or approve | ❌ Not their own work | ✅ Autonomous | ✅ Autonomous (within their jurisdiction) | ✅ Autonomous | ✅ Autonomous — but never their own work either (server-enforced, see `researchTask.service.ts`'s self-review guard) |
 | Reassign a task between researchers | ❌ | ⚠️ Own reviewees only | ✅ Autonomous (within their jurisdiction) | ⚠️ Methodology tasks only | ✅ Autonomous |
 | Add a new Source Registry entry | ❌ Request via task/notes | ❌ Request via task/notes | ⚠️ Escalate to engineering | ⚠️ Escalate to engineering | ✅ Autonomous |
 | Identify a research gap / stale data and open a new task | ✅ Autonomous | ✅ Autonomous | ✅ Autonomous | ✅ Autonomous | ✅ Autonomous |
@@ -89,6 +95,7 @@ sign-off" in `CONTRIBUTING.md` is binding despite not being a database constrain
 | Edit another jurisdiction's research | ❌ | ❌ Unless assigned as reviewer there | ❌ Outside their own jurisdiction(s) | ✅ For methodology-conformance fixes only | ✅ Autonomous |
 | Expand into a new city / new governance model | ❌ | ❌ | ❌ Propose it | ⚠️ Weigh in on methodology fit | ✅ Autonomous |
 | Recruit a jurisdiction_lead / methodology_lead | ❌ | ❌ | ❌ | ❌ | ✅ Autonomous |
+| Decide whether an external contribution is accepted / incorporated / cited | ❌ | ⚠️ First read, escalate the decision | ⚠️ Within their jurisdiction | ✅ For methodology critiques | ✅ Autonomous |
 
 Legend: ✅ Autonomous = no sign-off needed. ⚠️ = conditional/limited scope, described in the cell. ❌ = not
 this role's call; escalate per the "Founder decisions" / "Research team decisions" sections above.

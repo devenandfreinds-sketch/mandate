@@ -11,11 +11,43 @@ export interface UserRoleOption {
 }
 
 /**
+ * AFFILIATION is WHO this person is to the organization; ROLE (below) is WHAT they're capable of
+ * doing. The two are independent dimensions, not one permission level -- see
+ * docs/MANDATE_RESEARCH_NETWORK.md, "The Critical Distinction". Do not infer one from the other:
+ * an external advisor can hold the same "researcher" or "reviewer" role an internal person can.
+ */
+export interface AffiliationOption {
+  affiliation: string;
+  label: string;
+  description: string;
+}
+
+export const AFFILIATIONS: AffiliationOption[] = [
+  {
+    affiliation: "internal",
+    label: "Internal",
+    description: "Part of Mandate's research organization: builds and maintains institutional memory under the shared methodology.",
+  },
+  {
+    affiliation: "external",
+    label: "External",
+    description: "Outside the organization: professors, other universities, think tanks, practitioners, journalists. Expands, challenges, and enriches institutional memory, but their contributions don't become authoritative data until internally reviewed.",
+  },
+];
+
+export const AFFILIATION_SLUGS = AFFILIATIONS.map((a) => a.affiliation);
+
+/**
  * See the decision-rights matrix in docs/MANDATE_OPERATING_SYSTEM.md for exactly what each role
  * may and may not do unilaterally. Role is about DECISION AUTHORITY (what you're allowed to
  * decide); certificationLevel (below) is about DEMONSTRATED SKILL (how much has been proven).
  * They're independent -- a jurisdiction_lead is still a "new_researcher" on certification until
  * they've actually completed and had reviewed several tasks.
+ *
+ * researcher/reviewer/jurisdiction_lead/methodology_lead/admin are typically internal; advisor/
+ * practitioner/contributor are typically external -- but affiliation is a separate field and
+ * nothing here enforces that pairing. A person can never accept/review their own submitted work
+ * regardless of role (see researchTask.service.ts's self-review guard).
  */
 export const USER_ROLES: UserRoleOption[] = [
   {
@@ -31,7 +63,7 @@ export const USER_ROLES: UserRoleOption[] = [
   {
     role: "jurisdiction_lead",
     label: "Jurisdiction Lead",
-    description: "Owns a city/jurisdiction's research coverage: coordinates researchers, identifies gaps, monitors staleness, without needing founder approval for routine work.",
+    description: "Owns a city/jurisdiction's research coverage: coordinates researchers, identifies gaps, monitors staleness, without needing admin approval for routine work.",
   },
   {
     role: "methodology_lead",
@@ -39,9 +71,25 @@ export const USER_ROLES: UserRoleOption[] = [
     description: "Maintains Mandate's definitions and scoring rubric, approves methodology version changes, resolves methodological disputes.",
   },
   {
-    role: "founder",
-    label: "Founder",
-    description: "Sets strategic direction, recruits leaders, resolves disputes escalated past a methodology lead, periodically audits the institution.",
+    role: "admin",
+    label: "Admin",
+    description:
+      "Full research and administrative capability: founders and founding team members. Sets strategic direction, recruits leaders, resolves disputes escalated past a methodology lead, can conduct/review/manage research across the whole roster -- but still can never accept their own submitted work.",
+  },
+  {
+    role: "advisor",
+    label: "Advisor",
+    description: "Typically a professor or subject-matter expert: provides expert commentary, critiques methodology, reviews reports on request. Not part of the internal review chain.",
+  },
+  {
+    role: "practitioner",
+    label: "Practitioner",
+    description: "A municipal practitioner or domain expert who contributes ground-level context, flags errors, or reviews reports from lived experience.",
+  },
+  {
+    role: "contributor",
+    label: "Contributor",
+    description: "An independent analyst, journalist, or other outside participant who submits datasets, corrections, or source recommendations through the external contribution workflow.",
   },
 ];
 
@@ -94,6 +142,7 @@ export interface User {
   id: string;
   name: string;
   email: string;
+  affiliation: string;
   role: string;
   certificationLevel: string;
   isActive: boolean;

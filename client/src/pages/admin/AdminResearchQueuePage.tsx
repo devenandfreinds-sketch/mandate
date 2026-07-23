@@ -94,6 +94,9 @@ export function AdminResearchQueuePage() {
           <Link to="/admin/users" className="text-sm text-muted-foreground hover:underline">
             Researchers
           </Link>
+          <Link to="/admin/external-contributions" className="text-sm text-muted-foreground hover:underline">
+            External Contributions
+          </Link>
           <Button variant="outline" size="sm" onClick={() => logout.mutate()}>
             Log out
           </Button>

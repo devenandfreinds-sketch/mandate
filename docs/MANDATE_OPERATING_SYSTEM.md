@@ -146,10 +146,14 @@ knowledge:
    demonstrated accuracy/rigor/consistency on reviewed work, never by university prestige or tenure.
    Recorded on `User.certificationLevel`, changed via `/admin/users`.
 3. **Leadership**: a `jurisdiction_lead` owns a city's research coverage day-to-day (§6); a
-   `methodology_lead` owns the rubric itself (§8). Both are founder-granted `User.role` values, not
+   `methodology_lead` owns the rubric itself (§8). Both are admin-granted `User.role` values, not
    emergent from certification level alone (a very senior researcher isn't automatically a lead — that's
    a distinct, deliberate decision, per `docs/DECISION_OWNERSHIP.md`).
 4. **Offboarding**: see §10.
+5. **Affiliation is separate from all of the above.** Everything in this lifecycle describes internal
+   researchers. `docs/MANDATE_RESEARCH_NETWORK.md` covers the parallel external research network
+   (professors, other universities, practitioners) and the `User.affiliation` field (internal/external)
+   that's independent of `role`.
 
 ## 6. Central methodology, local context — how jurisdiction teams work technically
 

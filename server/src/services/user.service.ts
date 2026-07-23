@@ -1,6 +1,6 @@
 import { prisma } from "../db.js";
 import { toIso } from "../utils/serialize.js";
-import { USER_ROLE_SLUGS, CERTIFICATION_LEVEL_SLUGS } from "@mandate/shared";
+import { USER_ROLE_SLUGS, CERTIFICATION_LEVEL_SLUGS, AFFILIATION_SLUGS } from "@mandate/shared";
 import type { User } from "@mandate/shared";
 
 export class UserNotFoundError extends Error {}
@@ -10,6 +10,7 @@ function mapUser(u: {
   id: string;
   name: string;
   email: string;
+  affiliation: string;
   role: string;
   certificationLevel: string;
   isActive: boolean;
@@ -20,6 +21,7 @@ function mapUser(u: {
     id: u.id,
     name: u.name,
     email: u.email,
+    affiliation: u.affiliation,
     role: u.role,
     certificationLevel: u.certificationLevel,
     isActive: u.isActive,
@@ -37,6 +39,7 @@ export async function listUsers(): Promise<User[]> {
 export interface CreateUserInput {
   name: string;
   email: string;
+  affiliation?: string;
   role?: string;
   certificationLevel?: string;
 }
@@ -44,6 +47,9 @@ export interface CreateUserInput {
 export async function createUser(input: CreateUserInput): Promise<User> {
   if (!input.name.trim()) throw new RangeError("name is required");
   if (!input.email.trim()) throw new RangeError("email is required");
+  if (input.affiliation !== undefined && !AFFILIATION_SLUGS.includes(input.affiliation)) {
+    throw new RangeError(`affiliation must be one of ${AFFILIATION_SLUGS.join(", ")}, got "${input.affiliation}"`);
+  }
   if (input.role !== undefined && !USER_ROLE_SLUGS.includes(input.role)) {
     throw new RangeError(`role must be one of ${USER_ROLE_SLUGS.join(", ")}, got "${input.role}"`);
   }
@@ -56,6 +62,7 @@ export async function createUser(input: CreateUserInput): Promise<User> {
       data: {
         name: input.name.trim(),
         email: input.email.trim().toLowerCase(),
+        affiliation: input.affiliation ?? "internal",
         role: input.role ?? "researcher",
         certificationLevel: input.certificationLevel ?? "new_researcher",
       },
@@ -71,12 +78,16 @@ export async function createUser(input: CreateUserInput): Promise<User> {
 
 export interface UpdateUserInput {
   name?: string;
+  affiliation?: string;
   role?: string;
   certificationLevel?: string;
   isActive?: boolean;
 }
 
 export async function updateUser(id: string, input: UpdateUserInput): Promise<User> {
+  if (input.affiliation !== undefined && !AFFILIATION_SLUGS.includes(input.affiliation)) {
+    throw new RangeError(`affiliation must be one of ${AFFILIATION_SLUGS.join(", ")}, got "${input.affiliation}"`);
+  }
   if (input.role !== undefined && !USER_ROLE_SLUGS.includes(input.role)) {
     throw new RangeError(`role must be one of ${USER_ROLE_SLUGS.join(", ")}, got "${input.role}"`);
   }
@@ -91,6 +102,7 @@ export async function updateUser(id: string, input: UpdateUserInput): Promise<Us
     where: { id },
     data: {
       name: input.name,
+      affiliation: input.affiliation,
       role: input.role,
       certificationLevel: input.certificationLevel,
       isActive: input.isActive,

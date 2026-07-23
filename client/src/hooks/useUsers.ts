@@ -12,6 +12,7 @@ export function useUsers() {
 export interface CreateUserPayload {
   name: string;
   email: string;
+  affiliation?: string;
   role?: string;
   certificationLevel?: string;
 }
@@ -27,6 +28,7 @@ export function useCreateUser() {
 export interface UpdateUserPayload {
   id: string;
   name?: string;
+  affiliation?: string;
   role?: string;
   certificationLevel?: string;
   isActive?: boolean;

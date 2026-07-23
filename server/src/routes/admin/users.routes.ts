@@ -26,12 +26,18 @@ adminUsersRouter.get(
 adminUsersRouter.post(
   "/",
   asyncHandler(async (req, res) => {
-    const body = req.body as { name?: string; email?: string; role?: string; certificationLevel?: string };
+    const body = req.body as { name?: string; email?: string; affiliation?: string; role?: string; certificationLevel?: string };
     if (!body.name) throw ApiError.badRequest('Missing "name"');
     if (!body.email) throw ApiError.badRequest('Missing "email"');
 
     try {
-      const data = await userService.createUser({ name: body.name, email: body.email, role: body.role, certificationLevel: body.certificationLevel });
+      const data = await userService.createUser({
+        name: body.name,
+        email: body.email,
+        affiliation: body.affiliation,
+        role: body.role,
+        certificationLevel: body.certificationLevel,
+      });
       res.status(201).json({ data });
     } catch (err) {
       if (err instanceof UserConflictError) throw ApiError.badRequest(err.message);
@@ -44,7 +50,7 @@ adminUsersRouter.post(
 adminUsersRouter.patch(
   "/:id",
   asyncHandler(async (req, res) => {
-    const body = req.body as { name?: string; role?: string; certificationLevel?: string; isActive?: boolean };
+    const body = req.body as { name?: string; affiliation?: string; role?: string; certificationLevel?: string; isActive?: boolean };
     try {
       const data = await userService.updateUser(req.params.id, body);
       res.json({ data });
