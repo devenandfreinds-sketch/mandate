@@ -2,7 +2,7 @@ import { Router } from "express";
 import bcrypt from "bcryptjs";
 import { asyncHandler } from "../../middleware/asyncHandler.js";
 import { ApiError } from "../../middleware/errorHandler.js";
-import { clearAdminCookie, isAdminRequest, issueAdminToken, setAdminCookie } from "../../middleware/adminAuth.js";
+import { isAdminRequest, issueAdminToken } from "../../middleware/adminAuth.js";
 
 export const adminAuthRouter = Router();
 
@@ -15,13 +15,16 @@ adminAuthRouter.post(
     if (!password || !bcrypt.compareSync(password, hash)) {
       throw new ApiError(401, "Incorrect password", "invalid_credentials");
     }
-    setAdminCookie(res, issueAdminToken());
-    res.json({ data: { authenticated: true } });
+    // Returned in the body, not set as a cookie -- see middleware/adminAuth.ts for why. The client
+    // stores it and sends it back as an Authorization: Bearer header on every subsequent request.
+    res.json({ data: { authenticated: true, token: issueAdminToken() } });
   })
 );
 
+// Logout is client-side only now (the client just discards its stored token) -- the JWT itself is
+// stateless, so there's nothing for the server to invalidate. Kept as a no-op endpoint for API
+// shape continuity with useAdminLogout(), which still calls it before clearing the local token.
 adminAuthRouter.post("/logout", (_req, res) => {
-  clearAdminCookie(res);
   res.json({ data: { authenticated: false } });
 });
 

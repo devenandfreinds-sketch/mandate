@@ -1,6 +1,5 @@
 import express from "express";
 import cors from "cors";
-import cookieParser from "cookie-parser";
 import path from "node:path";
 import { existsSync } from "node:fs";
 import { fileURLToPath } from "node:url";
@@ -13,8 +12,9 @@ export function createApp() {
   const app = express();
   // CLIENT_URL restricts CORS to the deployed client's origin when set (recommended in production,
   // e.g. a separate Railway service). Falls back to reflecting any origin for local/single-service use.
+  // credentials: true is no longer required for auth (bearer token, not a cookie -- see
+  // middleware/adminAuth.ts) but is harmless to leave for any future cookie-based use.
   app.use(cors({ origin: process.env.CLIENT_URL || true, credentials: true }));
-  app.use(cookieParser());
   app.use(express.json());
 
   app.get("/health", (_req, res) => {

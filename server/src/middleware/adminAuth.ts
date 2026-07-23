@@ -2,7 +2,6 @@ import type { NextFunction, Request, Response } from "express";
 import jwt from "jsonwebtoken";
 import { ApiError } from "./errorHandler.js";
 
-const COOKIE_NAME = "mandate_admin_session";
 const TOKEN_TTL = "12h";
 
 function getSessionSecret(): string {
@@ -15,27 +14,17 @@ export function issueAdminToken(): string {
   return jwt.sign({ role: "admin" }, getSessionSecret(), { expiresIn: TOKEN_TTL });
 }
 
-export function setAdminCookie(res: Response, token: string) {
-  const isProduction = process.env.NODE_ENV === "production";
-  res.cookie(COOKIE_NAME, token, {
-    httpOnly: true,
-    // Client and server are typically separate origins in production (e.g. two Railway services),
-    // which requires SameSite=None (and Secure, which browsers mandate alongside it) for the cookie
-    // to be sent on cross-origin fetches. Locally, client and server share an origin via the Vite
-    // proxy, where Lax is safer and sufficient.
-    sameSite: isProduction ? "none" : "lax",
-    secure: isProduction,
-    maxAge: 12 * 60 * 60 * 1000,
-  });
-}
-
-export function clearAdminCookie(res: Response) {
-  res.clearCookie(COOKIE_NAME);
-}
-
+/**
+ * Auth is a bearer token, not a cookie -- see client/src/lib/api.ts for why. Railway registers
+ * *.up.railway.app on the public suffix list, so the client and server (two separate Railway
+ * services) count as fully separate "sites" to a browser, making a session cookie a genuine
+ * third-party cookie that Safari/Firefox block by default regardless of SameSite/Secure flags. A
+ * bearer token in an Authorization header sidesteps that entirely.
+ */
 export function isAdminRequest(req: Request): boolean {
-  const token = req.cookies?.[COOKIE_NAME];
-  if (!token) return false;
+  const header = req.headers.authorization;
+  if (!header?.startsWith("Bearer ")) return false;
+  const token = header.slice("Bearer ".length);
   try {
     jwt.verify(token, getSessionSecret());
     return true;
