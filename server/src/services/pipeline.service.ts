@@ -1,6 +1,6 @@
 import { prisma } from "../db.js";
 import { toIso } from "../utils/serialize.js";
-import { PIPELINE_STAGE_LABELS, DATA_QUALITY_LEVEL_SLUGS } from "@mandate/shared";
+import { PIPELINE_STAGE_LABELS, DATA_QUALITY_LEVEL_SLUGS, CURRENT_METHODOLOGY_VERSION } from "@mandate/shared";
 import type { PipelineAssessment } from "@mandate/shared";
 import type { Prisma } from "@prisma/client";
 
@@ -9,6 +9,8 @@ const ASSESSMENT_INCLUDE = {
   policyArea: { include: { category: { select: { slug: true, name: true } } } },
   legislation: true,
   evidenceLinks: true,
+  researchedBy: { select: { id: true, name: true } },
+  reviewedBy: { select: { id: true, name: true } },
 } satisfies Prisma.PipelineAssessmentInclude;
 
 type AssessmentRow = Prisma.PipelineAssessmentGetPayload<{ include: typeof ASSESSMENT_INCLUDE }>;
@@ -57,6 +59,13 @@ function mapAssessment(a: AssessmentRow): PipelineAssessment {
       sourceId: e.sourceId,
       isPlaceholder: e.isPlaceholder,
     })),
+    researchedById: a.researchedById,
+    researchedByName: a.researchedBy?.name ?? null,
+    reviewedById: a.reviewedById,
+    reviewedByName: a.reviewedBy?.name ?? null,
+    reviewedAt: toIso(a.reviewedAt),
+    methodologyVersion: a.methodologyVersion,
+    nextReviewDate: toIso(a.nextReviewDate),
   };
 }
 
@@ -82,6 +91,11 @@ export interface CreatePipelineAssessmentInput {
   administrationId?: string | null;
   evidenceSummary?: string | null;
   limitations?: string | null;
+  researchedById?: string | null;
+  reviewedById?: string | null;
+  reviewedAt?: Date | null;
+  methodologyVersion?: string | null;
+  nextReviewDate?: Date | null;
   evidence: Array<{
     evidenceType: string;
     label: string;
@@ -170,6 +184,11 @@ export async function createPipelineAssessment(input: CreatePipelineAssessmentIn
           evidenceSummary: input.evidenceSummary ?? null,
           limitations: input.limitations ?? null,
           isPlaceholder: false,
+          researchedById: input.researchedById ?? null,
+          reviewedById: input.reviewedById ?? null,
+          reviewedAt: input.reviewedAt ?? null,
+          methodologyVersion: input.methodologyVersion ?? CURRENT_METHODOLOGY_VERSION,
+          nextReviewDate: input.nextReviewDate ?? null,
           evidenceLinks: {
             create: evidenceWithSourceIds.map((e) => ({
               label: e.label,

@@ -119,6 +119,19 @@ export function PipelineDetailPage() {
             {current.limitations ?? "No known limitations documented for this assessment yet."}
           </CardContent>
         </Card>
+
+        <Card className="sm:col-span-2">
+          <CardHeader>
+            <CardTitle className="text-base">Research Passport</CardTitle>
+          </CardHeader>
+          <CardContent className="grid gap-x-6 gap-y-1 text-sm text-muted-foreground sm:grid-cols-2">
+            <div>Researched by: {current.researchedByName ?? "Not recorded"}</div>
+            <div>Reviewed by: {current.reviewedByName ?? "Not yet reviewed"}</div>
+            <div>Reviewed at: {current.reviewedAt ? formatDate(current.reviewedAt) : "Not yet reviewed"}</div>
+            <div>Methodology version: {current.methodologyVersion ?? "Not recorded"}</div>
+            <div className="sm:col-span-2">Next scheduled review: {current.nextReviewDate ? formatDate(current.nextReviewDate) : "Not yet scheduled"}</div>
+          </CardContent>
+        </Card>
       </section>
     </PageContainer>
   );

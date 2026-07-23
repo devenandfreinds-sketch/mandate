@@ -201,4 +201,12 @@ export interface PipelineAssessment {
   isPlaceholder: boolean;
   legislation: SupportingLegislation[];
   evidenceLinks: EvidenceLink[];
+  /** Research Passport fields — see docs/MANDATE_OPERATING_SYSTEM.md. Null means "not yet captured," not an error. */
+  researchedById: string | null;
+  researchedByName: string | null;
+  reviewedById: string | null;
+  reviewedByName: string | null;
+  reviewedAt: string | null;
+  methodologyVersion: string | null;
+  nextReviewDate: string | null;
 }

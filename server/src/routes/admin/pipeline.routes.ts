@@ -24,6 +24,11 @@ adminPipelineRouter.post(
       administrationId?: string | null;
       evidenceSummary?: string | null;
       limitations?: string | null;
+      researchedById?: string | null;
+      reviewedById?: string | null;
+      reviewedAt?: string | null;
+      methodologyVersion?: string | null;
+      nextReviewDate?: string | null;
       evidence?: Array<{
         evidenceType: string;
         label: string;
@@ -60,6 +65,11 @@ adminPipelineRouter.post(
         administrationId: body.administrationId ?? null,
         evidenceSummary: body.evidenceSummary ?? null,
         limitations: body.limitations ?? null,
+        researchedById: body.researchedById ?? null,
+        reviewedById: body.reviewedById ?? null,
+        reviewedAt: body.reviewedAt ? new Date(body.reviewedAt) : null,
+        methodologyVersion: body.methodologyVersion ?? null,
+        nextReviewDate: body.nextReviewDate ? new Date(body.nextReviewDate) : null,
         evidence: (body.evidence ?? []).map((e) => ({
           ...e,
           publicationDate: e.publicationDate ? new Date(e.publicationDate) : null,

@@ -10,6 +10,8 @@ export interface CreatePipelineAssessmentPayload {
   assessmentDate: string;
   evidenceSummary?: string;
   limitations?: string;
+  researchedById?: string;
+  nextReviewDate?: string;
   evidence: Array<{
     evidenceType: string;
     label: string;

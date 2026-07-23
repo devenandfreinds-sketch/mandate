@@ -53,6 +53,12 @@ export interface MetricValue {
   ingestionMethod: IngestionMethod | string;
   dataQuality: DataQuality | string;
   isPlaceholder: boolean;
+  /** Research Passport fields — see docs/MANDATE_OPERATING_SYSTEM.md. Null means "not yet captured," not an error. */
+  researchedById: string | null;
+  reviewedById: string | null;
+  reviewedAt: string | null;
+  methodologyVersion: string | null;
+  nextReviewDate: string | null;
 }
 
 export interface MetricSeries {

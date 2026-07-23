@@ -55,8 +55,40 @@ make explicitly, not something that should drift by default.
 ## Known limitation this creates
 
 There is currently one shared admin login for the whole team (see `docs/FOUNDER_HANDOFF_CHECKLIST.md`
-and the Engineering Safety Audit) — so "who reviewed this" and "who submitted this" both rely on the
-free-text `assignedResearcher` field on a Research Queue task and on researchers' own honesty/diligence
-in filling it in, not on real authentication. This is an acceptable tradeoff for a 2-3 person team but
-would need real per-researcher accounts before scaling further — that's a founder-level product decision
-(see "Founder decisions" above), not something to build reactively.
+and the Engineering Safety Audit) — so authentication itself doesn't distinguish individuals. A `User`
+model now exists (see `docs/MANDATE_OPERATING_SYSTEM.md`, "User model") that gives real per-person
+attribution on ResearchTask/PipelineAssessment/MetricValue rows — a researcher, reviewer, or jurisdiction
+lead is a real database row with a name and role, not just a free-text string — but it is identity, not
+login. Everyone still authenticates with the one shared admin password; a User row records WHO is acting,
+it doesn't grant or restrict WHAT they can do at the HTTP layer. Real per-person login (so the decision
+rights below are enforced by the server, not just by convention and the honor system) remains a
+founder-level product decision, not something to build reactively.
+
+## Formal decision-rights matrix
+
+This is the granular version of the three-way split above, once a `User.role` exists to hang it on. It
+governs what's available in the admin UI in spirit, not by server-enforced permission (see the limitation
+above) — treat it as binding team policy, the same way "never delete production data without founder
+sign-off" in `CONTRIBUTING.md` is binding despite not being a database constraint.
+
+| Decision | researcher | reviewer | jurisdiction_lead | methodology_lead | founder |
+|---|---|---|---|---|---|
+| Pick up an unassigned task | ✅ Autonomous | ✅ Autonomous | ✅ Autonomous | ✅ Autonomous | ✅ Autonomous |
+| Select a source within the existing hierarchy | ✅ Autonomous | ✅ Autonomous | ✅ Autonomous | ✅ Autonomous | ✅ Autonomous |
+| Document limitations / uncertainty | ✅ Autonomous | ✅ Autonomous | ✅ Autonomous | ✅ Autonomous | ✅ Autonomous |
+| Propose a pipeline stage / data-quality label for a task they researched | ✅ Autonomous | ✅ Autonomous | ✅ Autonomous | ✅ Autonomous | ✅ Autonomous |
+| Mark their own task `awaiting_review` | ✅ Autonomous | ✅ Autonomous | ✅ Autonomous | ✅ Autonomous | ✅ Autonomous |
+| Review someone else's submitted work, request changes or approve | ❌ Not their own work | ✅ Autonomous | ✅ Autonomous (within their jurisdiction) | ✅ Autonomous | ✅ Autonomous |
+| Reassign a task between researchers | ❌ | ⚠️ Own reviewees only | ✅ Autonomous (within their jurisdiction) | ⚠️ Methodology tasks only | ✅ Autonomous |
+| Add a new Source Registry entry | ❌ Request via task/notes | ❌ Request via task/notes | ⚠️ Escalate to engineering | ⚠️ Escalate to engineering | ✅ Autonomous |
+| Identify a research gap / stale data and open a new task | ✅ Autonomous | ✅ Autonomous | ✅ Autonomous | ✅ Autonomous | ✅ Autonomous |
+| Change a PolicyArea's or MetricDefinition's global scope/taxonomy | ❌ | ❌ | ❌ Flag it, don't silently do it | ✅ Autonomous | ✅ Autonomous |
+| Change the Institutional Pipeline stage rubric or data-quality vocabulary itself | ❌ | ❌ | ❌ | ✅ Autonomous (bump `METHODOLOGY_VERSIONS`) | ✅ Autonomous |
+| Resolve a methodological dispute between two researchers | ❌ Escalate | ⚠️ First attempt | ⚠️ First attempt (their jurisdiction) | ✅ Autonomous | ✅ Escalation of last resort |
+| Overwrite/alter an already-`isCurrent` assessment's history in place | ❌ Never — add a new dated row instead | ❌ Never | ❌ Never | ❌ Never (same append-only rule applies to everyone) | ❌ Never (see `pipeline.service.ts`) |
+| Edit another jurisdiction's research | ❌ | ❌ Unless assigned as reviewer there | ❌ Outside their own jurisdiction(s) | ✅ For methodology-conformance fixes only | ✅ Autonomous |
+| Expand into a new city / new governance model | ❌ | ❌ | ❌ Propose it | ⚠️ Weigh in on methodology fit | ✅ Autonomous |
+| Recruit a jurisdiction_lead / methodology_lead | ❌ | ❌ | ❌ | ❌ | ✅ Autonomous |
+
+Legend: ✅ Autonomous = no sign-off needed. ⚠️ = conditional/limited scope, described in the cell. ❌ = not
+this role's call; escalate per the "Founder decisions" / "Research team decisions" sections above.

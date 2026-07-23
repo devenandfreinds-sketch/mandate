@@ -8,6 +8,36 @@ datasource db {
 }
 
 // =========================================================
+// RESEARCHER IDENTITY (minimal, deliberately not a full account/login system
+// per person — see docs/MANDATE_OPERATING_SYSTEM.md). Exists to give
+// attribution, review-routing, and the researcher certification ladder a
+// real foreign key to point at, instead of the free-text
+// ResearchTask.assignedResearcher string. Authentication itself is still the
+// single shared admin credential (server/src/middleware/adminAuth.ts) --
+// a User row identifies WHO is acting, not a separate login/password.
+// =========================================================
+
+model User {
+  id                 String   @id @default(cuid())
+  name               String
+  email              String   @unique
+  role               String   @default("researcher") // researcher | reviewer | jurisdiction_lead | methodology_lead | founder
+  certificationLevel String   @default("new_researcher") // new_researcher | certified_researcher | senior_researcher | research_lead | methodology_reviewer
+  isActive           Boolean  @default(true)
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+
+  assignedResearchTasks         ResearchTask[]       @relation("AssignedResearcher")
+  reviewingResearchTasks        ResearchTask[]       @relation("ReviewerOnTask")
+  researchedMetricValues        MetricValue[]        @relation("ResearchedByOnMetricValue")
+  reviewedMetricValues          MetricValue[]        @relation("ReviewedByOnMetricValue")
+  researchedPipelineAssessments PipelineAssessment[] @relation("ResearchedByOnAssessment")
+  reviewedPipelineAssessments   PipelineAssessment[] @relation("ReviewedByOnAssessment")
+
+  @@index([role])
+}
+
+// =========================================================
 // CORE HIERARCHY: GovernanceModel -> Jurisdiction -> Administration
 // =========================================================
 
@@ -62,7 +92,7 @@ model Jurisdiction {
   createdAt         DateTime @default(now())
   updatedAt         DateTime @updatedAt
 
-  governanceModel     GovernanceModel       @relation(fields: [governanceModelId], references: [id], onDelete: Restrict)
+  governanceModel     GovernanceModel      @relation(fields: [governanceModelId], references: [id], onDelete: Restrict)
   administrations     Administration[]
   metricValues        MetricValue[]
   timelineEvents      TimelineEvent[]
@@ -147,8 +177,8 @@ model MetricDefinition {
   limitations       String? // free text: known limitations of this metric
   primarySourceId   String? // canonical Source shown on the metric detail page
 
-  category      Category      @relation(fields: [categoryId], references: [id], onDelete: Restrict)
-  primarySource Source?       @relation(fields: [primarySourceId], references: [id], onDelete: SetNull)
+  category      Category       @relation(fields: [categoryId], references: [id], onDelete: Restrict)
+  primarySource Source?        @relation(fields: [primarySourceId], references: [id], onDelete: SetNull)
   metricValues  MetricValue[]
   researchTasks ResearchTask[]
 
@@ -157,7 +187,7 @@ model MetricDefinition {
 }
 
 model MetricValue {
-  id                 String    @id @default(cuid())
+  id                 String   @id @default(cuid())
   metricDefinitionId String
   jurisdictionId     String
   administrationId   String?
@@ -166,24 +196,37 @@ model MetricValue {
   periodStart        DateTime
   periodEnd          DateTime
   periodLabel        String // "2019", "2019-Q3", display convenience
-  value              Decimal   @db.Decimal(16, 4)
+  value              Decimal  @db.Decimal(16, 4)
   confidence         String? // "high" | "estimated" | "modeled"
   notes              String?
-  ingestionMethod    String    @default("seed") // "seed" | "csv" | "api" | "manual"
-  dataQuality        String    @default("placeholder") // government|academic|alternative|estimated|unavailable|placeholder ("official" is a legacy value on old rows only — never used for new data, see shared/src/types/pipeline.ts::DATA_QUALITY_LEVELS)
-  isPlaceholder      Boolean   @default(true)
-  createdAt          DateTime  @default(now())
-  updatedAt          DateTime  @updatedAt
+  ingestionMethod    String   @default("seed") // "seed" | "csv" | "api" | "manual"
+  dataQuality        String   @default("placeholder") // government|academic|alternative|estimated|unavailable|placeholder ("official" is a legacy value on old rows only — never used for new data, see shared/src/types/pipeline.ts::DATA_QUALITY_LEVELS)
+  isPlaceholder      Boolean  @default(true)
+
+  // Research Passport fields (see docs/MANDATE_OPERATING_SYSTEM.md) -- all optional/additive so
+  // existing rows are unaffected. Populated going forward as real per-person attribution and
+  // methodology versioning come online; NULL simply means "not yet captured," not an error.
+  researchedById     String?
+  reviewedById       String?
+  reviewedAt         DateTime?
+  methodologyVersion String? // the METHODOLOGY_VERSIONS entry (shared/src/types/methodology.ts) in effect when this value was researched
+  nextReviewDate     DateTime? // when this value should be re-checked against fresher source data; NULL = not yet scheduled
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   metricDefinition MetricDefinition @relation(fields: [metricDefinitionId], references: [id], onDelete: Restrict)
   jurisdiction     Jurisdiction     @relation(fields: [jurisdictionId], references: [id], onDelete: Cascade)
   administration   Administration?  @relation(fields: [administrationId], references: [id], onDelete: SetNull)
   source           Source           @relation(fields: [sourceId], references: [id], onDelete: Restrict)
+  researchedBy     User?            @relation("ResearchedByOnMetricValue", fields: [researchedById], references: [id], onDelete: SetNull)
+  reviewedBy       User?            @relation("ReviewedByOnMetricValue", fields: [reviewedById], references: [id], onDelete: SetNull)
 
   @@unique([metricDefinitionId, jurisdictionId, periodType, periodStart])
   @@index([jurisdictionId, periodStart])
   @@index([metricDefinitionId, jurisdictionId])
   @@index([administrationId])
+  @@index([nextReviewDate])
 }
 
 // =========================================================
@@ -220,7 +263,7 @@ model Source {
 // =========================================================
 
 model TimelineEvent {
-  id                String    @id @default(cuid())
+  id                String   @id @default(cuid())
   governanceModelId String?
   jurisdictionId    String?
   administrationId  String?
@@ -229,7 +272,7 @@ model TimelineEvent {
   description       String
   eventType         String // "election" | "legislation" | "program_launch" | "milestone"
   sourceId          String?
-  isPlaceholder     Boolean   @default(true)
+  isPlaceholder     Boolean  @default(true)
 
   governanceModel GovernanceModel? @relation(fields: [governanceModelId], references: [id], onDelete: Cascade)
   jurisdiction    Jurisdiction?    @relation(fields: [jurisdictionId], references: [id], onDelete: Cascade)
@@ -255,7 +298,7 @@ model PolicyArea {
   sortOrder     Int     @default(0)
   isPlaceholder Boolean @default(true)
 
-  category      Category?             @relation(fields: [categoryId], references: [id])
+  category      Category?            @relation(fields: [categoryId], references: [id])
   assessments   PipelineAssessment[]
   researchTasks ResearchTask[]
 
@@ -263,26 +306,37 @@ model PolicyArea {
 }
 
 model PipelineAssessment {
-  id               String    @id @default(cuid())
+  id               String   @id @default(cuid())
   jurisdictionId   String
   policyAreaId     String
   administrationId String?
   stage            Int // 0-5: see PIPELINE_STAGE_DEFINITIONS in shared/src/types/pipeline.ts
-  dataQuality      String    @default("placeholder") // same vocabulary as MetricValue.dataQuality: government|academic|alternative|estimated|unavailable|placeholder
+  dataQuality      String   @default("placeholder") // same vocabulary as MetricValue.dataQuality: government|academic|alternative|estimated|unavailable|placeholder
   assessmentDate   DateTime
-  isCurrent        Boolean   @default(true)
+  isCurrent        Boolean  @default(true)
   timelineNotes    String?
   evidenceSummary  String?
   limitations      String?
-  isPlaceholder    Boolean   @default(true)
-  createdAt        DateTime  @default(now())
-  updatedAt        DateTime  @updatedAt
+  isPlaceholder    Boolean  @default(true)
+
+  // Research Passport fields (see docs/MANDATE_OPERATING_SYSTEM.md) -- all optional/additive so
+  // existing rows are unaffected.
+  researchedById     String?
+  reviewedById       String?
+  reviewedAt         DateTime?
+  methodologyVersion String? // the METHODOLOGY_VERSIONS entry (shared/src/types/methodology.ts) in effect when this assessment was made
+  nextReviewDate     DateTime? // when this assessment should be re-checked; NULL = not yet scheduled
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   jurisdiction   Jurisdiction            @relation(fields: [jurisdictionId], references: [id], onDelete: Cascade)
   policyArea     PolicyArea              @relation(fields: [policyAreaId], references: [id], onDelete: Cascade)
   administration Administration?         @relation(fields: [administrationId], references: [id], onDelete: SetNull)
   legislation    SupportingLegislation[]
   evidenceLinks  EvidenceLink[]
+  researchedBy   User?                   @relation("ResearchedByOnAssessment", fields: [researchedById], references: [id], onDelete: SetNull)
+  reviewedBy     User?                   @relation("ReviewedByOnAssessment", fields: [reviewedById], references: [id], onDelete: SetNull)
 
   // Prevents literal duplicate assessments for the same pair on the same date — both a data-integrity
   // backstop for the admin write path and what makes reseeding the hardcoded researched-pipeline seed
@@ -290,6 +344,7 @@ model PipelineAssessment {
   @@unique([jurisdictionId, policyAreaId, assessmentDate])
   @@index([jurisdictionId, policyAreaId, assessmentDate])
   @@index([isCurrent])
+  @@index([nextReviewDate])
 }
 
 model SupportingLegislation {
@@ -334,11 +389,11 @@ model EvidenceLink {
 // =========================================================
 
 model ResearchTask {
-  id     String @id @default(cuid())
+  id  String @id @default(cuid())
   // Stable key used only by the seed script to upsert without duplicating or resetting a
   // researcher's progress on reseed (see server/prisma/seed/data/researchQueue.ts) — never shown
   // in the UI.
-  key    String @unique
+  key String @unique
 
   jurisdictionId     String
   policyAreaId       String? // set when taskType is "pipeline_assessment"
@@ -348,20 +403,39 @@ model ResearchTask {
   researchQuestion String // free text: exactly what needs to be researched, and why it matters
   priority         Int    @default(3) // 1 (highest) - 5 (lowest), matches the research roadmap's ranking
 
-  status             String  @default("unassigned") // unassigned | in_progress | awaiting_review | complete | unavailable
-  assignedResearcher String? // free text name/email — no per-researcher account system exists yet
-  sourceStatus       String? // free text progress note, e.g. "Tier 1 source identified, not yet pulled"
-  notes              String?
+  status               String  @default("unassigned") // unassigned | in_progress | awaiting_review | changes_requested | complete | unavailable
+  assignedResearcher   String? // legacy free text name/email, kept for continuity with pre-User-model tasks; prefer assignedResearcherId once a real User row exists
+  assignedResearcherId String? // FK to User -- the structured replacement for assignedResearcher
+  reviewerId           String? // FK to User -- who is/was responsible for reviewing this task's output; distinct from "the founder by default" documented in docs/DECISION_OWNERSHIP.md
+  sourceStatus         String? // free text progress note, e.g. "Tier 1 source identified, not yet pulled"
+  notes                String?
+
+  revisionCount      Int       @default(0) // incremented each time a reviewer sends work back for changes
+  methodologyVersion String? // the METHODOLOGY_VERSIONS entry this task should be researched under (shared/src/types/methodology.ts)
+  dueDate            DateTime? // optional soft target for completion
+  nextReviewDate     DateTime? // when the resulting research should next be revisited, once complete
+
+  // Formal submit -> review -> accept/revise workflow (see docs/RESEARCH_MAP.md). submittedAt is
+  // stamped automatically whenever status transitions to "awaiting_review" (researchTask.service.ts);
+  // reviewedAt/reviewNotes are set by the explicit accept/request-revision actions, not the generic
+  // status PATCH, so "submitted" and "reviewed" are never conflated.
+  submittedAt DateTime?
+  reviewedAt  DateTime?
+  reviewNotes String?
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  jurisdiction     Jurisdiction      @relation(fields: [jurisdictionId], references: [id], onDelete: Cascade)
-  policyArea       PolicyArea?       @relation(fields: [policyAreaId], references: [id], onDelete: SetNull)
-  metricDefinition MetricDefinition? @relation(fields: [metricDefinitionId], references: [id], onDelete: SetNull)
+  jurisdiction           Jurisdiction      @relation(fields: [jurisdictionId], references: [id], onDelete: Cascade)
+  policyArea             PolicyArea?       @relation(fields: [policyAreaId], references: [id], onDelete: SetNull)
+  metricDefinition       MetricDefinition? @relation(fields: [metricDefinitionId], references: [id], onDelete: SetNull)
+  assignedResearcherUser User?             @relation("AssignedResearcher", fields: [assignedResearcherId], references: [id], onDelete: SetNull)
+  reviewer               User?             @relation("ReviewerOnTask", fields: [reviewerId], references: [id], onDelete: SetNull)
 
   @@index([status])
   @@index([jurisdictionId])
+  @@index([assignedResearcherId])
+  @@index([reviewerId])
 }
 
 // =========================================================
@@ -384,6 +458,7 @@ model ImportJob {
   createdAt    DateTime  @default(now())
   completedAt  DateTime?
   rolledBackAt DateTime?
+  restoredAt   DateTime? // set if a rollback of this job was itself undone (see rollback.ts::undoRollback)
 
   rows ImportRowResult[]
 
@@ -399,6 +474,7 @@ model ImportRowResult {
   message           String?
   metricValueId     String?
   previousValueJson String? // JSON snapshot of the prior MetricValue, for rollback of updates
+  restoreValueJson  String? // JSON snapshot captured AT ROLLBACK TIME of whatever the rollback is about to overwrite/delete, so the rollback itself can be undone (see rollback.ts::undoRollback)
   rawData           String // JSON of the input row, for audit
 
   importJob ImportJob @relation(fields: [importJobId], references: [id], onDelete: Cascade)

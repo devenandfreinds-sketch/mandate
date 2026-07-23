@@ -6,6 +6,7 @@ import { parseCsv } from "./csvParser.js";
 import { parseJson } from "./jsonParser.js";
 import { runImport } from "./importRunner.js";
 import type { ImportMappingConfig, DataQuality } from "./types.js";
+import { DATA_QUALITY_LEVEL_SLUGS } from "@mandate/shared";
 
 function parseArgs(argv: string[]): Record<string, string | boolean> {
   const args: Record<string, string | boolean> = {};
@@ -49,6 +50,10 @@ async function main() {
   const quality = args.quality as string | undefined;
   if (!quality) {
     console.error("Missing --quality <government|academic|alternative|estimated|unavailable|placeholder>");
+    process.exit(1);
+  }
+  if (!DATA_QUALITY_LEVEL_SLUGS.includes(quality)) {
+    console.error(`Invalid --quality "${quality}". Must be one of: ${DATA_QUALITY_LEVEL_SLUGS.join(", ")}`);
     process.exit(1);
   }
   const categorySlug = args.category as string | undefined;

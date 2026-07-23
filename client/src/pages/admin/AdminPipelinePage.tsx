@@ -11,6 +11,7 @@ import { usePlaces } from "@/hooks/usePlace";
 import { usePolicyAreas } from "@/hooks/usePolicyAreas";
 import { usePipelineHistory } from "@/hooks/usePlaceMetrics";
 import { useSources } from "@/hooks/useSources";
+import { useUsers } from "@/hooks/useUsers";
 import { useCreatePipelineAssessment, type CreatePipelineAssessmentPayload } from "@/hooks/useAdminPipeline";
 import { formatUtcDate } from "@/lib/utils";
 import { PIPELINE_STAGE_DEFINITIONS, SOURCE_TIERS, DATA_QUALITY_LEVELS } from "@mandate/shared";
@@ -24,6 +25,7 @@ export function AdminPipelinePage() {
   const { data: places } = usePlaces();
   const { data: policyAreas } = usePolicyAreas();
   const { data: sources } = useSources();
+  const { data: users } = useUsers();
 
   const [jurisdictionSlug, setJurisdictionSlug] = useState("");
   const [policyAreaSlug, setPolicyAreaSlug] = useState("");
@@ -32,6 +34,8 @@ export function AdminPipelinePage() {
   const [assessmentDate, setAssessmentDate] = useState("");
   const [evidenceSummary, setEvidenceSummary] = useState("");
   const [limitations, setLimitations] = useState("");
+  const [researchedById, setResearchedById] = useState("");
+  const [nextReviewDate, setNextReviewDate] = useState("");
   const [evidence, setEvidence] = useState<EvidenceDraft[]>([{ ...EMPTY_EVIDENCE }]);
   const [includeLegislation, setIncludeLegislation] = useState(false);
   const [legislation, setLegislation] = useState({ title: "", billNumber: "", status: "enacted", dateEnacted: "", url: "", sourceName: "" });
@@ -63,6 +67,8 @@ export function AdminPipelinePage() {
       assessmentDate,
       evidenceSummary: evidenceSummary || undefined,
       limitations: limitations || undefined,
+      researchedById: researchedById || undefined,
+      nextReviewDate: nextReviewDate || undefined,
       evidence: validEvidenceRows,
       legislation: includeLegislation && legislation.title ? legislation : undefined,
     };
@@ -197,6 +203,19 @@ export function AdminPipelinePage() {
               placeholder="What this assessment does NOT establish, or known weaknesses in the evidence."
               className={selectClass}
             />
+          </Field>
+          <Field label="Researched by (optional — Research Passport)">
+            <select value={researchedById} onChange={(e) => setResearchedById(e.target.value)} className={selectClass}>
+              <option value="">— not recorded —</option>
+              {users?.filter((u) => u.isActive).map((u) => (
+                <option key={u.id} value={u.id}>
+                  {u.name}
+                </option>
+              ))}
+            </select>
+          </Field>
+          <Field label="Next review date (optional)">
+            <input type="date" value={nextReviewDate} onChange={(e) => setNextReviewDate(e.target.value)} className={selectClass} />
           </Field>
         </CardContent>
       </Card>

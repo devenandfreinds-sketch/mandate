@@ -8,10 +8,13 @@ import { MetricDetailPage } from "@/pages/MetricDetailPage";
 import { PipelineDetailPage } from "@/pages/PipelineDetailPage";
 import { PipelineMethodologyPage } from "@/pages/PipelineMethodologyPage";
 import { DataCatalogPage } from "@/pages/DataCatalogPage";
+import { ResearchMapPage } from "@/pages/ResearchMapPage";
+import { ResearchJurisdictionDetailPage } from "@/pages/ResearchJurisdictionDetailPage";
 import { AdminLoginPage } from "@/pages/admin/AdminLoginPage";
 import { AdminImportsPage } from "@/pages/admin/AdminImportsPage";
 import { AdminPipelinePage } from "@/pages/admin/AdminPipelinePage";
 import { AdminResearchQueuePage } from "@/pages/admin/AdminResearchQueuePage";
+import { AdminUsersPage } from "@/pages/admin/AdminUsersPage";
 import { RequireAdmin } from "@/components/admin/RequireAdmin";
 import { NotFoundPage } from "@/pages/NotFoundPage";
 
@@ -27,6 +30,8 @@ export function AppRoutes() {
       <Route path="/metrics/:slug" element={<MetricDetailPage />} />
       <Route path="/methodology/pipeline" element={<PipelineMethodologyPage />} />
       <Route path="/data-catalog" element={<DataCatalogPage />} />
+      <Route path="/research" element={<ResearchMapPage />} />
+      <Route path="/research/:jurisdictionSlug" element={<ResearchJurisdictionDetailPage />} />
       <Route path="/admin/login" element={<AdminLoginPage />} />
       <Route
         path="/admin/imports"
@@ -49,6 +54,14 @@ export function AppRoutes() {
         element={
           <RequireAdmin>
             <AdminResearchQueuePage />
+          </RequireAdmin>
+        }
+      />
+      <Route
+        path="/admin/users"
+        element={
+          <RequireAdmin>
+            <AdminUsersPage />
           </RequireAdmin>
         }
       />

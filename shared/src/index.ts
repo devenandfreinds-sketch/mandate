@@ -10,3 +10,7 @@ export * from "./types/governanceModel.js";
 export * from "./types/import.js";
 export * from "./types/catalog.js";
 export * from "./types/researchTask.js";
+export * from "./types/methodology.js";
+export * from "./types/user.js";
+export * from "./types/researchMap.js";
+export * from "./types/campaign.js";

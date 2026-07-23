@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { useAdminLogout } from "@/hooks/useAdminAuth";
-import { useCommitImport, useImportJobs, usePreviewImport, useRollbackImport } from "@/hooks/useImports";
+import { useCommitImport, useImportJobs, usePreviewImport, useRollbackImport, useUndoRollback } from "@/hooks/useImports";
 import { useMetricDefinitions } from "@/hooks/useMetricDefinitions";
 import { useSources } from "@/hooks/useSources";
 import { useCategories } from "@/hooks/useCategories";
@@ -40,6 +40,7 @@ export function AdminImportsPage() {
   const preview = usePreviewImport();
   const commit = useCommitImport();
   const rollback = useRollbackImport();
+  const undoRollback = useUndoRollback();
 
   function buildFormData(): FormData | null {
     const file = fileInputRef.current?.files?.[0];
@@ -231,6 +232,11 @@ export function AdminImportsPage() {
                     {j.status !== "rolled_back" && (
                       <Button size="sm" variant="outline" disabled={rollback.isPending} onClick={() => rollback.mutate(j.id)}>
                         Rollback
+                      </Button>
+                    )}
+                    {j.status === "rolled_back" && (
+                      <Button size="sm" variant="outline" disabled={undoRollback.isPending} onClick={() => undoRollback.mutate(j.id)}>
+                        {undoRollback.isPending ? "Undoing…" : "Undo Rollback"}
                       </Button>
                     )}
                   </TableCell>

@@ -22,6 +22,7 @@ import { chicagoResearchedPipelineAssessments } from "./data/chicagoResearchedPi
 import { researchQueueSeed } from "./data/researchQueue.js";
 import { generateAnnualSeries, type MetricSeedSpec, type AdministrationWindow } from "./generators/timeSeries.js";
 import { generatePipelineAssessment } from "./generators/pipelineAssessment.js";
+import { isValidSourceType, isVagueSourceName, SOURCE_TYPE_SLUGS } from "@mandate/shared";
 
 const prisma = new PrismaClient();
 
@@ -55,6 +56,22 @@ async function main() {
   assertSafeToRun();
 
   console.log("[1/11] Seeding sources...");
+  // Fail fast on a bad sourceType or a vague source name (see shared/src/types/source.ts) rather
+  // than let a typo or an "Internet"/"Media"/"News"-style placeholder name silently enter the
+  // registry -- catching it here, before any row is written, is cheaper than catching it later in
+  // a data-quality audit.
+  for (const s of sources) {
+    if (!isValidSourceType(s.sourceType)) {
+      throw new Error(
+        `Source "${s.key}" has invalid sourceType "${s.sourceType}". Must be one of: ${SOURCE_TYPE_SLUGS.join(", ")}`
+      );
+    }
+    if (!s.isPlaceholder && isVagueSourceName(s.name)) {
+      throw new Error(
+        `Source "${s.key}" has a vague, non-identifiable name ("${s.name}"). Every non-placeholder source must be a specific, named outlet or organization.`
+      );
+    }
+  }
   const sourceIdByKey = new Map<string, string>();
   for (const s of sources) {
     const row = await prisma.source.upsert({

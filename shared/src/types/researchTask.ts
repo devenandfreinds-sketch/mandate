@@ -13,6 +13,7 @@ export const RESEARCH_TASK_STATUSES: ResearchTaskStatus[] = [
   { status: "unassigned", label: "Unassigned" },
   { status: "in_progress", label: "In Progress" },
   { status: "awaiting_review", label: "Awaiting Review" },
+  { status: "changes_requested", label: "Changes Requested" },
   { status: "complete", label: "Complete" },
   { status: "unavailable", label: "Unavailable" },
 ];
@@ -42,8 +43,19 @@ export interface ResearchTask {
   priority: number;
   status: string;
   assignedResearcher: string | null;
+  assignedResearcherId: string | null;
+  assignedResearcherName: string | null;
+  reviewerId: string | null;
+  reviewerName: string | null;
   sourceStatus: string | null;
   notes: string | null;
+  revisionCount: number;
+  methodologyVersion: string | null;
+  dueDate: string | null;
+  nextReviewDate: string | null;
+  submittedAt: string | null;
+  reviewedAt: string | null;
+  reviewNotes: string | null;
   createdAt: string;
   updatedAt: string;
 }

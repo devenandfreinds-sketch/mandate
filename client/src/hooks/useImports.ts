@@ -38,3 +38,12 @@ export function useRollbackImport() {
     onSuccess: () => queryClient.invalidateQueries({ queryKey: ["import-jobs"] }),
   });
 }
+
+/** Undoes a rollback — puts the import's data back exactly as it was right before the rollback ran. */
+export function useUndoRollback() {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: (importJobId: string) => api.postJson(`/admin/imports/${importJobId}/undo-rollback`, {}),
+    onSuccess: () => queryClient.invalidateQueries({ queryKey: ["import-jobs"] }),
+  });
+}

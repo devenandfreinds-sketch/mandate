@@ -68,8 +68,11 @@ tangible output of the week.
   `docs/RESEARCHER_HANDBOOK.md` §3-§9 for the stage/evidence reasoning.
 - Submit via `/admin/pipeline`. Notice the form will refuse to save a stage above 0 with zero evidence
   attached — that's intentional, not a bug.
-- Set the task to `awaiting_review` and flag it for a second researcher (or the founder) to sanity-check
-  before it's treated as final.
+- Set the task to `awaiting_review` and, on `/admin/research-queue`, set its Reviewer to a second
+  researcher if one is available (or the founder if not) — see `docs/DECISION_OWNERSHIP.md` for who
+  reviews what. If no `User` roster entry exists yet for you or your reviewer, add one at `/admin/users`
+  first (see `docs/MANDATE_OPERATING_SYSTEM.md`, "User model") — it takes a minute and makes review
+  routing and future attribution real instead of a free-text guess.
 
 **End of week checkpoint:** you've produced one real metric contribution and one draft pipeline
 assessment — both visible in Mandate, both traceable to sources you found and evaluated yourself. From

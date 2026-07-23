@@ -37,6 +37,7 @@ export interface ImportJob {
   createdAt: string;
   completedAt: string | null;
   rolledBackAt: string | null;
+  restoredAt: string | null;
 }
 
 export interface ImportJobDetail extends ImportJob {

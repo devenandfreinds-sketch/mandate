@@ -216,6 +216,11 @@ function mapMetricValue(
     ingestionMethod: string;
     dataQuality: string;
     isPlaceholder: boolean;
+    researchedById?: string | null;
+    reviewedById?: string | null;
+    reviewedAt?: Date | null;
+    methodologyVersion?: string | null;
+    nextReviewDate?: Date | null;
   },
   metricSlug: string,
   jurisdictionSlug: string
@@ -238,6 +243,11 @@ function mapMetricValue(
     ingestionMethod: v.ingestionMethod,
     dataQuality: v.dataQuality,
     isPlaceholder: v.isPlaceholder,
+    researchedById: v.researchedById ?? null,
+    reviewedById: v.reviewedById ?? null,
+    reviewedAt: v.reviewedAt ? toIso(v.reviewedAt) : null,
+    methodologyVersion: v.methodologyVersion ?? null,
+    nextReviewDate: v.nextReviewDate ? toIso(v.nextReviewDate) : null,
   };
 }
 
