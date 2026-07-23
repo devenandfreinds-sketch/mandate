@@ -1,0 +1,12 @@
+jurisdiction,metric,year,value,confidence,notes
+greater-manchester,affordable_housing_completions,2014-15,2139,estimated,"MHCLG Live Table 1011, affordable housing completions (all tenures). GM total = sum of 10 boroughs. MHCLG's own footnote states shared-ownership figures for 2014-15/2015-16 are based on Homes England/GLA data only (other-funded shared ownership excluded) -- flagged 'estimated' rather than 'government' because MHCLG's own methodology note indicates this year is a probable undercount, not a fully comparable figure to later years."
+greater-manchester,affordable_housing_completions,2015-16,818,estimated,"MHCLG Live Table 1011. Same shared-ownership undercount caveat as 2014-15 -- treat this year's unusually low total as a data-coverage artifact, not a genuine market collapse."
+greater-manchester,affordable_housing_completions,2016-17,1547,high,"MHCLG Live Table 1011. GM total = sum of 10 boroughs. Full shared-ownership coverage from this year onward."
+greater-manchester,affordable_housing_completions,2017-18,1715,high,"MHCLG Live Table 1011. GM total = sum of 10 boroughs."
+greater-manchester,affordable_housing_completions,2018-19,1619,high,"MHCLG Live Table 1011. GM total = sum of 10 boroughs."
+greater-manchester,affordable_housing_completions,2019-20,1908,high,"MHCLG Live Table 1011. GM total = sum of 10 boroughs."
+greater-manchester,affordable_housing_completions,2020-21,1659,high,"MHCLG Live Table 1011. GM total = sum of 10 boroughs."
+greater-manchester,affordable_housing_completions,2021-22,2053,high,"MHCLG Live Table 1011. GM total = sum of 10 boroughs."
+greater-manchester,affordable_housing_completions,2022-23,2243,high,"MHCLG Live Table 1011. GM total = sum of 10 boroughs."
+greater-manchester,affordable_housing_completions,2023-24,2626,high,"MHCLG Live Table 1011. GM total = sum of 10 boroughs."
+greater-manchester,affordable_housing_completions,2024-25,3073,high,"MHCLG Live Table 1011. GM total = sum of 10 boroughs, most recent available financial year."

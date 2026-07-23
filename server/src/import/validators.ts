@@ -25,6 +25,32 @@ export function parsePeriod(periodType: PeriodType, raw: string): ParsedPeriod |
     };
   }
 
+  if (periodType === "uk_fiscal_year") {
+    const match = /^(\d{4})-(\d{2})$/.exec(trimmed);
+    if (!match) return null;
+    const startYear = Number(match[1]);
+    const endYearSuffix = Number(match[2]);
+    if (endYearSuffix !== (startYear + 1) % 100) return null;
+    return {
+      periodStart: new Date(Date.UTC(startYear, 3, 1)),
+      periodEnd: new Date(Date.UTC(startYear + 1, 2, 31)),
+      periodLabel: `FY${trimmed}`,
+    };
+  }
+
+  if (periodType === "uk_academic_year") {
+    const match = /^(\d{4})-(\d{2})$/.exec(trimmed);
+    if (!match) return null;
+    const startYear = Number(match[1]);
+    const endYearSuffix = Number(match[2]);
+    if (endYearSuffix !== (startYear + 1) % 100) return null;
+    return {
+      periodStart: new Date(Date.UTC(startYear, 7, 1)),
+      periodEnd: new Date(Date.UTC(startYear + 1, 6, 31)),
+      periodLabel: `AY${trimmed}`,
+    };
+  }
+
   if (periodType === "quarter") {
     const match = /^(\d{4})-Q([1-4])$/.exec(trimmed);
     if (!match) return null;

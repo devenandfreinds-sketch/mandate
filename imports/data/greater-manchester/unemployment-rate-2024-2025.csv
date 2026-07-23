@@ -1,0 +1,3 @@
+jurisdiction,metric,year,value,confidence,notes
+greater-manchester,unemployment_rate,2024,4.9,estimated,"ONS model-based unemployment estimate, Nomis NM_127_1, but ONS's own indicator-explorer page states this APS-based series is 'temporarily suspended until the APS reweighting is implemented in 2026' -- Nomis's live API nonetheless continued serving this value at time of research. Imported at 'estimated' rather than 'government' tier to reflect this unresolved discrepancy."
+greater-manchester,unemployment_rate,2025,4.7,estimated,"Same caveat as 2024: ONS states the underlying series is suspended pending 2026 reweighting, though Nomis served this value live."

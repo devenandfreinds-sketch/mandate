@@ -716,4 +716,187 @@ export const sources: SourceSeedSpec[] = [
     methodology:
       "Requires researcher synthesis across multiple agency announcements per year rather than a single published annual table, so scored 'estimated' even where individual announcements are Tier 1 government sources. Only new route-miles extending service to previously unserved track or corridor count; station reconstructions, infill stations on existing track, and signal/track modernization on already-operating alignments do not, even when substantial (e.g. the ~$2.1B, 9.6-route-mile Red-Purple Modernization program is a rebuild of existing alignment, not new miles). The 2021 Belmont Flyover (CTA's first new elevated track structure in 28 years) was evaluated and scored 0 new route-miles under this strict definition, since it grade-separates an existing junction rather than extending the network to new track or a new destination, and no citable mileage figure for the structure itself could be found — flagged as the strongest case for a future analyst to override.",
   },
+
+  // =========================================================
+  // Greater Manchester research pass (see docs/GREATER_MANCHESTER_CASE_STUDY.md). Specific
+  // dataset-level sources, deliberately more precise than the generic "uk_ons"/"uk_mhclg" stubs
+  // above -- e.g. MHCLG publishes house-building, affordable-housing, and homelessness statistics
+  // as three separate live-table series, not one, and conflating them under one Source would
+  // misattribute which exact table a figure came from.
+  // =========================================================
+  {
+    key: "ons_nomis_modelled_unemployment",
+    name: "ONS Modelled Unemployment for Local and Unitary Authorities (M01)",
+    publisher: "UK Office for National Statistics",
+    url: "https://www.nomisweb.co.uk/datasets/umb",
+    sourceType: "government_dataset",
+    citation:
+      "ONS model-based unemployment estimates (ILO definition), dataset M01, hosted live on Nomis (dataset ID NM_127_1). Geography: Greater Manchester combined authority (ONS/Nomis code E47000001).",
+    isPlaceholder: false,
+    updateFrequency: "annual",
+    methodology:
+      "ONS's own indicator-explorer page states this APS-based series is 'temporarily suspended until the APS reweighting is implemented in 2026,' while the Nomis API continued serving values through 2025 at time of research -- an unresolved discrepancy between two ONS-affiliated pages. Values for 2024-2025 should be treated as lower confidence than 2015-2023.",
+    defaultConfidence: "high",
+  },
+  {
+    key: "ons_nomis_aps_employment",
+    name: "ONS Annual Population Survey — Employment Levels (APS168)",
+    publisher: "UK Office for National Statistics",
+    url: "https://www.nomisweb.co.uk/datasets/aps168",
+    sourceType: "government_dataset",
+    citation:
+      "ONS Annual Population Survey, 'All aged 16 & over — In employment: All People' levels, hosted on Nomis (dataset NM_17_1). Geography: Greater Manchester combined authority (E47000001).",
+    isPlaceholder: false,
+    updateFrequency: "annual",
+    defaultConfidence: "high",
+  },
+  {
+    key: "dfe_apprenticeships_gm",
+    name: "DfE Apprenticeships — Starts by English Devolved Area",
+    publisher: "UK Department for Education",
+    url: "https://explore-education-statistics.service.gov.uk/data-tables/fast-track/853deee5-360e-4dd3-4e3a-08de2123b68d?featuredTable=true",
+    sourceType: "government_dataset",
+    citation:
+      "DfE 'Apprenticeships' publication (Explore Education Statistics): apprenticeship starts by English Devolved Area, academic years 2019/20-2024/25, cross-validated against the overlapping 2017/18-2022/23 data-catalogue dataset at https://explore-education-statistics.service.gov.uk/data-catalogue/data-set/49076b9d-6a63-46e6-8b9d-81bd7bc8ff83. 'Greater Manchester' is a named English Devolved Area geographically identical to the 10-borough combined authority.",
+    isPlaceholder: false,
+    updateFrequency: "annual",
+    methodology:
+      "Academic-year (Aug-Jul) series, not calendar year. 2015/16-2016/17 figures are not part of this official EDA-level publication (which starts 2017/18) — they were reconstructed by summing DfE's local-authority-district 'FE Data Library: apprenticeships' pivot tables for the 10 GM boroughs (https://www.gov.uk/government/statistical-data-sets/fe-data-library-apprenticeships), after correcting a double-counting error found in that file's duplicate Totals rows. Treat 2015/16-2016/17 as analyst-derived, not officially published at the Greater Manchester level.",
+    defaultConfidence: "high",
+  },
+  {
+    key: "mhclg_live_table_253",
+    name: "MHCLG Live Table 253 — House Building: Permanent Dwellings Completed by Local Authority",
+    publisher: "UK Ministry of Housing, Communities & Local Government",
+    url: "https://www.gov.uk/government/statistical-data-sets/live-tables-on-house-building",
+    sourceType: "government_dataset",
+    citation:
+      "MHCLG Live Tables on House Building, Table 253: permanent dwellings completed by tenure and local authority district, financial years 2014-15 to 2024-25.",
+    isPlaceholder: false,
+    updateFrequency: "quarterly",
+    methodology:
+      "Financial year (Apr-Mar), not calendar year. Greater Manchester figures used by Mandate are the sum of all completions ('All Completions' = Private Enterprise + Housing Association + Local Authority) across the 10 constituent boroughs (Bolton, Bury, Manchester, Oldham, Rochdale, Salford, Stockport, Tameside, Trafford, Wigan) — MHCLG does not publish a single Greater Manchester combined-authority total for this series.",
+    defaultConfidence: "high",
+  },
+  {
+    key: "mhclg_live_table_1011",
+    name: "MHCLG Live Table 1011 — Additional Affordable Housing Supply, Detailed Local Authority Breakdown",
+    publisher: "UK Ministry of Housing, Communities & Local Government",
+    url: "https://www.gov.uk/government/statistical-data-sets/live-tables-on-affordable-housing-supply",
+    sourceType: "government_dataset",
+    citation:
+      "MHCLG Live Tables on Affordable Housing Supply, Table 1011: net additional affordable homes, completions component, by local authority, financial years 2014-15 to 2024-25.",
+    isPlaceholder: false,
+    updateFrequency: "quarterly",
+    methodology:
+      "Financial year, not calendar year. Greater Manchester figures are the sum of completions across the 10 constituent boroughs. MHCLG's own footnote states shared-ownership figures for 2014-15 and 2015-16 are based on Homes England/GLA data only (other-funded shared ownership excluded) — treat those two years as a probable undercount relative to later years, not a genuine market contraction.",
+    defaultConfidence: "high",
+  },
+  {
+    key: "gmca_bee_network_franchising",
+    name: "The Greater Manchester Franchising Scheme for Buses 2021",
+    publisher: "Greater Manchester Combined Authority",
+    url: "https://democracy.greatermanchester-ca.gov.uk/documents/s14258/Final%20franchsing%20scheme%2025.3%20DN.pdf",
+    sourceType: "government_report",
+    citation:
+      "GMCA's statutory bus franchising scheme, made 30 March 2021 under the Transport Act 2000 (as amended by the Bus Services Act 2017), following a 9-1 AGMA leaders vote on 25 March 2021. Upheld by the High Court (9 Mar 2022) and unanimously by the Court of Appeal (Rotala Plc v GMCA, [2022] EWCA Civ 1048, 25 Jul 2022) after operator legal challenges.",
+    isPlaceholder: false,
+    updateFrequency: "one_time",
+    defaultConfidence: "high",
+  },
+  {
+    key: "gmca_bee_network_tranche3_launch",
+    name: "Greater Manchester Becomes First Place in England to Retake Control of Buses After 40 Years of Deregulation",
+    publisher: "Greater Manchester Combined Authority",
+    url: "https://www.greatermanchester-ca.gov.uk/news/greater-manchester-becomes-first-place-in-england-to-retake-control-of-buses-after-40-years-of-deregulation-with-historic-bee-network-launch/",
+    sourceType: "government_report",
+    citation:
+      "GMCA press release, 5 January 2025, confirming Tranche 3 (Stockport, Tameside, Trafford, remaining Manchester/Salford) went live, completing 100% franchising of the Greater Manchester bus network under the Bee Network brand.",
+    isPlaceholder: false,
+    publicationDate: "2025-01-05",
+    updateFrequency: "one_time",
+    defaultConfidence: "high",
+  },
+  {
+    key: "nao_local_bus_services_2025",
+    name: "Local Bus Services in England (HC 949)",
+    publisher: "National Audit Office",
+    url: "https://www.nao.org.uk/wp-content/uploads/2025/06/local-bus-services-in-england.pdf",
+    sourceType: "government_report",
+    citation:
+      "National Audit Office report HC 949, published 27 June 2025, confirming Greater Manchester is the only English region to have fully implemented bus franchising (others have completed only franchising assessments), and relaying GMCA's own £134.5m transition-cost estimate.",
+    isPlaceholder: false,
+    publicationDate: "2025-06-27",
+    updateFrequency: "one_time",
+    methodology:
+      "A government-audit-body report, but the £134.5m transition-cost figure is GMCA's own estimate as relayed by NAO, not an independently re-audited figure — treat as one step more independent than a GMCA press release, not as an NAO-generated audit finding.",
+    defaultConfidence: "high",
+  },
+  {
+    key: "conversation_lucas_gm_transport_2026",
+    name: "Yes, Burnham's Bee Network Has Transformed Central Manchester, But That's Not the Whole Picture",
+    publisher: "The Conversation (Karen Lucas, University of Manchester)",
+    url: "https://theconversation.com/yes-burnhams-bee-network-has-transformed-central-manchester-but-thats-not-the-whole-picture-287437",
+    sourceType: "academic",
+    citation:
+      "Karen Lucas, Professor of Human Geography at the University of Manchester, writing in The Conversation (~17 Jul 2026): confirms real fare/service improvements but finds benefits concentrated in central Manchester, with peripheral boroughs (Oldham, Rochdale, Wigan) still experiencing transport-related social exclusion.",
+    isPlaceholder: false,
+    updateFrequency: "one_time",
+    methodology:
+      "Informed academic commentary, not a blind independent audit — the author discloses funding from the Department for Transport and TfGM, and consults for transport planning firms. Treated as Tier 2 (academic) with that conflict of interest noted, not as an arm's-length third-party evaluation.",
+    defaultConfidence: "estimated",
+  },
+  {
+    key: "themill_gmhilf_investigation_2024",
+    name: "Heavily Skewed: How Burnham's Fund Turned Renaker Into a Giant",
+    publisher: "The Mill (Manchester)",
+    url: "https://manchestermill.co.uk",
+    sourceType: "news",
+    citation:
+      "The Mill's investigative journalism (2024) on the Greater Manchester Housing Investment Loans Fund's reactive, media-pressured independent evaluation: independently-derived ~7,800 completed homes (84% completion rate) versus GMCA's own round '11,000 homes' claim, plus funding concentration toward a single developer (Renaker) and Manchester city-centre schemes.",
+    isPlaceholder: false,
+    updateFrequency: "one_time",
+    methodology:
+      "Independent investigative journalism reporting on a GMCA-commissioned evaluation Mandate could not access directly — treated as Tier 3 (named alternative), not Tier 1, since the evaluation itself is journalism-mediated rather than directly read.",
+    defaultConfidence: "estimated",
+  },
+  {
+    key: "gmca_aeb_annual_report_2021",
+    name: "Greater Manchester Adult Education Budget Annual Report",
+    publisher: "Greater Manchester Combined Authority",
+    url: "https://www.fenews.co.uk",
+    sourceType: "government_report",
+    citation:
+      "GMCA's first Adult Education Budget annual report since devolution (published 19 Mar 2021, covering Aug 2019 onward): 51,000+ residents accessed skills/training, plus digital-inclusion and ESOL initiatives launched in response to the pandemic.",
+    isPlaceholder: false,
+    publicationDate: "2021-03-19",
+    updateFrequency: "annual",
+    defaultConfidence: "high",
+  },
+  {
+    key: "hoc_library_aeb_devolution",
+    name: "Devolution of the Adult Education Budget (CBP-8596)",
+    publisher: "House of Commons Library",
+    url: "https://commonslibrary.parliament.uk/",
+    sourceType: "government_report",
+    citation:
+      "House of Commons Library briefing on AEB devolution: national transfer originally planned for 2018/19 (delayed a year), formally apportioned to 6 Mayoral Combined Authorities plus the GLA from 1 August 2019, worth approximately £92-96m/year for Greater Manchester.",
+    isPlaceholder: false,
+    updateFrequency: "one_time",
+    defaultConfidence: "high",
+  },
+  {
+    key: "ies_gm_adult_skills_evaluation_2023",
+    name: "Greater Manchester Adult Skills Programmes Evaluation",
+    publisher: "Institute for Employment Studies (with Learning and Work Institute, BMG Research)",
+    url: "https://www.employment-studies.co.uk/",
+    sourceType: "academic",
+    citation:
+      "GMCA-commissioned independent evaluation (2023) of its devolved Adult Education Budget/Adult Skills programmes. Key finding, in the evaluators' own words: 'currently robust evidence and data on wider outcomes and impact of learning are not available to support policy development in GM.'",
+    isPlaceholder: false,
+    updateFrequency: "one_time",
+    methodology:
+      "This is GMCA's own commissioned, methodologically independent evaluation body explicitly stating outcome data does not yet exist — the single most important source for why Mandate does not score devolved AEB above Stage 4 (operating) to Stage 5 (demonstrated durable performance).",
+    defaultConfidence: "high",
+  },
 ];

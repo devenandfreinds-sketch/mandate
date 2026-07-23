@@ -1,4 +1,10 @@
-export type PeriodType = "year" | "quarter" | "month";
+// "uk_fiscal_year": UK government fiscal year (6 April-5 April; treated here as 1 Apr-31 Mar for
+// simplicity, matching how MHCLG reports it). "uk_academic_year": UK academic year (1 Aug-31 Jul,
+// how DfE reports apprenticeship statistics) -- a distinct convention from the fiscal year, not
+// interchangeable. Real UK government series are fiscal/academic-year native -- forcing them
+// through "year" would silently mislabel the actual measurement window. Raw format for both:
+// "YYYY-YY", e.g. "2019-20" for 1 Apr/Aug 2019-31 Mar/Jul 2020.
+export type PeriodType = "year" | "quarter" | "month" | "uk_fiscal_year" | "uk_academic_year";
 
 export type DataQuality = "government" | "academic" | "alternative" | "estimated" | "unavailable" | "placeholder" | "official";
 

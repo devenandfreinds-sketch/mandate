@@ -38,7 +38,7 @@ async function main() {
   const filePath = args.file as string | undefined;
   if (!filePath) {
     console.error(
-      "Usage: npm run import -w server -- --file <path.csv|.json> --source <sourceIdOrName> [--metric <slug>] [--mapping <mapping.json>] [--quality government|academic|alternative|estimated|unavailable|placeholder] [--category <slug>] [--dry-run]"
+      "Usage: npm run import -w server -- --file <path.csv|.json> --source <sourceIdOrName> [--metric <slug>] [--mapping <mapping.json>] [--quality government|academic|alternative|estimated|unavailable|placeholder] [--category <slug>] [--period-type year|quarter|month|uk_fiscal_year] [--dry-run]"
     );
     process.exit(1);
   }
@@ -72,9 +72,10 @@ async function main() {
   if (args.mapping) {
     mapping = JSON.parse(readFileSync(path.resolve(process.cwd(), args.mapping as string), "utf-8"));
   } else {
+    const periodType = (args["period-type"] as string | undefined) ?? "year";
     mapping = {
       columns: { jurisdiction: "jurisdiction", metric: args.metric ? undefined : "metric", period: "year", value: "value", notes: "notes", confidence: "confidence" },
-      periodType: "year",
+      periodType: periodType as ImportMappingConfig["periodType"],
       fixedMetricSlug: args.metric as string | undefined,
     };
   }

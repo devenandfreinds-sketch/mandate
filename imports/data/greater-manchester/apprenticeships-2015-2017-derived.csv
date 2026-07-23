@@ -1,0 +1,3 @@
+jurisdiction,metric,year,value,confidence,notes
+greater-manchester,apprenticeships,2015-16,30440,estimated,"Academic year (Aug-Jul). DfE does not publish an official Greater Manchester/English-Devolved-Area aggregate this far back; this figure was derived by summing DfE's local-authority-district 'FE Data Library: apprenticeships' pivot-table data for the 10 GM boroughs, after correcting a discovered double-counting bug in that file's duplicate Totals rows. Analyst-derived, not an official DfE-published Greater Manchester total."
+greater-manchester,apprenticeships,2016-17,28430,estimated,"Academic year. Same analyst-derived methodology as 2015/16 above. The sharp drop into 2017/18 (see companion file) reflects the May 2017 apprenticeship levy reform, not a data error."

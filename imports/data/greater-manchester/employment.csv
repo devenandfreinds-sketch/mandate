@@ -1,0 +1,12 @@
+jurisdiction,metric,year,value,confidence,notes
+greater-manchester,employment,2015,1264100,high,"ONS Annual Population Survey employment level, Nomis NM_17_1, geography E47000001 (Greater Manchester combined authority)."
+greater-manchester,employment,2016,1279600,high,"ONS APS employment level, Nomis NM_17_1."
+greater-manchester,employment,2017,1316600,high,"ONS APS employment level, Nomis NM_17_1."
+greater-manchester,employment,2018,1329600,high,"ONS APS employment level, Nomis NM_17_1."
+greater-manchester,employment,2019,1334400,high,"ONS APS employment level, Nomis NM_17_1."
+greater-manchester,employment,2020,1327000,high,"ONS APS employment level, Nomis NM_17_1."
+greater-manchester,employment,2021,1321100,high,"ONS APS employment level, Nomis NM_17_1."
+greater-manchester,employment,2022,1337600,high,"ONS APS employment level, Nomis NM_17_1."
+greater-manchester,employment,2023,1331200,high,"ONS APS employment level, Nomis NM_17_1."
+greater-manchester,employment,2024,1328200,high,"ONS APS employment level, Nomis NM_17_1."
+greater-manchester,employment,2025,1358200,high,"ONS APS employment level, Nomis NM_17_1. Cross-checked against Nomis's independently-rendered Labour Market Profile page for Greater Manchester, which shows the same figure for the latest available 12-month window."

@@ -19,6 +19,7 @@ import { policyAreas } from "./data/policyAreas.js";
 import { metricSourceAssignments } from "./data/metricSourceAssignments.js";
 import { unavailableMetrics } from "./data/unavailableMetrics.js";
 import { chicagoResearchedPipelineAssessments } from "./data/chicagoResearchedPipeline.js";
+import { greaterManchesterResearchedPipelineAssessments } from "./data/greaterManchesterResearchedPipeline.js";
 import { researchQueueSeed } from "./data/researchQueue.js";
 import { generateAnnualSeries, type MetricSeedSpec, type AdministrationWindow } from "./generators/timeSeries.js";
 import { generatePipelineAssessment } from "./generators/pipelineAssessment.js";
@@ -358,10 +359,14 @@ async function main() {
   }
 
   console.log("[10/11] Seeding pipeline assessments...");
-  // Chicago's "affordable-housing-institution" policy area is real, researched data (see
-  // chicagoResearchedPipeline.ts) — skip the synthetic generator for that one pair only.
+  // Certain jurisdiction/policyArea pairs are real, researched data (see chicagoResearchedPipeline.ts
+  // and greaterManchesterResearchedPipeline.ts) — skip the synthetic generator for those pairs only.
+  const allResearchedPipelineAssessments = [
+    ...chicagoResearchedPipelineAssessments,
+    ...greaterManchesterResearchedPipelineAssessments,
+  ];
   const researchedPairs = new Set(
-    chicagoResearchedPipelineAssessments.map((r) => `${r.jurisdictionSlug}::${r.policyAreaSlug}`)
+    allResearchedPipelineAssessments.map((r) => `${r.jurisdictionSlug}::${r.policyAreaSlug}`)
   );
 
   for (const j of jurisdictions) {
@@ -412,7 +417,7 @@ async function main() {
     }
   }
 
-  console.log("[10b/11] Seeding researched pipeline assessments (Chicago pilot)...");
+  console.log("[10b/11] Seeding researched pipeline assessments (Chicago + Greater Manchester)...");
   // Create-if-missing per (jurisdiction, policyArea, assessmentDate) — never update. This makes
   // reseeding idempotent (running this script twice does not duplicate real research) while never
   // clobbering a row that a researcher may have since edited via the admin UI for this exact date.
@@ -421,7 +426,7 @@ async function main() {
   // for you, by design (see [6/11] above for why real rows are never blanket-deleted).
   let researchedCreated = 0;
   let researchedSkipped = 0;
-  for (const r of chicagoResearchedPipelineAssessments) {
+  for (const r of allResearchedPipelineAssessments) {
     const jurisdictionId = jurisdictionIdBySlug.get(r.jurisdictionSlug)!;
     const policyAreaId = policyAreaIdBySlug.get(r.policyAreaSlug)!;
     const assessmentDate = new Date(r.assessmentDate);
@@ -527,6 +532,29 @@ async function main() {
   console.log(`  → ${queueCreated} created, ${queueUpdated} refreshed (status/assignee/notes untouched).`);
 
   console.log("[11/11] Generating metric value time series...");
+  // A metric/jurisdiction pair can have real data under a non-calendar-year period convention
+  // (e.g. Greater Manchester's housing/apprenticeship metrics, imported as uk_fiscal_year/
+  // uk_academic_year — see docs/GREATER_MANCHESTER_CASE_STUDY.md). Since those periods don't share
+  // periodStart with the generator's calendar-year placeholders, skipDuplicates alone wouldn't stop
+  // a synthetic "year" placeholder from being generated alongside real data on every reseed. Skip
+  // calendar-year placeholder generation ONLY for pairs whose real data uses a DIFFERENT periodType
+  // than "year" -- NOT for every pair with any real data. A pair with PARTIAL real "year"-periodType
+  // coverage (e.g. Chicago's affordable_housing_completions, real for 2015-2022, still placeholder
+  // for 2023-2025) must keep generating placeholders for its still-unresearched years; the existing
+  // skipDuplicates unique-constraint collision already correctly protects its real years without
+  // this extra check. An earlier version of this skip checked "any real data exists" regardless of
+  // periodType, which silently deleted those still-placeholder years on every reseed and never
+  // regenerated them — do not revert to that broader check.
+  const realDataPairs = new Set(
+    (
+      await prisma.metricValue.findMany({
+        where: { dataQuality: { notIn: ["placeholder", "unavailable"] }, periodType: { not: "year" } },
+        select: { metricDefinitionId: true, jurisdictionId: true },
+        distinct: ["metricDefinitionId", "jurisdictionId"],
+      })
+    ).map((r) => `${r.metricDefinitionId}::${r.jurisdictionId}`)
+  );
+
   const allMetricSpecs = Object.values(metricsByCategory).flat();
   let totalValues = 0;
   for (const j of jurisdictions) {
@@ -535,6 +563,8 @@ async function main() {
 
     for (const spec of allMetricSpecs) {
       const metricDefinitionId = metricDefIdBySlug.get(spec.slug)!;
+      if (realDataPairs.has(`${metricDefinitionId}::${jurisdictionId}`)) continue;
+
       const points = generateAnnualSeries(spec, j.slug, j.population, adminWindows);
 
       const unavailableSpec = unavailableMetrics.find(

@@ -1,0 +1,12 @@
+jurisdiction,metric,year,value,confidence,notes
+greater-manchester,housing_completions,2014-15,4120,high,"MHCLG Live Table 253, permanent dwellings completed (all tenures). GM total = sum of the 10 constituent boroughs (Bolton, Bury, Manchester, Oldham, Rochdale, Salford, Stockport, Tameside, Trafford, Wigan); MHCLG does not publish a single GM combined-authority total for this series. Financial year (Apr-Mar)."
+greater-manchester,housing_completions,2015-16,4000,high,"MHCLG Live Table 253. GM total = sum of 10 boroughs."
+greater-manchester,housing_completions,2016-17,3800,high,"MHCLG Live Table 253. GM total = sum of 10 boroughs."
+greater-manchester,housing_completions,2017-18,5390,high,"MHCLG Live Table 253. GM total = sum of 10 boroughs."
+greater-manchester,housing_completions,2018-19,7110,high,"MHCLG Live Table 253. GM total = sum of 10 boroughs."
+greater-manchester,housing_completions,2019-20,7700,high,"MHCLG Live Table 253. GM total = sum of 10 boroughs."
+greater-manchester,housing_completions,2020-21,8620,high,"MHCLG Live Table 253. GM total = sum of 10 boroughs."
+greater-manchester,housing_completions,2021-22,9130,high,"MHCLG Live Table 253. GM total = sum of 10 boroughs."
+greater-manchester,housing_completions,2022-23,5720,high,"MHCLG Live Table 253. GM total = sum of 10 boroughs."
+greater-manchester,housing_completions,2023-24,6380,high,"MHCLG Live Table 253. GM total = sum of 10 boroughs."
+greater-manchester,housing_completions,2024-25,7050,high,"MHCLG Live Table 253. GM total = sum of 10 boroughs, most recent available financial year."
