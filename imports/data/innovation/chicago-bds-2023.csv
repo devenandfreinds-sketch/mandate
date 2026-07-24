@@ -1,0 +1,2 @@
+jurisdiction,metric,year,value,confidence,notes
+chicago,startup_formation,2023,13143,high,"Census Business Dynamics Statistics, Chicago-Naperville-Elgin MSA, new firms (age 0) -- the standard Census definition of startup formation. BDS lags ~2 years; 2024-2025 not yet published."

@@ -1,0 +1,3 @@
+jurisdiction,metric,year,value,confidence,notes
+new-york-city,property_crime_rate,2024,2368.3,alternative,"FBI UCR/NIBRS data per 100,000 residents, as compiled by an aggregator (PlainCrime) rendering FBI source data directly; not independently confirmed against FBI Crime Data Explorer."
+new-york-city,violent_crime_rate,2023,636,academic,"John Jay College Research and Evaluation Center, NYPD complaint-data-based estimate, per 100,000 -- used in preference to a conflicting FBI UCR figure (671, 2024) due to differing offense-classification methodology; John Jay is the higher-rigor academic source."

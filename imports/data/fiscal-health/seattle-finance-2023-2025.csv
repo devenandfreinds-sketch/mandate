@@ -1,0 +1,3 @@
+jurisdiction,metric,year,value,confidence,notes
+seattle,budget_balance,2023,211300000,high,"City of Seattle 2023 ACFR (audited): General Fund excess of revenues over expenditures. Fund balance increased $184.7 million after transfers, per independent S&P calculation."
+seattle,capital_investment,2025,1420000000,high,"City of Seattle 2025-2030 Adopted Capital Improvement Program, 2025 allocation (detailed summary table; the CIP's own narrative text cites a differing $1.26B figure for the same year -- an internal document discrepancy)."

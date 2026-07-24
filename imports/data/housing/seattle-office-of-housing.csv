@@ -1,0 +1,5 @@
+jurisdiction,metric,year,value,confidence,notes
+seattle,affordable_housing_completions,2022,1651,high,"Seattle Office of Housing Annual Investments and Housing Levy Report."
+seattle,affordable_housing_completions,2023,1770,high,"Seattle Office of Housing Annual Investments and Housing Levy Report."
+seattle,affordable_housing_completions,2024,1457,high,"Seattle Office of Housing Annual Investments and Housing Levy Report (1,443 rental + 14 for-sale)."
+seattle,affordable_housing_completions,2025,901,high,"Seattle Office of Housing Annual Investments and Housing Levy Report (870 rental + 31 for-sale). Counts only Office-of-Housing-funded production, not all affordable units citywide."

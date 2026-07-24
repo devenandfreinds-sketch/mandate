@@ -1,0 +1,2 @@
+jurisdiction,metric,year,value,confidence,notes
+washington-dc,property_crime_rate,2024,3689,alternative,"USAFacts/Macrotrends, citing FBI data, per 100,000 residents (two independent secondary aggregators closely agree at ~3,685-3,693). No direct government-published per-capita rate table was reachable; MPD publishes raw counts, not pre-computed rates."

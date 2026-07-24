@@ -1,0 +1,2 @@
+jurisdiction,metric,year,value,confidence,notes
+washington-dc,vacancy_rate,2024,6.8,estimated,"Derived from ACS 2024 Tables B25003/B25004 component counts, Washington city, DC -- rental vacancy rate specifically (homeowner vacancy separately ~1.9%)."

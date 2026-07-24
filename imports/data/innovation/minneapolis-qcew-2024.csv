@@ -1,0 +1,4 @@
+jurisdiction,metric,year,value,confidence,notes
+minneapolis,advanced_manufacturing_employment,2024,31658,estimated,"BLS QCEW, Hennepin County (city-level not published), composite of NAICS 334+3391+3254+325."
+minneapolis,life_sciences_employment,2024,18151,estimated,"BLS QCEW, Hennepin County (city-level not published), composite of NAICS 3391+3254+5417."
+minneapolis,tech_employment,2024,35245,estimated,"BLS QCEW, Hennepin County (city-level not published), composite of NAICS 51+5415."

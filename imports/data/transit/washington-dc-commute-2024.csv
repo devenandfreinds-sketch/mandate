@@ -1,0 +1,2 @@
+jurisdiction,metric,year,value,confidence,notes
+washington-dc,average_commute_minutes,2024,30,alternative,"DataUSA (Census ACS aggregator), Washington DC, mean travel time to work (vs 26.4 min US average). Not independently confirmed directly at data.census.gov."

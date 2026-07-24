@@ -1,0 +1,3 @@
+jurisdiction,metric,year,value,confidence,notes
+minneapolis,employment,2024,251841,high,"BLS LAUS series LAUCT274300000000006 (labor force level), Minneapolis city, MN, annual average."
+minneapolis,unemployment_rate,2024,2.9,high,"BLS LAUS series LAUCT274300000000003, Minneapolis city, MN, annual average."

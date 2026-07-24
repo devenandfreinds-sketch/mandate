@@ -1,0 +1,4 @@
+jurisdiction,metric,year,value,confidence,notes
+seattle,employment,2024,1449785,estimated,"BLS QCEW, King County (city-level not published), avg annual pay $132,279."
+seattle,median_wages,2025,72610,estimated,"BLS OEWS, Seattle-Tacoma-Bellevue MSA (not city-specific), annual median wage all occupations, May 2025."
+seattle,tech_employment,2024,150802,estimated,"WA ESD, Professional/Scientific/Technical Services supersector, King County -- a narrower BLS-based proxy for tech employment (city-level not published)."

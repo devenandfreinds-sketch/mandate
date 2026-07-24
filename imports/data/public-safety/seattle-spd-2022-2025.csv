@@ -1,0 +1,5 @@
+jurisdiction,metric,year,value,confidence,notes
+seattle,clearance_rate,2025,86,high,"SPD 2025 Year in Review -- homicide clearance rate only (32 of 37 cases); SPD does not publish an all-crime clearance rate."
+seattle,emergency_response_minutes,2022,10.3,high,"SPD 2022 Crime Report, mean response time for Priority 1 calls (median 7.2 min, 49% answered within 7 min). Police only -- SFD fire/EMS response time not published."
+seattle,property_crime_rate,2022,5784,high,"SPD 2022 Crime Report, per 100,000 residents (43,986 incidents), using OFM population denominator. SPD stopped publishing rate-denominated annual reports after 2022."
+seattle,violent_crime_rate,2022,736,high,"SPD 2022 Crime Report, per 100,000 residents (5,591 incidents) -- described by SPD as a 15-year high. SPD stopped publishing rate-denominated annual reports after 2022."

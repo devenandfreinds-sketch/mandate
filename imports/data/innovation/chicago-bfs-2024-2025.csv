@@ -1,0 +1,3 @@
+jurisdiction,metric,year,value,confidence,notes
+chicago,business_formation,2024,91812,high,"Census Business Formation Statistics, Cook County business applications."
+chicago,business_formation,2025,99217,high,"Census Business Formation Statistics, Cook County business applications."

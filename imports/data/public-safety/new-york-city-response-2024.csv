@@ -1,0 +1,2 @@
+jurisdiction,metric,year,value,confidence,notes
+new-york-city,emergency_response_minutes,2024,11.87,high,"NYC's own official 911 end-to-end response time reporting, calendar-year 2024 average for life-threatening (Segment 1-2-3) medical emergencies."

@@ -1,0 +1,2 @@
+jurisdiction,metric,year,value,confidence,notes
+washington-dc,active_transportation_mode_share,2023,14,high,"ACS Table B08006, Washington city, DC: walk 11% + bicycle 3%. Denominator includes work-from-home workers; recommend cross-check against Table S0801."

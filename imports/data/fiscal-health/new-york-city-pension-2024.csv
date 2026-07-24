@@ -1,0 +1,2 @@
+jurisdiction,metric,year,value,confidence,notes
+new-york-city,pension_funding_ratio,2024,86.5,estimated,"Mandate-computed unweighted average across NYC's five pension systems (NYCERS 84.25%, TRS 85.71%, BERS 97.43%, POLICE 89.30%, FIRE 75.80%), per NYC Independent Budget Office (May 2025), citing the ACFR and Office of the Actuary. A single blended figure is not itself published by the city."

@@ -1,0 +1,2 @@
+jurisdiction,metric,year,value,confidence,notes
+minneapolis,transit_ridership,2024,47500000,high,"Metro Transit total rides, 2024 (31.9M bus + 15.5M light rail + 8.3M BRT) -- a regional transit authority, not Minneapolis-specific."

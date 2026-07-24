@@ -1,0 +1,2 @@
+jurisdiction,metric,year,value,confidence,notes
+seattle,debt_per_capita,2024,1744,alternative,"S&P Global Ratings 'net direct debt per capita' (tax-supported only, excludes utility revenue bonds), ~FY2024 (trend: $1,898 in 2022, $1,837 in 2023)."

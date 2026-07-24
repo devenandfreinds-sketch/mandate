@@ -1,0 +1,12 @@
+jurisdiction,metric,year,value,confidence,notes
+minneapolis,vacancy_rate,2019,2.7,high,"ACS 1-Yr Estimates, Table DP04, Minneapolis city."
+minneapolis,vacancy_rate,2021,7.3,high,"ACS 1-Yr Estimates, Table DP04, Minneapolis city."
+minneapolis,vacancy_rate,2022,6.5,high,"ACS 1-Yr Estimates, Table DP04, Minneapolis city."
+minneapolis,vacancy_rate,2023,6.2,high,"ACS 1-Yr Estimates, Table DP04, Minneapolis city."
+minneapolis,vacancy_rate,2024,8.6,high,"ACS 1-Yr Estimates, Table DP04, Minneapolis city. No 2020 estimate published (ACS suspended standard 1-yr estimates that year)."
+minneapolis,median_rent,2019,1068,high,"ACS 1-Yr Estimates, Table B25064, Minneapolis city."
+minneapolis,median_rent,2021,1225,high,"ACS 1-Yr Estimates, Table B25064, Minneapolis city."
+minneapolis,median_rent,2022,1265,high,"ACS 1-Yr Estimates, Table B25064, Minneapolis city."
+minneapolis,median_rent,2024,1340,high,"ACS 1-Yr Estimates, Table B25064, Minneapolis city."
+minneapolis,labor_force_participation,2024,72.5,high,"ACS 1-Yr Estimates, Table B23025, Minneapolis city (257,588 / 355,563 population 16+)."
+minneapolis,average_commute_minutes,2024,22.8,high,"ACS 1-Yr Estimates, Minneapolis city, mean travel time to work."

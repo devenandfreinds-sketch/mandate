@@ -1,0 +1,2 @@
+jurisdiction,metric,year,value,confidence,notes
+new-york-city,debt_per_capita,2025,11218,estimated,"Derived from the NYC Comptroller's statutory 'Total Projected Indebtedness Against the Limit' ($96.3B, as of July 1 2025) divided by the Census Bureau's July 1 2025 population estimate (8,584,629). The Comptroller's own FY2026 Annual Report states debt per capita is 'well above' peer U.S. cities but does not publish the exact figure itself."

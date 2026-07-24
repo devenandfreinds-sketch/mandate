@@ -1,0 +1,6 @@
+jurisdiction,metric,year,value,confidence,notes
+washington-dc,employment,2024,769400,high,"DC DOES Talent Forward DC FY2024 Annual Report, total nonfarm payroll jobs (533,200 private + 236,700 government), citing BLS CES."
+washington-dc,graduate_employment_rate,2024,52,high,"DC DOES annual report, workforce program participant employment rate, FY2024 (proxy -- no true 'recent college graduate' rate is published for DC)."
+washington-dc,labor_force_participation,2024,72.4,high,"DC DOES annual report, population 16+, citing BLS CPS."
+washington-dc,skills_training_participation,2024,31259,high,"DC DOES annual report, unique individuals receiving workforce development services, FY2024 (up from 23,634 in FY2023)."
+washington-dc,unemployment_rate,2024,5.2,high,"DC DOES annual report, citing BLS LAUS (21,801 unemployed)."

@@ -1,0 +1,3 @@
+jurisdiction,metric,year,value,confidence,notes
+washington-dc,transit_reliability,2025,88.3,high,"WMATA Metrorail on-time performance, FY2025, per WMATA's own Service Excellence Reports -- a regional (DC+MD+VA) authority, not DC-exclusive."
+washington-dc,transit_ridership,2025,263700000,high,"WMATA total trips (rail+bus+access), FY2025, +9% YoY -- a regional authority, not DC-exclusive."

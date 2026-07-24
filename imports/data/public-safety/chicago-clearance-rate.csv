@@ -1,0 +1,4 @@
+jurisdiction,metric,year,value,confidence,notes
+chicago,clearance_rate,2022,50.79,high,"CPD 2022 Year in Review: 353 homicides cleared -- homicide clearance rate only, CPD does not publish an all-crime clearance rate in this series."
+chicago,clearance_rate,2023,51.70,high,"CPD 2023 Year in Review: 319 homicides cleared -- highest since 2019. Homicide clearance rate only."
+chicago,clearance_rate,2024,56,high,"CPD 2024 Year in Review: 323 homicides cleared -- highest since 2015. Homicide clearance rate only."

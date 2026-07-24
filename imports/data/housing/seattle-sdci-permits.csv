@@ -1,0 +1,7 @@
+jurisdiction,metric,year,value,confidence,notes
+seattle,housing_permits_issued,2022,1061,high,"Seattle Open Data, 'Issued Building Permits' dataset, new-construction residential units authorized (71 permits)."
+seattle,housing_permits_issued,2023,1351,high,"Seattle Open Data, 'Issued Building Permits' dataset, new-construction residential units authorized (124 permits)."
+seattle,housing_permits_issued,2024,3119,high,"Seattle Open Data, 'Issued Building Permits' dataset, new-construction residential units authorized (185 permits)."
+seattle,housing_permits_issued,2025,3490,high,"Seattle Open Data, 'Issued Building Permits' dataset, new-construction residential units authorized (745 permits)."
+seattle,planning_approval_days,2022,739,high,"SDCI Permit Timelines Summary Report, period ending Dec 2022: Full Design Review, intake to issuance (694 days intake-to-decision)."
+seattle,permit_approval_days,2025,117,high,"SDCI live permit-performance dashboard, 75th percentile total calendar days, Middle Housing track (target 60 days)."

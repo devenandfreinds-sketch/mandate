@@ -1,0 +1,2 @@
+jurisdiction,metric,year,value,confidence,notes
+washington-dc,public_transport_expansion_miles,2025,0,high,"DC's own directly-controlled transit assets contracted rather than expanded in this period: DC Circulator ended service Dec 31 2024; DC Streetcar (2-mile line, never expanded in a decade) ended Mar 31 2026. A genuine finding of contraction, not a data gap -- WMATA Silver Line Phase 2 (~11 miles, opened Nov 2022) is entirely in Virginia, outside DC."

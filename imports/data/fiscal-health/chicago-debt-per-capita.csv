@@ -1,0 +1,3 @@
+jurisdiction,metric,year,value,confidence,notes
+chicago,debt_per_capita,2014,8166,medium,"Civic Federation, total net debt $22.0B / population -- FY2014."
+chicago,debt_per_capita,2023,10642,medium,"Civic Federation, total net debt $29.2B / population -- FY2023, a 30.3% per-capita increase since 2014. COFA itself declined to publish an official per-capita debt series, citing distorted results from outdated Census population figures in older ACFRs."

@@ -1,0 +1,2 @@
+jurisdiction,metric,year,value,confidence,notes
+new-york-city,median_wages,2024,51844,estimated,"U.S. Census Bureau ACS 2020-2024 5-year estimates, per capita income, New York City -- used as the best available city-level proxy since a true median individual-earnings table (ACS B20017) could not be directly extracted this pass."

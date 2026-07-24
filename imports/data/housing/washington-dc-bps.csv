@@ -1,0 +1,5 @@
+jurisdiction,metric,year,value,confidence,notes
+washington-dc,housing_permits_issued,2021,4740,high,"U.S. Census Bureau Building Permits Survey, place-level annual file, total units authorized, Washington DC."
+washington-dc,housing_permits_issued,2022,7705,high,"U.S. Census Bureau Building Permits Survey, place-level annual file, total units authorized, Washington DC."
+washington-dc,housing_permits_issued,2023,3020,high,"U.S. Census Bureau Building Permits Survey, place-level annual file, total units authorized, Washington DC."
+washington-dc,housing_permits_issued,2024,1737,high,"U.S. Census Bureau Building Permits Survey, place-level annual file, total units authorized, Washington DC."

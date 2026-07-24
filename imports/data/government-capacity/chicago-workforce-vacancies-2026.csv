@@ -1,0 +1,2 @@
+jurisdiction,metric,year,value,confidence,notes
+chicago,agency_vacancy_rate,2026,13.8,high,"Chicago Data Portal 'Workforce Vacancies' dataset (CHIPPS-sourced), June 2026 snapshot: 3,630 vacancies of 26,266 budgeted positions. This dataset is monthly-overwritten with no retained history."

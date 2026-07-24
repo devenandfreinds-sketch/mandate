@@ -1,0 +1,2 @@
+jurisdiction,metric,year,value,confidence,notes
+new-york-city,permit_approval_days,2025,23.6,estimated,"NYC Preliminary Mayor's Management Report FY2026, DOB chapter: average days from DOB NOW filing to approval, first 4 months of FY2026 (up from 20.3 days the prior-year period). Confirmed only via secondary description of the primary PDF, which returned an access error on direct fetch."

@@ -1,0 +1,2 @@
+jurisdiction,metric,year,value,confidence,notes
+greater-manchester,capital_budget_execution_rate,2023-24,93.4,estimated,"Computed as actual outturn (£541.1m) / latest forecast (£579.1m) from the same GMCA Feb 2024 capital programme report -- this is actual-vs-latest-forecast, not actual-vs-original-budget, so treat as a directional execution measure rather than a precise budget-variance figure."

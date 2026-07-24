@@ -1,0 +1,3 @@
+jurisdiction,metric,year,value,confidence,notes
+new-york-city,bike_infrastructure_miles,2024,1550,high,"NYC DOT 'Bike Network and Ridership' page: 1,550 lane miles total (555 protected), described as North America's largest bicycle network."
+new-york-city,public_transport_expansion_miles,2024,13.5,high,"NYC DOT Streets Plan Annual Status Report: protected bus lane miles completed in 2024 -- more than any single prior year, though short of the 30-mile/year legal benchmark. No subway/rail expansion occurred in this period."

@@ -1,0 +1,3 @@
+jurisdiction,metric,year,value,confidence,notes
+new-york-city,active_transportation_mode_share,2024,11.3,high,"ACS 1-Year Estimates, Table B08301, New York city -- walked 9.56% + bicycle 1.72%."
+new-york-city,average_commute_minutes,2024,40.6,high,"ACS 1-Year Estimates, Tables B08013/B08303, New York city -- aggregate travel time divided by workers who did not work from home."

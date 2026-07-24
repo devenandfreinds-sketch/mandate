@@ -1,0 +1,3 @@
+jurisdiction,metric,year,value,confidence,notes
+seattle,average_commute_minutes,2024,26,high,"ACS 1-Year Estimates, Seattle city, mean travel time to work."
+seattle,active_transportation_mode_share,2023,11.2,estimated,"ACS, Seattle city, walk 8.5% + bike 2.7%, via Communities Count (Census ACS intermediary, not a direct ACS table pull)."

@@ -1,0 +1,4 @@
+jurisdiction,metric,year,value,confidence,notes
+new-york-city,employment,2026,4255400,high,"NYS DOL, private-sector jobs, New York City region, June 2026 seasonally adjusted (up 53,400 YoY). Excludes public-sector employment (~300K+ additional city government workers)."
+new-york-city,labor_force_participation,2026,62.5,high,"NYS DOL/BLS LAUS joint program, share of working-age population 16+ employed or looking for work, June 2026, New York City region specifically (not the wider MSA)."
+new-york-city,unemployment_rate,2026,5.3,high,"NYS DOL/BLS LAUS, New York City region, June 2026 seasonally adjusted, covering the five boroughs specifically (distinct from and reported alongside the separate NY State rate)."

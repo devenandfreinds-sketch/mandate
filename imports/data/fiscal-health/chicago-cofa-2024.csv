@@ -1,0 +1,3 @@
+jurisdiction,metric,year,value,confidence,notes
+chicago,budget_balance,2024,-161600000,high,"COFA's audited year-end General Fund deficit, FY2024 -- revenues $378.7M below budget, including CPS's non-payment of a $175M MEABF reimbursement and a $192M PPRT shortfall."
+chicago,pension_funding_ratio,2024,26.2,high,"COFA aggregate pension funded ratio across MEABF/LABF/PABF/FABF, FY2024, citing the ACFR's actuarial tables."

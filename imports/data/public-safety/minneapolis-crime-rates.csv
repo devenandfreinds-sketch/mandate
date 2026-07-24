@@ -1,0 +1,9 @@
+jurisdiction,metric,year,value,confidence,notes
+minneapolis,property_crime_rate,2021,4378,estimated,"Mandate-computed from Minneapolis Open Data NIBRS-coded crime feed / Census population estimate."
+minneapolis,property_crime_rate,2022,5418,estimated,"Mandate-computed from Minneapolis Open Data NIBRS-coded crime feed / Census population estimate."
+minneapolis,property_crime_rate,2023,5347,estimated,"Mandate-computed from Minneapolis Open Data NIBRS-coded crime feed / Census population estimate."
+minneapolis,property_crime_rate,2024,5211,estimated,"Mandate-computed from Minneapolis Open Data NIBRS-coded crime feed / Census population estimate."
+minneapolis,violent_crime_rate,2021,1193,estimated,"Mandate-computed from Minneapolis Open Data NIBRS-coded crime feed / Census population estimate."
+minneapolis,violent_crime_rate,2022,1117,estimated,"Mandate-computed from Minneapolis Open Data NIBRS-coded crime feed / Census population estimate."
+minneapolis,violent_crime_rate,2023,1005,estimated,"Mandate-computed from Minneapolis Open Data NIBRS-coded crime feed / Census population estimate."
+minneapolis,violent_crime_rate,2024,1041,estimated,"Mandate-computed from Minneapolis Open Data NIBRS-coded crime feed / Census population estimate."

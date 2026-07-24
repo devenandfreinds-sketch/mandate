@@ -1,0 +1,3 @@
+jurisdiction,metric,year,value,confidence,notes
+minneapolis,homelessness_count,2024,3866,estimated,"Hennepin County (MN-500 CoC) Point-in-Time Count. County-wide, not city-of-Minneapolis-only."
+minneapolis,homelessness_count,2025,3078,estimated,"Hennepin County (MN-500 CoC) Point-in-Time Count, preliminary. County-wide, not city-of-Minneapolis-only."

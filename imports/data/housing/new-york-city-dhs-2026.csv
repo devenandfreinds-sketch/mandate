@@ -1,0 +1,2 @@
+jurisdiction,metric,year,value,confidence,notes
+new-york-city,homelessness_count,2026,82696,high,"NYC Department of Homeless Services Daily Report, July 22 2026 (54,636 adults + 28,060 children). Coalition for the Homeless separately reports a higher ~96,500/night figure for May 2026, likely reflecting inclusion of non-DHS-administered congregate sites (e.g. asylum-seeker HERRCs) not in DHS's own daily census."

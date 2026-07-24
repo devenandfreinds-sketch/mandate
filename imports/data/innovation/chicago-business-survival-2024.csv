@@ -1,0 +1,2 @@
+jurisdiction,metric,year,value,confidence,notes
+chicago,business_survival_rate,2024,77.9,estimated,"BLS Business Employment Dynamics, Table 7, one-year survival rate for establishments opened March 2024 -- a NATIONAL figure; BLS does not publish this cohort-survival table by metro area, so this is a national proxy, not Chicago-specific."

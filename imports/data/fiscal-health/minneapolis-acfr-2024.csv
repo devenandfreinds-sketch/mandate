@@ -1,0 +1,3 @@
+jurisdiction,metric,year,value,confidence,notes
+minneapolis,budget_balance,2024,-1195000,high,"General Fund net change in fund balance (GAAP basis), FY2024 ACFR."
+minneapolis,capital_investment,2024,147150000,high,"Actual capital outlay, FY2024 ACFR."
