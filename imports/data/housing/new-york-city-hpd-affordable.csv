@@ -1,0 +1,3 @@
+jurisdiction,metric,year,value,confidence,notes
+new-york-city,affordable_housing_completions,2024,25266,high,"HPD-financed affordable units (new construction + preservation), FY2024 — a production/financing figure, not necessarily same-year certificate-of-occupancy, consistent with how Chicago's DOH Annual Report production data is used for this metric."
+new-york-city,affordable_housing_completions,2025,28281,high,"HPD-financed affordable units, FY2025 — second consecutive annual record."

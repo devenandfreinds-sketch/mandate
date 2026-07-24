@@ -119,7 +119,8 @@ export const administrations: AdministrationSeedSpec[] = [
     leaderName: "Katie Wilson",
     leaderTitle: "Mayor",
     politicalParty: "Democratic",
-    coalitionDescription: "Democratic socialist and progressive coalition (nonpartisan office).",
+    coalitionDescription:
+      "Labor and tenant/transit-advocacy coalition (Transit Riders Union, Working Families Party, UFCW 3000, AFSCME, other unions); nonpartisan office. Not a DSA member and not endorsed by Seattle DSA, which declined to endorse her after a formal vetting process — only DSA-affiliated endorsement came from the YDSA student chapter at UW. Media commonly pairs her with DSA-aligned mayors nationally, but this is a rhetorical framing, not an organizational affiliation.",
     termNumber: 1,
     startDate: "2026-01-01",
     endDate: null,

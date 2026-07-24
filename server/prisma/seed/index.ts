@@ -20,6 +20,10 @@ import { metricSourceAssignments } from "./data/metricSourceAssignments.js";
 import { unavailableMetrics } from "./data/unavailableMetrics.js";
 import { chicagoResearchedPipelineAssessments } from "./data/chicagoResearchedPipeline.js";
 import { greaterManchesterResearchedPipelineAssessments } from "./data/greaterManchesterResearchedPipeline.js";
+import { newYorkCityResearchedPipelineAssessments } from "./data/newYorkCityResearchedPipeline.js";
+import { seattleResearchedPipelineAssessments } from "./data/seattleResearchedPipeline.js";
+import { minneapolisResearchedPipelineAssessments } from "./data/minneapolisResearchedPipeline.js";
+import { washingtonDcResearchedPipelineAssessments } from "./data/washingtonDcResearchedPipeline.js";
 import { researchQueueSeed } from "./data/researchQueue.js";
 import { generateAnnualSeries, type MetricSeedSpec, type AdministrationWindow } from "./generators/timeSeries.js";
 import { generatePipelineAssessment } from "./generators/pipelineAssessment.js";
@@ -87,6 +91,8 @@ async function main() {
         updateFrequency: s.updateFrequency ?? null,
         methodology: s.methodology ?? null,
         defaultConfidence: s.defaultConfidence ?? null,
+        country: s.country ?? null,
+        language: s.language ?? null,
       },
       create: {
         name: s.name,
@@ -99,6 +105,8 @@ async function main() {
         updateFrequency: s.updateFrequency ?? null,
         methodology: s.methodology ?? null,
         defaultConfidence: s.defaultConfidence ?? null,
+        country: s.country ?? null,
+        language: s.language ?? null,
       },
     });
     sourceIdByKey.set(s.key, row.id);
@@ -364,6 +372,10 @@ async function main() {
   const allResearchedPipelineAssessments = [
     ...chicagoResearchedPipelineAssessments,
     ...greaterManchesterResearchedPipelineAssessments,
+    ...newYorkCityResearchedPipelineAssessments,
+    ...seattleResearchedPipelineAssessments,
+    ...minneapolisResearchedPipelineAssessments,
+    ...washingtonDcResearchedPipelineAssessments,
   ];
   const researchedPairs = new Set(
     allResearchedPipelineAssessments.map((r) => `${r.jurisdictionSlug}::${r.policyAreaSlug}`)
@@ -430,9 +442,10 @@ async function main() {
     const jurisdictionId = jurisdictionIdBySlug.get(r.jurisdictionSlug)!;
     const policyAreaId = policyAreaIdBySlug.get(r.policyAreaSlug)!;
     const assessmentDate = new Date(r.assessmentDate);
+    const institutionName = r.institutionName ?? "";
 
     const existing = await prisma.pipelineAssessment.findUnique({
-      where: { jurisdictionId_policyAreaId_assessmentDate: { jurisdictionId, policyAreaId, assessmentDate } },
+      where: { jurisdictionId_policyAreaId_institutionName_assessmentDate: { jurisdictionId, policyAreaId, institutionName, assessmentDate } },
       select: { id: true },
     });
     if (existing) {
@@ -445,6 +458,7 @@ async function main() {
       data: {
         jurisdictionId,
         policyAreaId,
+        institutionName,
         stage: r.stage,
         dataQuality: r.dataQuality,
         assessmentDate,

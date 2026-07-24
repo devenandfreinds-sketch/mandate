@@ -156,4 +156,152 @@ export const researchQueueSeed: ResearchQueueSeedItem[] = [
       "Follow-up check (not urgent until closer to the date): as of this research pass, Bee Network rail integration (Glossop and Stalybridge lines becoming the first rail routes formally inside the Bee Network, with contactless tap-in/tap-out fare capping) has a committed date of 13 December 2026 but had not yet occurred. Once that date passes, verify via TfGM/GMCA/National Rail sources whether it actually happened on schedule, and if so, add a new dated PipelineAssessment row documenting real rail-integration operating evidence — this would be the first evidence justifying raising the rail component above stage 1-2. Do not create this row before the milestone actually occurs; a committed date is not evidence of operation.",
     priority: 5,
   },
+
+  // --- DSA Research Expansion pass (2026-07): NYC, Seattle, Minneapolis, Washington DC ---
+
+  {
+    key: "nyc-nypd-headcount-reconciliation",
+    jurisdictionSlug: "new-york-city",
+    policyAreaSlug: "alternative-crisis-response",
+    taskType: "pipeline_assessment",
+    researchQuestion:
+      "Reconcile the NYPD headcount / +580-officer FY2027 budget controversy: NYC-DSA publicly objected (June 13, 2026) to a proposed increase from 33,861 to 35,370 officers as running counter to the values of the movement that elected Mayor Mamdani, but this research pass could not confirm the FINAL enacted headcount in the signed FY2027 budget (adopted ~June 30, 2026) versus what was proposed. Why it matters: this is the clearest flashpoint in the DSA-Mamdani relationship and directly affects whether the public-safety campaign promise should be scored as broken, honored, or genuinely contested. Already checked: City & State NY, GV Wire, Patch (all cover the objection, not the resolution). Suggested next sources: NYC Council Finance Division's FY2027 Adopted Budget Message, NYPD's own uniformed-strength reports. Difficulty: medium (primary budget line-item reading). Skill set: municipal budget/public-finance analyst.",
+    priority: 1,
+  },
+  {
+    key: "nyc-bheard-response-rate-discrepancy",
+    jurisdictionSlug: "new-york-city",
+    policyAreaSlug: "alternative-crisis-response",
+    taskType: "pipeline_assessment",
+    researchQuestion:
+      "NYC IBO and NYPD leadership testimony give conflicting B-HEARD response rates (roughly 22% vs. roughly 8%) for the alternative-crisis-response program. Why it matters: this is the largest single data conflict found in NYC's institutional-pipeline research and affects whether the underlying (pre-Mamdani) B-HEARD program should be read as declining or merely inconsistently measured, which in turn affects the ceiling on this policy area's current stage. Already checked: NYC IBO precinct-level PDF, Gothamist, THE CITY, amNewYork, City & State. Suggested next sources: NYC Mayor's Management Report FY2026 mid-year update, NYC Open Data B-HEARD dataset if published, a FOIL request to NYPD/FDNY/DOHMH for current dispatch logs. Difficulty: medium-high. Skill set: public-health/public-safety data analyst with FOIL experience.",
+    priority: 2,
+  },
+  {
+    key: "nyc-rgb-rent-freeze-litigation",
+    jurisdictionSlug: "new-york-city",
+    policyAreaSlug: "affordable-housing-institution",
+    taskType: "pipeline_assessment",
+    researchQuestion:
+      "The Rent Guidelines Board's June 25, 2026 vote for a first-ever two-year 0%/0% rent freeze (effective October 1, 2026) drew landlord-group litigation threats and a board-member resignation alleging a predetermined outcome. Why it matters: if the freeze is stayed or overturned, this marquee DSA-coalition deliverable's 'Enacted' classification would need to revert, changing the affordable-housing-institution assessment. Already checked: City Limits, amNewYork, ABC News, CNN (all cover the vote, not any litigation outcome). Suggested next sources: NYSCEF e-filing search for RGB/rent-freeze litigation, NY Apartment Association/RSA press statements, Housing Court/Appellate Division dockets. Difficulty: medium (legal-docket research). Skill set: legal/court-records researcher.",
+    priority: 3,
+  },
+  {
+    key: "nyc-business-formation-county-extraction",
+    jurisdictionSlug: "new-york-city",
+    metricSlug: "business_formation",
+    taskType: "metric",
+    researchQuestion:
+      "Extract exact annual business-application counts for New York, Kings, Queens, Bronx, and Richmond counties for 2023, 2024, and 2025 from Census Bureau Business Formation Statistics. Why it matters: this metric is currently 100% placeholder for NYC; the underlying county-level data exists but requires direct table extraction, not web-search summarization. Already checked: census.gov/econ/bfs landing pages only (not the data tables). Suggested next source: https://www.census.gov/econ/bfs/data/county.html raw CSV/table download, reconciled across the five boroughs. Difficulty: low-medium (data-wrangling, not judgment). Skill set: data analyst comfortable with Census Bureau table structures.",
+    priority: 4,
+  },
+
+  {
+    key: "seattle-city-specific-pit-count",
+    jurisdictionSlug: "seattle",
+    metricSlug: "homelessness_count",
+    taskType: "metric",
+    researchQuestion:
+      "Obtain a Seattle-city-specific (not King-County-wide) point-in-time homeless count breakdown for 2022/2024/2026. Why it matters: Mandate's homelessness_count values for Seattle currently use KCRHA's county-wide total (39 cities), which overstates the city-specific figure. Already checked: KCRHA's published PIT PDFs, which resisted automated text extraction (scanned/encoded format) in this research pass. Suggested next sources: direct KCRHA data-portal CSV/Excel downloads (not PDF), kcrha.org/community-data, Seattle Human Services Dept homelessness reports. Difficulty: medium (data exists but isn't machine-readable via standard fetch tools). Skill set: data/policy researcher comfortable with PDF table extraction, or direct outreach to KCRHA's data team.",
+    priority: 1,
+  },
+  {
+    key: "seattle-mha-annual-report-extraction",
+    jurisdictionSlug: "seattle",
+    metricSlug: "affordable_housing_completions",
+    taskType: "metric",
+    researchQuestion:
+      "Extract full Mandatory Housing Affordability (MHA) Annual Report data: cumulative affordable units produced 2017-2025 by year, plus total city-wide housing permits/completions (market-rate + affordable) for a Wilson-administration comparison baseline. Why it matters: this research pass found only an '86 affordable homes tied to 2025 permits' figure, which is likely a narrow incentive-zoning subcategory that needs correct context against total annual city production (likely several thousand units/year) before it can be imported as a metric value. Already checked: the 2025 MHA Annual Report PDF, which resisted automated text extraction. Suggested next sources: seattle.gov/housing/data-and-reports, SDCI permit dashboards, data.seattle.gov building-permits Socrata dataset. Difficulty: medium. Skill set: data analyst with SQL/Socrata query experience.",
+    priority: 2,
+  },
+  {
+    key: "seattle-care-outcome-evaluation",
+    jurisdictionSlug: "seattle",
+    policyAreaSlug: "alternative-crisis-response",
+    taskType: "pipeline_assessment",
+    researchQuestion:
+      "Determine whether Seattle's CARE Department has any independently-audited outcome data (response times, use-of-force reduction, cost savings) comparable to Health One's documented 76% 911-utilization / 69% ED-visit reduction figures. Why it matters: this determines whether CARE should move from stage 4 to stage 5 in the alternative-crisis-response assessment. Already checked: seattle.gov/care, Harrell mayor's office press releases, National League of Cities case study (all describe call volume, not independently-audited outcomes). Suggested next sources: Seattle City Auditor's Office (has audited CARE/KCRHA-adjacent programs before), CARE Department performance dashboards on data.seattle.gov if any exist. Difficulty: medium-high (likely requires a records request). Skill set: public-safety policy researcher familiar with municipal auditor reports.",
+    priority: 3,
+  },
+  {
+    key: "seattle-wilson-tax-legislation-tracking",
+    jurisdictionSlug: "seattle",
+    policyAreaSlug: "progressive-revenue-institution",
+    taskType: "pipeline_assessment",
+    researchQuestion:
+      "Track whether Mayor Wilson's proposed local capital-gains tax, land value tax, or vacancy tax has been formally introduced as Council legislation since this research pass's July 2026 cutoff. Why it matters: these are Wilson's central progressive-revenue campaign promises; as of this pass all remain at 'Promised' with no enacted legislation, but the city's $175M shortfall makes near-term legislative action plausible. Already checked: wilsonforseattle.com (campaign-era, not updated post-election), PubliCola, Center Square coverage through July 2026. Suggested next sources: Seattle City Council legislative information center (clerk.seattle.gov), Mayor Wilson's official press releases (wilson.seattle.gov). Difficulty: low, but best as a recurring/scheduled check. Skill set: municipal legislative tracker.",
+    priority: 4,
+  },
+
+  {
+    key: "minneapolis-ocs-leadership-dispute",
+    jurisdictionSlug: "minneapolis",
+    policyAreaSlug: "alternative-crisis-response",
+    taskType: "pipeline_assessment",
+    researchQuestion:
+      "Determine the outcome of the 2026 City Council-vs-Mayor dispute over Office of Community Safety Commissioner Todd/Toddrick Barnette's reappointment (the Council voted twice, 7-6, against reappointment; the mayor has vowed a veto). Why it matters: OCS is Minneapolis's most-developed DSA-adjacent institution, and this research pass's stage-4 assessment assumed BCR continues operating regardless of the leadership dispute's outcome — that assumption needs confirming once the dispute resolves. Already checked: MinnPost, Axios Twin Cities, MPR News (all 2026, pre-resolution). Suggested next sources: Minneapolis City Council LIMS records on the Barnette reappointment vote, the Council's own restructuring proposal (referenced by Councilmember Wonsley) if formally introduced. Difficulty: medium (fast-moving local political story). Skill set: local-government/municipal-affairs researcher with LIMS fluency.",
+    priority: 1,
+  },
+  {
+    key: "minneapolis-2040-plan-causal-effect",
+    jurisdictionSlug: "minneapolis",
+    policyAreaSlug: "affordable-housing-institution",
+    taskType: "pipeline_assessment",
+    researchQuestion:
+      "Find the best independent (non-city, non-advocacy) causal estimate of the 2040 Comprehensive Plan's actual effect on housing supply and rents — the Minneapolis Fed's own data-tool analysis and a MinnPost advocacy critique reach different conclusions about whether the plan's 'missing middle' zoning change (versus pre-existing corridor upzoning) drove the roughly 18,000 multifamily units added 2018-2022. Why it matters: this determines whether the 2040 Plan should ever be scored as a Mandate institutional-pipeline case (it is currently deliberately excluded from the affordable-housing-institution assessment as a taxonomy-gap land-use reform, not a production institution) and, if so, at what stage. Already checked: Minneapolis Fed data-tool article, MinnPost community-voices critique, Metropolitan Abundance Project analysis. Suggested next sources: the Fed's full data tool/dataset directly, City of Minneapolis permit-level open data. Difficulty: hard (requires housing-economics literacy and causal-inference judgment). Skill set: urban economist or housing-policy researcher.",
+    priority: 2,
+  },
+  {
+    key: "minneapolis-crime-primary-source-verification",
+    jurisdictionSlug: "minneapolis",
+    metricSlug: "violent_crime_rate",
+    taskType: "metric",
+    researchQuestion:
+      "Obtain primary-source (MN BCA Uniform Crime Report / MPD dashboard) violent and property crime rates for Minneapolis 2022-2025 — this research pass's figures (e.g., 1,132 per 100,000 violent crime for 2023) came from secondary aggregator sites, not the BCA report directly, and were never imported as real MetricValues for exactly this reason. Why it matters: Minneapolis currently has zero real crime-rate data despite Chicago's precedent showing this metric is high-value and directly obtainable from primary sources. Already checked: secondary aggregators only (city-data.com, safehome.org, legalclarity.org). Suggested next sources: dps.mn.gov BCA Uniform Crime Report PDFs directly, MPD's public crime dashboard/maps. Difficulty: easy (primary documents are public; needs direct retrieval and year-over-year NIBRS-transition methodology notes). Skill set: data/research assistant comfortable with government PDF reports.",
+    priority: 3,
+  },
+  {
+    key: "minneapolis-transit-primary-source-data",
+    jurisdictionSlug: "minneapolis",
+    metricSlug: "transit_ridership",
+    taskType: "metric",
+    researchQuestion:
+      "Obtain Metropolitan Council's own official ridership figures (not press citations) for 2023-2025, and the current official cost/schedule status of the Blue Line and Green Line light-rail extensions. Why it matters: transit-expansion-program scoring currently relies on press paraphrase of Metro Council data; primary figures would let Mandate track this metric directly rather than only via the pipeline assessment's qualitative evidence. Already checked: Star Tribune, a 2024-vintage FTA project-profile PDF. Suggested next sources: metrotransit.org performance dashboard, Metropolitan Council board meeting minutes, FTA's most recent (2025-26) project profile updates. Difficulty: medium. Skill set: transit/transportation-policy researcher familiar with FTA New Starts reporting.",
+    priority: 4,
+  },
+
+  {
+    key: "dc-hptf-recent-annual-reports",
+    jurisdictionSlug: "washington-dc",
+    policyAreaSlug: "affordable-housing-institution",
+    taskType: "pipeline_assessment",
+    researchQuestion:
+      "Obtain the exact FY2024 and FY2025 Housing Production Trust Fund annual-report figures (units financed by AMI tier, dollars disbursed, percent meeting the 50% extremely-low-income statutory requirement). Why it matters: this is the single most load-bearing metric for whether HPTF should remain at stage 4 or could support stage 5 — this research pass found only FY2021-FY2023 figures (18-48% ELI compliance) via secondary DCFPI/NPR reporting. Already checked: DHCD's reports landing page (titles only, no summary data extractable), DCFPI, GGWash, D.C. Policy Center secondary analyses. Suggested next sources: direct PDF pulls from dhcd.dc.gov/page/housing-production-trust-fund-reports, DC Council Committee on Housing oversight hearing testimony. Difficulty: low-medium (PDF retrieval/parsing). Skill set: data/document research analyst.",
+    priority: 1,
+  },
+  {
+    key: "dc-onse-cvi-evaluation-results",
+    jurisdictionSlug: "washington-dc",
+    policyAreaSlug: "alternative-crisis-response",
+    taskType: "pipeline_assessment",
+    researchQuestion:
+      "Determine whether the Johns Hopkins Center for Gun Violence Solutions / University of Maryland four-year community-violence-intervention evaluation of ONSE-overseen programs has published interim or final findings. Why it matters: this is the only rigorous, independent outcome evaluation identified for DC's alternative-crisis-response institution; its results would determine whether stage 5 is warranted. Already checked: onse.dc.gov, general web search (study confirmed underway, named academics Daniel Webster and Joseph Richardson Jr., no results located). Suggested next sources: Johns Hopkins Center for Gun Violence Solutions publications page, University of Maryland Richardson lab, DC Council Judiciary & Public Safety Committee oversight hearing records. Difficulty: medium (may require direct academic outreach). Skill set: criminology/public-health researcher familiar with CVI evaluation literature.",
+    priority: 2,
+  },
+  {
+    key: "dc-council-dsa-membership-verification",
+    jurisdictionSlug: "washington-dc",
+    taskType: "pipeline_assessment",
+    researchQuestion:
+      "Resolve whether Councilmember Zachary Parker (Ward 5) is a formal Metro DC DSA member or only a DSA-endorsed candidate, and whether any other 2026-elected DC Council member is a formal DSA member beyond the confirmed case, Janeese Lewis George (Ward 4). Why it matters: Metro DC DSA's own April 2026 materials describe '1 of 13' Council members as chapter members, but some secondary sources describe Parker as a DSA member — an unresolved discrepancy that affects how confidently Mandate can characterize the scale of DSA's Council presence, distinct from the separate question of Lewis George's now much more consequential status as the 2026 mayoral primary winner. Already checked: Metro DC DSA endorsement pages, Wikipedia, conflicting secondary sources. Suggested next sources: direct contact with Metro DC DSA chapter communications; the councilmembers' own public statements (DSA membership rosters are not public). Difficulty: medium (may be unresolvable to full certainty). Skill set: political reporter/researcher with local DC sourcing relationships.",
+    priority: 3,
+  },
+  {
+    key: "dc-post-election-administration-update",
+    jurisdictionSlug: "washington-dc",
+    taskType: "pipeline_assessment",
+    researchQuestion:
+      "Once the November 2026 DC general election is certified, update Mandate's Administration record for Washington, D.C. and rewrite the governance-model rationale given a likely DSA-affiliated mayor (Janeese Lewis George, who won the June 2026 Democratic primary outright and faces no Republican opponent) rather than DSA-Council-only influence. Why it matters: the current DB record (Bowser, 'ward-based Democratic coalition') and the governance-model narrative ('DSA influence on Council races amid a long-serving mayoral administration') will both be out of date the moment the general election concludes — this is a structural/methodological update, not just a data refresh. Already checked: PBS, NBC, WJLA, Wikipedia (all pre-general-election). Suggested next sources: DC Board of Elections certified results (Nov/Dec 2026), Lewis George's mayoral transition announcements. Difficulty: low for the factual update (just requires waiting for a known future date); higher for the methodological question of how Mandate's governance-model taxonomy should describe a DSA executive under home rule. Skill set: policy analyst familiar with Mandate's own taxonomy, not just a web researcher.",
+    priority: 4,
+  },
 ];

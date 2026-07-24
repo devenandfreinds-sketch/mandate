@@ -54,7 +54,7 @@ export const jurisdictions: JurisdictionSeedSpec[] = [
     populationYear: 2022,
     latitude: 44.9778,
     longitude: -93.265,
-    summary: "Site of a high-profile 2021 ballot measure on public safety restructuring following the murder of George Floyd.",
+    summary: "Site of a high-profile 2021 ballot measure on public safety restructuring following the murder of George Floyd; DSA influence runs through the City Council and a serious 2025 mayoral primary challenge, not the sitting mayor.",
     description:
       "Minneapolis has had multiple DSA-endorsed city council members and was the site of a closely watched 2021 ballot measure to replace the police department with a Department of Public Safety, which voters rejected, making it a significant test case for public-safety-model reform proposals.",
     governanceModelSlug: "democratic-socialism",
@@ -69,9 +69,9 @@ export const jurisdictions: JurisdictionSeedSpec[] = [
     populationYear: 2022,
     latitude: 47.6062,
     longitude: -122.3321,
-    summary: "Home to a long-serving DSA-endorsed city council member and an early municipal minimum-wage push.",
+    summary: "Home to a long-serving DSA-endorsed city council member and an early municipal minimum-wage push; the 2026 mayor is a labor-progressive ally, not a DSA member.",
     description:
-      "Seattle's city council has included DSA-endorsed members holding a council seat continuously since 2014, and the city was an early mover on municipal minimum wage increases and business taxation debates that later shaped national progressive municipal policy discussions.",
+      "Seattle's city council included a DSA-endorsed member (Kshama Sawant) continuously from 2014-2023, and the city was an early mover on municipal minimum wage increases and business taxation debates that later shaped national progressive municipal policy discussions. Mayor Katie Wilson (took office Jan 2026) is frequently grouped in national coverage with DSA-affiliated mayors elsewhere, but Seattle DSA explicitly declined to endorse her and confirmed she is not a member — her actual coalition is a labor/tenant-advocacy alliance (Transit Riders Union, Working Families Party, building-trades and service-sector unions) adjacent to but organizationally distinct from DSA.",
     governanceModelSlug: "democratic-socialism",
   },
   {
@@ -84,9 +84,9 @@ export const jurisdictions: JurisdictionSeedSpec[] = [
     populationYear: 2022,
     latitude: 38.9072,
     longitude: -77.0369,
-    summary: "Growing DSA chapter influence on D.C. Council races amid a long-serving mayoral administration.",
+    summary: "Growing DSA chapter influence on D.C. Council races amid a long-serving mayoral administration — a dynamic likely to change after the 2026 mayoral election.",
     description:
-      "Washington, D.C.'s local DSA chapter has grown its influence on D.C. Council races and ballot initiatives even as the mayoralty has remained with a mainstream Democratic administration, illustrating a governance dynamic where movement influence operates primarily through the legislative branch.",
+      "Washington, D.C.'s local DSA chapter (Metro DC DSA) has grown its influence on D.C. Council races and legislation, anchored by Ward 4 Councilmember Janeese Lewis George, a verified DSA member since 2018, even as the mayoralty has remained with a mainstream Democratic administration (Muriel Bowser, 2015-present, not seeking a fourth term). This illustrates a governance dynamic where movement influence has so far operated primarily through the legislative branch. That dynamic is likely to change: Lewis George won the June 2026 Democratic primary for mayor outright and, with no Republican on the ballot, is heavily favored to win the November 2026 general election, which would make D.C. the second jurisdiction in this governance model (after Chicago and New York City) with a DSA-affiliated chief executive. D.C.'s home-rule structure adds a jurisdiction-specific wrinkle not present elsewhere in this model: Council-passed legislation is subject to a congressional review period and can be — and in 2023 was — overridden by Congress, which affects how durably \"enacted\" should be read for this jurisdiction specifically.",
     governanceModelSlug: "democratic-socialism",
   },
   {

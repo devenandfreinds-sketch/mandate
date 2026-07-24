@@ -1,0 +1,3 @@
+jurisdiction,metric,year,value,confidence,notes
+seattle,homelessness_count,2024,16868,estimated,"King County Point-in-Time Count (revised methodology). County-wide, not city-of-Seattle-only, consistent with the 2022 entry's scope caveat."
+seattle,median_rent,2025,2172,estimated,"Zillow Rental Manager asking-rent data, July 2025. NOT an ACS/NYCHVS-style survey-based median contract rent — three independent sources found in this research pass disagree by up to 7% (GPS Renting $2,140; Apartment List $2,026; Zillow $2,172), reflecting asking-rent-vs-listings methodology differences. A ResearchTask requests the authoritative ACS Table B25064 read for Seattle."
