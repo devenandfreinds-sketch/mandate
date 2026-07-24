@@ -18,6 +18,7 @@ adminPipelineRouter.post(
     const body = req.body as {
       jurisdictionSlug?: string;
       policyAreaSlug?: string;
+      institutionName?: string;
       stage?: number;
       dataQuality?: string;
       assessmentDate?: string;
@@ -59,6 +60,7 @@ adminPipelineRouter.post(
       const data = await pipelineService.createPipelineAssessment({
         jurisdictionSlug: body.jurisdictionSlug,
         policyAreaSlug: body.policyAreaSlug,
+        institutionName: body.institutionName,
         stage: body.stage,
         dataQuality: body.dataQuality,
         assessmentDate: new Date(body.assessmentDate),

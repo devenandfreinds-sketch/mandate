@@ -195,6 +195,8 @@ export interface PipelineAssessment {
   assessmentDate: string;
   updatedAt: string;
   isCurrent: boolean;
+  /** "" (default) = the single/primary institution for this policy area. See docs/INSTITUTIONAL_PIPELINE_ARCHITECTURE.md. */
+  institutionName: string;
   timelineNotes: string | null;
   evidenceSummary: string | null;
   limitations: string | null;

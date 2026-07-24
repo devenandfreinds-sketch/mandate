@@ -74,6 +74,11 @@ export interface RunImportOptions {
   sourceId: string;
   dataQuality: DataQuality;
   confidenceOverride?: string;
+  // ISO 4217 code applied to every row in this import batch -- one currency per import file, since a
+  // single CSV is realistically one jurisdiction/source pull in one currency. Defaults to "USD" in
+  // importRunner.ts if omitted, matching every pre-internationalization import. See
+  // docs/CURRENCY_AND_UNITS.md.
+  currencyCode?: string;
   importType: "csv" | "json" | "manual" | "api";
   filename: string;
   categorySlug?: string;

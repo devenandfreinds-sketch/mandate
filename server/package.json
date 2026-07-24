@@ -12,7 +12,8 @@
     "prisma:studio": "prisma studio",
     "db:seed": "tsx prisma/seed/index.ts",
     "import": "tsx src/import/cli.ts",
-    "admin:set-password": "tsx src/scripts/setAdminPassword.ts"
+    "admin:set-password": "tsx src/scripts/setAdminPassword.ts",
+    "test": "vitest run"
   },
   "dependencies": {
     "@mandate/shared": "*",
@@ -34,6 +35,7 @@
     "@types/node": "^22.10.5",
     "prisma": "^6.2.1",
     "tsx": "^4.19.2",
-    "typescript": "^5.7.3"
+    "typescript": "^5.7.3",
+    "vitest": "^4.1.10"
   }
 }

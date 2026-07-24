@@ -52,10 +52,24 @@ a specific researcher's judgment (demonstrated over several completed tasks), re
 researcher's future submissions can explicitly shift to another researcher — but that's a founder call to
 make explicitly, not something that should drift by default.
 
+**Escalation when the founder is only occasionally available (see `docs/FIVE_YEAR_HANDOFF_TEST.md`).**
+The rule above assumes the founder can review promptly. Once the founder is an occasional advisor rather
+than a daily participant, a submission with no other trusted reviewer could otherwise stall
+indefinitely. The fallback: if a submission has sat in `awaiting_review` for more than 5 business days
+with no founder response, the most senior available researcher (highest `certificationLevel`, per
+`docs/RESEARCHER_CERTIFICATION.md`) may review it instead — self-review is still never permitted (see
+the self-review guard in `researchTask.service.ts`) — and must flag the decision to the founder for
+retroactive confirmation at the founder's next availability. This is a stopgap for continuity, not a
+permanent transfer of authority: it keeps research moving without silently making a junior researcher's
+unilateral review the new default. For a brand-new team with no senior researcher yet (the exact
+six-person handoff scenario this rule exists for), the two most experienced of the six may act as each
+other's reviewers under this same escalation rule from day one, rather than waiting on a founder who is
+by definition not always reachable.
+
 ## Known limitation this creates
 
 There is currently one shared admin login for the whole team (see `docs/FOUNDER_HANDOFF_CHECKLIST.md`
-and the Engineering Safety Audit) — so authentication itself doesn't distinguish individuals. A `User`
+and `docs/MANDATE_OPERATING_SYSTEM.md`'s "Remaining risks" section) — so authentication itself doesn't distinguish individuals. A `User`
 model now exists (see `docs/MANDATE_OPERATING_SYSTEM.md`, "User model") that gives real per-person
 attribution on ResearchTask/PipelineAssessment/MetricValue rows — a researcher, reviewer, or jurisdiction
 lead is a real database row with a name and role, not just a free-text string — but it is identity, not

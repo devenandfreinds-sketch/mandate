@@ -33,6 +33,7 @@ function mapAssessment(a: AssessmentRow): PipelineAssessment {
     assessmentDate: toIso(a.assessmentDate),
     updatedAt: toIso(a.updatedAt),
     isCurrent: a.isCurrent,
+    institutionName: a.institutionName,
     timelineNotes: a.timelineNotes,
     evidenceSummary: a.evidenceSummary,
     limitations: a.limitations,
@@ -85,6 +86,10 @@ export async function getJurisdictionPipeline(jurisdictionSlug: string): Promise
 export interface CreatePipelineAssessmentInput {
   jurisdictionSlug: string;
   policyAreaSlug: string;
+  // Distinguishes multiple institutions addressing the same policy area (see
+  // docs/INSTITUTIONAL_PIPELINE_ARCHITECTURE.md). Omit/empty for the ordinary single-institution
+  // case -- this is what every existing PipelineAssessment row already does.
+  institutionName?: string;
   stage: number;
   dataQuality: string;
   assessmentDate: Date;
@@ -155,11 +160,17 @@ export async function createPipelineAssessment(input: CreatePipelineAssessmentIn
   );
   const legislationSourceId = input.legislation ? await resolveSourceIdByName(input.legislation.sourceName) : null;
 
+  const institutionName = input.institutionName ?? "";
+
   let created: AssessmentRow;
   try {
     created = await prisma.$transaction(async (tx) => {
+      // Scoped by institutionName too: each named institution within a policy area has its own
+      // independent "latest"/"current" history (see docs/INSTITUTIONAL_PIPELINE_ARCHITECTURE.md).
+      // The default "" institutionName is the ordinary single-institution case, unchanged from
+      // before this field existed.
       const latestExisting = await tx.pipelineAssessment.findFirst({
-        where: { jurisdictionId: jurisdiction.id, policyAreaId: policyArea.id },
+        where: { jurisdictionId: jurisdiction.id, policyAreaId: policyArea.id, institutionName },
         orderBy: { assessmentDate: "desc" },
         select: { assessmentDate: true },
       });
@@ -167,7 +178,7 @@ export async function createPipelineAssessment(input: CreatePipelineAssessmentIn
 
       if (isCurrent) {
         await tx.pipelineAssessment.updateMany({
-          where: { jurisdictionId: jurisdiction.id, policyAreaId: policyArea.id, isCurrent: true },
+          where: { jurisdictionId: jurisdiction.id, policyAreaId: policyArea.id, institutionName, isCurrent: true },
           data: { isCurrent: false },
         });
       }
@@ -176,6 +187,7 @@ export async function createPipelineAssessment(input: CreatePipelineAssessmentIn
         data: {
           jurisdictionId: jurisdiction.id,
           policyAreaId: policyArea.id,
+          institutionName,
           administrationId: input.administrationId ?? null,
           stage: input.stage,
           dataQuality: input.dataQuality,
@@ -233,10 +245,17 @@ export async function createPipelineAssessment(input: CreatePipelineAssessmentIn
   return mapAssessment(created);
 }
 
-/** Full history (not just the current assessment) for one jurisdiction + policy area, ordered oldest to newest — powers the Pipeline Detail Page timeline. */
+/**
+ * Full history (not just the current assessment) for one jurisdiction + policy area, ordered oldest
+ * to newest — powers the Pipeline Detail Page timeline. Omitting institutionName returns EVERY
+ * institution's history interleaved by date (fine today since every real row uses the default ""
+ * institution — see docs/INSTITUTIONAL_PIPELINE_ARCHITECTURE.md); pass it explicitly once a policy
+ * area actually has more than one named institution, to get just one institution's timeline.
+ */
 export async function getPipelineAssessmentHistory(
   jurisdictionSlug: string,
-  policyAreaSlug: string
+  policyAreaSlug: string,
+  institutionName?: string
 ): Promise<PipelineAssessment[] | null> {
   const jurisdiction = await prisma.jurisdiction.findUnique({ where: { slug: jurisdictionSlug }, select: { id: true } });
   if (!jurisdiction) return null;
@@ -245,7 +264,7 @@ export async function getPipelineAssessmentHistory(
   if (!policyArea) return null;
 
   const rows = await prisma.pipelineAssessment.findMany({
-    where: { jurisdictionId: jurisdiction.id, policyAreaId: policyArea.id },
+    where: { jurisdictionId: jurisdiction.id, policyAreaId: policyArea.id, ...(institutionName !== undefined ? { institutionName } : {}) },
     include: ASSESSMENT_INCLUDE,
     orderBy: { assessmentDate: "asc" },
   });

@@ -27,8 +27,9 @@ run independently during the academic year. Status reflects the state after this
       free-text "Assigned to" field — a real name can be attached as assignedResearcherId/reviewerId on
       a task and as researchedById/reviewedById on a published assessment. This is still identity, not
       login: everyone still authenticates with the one shared admin password, so this doesn't yet
-      prevent one researcher from editing another's row, only makes it visible after the fact. See the
-      Engineering Safety Audit and Decision Ownership doc for the remaining implication.
+      prevent one researcher from editing another's row, only makes it visible after the fact. See
+      `docs/MANDATE_OPERATING_SYSTEM.md`'s "Remaining risks" section and `docs/DECISION_OWNERSHIP.md`
+      for the remaining implication.
 - [ ] **At least one researcher can perform a complete pipeline assessment** — same caveat: the workflow
       supports this and is documented, but hasn't yet been exercised by someone other than the founder.
 - [ ] **Founder is no longer required for routine research decisions** — depends on the three items

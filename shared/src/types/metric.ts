@@ -1,6 +1,9 @@
 import type { Source } from "./source.js";
 
-export type MetricUnit = "count" | "usd" | "percent" | "years" | "index" | "days" | "minutes" | "miles";
+// "currency" replaces the old "usd"-only unit -- see docs/CURRENCY_AND_UNITS.md. Which currency a
+// specific value is denominated in lives on MetricValue.currencyCode (ISO 4217), NOT here: the unit
+// says "this metric is a monetary amount," the currencyCode says which money.
+export type MetricUnit = "count" | "currency" | "percent" | "years" | "index" | "days" | "minutes" | "miles";
 export type PeriodType = "year" | "quarter" | "month";
 export type Confidence = "high" | "estimated" | "modeled";
 export type IngestionMethod = "seed" | "csv" | "json" | "manual" | "api";
@@ -48,6 +51,8 @@ export interface MetricValue {
   periodEnd: string;
   periodLabel: string;
   value: number;
+  /** ISO 4217 code, meaningful only when the metric's unit is "currency". See docs/CURRENCY_AND_UNITS.md. */
+  currencyCode: string;
   confidence: Confidence | string | null;
   notes: string | null;
   ingestionMethod: IngestionMethod | string;

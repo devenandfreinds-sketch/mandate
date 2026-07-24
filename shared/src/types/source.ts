@@ -56,4 +56,8 @@ export interface Source {
   updateFrequency: UpdateFrequency | string | null;
   methodology: string | null;
   defaultConfidence: string | null;
+  /** Country the PUBLISHER belongs to (not the jurisdiction the data is ABOUT). NULL = not yet recorded. See docs/INTERNATIONAL_SOURCE_HIERARCHY.md. */
+  country: string | null;
+  /** BCP-47-ish language code the source is published in (e.g. "en", "ja"). NULL = not yet recorded, not assumed English. */
+  language: string | null;
 }

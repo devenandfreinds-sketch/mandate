@@ -166,11 +166,56 @@ Restoring directly into production should never be the first step. Always verify
 - No disabling the `SEED_CONFIRM=yes` gate on the seed script, and no editing `server/prisma/seed/index.ts` to skip it.
 - No treating a backup file as a casual export to inspect data — use the admin UI or `/data-catalog` for that; a backup file is a production-data asset and should be handled with the same care as the live database.
 
+## Access & ownership transfer (for the founder-occasional-advisor scenario)
+
+Everything above describes how the current setup works. It does NOT, on its own, describe how to hand
+any of it to someone else — a real gap surfaced by `docs/FIVE_YEAR_HANDOFF_TEST.md`. This section is
+that missing procedure.
+
+**Adding a collaborator to the Railway project** (without transferring ownership): from the Railway
+dashboard, open the project → **Settings** → **Members** (or the project-level sharing option in the
+current Railway UI) → invite by email. This gives someone deploy/env-var access without making them the
+account owner — the right move for a "designated technical lead" (see `docs/DECISION_OWNERSHIP.md`)
+who isn't meant to inherit full founder-level responsibility.
+
+**Transferring project ownership** (if the founder's personal Railway account currently owns it, and
+the project should outlive the founder's involvement): Railway supports transferring a project to
+another account or to a Railway Team/organization from the project's **Settings** page. Moving the
+project into a Railway Team (rather than leaving it under one person's individual account) is the more
+durable choice for a multi-person research organization — it means no single person's personal account
+being deleted or losing access can strand the project. This is worth doing proactively, not waiting
+until the founder is actually unavailable.
+
+**Rotating credentials when the founder steps back to an advisory role:**
+1. Generate a new admin password and hash it: `npm run admin:set-password -w server -- "<new password>"`
+   (run locally, connected to production `DATABASE_URL` — see the CONTRIBUTING.md warning about running
+   this against production intentionally).
+2. Set the new hash on Railway: `railway variables --service server --set "ADMIN_PASSWORD_HASH=<hash>"`.
+3. Generate and set a fresh `SESSION_SECRET` the same way (`node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"`, then `railway variables --set`) if there's any reason to believe the old one was ever shared insecurely — this invalidates every previously-issued bearer token, requiring everyone to log in again.
+4. Communicate the new password through whatever channel the research team has designated (see
+   "the missing communication channel" below) — never through this repository, a commit message, or
+   any other permanently-recorded, widely-readable place.
+
+**Who should hold backup/restore access going forward:** `docs/RAILWAY_DEPLOYMENT.md`'s existing rule
+(founder-level responsibility, optionally shared with one explicitly-designated technical lead) doesn't
+name anyone by default — it's a decision the founder must make explicitly before stepping back, not
+something this document can decide on their behalf. What IS fixable here: the decision, once made,
+should be recorded as a named addition to this section (replace this paragraph with "as of [date],
+[name] holds backup/restore access alongside/instead of the founder") rather than left as an abstract
+policy with no actual person attached.
+
+**The missing communication channel.** No Mandate document names a Slack, Discord, email list, or any
+other channel for researchers to reach each other, a reviewer, or the founder-as-advisor. This is a
+real gap this document cannot fix by itself — it requires the founder to actually pick one — but it is
+named here explicitly so it isn't silently skipped. Whatever is chosen should be recorded in
+`docs/FIRST_WEEK_ONBOARDING.md`'s Day 1 steps, since new researchers need it before they can do
+anything else.
+
 ## Verifying the deployment
 
 - `https://<server-domain>/api/v1/governance-models` should return JSON.
 - `https://<client-domain>/` should load the app, and `https://<client-domain>/dashboard` should load directly (not 404) — this confirms the SPA fallback is working.
-- `https://<client-domain>/admin/login` should let you log in with the password you hashed into `ADMIN_PASSWORD_HASH`, and land you on `/admin/imports` — this confirms the cross-origin cookie (`CLIENT_URL`, `SESSION_SECRET`, `sameSite=None; Secure`) is configured correctly.
+- `https://<client-domain>/admin/login` should let you log in with the password you hashed into `ADMIN_PASSWORD_HASH`, and land you on `/admin/imports` — this confirms `SESSION_SECRET` is set correctly. Auth is a bearer token (not a cookie — Railway registers `*.up.railway.app` on the Public Suffix List, making a session cookie a genuine third-party cookie that Safari/Firefox block by default; see `server/src/middleware/adminAuth.ts`), stored in the browser's `localStorage` after login, so `CLIENT_URL`/`sameSite` cookie configuration is no longer part of what this step verifies.
 
 ## Troubleshooting
 

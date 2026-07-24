@@ -61,7 +61,7 @@ export const housingMetrics: MetricSeedSpec[] = [
     slug: "median_rent",
     name: "Median Rent",
     description: "Median monthly asking rent for a market-rate unit (USD-equivalent).",
-    unit: "usd",
+    unit: "currency",
     higherIsBetter: false,
     decimalPrecision: 0,
     sortOrder: 4,

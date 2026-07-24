@@ -211,6 +211,7 @@ function mapMetricValue(
     periodEnd: Date;
     periodLabel: string;
     value: unknown;
+    currencyCode: string;
     confidence: string | null;
     notes: string | null;
     ingestionMethod: string;
@@ -238,6 +239,7 @@ function mapMetricValue(
     periodEnd: toIso(v.periodEnd),
     periodLabel: v.periodLabel,
     value: toNumber(v.value as never),
+    currencyCode: v.currencyCode,
     confidence: v.confidence,
     notes: v.notes,
     ingestionMethod: v.ingestionMethod,

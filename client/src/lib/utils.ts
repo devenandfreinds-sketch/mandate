@@ -33,12 +33,19 @@ export function categoryChartColor(categorySlug: string): string {
   return `var(${varName})`;
 }
 
-export function formatMetricValue(value: number, unit: string, decimalPrecision = 0): string {
+/**
+ * currencyCode defaults to "USD" for backward compatibility with call sites that don't have a
+ * specific MetricValue's currencyCode on hand (e.g. chart axis-tick formatters, which format an
+ * arbitrary scale number, not one data point) — see docs/CURRENCY_AND_UNITS.md. Mandate never
+ * converts currencies for display; this only picks the correct symbol/format for whatever currency
+ * the value is actually denominated in.
+ */
+export function formatMetricValue(value: number, unit: string, decimalPrecision = 0, currencyCode = "USD"): string {
   switch (unit) {
-    case "usd":
+    case "currency":
       return new Intl.NumberFormat("en-US", {
         style: "currency",
-        currency: "USD",
+        currency: currencyCode,
         maximumFractionDigits: decimalPrecision,
         notation: Math.abs(value) >= 1_000_000 ? "compact" : "standard",
       }).format(value);

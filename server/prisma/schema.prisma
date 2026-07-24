@@ -89,6 +89,19 @@ model Jurisdiction {
   slug              String   @unique
   name              String
   kind              String // "city" | "metro_region" (data-driven, not enum)
+  // Self-relation for metro-region -> constituent-borough (or country -> region -> municipality)
+  // hierarchies -- see docs/JURISDICTION_HIERARCHY.md. NULL means "no parent modeled" (true of every
+  // jurisdiction today: Greater Manchester is one flat metro_region row, not ten boroughs under it).
+  // A jurisdiction's OWN metrics/pipelines are unaffected by whether it has a parent or children --
+  // this is purely an optional hierarchy annotation, not a rollup/aggregation mechanism. Nothing
+  // currently reads this field; it exists so a future pass can model sub-jurisdictions additively,
+  // without a schema change, the day real borough-level research actually needs it.
+  parentJurisdictionId String?
+  // Free-text administrative-level label ("municipality" | "metro_region" | "borough" | "district" |
+  // "region" | "country", data-driven like `kind`) -- deliberately NOT a fixed enum, since countries'
+  // administrative structures vary too much for one universal ladder (see docs/JURISDICTION_HIERARCHY.md,
+  // "Do not assume every country follows this structure"). NULL means "not yet classified."
+  administrativeLevel String?
   stateOrRegion     String?
   country           String
   population        Int?
@@ -101,7 +114,9 @@ model Jurisdiction {
   createdAt         DateTime @default(now())
   updatedAt         DateTime @updatedAt
 
-  governanceModel     GovernanceModel      @relation(fields: [governanceModelId], references: [id], onDelete: Restrict)
+  governanceModel       GovernanceModel        @relation(fields: [governanceModelId], references: [id], onDelete: Restrict)
+  parentJurisdiction    Jurisdiction?          @relation("JurisdictionHierarchy", fields: [parentJurisdictionId], references: [id], onDelete: SetNull)
+  childJurisdictions    Jurisdiction[]         @relation("JurisdictionHierarchy")
   administrations       Administration[]
   metricValues          MetricValue[]
   timelineEvents        TimelineEvent[]
@@ -110,6 +125,7 @@ model Jurisdiction {
   externalContributions ExternalContribution[]
 
   @@index([governanceModelId])
+  @@index([parentJurisdictionId])
 }
 
 model Administration {
@@ -207,6 +223,14 @@ model MetricValue {
   periodEnd          DateTime
   periodLabel        String // "2019", "2019-Q3", display convenience
   value              Decimal  @db.Decimal(16, 4)
+  // ISO 4217 code for currency-denominated metrics (MetricDefinition.unit === "currency"); meaningless
+  // for non-currency units (count/percent/index/etc.) but always populated with the harmless default
+  // "USD" for backward compatibility with pre-internationalization rows -- see docs/CURRENCY_AND_UNITS.md.
+  // Mandate NEVER auto-converts between currencies: a GBP value stays GBP, tagged accordingly, rather
+  // than being silently coerced into USD. Comparing two MetricValue rows with different currencyCodes
+  // is a research decision (make an explicit, documented conversion), not something the platform does
+  // for you.
+  currencyCode       String   @default("USD")
   confidence         String? // "high" | "estimated" | "modeled"
   notes              String?
   ingestionMethod    String   @default("seed") // "seed" | "csv" | "api" | "manual"
@@ -258,6 +282,12 @@ model Source {
   updateFrequency   String? // "annual" | "quarterly" | "monthly" | "one_time"
   methodology       String? // free text: how the source org collects/calculates this data
   defaultConfidence String? // "high" | "estimated" | "modeled" fallback for MetricValue.confidence
+
+  // Internationalization fields -- see docs/INTERNATIONAL_SOURCE_HIERARCHY.md. Both nullable/optional
+  // so every existing US source row (country implicitly US, language implicitly English) needs no
+  // backfill: NULL country/language means "not yet recorded," not "domestic"/"English" by inference.
+  country  String? // ISO-3166-ish country name the PUBLISHER belongs to (e.g. "United Kingdom", "Singapore") -- not the jurisdiction the data is ABOUT, which can differ (e.g. an OECD source covering many countries)
+  language String? // BCP-47-ish language code the source is published in (e.g. "en", "ja", "ko") -- NULL means not yet recorded, not assumed English
 
   metricValues      MetricValue[]
   metricDefinitions MetricDefinition[]
@@ -320,6 +350,16 @@ model PipelineAssessment {
   jurisdictionId   String
   policyAreaId     String
   administrationId String?
+  // Distinguishes MULTIPLE institutions that can address the same policy area (see
+  // docs/INSTITUTIONAL_PIPELINE_ARCHITECTURE.md -- e.g. Greater Manchester's affordable-housing
+  // capacity rests on at least three real institutions: GMHILF, the Brownfield Fund, and Places for
+  // Everyone). Default "" means "the single/primary institution for this policy area, not otherwise
+  // distinguished" -- the behavior every existing row (Chicago's 25, Greater Manchester's 10) already
+  // has, unchanged by this field's addition. A non-empty value opts a row into being tracked as one
+  // of several named institutions within the same policy area, each with its own independent
+  // isCurrent history. Deliberately a plain string, not a separate Institution model -- see the
+  // architecture doc for why a full Institution/Program/GovernanceMechanism model was NOT built.
+  institutionName  String   @default("")
   stage            Int // 0-5: see PIPELINE_STAGE_DEFINITIONS in shared/src/types/pipeline.ts
   dataQuality      String   @default("placeholder") // same vocabulary as MetricValue.dataQuality: government|academic|alternative|estimated|unavailable|placeholder
   assessmentDate   DateTime
@@ -348,11 +388,14 @@ model PipelineAssessment {
   researchedBy   User?                   @relation("ResearchedByOnAssessment", fields: [researchedById], references: [id], onDelete: SetNull)
   reviewedBy     User?                   @relation("ReviewedByOnAssessment", fields: [reviewedById], references: [id], onDelete: SetNull)
 
-  // Prevents literal duplicate assessments for the same pair on the same date — both a data-integrity
-  // backstop for the admin write path and what makes reseeding the hardcoded researched-pipeline seed
-  // data idempotent (create-if-missing instead of blind create on every run).
-  @@unique([jurisdictionId, policyAreaId, assessmentDate])
-  @@index([jurisdictionId, policyAreaId, assessmentDate])
+  // Prevents literal duplicate assessments for the same (jurisdiction, policyArea, institution) on
+  // the same date — both a data-integrity backstop for the admin write path and what makes reseeding
+  // the hardcoded researched-pipeline seed data idempotent (create-if-missing instead of blind create
+  // on every run). Including institutionName is what allows multiple concurrently-current
+  // institutions per policy area (see the field comment above) without each one's history colliding
+  // with another's.
+  @@unique([jurisdictionId, policyAreaId, institutionName, assessmentDate])
+  @@index([jurisdictionId, policyAreaId, institutionName, assessmentDate])
   @@index([isCurrent])
   @@index([nextReviewDate])
 }

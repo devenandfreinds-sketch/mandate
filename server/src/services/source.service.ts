@@ -15,6 +15,8 @@ export function mapSource(row: {
   updateFrequency: string | null;
   methodology: string | null;
   defaultConfidence: string | null;
+  country: string | null;
+  language: string | null;
 }): Source {
   return {
     id: row.id,
@@ -29,6 +31,8 @@ export function mapSource(row: {
     updateFrequency: row.updateFrequency,
     methodology: row.methodology,
     defaultConfidence: row.defaultConfidence,
+    country: row.country,
+    language: row.language,
   };
 }
 

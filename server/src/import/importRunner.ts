@@ -42,6 +42,7 @@ async function writeValidatedRow(
     periodEnd: row.periodEnd,
     periodLabel: row.periodLabel,
     value: row.value,
+    currencyCode: options.currencyCode ?? "USD",
     confidence: options.confidenceOverride ?? row.confidence,
     notes: row.notes,
     ingestionMethod: options.importType,

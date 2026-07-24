@@ -49,7 +49,7 @@ export const workforceMetrics: MetricSeedSpec[] = [
     slug: "median_wages",
     name: "Median Annual Wages",
     description: "Median annual wage income across all occupations.",
-    unit: "usd",
+    unit: "currency",
     higherIsBetter: true,
     decimalPrecision: 0,
     sortOrder: 3,

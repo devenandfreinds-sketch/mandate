@@ -38,7 +38,7 @@ async function main() {
   const filePath = args.file as string | undefined;
   if (!filePath) {
     console.error(
-      "Usage: npm run import -w server -- --file <path.csv|.json> --source <sourceIdOrName> [--metric <slug>] [--mapping <mapping.json>] [--quality government|academic|alternative|estimated|unavailable|placeholder] [--category <slug>] [--period-type year|quarter|month|uk_fiscal_year] [--dry-run]"
+      "Usage: npm run import -w server -- --file <path.csv|.json> --source <sourceIdOrName> [--metric <slug>] [--mapping <mapping.json>] [--quality government|academic|alternative|estimated|unavailable|placeholder] [--category <slug>] [--period-type year|quarter|month|uk_fiscal_year|uk_academic_year] [--currency <ISO 4217 code, default USD>] [--dry-run]"
     );
     process.exit(1);
   }
@@ -87,6 +87,7 @@ async function main() {
     mapping,
     sourceId,
     dataQuality: quality as DataQuality,
+    currencyCode: args.currency as string | undefined,
     importType: ext === ".json" ? "json" : "csv",
     filename: path.basename(absPath),
     categorySlug,

@@ -23,7 +23,7 @@ export function MetricCard({ series }: { series: MetricSeries }) {
       </CardHeader>
       <CardContent>
         <div className="text-2xl font-semibold">
-          {latest ? formatMetricValue(latest.value, series.metricDefinition.unit, series.metricDefinition.decimalPrecision) : "—"}
+          {latest ? formatMetricValue(latest.value, series.metricDefinition.unit, series.metricDefinition.decimalPrecision, latest.currencyCode) : "—"}
         </div>
         {change !== null && (
           <div className={`text-xs ${change >= 0 === series.metricDefinition.higherIsBetter ? "text-emerald-600" : "text-red-500"}`}>

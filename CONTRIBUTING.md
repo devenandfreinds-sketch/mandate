@@ -71,11 +71,26 @@ both were real bugs found and fixed in past hardening passes, so treat them as l
 If you add a new seed data file with any "real" (non-synthetic) rows, follow the same pattern: a stable
 unique key, create-if-missing (or update-only-seed-owned-fields), never a blind delete+recreate.
 
+## Getting access (before any of the below works)
+
+A new contributor needs, in this order: (1) a GitHub invite to this repository — ask the current admin
+or founder to add you as a collaborator (Settings → Collaborators on GitHub), since `git clone` requires
+it; (2) the shared admin password for `/admin/*` (see `docs/RAILWAY_DEPLOYMENT.md`'s "Access & ownership
+transfer" section for how that's issued/rotated); (3) whichever communication channel the team has
+designated for reaching a reviewer or the founder-as-advisor (see the same section — if none has been
+designated yet, that's a real gap to raise, not something to guess at). None of this is automated; all
+of it currently requires a human on the other end to grant it.
+
 ## How local development works
+
+Requires PostgreSQL installed and running locally first — e.g. `brew install postgresql@16 && brew
+services start postgresql@16` on macOS, or your OS's equivalent. Confirm it's running with `psql
+postgres` before continuing.
 
 ```bash
 createdb mandate_dev
-cp .env.example server/.env   # edit DATABASE_URL to your local Postgres user
+cp .env.example server/.env   # DATABASE_URL should look like postgresql://<your-os-username>@localhost:5432/mandate_dev?schema=public
+                               # (no password needed for a local trust-auth Postgres install; if yours requires one, add it: postgresql://user:password@localhost:5432/mandate_dev)
 npm install                    # installs all workspaces, builds @mandate/shared
 npm run db:migrate
 npm run db:seed
@@ -86,11 +101,13 @@ npm run dev                    # server on :3001, client on :5173 (proxies /api)
 
 ```bash
 npm run build     # shared → server → client, in that order; this IS the typecheck (tsc -b / tsc -p)
+npm run test -w server   # vitest — currently covers period-boundary parsing (server/src/import/validators.test.ts)
 ```
 
-There is currently **no automated test suite** (no `npm test`, no test files) — `npm run build` passing
-cleanly is the only automated correctness signal today. Manual browser verification of anything
-UI-facing is expected before considering a change done.
+Automated test coverage is intentionally minimal, not absent — a handful of `vitest` tests exist for the
+import pipeline's period-parsing logic (the exact area a past real bug came from), not a full suite.
+`npm run build` passing cleanly remains the primary automated correctness signal. Manual browser
+verification of anything UI-facing is expected before considering a change done.
 
 ## How to add a new source
 

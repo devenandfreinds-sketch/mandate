@@ -56,6 +56,10 @@
 export interface ResearchedPipelineAssessmentSpec {
   jurisdictionSlug: string;
   policyAreaSlug: string;
+  // Distinguishes multiple institutions within one policy area (see
+  // docs/INSTITUTIONAL_PIPELINE_ARCHITECTURE.md). Omit for the ordinary single-institution case --
+  // every spec in this file and greaterManchesterResearchedPipeline.ts currently does.
+  institutionName?: string;
   stage: number;
   dataQuality: string;
   assessmentDate: string;

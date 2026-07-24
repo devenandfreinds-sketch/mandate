@@ -130,7 +130,7 @@ export function PlaceProfilePage() {
                     <TableRow key={v.id}>
                       <TableCell>{s.metricDefinition.name}</TableCell>
                       <TableCell>{v.periodLabel}</TableCell>
-                      <TableCell>{formatMetricValue(v.value, s.metricDefinition.unit, s.metricDefinition.decimalPrecision)}</TableCell>
+                      <TableCell>{formatMetricValue(v.value, s.metricDefinition.unit, s.metricDefinition.decimalPrecision, v.currencyCode)}</TableCell>
                     </TableRow>
                   ))
                 )}
