@@ -3,7 +3,8 @@ import { PageContainer } from "@/components/layout/PageContainer";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { PlaceCard } from "@/components/governance/PlaceCard";
-import { DataQualityBadge, dominantDataQuality } from "@/components/governance/DataQualityBadge";
+import { classifySeriesQuality } from "@mandate/shared";
+import { SeriesQualityBadge, SeriesQualityBreakdownText } from "@/components/governance/SeriesQualityBadge";
 import { MultiSeriesComparisonChart } from "@/components/charts/MultiSeriesComparisonChart";
 import { useCategories, useCategoryMetricDefinitions } from "@/hooks/useCategories";
 import { usePlaces } from "@/hooks/usePlace";
@@ -47,10 +48,21 @@ export function DashboardPage() {
           {comparisonSeries && comparisonSeries.length > 0 && (
             <>
               <MultiSeriesComparisonChart seriesList={comparisonSeries} />
-              <DataQualityBadge
-                dataQuality={dominantDataQuality(comparisonSeries.flatMap((s) => s.values.map((v) => v.dataQuality)))}
-                className="mt-2"
-              />
+              {(() => {
+                // Cross-jurisdiction comparison, not one place's time series -- this is a coarser
+                // "how much of this comparison is real" signal, so the recency/fragmentation modifiers
+                // (designed for one place's chronological history) don't cleanly apply across several
+                // jurisdictions' overlapping years. The evidence-fraction classification still gives a
+                // materially more honest read than the old "one placeholder jurisdiction taints
+                // everything" reducer.
+                const quality = classifySeriesQuality(comparisonSeries.flatMap((s) => s.values));
+                return (
+                  <>
+                    <SeriesQualityBadge result={quality} className="mt-2" />
+                    <SeriesQualityBreakdownText result={quality} />
+                  </>
+                );
+              })()}
             </>
           )}
         </CardContent>

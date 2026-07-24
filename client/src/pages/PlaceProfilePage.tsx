@@ -122,6 +122,7 @@ export function PlaceProfilePage() {
                   <TableHead>Metric</TableHead>
                   <TableHead>Period</TableHead>
                   <TableHead>Value</TableHead>
+                  <TableHead>Quality</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
@@ -131,6 +132,9 @@ export function PlaceProfilePage() {
                       <TableCell>{s.metricDefinition.name}</TableCell>
                       <TableCell>{v.periodLabel}</TableCell>
                       <TableCell>{formatMetricValue(v.value, s.metricDefinition.unit, s.metricDefinition.decimalPrecision, v.currencyCode)}</TableCell>
+                      <TableCell>
+                        <DataQualityBadge dataQuality={v.dataQuality} />
+                      </TableCell>
                     </TableRow>
                   ))
                 )}

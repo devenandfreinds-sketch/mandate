@@ -15,3 +15,4 @@ export * from "./types/user.js";
 export * from "./types/researchMap.js";
 export * from "./types/campaign.js";
 export * from "./types/externalContribution.js";
+export * from "./types/seriesQuality.js";

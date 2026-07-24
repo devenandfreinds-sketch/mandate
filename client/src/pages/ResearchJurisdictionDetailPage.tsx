@@ -3,22 +3,9 @@ import { PageContainer } from "@/components/layout/PageContainer";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { CoverageBar, CoverageLegend } from "@/components/research/CoverageBar";
+import { SeriesQualityBadge, SeriesQualityBreakdownText } from "@/components/governance/SeriesQualityBadge";
 import { useJurisdictionResearchDetail } from "@/hooks/useResearchMap";
 import type { MetricDetailItem, PolicyAreaDetailItem } from "@mandate/shared";
-
-const METRIC_STATUS_LABEL: Record<string, string> = {
-  measured: "Measured",
-  partial: "Partially Measured",
-  unavailable: "Unavailable",
-  unresearched: "Unresearched",
-};
-
-const METRIC_STATUS_VARIANT: Record<string, "default" | "secondary" | "outline" | "destructive"> = {
-  measured: "default",
-  partial: "secondary",
-  unavailable: "outline",
-  unresearched: "outline",
-};
 
 const POLICY_STATUS_LABEL: Record<string, string> = {
   measured: "Researched",
@@ -134,17 +121,17 @@ function MetricRow({ item }: { item: MetricDetailItem }) {
           {item.metricName}
         </Link>
         <span className="ml-2 text-xs text-muted-foreground">{item.categoryName}</span>
+        <div>
+          <SeriesQualityBreakdownText result={item.seriesQuality} />
+        </div>
       </div>
       <div className="flex items-center gap-2">
-        <span className="text-xs text-muted-foreground">
-          {item.measuredYears} measured · {item.unavailableYears} unavailable · {item.unresearchedYears} unresearched
-        </span>
         {item.openTask && (
           <Badge variant="secondary" className="text-xs">
             {item.openTask.status.replace("_", " ")}
           </Badge>
         )}
-        <Badge variant={METRIC_STATUS_VARIANT[item.status]}>{METRIC_STATUS_LABEL[item.status]}</Badge>
+        <SeriesQualityBadge result={item.seriesQuality} />
       </div>
     </li>
   );

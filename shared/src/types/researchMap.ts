@@ -1,3 +1,5 @@
+import type { SeriesQualityResult } from "./seriesQuality.js";
+
 /**
  * Types for the public Research Map (/research). See docs/RESEARCH_MAP.md. Every number here is
  * derived from real MetricValue/PipelineAssessment rows at request time — nothing is a stored
@@ -66,8 +68,6 @@ export interface ResearchMapData {
   recentlyVerified: RecentlyVerifiedItem[];
 }
 
-export type MetricDetailStatus = "measured" | "partial" | "unavailable" | "unresearched";
-
 export interface OpenTaskRef {
   id: string;
   status: string;
@@ -78,11 +78,10 @@ export interface MetricDetailItem {
   metricSlug: string;
   metricName: string;
   categoryName: string;
-  measuredYears: number;
-  unavailableYears: number;
-  unresearchedYears: number;
-  totalYears: number;
-  status: MetricDetailStatus;
+  /** Series-level classification (see shared/src/types/seriesQuality.ts) -- replaces the old flat
+   * measured/partial/unavailable/unresearched status with a model that distinguishes HOW MUCH of the
+   * series is real, not just whether any of it is. */
+  seriesQuality: SeriesQualityResult;
   openTask: OpenTaskRef | null;
 }
 

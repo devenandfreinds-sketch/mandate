@@ -6,11 +6,11 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { DataQualityBadge, dominantDataQuality } from "@/components/governance/DataQualityBadge";
+import { SeriesQualityBadge } from "@/components/governance/SeriesQualityBadge";
 import { useDataCatalog } from "@/hooks/useDataCatalog";
 import { useCategories } from "@/hooks/useCategories";
 import { cn } from "@/lib/utils";
-import type { DataCatalogEntry } from "@mandate/shared";
+import { classifySeriesQualityFromBreakdown, type DataCatalogEntry } from "@mandate/shared";
 
 export function DataCatalogPage() {
   const { data: catalog, isLoading } = useDataCatalog();
@@ -105,7 +105,7 @@ export function DataCatalogPage() {
 }
 
 function CatalogRow({ entry, isExpanded, onToggle }: { entry: DataCatalogEntry; isExpanded: boolean; onToggle: () => void }) {
-  const quality = dominantDataQuality(Object.keys(entry.dataQualityBreakdown));
+  const quality = classifySeriesQualityFromBreakdown(entry.dataQualityBreakdown);
   const years = entry.firstRealYear && entry.lastRealYear ? `${entry.firstRealYear}–${entry.lastRealYear}` : "No real data yet";
 
   return (
@@ -151,7 +151,7 @@ function CatalogRow({ entry, isExpanded, onToggle }: { entry: DataCatalogEntry; 
           )}
         </TableCell>
         <TableCell>
-          <DataQualityBadge dataQuality={quality} />
+          <SeriesQualityBadge result={quality} />
         </TableCell>
         <TableCell className="whitespace-nowrap">
           {entry.jurisdictionsWithRealData.length}/{entry.jurisdictionsTotal}

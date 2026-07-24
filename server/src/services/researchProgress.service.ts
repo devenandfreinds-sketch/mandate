@@ -1,6 +1,6 @@
 import { prisma } from "../db.js";
 import { toIso } from "../utils/serialize.js";
-import { PIPELINE_STAGE_LABELS } from "@mandate/shared";
+import { PIPELINE_STAGE_LABELS, classifySeriesQuality, type SeriesQualityResult } from "@mandate/shared";
 
 /**
  * Powers the public Research Map (/research). See docs/RESEARCH_MAP.md.
@@ -284,17 +284,14 @@ export async function getResearchMapData(): Promise<ResearchMapData> {
   };
 }
 
-export type MetricDetailStatus = "measured" | "partial" | "unavailable" | "unresearched";
-
 export interface MetricDetailItem {
   metricSlug: string;
   metricName: string;
   categoryName: string;
-  measuredYears: number;
-  unavailableYears: number;
-  unresearchedYears: number;
-  totalYears: number;
-  status: MetricDetailStatus;
+  /** Series-level classification (see shared/src/types/seriesQuality.ts) -- replaces the old flat
+   * measured/partial/unavailable/unresearched status with a model that distinguishes HOW MUCH of the
+   * series is real, not just whether any of it is. */
+  seriesQuality: SeriesQualityResult;
   openTask: { id: string; status: string; priority: number } | null;
 }
 
@@ -319,20 +316,13 @@ export interface JurisdictionResearchDetail {
   policyAreas: PolicyAreaDetailItem[];
 }
 
-function metricStatus(measured: number, unavailable: number, unresearched: number): MetricDetailStatus {
-  if (unresearched === 0 && measured > 0) return "measured";
-  if (unresearched === 0 && measured === 0) return "unavailable";
-  if (unresearched > 0 && measured === 0 && unavailable === 0) return "unresearched";
-  return "partial";
-}
-
 /** Everything researched, in progress, unavailable, and remaining for one jurisdiction — the "click into a city" drill-down. */
 export async function getJurisdictionResearchDetail(jurisdictionSlug: string): Promise<JurisdictionResearchDetail | null> {
   const jurisdiction = await prisma.jurisdiction.findUnique({ where: { slug: jurisdictionSlug }, select: { id: true, slug: true, name: true } });
   if (!jurisdiction) return null;
 
   const [metricValues, metricDefs, currentAssessments, policyAreas, openTasks] = await Promise.all([
-    prisma.metricValue.findMany({ where: { jurisdictionId: jurisdiction.id }, select: { metricDefinitionId: true, dataQuality: true } }),
+    prisma.metricValue.findMany({ where: { jurisdictionId: jurisdiction.id }, select: { metricDefinitionId: true, dataQuality: true, periodStart: true } }),
     prisma.metricDefinition.findMany({ select: { id: true, slug: true, name: true, category: { select: { name: true } } }, orderBy: { name: "asc" } }),
     prisma.pipelineAssessment.findMany({
       where: { jurisdictionId: jurisdiction.id, isCurrent: true },
@@ -348,27 +338,21 @@ export async function getJurisdictionResearchDetail(jurisdictionSlug: string): P
   const taskByPolicyAreaId = new Map(openTasks.filter((t) => t.policyAreaId).map((t) => [t.policyAreaId!, t]));
   const taskByMetricId = new Map(openTasks.filter((t) => t.metricDefinitionId).map((t) => [t.metricDefinitionId!, t]));
 
-  const valuesByMetric = new Map<string, { measured: number; unavailable: number; unresearched: number }>();
+  const rowsByMetric = new Map<string, { dataQuality: string; periodStart: Date }[]>();
   for (const mv of metricValues) {
-    const bucket = valuesByMetric.get(mv.metricDefinitionId) ?? { measured: 0, unavailable: 0, unresearched: 0 };
-    if (mv.dataQuality === "placeholder") bucket.unresearched++;
-    else if (mv.dataQuality === "unavailable") bucket.unavailable++;
-    else bucket.measured++;
-    valuesByMetric.set(mv.metricDefinitionId, bucket);
+    const rows = rowsByMetric.get(mv.metricDefinitionId) ?? [];
+    rows.push({ dataQuality: mv.dataQuality, periodStart: mv.periodStart });
+    rowsByMetric.set(mv.metricDefinitionId, rows);
   }
 
   const metrics: MetricDetailItem[] = metricDefs.map((m) => {
-    const b = valuesByMetric.get(m.id) ?? { measured: 0, unavailable: 0, unresearched: 0 };
+    const rows = rowsByMetric.get(m.id) ?? [];
     const task = taskByMetricId.get(m.id);
     return {
       metricSlug: m.slug,
       metricName: m.name,
       categoryName: m.category.name,
-      measuredYears: b.measured,
-      unavailableYears: b.unavailable,
-      unresearchedYears: b.unresearched,
-      totalYears: b.measured + b.unavailable + b.unresearched,
-      status: metricStatus(b.measured, b.unavailable, b.unresearched),
+      seriesQuality: classifySeriesQuality(rows),
       openTask: task ? { id: task.id, status: task.status, priority: task.priority } : null,
     };
   });
@@ -391,9 +375,11 @@ export async function getJurisdictionResearchDetail(jurisdictionSlug: string): P
     };
   });
 
-  const dMeasured = metrics.reduce((n, m) => n + m.measuredYears, 0);
-  const dUnavailable = metrics.reduce((n, m) => n + m.unavailableYears, 0);
-  const dUnresearched = metrics.reduce((n, m) => n + m.unresearchedYears, 0);
+  // "measured" here means real+estimated (i.e. any evidence at all), matching the pre-existing
+  // aggregate methodology exactly -- only the per-metric-row display changed, not this percentage math.
+  const dMeasured = metrics.reduce((n, m) => n + m.seriesQuality.breakdown.real + m.seriesQuality.breakdown.estimated, 0);
+  const dUnavailable = metrics.reduce((n, m) => n + m.seriesQuality.breakdown.unavailable, 0);
+  const dUnresearched = metrics.reduce((n, m) => n + m.seriesQuality.breakdown.placeholder, 0);
   const dataCoverage = buildBreakdown(dMeasured, dUnavailable, dUnresearched);
 
   const pMeasured = policyAreaItems.filter((p) => p.status === "measured").length;

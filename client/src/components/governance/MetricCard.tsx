@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
-import type { MetricSeries } from "@mandate/shared";
+import { classifySeriesQuality, type MetricSeries } from "@mandate/shared";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { MetricSparkline } from "@/components/charts/MetricSparkline";
-import { DataQualityBadge, dominantDataQuality } from "@/components/governance/DataQualityBadge";
+import { SeriesQualityBadge } from "@/components/governance/SeriesQualityBadge";
 import { formatMetricValue, categoryChartColor } from "@/lib/utils";
 
 export function MetricCard({ series }: { series: MetricSeries }) {
@@ -10,7 +10,7 @@ export function MetricCard({ series }: { series: MetricSeries }) {
   const first = series.values[0];
   const change = latest && first && first.value !== 0 ? ((latest.value - first.value) / Math.abs(first.value)) * 100 : null;
   const color = categoryChartColor(series.metricDefinition.categorySlug);
-  const quality = dominantDataQuality(series.values.map((v) => v.dataQuality));
+  const quality = classifySeriesQuality(series.values);
 
   return (
     <Card>
@@ -34,7 +34,7 @@ export function MetricCard({ series }: { series: MetricSeries }) {
         <div className="mt-2">
           <MetricSparkline values={series.values} color={color} />
         </div>
-        <DataQualityBadge dataQuality={quality} className="mt-2" />
+        <SeriesQualityBadge result={quality} className="mt-2" />
       </CardContent>
     </Card>
   );
