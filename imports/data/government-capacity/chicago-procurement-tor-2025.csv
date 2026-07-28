@@ -1,0 +1,2 @@
+jurisdiction,metric,year,value,confidence,notes
+chicago,procurement_timeline_days,2025,37.4,estimated,"City of Chicago Data Portal, average days to approve a Task Order Request (2025 annual average, vs a published 7-day target) -- a narrow procurement instrument (add-on task orders under existing contracts), not the full competitive-bid procurement cycle. Rose sharply from ~6.5 days in 2023; flagged as a real, sourced shift worth independent follow-up on cause."

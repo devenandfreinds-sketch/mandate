@@ -49,8 +49,15 @@
  * outcome rates). Stage 5 is not claimed: reporting metrics are inconsistent year to year (no clean
  * multi-year trend line), and the most recent audited financials show an operating deficit.
  *
- * The remaining 3 Chicago policy areas remain the synthetic placeholder generator's output — they are
- * NOT researched, and continue to be marked isPlaceholder/dataQuality: "placeholder" accordingly.
+ * "public-innovation-investment" — the seventh and last Chicago policy area to be researched (2026-07
+ * pass), completing all 7 categories for Chicago. Scored stage 0: Chicago's innovation-support
+ * ecosystem is genuinely dense (World Business Chicago/ChicagoNEXT, P33, mHUB, 1871) but every one of
+ * these is a private nonprofit or philanthropically-funded intermediary the city partners with and
+ * convenes, not a city-created or city-run capital-deployment vehicle. The one real direct-equity
+ * public investment fund serving Illinois founders (INVENT, $114M, SSBCI-funded) is administered by
+ * the Illinois DCEO — a state, not city, institution, and is explicitly excluded from this score for
+ * that reason. No formal city ordinance or enacted legislation creating a startup-investment vehicle
+ * was found. This is a real, researched low-stage finding, not an unresearched placeholder.
  */
 
 export interface ResearchedPipelineAssessmentSpec {
@@ -788,6 +795,51 @@ export const chicagoResearchedPipelineAssessments: ResearchedPipelineAssessmentS
         publisher: "ProPublica (IRS Form 990 data)",
         sourceTier: "government",
         sourceKey: "propublica_990_workforce",
+      },
+    ],
+    legislation: null,
+  },
+  {
+    jurisdictionSlug: "chicago",
+    policyAreaSlug: "public-innovation-investment",
+    stage: 0,
+    dataQuality: "estimated",
+    assessmentDate: "2026-07-28",
+    isCurrent: true,
+    evidenceSummary:
+      "Chicago's innovation-support ecosystem is genuinely dense and well-funded, but it is organized entirely through private nonprofits and philanthropically-capitalized intermediaries the city partners with and convenes -- World Business Chicago/ChicagoNEXT (matchmaking, database, and event programming, not capital deployment), P33 (privately funded, ~$34.6M in grants to Illinois founders to date), mHUB (an independent nonprofit manufacturing incubator that has received public real-estate subsidies but runs its own separately-capitalized private venture fund), and 1871 (founded with State of Illinois, not City of Chicago, capital). No City of Chicago-created or -run capital-deployment institution for startups was found.",
+    limitations:
+      "The one real direct-equity public investment vehicle serving Illinois founders identified in this research -- Illinois INVENT, a $114 million SSBCI-funded fund -- is administered by the Illinois Department of Commerce and Economic Opportunity, a state agency, and is explicitly excluded from this city-level score for that reason. No formal ordinance, legislative proposal, or enacted legislation specifically establishing a City of Chicago startup/innovation investment vehicle was found; Mayor Johnson's March 2025 'Build Better Together' strategy names business innovation as one of three pillars (backed by a $1.25B 2024-2028 bond) but is a general economic-development strategy, not a dedicated investment-vehicle mandate. This policy area's name presumes a capital-deployment institution; Chicago's real innovation-support infrastructure is instead convening/programming intermediaries and general-purpose economic-development grants -- a taxonomy mismatch worth flagging for a future methodology review rather than forcing a higher score to match the ecosystem's real scale and activity.",
+    evidenceLinks: [
+      {
+        label: "World Business Chicago — Innovation & Venture / ChicagoNEXT",
+        description: "WBC's own description of its tech-economy programming arm -- matchmaking, database, and event functions, not an investment fund.",
+        url: "https://worldbusinesschicago.com/innovation-venture/",
+        evidenceType: "dataset",
+        publicationDate: null,
+        publisher: "World Business Chicago",
+        sourceTier: "alternative",
+        sourceKey: null,
+      },
+      {
+        label: "Illinois DCEO — INVENT (Illinois Innovation Venture Fund)",
+        description: "The one real direct-equity public startup-investment vehicle found in this research -- confirmed to be state-administered, not a City of Chicago institution.",
+        url: "https://dceo.illinois.gov/illinoisinvent.html",
+        evidenceType: "dataset",
+        publicationDate: null,
+        publisher: "Illinois Department of Commerce and Economic Opportunity",
+        sourceTier: "government",
+        sourceKey: null,
+      },
+      {
+        label: "Chicago Sun-Times — mHUB's growth powered by public money",
+        description: "Reporting on mHUB's public real-estate subsidies (New Markets Tax Credits, federal EDA grants) -- distinct from mHUB's own separately-capitalized private venture fund.",
+        url: "https://chicago.suntimes.com/",
+        evidenceType: "news_article",
+        publicationDate: "2022-11-14",
+        publisher: "Chicago Sun-Times",
+        sourceTier: "alternative",
+        sourceKey: null,
       },
     ],
     legislation: null,

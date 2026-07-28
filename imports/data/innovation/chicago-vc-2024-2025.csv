@@ -1,0 +1,3 @@
+jurisdiction,metric,year,value,confidence,notes
+chicago,vc_investment,2024,3300000000,estimated,"PitchBook-NVCA Venture Monitor data as reported by Crain's Chicago Business, Chicago metro, 350 deals -- a revised full-year figure (an earlier estimate of $2.5B/317 deals was superseded as late-reported deals were added, a normal PitchBook revision pattern)."
+chicago,vc_investment,2025,2600000000,estimated,"PitchBook-NVCA Venture Monitor data as reported by Crain's Chicago Business, Chicago metro, 311 deals -- described as a seven-year low, the first year since 2018 below $3B."
