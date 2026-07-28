@@ -1,0 +1,6 @@
+jurisdiction,metric,year,value,confidence,notes
+chicago,tech_employment,2016,64605,estimated,"BLS QCEW, Chicago-Naperville-Elgin MSA, NAICS 5415 (Computer Systems Design and Related Services). Same single-NAICS-code methodology as the existing 2022 value (65317) for this metric; verified directly against the BLS QCEW Open Data API. 2015/2020/2023/2024 remain unsourced -- BLS suppressed NAICS 5415 employment for this area in those years (disclosure_code N)."
+chicago,tech_employment,2017,66064,estimated,"BLS QCEW, Chicago MSA, NAICS 5415. Same methodology as 2016/2022."
+chicago,tech_employment,2018,66568,estimated,"BLS QCEW, Chicago MSA, NAICS 5415. Same methodology as 2016/2022."
+chicago,tech_employment,2019,65544,estimated,"BLS QCEW, Chicago MSA, NAICS 5415. Same methodology as 2016/2022."
+chicago,tech_employment,2021,63508,estimated,"BLS QCEW, Chicago MSA, NAICS 5415. Same methodology as 2016/2022."

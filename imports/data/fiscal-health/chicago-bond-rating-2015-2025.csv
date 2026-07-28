@@ -1,0 +1,12 @@
+jurisdiction,metric,year,value,confidence,notes
+chicago,bond_rating_index,2015,4,high,"Moody's rating as of Dec 31, 2015: Ba1 (downgraded from Baa2 on May 12, 2015, following the IL Supreme Court's May 8, 2015 pension ruling; source: Chicago Sun-Times, May 2015). Mapped on Mandate's 1-10 scale (Aaa=10...Ba1=4). Year-end-value convention: this series uses the rating in effect on Dec 31 of each year, not a majority-of-year average."
+chicago,bond_rating_index,2016,4,high,"Moody's Ba1 held throughout 2016 (no rating-level change found; only outlook shifts per Bond Buyer coverage)."
+chicago,bond_rating_index,2017,4,high,"Moody's Ba1 held throughout 2017."
+chicago,bond_rating_index,2018,4,high,"Moody's Ba1 held throughout 2018."
+chicago,bond_rating_index,2019,4,high,"Moody's Ba1 held throughout 2019."
+chicago,bond_rating_index,2020,4,high,"Moody's Ba1 held throughout 2020."
+chicago,bond_rating_index,2021,4,high,"Moody's Ba1 held throughout 2021."
+chicago,bond_rating_index,2022,5,high,"Moody's upgraded Ba1 to Baa3 on Nov 8, 2022 (City of Chicago press release, 'City of Chicago Secures First Moody's Investment Grade Upgrade in 12-Years') -- rating in effect at year end. Note: Ba1 was still in effect for most of calendar 2022 (Jan-Oct); this series reports the Dec 31 snapshot, not a majority-of-year value."
+chicago,bond_rating_index,2023,5,high,"Moody's Baa3 held throughout 2023."
+chicago,bond_rating_index,2024,5,high,"Moody's Baa3 held throughout 2024 (affirmed per BondLink City of Chicago Investor Relations 'Ratings' page)."
+chicago,bond_rating_index,2025,5,high,"Moody's Baa3 affirmed, stable outlook, as of Aug 2025 (BondLink City of Chicago Investor Relations)."

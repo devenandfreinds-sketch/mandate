@@ -1,0 +1,10 @@
+jurisdiction,metric,year,value,confidence,notes
+chicago,business_formation,2015,54764,high,"Census Business Formation Statistics, Cook County business applications -- same methodology and geography as the existing 2024/2025 values for this metric. Census BFS publishes no city or MSA-level series (only national/state/county), so Cook County is used as the closest available proxy; Cook County (~130 municipalities, pop. ~5.1M) overstates Chicago-city-only formation."
+chicago,business_formation,2016,55367,high,"Census Business Formation Statistics, Cook County business applications. Same methodology as 2015/2024/2025."
+chicago,business_formation,2017,57484,high,"Census Business Formation Statistics, Cook County business applications. Same methodology as 2015/2024/2025."
+chicago,business_formation,2018,65807,high,"Census Business Formation Statistics, Cook County business applications. Same methodology as 2015/2024/2025."
+chicago,business_formation,2019,66578,high,"Census Business Formation Statistics, Cook County business applications. Same methodology as 2015/2024/2025."
+chicago,business_formation,2020,106494,high,"Census Business Formation Statistics, Cook County business applications. Same methodology as 2015/2024/2025. The 2020 spike reflects the nationwide pandemic-era business-application surge documented across Census BFS data generally, not a Chicago-specific event."
+chicago,business_formation,2021,118667,high,"Census Business Formation Statistics, Cook County business applications. Same methodology as 2015/2024/2025."
+chicago,business_formation,2022,93898,high,"Census Business Formation Statistics, Cook County business applications. Same methodology as 2015/2024/2025."
+chicago,business_formation,2023,93851,high,"Census Business Formation Statistics, Cook County business applications. Same methodology as 2015/2024/2025."

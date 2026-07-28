@@ -1,0 +1,8 @@
+jurisdiction,metric,year,value,confidence,notes
+chicago,life_sciences_employment,2015,43322,high,"BLS QCEW, Chicago-Naperville-Elgin MSA, sum of NAICS 3254 Pharmaceutical & Medicine Manufacturing (17546) + 5417 Scientific R&D Services (18866) + 6215 Medical & Diagnostic Laboratories (6910). Same 3-NAICS-code methodology as the existing 2023 value (45648) for this metric; verified directly against the BLS QCEW Open Data API (data.bls.gov/cew/data/api)."
+chicago,life_sciences_employment,2016,42032,high,"BLS QCEW, Chicago MSA: NAICS 3254 (17749) + 5417 (16956) + 6215 (7327). Same methodology as 2015/2023."
+chicago,life_sciences_employment,2017,40876,high,"BLS QCEW, Chicago MSA: NAICS 3254 (17181) + 5417 (15919) + 6215 (7776). Same methodology as 2015/2023."
+chicago,life_sciences_employment,2018,41718,high,"BLS QCEW, Chicago MSA: NAICS 3254 (17354) + 5417 (16184) + 6215 (8180). Same methodology as 2015/2023."
+chicago,life_sciences_employment,2019,43479,high,"BLS QCEW, Chicago MSA: NAICS 3254 (18655) + 5417 (16568) + 6215 (8256). Same methodology as 2015/2023."
+chicago,life_sciences_employment,2020,44057,high,"BLS QCEW, Chicago MSA: NAICS 3254 (19379) + 5417 (16649) + 6215 (8029). Same methodology as 2015/2023."
+chicago,life_sciences_employment,2021,45768,high,"BLS QCEW, Chicago MSA: NAICS 3254 (20035) + 5417 (17213) + 6215 (8520). Same methodology as 2015/2023."

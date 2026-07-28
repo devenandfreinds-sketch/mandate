@@ -109,6 +109,15 @@ export const researchQueueSeed: ResearchQueueSeedItem[] = [
       "Pull real median_wages values from Census ACS 1-year estimates (table S2001/B20002), Chicago median earnings. Easy-moderate — note ACS 1-year estimates were not published for 2020 (COVID data-collection suspension), so the 2015-2025 series will have a documented gap that year. Currently 100% placeholder.",
     priority: 10,
   },
+  {
+    key: "chicago-graduate-employment-rate-metric",
+    jurisdictionSlug: "chicago",
+    metricSlug: "graduate_employment_rate",
+    taskType: "metric",
+    researchQuestion:
+      "No recurring, city-wide 'graduate employment rate' figure was found for Chicago this pass — outcomes are tracked per-institution (IBHE College2Career, individual universities), not aggregated regionally. The one concrete reference point is City Colleges of Chicago's one-time 2015 Graduate Employment Follow-Up Study (summer 2013-spring 2014 completers), reporting per-campus rates from 67.1% (Olive-Harvey) to 80.3% (Malcolm X) — non-recurring and sub-city-level, so not usable as-is. Difficulty: hard — would likely require either a custom aggregation across every Chicago-area institution's IBHE/IPEDS outcomes data, or convincing City Colleges of Chicago to repeat/update its 2015 study. Skill set: higher-ed data researcher with IPEDS/IBHE familiarity.",
+    priority: 11,
+  },
 
   // ===================== Greater Manchester (see docs/GREATER_MANCHESTER_RESEARCH_ROADMAP.md) =====================
   {

@@ -59,3 +59,63 @@ as `unassigned`, visible and workable at `/admin/research-queue`. Reseeding neve
 status/assignee/notes once a researcher has picked it up — see the seed script's `[10c/11]` step. If this
 roadmap changes (a task is reprioritized, split, or dropped), update the roadmap here **and** the seed
 file together, and note in the seed file's own comment why a discrepancy might temporarily exist.
+
+## Extended pass: alternative-source research on remaining gaps (2026-07-28)
+
+With the original Top 10 complete, this pass targeted Chicago's remaining zero/low-evidence metrics,
+deliberately reaching past government-only sources into rating agencies, university tech-transfer
+offices, and — where genuinely checked and found not to exist — the city's own Inspector General audits
+as evidence of absence. Every candidate below was independently researched; findings that didn't clear
+the bar (wrong geography, wrong scope, no numeric figure behind a rank) were **not** force-imported.
+
+**Imported as real data:**
+- `bond_rating_index` — 0/11 real → **11/11 real** (Fully Measured). Moody's/S&P/Fitch GO rating actions,
+  2015-2025, sourced via City of Chicago investor relations materials and financial press (Bloomberg,
+  Crain's, Sun-Times, WBEZ, ABC7). Uses a year-end-value convention (see CSV notes for the two years with
+  mid-year rating changes) and Moody's own scale, mapped 1-10 per the existing
+  `metricSourceAssignments.ts` methodology note.
+- `life_sciences_employment` — 1/11 real → **7/11 real, 1 estimated** (Partially Measured). BLS QCEW,
+  Chicago MSA, sum of NAICS 3254 + 5417 + 6215 — same three-code methodology already used for the
+  existing 2023 value. 2022 stays a gap: BLS suppressed NAICS 5417 for that year (confidentiality), and
+  no defensible substitute was used rather than guessing.
+- `tech_employment` — 1/11 real → **6/11 estimated** (Partially Measured). BLS QCEW, Chicago MSA, NAICS
+  5415 alone — matches the existing 2022 value's methodology exactly. 2015/2020/2023/2024/2025 stay gaps
+  (BLS suppression for this area/NAICS combination).
+- `business_formation` — 2/11 real → **11/11 real** (Fully Measured). Census Business Formation
+  Statistics has no city or MSA product; Cook County is the closest available proxy and was already the
+  documented methodology for the existing 2024/2025 values — extended across the full 2015-2023 run.
+
+**Marked `unavailable` (investigated, no defensible source found — not simply "unresearched"), with the
+underlying investigation documented in `server/prisma/seed/data/unavailableMetrics.ts`:**
+- `digital_government_adoption` — Center for Digital Government's Digital Cities Survey never publishes
+  a 0-100 score for any city, Chicago included (only ordinal ranks, and Chicago placed in the top 10 just
+  twice: 9th in 2018, 8th in 2020). No substitute index exists that covers Chicago.
+- `emergency_response_minutes` — Chicago's own Office of Inspector General has audited CFD/EMS
+  response-time measurement four times (2013/2015/2021/2025) and each time found the data still isn't
+  computed by median/percentile with usable completeness; a separate 2023 OIG audit found CPD 911 arrival
+  timestamps recorded only 49% of the time. This is a confirmed measurement gap, not an unresearched one.
+- `capital_budget_execution_rate` — no OBM/ACFR/Civic Federation publication states a planned-vs-actual
+  capital execution percentage; OIG's Dec 2020 CIP audit found the practice of tracking this doesn't
+  exist at all in the four largest capital-spending departments.
+- `major_infrastructure_delivery_rate` — no Chicago agency, OIG audit, or watchdog (CMAP, BGA, Illinois
+  Answers) publishes an on-schedule delivery percentage for major infrastructure projects.
+- `business_survival_rate` — BLS Business Employment Dynamics only publishes 5-year survival tables at
+  the national/state level; Census Business Dynamics Statistics' metro file only has coarse age buckets,
+  from which a clean survival rate can't be derived without interpolation.
+- `apprenticeships` — DOL, Illinois DCEO, Chicago Cook Workforce Partnership, and the Chicago Apprentice
+  Network all publish apprenticeship figures, but none at the City of Chicago level (DOL/DCEO data is
+  Illinois-statewide — using it would overstate the city figure by roughly 4x).
+
+**Left as an open ResearchTask rather than marked unavailable** (data exists for a narrower/different
+scope and might be extendable by a future researcher, unlike the six cases above which were conclusively
+ruled out):
+- `graduate_employment_rate` — no recurring city-wide figure exists; the only concrete reference point
+  is City Colleges of Chicago's one-time 2015 per-campus follow-up study. See
+  `chicago-graduate-employment-rate-metric` in the research queue.
+
+**Investigated and confirmed not extendable, no changes made:**
+- `clearance_rate` — additional years found were homicide-only or non-fatal-shooting-only clearance
+  rates, a narrower category than the existing all-violent-crime clearance data; importing them would
+  misrepresent the metric.
+- `debt_per_capita` — the two years found (Civic Federation FY2014, FY2023) were already the same two
+  years already in the database from an earlier pass; no new years were added.
