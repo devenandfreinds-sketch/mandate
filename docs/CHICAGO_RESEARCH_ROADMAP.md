@@ -171,3 +171,52 @@ per-metric sourcing already established, to extend them across the 2015-2025 ran
   found is a 5-year rolling *planned allocation* total, not a discrete annual figure comparable to the
   existing 2015 datapoint; converting a multi-year total into an annual number would require fabricating
   a split that no source actually provides.
+
+## Fourth pass: retrying stubborn gaps and two never-researched metrics (2026-07-31)
+
+This pass retried metrics where a prior attempt hit a tooling limitation (not a data gap), and formally
+investigated two metrics that had never been chased down before.
+
+**Fully or near-fully resolved:**
+- `university_spinouts` — 1/11 real -> **11/11 real**. The University of Illinois Chicago's Office of
+  Technology Management publishes a clean multi-year startups-formed history (2015-2024); UIC is
+  unambiguously Chicago-headquartered, unlike the existing 2025 datapoint (a Northwestern + UChicago
+  Polsky Center composite, since Northwestern spans both Evanston and Chicago campuses). **The 2015-2024
+  UIC-only figures and the 2025 composite figure use genuinely different methodologies and are not
+  directly comparable year-over-year** — documented explicitly in each row's notes rather than blended
+  or silently reconciled.
+- `startup_formation` — 5/11 -> **9/11 real**. The previous pass's gap (2015-2018) turned out to be a
+  UI-automation limitation, not a data gap: Census publishes the full MSA-by-firm-age time series as a
+  static downloadable CSV (`bds2023_msa_fac.csv`), independent of the BDS Explorer tool's finicky
+  year-picker. 2024-2025 remain unfilled (BDS lags ~2 years behind the present).
+- `procurement_timeline_days` — 1/11 estimated -> **11/11 estimated**. The existing 2025 datapoint's own
+  source (Chicago Data Portal's Task Order Request dataset) turned out to already contain a live,
+  queryable weekly time series back to 2015 — no separate historical source was needed. 2024 shows an
+  unexplained ~4x jump over 2023; reported as-is from the live official dataset rather than smoothed.
+- `transit_reliability` — 0/11 -> **6/11 real** (2019-2024). A prior pass correctly declined to import
+  CTA's "Big Gap Intervals" statistic (an inverse failure-rate, not an on-time percentage). This pass
+  found Metra's own On-Time Performance reports publish a genuine, directly-defined, higher-is-better
+  on-time percentage — scoped explicitly to Metra (commuter rail), not the combined CTA+Metra+Pace system.
+- `vc_investment` — 2/11 estimated -> **6/11 estimated** (2019, 2021, 2022, 2023 added). 2018 and 2020
+  were investigated and deliberately excluded: 2018 has two incompatible published figures ($1.9B
+  Illinois-statewide vs. an implied >=$3B PitchBook figure), and 2020 has only a rounded "nearly $3
+  billion" prose figure with no exact number ever published.
+- `bike_infrastructure_miles` — 1/11 -> **2/11 real** (2023 added: "more than 420 miles," CDOT press
+  release). The existing 2025 value's press release also mentioned 2025, so no new datapoint existed
+  there; 2023 is a genuinely new CDOT-stated figure.
+
+**Confirmed unavailable, added to `unavailableMetrics.ts`:**
+- `commercial_rd_investment` — NSF's Business Enterprise R&D (BERD) survey and its predecessor (BRDIS)
+  publish no sub-national breakdown finer than state level, for any US metro, not just Chicago. The only
+  sub-national figure found (Illinois Science & Technology Coalition's "R&D Index," ~$12-14B/year) is
+  Illinois-statewide, a materially different geography, and was not substituted.
+- `planning_efficiency_index` — no composite index of this kind exists from Chicago's Department of
+  Planning and Development, the Lincoln Institute of Land Policy, or the American Planning Association,
+  for Chicago or any city. The real permit/plan-review timing data that would feed such an index already
+  fully backs the separate `planning_approval_days` metric (11/11 real).
+
+**Investigated, genuinely unresolvable:**
+- `skills_training_participation`'s two remaining gaps (PY2019, PY2022) were retried and confirmed
+  unresolvable: PY2019 has no report ever archived anywhere (confirmed via the Wayback Machine's crawl
+  index), and PY2022's report contains no extractable category-level breakdown beyond the aggregate
+  figure already on file.

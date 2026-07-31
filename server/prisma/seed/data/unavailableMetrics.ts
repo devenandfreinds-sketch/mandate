@@ -75,4 +75,17 @@ export const unavailableMetrics: UnavailableMetricSpec[] = [
   // (temporary gap; revisit after the ~September 2026 release).
   { metricSlug: "labor_force_participation", jurisdictionSlug: "chicago", years: [2020, 2025] },
   { metricSlug: "average_commute_minutes", jurisdictionSlug: "chicago", years: [2020, 2025] },
+  // NSF's Business Enterprise R&D (BERD) survey and its predecessor BRDIS publish state-level
+  // breakdowns at finest -- no US metro or city ever gets a commercial R&D spending figure from any
+  // federal source. The only sub-national data found (Illinois Science & Technology Coalition's "R&D
+  // Index," ~$12-14B/year) is Illinois-statewide, a materially different geography than Chicago, and
+  // was not substituted. This is a confirmed dead end at the metro level for any US city, not just Chicago.
+  { metricSlug: "commercial_rd_investment", jurisdictionSlug: "chicago" },
+  // No composite "planning efficiency index" exists from Chicago's Department of Planning and
+  // Development, the Lincoln Institute of Land Policy, the American Planning Association, or any
+  // generalized version applied to any city. Chicago's real permit/plan-review timing data (which
+  // would be the natural input to such an index) already fully backs the separate
+  // planning_approval_days metric -- this metric would either require fabricating a composite or
+  // simply re-deriving from data already captured elsewhere.
+  { metricSlug: "planning_efficiency_index", jurisdictionSlug: "chicago" },
 ];

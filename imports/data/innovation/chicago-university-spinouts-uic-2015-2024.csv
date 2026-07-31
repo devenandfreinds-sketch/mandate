@@ -1,0 +1,11 @@
+jurisdiction,metric,year,value,confidence,notes
+chicago,university_spinouts,2015,5,high,"University of Illinois Chicago (UIC) Office of Technology Management, Impact Report multi-year startups-formed history table. UIC is unambiguously Chicago-headquartered, unlike the existing 2025 datapoint which sums Northwestern (Evanston + Chicago campuses) and UChicago Polsky Center figures. This is a narrower, single-institution count and is NOT directly comparable to the 2025 composite figure -- flagged explicitly rather than blended, per Mandate's policy of documenting rather than silently reconciling methodology differences across years."
+chicago,university_spinouts,2016,3,high,"UIC Office of Technology Management Impact Report. Same methodology as 2015."
+chicago,university_spinouts,2017,3,high,"UIC Office of Technology Management Impact Report. Same methodology as 2015."
+chicago,university_spinouts,2018,3,high,"UIC Office of Technology Management Impact Report. Same methodology as 2015."
+chicago,university_spinouts,2019,3,high,"UIC Office of Technology Management Impact Report. Same methodology as 2015."
+chicago,university_spinouts,2020,4,high,"UIC Office of Technology Management Impact Report. Same methodology as 2015."
+chicago,university_spinouts,2021,2,high,"UIC Office of Technology Management Impact Report. Same methodology as 2015."
+chicago,university_spinouts,2022,0,high,"UIC Office of Technology Management Impact Report: zero startups formed this fiscal year -- a genuine reported value, not a missing data point. Same methodology as 2015."
+chicago,university_spinouts,2023,0,high,"UIC Office of Technology Management Impact Report: zero startups formed this fiscal year -- a genuine reported value, not a missing data point. Same methodology as 2015."
+chicago,university_spinouts,2024,3,high,"UIC Office of Technology Management Impact Report. Same methodology as 2015."

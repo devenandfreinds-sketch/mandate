@@ -1,0 +1,11 @@
+jurisdiction,metric,year,value,confidence,notes
+chicago,procurement_timeline_days,2015,6.0,estimated,"Chicago Data Portal, 'Performance Metrics -- Procurement Services -- Task Order Requests' dataset (nfhf-cbk5), median days receipt-to-approval, annual average of the live weekly series. Same dataset/source and scope limitation (Task Order Requests only, not the full RFP-to-contract-award universe) as the existing 2025 value."
+chicago,procurement_timeline_days,2016,7.55,estimated,"Chicago Data Portal TOR dataset. Same methodology as 2015."
+chicago,procurement_timeline_days,2017,5.98,estimated,"Chicago Data Portal TOR dataset. Same methodology as 2015."
+chicago,procurement_timeline_days,2018,6.66,estimated,"Chicago Data Portal TOR dataset. Same methodology as 2015."
+chicago,procurement_timeline_days,2019,9.56,estimated,"Chicago Data Portal TOR dataset. Same methodology as 2015."
+chicago,procurement_timeline_days,2020,9.43,estimated,"Chicago Data Portal TOR dataset. Same methodology as 2015."
+chicago,procurement_timeline_days,2021,6.98,estimated,"Chicago Data Portal TOR dataset. Same methodology as 2015."
+chicago,procurement_timeline_days,2022,4.31,estimated,"Chicago Data Portal TOR dataset. Same methodology as 2015."
+chicago,procurement_timeline_days,2023,3.06,estimated,"Chicago Data Portal TOR dataset. Same methodology as 2015."
+chicago,procurement_timeline_days,2024,21.63,estimated,"Chicago Data Portal TOR dataset. Same methodology as 2015. Note: this year shows a sharp ~4x jump over 2023 that could not be independently explained this pass -- reported as-is from the live official dataset rather than smoothed or excluded, consistent with how other real-but-surprising data points (e.g. Chicago's 2024 homelessness count spike) have been handled on this platform."

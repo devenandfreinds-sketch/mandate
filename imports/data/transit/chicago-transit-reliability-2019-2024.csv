@@ -1,0 +1,7 @@
+jurisdiction,metric,year,value,confidence,notes
+chicago,transit_reliability,2019,94.6,high,"Metra On-Time Performance Report (system excluding South Shore Line): share of trains reaching their final stop within 6 minutes of schedule. Metra is the Chicago-area's commuter rail system; scope is Metra specifically, not the combined CTA+Metra+Pace system. A prior research pass found CTA's own 'Big Gap Intervals' statistic measures the inverse of what this metric wants (a failure rate, not an on-time percentage) and correctly declined to import it; Metra's directly-defined, higher-is-better on-time percentage is a cleaner conceptual match."
+chicago,transit_reliability,2020,96.5,high,"Metra On-Time Performance Report. Same methodology/scope as 2019."
+chicago,transit_reliability,2021,95.5,high,"Metra On-Time Performance Report. Same methodology/scope as 2019."
+chicago,transit_reliability,2022,95.4,high,"Metra On-Time Performance Report. Same methodology/scope as 2019."
+chicago,transit_reliability,2023,94.9,high,"Metra On-Time Performance Report. Same methodology/scope as 2019."
+chicago,transit_reliability,2024,95.2,high,"Metra On-Time Performance Report. Same methodology/scope as 2019."

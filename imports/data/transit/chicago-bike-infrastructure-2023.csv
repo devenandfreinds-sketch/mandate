@@ -1,0 +1,2 @@
+jurisdiction,metric,year,value,confidence,notes
+chicago,bike_infrastructure_miles,2023,420,high,"CDOT press release (March 29, 2023): 'more than 420 miles' of protected bike lanes, neighborhood greenways, off-street trails, and other on-street bikeways citywide. Same press-release-based methodology as the existing 2025 value (500 miles, Sept 2025 CDOT release); both are CDOT's own stated network-total figures, not GIS-computed measurements."

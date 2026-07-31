@@ -1,0 +1,5 @@
+jurisdiction,metric,year,value,confidence,notes
+chicago,startup_formation,2015,12924,high,"Census Bureau Business Dynamics Statistics, MSA-by-firm-age-coarse time series (bds2023_msa_fac.csv), Chicago-Naperville-Elgin MSA, firm age 0. Same methodology as existing 2019-2023 values; 2019-2023 reproduced exactly from this same file, confirming correctness."
+chicago,startup_formation,2016,13443,high,"Census Bureau Business Dynamics Statistics. Same methodology as 2015/2019-2023."
+chicago,startup_formation,2017,12946,high,"Census Bureau Business Dynamics Statistics. Same methodology as 2015/2019-2023."
+chicago,startup_formation,2018,12758,high,"Census Bureau Business Dynamics Statistics. Same methodology as 2015/2019-2023."
