@@ -1,0 +1,9 @@
+jurisdiction,metric,year,value,confidence,notes
+chicago,average_commute_minutes,2015,35.0,high,"ACS 1-Year Estimates, Table DP03 (mean travel time to work, workers 16+ who did not work from home), Chicago city, Illinois (+/-0.4min) -- same table/geography as existing 2024 value (33.5 min)."
+chicago,average_commute_minutes,2016,35.0,high,"ACS 1-Year Estimates, Table DP03, Chicago city, Illinois (+/-0.3min). Same methodology as 2015/2024."
+chicago,average_commute_minutes,2017,34.9,high,"ACS 1-Year Estimates, Table DP03, Chicago city, Illinois (+/-0.4min). Same methodology as 2015/2024."
+chicago,average_commute_minutes,2018,35.4,high,"ACS 1-Year Estimates, Table DP03, Chicago city, Illinois (+/-0.4min). Same methodology as 2015/2024."
+chicago,average_commute_minutes,2019,35.3,high,"ACS 1-Year Estimates, Table DP03, Chicago city, Illinois (+/-0.4min). Same methodology as 2015/2024."
+chicago,average_commute_minutes,2021,32.2,high,"ACS 1-Year Estimates, Table DP03, Chicago city, Illinois (+/-0.5min). Same methodology as 2015/2024. The dip likely reflects pandemic-era remote-work shifts in the commuting-workers denominator, not a data error."
+chicago,average_commute_minutes,2022,33.5,high,"ACS 1-Year Estimates, Table DP03, Chicago city, Illinois (+/-0.5min). Same methodology as 2015/2024."
+chicago,average_commute_minutes,2023,33.0,high,"ACS 1-Year Estimates, Table DP03, Chicago city, Illinois (+/-0.5min). Same methodology as 2015/2024."

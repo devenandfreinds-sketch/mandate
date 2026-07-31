@@ -70,4 +70,9 @@ export const unavailableMetrics: UnavailableMetricSpec[] = [
   // vs. Chicago pop.), so it is not substituted. Revisit if DOL's dashboard's claimed county-level
   // drill-down (unverifiable via static fetch this pass) turns out to cover Cook County cleanly.
   { metricSlug: "apprenticeships", jurisdictionSlug: "chicago" },
+  // Same ACS 1-year gaps as median_rent/vacancy_rate/median_wages above: no 2020 estimate exists
+  // anywhere (COVID suspension, permanent gap), and 2025 has not been released yet as of this pass
+  // (temporary gap; revisit after the ~September 2026 release).
+  { metricSlug: "labor_force_participation", jurisdictionSlug: "chicago", years: [2020, 2025] },
+  { metricSlug: "average_commute_minutes", jurisdictionSlug: "chicago", years: [2020, 2025] },
 ];

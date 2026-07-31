@@ -1,0 +1,10 @@
+jurisdiction,metric,year,value,confidence,notes
+chicago,employment,2015,1286591,high,"BLS LAUS series LAUCT171400000000005 (Employment level), Chicago city, IL, annual average of 12 not-seasonally-adjusted monthly values -- sibling series to the already-fully-real unemployment_rate metric (LAUCT171400000000003), same area code."
+chicago,employment,2016,1354607,high,"BLS LAUS series LAUCT171400000000005. Same methodology as 2015/2024."
+chicago,employment,2017,1359947,high,"BLS LAUS series LAUCT171400000000005. Same methodology as 2015/2024."
+chicago,employment,2018,1367990,high,"BLS LAUS series LAUCT171400000000005. Same methodology as 2015/2024."
+chicago,employment,2019,1375346,high,"BLS LAUS series LAUCT171400000000005. Same methodology as 2015/2024."
+chicago,employment,2020,1249038,high,"BLS LAUS series LAUCT171400000000005. Same methodology as 2015/2024."
+chicago,employment,2021,1311429,high,"BLS LAUS series LAUCT171400000000005. Same methodology as 2015/2024."
+chicago,employment,2022,1373295,high,"BLS LAUS series LAUCT171400000000005. Same methodology as 2015/2024."
+chicago,employment,2023,1390493,high,"BLS LAUS series LAUCT171400000000005. Same methodology as 2015/2024. 2025 not available: October 2025 data is marked 'unavailable' by BLS due to the federal appropriations lapse, so no official annual average exists yet for 2025."

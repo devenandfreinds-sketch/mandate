@@ -119,3 +119,55 @@ ruled out):
   misrepresent the metric.
 - `debt_per_capita` — the two years found (Civic Federation FY2014, FY2023) were already the same two
   years already in the database from an earlier pass; no new years were added.
+
+## Third pass: extending single-year metrics with stable federal/city series (2026-07-31)
+
+The first extended pass added new metrics from scratch; this pass instead targeted 9 metrics that
+already had exactly one real/estimated year each, using stable multi-year federal series and the same
+per-metric sourcing already established, to extend them across the 2015-2025 range.
+
+**Fully or near-fully resolved:**
+- `advanced_manufacturing_employment` — 1/11 -> **11/11 real**. FRED series `SMU17169803000000001A`
+  ("All Employees: Manufacturing," Chicago-Naperville-Elgin MSA) has a complete, unbroken annual history;
+  the existing 2024 value reproduced exactly, confirming the series.
+- `employment` — 1/11 -> **10/11 real**. BLS LAUS series `LAUCT171400000000005`, the sibling series to
+  the already-fully-real `unemployment_rate` (`LAUCT171400000000003`). 2025 remains a genuine gap: BLS
+  marked October 2025 "unavailable" due to the federal appropriations lapse, so no annual average exists
+  yet.
+- `labor_force_participation` and `average_commute_minutes` — 1/11 -> **9/11 real each**. Both from ACS
+  1-Year Estimates (Tables S2301 and DP03, Chicago city). 2020 is the same permanent COVID-suspension gap
+  documented elsewhere on this platform; 2025 is a temporary gap (ACS 1-year estimates lag ~9 months, not
+  expected until ~September 2026) — both years added to `unavailableMetrics.ts` rather than left as plain
+  placeholders, since they're now confirmed, not just unresearched.
+
+**Partially resolved (real evidence added, but a clean full series wasn't available):**
+- `pension_funding_ratio` — 1/11 real -> **4/11 real + 6/11 estimated**. The City's FY2025 ACFR publishes
+  individual-fund GASB 68 ratios (MEABF/LABF/PABF/FABF) back to 2016 in its RSI schedule, but only a
+  handful of years (2017, 2018, 2025) have a single aggregate figure directly printed by either COFA or
+  the ACFR itself. For the other years, this pass computed its own sum-of-assets/sum-of-liabilities
+  aggregate from the individually-cited real fund ratios — a transparent, real-data-based calculation,
+  labeled `estimated` rather than `government` since it's Mandate's own arithmetic, not a single printed
+  figure. **A genuine discrepancy was found and documented, not resolved**: COFA's own printed aggregate
+  for FY2023/2024 (24.8%/26.2%) does not match a straight sum-of-assets/liabilities calculation from the
+  same underlying fund ratios (~22.6%/25.4%) — both are real and citable, but COFA's exact aggregation
+  method could not be determined. Only 2015 remains unfilled.
+- `budget_balance` — 1/11 real -> **2/11 real + 6/11 estimated**. 2025 was printed verbatim by the City's
+  ACFR; 2018-2023 required summing COFA's separately-reported revenue and expenditure variances against
+  budget, using the exact method that reproduces the existing, verified 2024 figure exactly
+  (-$378.7M + $217.1M = -$161.6M) — labeled `estimated` for the same reason as above. 2015-2017 remain
+  unfilled (not located).
+- `startup_formation` — 1/11 real -> **5/11 real**. Census Business Dynamics Statistics (Chicago-Naperville-Elgin
+  MSA, firm age 0) added 2019-2022. 2015-2018 exist in the same BDS tool but weren't retrieved this pass
+  due to a UI automation limitation (the year-picker control), not a data gap — worth a follow-up attempt,
+  or a registered Census API key.
+- `skills_training_participation` — 1/11 real -> **4/11 real**. Chicago Cook Workforce Partnership Annual
+  Reports added PY2020, PY2021, PY2024 (Adult+Dislocated Worker+Youth registrant sums, same methodology as
+  the existing PY2023 value). PY2019 has no archived report; PY2022's report only gives an aggregate
+  figure from an image-based PDF with no extractable category breakdown, so it was deliberately left out
+  rather than importing a less-certain number.
+
+**Investigated, no defensible extension found:**
+- `capital_investment` — stays at 1/11 real. Every other year's OBM Capital Improvement Program figure
+  found is a 5-year rolling *planned allocation* total, not a discrete annual figure comparable to the
+  existing 2015 datapoint; converting a multi-year total into an annual number would require fabricating
+  a split that no source actually provides.

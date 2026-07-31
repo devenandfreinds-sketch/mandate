@@ -1,0 +1,11 @@
+jurisdiction,metric,year,value,confidence,notes
+chicago,advanced_manufacturing_employment,2015,408400,high,"FRED series SMU17169803000000001A, 'All Employees: Manufacturing,' Chicago-Naperville-Elgin, IL-IN-WI MSA, annual NSA -- same series as the existing 2024 value (405,500), full clean history confirmed via direct FRED pull."
+chicago,advanced_manufacturing_employment,2016,408600,high,"FRED series SMU17169803000000001A. Same methodology as 2015/2024."
+chicago,advanced_manufacturing_employment,2017,408600,high,"FRED series SMU17169803000000001A. Same methodology as 2015/2024."
+chicago,advanced_manufacturing_employment,2018,412600,high,"FRED series SMU17169803000000001A. Same methodology as 2015/2024."
+chicago,advanced_manufacturing_employment,2019,412400,high,"FRED series SMU17169803000000001A. Same methodology as 2015/2024."
+chicago,advanced_manufacturing_employment,2020,391400,high,"FRED series SMU17169803000000001A. Same methodology as 2015/2024."
+chicago,advanced_manufacturing_employment,2021,390000,high,"FRED series SMU17169803000000001A. Same methodology as 2015/2024."
+chicago,advanced_manufacturing_employment,2022,396400,high,"FRED series SMU17169803000000001A. Same methodology as 2015/2024."
+chicago,advanced_manufacturing_employment,2023,401700,high,"FRED series SMU17169803000000001A. Same methodology as 2015/2024."
+chicago,advanced_manufacturing_employment,2025,405600,high,"FRED series SMU17169803000000001A. Same methodology as 2015/2024."

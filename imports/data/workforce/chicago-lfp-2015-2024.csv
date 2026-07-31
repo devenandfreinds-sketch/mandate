@@ -1,0 +1,9 @@
+jurisdiction,metric,year,value,confidence,notes
+chicago,labor_force_participation,2015,66.0,high,"ACS 1-Year Estimates, Table S2301, Chicago city, Illinois, population 16+ (+/-0.6pp) -- same table/geography as existing 2023 value (68.5%)."
+chicago,labor_force_participation,2016,67.0,high,"ACS 1-Year Estimates, Table S2301, Chicago city, Illinois (+/-0.5pp). Same methodology as 2015/2023."
+chicago,labor_force_participation,2017,66.7,high,"ACS 1-Year Estimates, Table S2301, Chicago city, Illinois (+/-0.6pp). Same methodology as 2015/2023."
+chicago,labor_force_participation,2018,67.3,high,"ACS 1-Year Estimates, Table S2301, Chicago city, Illinois (+/-0.7pp). Same methodology as 2015/2023."
+chicago,labor_force_participation,2019,67.2,high,"ACS 1-Year Estimates, Table S2301, Chicago city, Illinois (+/-0.5pp). Same methodology as 2015/2023."
+chicago,labor_force_participation,2021,67.2,high,"ACS 1-Year Estimates, Table S2301, Chicago city, Illinois (+/-0.5pp). Same methodology as 2015/2023."
+chicago,labor_force_participation,2022,67.2,high,"ACS 1-Year Estimates, Table S2301, Chicago city, Illinois (+/-0.5pp). Same methodology as 2015/2023."
+chicago,labor_force_participation,2024,69.2,high,"ACS 1-Year Estimates, Table S2301, Chicago city, Illinois (+/-0.8pp). Same methodology as 2015/2023."
