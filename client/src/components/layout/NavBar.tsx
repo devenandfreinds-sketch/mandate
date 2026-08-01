@@ -14,7 +14,7 @@ export function NavBar() {
     <header className="sticky top-0 z-10 border-b border-border bg-background/80 backdrop-blur">
       <div className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <NavLink to="/" className="flex items-center gap-2 font-semibold tracking-tight">
-          <span className="text-lg">Mandate</span>
+          <img src="/logo.png" alt="Mandate" className="h-7 w-auto invert dark:invert-0" />
         </NavLink>
         <nav className="flex items-center gap-1">
           {NAV_ITEMS.map((item) => (
