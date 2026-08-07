@@ -62,6 +62,8 @@ Full evidence, sources, and conservative stage reasoning live in
 | Transit Network Expansion Program | Bee Network bus franchising | **4** | Only ~1 year of full-network data; an academic source (with a disclosed TfGM/DfT funding relationship) finds benefits concentrated in central Manchester with peripheral boroughs still underserved; a bus-operator trade body's rising-cost claim (£227m/year) is unverified; rail integration under the same brand remains stage 1-2 |
 | Affordable Housing Production Institution | Greater Manchester Housing Investment Loans Fund (GMHILF) | **4** | The only independent evaluation was reactive (commissioned after media/political pressure, not routine); GMCA's "11,000 homes" claim doesn't reconcile with the independent ~7,800-completed figure; funding found heavily concentrated toward one developer and central Manchester |
 | Workforce Development Institution | Devolved Adult Education Budget / Adult Skills Fund | **4** | GMCA's own commissioned independent evaluators (IES, 2023) explicitly stated robust outcome/impact evidence does not yet exist — this is the single most load-bearing fact in the whole pipeline's scoring |
+| Alternative Crisis Response Program | Right Care, Right Person / Mental Health Tactical Advice Service (MHTAS) | **3** | GMP excluded from the only independent national evaluation (GOV.UK, Dec 2024); a July 2025 coronial Prevention of Future Deaths report documents a live, unresolved safety controversy with the GM implementation |
+| Public Innovation & Startup Investment Vehicle | GC Angels / The Enterprise Fund Limited | **4** | Portfolio-count/capital-mobilized figures vary meaningfully across independent trackers (27-49 companies depending on source); no source demonstrates improving outcomes over time, only cumulative totals |
 
 Three real GM institutions were researched but **deliberately not modeled as separate PipelineAssessment
 rows**, because Mandate's schema only supports one "current" institution per (jurisdiction, policyArea)
@@ -75,16 +77,17 @@ pair, and none of the three cleanly substitutes for or supersedes the ones score
   in real, documented use in individual borough planning decisions through 2025 (e.g. Bolton MBC
   committee reports citing specific PfE policies). This is the single institution this pass most
   regrets not having a clean home for — see "What Mandate's architecture struggled with."
-- **100% Business Rates Retention Pilot** (2017/18-2019/20) — a candidate for "Progressive Revenue
-  Institution," but not researched deeply enough this pass to score responsibly. Flagged as a
-  ResearchTask (`gm-business-rate-retention-pipeline`) rather than guessed at.
+- **100% Business Rates Retention** — researched in full during the flagship-case-study pass (see below):
+  a real, well-evidenced, Stage-4-worthy fiscal-devolution institution on its own terms, but confirmed to
+  be a genuine category mismatch for "Progressive Revenue Institution" (see "Dead ends" below).
 
-Four of Greater Manchester's seven PolicyAreas remain the synthetic placeholder generator's output,
-unresearched this pass: Public Innovation & Startup Investment Vehicle, Permitting & Procurement
-Modernization (a stretch even for Places for Everyone — see below), Alternative Crisis Response Program
-(no comparable non-police crisis-response institution was identified, but this was not dedicated
-research, just an absence of a candidate), and Progressive Revenue Institution (pending the Business
-Rate Retention research task).
+Of Greater Manchester's seven PolicyAreas, five are now researched with real evidence (Transit, Housing,
+Workforce, Alternative Crisis Response, Public Innovation). **Permitting & Procurement Modernization**
+remains the synthetic placeholder generator's output — the one candidate investigated (Places for
+Everyone) was found to be a genuine taxonomy mismatch and is documented above instead; whether a
+different, genuinely-fitting GM institution exists remains open. **Progressive Revenue Institution** is
+no longer an unresearched gap — it now carries a deliberate, evidenced "no clean fit" finding (see
+"Dead ends," below) rather than a synthetic placeholder.
 
 ## Data challenges
 
@@ -217,3 +220,122 @@ might be enough, without a full redesign; (3) resolve the Places for Everyone ta
 (new PolicyArea vs. force-fit) as a real methodology decision, not a default; (4) only then consider
 sub-jurisdiction hierarchy (borough-level rows), since it's the most architecturally invasive of the
 four and wasn't actually blocking anything this pass needed.
+
+*(Note: `PipelineAssessment` gained an additive `institutionName` field since this section was
+originally written, addressing point (2) above.)*
+
+## Flagship-case-study pass (2026-08-07): fixing a real overclaim, closing three pipeline gaps
+
+Greater Manchester was elevated from "second research jurisdiction" to Mandate's flagship international
+case study, with an explicit brief: prioritize institutional-pipeline depth and high-confidence
+government metrics over raw coverage percentage, and research first, implement only once evidence
+quality is verified. The audit that opened this pass found something that needed fixing immediately:
+
+**A real overclaim, caught and corrected.** `alternative-crisis-response` carried a synthetic
+placeholder claiming **Stage 4** ("established track record with measurable, improving outcomes over
+multiple years") on `dataQuality: "placeholder"` — i.e., a random value from the seed generator that
+happened to look like a real, confident assessment. This is exactly the failure mode Mandate's
+data-quality model was built to prevent, and it had gone unnoticed because the row's placeholder status
+was only visible by querying the database directly, not from the UI's default display. Real research
+(below) replaced it with a conservative Stage 3.
+
+### Pipeline research completed this pass
+
+**Alternative Crisis Response Program → Right Care, Right Person / MHTAS (Stage 3).** No GM equivalent
+of US CAHOOTS/STAR/CARE-style dedicated field units exists. What's real: the Mental Health Tactical
+Advice Service (MHTAS, a four-way GMP/NHS partnership running since 2018) and Right Care, Right Person
+(RCRP, a national call-triage/diversion policy GMP implemented GM-wide on 30 September 2024). Capped at
+Stage 3 rather than 4 because GMP was explicitly excluded from the only independent national process
+evaluation (GOV.UK, Dec 2024), and a July 2025 coronial Prevention of Future Deaths report documents a
+live, unresolved safety controversy with a GM RCRP-related case. Serenity Integrated Mentoring (SIM), a
+nationally-controversial scheme sometimes assumed to operate in GM, is confirmed **not** in use here —
+Health Innovation Manchester's own page states this directly.
+
+**Public Innovation & Startup Investment Vehicle → GC Angels / The Enterprise Fund Limited (Stage 4).**
+GC Angels, delivered by an FCA-regulated Growth Company subsidiary, has a genuine recurring GMCA funding
+relationship (a 28 March 2025 decision awarding £1m of Retained Business Rates funding for FY2025-26)
+and 6+ years of independently-corroborated (if imprecisely counted across trackers) investment activity.
+Northern Gritstone — a university-spinout fund GMCA put a one-off £1.5m into among a dozen+ other
+backers, with no board seat or governance role — is a confirmed dead end for this category: a private
+vehicle GMCA co-invested in, not a GMCA institution.
+
+**Progressive Revenue Institution → deliberate "no clean fit" finding (dataQuality: "unavailable").**
+GM's one genuine, well-evidenced revenue institution — 100% Business Rates Retention, permanent since
+1 April 2024, funding a ~£2bn investment vehicle — redistributes revenue *between tiers of government*
+(central to local), not *between income groups*. UK local government structurally lacks a US-style
+progressive tax institution: council tax is a flat banded property tax, and there is no local income
+tax. Every genuinely redistributive/equity-framed revenue tool GM considered — the 2008 congestion
+charge (rejected 78.8% in referendum), the 2018 workplace parking levy (rejected by council leadership),
+the 2022 charging Clean Air Zone (approved then scrapped before charging a single driver) — died before
+collecting any revenue. This is recorded as a deliberate research conclusion, not an unresearched gap.
+
+**Permitting & Procurement Modernization → still open.** The one candidate investigated (Places for
+Everyone) was confirmed to be a genuine taxonomy mismatch (see below) rather than a fit for this
+category. Whether a different, genuinely-fitting GM institution exists (e.g., a building-permit or
+business-licensing digitization program distinct from spatial planning) was not searched for this pass
+and remains open.
+
+### Two architectural recommendations, grounded in this pass's evidence, awaiting methodology-lead sign-off
+
+Both of the following are genuine taxonomy gaps surfaced by real research, not speculative
+redesign — but both are global changes affecting every jurisdiction's coverage denominators, so neither
+was implemented unilaterally:
+
+1. **A new "Regional Spatial Planning" PolicyArea.** Places for Everyone (the 9-borough joint spatial
+   plan, formally adopted 21 March 2024, already reshaping real planning decisions — e.g. Bolton's
+   Policies Map amendment and a granted first-phase permission at West of Wingates) is not a permitting
+   or procurement reform; it is a strategic multi-jurisdiction land-use allocation instrument. No
+   existing PolicyArea holds this cleanly. A dedicated category would also cleanly hold analogous
+   instruments in other combined authorities (e.g., any future West Yorkshire or West Midlands joint
+   plans), making it a genuinely reusable addition, not a one-off special case for GM.
+2. **Reframe "Progressive Revenue Institution" for non-US jurisdictions** (e.g., to "Fiscal Devolution
+   Institution"), or explicitly document that some jurisdictions structurally cannot have a "progressive"
+   revenue institution in the US sense. This would let GM's real, Stage-4-worthy Business Rates
+   Retention institution be scored honestly on its own terms instead of living as a permanent
+   "unavailable" entry under a category it can never satisfy.
+
+### Metrics feasibility audit (research only — no data imported yet)
+
+A systematic check of GM's ~35 unresearched metrics against ONS, Nomis, GMCA, DfT, MHCLG, and NHS
+England found:
+
+- **~19 metrics GREEN** (a genuine, named statistical product exists at Greater Manchester geography or
+  cleanly aggregates from GM's 10 boroughs) — e.g., `startup_formation`/`business_formation`/
+  `business_survival_rate` (ONS Business Demography), `tech_employment`/`life_sciences_employment`/
+  `advanced_manufacturing_employment` (Nomis BRES), `violent_crime_rate`/`property_crime_rate`/
+  `clearance_rate` (ONS/Home Office, Greater Manchester Police force area — a clean geography match),
+  `transit_ridership`/`transit_reliability` (TfGM/GMCA direct reporting), `median_wages` (ONS ASHE),
+  `budget_balance`/`debt_per_capita`/`capital_investment`/`capital_budget_execution_rate` (MHCLG).
+- **~11 metrics YELLOW** (real data exists but needs aggregation judgment, has a methodological caveat,
+  or comes from irregular project-tracking reports rather than a fixed annual table) — e.g.
+  `university_spinouts` (HESA HE-BCI, requires deciding which GM-based providers "count"),
+  `commercial_rd_investment` (ONS BERD's ITL2 tables are explicitly experimental), `average_commute_minutes`
+  (would need modeling from Census distance/mode bands, no single published "average minutes" figure).
+- **~7 metrics RED** (structural dead ends, not just unresearched) — most importantly `bond_rating_index`:
+  **not a data-availability gap but a conceptual mismatch** — UK combined authorities/councils are not
+  routinely credit-rated by Moody's/S&P/Fitch the way US municipalities are, so this metric is structurally
+  N/A for GM rather than merely hard to find. Also `procurement_timeline_days`, `agency_vacancy_rate`,
+  `digital_government_adoption`, `ai_companies`, `patent_creation` below ITL2 geography, and `commercial_rd_investment`
+  at anything finer than experimental ITL2 — all the same categories of dead end already documented for
+  Chicago, for the same underlying reasons (no such statistic is published at this geography by anyone,
+  for any UK combined authority, not just GM).
+
+**Two GM-specific structural notes for future metric definitions:** `emergency_response_minutes` is
+NHS England ambulance data (reportable at NHS Greater Manchester Integrated Care Board level), not
+fire/police response as typically modeled for US jurisdictions — worth a definitional footnote on the
+metric itself. And the GREEN list flagged two likely internal duplicates for the schema team to resolve
+before pulling data: `startup_formation`/`business_formation` (same ONS Business Demography series), and
+`permit_approval_days`/`planning_efficiency_index` (both likely re-derivable from the same MHCLG "speed
+of decision" tables already backing Housing's `planning_approval_days`).
+
+**Next step, not yet done:** pull real values for the ~19 GREEN metrics. Per this pass's "research
+first, implement only once verified" brief, that is deliberately a separate, subsequent phase — this
+audit is a feasibility map, not a data pull.
+
+**Minor UI observation, not fixed this pass:** the progressive-revenue-institution "unavailable" entry
+displays as "0/5 · Campaign Promise" in the Pipeline Detail Page's stage badge, since stage 0's label is
+hardcoded to "Campaign Promise" regardless of `dataQuality`. This reads oddly for a deliberate
+"confirmed no institution of this kind exists" finding (which isn't a promise at all) — the page's
+"Unavailable" data-quality badge and neutral-summary text both communicate the real finding correctly,
+so this is a cosmetic label mismatch, not a data or methodology problem. Worth a small UI fix (e.g., a
+stage-0-plus-unavailable-specific label) if this combination recurs for other jurisdictions.

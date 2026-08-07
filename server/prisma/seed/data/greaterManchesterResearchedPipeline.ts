@@ -52,13 +52,52 @@
  * fact for this pipeline's conservative scoring, and is preserved verbatim in the evidence below
  * rather than summarized away.
  *
- * The remaining 4 Greater Manchester policy areas ("public-innovation-investment",
- * "permitting-modernization", "alternative-crisis-response", "progressive-revenue-institution")
- * remain the synthetic placeholder generator's output — NOT researched this pass, and continue to be
- * marked isPlaceholder/dataQuality: "placeholder" accordingly. See the case study and roadmap for why
- * (no clear comparable GM institution was identified without further dedicated research, or the
- * available candidate — e.g. the 2017 Business Rate Retention Pilot for fiscal-health — was not
- * investigated deeply enough this pass to score responsibly).
+ * "alternative-crisis-response" (Right Care, Right Person / Mental Health Tactical Advice Service) —
+ * two assessments spanning 2018-2024. This REPLACES a synthetic placeholder that had incorrectly
+ * claimed stage 4 ("established track record with measurable, improving outcomes") on
+ * dataQuality: "placeholder" — a serious overclaim caught during the flagship-case-study pass. The
+ * real institution is a call-triage/diversion policy (Right Care, Right Person, GM-wide from 30 Sept
+ * 2024) layered onto an existing police-NHS liaison desk (MHTAS, running since 2018) — not a dedicated
+ * alternative-responder field unit in the US CAHOOTS/STAR/CARE sense. Capped at stage 3, NOT 4: GMP was
+ * explicitly excluded from the only independent national process evaluation of RCRP (GOV.UK, Dec 2024),
+ * and a July 2025 coronial Prevention of Future Deaths report documents a live, unresolved safety
+ * controversy with a GM RCRP-related case. Serenity Integrated Mentoring (SIM), a nationally-scrutinized
+ * scheme sometimes confused with GM crisis-response programs, is confirmed NOT in use here (Health
+ * Innovation Manchester's own page states this directly) — a researched dead end, not silently omitted.
+ *
+ * "public-innovation-investment" (GC Angels / The Enterprise Fund Limited) — two assessments spanning
+ * 2018-2025. This REPLACES a synthetic stage-1 placeholder. GC Angels is an FCA-regulated early-stage
+ * investment vehicle operated by The Enterprise Fund Limited (a Growth Company subsidiary) under a
+ * recurring GMCA public-funding relationship (confirmed via a 28 March 2025 GMCA decision awarding
+ * £1m of Retained Business Rates funding for FY2025-26 delivery) — GMCA is a funder/commissioner, not
+ * a board-level governor. Northern Gritstone, a university-spinout fund sometimes assumed to be a GM
+ * public institution, is a confirmed dead end for this PolicyArea: GMCA made a one-off £1.5m investment
+ * (25 Mar 2022) among a dozen+ institutional/private backers, with no board seat or governance role —
+ * a private vehicle GMCA co-invested in, not a GMCA institution.
+ *
+ * "progressive-revenue-institution" — one assessment (2024), dataQuality: "unavailable" rather than a
+ * scored stage. This is a deliberate, researched "no clean fit" finding, not an unresearched gap: GM's
+ * one genuine, well-evidenced revenue institution (100% Business Rates Retention, piloted 2017,
+ * permanent since 1 Apr 2024 under the March 2023 Trailblazer devolution deal, funding a ~£2bn
+ * investment vehicle) redistributes revenue BETWEEN TIERS of government (central to local), not
+ * between income groups — UK local government structurally lacks a US-style progressive tax
+ * institution (council tax is a flat banded property tax; there is no local income tax). Every
+ * genuinely redistributive/equity-framed revenue tool GM considered (the 2008 congestion charge,
+ * rejected 78.8% in referendum; the 2018 workplace parking levy, rejected by council leadership; the
+ * 2022 charging Clean Air Zone, approved then scrapped before ever charging a driver) died before
+ * collecting a single pound. See docs/GREATER_MANCHESTER_CASE_STUDY.md for the full writeup and a
+ * flagged recommendation to rename/reframe this PolicyArea (e.g. "Fiscal Devolution Institution")
+ * rather than "Progressive" — a taxonomy question requiring methodology-lead sign-off, not implemented.
+ *
+ * "permitting-modernization" remains the synthetic placeholder generator's output — the one candidate
+ * investigated (Places for Everyone, the 9-borough joint spatial plan) was found to be a genuine
+ * category mismatch (a strategic land-use allocation plan, not an individual permit/procurement
+ * process reform) and is documented separately under "affordable-housing-institution" and in the case
+ * study rather than scored here. See docs/GREATER_MANCHESTER_CASE_STUDY.md for the recommendation that
+ * Mandate consider a new "Regional Spatial Planning" PolicyArea to hold Places for Everyone and similar
+ * joint development plans cleanly — also pending methodology-lead sign-off. Whether a genuine,
+ * different GM permitting/procurement-reform institution exists (distinct from PfE) remains an open
+ * question for a future research pass.
  */
 
 import type { ResearchedPipelineAssessmentSpec } from "./chicagoResearchedPipeline.js";
@@ -343,6 +382,218 @@ export const greaterManchesterResearchedPipelineAssessments: ResearchedPipelineA
         publisher: "Institute for Employment Studies (with Learning and Work Institute, BMG Research)",
         sourceTier: "academic",
         sourceKey: "ies_gm_adult_skills_evaluation_2023",
+      },
+    ],
+    legislation: null,
+  },
+
+  // ===================== Alternative Crisis Response: Right Care, Right Person / MHTAS =====================
+  {
+    jurisdictionSlug: "greater-manchester",
+    policyAreaSlug: "alternative-crisis-response",
+    stage: 3,
+    dataQuality: "government",
+    assessmentDate: "2018-01-01",
+    isCurrent: false,
+    evidenceSummary:
+      "The Mental Health Tactical Advice Service (MHTAS) was established within Greater Manchester Police's Vulnerability Support Unit as a four-way partnership (Greater Manchester Mental Health NHS FT, Pennine Care NHS FT, GMP, and GM integrated care partners) — a real, named, funded institution providing 24/7 real-time clinical phone/video guidance to officers handling mental-health-related calls, and supporting Section 136 detention decisions. GMMH's own reporting states MHTAS has trained over 2,000 GMP officers.",
+    limitations:
+      "Exact founding month/day could not be independently confirmed beyond '2018' -- the assessment date above is a defensible approximation, not a verified exact date. This is a call-triage/clinical-advice desk supporting officers, not a dedicated field unit dispatched instead of police (contrast US CAHOOTS/STAR/CARE models) -- scored as institution creation (stage 3) on that basis, not as a full alternative-response program yet.",
+    evidenceLinks: [
+      {
+        label: "Mental Health Tactical Advice Service (MHTAS)",
+        description: "GMMH's own page describing MHTAS's four-way partnership structure and function within GMP's Vulnerability Support Unit.",
+        url: "https://www.gmmh.nhs.uk/mental-health-tactical-advice-service",
+        evidenceType: "report",
+        publicationDate: null,
+        publisher: "Greater Manchester Mental Health NHS Foundation Trust",
+        sourceTier: "government",
+        sourceKey: "gmmh_mhtas",
+      },
+      {
+        label: "GMMH Tactical Advice Service (MHTAS) Delivers Training to Over 2,000 GMP Officers",
+        description: "GMMH news item documenting MHTAS training reach across GMP.",
+        url: "https://www.gmmh.nhs.uk/news/gmmh-tactical-advice-service-mhtas-delivers-training-to-over-2000-greater-manchester-police-officers-6667",
+        evidenceType: "article",
+        publicationDate: null,
+        publisher: "Greater Manchester Mental Health NHS Foundation Trust",
+        sourceTier: "government",
+        sourceKey: "gmmh_mhtas",
+      },
+    ],
+    legislation: {
+      title: "GMCA Decision: Mental Health Tactical Advice (A0785)",
+      billNumber: null,
+      status: "enacted",
+      dateEnacted: null,
+      url: "https://democracy.greatermanchester-ca.gov.uk/ieDecisionDetails.aspx?Id=1269",
+      sourceKey: "gmca_decision_records",
+    },
+  },
+  {
+    jurisdictionSlug: "greater-manchester",
+    policyAreaSlug: "alternative-crisis-response",
+    stage: 3,
+    dataQuality: "government",
+    assessmentDate: "2024-09-30",
+    isCurrent: true,
+    evidenceSummary:
+      "Greater Manchester Police implemented Right Care, Right Person (RCRP) across all 10 boroughs on 30 September 2024, following the national College of Policing/Home Office partnership framework. RCRP formally redirects 'concern for welfare' calls -- mental health episodes without immediate life risk, physical-health/social-care issues, medical/care-setting walkouts -- from police response toward health and social-care providers, operating through the existing MHTAS/Vulnerability Support Unit structure. This is a real, GM-wide, dated policy change, not an announcement.",
+    limitations:
+      "Deliberately capped at stage 3, not 4: (1) the only independent national process evaluation of RCRP (GOV.UK, published 3 Dec 2024) explicitly did NOT include Greater Manchester Police among either its 3 pseudo-anonymised process-evaluation forces or its 5 named data-monitoring forces -- there is no independent outcome data for the GM implementation specifically; (2) a Prevention of Future Deaths report (judiciary.uk, ref. 2025-0342, 7 July 2025, concerning Elaine Tarbuck) directly scrutinizes GMP's RCRP-related handling of a March 2025 concern-for-welfare 999 call, raising matters of concern about triage assessment and forced entry under the new model -- a live, unresolved safety controversy, not evidence of improving outcomes; (3) the national evaluation itself found 'capacity and resourcing limitations within health and social care' as the main barrier, and NHS Confederation has publicly warned of risks from forces' 'rushed withdrawal' from mental-health calls nationally. Separately confirmed as NOT applicable to Greater Manchester: Serenity Integrated Mentoring (SIM), a nationally-scrutinized high-intensity-user scheme sometimes confused with GM crisis-response programs -- Health Innovation Manchester's own page states SIM 'is not in place in Greater Manchester and East Cheshire.' A GM Health and Social Care Partnership-funded VCFSE 'crisis spaces' program (an out-of-hours A&E alternative, distinct from a 999-call diversion) was identified as a possible further lead but could not be independently verified this pass (source page returned a bot-verification wall) -- flagged for a future follow-up, not folded into this assessment.",
+    evidenceLinks: [
+      {
+        label: "Right Care, Right Person — Greater Manchester Police",
+        description: "GMP's own advice page confirming GM-wide RCRP implementation from 30 September 2024 and its scope (concern-for-welfare calls).",
+        url: "https://www.gmp.police.uk/advice/advice-and-information/concern-for-welfare/right-care-right-person",
+        evidenceType: "report",
+        publicationDate: "2024-09-30",
+        publisher: "Greater Manchester Police",
+        sourceTier: "government",
+        sourceKey: "gmp_rcrp",
+      },
+      {
+        label: "Evaluating the Implementation of Right Care, Right Person",
+        description: "National process evaluation explicitly excluding GMP from its process-evaluation and data-monitoring force samples; finds health/social-care capacity as the main implementation barrier nationally.",
+        url: "https://www.gov.uk/government/publications/evaluating-the-implementation-of-right-care-right-person",
+        evidenceType: "report",
+        publicationDate: "2024-12-03",
+        publisher: "Home Office / College of Policing",
+        sourceTier: "government",
+        sourceKey: "govuk_rcrp_evaluation",
+      },
+      {
+        label: "Prevention of Future Deaths Report 2025-0342 (Elaine Tarbuck) — GMP Response",
+        description: "Coronial report and GMP's response documenting a live safety controversy in a GM RCRP-related concern-for-welfare case, March 2025.",
+        url: "https://www.judiciary.uk/wp-content/uploads/2025/07/2025-0342-Response-from-Greater-Manchester-Police.pdf",
+        evidenceType: "report",
+        publicationDate: "2025-07-07",
+        publisher: "HM Courts & Tribunals Service (Coroners)",
+        sourceTier: "government",
+        sourceKey: "judiciary_pfd_reports",
+      },
+      {
+        label: "Serenity Integrated Mentoring (SIM) — not in place in Greater Manchester",
+        description: "Health Innovation Manchester's own confirmation that SIM, a nationally-scrutinized scheme, is not used in Greater Manchester or East Cheshire -- a researched dead end for this jurisdiction.",
+        url: "https://healthinnovationmanchester.com/our-work/serenity-integrated-mentoring-sim/",
+        evidenceType: "report",
+        publicationDate: null,
+        publisher: "Health Innovation Manchester",
+        sourceTier: "government",
+        sourceKey: null,
+      },
+    ],
+    legislation: {
+      title: "Right Care, Right Person — Greater Manchester Police implementation",
+      billNumber: null,
+      status: "enacted",
+      dateEnacted: "2024-09-30",
+      url: "https://www.gmp.police.uk/advice/advice-and-information/concern-for-welfare/right-care-right-person",
+      sourceKey: "gmp_rcrp",
+    },
+  },
+
+  // ===================== Public Innovation & Startup Investment: GC Angels / The Enterprise Fund =====================
+  {
+    jurisdictionSlug: "greater-manchester",
+    policyAreaSlug: "public-innovation-investment",
+    stage: 3,
+    dataQuality: "government",
+    assessmentDate: "2018-01-01",
+    isCurrent: false,
+    evidenceSummary:
+      "GC Angels, delivered as a service of The Enterprise Fund Limited (TEF, company no. 04460763, FCA-regulated FRN 727252, a Growth Company subsidiary), began operating its early-stage equity investment programme in Greater Manchester, providing £25,000-£2m deals to digital/creative/technology startups alongside a network of 400+ angel investors.",
+    limitations:
+      "Exact founding date is genuinely disputed across sources: GC Angels' own 'about us' page cites a ~2015 origin, while multiple secondary sources describe 'over 50 investments since 2018' as the more commonly-cited activity start -- 2018 is used here as the more conservative, corroborated anchor. Scored stage 3 (institution created) at this date on the basis of TEF's formal regulated status and operating history; GMCA's own recurring public-funding relationship (the load-bearing government-tier evidence for this PolicyArea) is not yet established at this early date -- see the 2025 assessment below.",
+    evidenceLinks: [
+      {
+        label: "GC Angels — About Us",
+        description: "GC Angels' own description of its founding, structure as a service of The Enterprise Fund Limited, and investment activity.",
+        url: "https://gcangels.uk/",
+        evidenceType: "report",
+        publicationDate: null,
+        publisher: "The Enterprise Fund Limited",
+        sourceTier: "alternative",
+        sourceKey: "gcangels_tef",
+      },
+    ],
+    legislation: null,
+  },
+  {
+    jurisdictionSlug: "greater-manchester",
+    policyAreaSlug: "public-innovation-investment",
+    stage: 4,
+    dataQuality: "government",
+    assessmentDate: "2025-03-28",
+    isCurrent: true,
+    evidenceSummary:
+      "GMCA formally awarded £1,000,000 of Retained Business Rates funding to The Enterprise Fund Limited on 28 March 2025 specifically to deliver the GC Angels early-stage innovation funding scheme for FY2025-26 -- confirming a recurring, named public-funding/commissioning relationship (the same governance pattern GMCA uses for its Housing Investment Loans Fund). Independent trade-press and data-aggregator coverage corroborates ongoing operating output beyond GC Angels' own self-reporting: in March 2026, GC Angels led four investments totaling £1.87m; portfolio company counts of 27-49 (varying slightly by tracker) and cumulative follow-on funding of roughly £34m raised by portfolio companies are reported across Tracxn, Crunchbase, and CB Insights.",
+    limitations:
+      "GMCA is confirmed as a recurring public funder/commissioner, not a board-level governor -- GC Angels does not take board director seats in investee companies (observer seat plus accounts access only), and GMCA holds no seat on TEF/GC Angels itself; funding is awarded via annual committee decisions, not ownership. Portfolio-count and capital-mobilized figures vary meaningfully across independent trackers (27 to 49 companies depending on source and date), so these should be read as an approximate, corroborated range rather than a single precise official count -- no single audited output report was found. Not scored stage 5: no source demonstrates a trend of improving outcomes over time (e.g., year-over-year survival or follow-on-funding-rate improvement against a benchmark) -- only cumulative totals exist. Northern Gritstone, a university-spinout investment fund GMCA made a one-off £1.5m investment in (25 March 2022, among a dozen+ institutional/private backers with no GMCA board seat or governance role), is a confirmed dead end for this PolicyArea and is not the institution scored here.",
+    evidenceLinks: [
+      {
+        label: "GMCA Decision: Funding to The Enterprise Fund (GC Angels)",
+        description: "GMCA's formal decision awarding £1m of Retained Business Rates funding to deliver GC Angels for FY2025-26.",
+        url: "https://democracy.greatermanchester-ca.gov.uk/",
+        evidenceType: "report",
+        publicationDate: "2025-03-28",
+        publisher: "Greater Manchester Combined Authority",
+        sourceTier: "government",
+        sourceKey: "gmca_decision_records",
+      },
+      {
+        label: "GC Angels Supports £1.87m of Investment Through Venture Forward Accelerator Programme",
+        description: "Independent trade-press corroboration of GC Angels' active investment activity beyond its own self-reporting.",
+        url: "https://business-money.com/",
+        evidenceType: "article",
+        publicationDate: "2026-03-01",
+        publisher: "Business Money",
+        sourceTier: "alternative",
+        sourceKey: "business_money_trade_press",
+      },
+    ],
+    legislation: {
+      title: "GMCA Decision: Funding to The Enterprise Fund (GC Angels)",
+      billNumber: null,
+      status: "enacted",
+      dateEnacted: "2025-03-28",
+      url: "https://democracy.greatermanchester-ca.gov.uk/",
+      sourceKey: "gmca_decision_records",
+    },
+  },
+
+  // ===================== Progressive Revenue Institution: researched, no clean fit =====================
+  {
+    jurisdictionSlug: "greater-manchester",
+    policyAreaSlug: "progressive-revenue-institution",
+    stage: 0,
+    dataQuality: "unavailable",
+    assessmentDate: "2024-04-01",
+    isCurrent: true,
+    evidenceSummary:
+      "Researched and confirmed: Greater Manchester has no institution matching a US-style 'progressive revenue' framework (a revenue tool that redistributes BETWEEN income groups). GM's one genuine, well-evidenced revenue institution -- 100% Business Rates Retention, piloted from 1 April 2017 under a Secretary of State pilot-pool designation (Schedule 7B, Local Government Finance Act 1988, as inserted 2012), continued via annual MHCLG/DLUHC designations, then made PERMANENT for 10 years from 1 April 2024 under the March 2023 'Trailblazer' deeper devolution deal -- redistributes revenue BETWEEN TIERS of government (central to local), not between income groups. GMCA board papers document real retained income (£16.3m pooled growth share in 2021/22; £18.7m forecast for 2022/23) funding the Good Growth Fund, a near-£2bn investment vehicle. On its own terms this is a real, Stage-4-worthy fiscal-devolution institution -- but it is not what this PolicyArea's 'progressive' framing implies.",
+    limitations:
+      "This dataQuality: 'unavailable' reflects a deliberate research conclusion ('no clean fit'), not an unresearched gap. Three genuinely redistributive/equity-framed revenue tools GM has considered were also researched and each died before collecting any revenue: the 2008 Transport Innovation Fund congestion charge (£3bn package, rejected 78.8% in a December 2008 referendum across all 10 boroughs); the 2018 Workplace Parking Levy (floated as Clean Air Plan funding, rejected by Manchester City Council leadership as unworkable unless GM-wide); the Greater Manchester Clean Air Zone charging scheme (government-approved, paused Feb 2022 after business/taxi-trade backlash, officially scrapped 30 May 2022 before a single charge was ever collected, replaced by a non-charging grant-funded scheme). Recommend Mandate reconsider this PolicyArea's framing for non-US jurisdictions -- e.g. renaming/reframing as 'Fiscal Devolution Institution' -- which would let GM's Business Rates Retention institution be scored honestly on its own (non-progressive) terms; this is a taxonomy question requiring methodology-lead sign-off, not implemented here. See docs/GREATER_MANCHESTER_CASE_STUDY.md for the full writeup.",
+    evidenceLinks: [
+      {
+        label: "Greater Manchester Combined Authority Trailblazer Deeper Devolution Deal",
+        description: "The March 2023 deal converting GM's business rates retention from a renewable pilot into a permanent 10-year settlement effective 1 April 2024.",
+        url: "https://assets.publishing.service.gov.uk/media/6411beeee90e07769a6ca4f8/Greater_Manchester_Combined_Authority_Trailblazer_deeper_devolution_deal.pdf",
+        evidenceType: "report",
+        publicationDate: "2023-03-21",
+        publisher: "HM Government / Greater Manchester Combined Authority",
+        sourceTier: "government",
+        sourceKey: null,
+      },
+      {
+        label: "100% Business Rate Retention Pilots: What Can Be Learnt and at What Cost?",
+        description: "Independent IFS evaluation of the 100% retention pilot programme (GM one of five pilot areas), finding ~£870m collective extra funding in 2018-19 and flagging inter-authority divergence risk.",
+        url: "https://ifs.org.uk/publications/100-business-rate-retention-pilots-what-can-be-learnt-and-what-cost",
+        evidenceType: "report",
+        publicationDate: null,
+        publisher: "Institute for Fiscal Studies",
+        sourceTier: "academic",
+        sourceKey: null,
       },
     ],
     legislation: null,
