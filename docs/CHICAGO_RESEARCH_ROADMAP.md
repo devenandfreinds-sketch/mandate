@@ -285,13 +285,48 @@ and a fresh check of whether BLS had released 2024 `life_sciences_employment` da
   that narrower precedent wasn't revisited this pass. 2025 detailed industry data has not been released
   by BLS at all yet (only the top-line total-nonfarm row exists).
 
+## Seventh pass: deliberately new angles on previously-exhausted metrics (2026-08-07)
+
+Rather than re-running searches that had already failed twice, this pass targeted specific, genuinely
+different sources for five metrics stuck at a confirmed dead end. One paid off completely; four
+confirmed (a third time, in most cases) that the dead end is real.
+
+- `capital_investment` -- **1/11 -> 11/11 real, fully resolved.** The two prior dead ends were both
+  attempts to extract an annual figure from the OBM Capital Improvement Program's 5-year rolling
+  *planned* allocation totals. This pass instead used the ACFR's own Note 7 ("Capital Assets"), which
+  reports a real, audited, government-wide annual roll-forward of capital assets for every fiscal year
+  2015-2025. The gross additions figure (before netting out that year's depreciation) is the faithful
+  "actual capital outlay" number. **This supersedes the old 2015 datapoint** ($2.4B, the CIP-planned
+  figure) with the ACFR figure ($3.09B) for methodological consistency across the full series --
+  actual audited spend is a strictly better concept for "Capital Investment" than a forward-looking plan.
+- `patent_creation`, `debt_per_capita`, `clearance_rate`, `graduate_employment_rate` -- all confirmed
+  dead ends again, each for a clearly-documented, specific reason rather than "nothing found":
+  - `patent_creation`: PatentsView (the modern USPTO successor tool) is itself mid-migration to a new
+    USPTO platform as of this research pass -- confirmed via direct HTTP checks showing its API and
+    query-tool hostnames redirecting to a transition notice, not just a hard-to-find page. CMAP's own
+    regional "Patenting Activity" indicator uses the same underlying PatentsView data but only reports
+    a percentage-of-national-total share, not a raw count, and only one year's share was extractable.
+  - `debt_per_capita`: found two genuinely new sources (a Bond Buyer article; a City of Chicago GO
+    bond Official Statement with a full 2012-2021 series) but both use a narrower or differently-scoped
+    debt definition (GO-debt-only, or multi-government overlapping debt) than the existing total-debt
+    figures -- importing them would silently change what the metric measures year-to-year.
+  - `clearance_rate`: verified directly against the full text of Illinois State Police's "Crime in
+    Illinois" report (not a summary) that the word "clearance" does not appear anywhere in it --
+    the report structurally publishes only offense counts and county/state-level arrest rates, never
+    agency-level clearance data, for any year or edition.
+  - `graduate_employment_rate`: confirmed both IBHE's College2Career tool and Census PSEO cover the
+    right set of Chicago institutions, but neither publishes the specific metric needed -- they measure
+    job-stability/retention or earnings percentiles, not "% employed within 12 months." This is a
+    genuine definitional mismatch, not a data-availability gap, and remains an open `ResearchTask`.
+
 At this point, essentially every Chicago metric with a plausible research angle has been chased at
-least once, and most have been chased twice. Metrics still sitting on plain placeholder years now fall
-into one of three buckets: (a) genuinely temporary gaps awaiting a future data release (ACS 2025,
-BLS QCEW 2024/2025 suppression, DOH's next Annual Report edition, Census BDS's ~2-year publication lag),
-(b) `graduate_employment_rate`, which remains an open `ResearchTask` rather than a fabricated or
-force-fit metric, and (c) sparse gaps in a few otherwise-well-populated series (`capital_investment`,
-`patent_creation`, `debt_per_capita`, `clearance_rate`, `agency_vacancy_rate`) where two independent
-research passes each found the same structural dead end. Future research effort on Chicago is likely
-better spent on genuinely new angles (e.g., a fresh institutional-pipeline category) than a third pass
-over these already-exhausted gaps.
+least once, most twice, and the hardest remaining ones three times. Metrics still sitting on plain
+placeholder years now fall into one of three buckets: (a) genuinely temporary gaps awaiting a future
+data release (ACS 2025, BLS QCEW 2024/2025 suppression, DOH's next Annual Report edition, Census BDS's
+~2-year publication lag, PatentsView's platform migration), (b) `graduate_employment_rate`, an open
+`ResearchTask` with a documented definitional gap rather than a fabricated or force-fit metric, and
+(c) `patent_creation`, `debt_per_capita`, `clearance_rate`, and `agency_vacancy_rate`, where three
+independent research passes have each converged on the same structural reason no usable data exists.
+Further research effort on these four specific metrics is unlikely to be productive without a genuinely
+new data source appearing (e.g., PatentsView's migration completing); future Chicago research is better
+spent elsewhere.

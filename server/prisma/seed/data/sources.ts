@@ -2077,4 +2077,17 @@ export const sources: SourceSeedSpec[] = [
     country: "United States",
     language: "en",
   },
+  {
+    key: "chicago_acfr_capital_assets_note",
+    name: "City of Chicago Annual Comprehensive Financial Report — Capital Assets Note",
+    publisher: "City of Chicago",
+    url: "https://www.chicago.gov/city/en/depts/fin/supp_info/comptrollers_office/annual_financial_analysis.html",
+    sourceType: "government_report",
+    citation: "Note 7 ('Capital Assets') of the Notes to the Basic Financial Statements in each fiscal year's ACFR -- a government-wide roll-forward table (beginning balance, additions/transfers, disposals, ending balance) covering Governmental and Business-type Activities, audited annually.",
+    isPlaceholder: false,
+    updateFrequency: "annual",
+    defaultConfidence: "high",
+    country: "United States",
+    language: "en",
+  },
 ];

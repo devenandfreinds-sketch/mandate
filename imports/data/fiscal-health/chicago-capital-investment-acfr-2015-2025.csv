@@ -1,0 +1,12 @@
+jurisdiction,metric,year,value,confidence,notes
+chicago,capital_investment,2015,3086300000,high,"City of Chicago FY2015 ACFR, Note 7 'Capital Assets' -- government-wide (Governmental + Business-type Activities) gross additions to capital assets (before depreciation), the true annual capital outlay figure. This supersedes the prior 2015 value ($2.4B), which was a 2015-2019 Capital Improvement Program 5-YEAR PLANNED allocation misapplied as a single-year figure -- a materially different, forward-looking concept than actual audited spend. All 11 years of this metric now use the same ACFR-note methodology for consistency."
+chicago,capital_investment,2016,2684200000,high,"City of Chicago FY2016 ACFR, Note 7 'Capital Assets,' government-wide gross additions. Same methodology as 2015."
+chicago,capital_investment,2017,2937600000,high,"City of Chicago FY2017 ACFR, Note 7 'Capital Assets,' government-wide gross additions. Same methodology as 2015."
+chicago,capital_investment,2018,3658200000,high,"City of Chicago FY2018 ACFR, Note 7 'Capital Assets,' government-wide gross additions. Same methodology as 2015."
+chicago,capital_investment,2019,3610000000,high,"City of Chicago FY2019 ACFR, Note 7 'Capital Assets,' government-wide gross additions. Same methodology as 2015."
+chicago,capital_investment,2020,2758700000,high,"City of Chicago FY2020 ACFR, Note 7 'Capital Assets,' government-wide gross additions. Same methodology as 2015."
+chicago,capital_investment,2021,3371600000,high,"City of Chicago FY2021 ACFR, Note 7 'Capital Assets,' government-wide gross additions. Same methodology as 2015."
+chicago,capital_investment,2022,2716200000,high,"City of Chicago FY2022 ACFR, Note 7 'Capital Assets,' government-wide gross additions. Same methodology as 2015."
+chicago,capital_investment,2023,2963100000,high,"City of Chicago FY2023 ACFR, Note 7 'Capital Assets,' government-wide gross additions. Same methodology as 2015."
+chicago,capital_investment,2024,3534400000,high,"City of Chicago FY2024 ACFR, Note 7 'Capital Assets,' government-wide gross additions. Same methodology as 2015."
+chicago,capital_investment,2025,2907400000,high,"City of Chicago FY2025 ACFR, Note 7 'Capital Assets,' government-wide gross additions. Same methodology as 2015."
