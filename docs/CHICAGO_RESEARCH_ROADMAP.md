@@ -263,3 +263,35 @@ requiring a fresh document hunt per year -- worth checking before assuming a gap
   framing or had an unresolved data-source discrepancy (one search attributed the same number to
   PitchBook, another to Dow Jones VentureSource, for the same year) that couldn't be confirmed since the
   source article was unreachable -- not imported rather than guessing which attribution is correct.
+
+## Sixth pass: closing two remaining sparse-gap metrics (2026-08-07)
+
+With most other metrics now either fully resolved or confirmed dead ends after 1-2 prior passes, this
+pass targeted the two genuinely untried angles left: the pre-2019 end of `skills_training_participation`
+and a fresh check of whether BLS had released 2024 `life_sciences_employment` data since the last check.
+
+- `skills_training_participation` -- PY2015-2018 confirmed unavailable, added to
+  `unavailableMetrics.ts`. The Chicago Cook Workforce Partnership's current domain
+  (chicookworks.org) has no Wayback Machine snapshot before September 2019; its confirmed predecessor
+  site (workforceboard.org, archived back to 2013) only ever published quarterly "Where Are the Jobs?"
+  labor-market bulletins, never an annual report with the Adult/Dislocated-Worker/Youth registrant
+  breakdown this metric needs. This is a confirmed absence (the report format didn't exist yet), not
+  just an unsuccessful search -- the same treatment as the other unavailable-marked metrics.
+- `life_sciences_employment` -- 2024 confirmed unavailable (temporary), added to
+  `unavailableMetrics.ts`. Re-checking the raw BLS QCEW API CSV directly (not a scraped summary, which
+  had produced a misleading "no data" read on an earlier pass) confirmed BLS suppressed **all three**
+  component NAICS codes (3254, 5417, 6215) for the Chicago MSA in 2024 -- a wider suppression than
+  2022's single-code gap, which stays a plain placeholder rather than a formal unavailable mark since
+  that narrower precedent wasn't revisited this pass. 2025 detailed industry data has not been released
+  by BLS at all yet (only the top-line total-nonfarm row exists).
+
+At this point, essentially every Chicago metric with a plausible research angle has been chased at
+least once, and most have been chased twice. Metrics still sitting on plain placeholder years now fall
+into one of three buckets: (a) genuinely temporary gaps awaiting a future data release (ACS 2025,
+BLS QCEW 2024/2025 suppression, DOH's next Annual Report edition, Census BDS's ~2-year publication lag),
+(b) `graduate_employment_rate`, which remains an open `ResearchTask` rather than a fabricated or
+force-fit metric, and (c) sparse gaps in a few otherwise-well-populated series (`capital_investment`,
+`patent_creation`, `debt_per_capita`, `clearance_rate`, `agency_vacancy_rate`) where two independent
+research passes each found the same structural dead end. Future research effort on Chicago is likely
+better spent on genuinely new angles (e.g., a fresh institutional-pipeline category) than a third pass
+over these already-exhausted gaps.

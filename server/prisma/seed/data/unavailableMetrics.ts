@@ -94,4 +94,14 @@ export const unavailableMetrics: UnavailableMetricSpec[] = [
   // planning_approval_days metric -- this metric would either require fabricating a composite or
   // simply re-deriving from data already captured elsewhere.
   { metricSlug: "planning_efficiency_index", jurisdictionSlug: "chicago" },
+  // Chicago Cook Workforce Partnership's chicookworks.org domain has no Wayback Machine snapshot
+  // before Sept 2019, and its predecessor site (workforceboard.org, confirmed via Wayback CDX back to
+  // 2013) only ever published quarterly "Where Are the Jobs?" labor-market bulletins, never an annual
+  // report with Adult/Dislocated-Worker/Youth registrant counts. PY2015-2018 predate the organization
+  // publishing this report format at all -- a confirmed absence, not just an unsuccessful search.
+  { metricSlug: "skills_training_participation", jurisdictionSlug: "chicago", years: [2015, 2016, 2017, 2018] },
+  // BLS QCEW suppressed all three component NAICS codes (3254, 5417, 6215) for the Chicago MSA in
+  // 2024 (disclosure_code "N" across the board, confirmed via the raw API CSV) -- a wider suppression
+  // than 2022's single-code gap. A temporary, not permanent, gap; revisit in a future QCEW revision.
+  { metricSlug: "life_sciences_employment", jurisdictionSlug: "chicago", years: [2024] },
 ];
