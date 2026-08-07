@@ -75,6 +75,12 @@ export const unavailableMetrics: UnavailableMetricSpec[] = [
   // (temporary gap; revisit after the ~September 2026 release).
   { metricSlug: "labor_force_participation", jurisdictionSlug: "chicago", years: [2020, 2025] },
   { metricSlug: "average_commute_minutes", jurisdictionSlug: "chicago", years: [2020, 2025] },
+  // Chicago Department of Housing's Annual Report (source for the existing 2015-2022 estimated
+  // values) has no 2023, 2024, or 2025 edition as of this research pass -- confirmed via DOH's own
+  // "Data, Plans and Reports" page, which still only links the 2022 edition. A temporary, not
+  // permanent, gap; revisit when DOH publishes a newer edition with a comparable
+  // units-produced-by-AMI chart.
+  { metricSlug: "affordable_housing_completions", jurisdictionSlug: "chicago", years: [2023, 2024, 2025] },
   // NSF's Business Enterprise R&D (BERD) survey and its predecessor BRDIS publish state-level
   // breakdowns at finest -- no US metro or city ever gets a commercial R&D spending figure from any
   // federal source. The only sub-national data found (Illinois Science & Technology Coalition's "R&D

@@ -220,3 +220,46 @@ investigated two metrics that had never been chased down before.
   unresolvable: PY2019 has no report ever archived anywhere (confirmed via the Wayback Machine's crawl
   index), and PY2022's report contains no extractable category-level breakdown beyond the aggregate
   figure already on file.
+
+## Fifth pass: exploiting the platform's own historical data + closing out easy wins (2026-08-07)
+
+This pass found that several Chicago city/regional agencies keep dated historical snapshots directly
+accessible (deprecated GIS datasets, rolling multi-year tables inside annual PDF reports) rather than
+requiring a fresh document hunt per year -- worth checking before assuming a gap needs new research.
+
+**Fully resolved:**
+- `transit_reliability` -- 6/11 -> **11/11 real**. Metra's own December report each year carries a
+  rolling 5-year trailing history table, so a single still-live report (December 2018) supplied 2015-2018
+  in one pull, and the December 2025 report supplied 2025. Same definition throughout (trains within 6
+  minutes of schedule), no methodology drift across the full 11-year span.
+- `pension_funding_ratio` -- 4 real + 6 estimated (1 placeholder) -> **4 real + 7 estimated (0
+  placeholder)**. 2015 (the one remaining gap) was found in the City's FY2016 ACFR, which has its own
+  10-year-schedule precursor covering FY2015-2016 (GASB 68 reporting began FY2015). The computed
+  aggregate (22.95%) was independently cross-verified against a third-party citation (Merritt Research)
+  stating the identical figure -- unusually strong confirmation for an estimated-tier value.
+
+**Partially resolved:**
+- `bike_infrastructure_miles` -- 2/11 -> **5/11 real**, resolved directly (not via research agent) by
+  summing the per-segment mileage field already present in three of Chicago Data Portal's dated
+  "deprecated" Bike Routes snapshots (Feb 2020, Nov 2021, Dec 2022) -- these datasets exist specifically
+  because CDOT preserves superseded GIS vintages rather than overwriting them, so no new sourcing was
+  needed, just querying data already on the portal. The Dec 2022 figure (342.13mi) is genuinely lower
+  than the Nov 2021 figure (359.18mi) -- reported as-is rather than smoothed, most likely reflecting a
+  schema/category change between snapshot vintages rather than a real network reduction. The three
+  earliest deprecated snapshots (Dec 2014, Mar 2016, Nov 2018) are listed in the portal's catalog but
+  their row-level data and column schemas are no longer accessible via the API -- a genuine access
+  limitation, not a data-entry gap.
+- `affordable_housing_completions` -- 8/11 estimated, 3 placeholder -> **8/11 estimated, 3 unavailable**.
+  Confirmed the Chicago Department of Housing has not published a newer Annual Report edition covering
+  2023-2025 (its own "Data, Plans and Reports" page still only links the 2022 edition) -- a temporary,
+  not permanent, gap, added to `unavailableMetrics.ts` with a note to revisit when DOH publishes again.
+
+**Investigated, correctly left alone:**
+- `tech_employment` -- a FRED CES series for this NAICS code exists, but only at the Metropolitan
+  Division level (Illinois-only counties), not the full three-state Chicago-Naperville-Elgin MSA the
+  existing QCEW-based years use. Mixing MD-level and MSA-level data within one series would silently
+  change the metric's geography year-to-year -- not imported.
+- `vc_investment` (2015-2017) -- every candidate figure found either used a vague "more than $X"
+  framing or had an unresolved data-source discrepancy (one search attributed the same number to
+  PitchBook, another to Dow Jones VentureSource, for the same year) that couldn't be confirmed since the
+  source article was unreachable -- not imported rather than guessing which attribution is correct.

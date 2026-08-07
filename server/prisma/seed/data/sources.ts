@@ -2064,4 +2064,17 @@ export const sources: SourceSeedSpec[] = [
     country: "United States",
     language: "en",
   },
+  {
+    key: "chicago_data_portal_bike_routes",
+    name: "Chicago Data Portal — Bike Routes Dataset",
+    publisher: "Chicago Department of Transportation",
+    url: "https://data.cityofchicago.org/Transportation/Bike-Routes/hvv9-38ut",
+    sourceType: "government_dataset",
+    citation: "CDOT's GIS bike-route centerline dataset, including several dated 'deprecated' snapshot versions preserved on the Chicago Data Portal, each with a per-segment mileage field (mi_ctrline / shape_leng) that can be summed for a total network-mileage figure at that point in time.",
+    isPlaceholder: false,
+    updateFrequency: "as_needed",
+    defaultConfidence: "high",
+    country: "United States",
+    language: "en",
+  },
 ];

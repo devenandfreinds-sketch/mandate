@@ -1,0 +1,6 @@
+jurisdiction,metric,year,value,confidence,notes
+chicago,transit_reliability,2015,96.2,high,"Metra 'On-Time Performance Report -- December 2018 (Revised)' Table 2, System excluding South Shore Line, which carries a rolling 5-year history table back to 2013. Same definition and geography as the existing 2019-2024 values (trains arriving within 6 minutes of schedule)."
+chicago,transit_reliability,2016,96.1,high,"Metra 'On-Time Performance Report -- December 2018 (Revised)' Table 2, same rolling history table as 2015."
+chicago,transit_reliability,2017,95.8,high,"Metra 'On-Time Performance Report -- December 2018 (Revised)' Table 2, same rolling history table as 2015."
+chicago,transit_reliability,2018,94.8,high,"Metra 'On-Time Performance Report -- December 2018 (Revised)' Table 2, System excluding South Shore Line, full-year figure."
+chicago,transit_reliability,2025,95.0,high,"Metra 'On-Time Performance Report -- December 2025' Table 2, System excluding South Shore Line, full-year figure. Same methodology as all other years in this series."
