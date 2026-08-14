@@ -313,4 +313,65 @@ export const researchQueueSeed: ResearchQueueSeedItem[] = [
       "Once the November 2026 DC general election is certified, update Mandate's Administration record for Washington, D.C. and rewrite the governance-model rationale given a likely DSA-affiliated mayor (Janeese Lewis George, who won the June 2026 Democratic primary outright and faces no Republican opponent) rather than DSA-Council-only influence. Why it matters: the current DB record (Bowser, 'ward-based Democratic coalition') and the governance-model narrative ('DSA influence on Council races amid a long-serving mayoral administration') will both be out of date the moment the general election concludes — this is a structural/methodological update, not just a data refresh. Already checked: PBS, NBC, WJLA, Wikipedia (all pre-general-election). Suggested next sources: DC Board of Elections certified results (Nov/Dec 2026), Lewis George's mayoral transition announcements. Difficulty: low for the factual update (just requires waiting for a known future date); higher for the methodological question of how Mandate's governance-model taxonomy should describe a DSA executive under home rule. Skill set: policy analyst familiar with Mandate's own taxonomy, not just a web researcher.",
     priority: 4,
   },
+  {
+    key: "gm-clearance-rate-violent-crime-specific",
+    jurisdictionSlug: "greater-manchester",
+    metricSlug: "clearance_rate",
+    taskType: "metric",
+    researchQuestion:
+      "Recompute clearance_rate as a violent-crime-specific positive-outcome rate, not the all-crime proxy currently imported at 'estimated' quality. Why it matters: Mandate's metric definition is specifically violent-crime clearance, but the 2026-08-14 pull computed an all-offence-type rate from Home Office's row-level outcomes data because no GM-specific violent-crime-only figure was readily available. Already checked: Home Office police-recorded-crime-and-outcomes open data (row-level, filterable by offence group as well as force — a violent-crime-only filter should be achievable with the same methodology). Difficulty: low-medium (same dataset, narrower filter). Skill set: data analyst comfortable with large open-data CSVs.",
+    priority: 10,
+  },
+  {
+    key: "gm-business-formation-raw-count",
+    jurisdictionSlug: "greater-manchester",
+    metricSlug: "business_formation",
+    taskType: "metric",
+    researchQuestion:
+      "Pull a raw GM-level business-formation count (not a rate) from ONS's 'Business demography, UK' reference tables. Why it matters: the 2026-08-14 pull found only birth/survival *rates* via ONS's Explore Local Statistics service, but Mandate's business_formation metric wants a count ('new business applications filed in the year'); importing a rate under a count-shaped metric would misrepresent the unit. Already checked: ONS Explore Local Statistics (rates only). Suggested next source: ONS 'Business demography, UK' annual reference tables, multiplying the published rate by the active-business-stock denominator, or finding a direct count column. Difficulty: medium. Skill set: statistics/data analyst.",
+    priority: 11,
+  },
+  {
+    key: "durham-budget-vote-primary-confirmation",
+    jurisdictionSlug: "durham-county",
+    taskType: "pipeline_assessment",
+    researchQuestion:
+      "Confirm the actual outcome/vote tally of Durham County Council's 18 February 2026 full-Council budget vote from a primary source. Why it matters: a 3 February 2026 durham.gov.uk press release confirms the vote was scheduled for that date, but no source checked so far (2026-08-14 pass) confirms the vote actually passed or its tally -- the specific cut figures (parking charges, permit fees, ~88 FTE) come from an earlier 19 November 2025 Cabinet-stage report, not a confirmed final Council vote. Already checked: durham.gov.uk press releases (date only), northeastbylines.co.uk (Cabinet-stage detail only). Suggested next source: democracy.durham.gov.uk minutes for the 18 February 2026 Council meeting (unreachable from this pass's research environment -- connection refused). Difficulty: low if the council minutes site is reachable. Skill set: researcher with working access to democracy.durham.gov.uk.",
+    priority: 1,
+  },
+  {
+    key: "durham-climate-vote-primary-confirmation",
+    jurisdictionSlug: "durham-county",
+    taskType: "pipeline_assessment",
+    researchQuestion:
+      "Confirm the exact for/against/abstain division of Durham County Council's 16 July 2025 vote to rescind its climate emergency declaration, from the primary council minutes. Why it matters: two independent local outlets (Palatinate, North East Bylines) agree on the date and a '62 in favour' headline figure, but the reported against/abstain/absent breakdown does not reconcile cleanly to the council's 126-seat membership across sources -- currently imported at alternative/press-tier evidence pending primary confirmation. Already checked: Palatinate, North East Bylines, BBC (404s on direct fetch). Suggested next source: democracy.durham.gov.uk, likely agenda item ID 70355 (found via search, not fetchable from this pass's research environment). Difficulty: low if the council minutes site is reachable. Skill set: researcher with working access to democracy.durham.gov.uk.",
+    priority: 2,
+  },
+  {
+    key: "durham-workforce-institution-attribution-question",
+    jurisdictionSlug: "durham-county",
+    policyAreaSlug: "workforce-development-institution",
+    taskType: "pipeline_assessment",
+    researchQuestion:
+      "Resolve whether Mandate's Institutional Pipeline should score Durham's workforce-development institution (DurhamWorks, started 2015; DurhamEnable, 2021; DurhamLearn, ~19+ years) as a mature, real, Stage 4-5 jurisdiction institution regardless of which administration built it, or withhold a score because none of it is attributable to Reform's May 2025 takeover (the only genuinely new document, an Apprenticeship Strategy 2025-2028 presented 19 November 2025, is an explicit renewal of a 2022-2025 predecessor, not a new institution). Why it matters: this is the first Mandate jurisdiction where a real, well-evidenced institution sits entirely outside the tracked administration's tenure with no ambiguity about which reading changes the outcome -- see docs/DURHAM_CASE_STUDY.md for full reasoning. This is a methodology-lead decision, not a research task in the usual sense; no further web research is needed to resolve it, only a decision about what the score is meant to represent.",
+    priority: 3,
+  },
+  {
+    key: "durham-remaining-metrics-crime-business",
+    jurisdictionSlug: "durham-county",
+    metricSlug: "violent_crime_rate",
+    taskType: "metric",
+    researchQuestion:
+      "Pull real violent_crime_rate, property_crime_rate, business_survival_rate, and tech_employment values for County Durham. Why it matters: the 2026-08-14 pass imported only fiscal-health and workforce metrics (the categories with the cleanest taxonomy fit); crime and business-economy metrics remain 100% placeholder. Suggested sources: same methodology already proven for Greater Manchester this pass -- ONS/Home Office Police Force Area data (Durham Constabulary force area), ONS Business Demography, Nomis BRES. Difficulty: low-medium, mostly a matter of re-running an already-proven method at a different geography. Skill set: data analyst.",
+    priority: 4,
+  },
+  {
+    key: "durham-pension-2025-valuation",
+    jurisdictionSlug: "durham-county",
+    metricSlug: "pension_funding_ratio",
+    taskType: "metric",
+    researchQuestion:
+      "Confirm the Durham County Council Pension Fund's 31 March 2025 triennial actuarial valuation whole-fund funding percentage from its primary Valuation Report. Why it matters: the Fund's Funding Strategy Statement (5 December 2025) confirms a 2025 valuation exists and has been adopted for contribution-rate-setting, but only a press paraphrase (Local Government Chronicle, claiming 'no change' from 2022's ~98%) was found this pass -- not yet imported pending a primary document. Already checked: durham.gov.uk media library (found the 2022 report and the Funding Strategy Statement, not a distinct '2025 Valuation Report' document). Difficulty: low if the document can be located. Skill set: researcher comfortable searching council document libraries.",
+    priority: 5,
+  },
 ];

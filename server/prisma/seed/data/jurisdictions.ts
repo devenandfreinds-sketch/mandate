@@ -104,4 +104,19 @@ export const jurisdictions: JurisdictionSeedSpec[] = [
       "Greater Manchester is a combined authority of ten metropolitan boroughs (including Manchester, Salford, Bolton, and Stockport) that pools strategic transport, housing, skills, and health powers under a directly elected Metro Mayor — the most advanced regional devolution settlement in England.",
     governanceModelSlug: "greater-manchester-devolution",
   },
+  {
+    slug: "durham-county",
+    name: "Durham County Council",
+    kind: "city",
+    stateOrRegion: "North East England",
+    country: "United Kingdom",
+    population: 530_000,
+    populationYear: 2023,
+    latitude: 54.7761,
+    longitude: -1.5733,
+    summary: "A single-tier unitary authority in North East England, won outright by Reform UK in the May 2025 local elections.",
+    description:
+      "Durham County Council (ONS code E06000047) is a unitary authority covering roughly 530,000 residents, holding full single-tier local-government responsibility (education, adult and children's social care, highways, waste, and strategic planning, though not policing, which sits with a separately elected Police and Crime Commissioner, or local bus franchising, which sits with the North East Combined Authority's directly-elected Mayor). Reform UK won outright control in the May 2025 local elections, ending the prior administration and marking the party's first sustained governing record at full council scale. It was selected as Mandate's first Reform UK case study, over the more nationally publicized Clacton-on-Sea, because it is the structural type closest to how Mandate already profiles a U.S. city: one governing body with broad (if not total) service responsibility, under continuous, uncontested Reform control.",
+    governanceModelSlug: "reform-uk",
+  },
 ];

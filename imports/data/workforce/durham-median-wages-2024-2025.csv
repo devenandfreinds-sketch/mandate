@@ -1,0 +1,3 @@
+jurisdiction,metric,year,value,confidence,notes
+durham-county,median_wages,2024,27600,high,"ONS ASHE Table 7.7a (Annual pay - Gross, place-of-work basis, all employees), County Durham UA, 2024 revised release."
+durham-county,median_wages,2025,29393,medium,"ONS ASHE Table 7.7a, County Durham UA, 2025 provisional release; subject to revision in the 2026 release per standard ONS ASHE practice. Cross-validated: this figure was independently obtained twice (once from the ONS reference-table download, once cross-checked against Durham Insight, the council's own JSNA/insight portal, which cites the same ASHE source and matches exactly)."

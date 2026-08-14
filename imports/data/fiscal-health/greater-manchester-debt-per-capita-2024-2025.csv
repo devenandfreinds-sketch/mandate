@@ -1,0 +1,3 @@
+jurisdiction,metric,year,value,confidence,notes
+greater-manchester,debt_per_capita,2023-24,476.75,high,"GMCA Annual Statement of Accounts (Single Entity), external borrowing outstanding at 31 March 2024 (£1,367.2m) divided by the 2021 Census Greater Manchester population (2,867,769). GMCA runs a deliberately 'under-borrowed' position -- its Capital Financing Requirement (£2,415.054m at 31 March 2024) is materially larger than actual borrowing, with the gap covered from reserves; this metric uses actual borrowing, not CFR."
+greater-manchester,debt_per_capita,2024-25,491.30,high,"GMCA Annual Statement of Accounts (Single Entity), external borrowing outstanding at 31 March 2025 (£1,408.927m) divided by the 2021 Census Greater Manchester population (2,867,769)."

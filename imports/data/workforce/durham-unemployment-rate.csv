@@ -1,0 +1,3 @@
+jurisdiction,metric,year,value,confidence,notes
+durham-county,unemployment_rate,2022,4.1,medium,"ONS 'County Durham's employment, unemployment and economic inactivity' visualisation (APS-based), year ending December 2022."
+durham-county,unemployment_rate,2023,3.6,medium,"ONS same visualisation, year ending December 2023 (approximately 9,500 people)."

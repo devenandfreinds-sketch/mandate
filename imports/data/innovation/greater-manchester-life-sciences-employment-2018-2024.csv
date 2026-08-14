@@ -1,0 +1,8 @@
+jurisdiction,metric,year,value,confidence,notes
+greater-manchester,life_sciences_employment,2018,1830,high,"Nomis BRES (NM_189_1), sum of Greater Manchester's 10 boroughs, SIC 21 (pharmaceuticals) + SIC 26.60 (electromedical/electrotherapeutic equipment) + SIC 32.50 (medical/dental instruments), mirroring the Office for Life Sciences' own bioscience/health-technology SIC definition."
+greater-manchester,life_sciences_employment,2019,1770,high,"Nomis BRES, same methodology as 2018."
+greater-manchester,life_sciences_employment,2020,2390,high,"Nomis BRES, same methodology as 2018."
+greater-manchester,life_sciences_employment,2021,1550,high,"Nomis BRES, same methodology as 2018."
+greater-manchester,life_sciences_employment,2022,1635,high,"Nomis BRES, same methodology as 2018."
+greater-manchester,life_sciences_employment,2023,2390,high,"Nomis BRES, same methodology as 2018."
+greater-manchester,life_sciences_employment,2024,2735,high,"Nomis BRES, same methodology as 2018. Latest year available."

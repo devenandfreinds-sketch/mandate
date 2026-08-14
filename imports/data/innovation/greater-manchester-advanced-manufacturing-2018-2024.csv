@@ -1,0 +1,8 @@
+jurisdiction,metric,year,value,confidence,notes
+greater-manchester,advanced_manufacturing_employment,2018,19310,medium,"Nomis BRES (NM_189_1), sum of Greater Manchester's 10 boroughs, SIC divisions 26-30 (computer/electronic/optical products; electrical equipment; machinery n.e.c.; motor vehicles/trailers; other transport equipment), excluding SIC 21 (pharma, counted under life_sciences_employment) to avoid double-counting. This is an analyst-constructed proxy following the Eurostat/UN high/medium-high-technology manufacturing convention -- no single official ONS-published 'advanced manufacturing employment' series exists at this geography."
+greater-manchester,advanced_manufacturing_employment,2019,17860,medium,"Nomis BRES, same constructed-proxy methodology as 2018."
+greater-manchester,advanced_manufacturing_employment,2020,17335,medium,"Nomis BRES, same constructed-proxy methodology as 2018."
+greater-manchester,advanced_manufacturing_employment,2021,16660,medium,"Nomis BRES, same constructed-proxy methodology as 2018."
+greater-manchester,advanced_manufacturing_employment,2022,18710,medium,"Nomis BRES, same constructed-proxy methodology as 2018."
+greater-manchester,advanced_manufacturing_employment,2023,18735,medium,"Nomis BRES, same constructed-proxy methodology as 2018."
+greater-manchester,advanced_manufacturing_employment,2024,17770,medium,"Nomis BRES, same constructed-proxy methodology as 2018. Latest year available."

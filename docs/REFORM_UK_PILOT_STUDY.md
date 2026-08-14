@@ -12,6 +12,12 @@ measure it honestly, using the same rules it uses everywhere else.
 This is research-only. No schema changes, no frontend work, no production deployment, no synthetic data,
 no fabricated pipeline history. Nothing in this document has been imported into the database.
 
+**Update, 2026-08-14:** the Phase 6 recommendation below (Durham County Council) has since been
+implemented — see `docs/DURHAM_CASE_STUDY.md` for what was actually added (jurisdiction, governance
+model, a first batch of real metrics) and, importantly, why no Institutional Pipeline assessment has
+been created yet even for the three pipeline events this document identified. The research below remains
+the reasoning of record for the jurisdiction choice; it is not otherwise updated.
+
 ---
 
 ## Phase 1 — Governance Audit: Is Clacton-on-Sea the right unit of analysis?

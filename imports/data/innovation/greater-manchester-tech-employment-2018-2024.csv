@@ -1,0 +1,8 @@
+jurisdiction,metric,year,value,confidence,notes
+greater-manchester,tech_employment,2018,46465,high,"Nomis BRES (NM_189_1), sum of Greater Manchester's 10 boroughs, SIC 2007 divisions 58-63 (Information and Communication: publishing, broadcasting, telecommunications, computer programming/consultancy, information services)."
+greater-manchester,tech_employment,2019,51110,high,"Nomis BRES, same methodology as 2018."
+greater-manchester,tech_employment,2020,52745,high,"Nomis BRES, same methodology as 2018."
+greater-manchester,tech_employment,2021,49430,high,"Nomis BRES, same methodology as 2018."
+greater-manchester,tech_employment,2022,63460,high,"Nomis BRES, same methodology as 2018."
+greater-manchester,tech_employment,2023,63805,high,"Nomis BRES, same methodology as 2018."
+greater-manchester,tech_employment,2024,61755,high,"Nomis BRES, same methodology as 2018. Latest year available (dataset updated 28 October 2025)."

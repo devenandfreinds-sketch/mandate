@@ -1,0 +1,10 @@
+jurisdiction,metric,year,value,confidence,notes
+greater-manchester,clearance_rate,2015-16,19.25,medium,"Home Office recorded-crime-and-outcomes open data, Greater Manchester force rows, ALL recorded crime (NOT violent-crime-specific, unlike Mandate's metric definition -- see source methodology note; imported at 'estimated' quality for this definitional mismatch, not because the underlying government data is unreliable). Positive-outcome rate = (charge/summons + out-of-court formal/informal + taken into consideration) / all offences recorded."
+greater-manchester,clearance_rate,2016-17,13.87,medium,"Home Office outcomes open data, Greater Manchester, same all-crime methodology."
+greater-manchester,clearance_rate,2017-18,9.58,medium,"Home Office outcomes open data, Greater Manchester, same all-crime methodology."
+greater-manchester,clearance_rate,2018-19,8.76,medium,"Home Office outcomes open data, Greater Manchester, same all-crime methodology."
+greater-manchester,clearance_rate,2020-21,9.22,low,"Home Office outcomes open data, Greater Manchester, same all-crime methodology. 2019/20 omitted as unreliable (offences recorded roughly a quarter of neighboring years, same GMP IT-migration gap documented for violent/property crime)."
+greater-manchester,clearance_rate,2021-22,8.36,low,"Home Office outcomes open data, Greater Manchester, same all-crime methodology."
+greater-manchester,clearance_rate,2022-23,9.22,low,"Home Office outcomes open data, Greater Manchester, same all-crime methodology."
+greater-manchester,clearance_rate,2023-24,10.72,low,"Home Office outcomes open data, Greater Manchester, same all-crime methodology. Recent years understated pending outcome-assignment lag per Home Office's own guidance."
+greater-manchester,clearance_rate,2024-25,12.82,low,"Home Office outcomes open data, Greater Manchester, same all-crime methodology. Provisional, likely to rise on revision."

@@ -2181,4 +2181,206 @@ export const sources: SourceSeedSpec[] = [
     country: "United Kingdom",
     language: "en",
   },
+
+  // =========================================================
+  // Greater Manchester metrics data-pull pass (see docs/GREATER_MANCHESTER_CASE_STUDY.md,
+  // "Flagship-case-study pass" feasibility audit). Dataset-level sources for the ~19
+  // GREEN-flagged metrics, first batch.
+  // =========================================================
+  {
+    key: "ons_business_demography_gm",
+    name: "ONS Business Demography (Births, Deaths, Survival) — Explore Local Statistics",
+    publisher: "UK Office for National Statistics",
+    url: "https://www.ons.gov.uk/explore-local-statistics/indicators/business-births",
+    sourceType: "government_dataset",
+    citation:
+      "ONS Business Demography, distributed via the 'Explore Local Statistics' service, geography Greater Manchester (Met County), E11000001.",
+    isPlaceholder: false,
+    updateFrequency: "annual",
+    methodology:
+      "Business birth/survival rates are published as percentages of the active business population, not raw counts. A raw GM-level business-formation count would require a separate pull from ONS's 'Business demography, UK' reference tables (not done this pass). 1-year survival available for cohorts 2019-2023; 3-year survival for 2019-2021; 5-year survival only for the 2019 cohort (the only one old enough to have reached year 5).",
+    defaultConfidence: "high",
+    country: "United Kingdom",
+    language: "en",
+  },
+  {
+    key: "nomis_bres_gm",
+    name: "Nomis Business Register and Employment Survey (BRES) — Greater Manchester",
+    publisher: "UK Office for National Statistics (via Nomis)",
+    url: "https://www.nomisweb.co.uk/",
+    sourceType: "government_dataset",
+    citation:
+      "ONS Business Register and Employment Survey (BRES), dataset NM_189_1, employee jobs by SIC 2007 industry, summed across Greater Manchester's 10 constituent boroughs (E08000001-E08000010).",
+    isPlaceholder: false,
+    updateFrequency: "annual",
+    methodology:
+      "tech_employment (SIC divisions 58-63) and life_sciences_employment (SIC 21 + 26.60 + 32.50, mirroring the Office for Life Sciences' own bioscience/health-technology definition) are both official ONS SIC aggregations. advanced_manufacturing_employment (SIC divisions 26-30, excluding 21 to avoid double-counting with life sciences) has no single official ONS-published series at this geography -- it is a defensible but analyst-constructed proxy following the Eurostat/UN high/medium-high-technology manufacturing convention, and should be treated as a lower-confidence estimate, not an official statistic. BRES counts are rounded and subject to disclosure control; borough-sum totals may differ slightly (typically <2%) from any future direct combined-authority-level ONS publication.",
+    defaultConfidence: "high",
+    country: "United Kingdom",
+    language: "en",
+  },
+  {
+    key: "ons_ashe_gm",
+    name: "ONS Annual Survey of Hours and Earnings (ASHE), Table 7.7a — Greater Manchester",
+    publisher: "UK Office for National Statistics",
+    url: "https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/earningsandworkinghours/datasets/placeofworkbylocalauthorityashetable7",
+    sourceType: "government_dataset",
+    citation:
+      "ONS ASHE Table 7.7a, 'Annual pay - Gross,' place-of-work basis, all employees, geography Greater Manchester (Met County), E11000001.",
+    isPlaceholder: false,
+    updateFrequency: "annual",
+    methodology:
+      "Figure relates to the pay period including a specified date in April of the reference year. 2025 figures are provisional pending the following year's revision, per standard ONS ASHE practice.",
+    defaultConfidence: "high",
+    country: "United Kingdom",
+    language: "en",
+  },
+  {
+    key: "gmca_statement_of_accounts",
+    name: "GMCA Annual Statement of Accounts",
+    publisher: "Greater Manchester Combined Authority",
+    url: "https://www.greatermanchester-ca.gov.uk/media/au3jpbs3/2024-25-gmca-final-statement-of-accounts.pdf",
+    sourceType: "government_report",
+    citation:
+      "GMCA's own audited Annual Statement of Accounts (Single Entity, not the consolidated Group accounts which also include TfGM and the Waste Disposal Company subsidiaries), Comprehensive Income and Expenditure Statement and Note 19 'Capital Expenditure and Capital Financing.'",
+    isPlaceholder: false,
+    updateFrequency: "annual",
+    methodology:
+      "budget_balance uses the CIES '(Surplus)/Deficit on Provision of Services' line (matches the methodology used for Durham County Council's accounts, for cross-jurisdiction consistency), not the separate, smaller General Fund statutory-basis movement. debt_per_capita uses actual external borrowing outstanding (not the larger Capital Financing Requirement, which GMCA deliberately under-borrows against, funding the gap from reserves) divided by the 2021 Census Greater Manchester population (2,867,769); per-capita figures are Mandate's own derived calculation, not published as such by GMCA.",
+    defaultConfidence: "high",
+    country: "United Kingdom",
+    language: "en",
+  },
+  {
+    key: "home_office_recorded_crime_outcomes_gm",
+    name: "Home Office Police Recorded Crime and Outcomes Open Data — Greater Manchester",
+    publisher: "UK Home Office",
+    url: "https://www.gov.uk/government/statistical-data-sets/police-recorded-crime-and-outcomes-open-data-tables",
+    sourceType: "government_dataset",
+    citation:
+      "Home Office row-level police recorded crime and outcomes open data tables, filtered to Force Name 'Greater Manchester.'",
+    isPlaceholder: false,
+    updateFrequency: "quarterly",
+    methodology:
+      "clearance_rate is computed here as an all-crime positive-outcome rate (Charge/Summons + out-of-court formal/informal + taken into consideration, divided by all offences recorded in the period), following the Home Office's own outcome-type coding -- it is NOT violent-crime-specific, unlike Mandate's metric description ('share of reported violent crime cases cleared'). Treat as a directionally useful but definitionally broader proxy pending a violent-crime-specific recomputation. Financial year 2019/20 is unreliable for Greater Manchester: GMP's July 2019-March 2020 IT migration caused a data gap acknowledged by both ONS and the Home Office (recorded offences roughly a quarter of neighboring years). The most recent 1-2 years are provisional and will rise on revision as more recently recorded crimes reach a final outcome. GMP's own crime-recording completeness fluctuated materially over this period (HMICFRS found ~85% in 2016, ~89% in 2018, degrading again by 2020), which affects part of the level and trend independent of true crime change.",
+    defaultConfidence: "medium",
+    country: "United Kingdom",
+    language: "en",
+  },
+
+  // =========================================================
+  // Durham County Council (Reform UK) research pass (see docs/REFORM_UK_PILOT_STUDY.md and
+  // docs/DURHAM_CASE_STUDY.md). Durham was selected over Clacton-on-Sea as Mandate's first
+  // Reform UK case study; see the pilot study for the full governance-unit-of-analysis reasoning.
+  // =========================================================
+  {
+    key: "durham_cc_statement_of_accounts",
+    name: "Durham County Council Statement of Accounts",
+    publisher: "Durham County Council",
+    url: "https://www.durham.gov.uk/media/46997/Statement-of-Accounts-2024-25/pdf/StatementOfAccounts2024-2025.pdf",
+    sourceType: "government_report",
+    citation:
+      "Durham County Council's own audited annual Statement of Accounts, Comprehensive Income and Expenditure Statement, Movement in Reserves Statement, and Note 33 'Capital Expenditure and Capital Financing.' Figures for 2023/24 and 2024/25 both drawn from the 2024-25 accounts document, which presents both years as primary/comparator columns.",
+    isPlaceholder: false,
+    updateFrequency: "annual",
+    methodology:
+      "budget_balance uses the CIES '(Surplus)/Deficit on Provision of Services' line (audited actual outturn), not the in-year Medium Term Financial Plan savings-requirement or 'budget gap' figures reported in council press releases during the budget-setting cycle -- those are forward-looking/pre-savings planning figures, not the final audited position, and are a different and larger number. debt_per_capita uses external borrowing outstanding at year-end (not the larger Capital Financing Requirement, which the council does not fully fund through borrowing) divided by ONS's mid-year County Durham population estimate (~538,000, 2024).",
+    defaultConfidence: "high",
+    country: "United Kingdom",
+    language: "en",
+  },
+  {
+    key: "durham_cc_pension_valuation",
+    name: "Durham County Council Pension Fund Actuarial Valuation",
+    publisher: "Durham County Council Pension Fund (LGPS), valued by Aon",
+    url: "https://www.durham.gov.uk/media/41994/LGPS-Valuation-Report-2023/pdf/LGPSValuationReport2023.pdf",
+    sourceType: "government_report",
+    citation:
+      "Durham County Council Pension Fund's triennial actuarial valuation as at 31 March 2022 (the most recent valuation whose whole-fund percentage was independently confirmed this pass), corroborated by Note 22 of the Fund's own Annual Report and Accounts, year ended 31 March 2025.",
+    isPlaceholder: false,
+    updateFrequency: "triennial",
+    methodology:
+      "A further valuation as at 31 March 2025 exists and has been adopted for contribution-rate-setting (per the Fund's Funding Strategy Statement, 5 December 2025), but its whole-fund funding percentage was not confirmed against a primary document this pass -- a press summary (Local Government Chronicle) claims 'no change' from 2022, but this is not yet imported pending primary-source confirmation.",
+    defaultConfidence: "high",
+    country: "United Kingdom",
+    language: "en",
+  },
+  {
+    key: "ons_ashe_durham",
+    name: "ONS Annual Survey of Hours and Earnings (ASHE), Table 7.7a — County Durham",
+    publisher: "UK Office for National Statistics",
+    url: "https://www.ons.gov.uk/employmentandlabourmarket/peopleinwork/earningsandworkinghours/datasets/placeofworkbylocalauthorityashetable7",
+    sourceType: "government_dataset",
+    citation:
+      "ONS ASHE Table 7.7a, 'Annual pay - Gross,' place-of-work basis, all employees, geography County Durham UA, E06000047.",
+    isPlaceholder: false,
+    updateFrequency: "annual",
+    methodology:
+      "Figure relates to the pay period including a specified date in April of the reference year. 2025 figures are provisional pending the following year's revision, per standard ONS ASHE practice.",
+    defaultConfidence: "high",
+    country: "United Kingdom",
+    language: "en",
+  },
+  {
+    key: "ons_nomis_aps_durham",
+    name: "ONS Annual Population Survey (APS) — County Durham",
+    publisher: "UK Office for National Statistics (via Nomis)",
+    url: "https://www.nomisweb.co.uk/datasets/aps168",
+    sourceType: "government_dataset",
+    citation:
+      "ONS Annual Population Survey, dataset NM_17_1, geography County Durham UA (E06000047). Unemployment rate = unemployed (16+) / economically active (16+); economic activity rate = economically active (16-64) / population (16-64).",
+    isPlaceholder: false,
+    updateFrequency: "annual",
+    methodology:
+      "Small-area APS estimates carry wide confidence intervals (e.g. a 12-month unemployed-count estimate of 10,200 carried a +/-4,300 margin in one period checked this pass) -- ONS itself flags these as based on small sample sizes. Rates computed directly from published counts using ONS's own standard formula, cross-checked against ONS's separate 'Local Labour Market Statistics' visualisation page and found consistent within normal survey-to-survey variation.",
+    defaultConfidence: "medium",
+    country: "United Kingdom",
+    language: "en",
+  },
+  {
+    key: "dfe_apprenticeships_durham",
+    name: "DfE Apprenticeships — Starts, Participation, Achievements by Local Authority District",
+    publisher: "UK Department for Education",
+    url: "https://explore-education-statistics.service.gov.uk/data-tables/apprenticeships/2024-25",
+    sourceType: "government_dataset",
+    citation:
+      "DfE 'Apprenticeships' publication (Explore Education Statistics, accredited official statistics), County Durham LAD, academic years 2019/20-2024/25, all ages/levels/sexes.",
+    isPlaceholder: false,
+    updateFrequency: "annual",
+    methodology:
+      "Academic year (Aug-Jul) series. Covers apprenticeship activity across all employers and training providers operating in County Durham, not Durham County Council's own employer-specific figures -- do not conflate with Durham CC's self-reported '951 apprentices recruited since 2019' program statistic, which is a single-employer count from a different, non-official-statistics source.",
+    defaultConfidence: "high",
+    country: "United Kingdom",
+    language: "en",
+  },
+  {
+    key: "durham_cc_official_press",
+    name: "Durham County Council Official News Releases",
+    publisher: "Durham County Council",
+    url: "https://www.durham.gov.uk/",
+    sourceType: "government_report",
+    citation:
+      "Durham County Council's own durham.gov.uk news releases, used to date and confirm cabinet/leadership changes and budget-cycle milestones (e.g. 'Council appoints new Leader,' 21 May 2025; 'Durham County Council announces new Cabinet,' 16 September 2025; 'Durham County Council sets out final budget,' 3 February 2026).",
+    isPlaceholder: false,
+    updateFrequency: "as_needed",
+    defaultConfidence: "high",
+    country: "United Kingdom",
+    language: "en",
+  },
+  {
+    key: "durham_press_secondary",
+    name: "Durham Local Press Corroboration (Palatinate, North East Bylines)",
+    publisher: "Palatinate; North East Bylines",
+    url: "https://www.palatinate.org.uk/",
+    sourceType: "news",
+    citation:
+      "Independent local press covering Durham County Council, used to corroborate the 16 July 2025 climate-emergency-declaration rescission vote (reported outcome: 62 votes in favour) and other council proceedings where the primary council-minutes site (democracy.durham.gov.uk) could not be directly accessed to pull the authoritative recorded division.",
+    isPlaceholder: false,
+    updateFrequency: "continuous",
+    methodology:
+      "The exact for/against/abstain breakdown of the 16 July 2025 vote is not fully reconciled across sources (reported figures do not sum cleanly to the council's total membership); only the date and the '62 in favour' headline figure are corroborated by multiple independent outlets. Treat as alternative-tier evidence pending confirmation from the primary council minutes.",
+    defaultConfidence: "medium",
+    country: "United Kingdom",
+    language: "en",
+  },
 ];

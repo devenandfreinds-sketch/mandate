@@ -332,6 +332,50 @@ of decision" tables already backing Housing's `planning_approval_days`).
 first, implement only once verified" brief, that is deliberately a separate, subsequent phase — this
 audit is a feasibility map, not a data pull.
 
+### Metrics data pull, first batch (2026-08-14)
+
+The GREEN-list feasibility map above was followed up with an actual data pull for roughly half the
+list: crime (ONS/Home Office), business/tech economy (ONS Business Demography, Nomis BRES), and
+fiscal/wages (GMCA's own Statement of Accounts, ONS ASHE). All values are cited in
+`server/prisma/seed/data/sources.ts` and imported via `imports/data/{public-safety,innovation,
+workforce,fiscal-health}/greater-manchester-*.csv`. Notable findings from the pull itself:
+
+- **`violent_crime_rate` and `property_crime_rate`** (2015-16 through 2025-26, YE March convention):
+  clean ONS Police Force Area data, correctly scoped to the Greater Manchester force row and converted
+  from the source's per-1,000 to Mandate's per-100,000 unit. **YE March 2020 is missing for both, by
+  ONS's own design** — GMP couldn't supply data for July 2019-March 2020 after an IT migration, and ONS
+  explicitly excludes GM from national/regional totals for that period rather than estimating it.
+- **`clearance_rate`** was imported at `estimated` quality, not `government`, because Mandate's metric
+  is defined as a *violent-crime-specific* clearance rate, but no such GM-specific published figure
+  exists — what was computed and imported is an *all-crime* positive-outcome rate from Home Office's
+  row-level outcomes data. Directionally useful (10.72% in 2023-24 broadly indicates a general trend)
+  but not a like-for-like match to the metric's own definition; a violent-crime-specific recomputation
+  is still open.
+- **`business_formation` and `startup_formation` were deliberately NOT imported this pass.** ONS's
+  Business Demography service publishes birth/survival *rates* (percentages), not raw counts, and the
+  metric's own definition wants a count ("new business applications filed in the year"). Pulling a raw
+  count requires a separate reference-table dataset, not done this pass — importing the rate under a
+  count-shaped metric would have silently changed what the number means.
+- **`business_survival_rate`** was imported for a single year only (2019 birth cohort, 35.37%
+  five-year survival) — it is the only cohort old enough to have reached the five-year mark; later
+  cohorts have 1-year and 3-year figures but not yet 5-year.
+- **`advanced_manufacturing_employment`** was imported at `estimated` quality: no single official ONS
+  series exists for this concept at this geography, so the figure is an analyst-constructed SIC-code
+  aggregation (following the Eurostat/UN high/medium-high-technology manufacturing convention),
+  explicitly flagged as a proxy rather than an official statistic.
+- **`budget_balance` and `debt_per_capita`** use GMCA's own audited Statement of Accounts (Single
+  Entity, not the larger consolidated Group accounts that also include TfGM and the Waste Disposal
+  Company). GMCA runs a deliberately "under-borrowed" position — its Capital Financing Requirement is
+  materially larger than actual external borrowing, funded instead from reserves — so `debt_per_capita`
+  uses actual borrowing, not CFR, to avoid overstating GM's real debt exposure.
+- **`tech_employment` and `life_sciences_employment`** (2018-2024) are clean official ONS/Nomis BRES
+  SIC aggregations, summed across GM's 10 boroughs and cross-validated against ONS's own direct
+  combined-authority-level total employment figure (matched almost exactly for the overlapping years).
+
+Not pulled this pass, carried forward: `transit_ridership`/`transit_reliability` extension beyond the
+single existing year, the remaining ~11 YELLOW metrics, and a violent-crime-specific `clearance_rate`
+recomputation.
+
 **Minor UI observation, not fixed this pass:** the progressive-revenue-institution "unavailable" entry
 displays as "0/5 · Campaign Promise" in the Pipeline Detail Page's stage badge, since stage 0's label is
 hardcoded to "Campaign Promise" regardless of `dataQuality`. This reads oddly for a deliberate

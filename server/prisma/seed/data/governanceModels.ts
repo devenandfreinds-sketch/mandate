@@ -92,4 +92,41 @@ export const governanceModels: GovernanceModelSeedSpec[] = [
       },
     ],
   },
+  {
+    slug: "reform-uk",
+    name: "Reform UK Local Government",
+    shortName: "Reform-Run Councils",
+    summary:
+      "English local authorities won outright by Reform UK in the May 2025 local elections, tracked here as Mandate's first right-populist governance model.",
+    overview:
+      "This governance model tracks English local authorities where Reform UK holds outright, uncontested control of the council chamber and cabinet, added deliberately as a stress test of whether Mandate's methodology (source-tiered evidence, conservative institutional-pipeline scoring) remains valid outside the left-of-center governing environments (Chicago, Greater Manchester) it was originally built and generalized on. It is used here purely as a comparative grouping for measuring governance outcomes, not as a claim about the party's national platform or any individual councillor's views.",
+    history:
+      "Reform UK won outright control of ten English local authorities in the May 2025 local elections (its first taste of running councils, rather than merely contesting seats), plus two new directly-elected Combined Authority mayoralties (Greater Lincolnshire, Hull and East Yorkshire) the same day. Mandate's first jurisdiction under this model, Durham County Council, was selected after a research pass (docs/REFORM_UK_PILOT_STUDY.md) found that Reform's most nationally publicized local foothold — Clacton-on-Sea, Nigel Farage's constituency — does not correspond to a council Reform actually controls, and that Durham CC is the cleanest structural match: a full-power unitary authority under continuous, uncontested Reform control since May 2025.",
+    politicalContext:
+      "Reform's councillors are typically newly elected, with little prior experience in local government administration. Stated priorities emphasize spending reduction and efficiency review (frequently framed in press coverage as a UK 'DOGE'-style agenda), reversing prior councils' climate-emergency declarations and DEI-related programs and language, and, in several councils, resisting Home Office asylum-seeker accommodation placements. Coverage of Reform's record in office is contested and often partisan in both directions; Mandate's own scoring applies the same conservative, source-tiered evidence standard used everywhere else, and documents where that standard finds real institutional action versus unconfirmed press claims.",
+    foundedYear: 2025,
+    colorHex: "#12b6cf",
+    corePriorities: [
+      {
+        title: "Spending Reduction & Efficiency Review",
+        description: "Budget savings programs, contract/consultant audits, and organizational restructuring framed as efficiency reform.",
+        sortOrder: 0,
+      },
+      {
+        title: "Rollback of Prior Climate & DEI Commitments",
+        description: "Rescinding climate emergency declarations and reversing diversity/equality-related programs, training, and language.",
+        sortOrder: 1,
+      },
+      {
+        title: "Resistance to Asylum Accommodation Placements",
+        description: "Local opposition to Home Office contracts placing asylum seekers in council-area accommodation.",
+        sortOrder: 2,
+      },
+      {
+        title: "Workforce & Skills Programs",
+        description: "Continuing or extending employer-facing skills, apprenticeship, and employability programs inherited from prior administrations.",
+        sortOrder: 3,
+      },
+    ],
+  },
 ];

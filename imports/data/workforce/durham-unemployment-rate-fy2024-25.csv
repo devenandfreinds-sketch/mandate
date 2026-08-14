@@ -1,0 +1,2 @@
+jurisdiction,metric,year,value,confidence,notes
+durham-county,unemployment_rate,2024-25,3.7,medium,"ONS Annual Population Survey via Nomis (NM_17_1), County Durham, 12-month period April 2024-March 2025: 9,100 unemployed of 249,100 economically active (16+). Small-area APS estimates carry wide confidence intervals."

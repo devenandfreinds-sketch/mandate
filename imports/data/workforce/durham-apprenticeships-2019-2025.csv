@@ -1,0 +1,7 @@
+jurisdiction,metric,year,value,confidence,notes
+durham-county,apprenticeships,2019-20,8270,high,"DfE Apprenticeships publication (Explore Education Statistics, accredited official statistics), County Durham LAD, apprenticeship participation (active enrollments), all ages/levels/sexes."
+durham-county,apprenticeships,2020-21,7730,high,"DfE Apprenticeships publication, County Durham LAD, participation."
+durham-county,apprenticeships,2021-22,8320,high,"DfE Apprenticeships publication, County Durham LAD, participation."
+durham-county,apprenticeships,2022-23,8670,high,"DfE Apprenticeships publication, County Durham LAD, participation."
+durham-county,apprenticeships,2023-24,8400,high,"DfE Apprenticeships publication, County Durham LAD, participation."
+durham-county,apprenticeships,2024-25,8550,high,"DfE Apprenticeships publication, County Durham LAD, participation. Note: distinct from Durham County Council's own self-reported '951 apprentices recruited since 2019' program figure, which counts only apprentices directly employed by the council itself, not county-wide activity across all employers."
