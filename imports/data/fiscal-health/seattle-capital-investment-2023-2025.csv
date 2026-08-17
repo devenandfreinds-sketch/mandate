@@ -1,0 +1,3 @@
+jurisdiction,metric,year,value,confidence,notes
+seattle,capital_investment,2023,1283302000,high,"City of Seattle FY2023 ACFR, Note 6 'Changes in Capital Assets,' Table 6-1, capital-asset additions at cost, governmental ($399,533K) + business-type ($883,769K) activities combined."
+seattle,capital_investment,2025,2254341000,high,"City of Seattle FY2025 ACFR, Note 6, Table 6-1, capital-asset additions: governmental ($1,013,475K) + business-type ($1,240,866K). FY2024 figure not located this pass (only FY2023 and FY2025 ACFRs were checked)."

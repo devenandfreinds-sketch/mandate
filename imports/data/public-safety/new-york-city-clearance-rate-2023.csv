@@ -1,0 +1,2 @@
+jurisdiction,metric,year,value,confidence,notes
+new-york-city,clearance_rate,2023,66.5,high,"NYPD Clearance Report, Calendar Year 2023 (nyc.gov/site/nypd/stats/reports-analysis/clearance.page). 'Total Clearance Rate' (includes exceptional and prior-period clearances) for combined violent-crime categories (Murder+Rape+Robbery+Felony Assault), first full year under NYPD's reformed May-2024 methodology. The pre-2024 single-rate methodology could exceed 100% and is not comparable to this figure."

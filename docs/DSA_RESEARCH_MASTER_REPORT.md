@@ -252,4 +252,70 @@ Seattle's Finance Departments, DC's OCFO/DCRB, GMCA's own committee papers), fed
 statistical agencies (BLS QCEW, Census BFS/BDS/BPS, ONS for Greater Manchester), and university
 technology-transfer offices (Northwestern, UChicago, University of Minnesota, University of
 Washington) — each tiered honestly (government/academic/estimated/alternative) rather than uniformly
-labeled "government" for convenience.
+
+## Clean-out pass (2026-08-17): fiscal + crime metrics for NYC, Minneapolis, Seattle, DC
+
+Despite the Metric-Completion Pass above, NYC/Minneapolis/Seattle/DC were still ~93-95% synthetic
+placeholder several weeks later — "roughly tripled" coverage from a near-zero base still leaves the
+large majority of each jurisdiction's 44 metrics untouched. This pass targeted two full clusters
+(fiscal health: budget_balance, debt_per_capita, capital_investment, pension_funding_ratio; and
+crime: violent_crime_rate, property_crime_rate, clearance_rate) across all four cities, via 8
+parallel research agents (one fiscal + one crime agent per city). Net effect: placeholder rows fell
+by 13-54 per city (NYC 505→492, Minneapolis 487→452, Seattle 499→445, DC 503→469) — the fiscal
+cluster in particular is now close to fully real for all four cities across a 9-11 year span each.
+
+**A genuine methodology dispute was resolved for DC's crime rate.** DC's violent/property crime
+figures had been stuck unimported because FBI/NIBRS and MPD's own reporting disagree by roughly 2x
+(494 vs. 1,006 per 100k, 2024). This pass found MPD's own Annual Report explicitly states, in MPD's
+own words, that its "DC Code Index Offense" methodology — not FBI/NIBRS — is its authoritative
+operational and public-reporting standard, with a documented offense-by-offense reconciliation table
+explaining the gap. That resolves the dispute in favor of MPD's own figures, now imported.
+
+**Genuinely primary sources were found where an earlier pass explicitly failed.** Minneapolis's
+violent/property crime rates had previously been rejected for lacking a primary source (only
+secondary aggregators like city-data.com were found). This pass discovered that the FBI's own Crime
+Data Explorer supports agency-level ORI filtering, letting it pull Minneapolis-Police-Department-
+specific NIBRS data directly — a genuine primary source the earlier pass didn't know existed. The
+resulting 2023 homicide count (72) was independently cross-validated against the Minnesota BCA's own
+agency-level homicide table.
+
+**Several real, already-researched CSVs were sitting unimported in `imports/data/public-safety/`**
+from an earlier session (Minneapolis's own open-data crime feed for 2021-2022/2024, NYC's official
+911 response-time reporting, Seattle PD's direct 2022 crime report and 2025 homicide-clearance
+figure, DC's homicide closure rate) — these were folded into this pass rather than re-researched,
+using an explicit import-order convention where a more-authoritative later import overwrites a
+less-authoritative earlier one for the same jurisdiction/metric/year (e.g., Minneapolis's 2023
+crime rate was imported first from the city's own open-data feed at `estimated` quality, then
+overwritten by the FBI CDE agency-level figure at `government` quality; Seattle's 2022 crime rates
+and 2025 clearance rate were similarly upgraded from WASPC-derived aggregates to SPD's own direct
+reporting). Two lower-tier CSVs from that same earlier session (`new-york-city-crime-2023-2024.csv`,
+citing a disputed academic/aggregator figure Mandate had already decided not to use, and
+`washington-dc-property-crime-2024.csv`, an aggregator figure now superseded by MPD's own primary
+data) were deliberately left un-imported, as a documented record of what was tried and rejected.
+
+**clearance_rate scoping was handled inconsistently across cities, and this pass tried to correct
+toward the metric's actual definition** ("share of reported violent crime cases cleared") rather than
+whatever scope happened to be easiest to find:
+- NYC and Minneapolis: correctly scoped to violent-crime categories specifically (NYPD's own
+  reformed "Total Clearance Rate" for Murder+Rape+Robbery+Felony Assault; FBI CDE's violent-offense
+  clearances / violent-offense count).
+- Seattle: WASPC only publishes an all-Group-A-offense clearance rate (including property crime) at
+  the agency level — imported at `estimated` quality for 2015-2024, but for 2025 specifically, SPD's
+  own homicide-only closure rate (86%) was used instead, since staying within the violent-crime
+  universe (even narrowed to homicide alone) is more honest than a broader figure that includes
+  property crime.
+- DC: no blended violent-crime clearance rate exists in any source found; MPD's homicide-only
+  closure rate (60%, 2024) was imported as the same kind of narrow-but-correctly-scoped proxy used
+  for Seattle, rather than force-averaging MPD's four separate offense-type clearance rates without
+  the incident-count weights needed to do so defensibly.
+- Greater Manchester's clearance_rate (from an earlier, separate pass) remains an all-crime proxy at
+  `estimated` quality and was not revisited this pass — a violent-crime-specific recomputation for GM
+  is already tracked as an open ResearchTask.
+
+**What was deliberately not pursued further this pass, and why:** the other ~40 metrics per city
+(housing, workforce, transit, innovation beyond what earlier passes covered) remain mostly
+placeholder — this pass scoped to two full clusters rather than spreading thin across all of them,
+consistent with the "research first, real data only" discipline applied throughout this project.
+Follow-up ResearchTasks for the specific remaining gaps found along the way (a DC violent-crime
+clearance weighted average, a 2025 DCRB pension figure, Greater Manchester's clearance_rate scoping)
+are recorded in `researchQueue.ts`.

@@ -1,0 +1,4 @@
+jurisdiction,metric,year,value,confidence,notes
+washington-dc,pension_funding_ratio,2023,102.28,high,"DCRB Actuarial Valuation, 10/1/2023, 'Overall Plan Funded Ratio' (Actuarial-Value-of-Assets basis), across the Teachers' and Police Officers/Firefighters' Retirement Plans combined. DCRB itself publishes this single blended figure -- unlike NYC, no Mandate-side averaging was needed."
+washington-dc,pension_funding_ratio,2024,103.73,high,"DCRB Actuarial Valuation, 10/1/2024 (published Dec 10, 2024), 'Overall Plan Funded Ratio,' same methodology."
+washington-dc,pension_funding_ratio,2025,104.20,high,"DCRB Actuarial Valuation, 10/1/2025, 'Overall Plan Funded Ratio,' same methodology. A market-value-of-assets alternative (111.49%) also exists in the same report but is not used here, for consistency with the smoothed AVA basis used across Mandate's other cities' pension figures."

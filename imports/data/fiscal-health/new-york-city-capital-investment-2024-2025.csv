@@ -1,0 +1,3 @@
+jurisdiction,metric,year,value,confidence,notes
+new-york-city,capital_investment,2024,9946942000,high,"NYC Comptroller, FY2024 ACFR, government-wide 'Purchases of capital assets' (Reconciliation of Governmental Funds to the Statement of Activities), p.49."
+new-york-city,capital_investment,2025,9659615000,high,"NYC Comptroller, FY2025 ACFR component 'Government Wide and Fund Financial Statements,' same line item, p.49. The FY2023 figure ($30.3B, roughly 3x adjacent years) was deliberately NOT imported -- it looks anomalous in the FY2024 ACFR's comparative column and needs a second check against the FY2023 ACFR's own MD&A before import."

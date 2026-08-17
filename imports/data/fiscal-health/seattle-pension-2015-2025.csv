@@ -1,0 +1,12 @@
+jurisdiction,metric,year,value,confidence,notes
+seattle,pension_funding_ratio,2015,66.0,high,"SCERS Actuarial Valuation Report (Milliman), valuation date Jan 1, 2015, Table 11 'Schedule of Funding Progress,' Actuarial Value of Assets / Actuarial Accrued Liability."
+seattle,pension_funding_ratio,2016,66.5,high,"SCERS Actuarial Valuation Report, valuation date Jan 1, 2016, same methodology."
+seattle,pension_funding_ratio,2017,68.1,high,"SCERS Actuarial Valuation Report, valuation date Jan 1, 2017, same methodology."
+seattle,pension_funding_ratio,2018,69.9,high,"SCERS Actuarial Valuation Report, valuation date Jan 1, 2018, same methodology."
+seattle,pension_funding_ratio,2019,68.2,high,"SCERS Actuarial Valuation Report, valuation date Jan 1, 2019, same methodology."
+seattle,pension_funding_ratio,2020,68.9,high,"SCERS Actuarial Valuation Report, valuation date Jan 1, 2020, same methodology."
+seattle,pension_funding_ratio,2021,71.6,high,"SCERS Actuarial Valuation Report, valuation date Jan 1, 2021, same methodology."
+seattle,pension_funding_ratio,2022,75.0,high,"SCERS Actuarial Valuation Report, valuation date Jan 1, 2022, same methodology."
+seattle,pension_funding_ratio,2023,75.7,high,"SCERS Actuarial Valuation Report, valuation date Jan 1, 2023, same methodology."
+seattle,pension_funding_ratio,2024,75.8,high,"SCERS Actuarial Valuation Report, valuation date Jan 1, 2024, same methodology."
+seattle,pension_funding_ratio,2025,76.0,high,"SCERS Actuarial Valuation Report (issued June 3, 2025), valuation date Jan 1, 2025, Table 11. A market-value-of-assets alternative (74.6%) is also disclosed but not used here, for consistency with the smoothed AVA basis across all 11 years."

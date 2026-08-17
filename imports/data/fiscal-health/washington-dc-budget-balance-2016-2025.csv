@@ -1,0 +1,11 @@
+jurisdiction,metric,year,value,confidence,notes
+washington-dc,budget_balance,2016,-78436000,high,"DC FY2025 ACFR, Exhibit S-1D 'Changes in Fund Balances -- Governmental Funds,' net change in fund balances, ALL governmental funds combined (not General-Fund-only)."
+washington-dc,budget_balance,2017,-204166000,high,"DC ACFR, Exhibit S-1D, same all-governmental-funds methodology."
+washington-dc,budget_balance,2018,183688000,high,"DC ACFR, Exhibit S-1D, same methodology."
+washington-dc,budget_balance,2019,685872000,high,"DC ACFR, Exhibit S-1D, same methodology."
+washington-dc,budget_balance,2020,768687000,high,"DC ACFR, Exhibit S-1D, same methodology."
+washington-dc,budget_balance,2021,-504072000,high,"DC ACFR, Exhibit S-1D, same methodology."
+washington-dc,budget_balance,2022,2022453000,high,"DC ACFR, Exhibit S-1D, same methodology."
+washington-dc,budget_balance,2023,-588272000,high,"DC ACFR, Exhibit S-1D, same methodology."
+washington-dc,budget_balance,2024,-765280000,high,"DC ACFR, Exhibit S-1D, same methodology."
+washington-dc,budget_balance,2025,225044000,high,"DC FY2025 ACFR (OCFO, Letter of Transmittal dated Jan 23, 2026), Exhibit S-1D, net change in fund balances, all governmental funds. Corroborated by OCFO's own Jan 30, 2026 press release confirming a 'balanced budget' and 29th consecutive unmodified 'clean' audit opinion for FY2025."

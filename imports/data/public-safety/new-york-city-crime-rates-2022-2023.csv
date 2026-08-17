@@ -1,0 +1,5 @@
+jurisdiction,metric,year,value,confidence,notes
+new-york-city,violent_crime_rate,2022,744.2,high,"NYS DCJS, 'Crime in New York State: 2022 Final Data,' Appendix 3, NYC rate per 100,000. Violent Crime = Murder+Rape+Robbery+Aggravated Assault, from NYPD's own UCR/NIBRS submissions to the state."
+new-york-city,violent_crime_rate,2023,684.1,high,"NYS DCJS, 'Crime in New York State: 2023 Final Data' (Oct 2025), Appendix 3, NYC rate per 100,000. Same definition as 2022."
+new-york-city,property_crime_rate,2022,2141.2,high,"NYS DCJS, 'Crime in New York State: 2022 Final Data,' Appendix 3, NYC rate per 100,000. Property Crime = Burglary+Larceny+Motor Vehicle Theft."
+new-york-city,property_crime_rate,2023,2348.7,high,"NYS DCJS, 'Crime in New York State: 2023 Final Data,' Appendix 3, NYC rate per 100,000. Same definition as 2022."

@@ -2383,4 +2383,266 @@ export const sources: SourceSeedSpec[] = [
     country: "United Kingdom",
     language: "en",
   },
+
+  // =========================================================
+  // DSA-aligned cities clean-out pass (2026-08-14): fiscal + crime metrics for New York City,
+  // Minneapolis, Seattle, and Washington DC, still ~93-95% synthetic placeholder despite an earlier
+  // research pass (see docs/DSA_RESEARCH_MASTER_REPORT.md). Dataset-level sources, one per
+  // document/dataset family, following the same "more precise than a generic stub" convention used
+  // for the UK sources above.
+  // =========================================================
+  {
+    key: "nyc_comptroller_acfr",
+    name: "NYC Comptroller Annual Comprehensive Financial Report (ACFR)",
+    publisher: "New York City Comptroller's Office",
+    url: "https://comptroller.nyc.gov/",
+    sourceType: "government_report",
+    citation:
+      "NYC's own audited Annual Comprehensive Financial Report: General Fund operating surplus/(deficit) (pre-restricted-fund-activities adjustment), and government-wide 'purchases of capital assets' (Reconciliation of Governmental Funds to the Statement of Activities).",
+    isPlaceholder: false,
+    updateFrequency: "annual",
+    methodology:
+      "NYC's General Fund is required by state law to end each year balanced, so the reported 'surplus' is deliberately near-zero after discretionary transfers -- a structural feature of the metric, not noise. The FY2023 capital-purchases figure ($30.3B, roughly 3x adjacent years) looks anomalous in the FY2024 ACFR's comparative column and was NOT imported pending a second check against the FY2023 ACFR's own MD&A.",
+    defaultConfidence: "high",
+    country: "United States",
+    language: "en",
+  },
+  {
+    key: "nyc_comptroller_cdo_report",
+    name: "NYC Comptroller Annual Report on Capital Debt and Obligations",
+    publisher: "New York City Comptroller's Office",
+    url: "https://comptroller.nyc.gov/reports/",
+    sourceType: "government_report",
+    citation:
+      "NYC Comptroller's annual debt report, 'Total Direct and Overlapping Debt Outstanding' divided by Census population, from the report's peer-city-comparison exhibit.",
+    isPlaceholder: false,
+    updateFrequency: "annual",
+    methodology:
+      "This is a genuinely different debt concept from the 'Total Projected Indebtedness Against the [Statutory] Limit' figure Mandate already had on file for FY2025 ($11,218 per capita) -- the Comptroller only computes the overlapping-debt per-capita ratio in occasional peer-city-comparison exhibits, not as a full annual time series, so only 3 years (FY2018/2021/2023) have an officially published figure under this definition. Do not read the two series as one continuous trend.",
+    defaultConfidence: "high",
+    country: "United States",
+    language: "en",
+  },
+  {
+    key: "nyc_office_of_actuary",
+    name: "NYC Office of the Actuary — Pension Fund Actuarial Valuation Reports",
+    publisher: "New York City Office of the Actuary",
+    url: "https://www.nyc.gov/site/actuary/reports/reports.page",
+    sourceType: "government_report",
+    citation:
+      "Individual actuarial valuation reports for NYC's five pension systems (NYCERS, TRS, BERS, POLICE, FIRE), Actuarial-Value-of-Assets basis, Schedule of Funding Progress.",
+    isPlaceholder: false,
+    updateFrequency: "annual",
+    methodology:
+      "NYC publishes no single blended pension_funding_ratio -- Mandate computes an unweighted average across the five systems and marks it 'estimated,' with the full per-fund breakdown in the notes field. This supersedes an earlier estimate sourced secondhand via NYC's Independent Budget Office; these values are pulled directly from each system's own valuation report.",
+    defaultConfidence: "medium",
+    country: "United States",
+    language: "en",
+  },
+  {
+    key: "nys_dcjs_crime_report",
+    name: "NYS DCJS — Crime in New York State (Annual Final Data)",
+    publisher: "New York State Division of Criminal Justice Services",
+    url: "https://www.criminaljustice.ny.gov/crimnet/ojsa/",
+    sourceType: "government_dataset",
+    citation:
+      "NYS DCJS's annual compilation of NYPD's own UCR/NIBRS submissions into standard FBI Index Crime categories, rate per 100,000 population, for New York City specifically.",
+    isPlaceholder: false,
+    updateFrequency: "annual",
+    methodology:
+      "This is the correct primary-source lineage for a violent/property crime RATE (NYPD-submitted incident data -> state UCR compilation -> rate per 100,000) -- distinct from NYPD's own 'Seven Major Felony Offenses' table, which reports only raw felony counts with NY Penal Law-specific category boundaries (e.g., felony-threshold-only larceny) that do not match the FBI/UCR definitions used for a rate calculation. NY implemented the FBI's expanded rape definition in 2015, causing a level break that year; do not compare violent-crime percentage changes across it.",
+    defaultConfidence: "high",
+    country: "United States",
+    language: "en",
+  },
+  {
+    key: "nypd_clearance_report",
+    name: "NYPD Clearance Report (Quarterly, by Borough)",
+    publisher: "New York City Police Department",
+    url: "https://www.nyc.gov/site/nypd/stats/reports-analysis/clearance.page",
+    sourceType: "government_dataset",
+    citation:
+      "NYPD's own quarterly clearance-rate reporting for index crimes. As of May 2024, NYPD reformed its methodology to publish two distinct rates: a same-quarter 'Arrest Clearance Rate' and a 'Total Clearance Rate' (including exceptional and prior-period clearances) -- the pre-2024 single rate could exceed 100% because it did not distinguish same-period from backlog clearances.",
+    isPlaceholder: false,
+    updateFrequency: "quarterly",
+    methodology:
+      "clearance_rate uses the 'Total Clearance Rate' for the combined violent-crime categories (Murder+Rape+Robbery+Felony Assault), full calendar year 2023 -- the first full year under the reformed methodology. Do not blend pre-2024 and post-2024 figures into one continuous series.",
+    defaultConfidence: "high",
+    country: "United States",
+    language: "en",
+  },
+  {
+    key: "minneapolis_acfr",
+    name: "City of Minneapolis Annual Comprehensive Financial Report (ACFR)",
+    publisher: "City of Minneapolis Finance & Property Services Department",
+    url: "https://www.minneapolismn.gov/government/departments/finance/reports/annual-financial-report/",
+    sourceType: "government_report",
+    citation:
+      "Minneapolis's own audited ACFR: General Fund net change in fund balance (budget-and-actual schedule), Schedule 9 total outstanding debt per capita, Schedule 4 governmental-funds capital outlay, and the city's proportionate-share GASB 68 pension disclosure.",
+    isPlaceholder: false,
+    updateFrequency: "annual",
+    methodology:
+      "Some budget_balance years are the city's own directly-reported Budget-and-Actual figure; others are computed as the year-over-year change between two consecutive years' officially published Schedule 3 fund-balance totals (simple arithmetic on two primary numbers, not an estimate) -- noted per row. The FY2023 ACFR PDF has a non-standard font encoding that defeated text extraction; its figure was taken from the FY2024 ACFR's own 10-year statistical schedule instead.",
+    defaultConfidence: "high",
+    country: "United States",
+    language: "en",
+  },
+  {
+    key: "fbi_cde_minneapolis",
+    name: "FBI Crime Data Explorer — Minneapolis Police Department (NIBRS, agency-level)",
+    publisher: "FBI Criminal Justice Information Services (CJIS) Division",
+    url: "https://cde.ucr.cjis.gov/",
+    sourceType: "government_dataset",
+    citation:
+      "FBI Crime Data Explorer's agency-level NIBRS data, filtered to Minneapolis Police Department (ORI MN0271100), 2023. The Minnesota BCA's own Uniform Crime Report breaks violent/property crime down only to the county level for Minneapolis, so the FBI CDE's agency-level filter is the primary source that actually reaches city-level resolution.",
+    isPlaceholder: false,
+    updateFrequency: "annual",
+    methodology:
+      "FBI CDE trend-tool figures use the hierarchy rule (only the most serious offense per incident counted for the index total), while the Minnesota BCA's own reporting counts every Group A offense -- a genuine methodological divergence between two primary sources covering the same incidents, not a data-quality problem. Homicide count (72) cross-validated exactly against the Minnesota BCA's own agency-level homicide table. Minnesota's 2021 statewide NIBRS transition means pre-2021 figures are not directly comparable to this 2023 figure. Population denominator: Metropolitan Council 2023 estimate (433,633).",
+    defaultConfidence: "high",
+    country: "United States",
+    language: "en",
+  },
+  {
+    key: "seattle_acfr",
+    name: "City of Seattle Annual Comprehensive Financial Report (ACFR)",
+    publisher: "City of Seattle Office of City Finance",
+    url: "https://www.seattle.gov/city-finance/financial-reports",
+    sourceType: "government_report",
+    citation:
+      "Seattle's own audited ACFR: General Fund excess/(deficiency) of revenues over expenditures before transfers, Table S-11 total primary-government debt per capita, and Note 6 capital-asset additions (governmental + business-type activities).",
+    isPlaceholder: false,
+    updateFrequency: "annual",
+    methodology:
+      "debt_per_capita uses Table S-11 (total primary-government debt, including utility revenue bonds) rather than the narrower Table S-12 (net general-obligation bonds only) -- the two differ by roughly 7x per capita, so a future researcher should not substitute one for the other without re-labeling. capital_investment uses the government-wide capital-asset-additions total (Note 6), not Seattle's separate Capital Improvement Program planning document, which was not checked this pass.",
+    defaultConfidence: "high",
+    country: "United States",
+    language: "en",
+  },
+  {
+    key: "scers_valuation",
+    name: "Seattle City Employees' Retirement System (SCERS) Actuarial Valuation Report",
+    publisher: "Seattle City Employees' Retirement System, prepared by Milliman, Inc.",
+    url: "https://www.seattle.gov/retirement/about-us/financials-and-governance",
+    sourceType: "government_report",
+    citation:
+      "SCERS's own actuarial valuation report, Actuarial-Value-of-Assets-basis funding ratio, 'Schedule of Funding Progress.'",
+    isPlaceholder: false,
+    updateFrequency: "annual",
+    methodology:
+      "A market-value-of-assets-basis figure is also disclosed for informational purposes in the same report and is more volatile; Mandate uses the smoothed AVA basis for the primary multi-year trend, consistent with how NYC's and Minneapolis's pension figures were sourced this same pass.",
+    defaultConfidence: "high",
+    country: "United States",
+    language: "en",
+  },
+  {
+    key: "waspc_crime_in_washington",
+    name: "WASPC — Crime in Washington (Annual Report, Individual Agency Pages)",
+    publisher: "Washington Association of Sheriffs and Police Chiefs",
+    url: "https://www.waspc.org/",
+    sourceType: "government_dataset",
+    citation:
+      "WASPC's annual 'Crime in Washington' report, Seattle Police Department individual-agency page: per-offense NIBRS Group A counts and an all-offense 'Percent Cleared' figure.",
+    isPlaceholder: false,
+    updateFrequency: "annual",
+    methodology:
+      "WASPC does not publish a single 'violent crime rate' or 'property crime rate' per agency -- Mandate sums WASPC's own published per-offense rows (Murder+Rape+Robbery+Aggravated Assault for violent; Burglary+Larceny-Theft+Motor Vehicle Theft for property) using WASPC's own population figure (Washington OFM April-1 estimate), and imports the result at 'estimated' quality since the aggregation, while standard and fully traceable, is not itself a WASPC-published single number. clearance_rate is WASPC's published 'Percent Cleared' but scoped to ALL Group A offenses combined, not violent-crime-specific -- also imported at 'estimated' quality for this definitional mismatch, matching the same treatment given to Greater Manchester's clearance_rate in an earlier pass. Washington reached full statewide NIBRS participation in September 2018, but Seattle PD's own individual-agency pages use the same NIBRS schema back through the 2015 report, so no internal break exists within this 2015-2025 series specifically (though it may not be nationally comparable to other cities' pre-2021 SRS-based figures).",
+    defaultConfidence: "medium",
+    country: "United States",
+    language: "en",
+  },
+  {
+    key: "dc_ocfo_acfr",
+    name: "DC Office of the Chief Financial Officer — Annual Comprehensive Financial Report (ACFR)",
+    publisher: "DC Office of the Chief Financial Officer (OCFO)",
+    url: "https://cfo.dc.gov/",
+    sourceType: "government_report",
+    citation:
+      "DC's own audited ACFR, Statistical Section: Exhibit S-1D net change in fund balances (all governmental funds) and capital outlay, and Exhibit S-3C total debt per capita.",
+    isPlaceholder: false,
+    updateFrequency: "annual",
+    methodology:
+      "budget_balance uses the 'net change in fund balances, all governmental funds' series (Exhibit S-1D) rather than the narrower General-Fund-only balance change -- OCFO's own statistical section presents this as the year's net fiscal result on a modified-accrual basis. FY2025 debt_per_capita is officially unavailable: OCFO states Census Bureau population data for 2025 had not yet been released as of this ACFR's publication (Jan 2026), so no per-capita figure should be estimated for that year.",
+    defaultConfidence: "high",
+    country: "United States",
+    language: "en",
+  },
+  {
+    key: "dcrb_valuation",
+    name: "DC Retirement Board (DCRB) Actuarial Valuation Report",
+    publisher: "District of Columbia Retirement Board",
+    url: "https://dcrb.dc.gov/",
+    sourceType: "government_report",
+    citation:
+      "DCRB's own actuarial valuation for the Teachers' and Police Officers/Firefighters' Retirement Plans, 'Overall Plan Funded Ratio' (Actuarial-Value-of-Assets basis) -- DC is unusual among Mandate's US cities in that DCRB itself publishes a single blended figure across its retirement plans, so no Mandate-side averaging was needed.",
+    isPlaceholder: false,
+    updateFrequency: "annual",
+    methodology:
+      "A separate, non-identical 'funding status' series appears in DCRB's own CAFR/ACFR MD&A for FY2020-2021 using different methodology/rounding; this pass uses only the valuation-report 'Plan Funded Ratio' series (FY2023-2025 valuation dates) for internal consistency rather than splicing the two series together.",
+    defaultConfidence: "high",
+    country: "United States",
+    language: "en",
+  },
+  {
+    key: "mpd_dc_code_index",
+    name: "MPD DC Code Index Offense Data (Annual Report / crimecards.dc.gov)",
+    publisher: "DC Metropolitan Police Department (MPD)",
+    url: "https://mpdc.dc.gov/",
+    sourceType: "government_dataset",
+    citation:
+      "MPD's own DC Code Index Offense crime-rate reporting (MPD Annual Report, Appendix B), which MPD explicitly designates in its own words as its authoritative operational and public-reporting standard -- not the FBI/NIBRS figure, which MPD includes in the same report only as a courtesy cross-reference.",
+    isPlaceholder: false,
+    updateFrequency: "annual",
+    methodology:
+      "MPD's own report documents why its DC Code Index figures diverge materially from FBI/NIBRS (e.g., Aggravated Assault under NIBRS counts all serious assaults while MPD's ADW counts only assault with a dangerous weapon) -- roughly a 2x gap for violent crime in 2024 (494 vs. 1,006 per 100k). MPD publishes clearance rates per offense type (Homicide, Sex Abuse, ADW, Robbery) but no single blended violent-crime figure; a defensible incident-count-weighted average across all four categories was not computed for lack of retrieved weights and remains an open ResearchTask -- Mandate instead imports MPD's homicide-only closure rate (a real, correctly-scoped-but-narrow subset of violent crime) as a conservative proxy, clearly labeled as homicide-only.",
+    defaultConfidence: "high",
+    country: "United States",
+    language: "en",
+  },
+  {
+    key: "spd_annual_crime_report",
+    name: "Seattle Police Department Annual Crime Report / Year in Review",
+    publisher: "Seattle Police Department",
+    url: "https://www.seattle.gov/police/information-and-data/crime-data",
+    sourceType: "government_report",
+    citation:
+      "SPD's own directly-published annual crime report and year-end review: violent/property crime rates (2022, the last year SPD published a rate-denominated annual report) and homicide-specific clearance rate (2025 Year in Review).",
+    isPlaceholder: false,
+    updateFrequency: "annual",
+    methodology:
+      "SPD does not publish a blended all-crime or all-violent-crime clearance rate -- only category-specific figures like the 2025 homicide clearance rate (32 of 37 cases, 86%) -- so this is imported as a homicide-only proxy for clearance_rate, preferred over a same-year WASPC-derived all-Group-A-offense aggregate because it stays within the 'violent crime' scope the metric actually describes, even though it is narrower (homicide only, not all violent crime). SPD's 2022 violent/property crime figures are used in preference to the same year's WASPC-derived aggregate for the same reason of directness: they come straight from SPD's own report rather than being summed by Mandate from WASPC's per-offense rows.",
+    defaultConfidence: "high",
+    country: "United States",
+    language: "en",
+  },
+  {
+    key: "nyc_911_response_reporting",
+    name: "NYC 911 End-to-End Response Time Reporting",
+    publisher: "City of New York (911/NYPD/FDNY joint reporting)",
+    url: "https://www.nyc.gov/",
+    sourceType: "government_dataset",
+    citation:
+      "NYC's own official 911 end-to-end response-time reporting for life-threatening (Segment 1-2-3) medical emergencies.",
+    isPlaceholder: false,
+    updateFrequency: "annual",
+    defaultConfidence: "high",
+    country: "United States",
+    language: "en",
+  },
+  {
+    key: "minneapolis_open_data_crime_feed",
+    name: "City of Minneapolis Open Data — NIBRS Crime Feed",
+    publisher: "City of Minneapolis",
+    url: "https://opendata.minneapolismn.gov/",
+    sourceType: "government_dataset",
+    citation:
+      "Minneapolis's own open-data NIBRS-coded crime incident feed, aggregated by Mandate into violent/property crime rates using Census population estimates.",
+    isPlaceholder: false,
+    updateFrequency: "continuous",
+    methodology:
+      "Mandate-computed aggregation from the city's own raw incident feed, imported at 'estimated' quality since the rate itself is not a directly-published single figure. Where a given year is later superseded by a more authoritative agency-level FBI Crime Data Explorer figure (see fbi_cde_minneapolis), the FBI CDE figure takes precedence for that year.",
+    defaultConfidence: "medium",
+    country: "United States",
+    language: "en",
+  },
 ];

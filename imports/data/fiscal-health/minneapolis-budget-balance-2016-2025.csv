@@ -1,0 +1,11 @@
+jurisdiction,metric,year,value,confidence,notes
+minneapolis,budget_balance,2016,1506000,medium,"City of Minneapolis ACFR, computed as the year-over-year change between two consecutive years' officially published General Fund balance totals (Schedule 3, FY2024 ACFR's 10-year statistical schedule) -- simple arithmetic on two primary numbers, not an independent estimate."
+minneapolis,budget_balance,2017,9601000,high,"City of Minneapolis FY2017 CAFR, General Fund Schedule of Revenues, Expenditures, and Changes in Fund Balance -- Budget and Actual, directly reported net change figure."
+minneapolis,budget_balance,2018,-12902000,medium,"City of Minneapolis ACFR, computed as year-over-year change between two consecutive Schedule 3 General Fund balance totals, per the FY2024 ACFR's 10-year statistical schedule."
+minneapolis,budget_balance,2019,23844000,medium,"City of Minneapolis ACFR, computed as year-over-year change between two consecutive Schedule 3 General Fund balance totals."
+minneapolis,budget_balance,2020,39614000,medium,"City of Minneapolis ACFR, computed as year-over-year change between two consecutive Schedule 3 General Fund balance totals."
+minneapolis,budget_balance,2021,-24826000,high,"City of Minneapolis FY2021 ACFR, General Fund Budget-and-Actual schedule, directly reported net change figure."
+minneapolis,budget_balance,2022,30889000,high,"City of Minneapolis FY2022 ACFR, General Fund Budget-and-Actual schedule, directly reported net change figure."
+minneapolis,budget_balance,2023,36653000,medium,"City of Minneapolis ACFR, computed as year-over-year change between two consecutive Schedule 3 General Fund balance totals (FY2023 ACFR's own PDF had a non-standard font encoding that defeated direct text extraction)."
+minneapolis,budget_balance,2024,-1195000,high,"City of Minneapolis FY2024 ACFR, General Fund Budget-and-Actual schedule, directly reported net change figure."
+minneapolis,budget_balance,2025,-71630000,high,"City of Minneapolis FY2025 ACFR, General Fund Budget-and-Actual schedule, directly reported net change figure."

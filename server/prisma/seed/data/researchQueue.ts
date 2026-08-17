@@ -374,4 +374,13 @@ export const researchQueueSeed: ResearchQueueSeedItem[] = [
       "Confirm the Durham County Council Pension Fund's 31 March 2025 triennial actuarial valuation whole-fund funding percentage from its primary Valuation Report. Why it matters: the Fund's Funding Strategy Statement (5 December 2025) confirms a 2025 valuation exists and has been adopted for contribution-rate-setting, but only a press paraphrase (Local Government Chronicle, claiming 'no change' from 2022's ~98%) was found this pass -- not yet imported pending a primary document. Already checked: durham.gov.uk media library (found the 2022 report and the Funding Strategy Statement, not a distinct '2025 Valuation Report' document). Difficulty: low if the document can be located. Skill set: researcher comfortable searching council document libraries.",
     priority: 5,
   },
+  {
+    key: "dc-violent-crime-clearance-weighted-average",
+    jurisdictionSlug: "washington-dc",
+    metricSlug: "clearance_rate",
+    taskType: "metric",
+    researchQuestion:
+      "Compute a defensible incident-count-weighted average violent-crime clearance rate for DC from MPD's own per-offense-type clearance rates (Homicide, Sex Abuse, Assault with a Dangerous Weapon, Robbery). Why it matters: MPD publishes clearance rates per offense type but no single blended violent-crime figure; the 2026-08-17 pass imported MPD's homicide-only closure rate (60%, 2024) as a conservative correctly-scoped-but-narrow proxy rather than force-averaging without the incident-count weights needed to do it defensibly. Already checked: MPD Annual Report 2024 (p.31, per-offense clearance table) and MPD's Quarterly Clearance Rates page (mpdc.dc.gov/page/quarterly-clearance-rates-cy2023-cy2026) -- both give rates but not the underlying incident counts needed to weight them. Suggested next source: MPD's DC Code Index Offense counts by category (same Annual Report, Appendix B) to supply the weights. Difficulty: low-medium (arithmetic once counts are located). Skill set: data analyst.",
+    priority: 6,
+  },
 ];

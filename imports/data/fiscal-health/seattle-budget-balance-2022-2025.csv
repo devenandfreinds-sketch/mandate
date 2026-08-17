@@ -1,0 +1,5 @@
+jurisdiction,metric,year,value,confidence,notes
+seattle,budget_balance,2022,204200000,medium,"City of Seattle FY2023 ACFR MD&A narrative: General Fund excess of revenues over expenditures, approximate figure as stated in the narrative (not the exact Statement B-4 line)."
+seattle,budget_balance,2023,211278000,high,"City of Seattle FY2023 ACFR, Statement B-4, General Fund excess of revenues over expenditures (before other financing sources/uses)."
+seattle,budget_balance,2024,-117813000,high,"City of Seattle FY2025 ACFR, Table A-3 / Statement B-4 (FY2024 comparative column), General Fund deficiency of revenues under expenditures (before transfers)."
+seattle,budget_balance,2025,106478000,high,"City of Seattle FY2025 ACFR, Statement B-4, General Fund excess of revenues over expenditures (before other financing sources/uses)."

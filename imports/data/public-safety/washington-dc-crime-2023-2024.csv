@@ -1,0 +1,5 @@
+jurisdiction,metric,year,value,confidence,notes
+washington-dc,violent_crime_rate,2023,786,high,"MPD Annual Report 2024, DC Code Index Offense violent-crime rate per 100,000 (5,336 incidents / population 678,972). MPD's own report explicitly designates this DC Code Index methodology, not FBI/NIBRS, as its authoritative standard -- FBI/NIBRS counts materially more (roughly 2x) because it includes all aggravated assaults rather than only MPD's narrower Assault-with-Dangerous-Weapon category."
+washington-dc,violent_crime_rate,2024,494,high,"MPD Annual Report 2024, DC Code Index Offense violent-crime rate per 100,000 (3,469 incidents / population 702,250). Preliminary, as labeled in the source report (data as of 1/1/2025)."
+washington-dc,property_crime_rate,2023,4283,high,"MPD Annual Report 2024, DC Code Index Offense property-crime rate per 100,000 (29,078 incidents / population 678,972)."
+washington-dc,property_crime_rate,2024,3685,high,"MPD Annual Report 2024, DC Code Index Offense property-crime rate per 100,000 (25,879 incidents / population 702,250). Preliminary."

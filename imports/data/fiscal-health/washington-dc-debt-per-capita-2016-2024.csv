@@ -1,0 +1,10 @@
+jurisdiction,metric,year,value,confidence,notes
+washington-dc,debt_per_capita,2016,14587,high,"DC FY2025 ACFR, Exhibit S-3C 'Ratios of Outstanding Debt by Type,' total debt per capita (all governmental debt types: GO bonds, income tax revenue bonds, TIF/PILOT bonds, lease liabilities, GARVEE, tobacco bonds, etc.), population per Census Bureau estimate (687,576)."
+washington-dc,debt_per_capita,2017,14438,high,"DC ACFR, Exhibit S-3C, same methodology, population 697,079."
+washington-dc,debt_per_capita,2018,15417,high,"DC ACFR, Exhibit S-3C, same methodology, population 704,147."
+washington-dc,debt_per_capita,2019,16319,high,"DC ACFR, Exhibit S-3C, same methodology, population 708,253."
+washington-dc,debt_per_capita,2020,19443,high,"DC ACFR, Exhibit S-3C, same methodology, population 670,917."
+washington-dc,debt_per_capita,2021,18858,high,"DC ACFR, Exhibit S-3C, same methodology, population 669,256."
+washington-dc,debt_per_capita,2022,21861,high,"DC ACFR, Exhibit S-3C, same methodology, population 676,725."
+washington-dc,debt_per_capita,2023,21565,high,"DC ACFR, Exhibit S-3C, same methodology, population 687,324."
+washington-dc,debt_per_capita,2024,21251,high,"DC FY2025 ACFR, Exhibit S-3C, same methodology, population 702,250. FY2025 per-capita figure is officially unavailable: OCFO states 2025 Census Bureau population data had not yet been released as of this ACFR's Jan 2026 publication -- not estimated for that reason."

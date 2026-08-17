@@ -1,0 +1,12 @@
+jurisdiction,metric,year,value,confidence,notes
+minneapolis,debt_per_capita,2015,1879,high,"City of Minneapolis ACFR, Schedule 9 'Outstanding Debt by Type and Per Capita,' total primary-government debt ($772,677K) per capita."
+minneapolis,debt_per_capita,2016,1851,high,"City of Minneapolis ACFR, Schedule 9, total debt ($763,600K) per capita."
+minneapolis,debt_per_capita,2017,1849,high,"City of Minneapolis ACFR, Schedule 9, total debt ($764,882K) per capita."
+minneapolis,debt_per_capita,2018,1853,high,"City of Minneapolis ACFR, Schedule 9, total debt ($782,404K) per capita."
+minneapolis,debt_per_capita,2019,2003,high,"City of Minneapolis ACFR, Schedule 9, total debt ($851,974K) per capita."
+minneapolis,debt_per_capita,2020,1904,high,"City of Minneapolis ACFR, Schedule 9, total debt ($829,988K) per capita."
+minneapolis,debt_per_capita,2021,2045,high,"City of Minneapolis ACFR, Schedule 9, total debt ($879,064K) per capita."
+minneapolis,debt_per_capita,2022,2066,high,"City of Minneapolis ACFR, Schedule 9, total debt ($897,403K) per capita."
+minneapolis,debt_per_capita,2023,2070,high,"City of Minneapolis ACFR, Schedule 9, total debt ($904,460K) per capita."
+minneapolis,debt_per_capita,2024,2134,high,"City of Minneapolis FY2024 ACFR, Schedule 9, total debt ($929,140K) per capita (population 435,483 per Schedule 14)."
+minneapolis,debt_per_capita,2025,2219,high,"City of Minneapolis FY2025 ACFR, Schedule 9, total debt ($959,813K) per capita."

@@ -1,0 +1,12 @@
+jurisdiction,metric,year,value,confidence,notes
+minneapolis,pension_funding_ratio,2015,78.2,high,"City of Minneapolis ACFR, GASB 68 proportionate-share disclosure, PERA General Employees Retirement Plan (MERF's successor plan after its Jan 2015 merger into statewide PERA GERP), 'Plan Fiduciary Net Position as % of Total Pension Liability,' measurement date June 30, 2015."
+minneapolis,pension_funding_ratio,2016,68.9,high,"City of Minneapolis ACFR, same GASB 68 disclosure, measurement date 6/30/2016."
+minneapolis,pension_funding_ratio,2017,75.9,high,"City of Minneapolis ACFR, same GASB 68 disclosure, measurement date 6/30/2017."
+minneapolis,pension_funding_ratio,2018,79.5,high,"City of Minneapolis ACFR, same GASB 68 disclosure, measurement date 6/30/2018."
+minneapolis,pension_funding_ratio,2019,80.2,high,"City of Minneapolis ACFR, same GASB 68 disclosure, measurement date 6/30/2019."
+minneapolis,pension_funding_ratio,2020,79.1,high,"City of Minneapolis ACFR, same GASB 68 disclosure, measurement date 6/30/2020."
+minneapolis,pension_funding_ratio,2021,87.0,high,"City of Minneapolis ACFR, same GASB 68 disclosure, measurement date 6/30/2021."
+minneapolis,pension_funding_ratio,2022,76.7,high,"City of Minneapolis ACFR, same GASB 68 disclosure, measurement date 6/30/2022."
+minneapolis,pension_funding_ratio,2023,83.1,high,"City of Minneapolis ACFR, same GASB 68 disclosure, measurement date 6/30/2023."
+minneapolis,pension_funding_ratio,2024,89.1,high,"City of Minneapolis FY2024 ACFR, same GASB 68 disclosure, measurement date 6/30/2024. This is the city's own proportionate-share figure, not PERA's plan-wide figure (which covers all PERA General participating employers, not just Minneapolis)."
+minneapolis,pension_funding_ratio,2025,90.8,high,"City of Minneapolis FY2025 ACFR, same GASB 68 disclosure, measurement date 6/30/2025."

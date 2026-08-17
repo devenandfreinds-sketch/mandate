@@ -1,0 +1,12 @@
+jurisdiction,metric,year,value,confidence,notes
+minneapolis,capital_investment,2015,76361000,high,"City of Minneapolis ACFR, Schedule 4 'Changes in Fund Balance, Governmental Funds,' capital outlay line."
+minneapolis,capital_investment,2016,151681000,high,"City of Minneapolis ACFR, Schedule 4, capital outlay."
+minneapolis,capital_investment,2017,193489000,high,"City of Minneapolis ACFR, Schedule 4, capital outlay."
+minneapolis,capital_investment,2018,107091000,high,"City of Minneapolis ACFR, Schedule 4, capital outlay."
+minneapolis,capital_investment,2019,174674000,high,"City of Minneapolis ACFR, Schedule 4, capital outlay."
+minneapolis,capital_investment,2020,191240000,high,"City of Minneapolis ACFR, Schedule 4, capital outlay."
+minneapolis,capital_investment,2021,127867000,high,"City of Minneapolis ACFR, Schedule 4, capital outlay."
+minneapolis,capital_investment,2022,115520000,high,"City of Minneapolis ACFR, Schedule 4, capital outlay."
+minneapolis,capital_investment,2023,131698000,high,"City of Minneapolis ACFR, Schedule 4, capital outlay."
+minneapolis,capital_investment,2024,147150000,high,"City of Minneapolis FY2024 ACFR, Schedule 4, governmental-funds capital outlay. A broader government-wide gross-additions figure ($365.2M, governmental+business-type) also exists in Note 4 of the same ACFR; this row uses the narrower governmental-funds-only figure for consistency across all 11 years."
+minneapolis,capital_investment,2025,167090000,high,"City of Minneapolis FY2025 ACFR, Schedule 4, governmental-funds capital outlay. A broader government-wide figure ($660.1M) also exists in Note 4, inflated by a one-time surge from the completion of the 'Water18' capital project; this row uses the narrower, consistent governmental-funds-only figure."

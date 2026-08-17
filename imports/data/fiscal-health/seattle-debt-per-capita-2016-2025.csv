@@ -1,0 +1,11 @@
+jurisdiction,metric,year,value,confidence,notes
+seattle,debt_per_capita,2016,7717,high,"City of Seattle ACFR, Table S-11 'Ratios of Outstanding Debt by Type,' total primary-government debt (governmental + business-type, incl. utility revenue bonds) per capita."
+seattle,debt_per_capita,2017,8143,high,"City of Seattle ACFR, Table S-11, same methodology."
+seattle,debt_per_capita,2018,7987,high,"City of Seattle ACFR, Table S-11, same methodology."
+seattle,debt_per_capita,2019,7792,high,"City of Seattle ACFR, Table S-11, same methodology."
+seattle,debt_per_capita,2020,7503,high,"City of Seattle ACFR, Table S-11, same methodology."
+seattle,debt_per_capita,2021,7694,high,"City of Seattle ACFR, Table S-11, same methodology."
+seattle,debt_per_capita,2022,8275,high,"City of Seattle ACFR, Table S-11, same methodology."
+seattle,debt_per_capita,2023,8141,high,"City of Seattle FY2023 ACFR, Table S-11 (p.298-300 in the FY2025 ACFR's 10-year table), same methodology. A narrower alternative (Table S-12, net general-obligation bonds only, excl. utility revenue bonds) gives a much smaller figure (~$1,100-1,600/capita over this period) -- do not conflate the two."
+seattle,debt_per_capita,2024,7944,high,"City of Seattle FY2025 ACFR, Table S-11, same methodology."
+seattle,debt_per_capita,2025,7985,high,"City of Seattle FY2025 ACFR, Table S-11, same methodology."

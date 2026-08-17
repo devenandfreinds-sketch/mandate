@@ -1,0 +1,11 @@
+jurisdiction,metric,year,value,confidence,notes
+washington-dc,capital_investment,2016,1107239000,high,"DC FY2025 ACFR, Exhibit S-1D, 'Capital outlay' governmental-funds expenditure line (actual spend, modified-accrual budgetary basis)."
+washington-dc,capital_investment,2017,1233004000,high,"DC ACFR, Exhibit S-1D, same methodology."
+washington-dc,capital_investment,2018,1445192000,high,"DC ACFR, Exhibit S-1D, same methodology."
+washington-dc,capital_investment,2019,1420756000,high,"DC ACFR, Exhibit S-1D, same methodology."
+washington-dc,capital_investment,2020,1808426000,high,"DC ACFR, Exhibit S-1D, same methodology."
+washington-dc,capital_investment,2021,1742521000,high,"DC ACFR, Exhibit S-1D, same methodology."
+washington-dc,capital_investment,2022,1615696000,high,"DC ACFR, Exhibit S-1D, same methodology."
+washington-dc,capital_investment,2023,1817853000,high,"DC ACFR, Exhibit S-1D, same methodology."
+washington-dc,capital_investment,2024,1840381000,high,"DC ACFR, Exhibit S-1D, same methodology."
+washington-dc,capital_investment,2025,2143441000,high,"DC FY2025 ACFR, Exhibit S-1D, 'Capital outlay' line. A separate, narrower GAAP-capitalized-expenditures figure ($1,801,199K) also appears in the same exhibit; this row uses the broader budgetary capital-outlay figure for consistency with 'total capital expenditure' as Mandate's metric describes it. DC's FY2025-2030 Capital Improvement Plan shows $3.6B in appropriated capital budget AUTHORITY for FY2025 -- a distinct, much larger planning figure not to be confused with this actual-expenditure figure."

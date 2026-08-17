@@ -1,0 +1,6 @@
+jurisdiction,metric,year,value,confidence,notes
+new-york-city,budget_balance,2015,5000000,high,"NYC Comptroller, FY2015 ACFR release: General Fund operating surplus (pre-restricted-fund-activities adjustment). Revenue $78.035B / expenditure $78.030B."
+new-york-city,budget_balance,2022,1300000000,high,"NYC Comptroller, FY2022 ACFR release: General Fund operating surplus. Revenue $107.23B / expenditure $105.92B."
+new-york-city,budget_balance,2023,60500000,high,"NYC Comptroller, FY2023 ACFR release: General Fund operating surplus. Revenue $108.24B / expenditure $108.18B."
+new-york-city,budget_balance,2024,-159000000,high,"NYC Comptroller, FY2024 ACFR release: General Fund operating deficit (pre-adjustment). Revenue $112.814B / expenditure $112.973B. A post-restricted-fund-adjustment figure of +$5.3M also appears in the same release; this row uses the pre-adjustment operating result for consistency across years."
+new-york-city,budget_balance,2025,-30500000,high,"NYC Comptroller, FY2025 ACFR release: General Fund operating deficit (pre-adjustment). Revenue $117.660B / expenditure $117.690B. Post-adjustment figure +$5.0M; Revenue Stabilization Fund balance reached $1.969B."
