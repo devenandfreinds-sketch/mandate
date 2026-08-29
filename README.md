@@ -2,6 +2,8 @@
 
 Mandate tracks whether emerging urban political movements deliver measurable results once they enter government, comparing governance through transparent, publicly-sourced statistics.
 
+**New to the project?** Read [`docs/START_HERE.md`](docs/START_HERE.md) first — it tells you what to read next based on whether you're a researcher, an engineer, or an outside contributor.
+
 This is the initial vertical slice: a production-quality database schema, API, and four core pages (Landing, Dashboard, Governance Models, City/Metro Profiles), fully populated with clearly-marked placeholder data. The Pipeline Tracker UI, Compare tool, Timeline, Methodology, Sources, and API Docs pages are intentionally out of scope for this pass — the schema already supports them without migration.
 
 ## Stack

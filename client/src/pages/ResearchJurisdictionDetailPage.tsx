@@ -30,6 +30,9 @@ export function ResearchJurisdictionDetailPage() {
         <Link to={`/places/${data.jurisdictionSlug}`} className="text-sm text-muted-foreground hover:underline">
           View public profile →
         </Link>
+        <Link to="/methodology/pipeline" className="text-sm text-muted-foreground hover:underline">
+          What do "real"/"estimated"/"placeholder" mean?
+        </Link>
       </div>
 
       <Card className="mt-6">

@@ -1,9 +1,12 @@
 # First Week for a New Mandate Researcher
 
 A practical five-day path from zero context to a first real contribution live on Mandate. Uses Chicago
-as the training environment throughout, since it's the only jurisdiction with completed, real case
-studies to learn from. Budget roughly half a day of focused time per day — this is not meant to be a
-full-time crash course.
+as the training environment for Days 1-2 (it has the deepest, most-worked-through case studies to learn
+methodology from) — Chicago is no longer the *only* jurisdiction with completed real case studies (NYC,
+Seattle, Minneapolis, D.C., and Greater Manchester all have real researched pipelines and metrics too;
+see `docs/DSA_RESEARCH_MASTER_REPORT.md` and `docs/GREATER_MANCHESTER_CASE_STUDY.md`), just the one this
+guide happens to walk through first. Budget roughly half a day of focused time per day — this is not
+meant to be a full-time crash course.
 
 ## Day 1 — Understand Mandate
 
@@ -36,9 +39,11 @@ Estimated vs. Unavailable — and explain why those aren't the same axis.
 
 ## Day 3 — Complete a small research task
 
-- Go to `/admin/research-queue`, and pick the lowest-effort available task (currently `median_wages` or
-  `unemployment_rate` — both are "Easy" per `docs/CHICAGO_RESEARCH_ROADMAP.md`). Assign it to yourself
-  and set it to `in_progress`.
+- Go to `/admin/research-queue` and sort/filter to `metric` tasks. Pick the lowest-priority-number
+  `unassigned` one you can — deliberately not naming specific metrics here, since which ones are still
+  open changes as the queue gets worked through; a task's own `researchQuestion` text tells you its
+  difficulty, and anything explicitly marked "hard" or "difficult" is not a good Day 3 pick. Assign it to
+  yourself and set it to `in_progress`.
 - Work through `docs/RESEARCH_SOP.md` steps 2-9 for this task: find the source (BLS LAUS or Census ACS),
   extract the values, and determine the right data quality label.
 - This day is intentionally scoped to *finding and evaluating* a source, not yet submitting real data —

@@ -28,7 +28,12 @@ export function DataCatalogPage() {
 
   return (
     <PageContainer>
-      <h1 className="text-2xl font-semibold">Data Catalog</h1>
+      <div className="flex flex-wrap items-baseline justify-between gap-3">
+        <h1 className="text-2xl font-semibold">Data Catalog</h1>
+        <Link to="/methodology/pipeline" className="text-xs text-muted-foreground hover:underline">
+          What do the data-quality badges mean?
+        </Link>
+      </div>
       <p className="mt-1 max-w-3xl text-muted-foreground">
         Every metric Mandate tracks, its definition and methodology, which official source it should come from, and
         how complete real (non-placeholder) data is across the 6 tracked jurisdictions. Use this page to find

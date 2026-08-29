@@ -232,7 +232,14 @@ The underlying cause is always the same: `DATABASE_URL` isn't actually present i
 
 ### Admin login works locally but not in production
 
-Almost always a `CLIENT_URL`/cookie issue: confirm `NODE_ENV=production` is set on `mandate-server` (this is what switches the session cookie to `SameSite=None; Secure`, required cross-origin), and that you're accessing the client over `https://` (Railway's public domains are HTTPS by default, but custom domains need to be configured for it).
+This is not a cookie/`SameSite` issue — auth is a bearer token stored in `localStorage`, not a cookie
+(see the "Verifying the deployment" section above and `server/src/middleware/adminAuth.ts`), so
+`CLIENT_URL`/`NODE_ENV` do not affect whether login itself succeeds. Check instead: (1) `SESSION_SECRET`
+and `ADMIN_PASSWORD_HASH` are both set on `mandate-server` and match what you expect (a stale/missing
+`ADMIN_PASSWORD_HASH` is the most common cause of "wrong password" even with the correct password); (2)
+the client is actually reaching the server at all — open the browser's network tab on the login request
+and confirm it's hitting the right server URL and getting a JSON response rather than a CORS error or a
+404 from a misconfigured `VITE_API_URL`.
 
 ## Alternative: single-service deployment
 

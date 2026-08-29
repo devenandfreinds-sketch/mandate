@@ -2,7 +2,8 @@
 
 This is engineering-facing documentation. If you're a researcher adding data or pipeline assessments
 rather than writing code, you want `docs/RESEARCHER_HANDBOOK.md` and `docs/RESEARCH_SOP.md` instead —
-most of that work happens through the admin UI, not by editing this repository.
+most of that work happens through the admin UI, not by editing this repository. Either way,
+`docs/START_HERE.md` is the actual entry point — read that first if you haven't already.
 
 ## Repository structure
 
@@ -106,6 +107,18 @@ npm run test -w server   # vitest — currently covers period-boundary parsing (
 
 Automated test coverage is intentionally minimal, not absent — a handful of `vitest` tests exist for the
 import pipeline's period-parsing logic (the exact area a past real bug came from), not a full suite.
+
+**If `git commit`/`git push` fails citing a missing identity** ("unable to auto-detect email address," or
+similar), your `~/.gitconfig` doesn't have `user.name`/`user.email` set — this can happen on a fresh
+machine, after a reimage, or if the config file itself goes missing. Fix it once with:
+
+```bash
+git config --global user.name "Your Name"
+git config --global user.email "you@example.com"
+```
+
+This is a local git setting, not a Mandate-specific credential — nobody needs to grant you anything to
+fix it yourself.
 `npm run build` passing cleanly remains the primary automated correctness signal. Manual browser
 verification of anything UI-facing is expected before considering a change done.
 

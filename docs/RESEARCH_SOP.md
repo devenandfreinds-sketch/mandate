@@ -6,7 +6,8 @@ is the checklist version.
 
 ## 1. Select a research task
 
-Go to `/admin/research-queue` (log in first — ask whoever set up your account for the admin password).
+Go to `/admin/research-queue` (log in first — see CONTRIBUTING.md's "Getting access" section for how to
+get the shared admin password if you don't have it yet).
 Pick the highest-priority `unassigned` task you're able to do, or continue one already assigned to you.
 Put your name in "Assigned to" and set status to `in_progress` immediately — this is how the rest of the
 team knows what's already spoken for.
@@ -142,6 +143,9 @@ search for named credible alternative coverage — stop. Continuing to dig indef
 negative expected value: it delays the queue and tempts a lower evidentiary bar just to "find something."
 "Unavailable" is a correct, respected outcome, not a failure to report.
 
-Set the task's final status to `complete` (or `unavailable` if that's the honest outcome) and update
-`sourceStatus`/`notes` with a one-line summary of what you found or why it's unavailable, for the next
-researcher's benefit.
+Set the task's status to `awaiting_review` (or `unavailable` directly, if that's the honest outcome) and
+update `sourceStatus`/`notes` with a one-line summary of what you found or why it's unavailable, for the
+next researcher's benefit. A task cannot be set to `complete` directly — that status is only reachable
+when a different reviewer (never the same person who did the research) reviews your `awaiting_review`
+submission and accepts it via the "Accept" action. If they find a problem, they'll set it to
+`changes_requested` instead, with their reasoning in `reviewNotes`, and you'll pick it back up.

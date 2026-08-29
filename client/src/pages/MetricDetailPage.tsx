@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { PageContainer } from "@/components/layout/PageContainer";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -22,9 +22,14 @@ export function MetricDetailPage() {
 
   return (
     <PageContainer>
-      <div className="flex flex-wrap items-center gap-3">
-        <h1 className="text-2xl font-semibold">{metric.name}</h1>
-        <Badge variant="secondary">{metric.categorySlug}</Badge>
+      <div className="flex flex-wrap items-baseline justify-between gap-3">
+        <div className="flex flex-wrap items-center gap-3">
+          <h1 className="text-2xl font-semibold">{metric.name}</h1>
+          <Badge variant="secondary">{metric.categorySlug}</Badge>
+        </div>
+        <Link to="/methodology/pipeline" className="text-xs text-muted-foreground hover:underline">
+          What do the data-quality badges mean?
+        </Link>
       </div>
 
       <section className="mt-6 grid gap-6 sm:grid-cols-2">

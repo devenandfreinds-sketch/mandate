@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { classifySeriesQuality, type MetricSeries } from "@mandate/shared";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { MetricSparkline } from "@/components/charts/MetricSparkline";
-import { SeriesQualityBadge } from "@/components/governance/SeriesQualityBadge";
+import { SeriesQualityBadge, SeriesQualityBreakdownText } from "@/components/governance/SeriesQualityBadge";
 import { formatMetricValue, categoryChartColor } from "@/lib/utils";
 
 export function MetricCard({ series }: { series: MetricSeries }) {
@@ -35,6 +35,7 @@ export function MetricCard({ series }: { series: MetricSeries }) {
           <MetricSparkline values={series.values} color={color} />
         </div>
         <SeriesQualityBadge result={quality} className="mt-2" />
+        <SeriesQualityBreakdownText result={quality} />
       </CardContent>
     </Card>
   );

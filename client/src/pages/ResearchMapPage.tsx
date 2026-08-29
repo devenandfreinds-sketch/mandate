@@ -212,6 +212,23 @@ export function ResearchMapPage() {
         </CardContent>
       </Card>
 
+      {/* Internal research queue */}
+      <Card className="mt-8">
+        <CardHeader>
+          <CardTitle className="text-base">Part of Mandate's Research Team?</CardTitle>
+        </CardHeader>
+        <CardContent className="flex flex-wrap items-center justify-between gap-3">
+          <p className="max-w-xl text-sm text-muted-foreground">
+            Claim a task from the prioritized research queue, or continue one already assigned to you.
+            Requires the team's shared login — see <code>CONTRIBUTING.md</code>'s "Getting access" section
+            if you don't have it yet.
+          </p>
+          <Link to="/admin/research-queue" className={buttonClassName({ variant: "outline", size: "sm" })}>
+            Open the research queue
+          </Link>
+        </CardContent>
+      </Card>
+
       {/* External research network */}
       <Card className="mt-8">
         <CardHeader>
