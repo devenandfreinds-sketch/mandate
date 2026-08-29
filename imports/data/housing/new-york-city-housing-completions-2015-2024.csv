@@ -1,0 +1,11 @@
+jurisdiction,metric,year,value,confidence,notes
+new-york-city,housing_completions,2015,15594,high,"NYC RGB 2025 Housing Supply Report, Appendix 4, sourced from NYC Dept. of City Planning (Certificates of Occupancy for new Class A residential buildings; excludes preservation/rehab and non-Class-A units)."
+new-york-city,housing_completions,2016,23451,high,"NYC RGB Housing Supply Report, Appendix 4, same methodology as 2015."
+new-york-city,housing_completions,2017,25472,high,"NYC RGB Housing Supply Report, Appendix 4, same methodology as 2015."
+new-york-city,housing_completions,2018,28635,high,"NYC RGB Housing Supply Report, Appendix 4, same methodology as 2015."
+new-york-city,housing_completions,2019,20155,high,"NYC RGB Housing Supply Report, Appendix 4, same methodology as 2015."
+new-york-city,housing_completions,2020,24692,high,"NYC RGB Housing Supply Report, Appendix 4, same methodology as 2015."
+new-york-city,housing_completions,2021,28199,high,"NYC RGB Housing Supply Report, Appendix 4, same methodology as 2015."
+new-york-city,housing_completions,2022,25871,high,"NYC RGB Housing Supply Report, Appendix 4, same methodology as 2015."
+new-york-city,housing_completions,2023,27962,high,"NYC RGB Housing Supply Report, Appendix 4, same methodology as 2015. DCP's own report notes data is updated annually and may not match earlier-vintage figures published in prior reports."
+new-york-city,housing_completions,2024,33974,high,"NYC RGB Housing Supply Report, Appendix 4, same methodology as 2015."

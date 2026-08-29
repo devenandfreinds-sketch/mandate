@@ -1,0 +1,11 @@
+jurisdiction,metric,year,value,confidence,notes
+seattle,employment,2015,1888000,medium,"BLS CES via FRED (series SMU53426600000000001A), Seattle-Tacoma-Bellevue, WA MSA, total nonfarm employment, annual average, NSA (1,888.0 thousand). METRO-AREA PROXY, not Seattle-city-proper: CES does not produce a city-level total-nonfarm series."
+seattle,employment,2016,1949300,medium,"BLS CES via FRED, Seattle-Tacoma-Bellevue MSA, annual average (1,949.3 thousand). Same metro-area-proxy caveat."
+seattle,employment,2017,1997300,medium,"BLS CES via FRED, Seattle-Tacoma-Bellevue MSA, annual average (1,997.3 thousand). Same caveat."
+seattle,employment,2018,2043700,medium,"BLS CES via FRED, Seattle-Tacoma-Bellevue MSA, annual average (2,043.7 thousand). Same caveat."
+seattle,employment,2019,2089700,medium,"BLS CES via FRED, Seattle-Tacoma-Bellevue MSA, annual average (2,089.7 thousand). Same caveat."
+seattle,employment,2020,1973400,medium,"BLS CES via FRED, Seattle-Tacoma-Bellevue MSA, annual average (1,973.4 thousand). Same caveat."
+seattle,employment,2021,2009900,medium,"BLS CES via FRED, Seattle-Tacoma-Bellevue MSA, annual average (2,009.9 thousand). Same caveat."
+seattle,employment,2022,2098500,medium,"BLS CES via FRED, Seattle-Tacoma-Bellevue MSA, annual average (2,098.5 thousand). Same caveat."
+seattle,employment,2023,2115700,medium,"BLS CES via FRED, Seattle-Tacoma-Bellevue MSA, annual average (2,115.7 thousand). Same caveat."
+seattle,employment,2024,2124600,medium,"BLS CES via FRED, Seattle-Tacoma-Bellevue MSA, annual average (2,124.6 thousand). Same caveat."

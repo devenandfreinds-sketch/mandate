@@ -1,0 +1,4 @@
+jurisdiction,metric,year,value,confidence,notes
+seattle,median_wages,2017,50544,medium,"BLS OEWS, Seattle-Bellevue-Everett, WA Metropolitan Division (area code 42644, retired ~2020), 'All Occupations' median hourly wage $24.30, annualized at 2,080 hours/year. METRO-AREA PROXY, not Seattle-city-proper: OEWS does not publish city-level wage estimates."
+seattle,median_wages,2020,58323,medium,"BLS OEWS, Seattle-Tacoma-Bellevue, WA MSA (area code 42660, full 3-county MSA replacing the retired MD), median hourly wage $28.04, annualized. Same metro-area-proxy caveat; note the area definition itself changed between the 2017 and 2020 rows."
+seattle,median_wages,2025,72610,medium,"BLS OEWS, Seattle-Tacoma-Bellevue, WA MSA, directly-published annual median wage (not derived from hourly), 'All Occupations.' Same metro-area-proxy caveat."

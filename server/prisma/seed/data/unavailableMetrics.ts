@@ -104,4 +104,42 @@ export const unavailableMetrics: UnavailableMetricSpec[] = [
   // 2024 (disclosure_code "N" across the board, confirmed via the raw API CSV) -- a wider suppression
   // than 2022's single-code gap. A temporary, not permanent, gap; revisit in a future QCEW revision.
   { metricSlug: "life_sciences_employment", jurisdictionSlug: "chicago", years: [2024] },
+  // DSA clean-out workforce pass (2026-08-14): apprenticeships confirmed unavailable at
+  // city-scope for all four cities checked. NY State does not use the federal RAPIDS system and
+  // publishes only statewide apprentice counts (no NYC breakout). Minnesota's Apprenticeship
+  // Minnesota program (MN DLI) likewise publishes only statewide figures, no Minneapolis/Hennepin
+  // county aggregate. Washington's WSATC/L&I publishes only statewide figures and per-sponsor
+  // program applications (not an aggregate enrollment count by city/county). DC's DOES publishes
+  // only vague press-release language ("over 850 residents," no exact dated enrollment count) --
+  // not a discrete number suitable for a time series. This is a confirmed structural absence
+  // (federal/state apprenticeship data infrastructure doesn't break down to city level), not an
+  // unresearched gap -- revisit only if a state agency starts publishing city/county aggregates.
+  { metricSlug: "apprenticeships", jurisdictionSlug: "new-york-city" },
+  { metricSlug: "apprenticeships", jurisdictionSlug: "minneapolis" },
+  { metricSlug: "apprenticeships", jurisdictionSlug: "seattle" },
+  { metricSlug: "apprenticeships", jurisdictionSlug: "washington-dc" },
+  // DSA clean-out housing pass (2026-08-14): housing_starts confirmed structurally unavailable at
+  // city level for all four cities checked, independently, by four separate research passes. The
+  // Census Bureau's Survey of Construction (SOC) -- the actual primary source for a genuine
+  // construction-"starts" statistic, as distinct from a permit-issuance statistic -- has
+  // insufficient sample size for anything below the national/4-region level and is never published
+  // at state, metro, county, or place level. No city agency in any of the four cities publishes a
+  // comprehensive, all-housing "units started" aggregate either (some track individual subsidized
+  // projects' groundbreakings, which is a narrower, non-comparable concept). This mirrors the same
+  // kind of structural (not researched-and-absent) gap already documented for bond_rating_index in
+  // UK jurisdictions -- the statistic simply does not exist at this geography, for any US city.
+  { metricSlug: "housing_starts", jurisdictionSlug: "new-york-city" },
+  { metricSlug: "housing_starts", jurisdictionSlug: "minneapolis" },
+  { metricSlug: "housing_starts", jurisdictionSlug: "seattle" },
+  { metricSlug: "housing_starts", jurisdictionSlug: "washington-dc" },
+  // Same pass: housing_completions confirmed unavailable for Minneapolis and DC specifically --
+  // HUD SOCDS explicitly states only its Building Permits database is actively maintained (no
+  // completions series), and neither city publishes an aggregated annual "units completed/CO'd"
+  // statistic from its own certificate-of-occupancy process (only permit-level microdata lookups
+  // exist, which would require original analysis to aggregate, not citation of an existing
+  // government-published number). NYC and Seattle are NOT included here: NYC has a real DCP-sourced
+  // series (imported), and Seattle's status is a genuine unresolved source conflict, not a confirmed
+  // absence -- see the seattle-housing-completions-citation-conflict research task.
+  { metricSlug: "housing_completions", jurisdictionSlug: "minneapolis" },
+  { metricSlug: "housing_completions", jurisdictionSlug: "washington-dc" },
 ];

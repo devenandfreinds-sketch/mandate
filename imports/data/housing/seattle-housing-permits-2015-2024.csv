@@ -1,0 +1,11 @@
+jurisdiction,metric,year,value,confidence,notes
+seattle,housing_permits_issued,2015,11340,high,"Census BPS place-level annual file (West Region), Seattle city (state 53, place 63000), all 12 months reported, no imputation."
+seattle,housing_permits_issued,2016,9958,high,"Census BPS, same methodology as 2015."
+seattle,housing_permits_issued,2017,9887,high,"Census BPS, same methodology as 2015."
+seattle,housing_permits_issued,2018,7918,high,"Census BPS, same methodology as 2015."
+seattle,housing_permits_issued,2019,10784,high,"Census BPS, same methodology as 2015."
+seattle,housing_permits_issued,2020,6338,high,"Census BPS, same methodology as 2015."
+seattle,housing_permits_issued,2021,11980,high,"Census BPS, same methodology as 2015."
+seattle,housing_permits_issued,2022,8990,high,"Census BPS, same methodology as 2015."
+seattle,housing_permits_issued,2023,5299,high,"Census BPS, same methodology as 2015."
+seattle,housing_permits_issued,2024,5895,high,"Census BPS, same methodology as 2015."

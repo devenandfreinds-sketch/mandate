@@ -1,0 +1,10 @@
+jurisdiction,metric,year,value,confidence,notes
+new-york-city,unemployment_rate,2016,5.2,high,"BLS LAUS, New York City (5 boroughs), annual average unemployment rate, not seasonally adjusted."
+new-york-city,unemployment_rate,2017,4.5,high,"BLS LAUS, New York City, annual average, NSA."
+new-york-city,unemployment_rate,2018,4.1,high,"BLS LAUS, New York City, annual average, NSA."
+new-york-city,unemployment_rate,2019,4.0,high,"BLS LAUS, New York City, annual average, NSA."
+new-york-city,unemployment_rate,2020,12.2,high,"BLS LAUS, New York City, annual average, NSA."
+new-york-city,unemployment_rate,2021,10.1,high,"BLS LAUS, New York City, annual average, NSA."
+new-york-city,unemployment_rate,2022,5.6,high,"BLS LAUS, New York City, annual average, NSA."
+new-york-city,unemployment_rate,2023,5.0,high,"BLS LAUS, New York City, annual average, NSA."
+new-york-city,unemployment_rate,2024,5.0,high,"BLS LAUS, New York City, annual average, NSA."

@@ -1,0 +1,4 @@
+jurisdiction,metric,year,value,confidence,notes
+minneapolis,labor_force_participation,2015,75.1,high,"Census ACS 1-Year Estimate, Table DP03, Minneapolis city, population 16+ in labor force (margin of error +/-1.0 pts)."
+minneapolis,labor_force_participation,2019,74.9,high,"Census ACS 1-Year Estimate, Table DP03, Minneapolis city (margin of error +/-1.1 pts)."
+minneapolis,labor_force_participation,2024,72.4,high,"Census ACS 1-Year Estimate, Table DP03, Minneapolis city (margin of error +/-1.4 pts)."

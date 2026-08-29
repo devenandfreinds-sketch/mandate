@@ -1,0 +1,10 @@
+jurisdiction,metric,year,value,confidence,notes
+new-york-city,median_rent,2015,1317,high,"NYC RGB 2026 Income and Affordability Study, Appendix 13, Census ACS 1-Year Estimate, median gross rent."
+new-york-city,median_rent,2016,1351,high,"NYC RGB Income and Affordability Study, Appendix 13, ACS 1-Year Estimate, median gross rent."
+new-york-city,median_rent,2017,1379,high,"NYC RGB Income and Affordability Study, Appendix 13, ACS 1-Year Estimate, median gross rent."
+new-york-city,median_rent,2018,1443,high,"NYC RGB Income and Affordability Study, Appendix 13, ACS 1-Year Estimate, median gross rent."
+new-york-city,median_rent,2019,1483,high,"NYC RGB Income and Affordability Study, Appendix 13, ACS 1-Year Estimate, median gross rent."
+new-york-city,median_rent,2021,1602,high,"NYC RGB Income and Affordability Study, Appendix 13, ACS 1-Year Estimate, median gross rent. 2020 is a genuine gap -- ACS did not release comparable 1-year estimates that year due to COVID-19 data collection disruption."
+new-york-city,median_rent,2022,1688,high,"NYC RGB Income and Affordability Study, Appendix 13, ACS 1-Year Estimate, median gross rent."
+new-york-city,median_rent,2023,1748,high,"NYC RGB Income and Affordability Study, Appendix 13, ACS 1-Year Estimate, median gross rent."
+new-york-city,median_rent,2024,1811,high,"NYC RGB Income and Affordability Study, Appendix 13, ACS 1-Year Estimate, median gross rent."

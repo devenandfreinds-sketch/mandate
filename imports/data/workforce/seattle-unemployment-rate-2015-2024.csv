@@ -1,0 +1,11 @@
+jurisdiction,metric,year,value,confidence,notes
+seattle,unemployment_rate,2015,3.6,high,"BLS LAUS (series LAUCT536300000000003), Seattle city, December value, not seasonally adjusted."
+seattle,unemployment_rate,2016,3.2,high,"BLS LAUS, Seattle city, December value, NSA."
+seattle,unemployment_rate,2017,3.0,high,"BLS LAUS, Seattle city, December value, NSA."
+seattle,unemployment_rate,2018,2.9,high,"BLS LAUS, Seattle city, December value, NSA."
+seattle,unemployment_rate,2019,2.0,high,"BLS LAUS, Seattle city, December value, NSA."
+seattle,unemployment_rate,2020,5.5,high,"BLS LAUS, Seattle city, December value, NSA. April 2020 peaked at 14.8% before recovering by year-end."
+seattle,unemployment_rate,2021,2.5,high,"BLS LAUS, Seattle city, December value, NSA."
+seattle,unemployment_rate,2022,3.0,high,"BLS LAUS, Seattle city, December value, NSA."
+seattle,unemployment_rate,2023,3.6,high,"BLS LAUS, Seattle city, December value, NSA."
+seattle,unemployment_rate,2024,3.3,high,"BLS LAUS, Seattle city, December value, NSA."

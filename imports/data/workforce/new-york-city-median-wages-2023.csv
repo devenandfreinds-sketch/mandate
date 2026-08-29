@@ -1,0 +1,2 @@
+jurisdiction,metric,year,value,confidence,notes
+new-york-city,median_wages,2023,59384,medium,"BLS OEWS, New York-Newark-Jersey City, NY-NJ-PA MSA (area code 35620), 'All Occupations' median hourly wage $28.55, annualized at 2,080 hours/year. METRO-AREA PROXY, not NYC-proper: OEWS does not publish sub-MSA wage estimates, and this 22-county MSA includes NJ/PA suburbs well beyond the 5 boroughs."

@@ -1,0 +1,5 @@
+jurisdiction,metric,year,value,confidence,notes
+new-york-city,vacancy_rate,2014,3.45,high,"NYC RGB Table I, Net Rental Vacancy Rate, from the NYC Housing and Vacancy Survey (HVS), conducted by the Census Bureau for HPD. HVS is triennial, not annual -- 2014, 2017, 2021, 2023 are the only survey years, not a gap in research."
+new-york-city,vacancy_rate,2017,3.63,high,"NYC RGB Table I, Net Rental Vacancy Rate, HVS, same methodology as 2014."
+new-york-city,vacancy_rate,2021,4.54,high,"NYC RGB Table I, Net Rental Vacancy Rate, HVS, same methodology as 2014."
+new-york-city,vacancy_rate,2023,1.41,high,"NYC RGB Table I, Net Rental Vacancy Rate, HVS, same methodology as 2014."

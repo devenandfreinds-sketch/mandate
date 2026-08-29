@@ -1,0 +1,9 @@
+jurisdiction,metric,year,value,confidence,notes
+washington-dc,median_wages,2016,67870,high,"BLS OEWS, District of Columbia (state-level geography), 'All Occupations' median hourly wage $32.63, annualized at 2,080 hours/year per BLS's own OEWS convention."
+washington-dc,median_wages,2017,70346,high,"BLS OEWS, District of Columbia, median hourly wage $33.82, annualized."
+washington-dc,median_wages,2018,71677,high,"BLS OEWS, District of Columbia, median hourly wage $34.46, annualized."
+washington-dc,median_wages,2019,74339,high,"BLS OEWS, District of Columbia, median hourly wage $35.74, annualized."
+washington-dc,median_wages,2020,79643,high,"BLS OEWS, District of Columbia, median hourly wage $38.29, annualized."
+washington-dc,median_wages,2021,79955,high,"BLS OEWS, District of Columbia, median hourly wage $38.44, annualized."
+washington-dc,median_wages,2022,82970,high,"BLS OEWS, District of Columbia, median hourly wage $39.87, annualized."
+washington-dc,median_wages,2023,84448,high,"BLS OEWS, District of Columbia, median hourly wage $40.60, annualized. 2024/2025 not available at DC-only geography this pass -- BLS switched to XLSX-only bulk files for state-level OEWS data starting May 2024."

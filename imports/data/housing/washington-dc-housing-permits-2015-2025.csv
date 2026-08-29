@@ -1,0 +1,12 @@
+jurisdiction,metric,year,value,confidence,notes
+washington-dc,housing_permits_issued,2015,4956,high,"Census BPS place-level annual file (South Region), District of Columbia, all 12 months reported, no imputation."
+washington-dc,housing_permits_issued,2016,4690,high,"Census BPS, same methodology as 2015."
+washington-dc,housing_permits_issued,2017,6037,high,"Census BPS, same methodology as 2015."
+washington-dc,housing_permits_issued,2018,4615,high,"Census BPS, same methodology as 2015."
+washington-dc,housing_permits_issued,2019,5945,high,"Census BPS, same methodology as 2015."
+washington-dc,housing_permits_issued,2020,7370,high,"Census BPS, same methodology as 2015."
+washington-dc,housing_permits_issued,2021,4740,high,"Census BPS, same methodology as 2015."
+washington-dc,housing_permits_issued,2022,7705,high,"Census BPS, same methodology as 2015."
+washington-dc,housing_permits_issued,2023,3020,high,"Census BPS, same methodology as 2015."
+washington-dc,housing_permits_issued,2024,1737,high,"Census BPS, same methodology as 2015."
+washington-dc,housing_permits_issued,2025,1591,medium,"Census BPS, same methodology as 2015. Year-to-date/partial file, not a final annual total."

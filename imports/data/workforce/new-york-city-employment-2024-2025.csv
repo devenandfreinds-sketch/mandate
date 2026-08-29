@@ -1,0 +1,3 @@
+jurisdiction,metric,year,value,confidence,notes
+new-york-city,employment,2024,4780300,high,"BLS CES, 'New York City, NY' area breakout (5 boroughs), total nonfarm employment, May 2024, not seasonally adjusted (4,780.3 thousand)."
+new-york-city,employment,2025,4847300,high,"BLS CES, New York City breakout, total nonfarm employment, May 2025, preliminary, NSA (4,847.3 thousand)."

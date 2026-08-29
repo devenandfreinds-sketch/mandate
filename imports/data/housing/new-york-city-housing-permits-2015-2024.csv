@@ -1,0 +1,11 @@
+jurisdiction,metric,year,value,confidence,notes
+new-york-city,housing_permits_issued,2015,56528,high,"Census BPS place-level annual files (Northeast Region), summed across NYC's 5 borough rows (Bronx+Brooklyn+Manhattan+Queens+Staten Island), all 12 months reported, no imputation."
+new-york-city,housing_permits_issued,2016,16269,high,"Census BPS, same methodology as 2015."
+new-york-city,housing_permits_issued,2017,22131,high,"Census BPS, same methodology as 2015."
+new-york-city,housing_permits_issued,2018,20910,high,"Census BPS, same methodology as 2015."
+new-york-city,housing_permits_issued,2019,26547,high,"Census BPS, same methodology as 2015."
+new-york-city,housing_permits_issued,2020,19578,high,"Census BPS, same methodology as 2015."
+new-york-city,housing_permits_issued,2021,19923,high,"Census BPS, same methodology as 2015."
+new-york-city,housing_permits_issued,2022,21490,high,"Census BPS, same methodology as 2015. Note: NYC's own Dept. of City Planning reports 68,668 for this year (per NYC RGB's Housing Supply Report) -- a large divergence DCP attributes to a DOB reporting-system change. This row uses the raw Census BPS figure, not DCP's administrative count, for consistency with the other three DSA cities' methodology."
+new-york-city,housing_permits_issued,2023,9210,high,"Census BPS, same methodology as 2015. DCP's administrative count for this year is 16,420 -- same divergence caveat as 2022."
+new-york-city,housing_permits_issued,2024,27241,high,"Census BPS, same methodology as 2015."

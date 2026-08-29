@@ -97,7 +97,7 @@ export const researchQueueSeed: ResearchQueueSeedItem[] = [
     metricSlug: "unemployment_rate",
     taskType: "metric",
     researchQuestion:
-      "Pull real unemployment_rate values from BLS Local Area Unemployment Statistics (LAUS), Chicago place series. Easy — free, well-documented, no paywall. Currently 100% placeholder. Reinforces the Workforce Development pipeline task above.",
+      "RESOLVED: full FY2015-2025 real series imported from BLS LAUS, Chicago place series (series LAUCT171400000000003, city-level, not the metro area), dataQuality government. 2025 is an 11-month average (October excluded due to the federal government shutdown). Left in the queue file as a record of what was done; the live ResearchTask row is marked complete and should not be reassigned.",
     priority: 9,
   },
   {
@@ -106,7 +106,7 @@ export const researchQueueSeed: ResearchQueueSeedItem[] = [
     metricSlug: "median_wages",
     taskType: "metric",
     researchQuestion:
-      "Pull real median_wages values from Census ACS 1-year estimates (table S2001/B20002), Chicago median earnings. Easy-moderate — note ACS 1-year estimates were not published for 2020 (COVID data-collection suspension), so the 2015-2025 series will have a documented gap that year. Currently 100% placeholder.",
+      "RESOLVED: real median_wages values imported for 9 of 11 years (2020 and 2025 correctly marked unavailable -- ACS 1-year estimates were not published for 2020 due to COVID data-collection suspension, and 2025 is not yet released as of this pass). See unavailableMetrics.ts. Left in the queue file as a record of what was done; the live ResearchTask row is marked complete and should not be reassigned.",
     priority: 10,
   },
   {
@@ -126,7 +126,7 @@ export const researchQueueSeed: ResearchQueueSeedItem[] = [
     metricSlug: "violent_crime_rate",
     taskType: "metric",
     researchQuestion:
-      "Pull real violent_crime_rate and property_crime_rate values (2015-2025) for Greater Manchester Police from the UK Home Office 'Police recorded crime' open data series (police.uk or gov.uk). Map Home Office categories to Mandate's US-style definitions conservatively: 'violent crime' ≈ violence against the person + sexual offences + robbery; 'property crime' ≈ burglary + theft offences + criminal damage + vehicle offences. Document the mapping explicitly in the metric's notes/limitations — UK 'violence against the person' includes lower-severity assault that would not count as 'aggravated' under US UCR definitions, so these are NOT directly comparable to US city figures without that caveat. Currently 100% placeholder for both metrics. Well-suited for a new researcher: official Tier 1 source, clear task boundary, good first exercise in documenting a definitional mismatch rather than hiding it.",
+      "RESOLVED (2026-08-14): real violent_crime_rate and property_crime_rate values for FY2015-16 through FY2025-26 were imported from ONS's 'Crime in England and Wales: Police Force Area data tables,' Greater Manchester row (converted from the source's per-1,000-population rate to Mandate's per-100,000 unit). FY2019-20 is deliberately omitted -- ONS itself suppresses GM's row that year due to a GMP IT-migration data gap. See imports/data/public-safety/greater-manchester-crime-2015-2026.csv and docs/GREATER_MANCHESTER_CASE_STUDY.md. Left in the queue file (rather than deleted) as a record of what was done and where; the live ResearchTask row is marked complete and should not be reassigned.",
     priority: 1,
   },
   {
@@ -382,5 +382,32 @@ export const researchQueueSeed: ResearchQueueSeedItem[] = [
     researchQuestion:
       "Compute a defensible incident-count-weighted average violent-crime clearance rate for DC from MPD's own per-offense-type clearance rates (Homicide, Sex Abuse, Assault with a Dangerous Weapon, Robbery). Why it matters: MPD publishes clearance rates per offense type but no single blended violent-crime figure; the 2026-08-17 pass imported MPD's homicide-only closure rate (60%, 2024) as a conservative correctly-scoped-but-narrow proxy rather than force-averaging without the incident-count weights needed to do it defensibly. Already checked: MPD Annual Report 2024 (p.31, per-offense clearance table) and MPD's Quarterly Clearance Rates page (mpdc.dc.gov/page/quarterly-clearance-rates-cy2023-cy2026) -- both give rates but not the underlying incident counts needed to weight them. Suggested next source: MPD's DC Code Index Offense counts by category (same Annual Report, Appendix B) to supply the weights. Difficulty: low-medium (arithmetic once counts are located). Skill set: data analyst.",
     priority: 6,
+  },
+  {
+    key: "seattle-housing-completions-citation-conflict",
+    jurisdictionSlug: "seattle",
+    metricSlug: "housing_completions",
+    taskType: "metric",
+    researchQuestion:
+      "Resolve a genuine citation conflict before importing anything: two City of Seattle OPCD/SDCI planning documents (both sourced from the 'DPD/SDCI Permit Data Warehouse') report DIFFERENT 'Built Units by Year Finaled' totals for the same years -- e.g. 2010: 3,634 vs. 3,943; 2013: 6,284 vs. 6,621; 2014: 7,430 vs. 8,308. Likely cause: different unit-category scope (e.g. whether ADUs/demolitions are netted differently), but this was not confirmed. Why it matters: this is not a missing-data gap, it's an unresolved disagreement between two nominally-identical government sources -- picking one arbitrarily would misrepresent the metric's precision. Already checked (documents fully read): 'Community Reporting Areas / Neighborhood Districts Residential Growth Report' (seattle.gov/documents/Departments/OPCD/Demographics/AboutSeattle/CRA_Growth_Report.pdf) and 'Citywide Residential Permit Information' (seattle.gov/documents/Departments/OPCD/Demographics/AboutSeattle/CitywideResidentialPermitInformation.pdf). Also identified but not fully extracted: the live SDCI 'Residential Permitting Trends' ArcGIS dashboard (seattlecitygis.maps.arcgis.com/apps/dashboards/0ecefa68fbda40de8ad9c6412ac5149d) has a 'Month Table' view that could produce exact (non-rounded) annual completions by summing monthly figures -- this is the most promising unresolved lead for both housing_completions and the missing years of housing_permits_issued that predate 2015 or postdate 2024. Difficulty: medium (requires reconciling two documents or building a fresh series from the dashboard's raw monthly table). Skill set: data analyst willing to contact SDCI directly if the two documents can't be reconciled from public text alone.",
+    priority: 7,
+  },
+  {
+    key: "nyc-affordable-housing-completions-series",
+    jurisdictionSlug: "new-york-city",
+    metricSlug: "affordable_housing_completions",
+    taskType: "metric",
+    researchQuestion:
+      "Build a clean 2015-2025 completions-only series for NYC's publicly-sponsored (HPD/HDC) affordable housing, distinct from the 'starts'/'financed' figures already found. Why it matters: the 2026-08-20 pass found only single-year completion figures in RGB/NYHC report narrative text (2024: 36,438 units), not a tabulated multi-year series -- those reports mostly publish 'units started' (financing closed), a different concept. Already checked: NYC RGB Housing Supply Report (tabulates permits and DCP completions for ALL housing, but not the affordable-specific subset), NY Housing Conference's Housing Tracker Report (narrative single-year figures only). Suggested next source: NYC Open Data's 'Affordable Housing Production by Building' dataset (data.cityofnewyork.us/Housing-Development/Affordable-Housing-Production-by-Building/hg8x-zxpr), which has per-project start and completion dates and could be aggregated into a proper annual series -- this would be a genuine original aggregation of raw government open data, not a citation of an existing published table, so document the exact query/methodology used if this path is taken. Difficulty: medium (requires building an aggregation, not just finding a table). Skill set: data analyst comfortable with NYC Open Data's Socrata API.",
+    priority: 8,
+  },
+  {
+    key: "minneapolis-dc-homelessness-count-primary-source",
+    jurisdictionSlug: "minneapolis",
+    metricSlug: "homelessness_count",
+    taskType: "metric",
+    researchQuestion:
+      "Confirm exact HUD Point-in-Time count figures for the Minneapolis/Hennepin County CoC (MN-500) directly from HUD's own AHAR PIT/HIC-by-CoC workbook, rather than the county's own webpage summaries used as leads this pass. Why it matters: Hennepin County's own site gave partial figures (e.g. 2023 total 2,687; 2024 sheltered 3,370 + unsheltered 496) but the 2026-08-20 research pass could not locate a stable direct download URL for HUD's underlying workbook to independently confirm them, and flagged that this is a COUNTY-wide figure, not Minneapolis-city-specific -- no city-only PIT count is separately published, which may be a genuine scope mismatch for Mandate's city-level schema. A parallel, unresolved DC lead exists too: candidate PIT totals (2015 ~7,748; 2021: 5,111; 2022 ~4,410; 2023 ~4,922; 2024 ~5,615) came from secondary press coverage citing HUD, not yet primary-confirmed -- HUD's PIT-Counts-by-CoC spreadsheet and DC's own 'Number of People Experiencing Homelessness Time Series' ArcGIS Hub dataset both returned access errors (likely bot-blocking) to this pass's tools. Suggested next source: https://www.hudexchange.info/programs/hdx/pit-hic/ via a real browser session, or a direct records request. Also note 2021 PIT counts were waived for many CoCs nationally due to COVID -- verify this before treating any 2021 gap as a research failure. Difficulty: low-medium (mostly an access/tooling problem, not an unresearched question). Skill set: researcher with a working browser session or HUD Exchange familiarity.",
+    priority: 9,
   },
 ];

@@ -1,0 +1,12 @@
+jurisdiction,metric,year,value,confidence,notes
+minneapolis,housing_permits_issued,2015,1489,high,"Census BPS place-level annual file (Midwest Region), Minneapolis city (state 27, place 43000 -- not the decoy Minneapolis, KS row), all 12 months reported, no imputation."
+minneapolis,housing_permits_issued,2016,2908,high,"Census BPS, same methodology as 2015."
+minneapolis,housing_permits_issued,2017,2254,high,"Census BPS, same methodology as 2015."
+minneapolis,housing_permits_issued,2018,3625,high,"Census BPS, same methodology as 2015."
+minneapolis,housing_permits_issued,2019,4813,high,"Census BPS, same methodology as 2015. Cross-validated against a Federal Reserve Bank of Minneapolis article citing 4,646 units in the 5+-unit category alone for this year, matching the underlying BPS row exactly."
+minneapolis,housing_permits_issued,2020,3340,high,"Census BPS, same methodology as 2015."
+minneapolis,housing_permits_issued,2021,3182,high,"Census BPS, same methodology as 2015."
+minneapolis,housing_permits_issued,2022,3681,high,"Census BPS, same methodology as 2015."
+minneapolis,housing_permits_issued,2023,1528,high,"Census BPS, same methodology as 2015."
+minneapolis,housing_permits_issued,2024,452,high,"Census BPS, same methodology as 2015."
+minneapolis,housing_permits_issued,2025,412,medium,"Census BPS, same methodology as 2015. Most recent year of a live series; subject to revision."

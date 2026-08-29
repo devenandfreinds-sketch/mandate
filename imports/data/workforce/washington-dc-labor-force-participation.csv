@@ -1,0 +1,5 @@
+jurisdiction,metric,year,value,confidence,notes
+washington-dc,labor_force_participation,2022,72.1,medium,"DC DOES monthly labor-market release (March 2022), labor force participation rate, sourced from CPS/LAUS. Seasonal-adjustment status of this specific line not confirmed."
+washington-dc,labor_force_participation,2023,71.4,medium,"DC DOES monthly labor-market release (October 2023), same source, https://does.dc.gov/release/district-columbia-unemployment-rate-holds-50-percent-october."
+washington-dc,labor_force_participation,2024,72.1,medium,"DC DOES monthly labor-market release (January 2024), same source."
+washington-dc,labor_force_participation,2025,71.9,medium,"DC DOES monthly labor-market release (July 2025), same source, https://does.dc.gov/release/district-columbia-unemployment-rate-60-percent-july."

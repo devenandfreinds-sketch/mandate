@@ -1,0 +1,10 @@
+jurisdiction,metric,year,value,confidence,notes
+minneapolis,employment,2016,1923600,medium,"BLS CES (series SMS27334600000000001), Minneapolis-St. Paul-Bloomington, MN-WI MSA, total nonfarm employment, seasonally adjusted, December value (1,923.6 thousand). METRO-AREA PROXY, not Minneapolis-city-proper: CES does not produce a city-level total-nonfarm series."
+minneapolis,employment,2017,1951600,medium,"BLS CES, Minneapolis-St. Paul-Bloomington MSA, December value (1,951.6 thousand). Same metro-area-proxy caveat."
+minneapolis,employment,2018,1978600,medium,"BLS CES, Minneapolis-St. Paul-Bloomington MSA, December value (1,978.6 thousand). Same caveat."
+minneapolis,employment,2019,1992400,medium,"BLS CES, Minneapolis-St. Paul-Bloomington MSA, December value (1,992.4 thousand). Same caveat."
+minneapolis,employment,2020,1823300,medium,"BLS CES, Minneapolis-St. Paul-Bloomington MSA, December value (1,823.3 thousand). Same caveat."
+minneapolis,employment,2021,1923700,medium,"BLS CES, Minneapolis-St. Paul-Bloomington MSA, December value (1,923.7 thousand). Same caveat."
+minneapolis,employment,2022,1949800,medium,"BLS CES, Minneapolis-St. Paul-Bloomington MSA, December value (1,949.8 thousand). Same caveat."
+minneapolis,employment,2023,1974100,medium,"BLS CES, Minneapolis-St. Paul-Bloomington MSA, December value (1,974.1 thousand). Same caveat."
+minneapolis,employment,2024,1995200,medium,"BLS CES, Minneapolis-St. Paul-Bloomington MSA, December value (1,995.2 thousand). Same caveat."

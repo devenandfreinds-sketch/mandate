@@ -1,0 +1,4 @@
+jurisdiction,metric,year,value,confidence,notes
+new-york-city,labor_force_participation,2019,60.4,high,"NYS Comptroller (OSC), 'New York City's Uneven Recovery: An Analysis of Labor Force Trends' (May 2022), citing NYS DOL LAUS/BLS CPS data, annual average, New York City (5 boroughs), ages 16+."
+new-york-city,labor_force_participation,2020,58.8,high,"NYS Comptroller (OSC), same report, annual average, NYC."
+new-york-city,labor_force_participation,2021,59.7,high,"NYS Comptroller (OSC), same report, annual average, NYC."
