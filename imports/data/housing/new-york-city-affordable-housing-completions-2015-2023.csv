@@ -1,0 +1,10 @@
+jurisdiction,metric,year,value,confidence,notes
+new-york-city,affordable_housing_completions,2015,7751,high,"NYC Open Data 'Affordable Housing Production by Building' (data.cityofnewyork.us/resource/hg8x-zxpr), sum of all_counted_units grouped by year of building_completion_date. METHODOLOGY NOTE: this is a completions-date reading, distinct from the FY2024/FY2025 rows already in this series (sourced from NYC HPD Affordable Housing Production Reporting), which use a financing/production-closing date instead -- see 2023 row note and researchQueue entry nyc-affordable-housing-completions-methodology-reconciliation for the flagged inconsistency."
+new-york-city,affordable_housing_completions,2016,13232,high,"NYC Open Data 'Affordable Housing Production by Building', same methodology as 2015."
+new-york-city,affordable_housing_completions,2017,21182,high,"NYC Open Data 'Affordable Housing Production by Building', same methodology as 2015."
+new-york-city,affordable_housing_completions,2018,26568,high,"NYC Open Data 'Affordable Housing Production by Building', same methodology as 2015."
+new-york-city,affordable_housing_completions,2019,21300,high,"NYC Open Data 'Affordable Housing Production by Building', same methodology as 2015."
+new-york-city,affordable_housing_completions,2020,12577,high,"NYC Open Data 'Affordable Housing Production by Building', same methodology as 2015."
+new-york-city,affordable_housing_completions,2021,17796,high,"NYC Open Data 'Affordable Housing Production by Building', same methodology as 2015."
+new-york-city,affordable_housing_completions,2022,21698,high,"NYC Open Data 'Affordable Housing Production by Building', same methodology as 2015."
+new-york-city,affordable_housing_completions,2023,31060,high,"NYC Open Data 'Affordable Housing Production by Building', same methodology as 2015. An alternate project-level completion-date aggregation gives 25700 for this year -- building-level is used as the more literal 'completions' reading (see source methodology notes for the full building-vs-project divergence)."

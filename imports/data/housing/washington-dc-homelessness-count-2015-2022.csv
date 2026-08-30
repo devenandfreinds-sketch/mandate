@@ -1,0 +1,8 @@
+jurisdiction,metric,year,value,confidence,notes
+washington-dc,homelessness_count,2015,7298,high,"HUD Homeless Populations and Subpopulations (PopSub) Report, DC-500 Continuum of Care, sheltered (ES+TH) 6754 + unsheltered 544. A secondary press figure of ~7,748 for this year does not match this primary HUD document exactly (450 apart) -- flagged, not reconciled; this HUD PopSub figure is used as the more authoritative primary source."
+washington-dc,homelessness_count,2017,7473,high,"HUD PopSub Report, DC-500, sheltered 6576 + unsheltered 897. (2016 could not be located in HUD's PopSub archive under any filename convention tried -- genuine gap, not imported.)"
+washington-dc,homelessness_count,2018,6904,high,"HUD PopSub Report, DC-500, sheltered 6304 + unsheltered 600."
+washington-dc,homelessness_count,2019,6521,high,"HUD PopSub Report, DC-500, sheltered 5913 + unsheltered 608."
+washington-dc,homelessness_count,2020,6380,high,"HUD PopSub Report, DC-500, sheltered 5727 + unsheltered 653."
+washington-dc,homelessness_count,2021,5111,high,"HUD PopSub Report, DC-500, sheltered 4430 + unsheltered 681. DC was not among the CoCs that waived the unsheltered count in 2021 (unlike Hennepin County/MN-500)."
+washington-dc,homelessness_count,2022,4410,high,"HUD PopSub Report, DC-500, sheltered 3720 + unsheltered 690."

@@ -142,4 +142,15 @@ export const unavailableMetrics: UnavailableMetricSpec[] = [
   // absence -- see the seattle-housing-completions-citation-conflict research task.
   { metricSlug: "housing_completions", jurisdictionSlug: "minneapolis" },
   { metricSlug: "housing_completions", jurisdictionSlug: "washington-dc" },
+  // Second DSA research round (2026-08-30): HUD's PopSub Point-in-Time homelessness reports could
+  // not be located for 2016 under any filename convention for either CoC, while every other year
+  // 2015/2017-2025 was retrieved successfully from the same file server -- a confirmed archive gap
+  // for that one reporting cycle, not an unresearched year.
+  { metricSlug: "homelessness_count", jurisdictionSlug: "washington-dc", years: [2016] },
+  { metricSlug: "homelessness_count", jurisdictionSlug: "minneapolis", years: [2016] },
+  // Minnesota BCA's annual Uniform Crime Report only publishes a combined Part I index-crime rate
+  // for individual agencies in 2015 and earlier -- no violent/property split exists at city level
+  // for that year (the offense-category-breakdown supplement format only began with 2016 data).
+  { metricSlug: "violent_crime_rate", jurisdictionSlug: "minneapolis", years: [2015] },
+  { metricSlug: "property_crime_rate", jurisdictionSlug: "minneapolis", years: [2015] },
 ];

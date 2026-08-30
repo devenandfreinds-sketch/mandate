@@ -1,0 +1,12 @@
+jurisdiction,metric,year,value,confidence,notes
+new-york-city,business_formation,2015,113219,high,"Census Bureau Business Formation Statistics (BFS), county-level annual Business Applications series, summed across NYC's 5 constituent counties (Bronx 9644, Kings/Brooklyn 32961, New York/Manhattan 42068, Queens 24587, Richmond/Staten Island 3959)."
+new-york-city,business_formation,2016,114951,high,"BFS county-level Business Applications, same methodology as 2015 (Bronx 10269, Kings 34418, New York 41041, Queens 25235, Richmond 3988)."
+new-york-city,business_formation,2017,120613,high,"BFS county-level Business Applications, same methodology as 2015 (Bronx 10799, Kings 36111, New York 43389, Queens 26193, Richmond 4121)."
+new-york-city,business_formation,2018,128389,high,"BFS county-level Business Applications, same methodology as 2015 (Bronx 11532, Kings 38372, New York 46998, Queens 27041, Richmond 4446)."
+new-york-city,business_formation,2019,129596,high,"BFS county-level Business Applications, same methodology as 2015 (Bronx 11628, Kings 39071, New York 46528, Queens 27902, Richmond 4467)."
+new-york-city,business_formation,2020,145246,high,"BFS county-level Business Applications, same methodology as 2015 (Bronx 17342, Kings 45350, New York 45868, Queens 31658, Richmond 5028). Note: BFS reporting 'years' are Census reporting weeks, not exact calendar Jan1-Dec31; 2020 spans 12/29/2019-1/2/2021 (53-week year)."
+new-york-city,business_formation,2021,169098,high,"BFS county-level Business Applications, same methodology as 2015 (Bronx 19375, Kings 53566, New York 53213, Queens 36770, Richmond 6174)."
+new-york-city,business_formation,2022,160898,high,"BFS county-level Business Applications, same methodology as 2015 (Bronx 17384, Kings 51590, New York 49913, Queens 35754, Richmond 6257)."
+new-york-city,business_formation,2023,169082,high,"BFS county-level Business Applications, same methodology as 2015 (Bronx 17662, Kings 54890, New York 52147, Queens 37851, Richmond 6532)."
+new-york-city,business_formation,2024,157781,high,"BFS county-level Business Applications, same methodology as 2015 (Bronx 15550, Kings 48851, New York 52014, Queens 35401, Richmond 5965)."
+new-york-city,business_formation,2025,159139,high,"BFS county-level Business Applications, same methodology as 2015 (Bronx 15247, Kings 48687, New York 54695, Queens 34304, Richmond 6206)."

@@ -1,0 +1,11 @@
+jurisdiction,metric,year,value,confidence,notes
+seattle,housing_completions,2015,6862,high,"Seattle GIS Open Data 'Residential Building Permits Issued and Final since 1990,' filtered to STGLSTTITL='Permit Finaled', net units (NEW minus DEMO) grouped by YEAR_FINAL, single consistent pull (~July 2026). Diverges ~2% from an older CRA Growth Report PDF figure for this year (6,738) -- attributable to ongoing database-revision drift in the underlying live DPD/SDCI Permit Data Warehouse, not a scope difference; see source methodology notes."
+seattle,housing_completions,2016,6677,high,"Same source/methodology as 2015. Diverges ~3% from the older CRA Growth Report PDF figure (6,476), same database-revision-drift caveat."
+seattle,housing_completions,2017,8980,high,"Same source/methodology as 2015. Fills a genuine gap -- neither of the two previously-found PDF reports covered 2017 at all."
+seattle,housing_completions,2018,8496,high,"Same source/methodology as 2015. Matches the live SDCI dashboard's own current figures exactly."
+seattle,housing_completions,2019,10175,high,"Same source/methodology as 2015. Matches the live SDCI dashboard exactly."
+seattle,housing_completions,2020,5715,high,"Same source/methodology as 2015. Matches the live SDCI dashboard exactly."
+seattle,housing_completions,2021,6683,high,"Same source/methodology as 2015. Matches the live SDCI dashboard exactly."
+seattle,housing_completions,2022,9717,high,"Same source/methodology as 2015. Matches the live SDCI dashboard exactly."
+seattle,housing_completions,2023,7566,high,"Same source/methodology as 2015. Matches the live SDCI dashboard exactly. SUPERSEDES a previously-imported 'estimated' quality value of 12,853 for this year, which came from a secondary news citation (The Urbanist, reporting a City dashboard figure without a direct dashboard read) rather than a primary-source pull -- this row uses the more rigorous, directly-queried, single-methodology figure instead."
+seattle,housing_completions,2024,11768,high,"Same source/methodology as 2015. Matches the live SDCI dashboard exactly, though most likely of all years here to still shift upward slightly as trailing 2024 permits finalize late."

@@ -1,0 +1,13 @@
+jurisdiction,metric,year,value,confidence,notes
+minneapolis,violent_crime_rate,2016,1108,high,"Minnesota BCA Uniform Crime Report, Minneapolis PD agency-level offense data (Murder+Rape+Robbery+Aggravated Assault, 4622 actual offenses / population 416751 x 100000). Pre-NIBRS (Summary Reporting System) methodology -- see source notes for the 2020-to-2021 methodology break."
+minneapolis,violent_crime_rate,2017,1101,high,"MN BCA UCR, Minneapolis PD agency-level (4614 actual / population 418971 x 100000). Pre-NIBRS (SRS) methodology."
+minneapolis,violent_crime_rate,2018,792,high,"MN BCA UCR, Minneapolis PD agency-level (3395 actual / population 428261 x 100000). Pre-NIBRS (SRS) methodology."
+minneapolis,violent_crime_rate,2019,786,high,"MN BCA UCR, Minneapolis PD agency-level (3385 actual / population 431016 x 100000). Pre-NIBRS (SRS) methodology."
+minneapolis,violent_crime_rate,2020,1037,high,"MN BCA UCR, Minneapolis PD agency-level (4508 actual / population 435116 x 100000). Pre-NIBRS (SRS) methodology, last year before the transition."
+minneapolis,violent_crime_rate,2025,1012,medium,"Minnesota Crime Data Explorer (cde.state.mn.us), County/Municipal Offense by Agency download, ReportYear=2025 (4344 actual / population 428057 x 100000). Provisional/rolling data, not yet locked into a certified annual UCR report -- MN's 2024 report itself wasn't published until Oct 2025, so a similar lag and possible minor revision is expected for 2025."
+minneapolis,property_crime_rate,2016,4242,high,"MN BCA UCR, Minneapolis PD agency-level (Burglary+Larceny+Motor Vehicle Theft+Arson, 17679 actual / population 416751 x 100000). Pre-NIBRS (SRS) methodology."
+minneapolis,property_crime_rate,2017,4667,high,"MN BCA UCR, Minneapolis PD agency-level (19553 actual / population 418971 x 100000). Pre-NIBRS (SRS) methodology."
+minneapolis,property_crime_rate,2018,3929,high,"MN BCA UCR, Minneapolis PD agency-level (16826 actual / population 428261 x 100000). Pre-NIBRS (SRS) methodology."
+minneapolis,property_crime_rate,2019,4543,high,"MN BCA UCR, Minneapolis PD agency-level (19579 actual / population 431016 x 100000). Pre-NIBRS (SRS) methodology."
+minneapolis,property_crime_rate,2020,4596,high,"MN BCA UCR, Minneapolis PD agency-level (19995 actual / population 435116 x 100000). Pre-NIBRS (SRS) methodology, last year before the transition."
+minneapolis,property_crime_rate,2025,4561,medium,"Minnesota Crime Data Explorer, County/Municipal Offense by Agency download, ReportYear=2025 (19544 actual / population 428057 x 100000). Provisional/rolling, same caveat as the 2025 violent-crime-rate row."

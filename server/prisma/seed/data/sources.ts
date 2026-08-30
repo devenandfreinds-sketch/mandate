@@ -1624,9 +1624,12 @@ export const sources: SourceSeedSpec[] = [
     publisher: "Minnesota Bureau of Criminal Apprehension",
     url: "https://dps.mn.gov/",
     sourceType: "government_dataset",
-    citation: "Minnesota's official Uniform Crime Report, statewide and by agency.",
+    citation:
+      "Minnesota's official Uniform Crime Report, statewide and by agency (annual PDF reports 2015-2024 vintage; the Minnesota Crime Data Explorer at cde.state.mn.us is BCA's live successor tool for the same underlying agency-level data, used here for 2025 provisional figures pending that year's certified annual report).",
     isPlaceholder: false,
     updateFrequency: "annual",
+    methodology:
+      "Minnesota transitioned from the legacy Summary Reporting System (SRS, only the most serious offense per incident counted) to full NIBRS Group A reporting starting with 2021 data -- a genuine methodology break at the 2020/2021 boundary, not a data-quality issue. Pre-2021 Minneapolis PD agency-level violent/property crime rates (2016-2020) come from BCA's annual-report supplemental 'Agency All Offense Data' files; 2015 and earlier only publish a combined Part I index-crime rate for individual agencies, not a violent/property split.",
     defaultConfidence: "high",
     country: "United States",
     language: "en",
@@ -2906,6 +2909,59 @@ export const sources: SourceSeedSpec[] = [
     updateFrequency: "annual",
     methodology:
       "housing_completions (DCP Certificates-of-Occupancy-based) is a genuinely different concept from Census's Survey of Construction 'completions,' which is not published below the national/regional level -- DCP's count is the only real proxy for NYC and should not be treated as directly comparable to a hypothetical Census-sourced completions figure for another city. Net rental vacancy rate is from HVS, a triennial survey (2014, 2017, 2021, 2023 -- not annual, so most years are a genuine data gap, not unresearched).",
+    defaultConfidence: "high",
+    country: "United States",
+    language: "en",
+  },
+
+  // =========================================================
+  // DSA clean-out pass, second research round (2026-08-30): NYC business formation and
+  // affordable-housing-completions primary-source fills.
+  // =========================================================
+  {
+    key: "census_bfs_county_apps",
+    name: "U.S. Census Bureau Business Formation Statistics (BFS) — County-Level Annual Business Applications",
+    publisher: "U.S. Census Bureau, Economic Indicators Division",
+    url: "https://www.census.gov/econ/bfs/data/county.html",
+    sourceType: "government_dataset",
+    citation:
+      "Census Bureau BFS county-level annual file (bfs_county_apps_annual.xlsx), 'Business Applications' (BA) series -- the broad all-applications count, not the stricter 'High-Propensity Business Applications' (HBA) subset, which is not published at county-annual granularity.",
+    isPlaceholder: false,
+    updateFrequency: "annual",
+    methodology:
+      "New York City requires summing across its five constituent counties (Bronx, Kings, New York, Queens, Richmond) -- Census does not publish one combined 'New York city' row for county-level BFS data, the same convention already used for Census BPS housing-permits data. BFS reporting 'years' are Census reporting weeks (e.g. 2020 spans 12/29/2019-1/2/2021, a 53-week year), not exact calendar years -- close enough for annual reporting but a genuine definitional footnote.",
+    defaultConfidence: "high",
+    country: "United States",
+    language: "en",
+  },
+  {
+    key: "nyc_opendata_affordable_housing_production",
+    name: "NYC Open Data — Affordable Housing Production by Building",
+    publisher: "NYC Department of Housing Preservation and Development (HPD)",
+    url: "https://data.cityofnewyork.us/Housing-Development/Affordable-Housing-Production-by-Building/hg8x-zxpr",
+    sourceType: "government_dataset",
+    citation:
+      "Per-building record of NYC's Housing New York (2014-2021) / Housing Our Neighbors (2022-present) affordable housing plan, aggregated here to an annual completions total (sum of all_counted_units) grouped by building_completion_date year, queried directly via the Socrata Open Data API (SoQL aggregate query, not a manually-read report table).",
+    isPlaceholder: false,
+    updateFrequency: "irregular",
+    methodology:
+      "This dataset supports TWO plausible completion-date readings that diverge materially in some years (e.g. 2024: 22,811 by building_completion_date vs. 38,921 by project_completion_date) -- building_completion_date was chosen as the more literal per-building 'completions' reading and is the one imported here for 2015-2023. This creates a genuine, flagged inconsistency with the FY2024/FY2025 rows already in Mandate's affordable_housing_completions series for NYC, which come from NYC HPD's own Affordable Housing Production Reporting and use a financing/production-closing date, not a completion date -- see researchQueue entry nyc-affordable-housing-completions-methodology-reconciliation. A previously-cited single-year narrative figure (RGB/NYHC reports, 2024: 36,438 units) could not be reconciled exactly to either completion-date series or to a July-June fiscal-year window of either, and likely reflects yet another convention (e.g. units started rather than completed) -- flagged as unresolved rather than forced to match.",
+    defaultConfidence: "high",
+    country: "United States",
+    language: "en",
+  },
+  {
+    key: "seattle_gis_residential_permits_finaled",
+    name: "Seattle GIS Open Data — Residential Building Permits Issued and Final since 1990",
+    publisher: "City of Seattle, Seattle Department of Construction and Inspections (SDCI)",
+    url: "https://data-seattlecitygis.opendata.arcgis.com/datasets/b15bb712fa0a4f4c9862a78e6d7da513",
+    sourceType: "government_dataset",
+    citation:
+      "Permit-level residential building permit records (NEW / DEMO / NET_UNITS / YEAR_FINAL fields), queried directly via the dataset's ArcGIS REST FeatureServer, filtered to STGLSTTITL='Permit Finaled' and grouped by YEAR_FINAL, with net completions computed as NEW minus DEMO.",
+    isPlaceholder: false,
+    updateFrequency: "annual",
+    methodology:
+      "Resolves a previously-flagged conflict between two City of Seattle PDF reports that gave different 'Built Units by Year Finaled' totals for the same years: one PDF ('Citywide Residential Permit Information') reports gross new units with no demolition offset, the other ('CRA Growth Report') reports net units explicitly -- confirmed by reproducing the CRA report's net figures almost exactly as (that PDF's own) New minus Demo for 2010-2013. A second, independent cause was also found: the underlying DPD/SDCI Permit Data Warehouse is a live, continuously-revised administrative system, not a fixed historical record -- re-querying the same 2014 figure from three different snapshot dates (Oct 2015 PDF, Dec 2016 PDF, live ~Jul 2026 pull) gives three different answers, none more than ~2% apart. Mandate uses NET (NEW minus DEMO) from a single consistent live pull across 2015-2024 rather than splicing together PDFs of different vintages -- treat pre-2018 years as accurate to within roughly 1-3%, not exact, and expect the most recent 1-2 years to shift slightly upward as trailing permits finalize late. This pull also supersedes a previously-imported 2023 estimate sourced from a secondary news citation of the City's dashboard rather than a direct data pull.",
     defaultConfidence: "high",
     country: "United States",
     language: "en",
