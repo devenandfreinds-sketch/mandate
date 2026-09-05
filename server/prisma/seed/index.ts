@@ -25,7 +25,12 @@ import { seattleResearchedPipelineAssessments } from "./data/seattleResearchedPi
 import { minneapolisResearchedPipelineAssessments } from "./data/minneapolisResearchedPipeline.js";
 import { washingtonDcResearchedPipelineAssessments } from "./data/washingtonDcResearchedPipeline.js";
 import { researchQueueSeed } from "./data/researchQueue.js";
-import { generateAnnualSeries, type MetricSeedSpec, type AdministrationWindow } from "./generators/timeSeries.js";
+import {
+  generateAnnualSeries,
+  type MetricSeedSpec,
+  type AdministrationWindow,
+  type RealAnchorPoint,
+} from "./generators/timeSeries.js";
 import { generatePipelineAssessment } from "./generators/pipelineAssessment.js";
 import { isValidSourceType, isVagueSourceName, SOURCE_TYPE_SLUGS } from "@mandate/shared";
 
@@ -569,6 +574,22 @@ async function main() {
     ).map((r) => `${r.metricDefinitionId}::${r.jurisdictionId}`)
   );
 
+  // Real "year"-periodType data, per metric+jurisdiction, used to anchor the synthetic filler for
+  // that pair's still-missing years to the real trend instead of an independent from-scratch value
+  // (see estimateFromRealAnchors in generators/timeSeries.ts). A metric+jurisdiction pair with no real
+  // data at all gets an empty array here, which generateAnnualSeries treats as "fall back to the
+  // original fully-synthetic behavior" -- unchanged for the large majority of still-placeholder metrics.
+  const realAnchorsByPair = new Map<string, RealAnchorPoint[]>();
+  for (const row of await prisma.metricValue.findMany({
+    where: { dataQuality: { notIn: ["placeholder", "unavailable"] }, periodType: "year" },
+    select: { metricDefinitionId: true, jurisdictionId: true, periodStart: true, value: true },
+  })) {
+    const key = `${row.metricDefinitionId}::${row.jurisdictionId}`;
+    const list = realAnchorsByPair.get(key) ?? [];
+    list.push({ year: row.periodStart.getUTCFullYear(), value: Number(row.value) });
+    realAnchorsByPair.set(key, list);
+  }
+
   const allMetricSpecs = Object.values(metricsByCategory).flat();
   let totalValues = 0;
   for (const j of jurisdictions) {
@@ -579,7 +600,8 @@ async function main() {
       const metricDefinitionId = metricDefIdBySlug.get(spec.slug)!;
       if (realDataPairs.has(`${metricDefinitionId}::${jurisdictionId}`)) continue;
 
-      const points = generateAnnualSeries(spec, j.slug, j.population, adminWindows);
+      const realAnchors = realAnchorsByPair.get(`${metricDefinitionId}::${jurisdictionId}`) ?? [];
+      const points = generateAnnualSeries(spec, j.slug, j.population, adminWindows, realAnchors);
 
       const unavailableSpec = unavailableMetrics.find(
         (u) => u.metricSlug === spec.slug && u.jurisdictionSlug === j.slug
