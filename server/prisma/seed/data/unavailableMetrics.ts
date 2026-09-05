@@ -97,13 +97,22 @@ export const unavailableMetrics: UnavailableMetricSpec[] = [
   // Chicago Cook Workforce Partnership's chicookworks.org domain has no Wayback Machine snapshot
   // before Sept 2019, and its predecessor site (workforceboard.org, confirmed via Wayback CDX back to
   // 2013) only ever published quarterly "Where Are the Jobs?" labor-market bulletins, never an annual
-  // report with Adult/Dislocated-Worker/Youth registrant counts. PY2015-2018 predate the organization
+  // report with Adult/Dislocated-Worker/Youth registrant counts. PY2015-2019 predate the organization
   // publishing this report format at all -- a confirmed absence, not just an unsuccessful search.
-  { metricSlug: "skills_training_participation", jurisdictionSlug: "chicago", years: [2015, 2016, 2017, 2018] },
+  // (2019 added 2026-09-02: re-confirmed independently via direct Wayback CDX API query against the
+  // exact annual-report-2020 URL -- zero snapshots ever, versus dozens starting for annual-report-2021.
+  // PY2022's report DOES exist but only as a rounded aggregate ("more than 9,300 customers") with no
+  // Adult/Dislocated-Worker/Youth breakdown -- not methodologically comparable to the other real years,
+  // left as placeholder rather than unavailable since a number does technically exist, just not in a
+  // usable shape. PY2025's report is not a gap at all, just not yet published -- CCWP's two most recent
+  // reports both lagged ~8-9 months after their program year ended, so expect it around Feb-Mar 2027.)
+  { metricSlug: "skills_training_participation", jurisdictionSlug: "chicago", years: [2015, 2016, 2017, 2018, 2019] },
   // BLS QCEW suppressed all three component NAICS codes (3254, 5417, 6215) for the Chicago MSA in
   // 2024 (disclosure_code "N" across the board, confirmed via the raw API CSV) -- a wider suppression
   // than 2022's single-code gap. A temporary, not permanent, gap; revisit in a future QCEW revision.
-  { metricSlug: "life_sciences_employment", jurisdictionSlug: "chicago", years: [2024] },
+  // 2022 added 2026-09-02: BLS QCEW suppresses NAICS 5417 (Scientific R&D) alone that year, blocking
+  // the 3-code sum this metric requires -- independently re-verified against the live QCEW API.
+  { metricSlug: "life_sciences_employment", jurisdictionSlug: "chicago", years: [2022, 2024] },
   // DSA clean-out workforce pass (2026-08-14): apprenticeships confirmed unavailable at
   // city-scope for all four cities checked. NY State does not use the federal RAPIDS system and
   // publishes only statewide apprentice counts (no NYC breakout). Minnesota's Apprenticeship
@@ -153,4 +162,34 @@ export const unavailableMetrics: UnavailableMetricSpec[] = [
   // for that year (the offense-category-breakdown supplement format only began with 2016 data).
   { metricSlug: "violent_crime_rate", jurisdictionSlug: "minneapolis", years: [2015] },
   { metricSlug: "property_crime_rate", jurisdictionSlug: "minneapolis", years: [2015] },
+  // Chicago research pass (2026-09-02): the City's OBM did not publish any citywide workforce
+  // vacancy-rate reporting series before 2025's first-ever Mid-Year Budget Report, whose own
+  // retrospective trend table only reaches back to a Jan 1, 2023 snapshot -- confirmed absent, not
+  // merely unresearched, for 2015-2022.
+  {
+    metricSlug: "agency_vacancy_rate",
+    jurisdictionSlug: "chicago",
+    years: [2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022],
+  },
+  // Chicago Police Department published no Annual Report for 2015 (a 2011-2016 publication hiatus),
+  // and Chicago did not submit clearance data to the FBI UCR/NIBRS system for any year from 1994
+  // through 2020 -- a confirmed structural gap for clearance_rate 2015 specifically, not unresearched.
+  { metricSlug: "clearance_rate", jurisdictionSlug: "chicago", years: [2015] },
+  // Chicago innovation-cluster research pass (2026-09-02), independently re-verified against live
+  // BLS QCEW/Census APIs rather than trusting prior write-ups:
+  // - tech_employment: BLS QCEW suppresses NAICS 5415 for the Chicago MSA in 2015, 2020, 2023, and
+  //   2024 (disclosure_code "N", confirmed via the raw API). 2025 stays placeholder -- BLS hasn't
+  //   published industry-level detail for 2025 at all yet, a temporary lag, not a permanent gap.
+  { metricSlug: "tech_employment", jurisdictionSlug: "chicago", years: [2015, 2020, 2023, 2024] },
+  // - life_sciences_employment 2022: see the merged entry earlier in this file (kept together since
+  //   unavailableMetrics.find() only matches the FIRST entry per metric+jurisdiction pair).
+  // - ai_companies: no source of any kind (Built In Chicago, World Business Chicago, P33, Crunchbase)
+  //   publishes a historical point-in-time AI-company census for Chicago before mid-2024 -- a
+  //   confirmed absence, not an unsuccessful search. 2024/2025 are real (World Business Chicago);
+  //   2026 was already real (Built In Chicago) before this pass.
+  {
+    metricSlug: "ai_companies",
+    jurisdictionSlug: "chicago",
+    years: [2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023],
+  },
 ];

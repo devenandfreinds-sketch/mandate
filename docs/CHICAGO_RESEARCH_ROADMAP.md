@@ -239,16 +239,18 @@ requiring a fresh document hunt per year -- worth checking before assuming a gap
   stating the identical figure -- unusually strong confirmation for an estimated-tier value.
 
 **Partially resolved:**
-- `bike_infrastructure_miles` -- 2/11 -> **5/11 real**, resolved directly (not via research agent) by
-  summing the per-segment mileage field already present in three of Chicago Data Portal's dated
-  "deprecated" Bike Routes snapshots (Feb 2020, Nov 2021, Dec 2022) -- these datasets exist specifically
-  because CDOT preserves superseded GIS vintages rather than overwriting them, so no new sourcing was
-  needed, just querying data already on the portal. The Dec 2022 figure (342.13mi) is genuinely lower
-  than the Nov 2021 figure (359.18mi) -- reported as-is rather than smoothed, most likely reflecting a
-  schema/category change between snapshot vintages rather than a real network reduction. The three
-  earliest deprecated snapshots (Dec 2014, Mar 2016, Nov 2018) are listed in the portal's catalog but
-  their row-level data and column schemas are no longer accessible via the API -- a genuine access
-  limitation, not a data-entry gap.
+- `bike_infrastructure_miles` -- 2/11 -> 5/11 real (as of the 2026-08 pass) -> **9/11 real** (2026-09-02
+  pass). Chicago Data Portal's dated "deprecated" Bike Routes snapshots (Feb 2020, Nov 2021, Dec 2022)
+  already gave 3 years without new sourcing, just querying data already on the portal. The Dec 2022
+  figure (342.13mi) is genuinely lower than the Nov 2021 figure (359.18mi) -- reported as-is rather than
+  smoothed, most likely reflecting a schema/category change between snapshot vintages rather than a real
+  network reduction. CORRECTION to this doc's earlier claim: the Nov 2018 deprecated snapshot's row-level
+  data IS accessible via the API (confirmed live 2026-09-02, 568 EXISTING-status segments, summed to
+  294.83mi) -- only the Dec 2014 and Mar 2016 snapshots genuinely lack a usable length field. 2015 (292mi)
+  and 2016 (292mi) were filled from CDOT/Mayor's Press Office announcements instead, and 2024 (478mi)
+  from CDOT's "Complete Streets 2024 Highlights" page. 2017 and 2019 remain genuine gaps -- no CDOT
+  release or accessible GIS snapshot states a total-network figure for either year (only vague,
+  differently-scoped press mentions), not for lack of trying.
 - `affordable_housing_completions` -- 8/11 estimated, 3 placeholder -> **8/11 estimated, 3 unavailable**.
   Confirmed the Chicago Department of Housing has not published a newer Annual Report edition covering
   2023-2025 (its own "Data, Plans and Reports" page still only links the 2022 edition) -- a temporary,

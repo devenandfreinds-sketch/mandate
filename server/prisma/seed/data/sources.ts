@@ -2966,4 +2966,68 @@ export const sources: SourceSeedSpec[] = [
     country: "United States",
     language: "en",
   },
+  {
+    key: "chicago_obm_midyear_vacancy",
+    name: "Chicago OBM Mid-Year Budget Report — Workforce Vacancy",
+    publisher: "City of Chicago Office of Budget and Management",
+    url: "https://www.chicago.gov/city/en/depts/obm/provdrs/budget.html",
+    sourceType: "government_report",
+    citation:
+      "OBM's Mid-Year Budget Report, first published 2025 (explicitly announced as the City's first-ever such report), which includes a 'Workforce Vacancy' section giving citywide vacant/budgeted position counts as of each January 1 budget-adoption date, going back to a 3-year trend table starting FY2023.",
+    isPlaceholder: false,
+    updateFrequency: "annual",
+    methodology:
+      "No citywide vacancy-rate figure of any kind is published by the City for 2015-2022 -- this reporting series did not exist before 2025's first Mid-Year Budget Report, and its own retrospective trend table only reaches back to a Jan 1, 2023 snapshot. The Mid-Year reports also separately state a 'citywide average departmental vacancy rate' as of each May 31 snapshot (e.g. 'just over 15%' for May 2025), which is an unweighted average of each department's own vacancy percentage -- a materially different methodology from the weighted vacant/budgeted count used for the Jan-1 snapshots, and not reconciled with it. Mandate uses the weighted Jan-1 snapshot for year-over-year consistency; the May unweighted figure is documented per-row where it diverges rather than silently discarded.",
+    defaultConfidence: "estimated",
+    country: "United States",
+    language: "en",
+  },
+  {
+    key: "chicago_acfr_debt_per_capita_table",
+    name: "City of Chicago ACFR — Net Bonded Debt Per Capita (Statistical Section, Table 16)",
+    publisher: "City of Chicago, Office of the Comptroller",
+    url: "https://www.chicago.gov/city/en/depts/fin/supp_info/comprehensive_annualfinancialstatements.html",
+    sourceType: "government_report",
+    citation:
+      "ACFR Statistical Section, Table 16, 'Ratio of General Net Bonded Debt to Equalized Assessed Value and Net Bonded Debt Per Capita' (Last Ten Years) -- the City's own pre-computed per-capita figure, not a Mandate-derived calculation.",
+    isPlaceholder: false,
+    updateFrequency: "annual",
+    methodology:
+      "'Net Bonded Debt' is tax-supported general-obligation debt only (G.O. bonds, other G.O. debt, certificates, net of debt-service reserves) -- it excludes enterprise-fund revenue bonds (water/sewer/airport) and excludes Chicago's unfunded pension liability entirely, which is an order of magnitude larger and tracked separately under pension_funding_ratio; do not conflate the two. The table holds population fixed at the decennial Census count for the full decade rather than using annually-updated estimates -- 2,695,598 (2010 Census) for 2015-2020, 2,746,388 (2020 Census) for 2021-2025 -- so the per-capita figure moves with debt levels only, not population drift, within each decade.",
+    defaultConfidence: "high",
+    country: "United States",
+    language: "en",
+  },
+  {
+    key: "cpd_annual_report_clearances",
+    name: "Chicago Police Department Annual Report — Index Crime Clearances",
+    publisher: "Chicago Police Department",
+    url: "https://www.chicagopolice.org/statistics-data/annual-reports/",
+    sourceType: "government_report",
+    citation:
+      "Chicago Police Department Annual Reports (2017-2025 editions), 'Index Crime Clearances' table, giving incidents/cleared/percent for Murder, Criminal Sexual Assault, Robbery, Aggravated Assault, and Aggravated Battery -- summed here to a single violent-crime clearance rate matching the same five-category definition already used for Mandate's violent_crime_rate. Incident totals summed from this table match Mandate's existing violent_crime_rate CSV notes exactly for every overlapping year (2020-2025), confirming both draw on the same underlying CPD data.",
+    isPlaceholder: false,
+    updateFrequency: "annual",
+    methodology:
+      "REPLACES a previously-imported 2022-2024 series that was mistakenly homicide-only clearance (from CPD's separate 'Year in Review' press releases), not the violent-crime-scoped rate this metric definition calls for. A genuine methodology break exists within CPD's own reporting: the 2017 Annual Report (sole source for 2016) counts only incidents cleared in that SAME calendar year; every report from 2018 onward instead counts cases cleared by the report's publication date REGARDLESS of the incident's year -- a cumulative, not same-year, measure. This is why the 2018 Annual Report's restated 2017 figure (29.4%) is notably higher than the 2017 Annual Report's own same-year 2017 figure (23.3%) for the identical incidents. Mandate uses each year's restated (cumulative-method) figure from the FOLLOWING year's report where available, for methodology consistency with 2018-2025 -- except 2016, which has no later restatement and is imported on the stricter same-year basis (flagged per-row). 2015 has no CPD Annual Report at all (a 2011-2016 publication hiatus) and Chicago did not submit clearance data to the FBI UCR/NIBRS system for any year from 1994-2020 -- a confirmed structural gap, not unresearched.",
+    defaultConfidence: "government",
+    country: "United States",
+    language: "en",
+  },
+  {
+    key: "wbc_ai_industry_profile",
+    name: "World Business Chicago — AI & Machine Learning Industry Profile",
+    publisher: "World Business Chicago Research Center",
+    url: "https://worldbusinesschicago.com/app/uploads/2024/08/Chicagoland-Industry-Profile_AI.pdf",
+    sourceType: "government_report",
+    citation:
+      "World Business Chicago's dated, named-provider (PitchBook Data Inc. + Lightcast) point-in-time census of AI & Machine Learning companies headquartered in Chicago -- first published June 2024, apparently coinciding with Chicago AI Week's 2024 launch rather than a retroactive annual series.",
+    isPlaceholder: false,
+    updateFrequency: "irregular",
+    methodology:
+      "No edition before June 2024 exists, and no historical back-series is published -- 2015-2023 remain a confirmed dead end for this metric, not unresearched. This source's methodology differs from the (also real) 2026 data point already in Mandate for this metric, which comes from Built In Chicago's live, continuously-updated, crowdsourced company directory with no disclosed methodology or as-of date -- the two should not be treated as one continuous series without confirming they count on the same basis; magnitudes are broadly consistent (283-306 range) but not confirmed identical in definition.",
+    defaultConfidence: "estimated",
+    country: "United States",
+    language: "en",
+  },
 ];

@@ -419,4 +419,22 @@ export const researchQueueSeed: ResearchQueueSeedItem[] = [
       "RESOLVED (2026-08-30): both cities' PIT counts confirmed directly from HUD's own per-CoC Homeless Populations and Subpopulations (PopSub) Report PDFs (files.hudexchange.info), for every year 2015/2017-2025 (2016 unavailable from HUD's archive for both CoCs -- see unavailableMetrics.ts). DC-500 = DC city, one-to-one, no scope caveat needed. MN-500 is confirmed, per HUD's own document header, to be 'Minneapolis/Hennepin County' jointly -- county-wide, not city-only, with no separable city figure anywhere in HUD's system; imported at 'estimated' quality with that caveat, consistent with Mandate's existing convention for this CoC. Two numeric discrepancies vs. previously-cited secondary sources were found and flagged in the imported notes rather than silently resolved: DC 2015 (HUD 7,298 vs. press ~7,748) and Minneapolis 2023 (HUD 3,312 vs. Hennepin County's own website 2,687).",
     priority: 9,
   },
+  {
+    key: "chicago-budget-balance-methodology-conflict-2015-2017",
+    jurisdictionSlug: "chicago",
+    metricSlug: "budget_balance",
+    taskType: "metric",
+    researchQuestion:
+      "Methodology-lead decision, not a plain research gap: Chicago's budget_balance is real for 2018-2025, sourced from Chicago City Council's Office of Financial Analysis (COFA) 'Overview and Analysis of the ACFR' reports, computed as that year's General Fund revenue variance PLUS expenditure variance -- both measured against the ADOPTED BUDGET, not against the prior year. A 2026-09-02 research pass found a clean, complete alternative for 2015-2017 (and every other year) directly in the ACFR's own Table 6 ('Schedule of Revenues, Expenditures and Changes in Fund Balances, General Fund'): 2015 +$33.5M, 2016 +$209.4M, 2017 +$104.6M, cross-verified against two independently-filed ACFR vintages with no restatement. These were DELIBERATELY NOT IMPORTED because they measure a genuinely different concept -- actual revenues minus actual expenditures for the year, with no reference to what was budgeted -- not the budget-vs-actual variance COFA computes. Splicing them into the same series as 2018-2025 would reintroduce exactly the kind of same-metric-different-methodology inconsistency Mandate just fixed a chart-rendering bug over (see docs/INSTITUTIONAL_HARDENING_SPRINT_2026.md and the timeSeries.ts generator fix). Options: (a) find whether COFA's own 'Overview and Analysis' series extends back to 2015-2017 (COFA is a relatively new office, may not have retrospective coverage that far back -- unconfirmed either way by this pass), (b) switch the ENTIRE 2018-2025 series to the ACFR Table 6 bottom-line figure instead, for full-series consistency on a simpler, always-available methodology (would change several already-real values), or (c) leave 2015-2017 placeholder rather than import either mismatched or all-new-methodology data without sign-off.",
+    priority: 5,
+  },
+  {
+    key: "chicago-patent-creation-metro-source",
+    jurisdictionSlug: "chicago",
+    metricSlug: "patent_creation",
+    taskType: "metric",
+    researchQuestion:
+      "patent_creation is real only for 2015 (3,909, from USPTO's legacy PTMT metro-area report series, which structurally stops at calendar year 2015 -- confirmed by two independent research passes, no successor report exists). 2016-2025 has a concrete, actionable next step, not just a dead end: USPTO's PatentsView platform completed its migration to the new Open Data Portal PatentSearch API on 2026-03-20 (the old search.patentsview.org domain no longer resolves). The new API's 'location' endpoint still exposes location_city/location_state fields, meaning Chicago-level filtering should structurally still be possible -- but the new API requires an API key obtained via a manual request through USPTO's PatentsView support service desk (patentsview-support.atlassian.net), a registration step outside an automated research pass's reach. Next step: file the API key request, then query the location endpoint filtered to Chicago, IL for patents granted 2016-2025. Difficulty: low once the key is issued -- the blocker is administrative access, not data availability. Skill set: whoever holds (or can request) API credentials for USPTO's PatentsView service.",
+    priority: 7,
+  },
 ];

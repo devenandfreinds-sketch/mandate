@@ -1,0 +1,12 @@
+jurisdiction,metric,year,value,confidence,notes
+chicago,debt_per_capita,2015,3483.23,high,"City of Chicago ACFR, Table 16 'Ratio of General Net Bonded Debt to Equalized Assessed Value and Net Bonded Debt Per Capita' (Last Ten Years) -- pre-computed and certified by the City Comptroller's Office, not Mandate's own division. Net Bonded Debt = G.O. Bonds + Other G.O. Debt + Certificates/Other + premiums/accreted interest, net of debt-service reserves -- tax-supported debt only, excludes enterprise-fund revenue bonds and the (much larger, separately tracked) unfunded pension liability. Population held fixed at the 2010 Census figure (2,695,598) for 2015-2020 per the ACFR's own convention, not an annually-updated estimate."
+chicago,debt_per_capita,2016,3406.23,high,"Same source/methodology as 2015."
+chicago,debt_per_capita,2017,3608.88,high,"Same source/methodology as 2015."
+chicago,debt_per_capita,2018,3104.12,high,"Same source/methodology as 2015."
+chicago,debt_per_capita,2019,2950.71,high,"Same source/methodology as 2015."
+chicago,debt_per_capita,2020,2614.83,high,"Same source/methodology as 2015."
+chicago,debt_per_capita,2021,2020.11,high,"City of Chicago ACFR, Table 16. Population switches to the 2020 Census figure (2,746,388) starting this year per the ACFR's own convention."
+chicago,debt_per_capita,2022,1876.43,high,"Same source/methodology as 2021."
+chicago,debt_per_capita,2023,1710.04,high,"Same source/methodology as 2021."
+chicago,debt_per_capita,2024,1870.58,high,"Same source/methodology as 2021. Cross-verified identical in both the FY2024 and FY2025 ACFRs' overlapping Table 16 columns -- no later restatement."
+chicago,debt_per_capita,2025,2107.35,high,"City of Chicago ACFR (FY2025), Table 16. Same methodology as 2021."

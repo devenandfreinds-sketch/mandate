@@ -1,0 +1,3 @@
+jurisdiction,metric,year,value,confidence,notes
+chicago,vc_investment,2016,1300000000,medium,"World Business Chicago / ChicagoNEXT Venture Summit materials (per secondary coverage), same PitchBook-NVCA Venture Monitor lineage as Mandate's existing 2019/2021-2025 values for this metric."
+chicago,vc_investment,2017,2000000000,medium,"World Business Chicago / ChicagoNEXT Venture Summit materials, same PitchBook-NVCA lineage as 2016. A second tracker (Built In Chicago's own 'Year in Review') separately cites 'more than $1.7B' for this year -- a genuine, unresolved second-source conflict, flagged here rather than silently picked between."
