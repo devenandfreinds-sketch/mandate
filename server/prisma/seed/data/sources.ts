@@ -3030,4 +3030,52 @@ export const sources: SourceSeedSpec[] = [
     country: "United States",
     language: "en",
   },
+  {
+    key: "nyc_opendata_mmr_agency_resources",
+    name: "NYC Open Data — Mayor's Management Report Agency Resources",
+    publisher: "City of New York, Mayor's Office of Operations",
+    url: "https://data.cityofnewyork.us/City-Government/Mayor-s-Management-Report-Agency-Resources/4qmi-txnk",
+    sourceType: "government_dataset",
+    citation:
+      "Per-agency, per-fiscal-year 'Personnel' rows (current-FY projected actual headcount vs. current-FY authorized budgeted headcount) drawn from every mayoral agency's own Mayor's Management Report chapter, aggregated here by summing both fields across all ~39-40 mayoral agencies for each fiscal year to compute a citywide agency_vacancy_rate = 1 - (actual/budgeted).",
+    isPlaceholder: false,
+    updateFrequency: "annual",
+    methodology:
+      "Queried directly via the dataset's Socrata Open Data API (client-side aggregation, since the API's own numeric fields are stored as text and cannot be summed server-side). FY2018's 'Personnel' rows have a currency-formatting quirk in the source data itself (values like '$355.00' for a headcount, not a dollar figure) -- handled by stripping the '$' before summing, not a data error. Cross-validates closely against independently-published NYC Comptroller snapshot figures for overlapping years (e.g. computed FY2022 9.02% vs. Comptroller's 'Title Vacant' report's ~8-8.6% for Oct 2022) -- strong confirmation the aggregation is accurate. 'Fiscal year' here is NYC's FY convention (July-June, named for the year it ends) mapped directly to Mandate's calendar-year period label.",
+    defaultConfidence: "high",
+    country: "United States",
+    language: "en",
+  },
+  {
+    key: "nyc_mmr_dob_permit_time",
+    name: "NYC Mayor's Management Report — DOB Permit Filing-to-Approval Time",
+    publisher: "City of New York, Mayor's Office of Operations / Department of Buildings",
+    url: "https://www.nyc.gov/content/operations/pages/mmr",
+    sourceType: "government_report",
+    citation:
+      "The Department of Buildings chapter of NYC's semi-annual Mayor's Management Report, indicator 'Average days from filing to approval -- All applications (DOB NOW)'.",
+    isPlaceholder: false,
+    updateFrequency: "annual",
+    methodology:
+      "This is an AVERAGE, not a median as this metric is defined, blended across ALL DOB NOW application types (new buildings, major/minor alterations, etc.) rather than one 'standard' permit type, and explicitly includes time the application sits with the applicant as well as with the Department -- not pure agency processing time. FY2019 (DOB NOW's rollout year, only 24,415 filings vs. 250k+ in later years) is excluded as unrepresentative. FY2015-2018 have no equivalent full-approval metric at all -- the MMR chapters for those years report only a narrower 'first plan review' time, a genuinely different, non-comparable concept, not a data gap that could be filled with more searching.",
+    defaultConfidence: "estimated",
+    country: "United States",
+    language: "en",
+  },
+  {
+    key: "seattle_opendata_building_permits_median",
+    name: "Seattle Open Data — Building Permits (Applied-to-Issued Median)",
+    publisher: "City of Seattle, Seattle Department of Construction and Inspections (SDCI)",
+    url: "https://data.seattle.gov/Permitting/Building-Permits/76t5-zqzr",
+    sourceType: "government_dataset",
+    citation:
+      "City of Seattle Open Data Portal 'Building Permits' dataset, queried directly via its Socrata API: median calendar days from AppliedDate to IssuedDate across all permittypemapped='Building' permits (Residential + Non-Residential combined; excludes Demolition/Roof/Grading/ECA-Shoreline) actually issued, grouped by application year.",
+    isPlaceholder: false,
+    updateFrequency: "annual",
+    methodology:
+      "This is 'Total Calendar Days' -- includes both City review time and applicant response time -- not SDCI's own separately-defined 'Calendar Days in City Control' metric (the dataset's own precomputed DaysIssuePermitCity field is populated for only ~10-15% of records even recently and is entirely null before 2018, a confirmed gap in that specific field, which is why raw AppliedDate/IssuedDate were used instead). Scope is all building permits combined -- broader than any single permit-type track (e.g. 'Middle Housing,' 'Large Multifamily') that SDCI's own live dashboard highlights, and there is no separate SDCI 'business permit' category to match this metric's literal wording (business licenses are a City Finance function with no equivalent public timing data).",
+    defaultConfidence: "estimated",
+    country: "United States",
+    language: "en",
+  },
 ];

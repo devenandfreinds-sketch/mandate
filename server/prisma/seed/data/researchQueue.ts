@@ -437,4 +437,121 @@ export const researchQueueSeed: ResearchQueueSeedItem[] = [
       "patent_creation is real only for 2015 (3,909, from USPTO's legacy PTMT metro-area report series, which structurally stops at calendar year 2015 -- confirmed by two independent research passes, no successor report exists). 2016-2025 has a concrete, actionable next step, not just a dead end: USPTO's PatentsView platform completed its migration to the new Open Data Portal PatentSearch API on 2026-03-20 (the old search.patentsview.org domain no longer resolves). The new API's 'location' endpoint still exposes location_city/location_state fields, meaning Chicago-level filtering should structurally still be possible -- but the new API requires an API key obtained via a manual request through USPTO's PatentsView support service desk (patentsview-support.atlassian.net), a registration step outside an automated research pass's reach. Next step: file the API key request, then query the location endpoint filtered to Chicago, IL for patents granted 2016-2025. Difficulty: low once the key is issued -- the blocker is administrative access, not data availability. Skill set: whoever holds (or can request) API credentials for USPTO's PatentsView service.",
     priority: 7,
   },
+  {
+    key: "nyc-procurement-timeline-primary-source",
+    jurisdictionSlug: "new-york-city",
+    metricSlug: "procurement_timeline_days",
+    taskType: "metric",
+    researchQuestion:
+      "A 2026-09-05 research pass found NYC's Mayor's Office of Contract Services (MOCS) 'Citywide Indicators Report' publishes median cycle times by contract-award phase (Pre-Solicitation Review, Solicitation, Evaluation, Award, Registration), but only FY23-25 figures were read, and only as an END-TO-END total spanning all 5 phases -- broader than this metric's 'RFP issuance to contract award' definition, which maps to just the Solicitation+Evaluation phases. A rough derived approximation for FY23/FY24 (~167/~163 days, summing the two relevant phase medians) was computed but explicitly flagged low-confidence, since medians of sub-phases don't sum precisely to a true combined median -- NOT imported for that reason. MOCS's own site states FY09-24 Executive Summaries and FY11-24 detailed appendices exist as individual PDFs (not yet fetched one by one this pass) -- reading those directly for FY15-22 is the concrete next step, and may also resolve whether a cleaner Solicitation+Evaluation-only figure is stated explicitly rather than needing derivation. Also flagged: the live MOCS webpage shows an internal inconsistency for FY24 CSB figures (328 vs. 357 days in two places on the same continuously-updated dashboard) -- use the most recent figure with a vintage caveat if pursued.",
+    priority: 6,
+  },
+  {
+    key: "nyc-capital-budget-execution-rate-methodology",
+    jurisdictionSlug: "new-york-city",
+    metricSlug: "capital_budget_execution_rate",
+    taskType: "metric",
+    researchQuestion:
+      "A 2026-09-05 research pass found two different NYC Comptroller-published 'capital commitment achievement rate' series, but neither matches this metric's definition ('share of the planned annual capital budget actually SPENT') -- both measure commitments/encumbrances against a registered contract, which the Comptroller's own reports explicitly distinguish from capital expenditure. The two found series also use incompatible denominators (target-commitment basis: FY2024 120.0%, FY2025 114.0%; vs. adopted-first-year-plan basis: FY2017-19 ~54-63%, FY2020 43%, FY2012-22 avg 60.4%) and should not be treated as one series. Concrete next step, not a dead end: NYC Open Data publishes both a 'Capital Commitment Plan' (data.cityofnewyork.us, id 2cmn-uidm) and a 'Capital Commitment Actuals' dataset (id 8u85-k342) -- querying these directly (the same SODA-API-aggregation approach that worked for this metric's agency_vacancy_rate companion and for NYC's business_formation/affordable_housing_completions metrics) could construct a genuine expenditure-vs-budget series from primary data rather than a secondary report's own (differently-scoped) headline number. Difficulty: medium -- requires understanding the two datasets' schemas and confirming which fields represent actual disbursement vs. commitment.",
+    priority: 6,
+  },
+  {
+    key: "nyc-permit-approval-days-fy15-18-scope-gap",
+    jurisdictionSlug: "new-york-city",
+    metricSlug: "permit_approval_days",
+    taskType: "metric",
+    researchQuestion:
+      "permit_approval_days is real for FY2020-2025 (DOB NOW 'filing to approval' average, see sources.ts nyc_mmr_dob_permit_time). FY2015-2018 remain placeholder -- not for lack of searching, but because DOB NOW (the system this metric's real years are sourced from) had not yet rolled out; the MMR chapters for those years instead report a narrower 'first plan review' time only, a genuinely different concept (review-only, not full approval) that should not be spliced into the same series without a clear methodology break noted. If pursued, the pre-DOB-NOW 'first plan review' figures do exist (found by type: new-building/Alteration-I/minor-renovation, by channel) and could be imported as a distinctly-labeled predecessor series rather than forced into continuity with FY2020+.",
+    priority: 4,
+  },
+  {
+    key: "minneapolis-capital-budget-execution-rate-lims-blocked",
+    jurisdictionSlug: "minneapolis",
+    metricSlug: "capital_budget_execution_rate",
+    taskType: "metric",
+    researchQuestion:
+      "A 2026-09-05 research pass could not find a directly-published capital-execution ratio: CLIC reports are confirmed forward-looking only (proposed CIP, not actual-vs-budget), and the ACFR gives actual capital outlay ($147.15M in 2024) without a paired annual capital-budget figure (capital funds use project-length, not annual, GAAP budgetary-comparison schedules). The strongest lead -- Minneapolis's Quarterly Financial Status Reports, which exist for essentially every year back to 2014 and are exactly the kind of document that worked for Chicago's fiscal metrics -- is hosted on lims.minneapolismn.gov, which returned an HTTP 403 Cloudflare bot-challenge to every automated tool tried (WebFetch, curl with browser UA, r.jina.ai proxy, and the Claude Browser tool, which triggered a file-download prompt instead of rendering). This is a TOOLING ACCESS limitation, not a confirmed data absence -- do not mark unavailable. Next step: fetch the Quarterly Financial Status Reports via a real logged-in browser session against lims.minneapolismn.gov.",
+    priority: 5,
+  },
+  {
+    key: "minneapolis-procurement-timeline-lims-blocked",
+    jurisdictionSlug: "minneapolis",
+    metricSlug: "procurement_timeline_days",
+    taskType: "metric",
+    researchQuestion:
+      "A 2026-09-05 research pass found no published procurement cycle-time data on Finance & Property Services' site or in city budget books (a ~2019 modernization plan proposed building a cycle-time dashboard but no evidence it was ever published with actual figures). Two specific, on-topic City Auditor reports were identified but could not be opened -- both hosted on the same Cloudflare-protected lims.minneapolismn.gov domain that blocked capital_budget_execution_rate research this same pass: 'Procure to Pay Process Audit Report' (AU2016-00023) and 'Procurement ABC System Post-Implementation Audit' (AU2020-00005). A tooling access limitation, not a confirmed absence. Next step: fetch both audit PDFs via a real logged-in browser session.",
+    priority: 5,
+  },
+  {
+    key: "minneapolis-agency-vacancy-rate-lims-blocked",
+    jurisdictionSlug: "minneapolis",
+    metricSlug: "agency_vacancy_rate",
+    taskType: "metric",
+    researchQuestion:
+      "A 2026-09-05 research pass found no citywide budgeted-vs-filled position data in the ACFR, Quick Facts page, or budget books (the former HR/Performance-Management dashboards now 301-redirect to a generic 'MinneapolisData' placeholder, consistent with the whole performance-dashboard program being offline). A MPD (police-only) sworn-officer vacancy series was found via secondary press coverage (2020: 24%, 2021: 33%, 2022: 37%, 2023: 38%, all citing primary document RCA-2024-00299) -- DELIBERATELY NOT IMPORTED as agency_vacancy_rate: it is single-department, not citywide, and the underlying secondary sources disagree with each other on actual sworn headcount, so the primary RCA itself needs verification first. RCA-2024-00299 is very likely also lims-hosted and was not reachable this pass. Next step: fetch RCA-2024-00299 via a real logged-in browser session, and separately determine whether any citywide (not police-only) vacancy figure exists in Minneapolis's budget documents.",
+    priority: 5,
+  },
+  {
+    key: "minneapolis-permit-approval-days-structural-gap",
+    jurisdictionSlug: "minneapolis",
+    metricSlug: "permit_approval_days",
+    taskType: "metric",
+    researchQuestion:
+      "A 2026-09-05 research pass checked CPED/Construction Code Services (publishes only a stated SERVICE-STANDARD TARGET of 15 business days for initial plan review, not a measured actual), the ACFR (has permit counts and dollar values, no turnaround-time data), and the city's own open-data permit layer (ArcGIS FeatureServer CCS_Permits has issueDate/completeDate fields but NO application/submission-date field, meaning median approval days cannot be derived from it even with full access) -- none of these are lims-blocked, so this looks like a more genuine dead end than the other 3 government-capacity metrics researched the same pass, though not yet confirmed to the same standard as a metric explicitly marked unavailable elsewhere in this codebase. Left as placeholder rather than unavailable pending one more check of whether Minneapolis's (currently offline) performance-dashboard program ever published this specific figure historically.",
+    priority: 3,
+  },
+  {
+    key: "seattle-procurement-timeline-days-dead-end",
+    jurisdictionSlug: "seattle",
+    metricSlug: "procurement_timeline_days",
+    taskType: "metric",
+    researchQuestion:
+      "A 2026-09-05 research pass confirmed no cycle-time-in-days metric exists for Seattle procurement in any form checked: the Socrata open-data catalog has no contracts/solicitations/RFP dataset at all for Seattle; FAS's 'Seattle Procurement Cookbook' (Sept 2024, with Harvard Kennedy School Government Performance Lab) is qualitative case studies with zero day-figures; a June 2024 'Dashing to Results' announcement confirms FAS built an internal Power BI dashboard but it's not public and no KPI numbers were published; no relevant City Auditor audit exists; the new OpenGov procurement portal (Aug 2024+) has live solicitation listings but no historical bulk data or exposed post-date/award-date pairs to compute a median from. This looks like a genuine structural gap, not a search failure -- no hidden dataset was found the way one was for permit_approval_days.",
+    priority: 3,
+  },
+  {
+    key: "seattle-capital-budget-execution-rate-scope-mismatch",
+    jurisdictionSlug: "seattle",
+    metricSlug: "capital_budget_execution_rate",
+    taskType: "metric",
+    researchQuestion:
+      "A 2026-09-05 research pass confirmed no citywide capital-execution figure exists (Seattle's ACFR budgetary-comparison schedules cover the General Fund only, excluding the utility/enterprise-fund spending -- City Light, SPU, SDOT -- that dominates the actual citywide Capital Improvement Program). A real, government-published execution-rate series DOES exist, but only for SDOT's transportation-levy-funded capital program (~30% of the city's transportation budget, per the levy's own materials, itself just one department): 2021 72.0%/43.2%, 2023 67.2%/55.8%, 2025 43.5% (Levy-only / All-Funds pairs, from SDOT's mandatory annual reports to the Transportation Levy Oversight Committee). DELIBERATELY NOT IMPORTED as capital_budget_execution_rate -- doing so would misrepresent a single-department, levy-specific figure as citywide. 2016/2017/2019/2020/2022/2024 SDOT levy reports likely exist in the same format and were not pulled this pass (time-boxed, not a dead end). No citywide figure is likely obtainable given the ACFR's structural scope limit -- this metric may need a methodology-lead decision on whether a levy-specific proxy is acceptable with a clear scope caveat, similar to how other jurisdictions' county-wide-instead-of-city proxies have been handled.",
+    priority: 3,
+  },
+  {
+    key: "seattle-agency-vacancy-rate-partial",
+    jurisdictionSlug: "seattle",
+    metricSlug: "agency_vacancy_rate",
+    taskType: "metric",
+    researchQuestion:
+      "A 2026-09-05 research pass found no citywide vacancy-rate aggregate in the ACFR, CBO budget books, or City Council Central Staff's 224-page 2019-2024 Budget Review (CBO documents instead discuss a 'vacancy rate ASSUMPTION' -- a budget-planning/savings parameter used to justify cuts, a genuinely different concept from a measured actual rate, not conflated here). One single point-in-time, three-department snapshot was found via Cascade PBS/Crosscut journalism (public-records-sourced, Aug 2022): City Light 15.9%, SPU 11.5%, Parks 13.4% -- NOT imported as agency_vacancy_rate since it is a single date, not a series, not an official city publication, and not citywide. A more promising, unexecuted lead: City Council Central Staff publishes detailed quarterly SPD sworn-staffing briefings (exact fully-trained/deployable counts by quarter since 2020, via Legistar) alongside SPD budget documents stating exact funded sworn FTE by year -- pairing these could yield a defensible SPD-specific vacancy series, though still not citywide. A genuine conceptual trap for whoever picks this up: do not conflate CBO's 'vacancy rate assumption' with an actual measured rate.",
+    priority: 3,
+  },
+  {
+    key: "dc-permit-approval-days-wrong-shape",
+    jurisdictionSlug: "washington-dc",
+    metricSlug: "permit_approval_days",
+    taskType: "metric",
+    researchQuestion:
+      "A 2026-09-05 research pass found DC's Department of Buildings (DOB, split from DCRA in 2020) and predecessor DCRA publish only 'percent of permits completed within N days' threshold KPIs (e.g. '% ProjectDox initial review within 25/30 business days,' '% solar permits within 10 calendar days') in their annual Performance Accountability Reports (PARs, oca.dc.gov) -- never a median-days figure as this metric is defined. Real percent-within-threshold data exists for FY2016, FY2020-2025 (FY2017-2019 not located) but is the WRONG STATISTICAL SHAPE to import as-is -- a percent-within-threshold cannot be cleanly converted to a median. DOB's live Tableau performance dashboard (dob.dc.gov/page/agency-performance-dob) may have more granular data but requires browser automation (JS-rendered) to extract, not yet attempted.",
+    priority: 3,
+  },
+  {
+    key: "dc-procurement-timeline-days-unmined-portal",
+    jurisdictionSlug: "washington-dc",
+    metricSlug: "procurement_timeline_days",
+    taskType: "metric",
+    researchQuestion:
+      "A 2026-09-05 research pass confirmed DC's Office of Contracting and Procurement (OCP) has never published a cycle-time-in-days KPI in any PAR checked (FY2012, FY2020-2025) -- its KPIs cover contract-posting transparency and satisfaction stats only. OCP's own FY2025-26 oversight testimony describes a brand-new internal 'Procurement Administrative Lead Time (PALT) Tracking System' (built with OCTO) explicitly because cycle time has never been publicly quantified -- confirms this is a genuine gap, not a search failure, for 2015-2025. Concrete next step, not a dead end: DC's live Contracts and Procurement Data Transparency Portal (contracts.ocp.dc.gov) has separate Solicitations and Contracts modules with ~6 years of historical data that could in principle be matched (solicitation-post-date to award-date) to compute a real cycle-time metric -- this is a data-extraction/scraping project, not desk research, and was not attempted this pass.",
+    priority: 4,
+  },
+  {
+    key: "dc-agency-vacancy-rate-single-agency-only",
+    jurisdictionSlug: "washington-dc",
+    metricSlug: "agency_vacancy_rate",
+    taskType: "metric",
+    researchQuestion:
+      "A 2026-09-05 research pass found no citywide vacancy aggregate for DC (checked DCHR, DC Auditor, DC Fiscal Policy Institute, news coverage -- a March 2022 DCist article cites '500+ vacant DC government jobs across 20+ agencies' but gives no denominator, so no rate is computable). Two single-agency data points were found and NOT imported (citywide scope mismatch): DCRA FY2016 narrative ('reduced the vacancy rate from 7% to 4%'), and DOB's Q2 FY2025 Schedule A roster (377 budgeted / 57 vacant = 15.1% agency-wide, extracted from DOB's Feb 2025 Council Performance Oversight Pre-Hearing Responses at dccouncil.gov). PAR-level HR/staffing KPIs were dropped from the reporting framework after FY2016, explaining the gap in between. Concrete next step: every DC agency files the same kind of annual 'Schedule A' position-level roster with its Performance Oversight Hearing responses (the same document family that already worked for DC's Housing Production Trust Fund research) -- pulling several more agencies' Schedule A exhibits across more years could eventually support either a multi-agency composite or a documented decision to track agency_vacancy_rate per-agency rather than citywide for DC specifically.",
+    priority: 4,
+  },
 ];

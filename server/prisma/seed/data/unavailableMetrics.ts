@@ -192,4 +192,12 @@ export const unavailableMetrics: UnavailableMetricSpec[] = [
     jurisdictionSlug: "chicago",
     years: [2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023],
   },
+  // DC government-capacity research pass (2026-09-05): DC's capital budget is not annually
+  // appropriated -- it's authorized as multi-year "lifetime budget authority" per project (OCFO's
+  // own Capital Financial Status Report explicitly states agencies may obligate up to a project's
+  // full lifetime authority, with encumbrances "planned for future years"). Confirmed directly in
+  // the FY2024 ACFR: there is no budgetary comparison schedule for the Capital Projects Fund at all
+  // (GASB only requires one where an annual budget is legally adopted), only for the General Fund
+  // and Federal/Private Resources. A genuine legal/structural absence, not unresearched.
+  { metricSlug: "capital_budget_execution_rate", jurisdictionSlug: "washington-dc" },
 ];

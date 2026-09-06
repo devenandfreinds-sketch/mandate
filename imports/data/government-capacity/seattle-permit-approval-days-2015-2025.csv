@@ -1,0 +1,12 @@
+jurisdiction,metric,year,value,confidence,notes
+seattle,permit_approval_days,2015,35,medium,"Computed directly from City of Seattle Open Data Portal 'Building Permits' dataset (Socrata id 76t5-zqzr): median calendar days from AppliedDate to IssuedDate across all permittypemapped='Building' permits (Residential + Non-Residential, excludes Demolition/Roof/Grading/ECA-Shoreline) actually issued, applications filed in 2015 (n=7,043). This is 'Total Calendar Days' (includes both City review time and applicant response time), not SDCI's separately-defined 'Calendar Days in City Control' -- the two are not comparable. Scope is all building permits combined, broader than any single permit-type track (e.g. 'Middle Housing') SDCI's own live dashboard highlights."
+seattle,permit_approval_days,2016,34,medium,"Same source/methodology as 2015 (n=7,332)."
+seattle,permit_approval_days,2017,29,medium,"Same source/methodology as 2015 (n=7,473)."
+seattle,permit_approval_days,2018,25,medium,"Same source/methodology as 2015 (n=7,200)."
+seattle,permit_approval_days,2019,29,medium,"Same source/methodology as 2015 (n=6,545)."
+seattle,permit_approval_days,2020,47,medium,"Same source/methodology as 2015 (n=5,397)."
+seattle,permit_approval_days,2021,56,medium,"Same source/methodology as 2015 (n=5,848)."
+seattle,permit_approval_days,2022,60,medium,"Same source/methodology as 2015 (n=5,505)."
+seattle,permit_approval_days,2023,55,medium,"Same source/methodology as 2015 (n=4,609)."
+seattle,permit_approval_days,2024,54,medium,"Same source/methodology as 2015 (n=4,992)."
+seattle,permit_approval_days,2025,52,medium,"Same source/methodology as 2015 (n=4,998; 2025 may be slightly under-counted if some late-year applications are still in review). SUPERSEDES a previously-imported value of 117 days, which was SDCI's own 75th-percentile figure for the narrower 'Middle Housing' permit track only -- this row uses the broader, full-series-consistent median-across-all-building-permits methodology instead."

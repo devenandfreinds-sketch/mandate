@@ -1,0 +1,7 @@
+jurisdiction,metric,year,value,confidence,notes
+new-york-city,permit_approval_days,2020,8.3,medium,"NYC Mayor's Management Report, DOB chapter, 'Average days from filing to approval -- All applications (DOB NOW)'. Two definitional caveats: this is an AVERAGE (not median, as this metric is defined) blended across ALL DOB NOW application types (new buildings, major/minor alterations, etc.), not one 'standard' permit type; and it 'includes both the time an application is with the Department and time with the applicant,' not pure agency processing time. FY2019 (the DOB NOW rollout year, only 24,415 filings vs 250k+ in later years) is deliberately excluded as unrepresentative."
+new-york-city,permit_approval_days,2021,11.2,medium,"Same source/methodology/caveats as 2020."
+new-york-city,permit_approval_days,2022,14.7,medium,"Same source/methodology/caveats as 2020."
+new-york-city,permit_approval_days,2023,18.1,high,"Same source/methodology/caveats as 2020."
+new-york-city,permit_approval_days,2024,20.2,high,"Same source/methodology/caveats as 2020."
+new-york-city,permit_approval_days,2025,20.3,high,"Same source/methodology/caveats as 2020."

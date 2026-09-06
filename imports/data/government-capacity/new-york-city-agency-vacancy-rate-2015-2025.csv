@@ -1,0 +1,12 @@
+jurisdiction,metric,year,value,confidence,notes
+new-york-city,agency_vacancy_rate,2015,1.80,high,"Computed from NYC Open Data 'Mayor's Management Report -- Agency Resources' (data.cityofnewyork.us/City-Government/Mayor-s-Management-Report-Agency-Resources/4qmi-txnk), summing each agency's 'Personnel' row (current_fy_projected_actual vs current_fy_authorized_budget) across all ~39-40 mayoral agencies for FY2015: 256,004 actual / 260,693 budgeted."
+new-york-city,agency_vacancy_rate,2016,2.12,high,"Same source/methodology as 2015: 263,326 actual / 269,040 budgeted, FY2016."
+new-york-city,agency_vacancy_rate,2017,2.74,high,"Same source/methodology as 2015: 267,111 actual / 274,637 budgeted, FY2017."
+new-york-city,agency_vacancy_rate,2018,2.71,high,"Same source/methodology as 2015: 268,853 actual / 276,354 budgeted, FY2018. Note: this year's raw dataset rows have a currency-formatting quirk (values like '$355.00' instead of '355' for headcounts) -- handled correctly, not a data error."
+new-york-city,agency_vacancy_rate,2019,2.66,high,"Same source/methodology as 2015: 274,825 actual / 282,333 budgeted, FY2019."
+new-york-city,agency_vacancy_rate,2020,2.31,high,"Same source/methodology as 2015: 273,734 actual / 280,193 budgeted, FY2020."
+new-york-city,agency_vacancy_rate,2021,3.74,high,"Same source/methodology as 2015: 267,424 actual / 277,826 budgeted, FY2021."
+new-york-city,agency_vacancy_rate,2022,9.02,high,"Same source/methodology as 2015: 259,415 actual / 285,144 budgeted, FY2022. Cross-validates closely against NYC Comptroller's independently-published 'Title Vacant' report snapshot for Oct 2022 (~8-8.6% citywide, 35 large agencies)."
+new-york-city,agency_vacancy_rate,2023,7.06,high,"Same source/methodology as 2015: 261,034 actual / 280,875 budgeted, FY2023."
+new-york-city,agency_vacancy_rate,2024,3.95,high,"Same source/methodology as 2015: 268,316 actual / 279,354 budgeted, FY2024."
+new-york-city,agency_vacancy_rate,2025,4.05,high,"Same source/methodology as 2015: 275,675 actual / 287,320 budgeted, FY2025. Broadly consistent with NYC Comptroller's independently-reported ~4.5% (Nov 2025) and ~5.1%/2.6% (Apr 2026, two different denominators) snapshot figures."
