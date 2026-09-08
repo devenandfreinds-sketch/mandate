@@ -1022,6 +1022,8 @@ export const sources: SourceSeedSpec[] = [
     citation: "MTA's own ridership counts and service-change press releases.",
     isPlaceholder: false,
     updateFrequency: "annual",
+    methodology:
+      "transit_ridership: MTA's own annual ridership pages (mta.info/agency/new-york-city-transit/ridership/[year]) give exact subway + bus (NYCT + MTA Bus Co.) unlinked-passenger-trip totals, summed here for a combined figure -- recomputing the existing 2024 value from these pages matched almost exactly, confirming the convention. transit_reliability: computed directly from NYS Open Data's 'MTA Subway Terminal On-Time Performance' dataset (data.ny.gov, f6rf-2a3t), the primary dataset underlying MTA/Comptroller OTP reporting -- sum(on-time trips)/sum(scheduled trips) across all lines/divisions/day-types via the Socrata API, aggregated by calendar year. This is 'terminal on-time performance' (trains reaching the final terminal within 5 min of schedule), not the MTA's separate 'Wait Assessment' (headway-based) metric, which is methodologically different and not used here. 2020's high OTP (88.6%) likely reflects COVID-depressed ridership/schedules, not genuinely improved reliability -- flagged, not adjusted.",
     defaultConfidence: "high",
     country: "United States",
     language: "en",
@@ -1351,6 +1353,8 @@ export const sources: SourceSeedSpec[] = [
     citation: "WMATA's own ridership statistics; a regional multi-jurisdictional authority, not a DC-specific institution.",
     isPlaceholder: false,
     updateFrequency: "annual",
+    methodology:
+      "For transit_reliability: WMATA has used two distinct, non-comparable on-time-performance metrics over time -- an older calendar-year 'headway adherence' metric (train-spacing based, pre-~2016) and a newer 'Rail Customer On-Time Performance' metric (% of customer trips completed within an expected wait+travel-time window, reported by WMATA fiscal year, Jul-Jun, since ~FY2017). Mandate uses the newer customer-trip metric throughout, matching this jurisdiction's existing FY2025 value; WMATA fiscal year is mapped directly to Mandate's calendar-year period label (FYxxxx -> year xxxx). FY2015/FY2016 figures under this metric could not be located (a linked FY2015 Vital Signs report returned 404); do not conflate with the older headway-adherence series, which reports materially different numbers for overlapping periods.",
     defaultConfidence: "high",
     country: "United States",
     language: "en",
@@ -1788,6 +1792,8 @@ export const sources: SourceSeedSpec[] = [
     citation: "DDOT's own bicycle-lane infrastructure tracking portal.",
     isPlaceholder: false,
     updateFrequency: "continuous",
+    methodology:
+      "DDOT publishes at least three distinct, non-interchangeable cumulative-mileage figures that get conflated in press coverage: (1) 'total bike lane' mileage (all on-street facility types -- painted, buffered, contraflow, advisory, climbing lane, cycle track, protected -- excluding trails and shared/sharrow lanes), (2) 'protected bike lanes' only (a subset whose own definition has shifted over time, sometimes including cycle tracks, sometimes not), and (3) off-street trails (tracked separately, ~62-63mi, fairly stable). This jurisdiction's entries use definition (1), matching the existing real value. A DDOT press release citing 63mi for 2015 is inconsistent with an earlier DDOT release citing 69mi for 2014 (likely an unexplained recount, not an actual network reduction) -- kept as the best-available 2015 figure despite the inconsistency. 2016-2021 and 2024-2025 have no confirmed cumulative total-bike-lane figure -- only protected-lane subsets or annual (not cumulative) installation-rate figures exist for those years, which would be a definitional mismatch if substituted in.",
     defaultConfidence: "high",
     country: "United States",
     language: "en",
@@ -3075,6 +3081,102 @@ export const sources: SourceSeedSpec[] = [
     methodology:
       "This is 'Total Calendar Days' -- includes both City review time and applicant response time -- not SDCI's own separately-defined 'Calendar Days in City Control' metric (the dataset's own precomputed DaysIssuePermitCity field is populated for only ~10-15% of records even recently and is entirely null before 2018, a confirmed gap in that specific field, which is why raw AppliedDate/IssuedDate were used instead). Scope is all building permits combined -- broader than any single permit-type track (e.g. 'Middle Housing,' 'Large Multifamily') that SDCI's own live dashboard highlights, and there is no separate SDCI 'business permit' category to match this metric's literal wording (business licenses are a City Finance function with no equivalent public timing data).",
     defaultConfidence: "estimated",
+    country: "United States",
+    language: "en",
+  },
+  {
+    key: "dc_streetcar_expansion_history",
+    name: "DC Streetcar Opening and Expansion History",
+    publisher: "Multiple (JMT, Planetizen, Washington Post, Greater Greater Washington, DDOT press materials)",
+    url: "https://ggwash.org/view/75782/why-the-union-station-to-georgetown-streetcar-died",
+    sourceType: "news",
+    citation:
+      "Cross-corroborated reporting on the DC Streetcar (H Street/Benning Road Line)'s February 27, 2016 opening (~2.2 miles) and its subsequent decade with zero expansion (the planned Georgetown/K Street and Benning Road Metro extensions were both formally abandoned, never built) -- multiple independent outlets agree on the opening date; a minor 2.2 vs. 2.4 mile discrepancy exists across sources, with 2.2mi used here for consistency with this jurisdiction's existing entries.",
+    isPlaceholder: false,
+    updateFrequency: "irregular",
+    methodology:
+      "public_transport_expansion_miles is defined as miles of new rail/dedicated-BRT corridor added THAT YEAR, not cumulative. WMATA Silver Line Phase 1 (2014, before this window) and Phase 2 (Nov 2022) are both entirely in Fairfax/Loudoun County, Virginia -- zero DC mileage in any year. Several DDOT 'Bus Priority Program' painted bus lanes were installed in this window (Georgia Ave NW 2016, H/I Streets NW made permanent 2019, 16th St NW 2022) but are deliberately NOT counted as BRT mileage -- they are ordinary travel lanes restriped for peak-period priority, lacking an exclusive busway, off-board fare collection, level boarding, or branded stations, consistent with how this jurisdiction's existing entries already treat the metric as rail-scoped. This is a judgment call, not a certainty -- a looser BRT definition could add mileage in 2016/2019/2022; flagged for methodology-lead review if reconsidered.",
+    defaultConfidence: "estimated",
+    country: "United States",
+    language: "en",
+  },
+  {
+    key: "census_acs_via_datausa_commute_mode",
+    name: "Census ACS via DataUSA — Commute Time and Mode Share",
+    publisher: "U.S. Census Bureau (via DataUSA Tesseract API pass-through)",
+    url: "https://datausa.io/",
+    sourceType: "government_dataset",
+    citation:
+      "Census ACS 1-Year Estimates -- Table B08006/B08013 (mean travel time to work) and Table B08301 (Means of Transportation to Work, Walked + Bicycle summed for active_transportation_mode_share) -- queried via DataUSA's public Tesseract API, a pass-through of the same official ACS tables. Used because api.census.gov's data endpoints require a registered API key not available in this research environment; data.census.gov's table viewer is a JS SPA that doesn't yield data via fetch either.",
+    isPlaceholder: false,
+    updateFrequency: "annual",
+    methodology:
+      "Cross-validated against 3 independently-sourced existing rows in this repo (direct Census pulls for Chicago and NYC, an ACS-derived figure for Seattle) -- all matched within +/-0.1 minute / +/-0.1 percentage point, confirming this pass-through faithfully reproduces the official ACS figures. No margin of error is exposed through this pathway (true official-table MOEs would be roughly +/-0.3-0.6 min for commute time, +/-1-2 points for the smaller bike-share figures). No combined 'active transportation' ACS category exists -- Walked and Bicycle are the only two relevant rows in B08301; DP03 alone cannot be used since it lumps Bicycle into 'Other means.' 2020 has no ACS 1-Year Estimate for any place (confirmed COVID-era data-collection suspension). Place FIPS used: New York city, NY (36/51000, single-place convention, not a 5-borough sum); Minneapolis city, MN (27/43000); Seattle city, WA (53/63000); Washington city, DC (11/50000, the coterminous Census place).",
+    defaultConfidence: "high",
+    country: "United States",
+    language: "en",
+  },
+  {
+    key: "metcouncil_tspe_reliability",
+    name: "Metropolitan Council Transportation System Performance Evaluation",
+    publisher: "Metropolitan Council (Twin Cities)",
+    url: "https://metrocouncil.org/METC/media/TSPE/03-04_travel_time_reliability.html",
+    sourceType: "government_report",
+    citation:
+      "Metropolitan Council's Transportation System Performance Evaluation (TSPE) report, on-time performance section -- separately tracks all-bus and all-LRT OTP (departs 1 min early to 5 min late at scheduled timepoints), data extracted directly from the report's underlying interactive chart.",
+    isPlaceholder: false,
+    updateFrequency: "annual",
+    methodology:
+      "All-bus OTP used as the primary transit_reliability series (not light rail) since bus carries the large majority of Metro Transit ridership; the separately-tracked all-LRT OTP series is a documented alternative, noted per-row, not blended in. The report itself only covers '2019 to present' -- no OTP series exists for 2015-2018, a confirmed structural start date for this report, not a search failure.",
+    defaultConfidence: "high",
+    country: "United States",
+    language: "en",
+  },
+  {
+    key: "metro_transit_brt_expansion_history",
+    name: "Metro Transit BRT/Rail Expansion History",
+    publisher: "Metropolitan Council / Metro Transit",
+    url: "https://metrotransit.org/",
+    sourceType: "news",
+    citation:
+      "Opening dates and route lengths for Metro Transit's arterial and highway Bus Rapid Transit lines (A/B/C/D/E arterial BRT; Orange Line highway BRT) and the status of the Southwest LRT (Green Line Extension) and Blue Line Extension (Bottineau) rail projects, both still under construction/pre-construction as of this research pass.",
+    isPlaceholder: false,
+    updateFrequency: "irregular",
+    methodology:
+      "public_transport_expansion_miles is defined as miles of new rail/dedicated-BRT corridor added THAT YEAR, not cumulative. Arterial BRT lines (A/B/C/D/E) run largely in mixed traffic with signal priority and off-board fare payment, not an exclusive lane -- NOT counted as dedicated-corridor mileage, consistent with how this project already excludes non-dedicated bus-priority infrastructure elsewhere (Chicago's Belmont Flyover, DC's DDOT bus-lane exclusions). The Orange Line (highway BRT, partial dedicated/HOT-lane running way) is a genuinely more ambiguous case than the arterial lines and is flagged per-row for methodology-lead reconsideration rather than confidently excluded.",
+    defaultConfidence: "estimated",
+    country: "United States",
+    language: "en",
+  },
+  {
+    key: "nyc_rail_expansion_history",
+    name: "NYC Subway Expansion History",
+    publisher: "Multiple (MTA, WSP, Wikipedia project pages)",
+    url: "https://new.mta.info/",
+    sourceType: "news",
+    citation:
+      "Widely and consistently reported opening dates and route mileage for the two NYC subway rail extensions that opened in this window: the 7 train extension to 34th St-Hudson Yards (Sept 13, 2015) and Second Avenue Subway Phase 1 (Jan 1, 2017, 63rd-96th St).",
+    isPlaceholder: false,
+    updateFrequency: "irregular",
+    methodology:
+      "No NYC-government dataset independently restates these mileage figures the way NYC DOT restates protected-bus-lane mileage for 2022+ (this jurisdiction's other public_transport_expansion_miles source) -- these two rows rely on consistent cross-source reporting instead. Second Avenue Subway Phase 1's exact mileage is disputed between sources (1.8 vs 2.0 miles); 1.8mi kept as a conservative figure pending a more precise primary source. 2016 and 2018-2021 have no rail expansion and no comparable BRT-mileage reporting regime existed yet (NYC's Streets Plan protected-bus-lane reporting only begins with calendar 2022) -- a genuine methodology-regime gap, not merely unresearched years.",
+    defaultConfidence: "estimated",
+    country: "United States",
+    language: "en",
+  },
+  {
+    key: "ntd_king_county_metro",
+    name: "National Transit Database — King County Metro",
+    publisher: "Federal Transit Administration",
+    url: "https://www.transit.dot.gov/ntd",
+    sourceType: "government_dataset",
+    citation:
+      "National Transit Database (NTD), agency 00001 'King County, dba: King County Metro,' queried directly via FTA's Socrata API (data.transportation.gov), unlinked passenger trips summed across all reported modes (MB/DR/FB/TB/VP/SR).",
+    isPlaceholder: false,
+    updateFrequency: "annual",
+    methodology:
+      "The existing 2025 real value in this jurisdiction's transit_ridership series (94.48M) is APTA-sourced, not directly NTD-sourced -- exact definitional equivalence between APTA's and NTD's ridership figures was not independently verified, though the two appear to sit on a plausibly compatible scale. A separate, materially higher King County Metro press-release-based boardings series exists for 2015-2020 (~122-125M pre-pandemic) that does NOT reconcile with this NTD series even accounting for pandemic-era recovery -- the two should not be mixed into one series; this source covers 2021-2024 only for that reason.",
+    defaultConfidence: "high",
     country: "United States",
     language: "en",
   },

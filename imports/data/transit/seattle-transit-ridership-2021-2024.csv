@@ -1,0 +1,5 @@
+jurisdiction,metric,year,value,confidence,notes
+seattle,transit_ridership,2021,52698393,medium,"National Transit Database (NTD), agency 00001 'King County, dba: King County Metro,' queried directly via FTA's Socrata API (data.transportation.gov), summed across MB+DR+FB+TB+VP+SR modes -- unlinked passenger trips. The existing 2025 real value in this series (94.48M, APTA-sourced) sits plausibly on the same NTD-derived scale, but exact APTA/NTD definitional equivalence was not independently verified this pass -- flagged, not certain. A separate, materially higher press-release-based ridership series exists for 2015-2020 (King County Metro's own boardings figures, ~122-125M pre-pandemic) that does NOT reconcile with this NTD series even accounting for pandemic recovery -- deliberately not used for these years to avoid mixing methodologies."
+seattle,transit_ridership,2022,66445408,medium,"Same source/methodology as 2021."
+seattle,transit_ridership,2023,78886848,medium,"Same source/methodology as 2021."
+seattle,transit_ridership,2024,88638711,medium,"Same source/methodology as 2021."

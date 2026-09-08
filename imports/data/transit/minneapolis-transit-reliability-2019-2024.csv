@@ -1,0 +1,7 @@
+jurisdiction,metric,year,value,confidence,notes
+minneapolis,transit_reliability,2019,78.8,high,"Metropolitan Council Transportation System Performance Evaluation (TSPE) report, Figure 8.1/8.2 (metrocouncil.org), all-bus on-time performance -- departs 1 min early to 5 min late at scheduled timepoints. Bus chosen as the primary series (not light rail) since it carries the large majority of Metro Transit ridership; a separately-tracked all-LRT OTP series also exists (2019: 84.6%) and is a documented alternative, not blended in. This report itself only covers '2019 to present' -- no OTP series exists before 2019, a confirmed structural start date, not a search failure."
+minneapolis,transit_reliability,2020,84.9,high,"Same source/methodology as 2019 (all-LRT alternative: 89.0%)."
+minneapolis,transit_reliability,2021,83.5,high,"Same source/methodology as 2019 (all-LRT alternative: 81.7%)."
+minneapolis,transit_reliability,2022,80.7,high,"Same source/methodology as 2019 (all-LRT alternative: 75.5%)."
+minneapolis,transit_reliability,2023,77.6,high,"Same source/methodology as 2019 (all-LRT alternative: 74.1%)."
+minneapolis,transit_reliability,2024,75.2,high,"Same source/methodology as 2019 (all-LRT alternative: 75.5%)."

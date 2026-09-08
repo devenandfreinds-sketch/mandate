@@ -554,4 +554,103 @@ export const researchQueueSeed: ResearchQueueSeedItem[] = [
       "A 2026-09-05 research pass found no citywide vacancy aggregate for DC (checked DCHR, DC Auditor, DC Fiscal Policy Institute, news coverage -- a March 2022 DCist article cites '500+ vacant DC government jobs across 20+ agencies' but gives no denominator, so no rate is computable). Two single-agency data points were found and NOT imported (citywide scope mismatch): DCRA FY2016 narrative ('reduced the vacancy rate from 7% to 4%'), and DOB's Q2 FY2025 Schedule A roster (377 budgeted / 57 vacant = 15.1% agency-wide, extracted from DOB's Feb 2025 Council Performance Oversight Pre-Hearing Responses at dccouncil.gov). PAR-level HR/staffing KPIs were dropped from the reporting framework after FY2016, explaining the gap in between. Concrete next step: every DC agency files the same kind of annual 'Schedule A' position-level roster with its Performance Oversight Hearing responses (the same document family that already worked for DC's Housing Production Trust Fund research) -- pulling several more agencies' Schedule A exhibits across more years could eventually support either a multi-agency composite or a documented decision to track agency_vacancy_rate per-agency rather than citywide for DC specifically.",
     priority: 4,
   },
+  {
+    key: "minneapolis-transit-ridership-scope-conflict",
+    jurisdictionSlug: "minneapolis",
+    metricSlug: "transit_ridership",
+    taskType: "metric",
+    researchQuestion:
+      "Methodology-lead decision, not a plain research gap: the existing 2024 real value (47.5M) is Metro-Transit-only ridership. A 2026-09-07 research pass found a complete, high-confidence 2015-2024 REGIONAL total series (Metropolitan Council Transportation System Performance Evaluation report, Figure 6.7, NTD-sourced: 2015 98.7M ... 2024 56.6M) that includes Metro Transit plus University of Minnesota, SW Transit/MVTA, Maple Grove Transit, Plymouth Metrolink, vanpool, and dial-a-ride -- a genuinely broader scope than the existing anchor, which is why the two don't reconcile (2024: 56.6M regional vs. 47.5M Metro-Transit-only). DELIBERATELY NOT IMPORTED to avoid splicing two methodologies into one series. Secondary-sourced (not yet primary-verified) Metro-Transit-only leads exist for 2015/2016/2017/2025 (85.8M/82.6M/81.9M/45.15M) if the existing narrower convention is kept instead -- the underlying press-release URLs 404'd this pass. Decide: (a) switch the whole series to the regional NTD total (complete, ready to import) and update 2024, or (b) keep Metro-Transit-only and pursue primary confirmation of the 2015-2017/2025 leads.",
+    priority: 6,
+  },
+  {
+    key: "minneapolis-bike-infrastructure-miles-dead-end",
+    jurisdictionSlug: "minneapolis",
+    metricSlug: "bike_infrastructure_miles",
+    taskType: "metric",
+    researchQuestion:
+      "A 2026-09-07 research pass confirmed a genuine dead end, not a tooling failure: Minneapolis's two relevant open-data GIS layers ('Pedestrian and Bicycle Trails,' 'PW Bike Trails') are both frozen (last updated 2015 and 2018 respectively), and the latter's date field (BIKE_TRAIL_CLINE_CREATED) was directly queried and confirmed to be a one-time GIS-digitization timestamp (all 150 segments cluster in 2009-2010, including trails known to predate 2009 by decades) -- not usable for a by-year construction series. No city report publishes a cumulative by-year total either (the Protected Bikeways Program page is a stale, undated project list). One narrower lead exists: the All Ages & Abilities (AAA) low-stress bikeway sub-network has real tracked mileage for 2024 (30.8mi cumulative) and 2025 (+3.5mi), estimated confidence, secondary-sourced (streets.mn, citing city figures) -- NOT imported since it's scoped to a sub-network, not the full bikeway system this metric's placeholder magnitudes (87-179mi) suggest. A methodology-lead would need to decide whether the AAA sub-network is an acceptable substitute definition before this metric can show any real data for Minneapolis.",
+    priority: 3,
+  },
+  {
+    key: "nyc-transit-expansion-miles-methodology-gap",
+    jurisdictionSlug: "new-york-city",
+    metricSlug: "public_transport_expansion_miles",
+    taskType: "metric",
+    researchQuestion:
+      "public_transport_expansion_miles is now real for 2015, 2017, 2022, 2023 (2024 already real). 2016 and 2018-2021 are a genuine methodology-regime gap, not unresearched: no rail expansion occurred in those years, and NYC's Streets Plan protected-bus-lane reporting (the source for the 2022+ real years) didn't exist yet -- SBS route launches in that window report total corridor length for an existing street converted to SBS service, a different, non-comparable concept to 'protected bus lane miles completed,' so not substituted in. 2025 has only a low-confidence DERIVED figure (~4.9mi, inferred by netting a vague news sentence -- 'about 28 miles of bus lanes by end of 2025' -- against the confirmed 2022-2024 cumulative) that a primary DOT Streets Plan Annual Status Report PDF could not be located to confirm this pass -- deliberately not imported; next step is finding and reading that specific report directly.",
+    priority: 4,
+  },
+  {
+    key: "nyc-bike-infrastructure-miles-partial",
+    jurisdictionSlug: "new-york-city",
+    metricSlug: "bike_infrastructure_miles",
+    taskType: "metric",
+    researchQuestion:
+      "bike_infrastructure_miles is now real for 2015, 2017 (both primary NYC DOT press releases) plus the existing 2024 value. 2016 and 2020 have only year-over-year increment claims ('at least 75 miles added' etc.), no DOT-stated cumulative year-end total. 2018 (~1,217mi) and 2019 (~1,243mi, an explicit mid-year snapshot, not year-end) were found only via secondary reporting the research pass could not directly confirm against a primary DOT source. 2021 (~1,456mi) and 2022 (~1,500-1,525mi) are secondary-sourced and, for 2022, internally inconsistent between two sources (1,500-1,525mi total, 644mi protected, don't fully reconcile) -- likely different snapshot dates within the year. 2023 and 2025 have no usable total-network figure at all (2025's only lead, 'about 95 miles of bike lanes,' is almost certainly a Streets-Plan-era protected-miles-since-2022 subset, not the full-network total comparable to the 1,550mi 2024 baseline). Concrete next step, not yet attempted successfully: NYC Open Data's 'Bicycle Routes' GIS dataset may have an install-date field that could support a from-scratch by-year cumulative reconstruction, the same approach that worked for Chicago and Seattle's bike infrastructure gaps -- a research pass could not confirm within its time budget whether this dataset actually carries a reliable date field.",
+    priority: 4,
+  },
+  {
+    key: "dc-transit-ridership-fy15-17-gap",
+    jurisdictionSlug: "washington-dc",
+    metricSlug: "transit_ridership",
+    taskType: "metric",
+    researchQuestion:
+      "transit_ridership is now real for FY2018-2025 (internal/operational WMATA series, matching the existing anchor's convention). FY2015-2017 could not be found in this same convention -- WMATA's own scorecard/board-pdfs archive doesn't appear to host standalone FY15/16/17 'Metro Performance Report' annual summaries the way it does from FY18 onward. A complete alternative DOES exist for these years (and the whole 2015-2025 range): WMATA's own audited ACFR Statistical Section, Exhibit 21 'Operating Indicators,' sourced to the National Transit Database (NTD) -- FY2015 405.3M, FY2016 379.1M, FY2017 352.5M (cleanly matching the well-documented SafeTrack ridership hit), continuing through FY2025 304.7M. DELIBERATELY NOT IMPORTED, even for just the FY15-17 gap years: this NTD series disagrees substantially with the internal/operational series for every overlapping year (e.g. FY2023: 231.0M NTD vs. 199.7M internal already imported; FY2025: 304.7M NTD vs. 263.7M internal already in the series) -- splicing NTD-sourced FY15-17 values into an otherwise-internal-series would reintroduce a same-metric-different-methodology break. A DC-only (not full tri-jurisdictional WMATA system) ridership figure does not exist as any published aggregate from either source -- only derivable in principle by summing station-level boardings for DC's ~40 Metrorail stations, not attempted this pass.",
+    priority: 5,
+  },
+  {
+    key: "dc-transit-reliability-2015-2016-gap",
+    jurisdictionSlug: "washington-dc",
+    metricSlug: "transit_reliability",
+    taskType: "metric",
+    researchQuestion:
+      "transit_reliability is now real for FY2017-2025 (WMATA's 'Rail Customer On-Time Performance' metric). FY2015 and FY2016 under this same metric could not be located -- the linked FY2015 Annual Vital Signs Report on wmata.com returned a 404 (link appears stale/removed). planitmetro.com (WMATA's old planning/data blog) was not checked this pass and could potentially fill this gap via the Wayback Machine -- a concrete, not-yet-exhausted next step. Do not substitute WMATA's older 'headway adherence' metric (calendar-year, train-spacing based, used pre-~2016) for these years -- it measures something genuinely different from the customer-trip metric this series otherwise uses throughout.",
+    priority: 3,
+  },
+  {
+    key: "dc-bike-infrastructure-miles-partial",
+    jurisdictionSlug: "washington-dc",
+    metricSlug: "bike_infrastructure_miles",
+    taskType: "metric",
+    researchQuestion:
+      "bike_infrastructure_miles is now real for 2015, 2022, 2023 (plus the existing 2026 value) using the 'total bike lane' definition (see sources.ts dc_ddot_bike_lanes for the 3-way definitional tangle DDOT's own reporting has -- total/protected-only/trails). 2016-2021 and 2024-2025 have no confirmed cumulative TOTAL figure -- only protected-lane subsets (which have their own internal inconsistency: ~24mi cited for 2021/early-2022 vs. only 17.4mi in the more rigorous Dec-2023 Council submission, likely reflecting a 'Cycle Track' reclassification out of 'Protected Bike Lane' between reporting vintages) or annual (not cumulative) installation-rate figures from DDOT's FY Performance Accountability Reports, whose own KPI tables did not reconcile between two internal listings found in the same PDFs (a genuine table-extraction ambiguity, not fabricated). Concrete next step: DC's Open Data 'Bicycle Lanes' GIS layer (opendata.dc.gov, DDOT-published, last updated Jan 2023) may have an install-date field for a from-scratch by-year reconstruction (the same approach that worked for Chicago/Seattle) -- its schema is JS-rendered and resisted static WebFetch, needs direct ArcGIS REST API or shapefile-export access to check.",
+    priority: 3,
+  },
+  {
+    key: "seattle-transit-ridership-2015-2020-gap",
+    jurisdictionSlug: "seattle",
+    metricSlug: "transit_ridership",
+    taskType: "metric",
+    researchQuestion:
+      "transit_ridership is now real for 2021-2024 (King County Metro NTD data, see sources.ts ntd_king_county_metro) plus the existing 2025 value (APTA-sourced). 2015-2020 has only a materially higher, non-reconciling King County Metro press-release boardings series (~122-125M pre-pandemic, 2018 itself a dead end -- no clean single-year total found despite several targeted searches) that was deliberately NOT imported for the same methodology-mismatch reason as the NTD/APTA split. Also unresolved: whether APTA (2025's source) and NTD (2021-2024's source) are truly definitionally equivalent was not independently verified this pass -- flagged as a residual uncertainty even for the years already imported.",
+    priority: 4,
+  },
+  {
+    key: "seattle-transit-reliability-h1-only",
+    jurisdictionSlug: "seattle",
+    metricSlug: "transit_reliability",
+    taskType: "metric",
+    researchQuestion:
+      "No real data imported this pass -- everything found was partial-year, not annual. King County Metro's own 'System Evaluation 2023' report (official, PDF-extracted) gives H1 (six-month) on-time performance only: H1 2019 78%, H1 2022 ~79%, H1 2023 79% -- genuinely different from a full-calendar-year figure and not substituted in as one. Weaker secondary fragments also found: ~2013-2018 trailing-12-month 77% (Seattle Times, medium confidence), Sept/Oct 2023 monthly 77% (The Urbanist). Sound Transit's Link light rail on-time performance is a confirmed dead end for this pass -- its 'System Performance Tracker'/'Dependable' pages are JS-rendered dashboards with no extractable historical percentages via WebFetch. Also unresolved: whether this metric should track Metro-only, Sound Transit-only, or a combined figure -- undefined in metricDefinitions/transit.ts.",
+    priority: 4,
+  },
+  {
+    key: "seattle-transit-expansion-scope-decision",
+    jurisdictionSlug: "seattle",
+    metricSlug: "public_transport_expansion_miles",
+    taskType: "metric",
+    researchQuestion:
+      "Methodology-lead decision, not a plain research gap: Sound Transit Link light rail and RapidRide BRT extensions are well-documented with exact opening dates and mileage, but Seattle-city-limits vs. regional-system scope changes the annual figures by roughly 3-4x in several years, and this was deliberately NOT resolved unilaterally. Confirmed events: 2016 University Link (3.15mi, in-Seattle) + First Hill Streetcar (2.5mi, in-Seattle) + Angle Lake Extension (1.6mi, NOT in Seattle); 2021 Northgate Link (4.3mi, in-Seattle); 2023 RapidRide H Line (13mi total route, Seattle-only sub-mileage unresolved); 2024 RapidRide G Line (2.5-2.8mi, in-Seattle) + Lynnwood Link (8.5mi, NOT in Seattle) + East Link South Bellevue-Redmond segment (6.5mi, NOT in Seattle); 2025 Downtown Redmond (3.4mi, NOT in Seattle) + Federal Way (7.8mi, NOT in Seattle). 2015/2017/2018/2019/2020/2022 have no rail/BRT openings found within Seattle specifically, but regional (non-Seattle) openings in those specific years were not fully ruled out, so even these were left unimported pending the scope decision rather than assumed zero.",
+    priority: 5,
+  },
+  {
+    key: "seattle-bike-infrastructure-miles-dead-end",
+    jurisdictionSlug: "seattle",
+    metricSlug: "bike_infrastructure_miles",
+    taskType: "metric",
+    researchQuestion:
+      "No real cumulative-total figure found for any year. Real fragments exist but are all annual INSTALLATION increments (2016 2.4mi built, 2017 4.17mi, 2018 2.34mi 'the least since 2016,' 2020-2021 combined ~10mi, 2025 9.17mi new), not cumulative network totals, and summing increments into a cumulative series risks compounding errors without a confirmed starting baseline -- not attempted. A 2015 voter-approved levy target of 110mi of protected bike lanes + greenways by end of 2024 (only ~57%/~63mi built as of early 2023) is a program-specific subset, not the full network. Concrete next step: SDOT's Bicycle Master Plan progress-report PDFs are the most likely source of an authoritative 'total network miles by year' figure but resisted WebFetch/pdftotext extraction in the time available this pass -- a good target for a follow-up with more robust PDF access, similar in nature to other Seattle PDF-extraction dead-ends already logged in this file.",
+    priority: 3,
+  },
 ];

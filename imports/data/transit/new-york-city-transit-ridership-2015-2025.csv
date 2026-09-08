@@ -1,0 +1,11 @@
+jurisdiction,metric,year,value,confidence,notes
+new-york-city,transit_ridership,2015,2538646725,high,"MTA's own annual ridership page (mta.info/agency/new-york-city-transit/ridership/[year]): subway (1,762,565,419) + bus, NYCT+MTA Bus Co. combined (776,081,306). Same summed methodology as the existing 2024 real value in this series (recomputed 2024 total matched the existing value almost exactly, confirming consistency)."
+new-york-city,transit_ridership,2016,2520845070,high,"Same source/methodology as 2015: subway 1,756,814,800 + bus 764,030,270."
+new-york-city,transit_ridership,2017,2452201291,high,"Same source/methodology as 2015: subway 1,727,366,607 + bus 724,834,684."
+new-york-city,transit_ridership,2018,2370869898,high,"Same source/methodology as 2015: subway 1,680,060,402 + bus 690,809,496."
+new-york-city,transit_ridership,2019,2375375086,high,"Same source/methodology as 2015: subway 1,697,787,002 + bus 677,588,084."
+new-york-city,transit_ridership,2020,1021965473,high,"Same source/methodology as 2015: subway 639,541,029 + bus 382,424,444. COVID-era collapse."
+new-york-city,transit_ridership,2021,1143300770,high,"Same source/methodology as 2015: subway 759,976,721 + bus 383,324,049."
+new-york-city,transit_ridership,2022,1439127814,high,"Same source/methodology as 2015: subway 1,013,425,465 + bus 425,702,349."
+new-york-city,transit_ridership,2023,1578980222,high,"Same source/methodology as 2015: subway 1,151,998,158 + bus 426,982,064."
+new-york-city,transit_ridership,2025,1724000000,medium,"Same source/methodology as 2015: subway 1,281,883,362 (exact) + bus ~442,000,000 (NYCT bus exact at 352,146,093; MTA Bus Co.'s separate breakdown not yet published for 2025, ~90M implied) -- the bus subtotal is an approximation, not an exact figure like the other years."

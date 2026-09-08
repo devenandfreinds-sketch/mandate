@@ -1,0 +1,3 @@
+jurisdiction,metric,year,value,confidence,notes
+new-york-city,bike_infrastructure_miles,2015,1010.2,high,"NYC DOT press release PR15-096, 'Completion of Over 1,000 Miles in the City's Bicycle Network': 385.8mi protected + 377.5mi exclusive + 246.9mi shared/signed = 1,010.2mi total. Same methodology as the existing 2024 real value in this series."
+new-york-city,bike_infrastructure_miles,2017,1190,high,"NYC DOT press release PR17-080 (also reports 25 new protected miles installed that year). Same methodology as 2015."

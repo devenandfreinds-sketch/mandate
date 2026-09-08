@@ -1,0 +1,11 @@
+jurisdiction,metric,year,value,confidence,notes
+washington-dc,public_transport_expansion_miles,2015,0,medium,"No rail or qualifying BRT corridor opened in DC this year -- confirmed absence, not a gap."
+washington-dc,public_transport_expansion_miles,2016,2.2,high,"DC Streetcar (H Street/Benning Road Line) opened Feb 27, 2016, ~2.2 miles. Cross-corroborated across multiple independent outlets on the opening date; a minor 2.2 vs 2.4 mile discrepancy exists across sources (2.2mi kept for consistency with this jurisdiction's other entries)."
+washington-dc,public_transport_expansion_miles,2017,0,medium,"No rail or qualifying BRT corridor opened in DC this year -- confirmed absence."
+washington-dc,public_transport_expansion_miles,2018,0,medium,"No rail or qualifying BRT corridor opened in DC this year -- confirmed absence."
+washington-dc,public_transport_expansion_miles,2019,0,medium,"No rail or qualifying BRT corridor opened in DC this year -- confirmed absence. DDOT made H/I Streets NW bus-priority lanes permanent this year, deliberately not counted as BRT mileage (see source methodology notes)."
+washington-dc,public_transport_expansion_miles,2020,0,medium,"No rail or qualifying BRT corridor opened in DC this year -- confirmed absence."
+washington-dc,public_transport_expansion_miles,2021,0,medium,"No rail or qualifying BRT corridor opened in DC this year -- confirmed absence."
+washington-dc,public_transport_expansion_miles,2022,0,medium,"No rail or qualifying BRT corridor opened in DC this year -- confirmed absence. WMATA Silver Line Phase 2 (~11.5mi) opened this year but is entirely in Fairfax/Loudoun County, Virginia -- zero DC mileage. DDOT completed 16th St NW bus-priority lanes (~3mi) this year, deliberately not counted as BRT mileage (see source methodology notes)."
+washington-dc,public_transport_expansion_miles,2023,0,medium,"No rail or qualifying BRT corridor opened in DC this year -- confirmed absence."
+washington-dc,public_transport_expansion_miles,2024,0,medium,"No rail or qualifying BRT corridor opened in DC this year -- confirmed absence. DC Circulator ended service Dec 31, 2024 (a contraction, already reflected in the existing 2025 entry)."

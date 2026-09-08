@@ -1,0 +1,3 @@
+jurisdiction,metric,year,value,confidence,notes
+new-york-city,public_transport_expansion_miles,2015,1.5,medium,"7 train extension to 34th St-Hudson Yards opened Sept 13, 2015 (new twin-tube tunnel + 1 station). Figure is widely and consistently reported (MTA/WSP/Wikipedia project pages) but no NYC-government dataset independently restates it the way DOT restates bus-lane mileage for later years."
+new-york-city,public_transport_expansion_miles,2017,1.8,medium,"Second Avenue Subway Phase 1 opened Jan 1, 2017 (63rd-96th St, 3 new stations). Event and rough mileage are well documented, but sources disagree between 1.8 and 2.0 miles -- 1.8 kept as a conservative estimate pending a more precise primary figure."

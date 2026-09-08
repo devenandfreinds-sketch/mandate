@@ -1,0 +1,11 @@
+jurisdiction,metric,year,value,confidence,notes
+new-york-city,transit_reliability,2015,69.57,high,"Computed directly from NYS Open Data 'MTA Subway Terminal On-Time Performance' (data.ny.gov, dataset f6rf-2a3t), the primary dataset behind Comptroller audits and this jurisdiction's existing 2024 value -- sum(on-time trips)/sum(scheduled trips) across all lines/divisions/day-types, via the Socrata API. Recomputed 2024 (82.18%) matched the existing repo value (82.2%) almost exactly, confirming methodology consistency. 'Terminal on-time performance': trains reaching the final terminal within 5 min of schedule -- WMATA-style 'wait assessment' is a different, non-comparable MTA metric, not used here."
+new-york-city,transit_reliability,2016,66.82,high,"Same source/methodology as 2015 (1,323,950 / 1,981,364). Cross-validated against independently reported 66.8%."
+new-york-city,transit_reliability,2017,63.44,high,"Same source/methodology as 2015 (1,301,389 / 2,051,131)."
+new-york-city,transit_reliability,2018,66.36,high,"Same source/methodology as 2015 (1,515,528 / 2,283,801)."
+new-york-city,transit_reliability,2019,81.05,high,"Same source/methodology as 2015 (2,052,051 / 2,531,831). Cross-validated against independently reported 81.1%, 'highest in 6 years.'"
+new-york-city,transit_reliability,2020,88.59,medium,"Same source/methodology as 2015 (2,090,512 / 2,359,633). Flag: COVID-depressed ridership/schedules likely inflated OTP artificially this year."
+new-york-city,transit_reliability,2021,84.95,high,"Same source/methodology as 2015 (2,240,482 / 2,637,401)."
+new-york-city,transit_reliability,2022,81.37,high,"Same source/methodology as 2015 (2,169,529 / 2,666,117)."
+new-york-city,transit_reliability,2023,83.27,high,"Same source/methodology as 2015 (2,238,128 / 2,687,735)."
+new-york-city,transit_reliability,2025,84.38,high,"Same source/methodology as 2015 (2,323,796 / 2,754,124)."
