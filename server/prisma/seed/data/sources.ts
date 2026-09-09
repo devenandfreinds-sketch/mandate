@@ -313,7 +313,8 @@ export const sources: SourceSeedSpec[] = [
     citation: "U.S. Bureau of Labor Statistics, Business Employment Dynamics (BED), establishment birth/survival rates.",
     isPlaceholder: false,
     updateFrequency: "quarterly",
-    methodology: "Tracks establishment survival cohorts from QCEW microdata; sub-state/metro survival-rate breakdowns are less granular than national figures.",
+    methodology:
+      "Tracks establishment survival cohorts from QCEW microdata; sub-state/metro survival-rate breakdowns are less granular than national figures. Table 7 ('Survival of private sector establishments by opening year') gives a TRUE five-years-after-opening cohort survival rate, matching this metric's 'after five years' definition more precisely than a 1-year survival figure would -- a cohort's 5-year mark can only be reported once 5 years have elapsed, so the most recent ~4-5 years of any pull will only have partial-duration figures available, not a genuine 5-year rate; do not import those as if they were. Census BDS (an alternative candidate source) requires a registered API key not available in this project's research environment, and even with access only publishes coarse firm-age buckets too broad to isolate an exact 5-year mark below the state level -- BED Table 7 is used instead for that reason. Some jurisdictions have a state-level table (e.g. Minnesota's own BED Table 7) offering better geographic precision than the national table; use the most specific table actually available for a given jurisdiction, noted per-row.",
     defaultConfidence: "estimated",
   },
   {
@@ -3177,6 +3178,54 @@ export const sources: SourceSeedSpec[] = [
     methodology:
       "The existing 2025 real value in this jurisdiction's transit_ridership series (94.48M) is APTA-sourced, not directly NTD-sourced -- exact definitional equivalence between APTA's and NTD's ridership figures was not independently verified, though the two appear to sit on a plausibly compatible scale. A separate, materially higher King County Metro press-release-based boardings series exists for 2015-2020 (~122-125M pre-pandemic) that does NOT reconcile with this NTD series even accounting for pandemic-era recovery -- the two should not be mixed into one series; this source covers 2021-2024 only for that reason.",
     defaultConfidence: "high",
+    country: "United States",
+    language: "en",
+  },
+  {
+    key: "technically_pitchbook_dmv",
+    name: "Technical.ly — DMV Venture Capital Coverage (PitchBook-NVCA)",
+    publisher: "Technical.ly",
+    url: "https://technical.ly/",
+    sourceType: "news",
+    citation:
+      "Technical.ly's quarterly/annual coverage of PitchBook-NVCA Venture Monitor data for the Washington-Arlington-Alexandria MSA ('DMV' region).",
+    isPlaceholder: false,
+    updateFrequency: "quarterly",
+    methodology:
+      "Scoped to the full DMV metro area, NOT DC-proper -- some quarters separately break out a DC-proper sub-figure (e.g. Q1 2024: 12 deals/$49M; Q3 2024: zero deals), confirming DC-proper VC activity is real but extremely lumpy/outlier-driven, with too few consistent quarters to build a clean DC-proper annual series distinct from the metro total. 2023's full-year figure is a genuine unresolved conflict between a contemporary report ('nearly $5B') and a later retrospective revision ('~$4B') -- the retrospective figure is used, flagged as a judgment call, not a certainty. 2015-2019 is a confirmed dead end -- no DC/DMV-specific annual VC totals found despite multiple searches.",
+    defaultConfidence: "estimated",
+    country: "United States",
+    language: "en",
+  },
+  {
+    key: "nvca_minnesota_cd_map",
+    name: "NVCA Minnesota's Entrepreneurial Ecosystem — Congressional District Map",
+    publisher: "National Venture Capital Association (PitchBook data)",
+    url: "https://nvca.org/state-data/",
+    sourceType: "news",
+    citation:
+      "NVCA's annual 'Minnesota's Entrepreneurial Ecosystem' one-pager, PitchBook-sourced, includes a congressional-district-level VC investment breakdown -- CD-05 (which contains Minneapolis) used here as a materially more precise Minneapolis-specific proxy than the statewide total.",
+    isPlaceholder: false,
+    updateFrequency: "annual",
+    methodology:
+      "NVCA overwrites the same URL with each year's updated one-pager, so most historical vintages are only recoverable via the Wayback Machine, not the live site. PitchBook data revises heavily as late deals are reported (Minnesota's statewide 2021 figure alone was revised from $1.34B to $2.72B, a doubling, between vintages) -- any given CD-05 figure risks being understated if pulled from an earlier, pre-revision vintage; flagged per-row where this risk is highest. CD-05 data exists for only some years (2019-2021, 2024-2025 found this pass); other years have only a Minnesota-statewide total, a much larger scope than the city, deliberately not substituted in.",
+    defaultConfidence: "estimated",
+    country: "United States",
+    language: "en",
+  },
+  {
+    key: "nycedc_state_of_economy",
+    name: "NYCEDC — State of the NYC Economy Report",
+    publisher: "New York City Economic Development Corporation",
+    url: "https://edc.nyc/",
+    sourceType: "government_report",
+    citation:
+      "NYCEDC's annual/periodic 'State of the NYC Economy' report, venture capital figures citing PitchBook/Bloomberg data, scoped to NYC proper (not the wider metro area).",
+    isPlaceholder: false,
+    updateFrequency: "annual",
+    methodology:
+      "Different report vintages have not fully reconciled with each other for at least one overlapping year (2023: $18.5B stated directly in the 2024-vintage report vs. ~$16.9B implied by the 2025-vintage report's '+41% to $23.8B in 2024' framing) -- flagged per-row rather than silently resolved. Several NYCEDC reports also cite multi-year COMBINED totals (e.g. 2017-2019 combined $50.9B) which cannot be cleanly decomposed into single-year figures and were not imported. A separate, broader-scope PitchBook-NVCA metro figure exists for 2024 ($28.5B, via a NYS Comptroller report, covering the full 4-state New York-Newark-NJ-CT-PA metro) -- not used here to keep this series NYC-proper and consistent.",
+    defaultConfidence: "estimated",
     country: "United States",
     language: "en",
   },

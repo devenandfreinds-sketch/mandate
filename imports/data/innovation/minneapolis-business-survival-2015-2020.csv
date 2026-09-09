@@ -1,0 +1,7 @@
+jurisdiction,metric,year,value,confidence,notes
+minneapolis,business_survival_rate,2015,56.0,medium,"BLS Business Employment Dynamics, Table 7, MINNESOTA state-level table (bls.gov/bdm/mn_age_total_table7.txt) -- a true 5-years-after-opening cohort survival rate, more geographically precise than the national table (Minnesota-specific, not just national), though still not Minneapolis-specific (Census BDS, the more granular alternative, is blocked by an API-key requirement and only publishes coarse firm-age buckets even with access)."
+minneapolis,business_survival_rate,2016,55.0,medium,"Same source/methodology as 2015."
+minneapolis,business_survival_rate,2017,54.0,medium,"Same source/methodology as 2015."
+minneapolis,business_survival_rate,2018,57.6,medium,"Same source/methodology as 2015."
+minneapolis,business_survival_rate,2019,56.2,medium,"Same source/methodology as 2015."
+minneapolis,business_survival_rate,2020,54.9,medium,"Same source/methodology as 2015. 2021-2025 cohorts have not yet reached their 5-year mark as of this research pass (2026-09-08) -- deliberately not imported as if they were 5-year rates."

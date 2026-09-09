@@ -1,0 +1,12 @@
+jurisdiction,metric,year,value,confidence,notes
+washington-dc,life_sciences_employment,2015,12790,high,"BLS QCEW Open Data API, DC (area 11001), private ownership, NAICS 3254 (Pharma/Medicine Mfg) + 5417 (Scientific R&D) + 6215 (Medical/Diagnostic Labs), summed. Fully clean series, zero suppression across all 11 years -- the best-covered Innovation-category metric found for DC. Scope note: NIH's main campus is in Bethesda, Montgomery County MD, outside DC proper -- this DC-proper figure excludes it naturally (no double-counting risk), but meaningfully undercounts the region's true biomedical-research footprint (the metro-area total is ~5-6x this figure by 2023)."
+washington-dc,life_sciences_employment,2016,13017,high,"Same source/methodology as 2015."
+washington-dc,life_sciences_employment,2017,12384,high,"Same source/methodology as 2015."
+washington-dc,life_sciences_employment,2018,12513,high,"Same source/methodology as 2015."
+washington-dc,life_sciences_employment,2019,11897,high,"Same source/methodology as 2015."
+washington-dc,life_sciences_employment,2020,11495,high,"Same source/methodology as 2015."
+washington-dc,life_sciences_employment,2021,11651,high,"Same source/methodology as 2015."
+washington-dc,life_sciences_employment,2022,11627,high,"Same source/methodology as 2015."
+washington-dc,life_sciences_employment,2023,11351,high,"Same source/methodology as 2015."
+washington-dc,life_sciences_employment,2024,10930,high,"Same source/methodology as 2015."
+washington-dc,life_sciences_employment,2025,10322,high,"Same source/methodology as 2015."

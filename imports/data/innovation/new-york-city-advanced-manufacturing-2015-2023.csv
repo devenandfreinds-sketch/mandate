@@ -1,0 +1,7 @@
+jurisdiction,metric,year,value,confidence,notes
+new-york-city,advanced_manufacturing_employment,2015,44542,medium,"BLS QCEW Open Data API, sum of NAICS 3341+3342+3344+3345+3364, private ownership, METRO AREA (New York-Newark-Jersey City, NY-NJ MSA, area C3562) -- NOT city-proper. A true 5-borough sum is never achievable for this combined basket in any year -- the niche codes have too few establishments in the outer boroughs. A narrower, city-scoped alternative exists: NAICS 3364 (Aerospace) alone is borough-complete 2015-2022 (all establishments in Queens; the other 4 boroughs genuinely have none) if a scope-accurate but narrower series is preferred."
+new-york-city,advanced_manufacturing_employment,2016,43828,medium,"Same source/methodology as 2015."
+new-york-city,advanced_manufacturing_employment,2017,43375,medium,"Same source/methodology as 2015. 2018-2020 excluded -- NAICS 3341 is suppressed those years, making the 5-code sum an undercount rather than a genuine total."
+new-york-city,advanced_manufacturing_employment,2021,40231,medium,"Same source/methodology as 2015."
+new-york-city,advanced_manufacturing_employment,2022,41100,medium,"Same source/methodology as 2015."
+new-york-city,advanced_manufacturing_employment,2023,40557,medium,"Same source/methodology as 2015. 2024-2025 excluded -- all 5 NAICS codes suppressed, a confirmed dead end."

@@ -1,0 +1,11 @@
+jurisdiction,metric,year,value,confidence,notes
+new-york-city,tech_employment,2015,61572,high,"BLS QCEW Open Data API, NAICS 5415 (Computer Systems Design and Related Services), private ownership, summed across NYC's 5 constituent counties (Bronx/Kings/New York/Queens/Richmond) -- the same convention already established for this jurisdiction's business_formation metric. No suppression at the borough level for this NAICS code in any year -- this metric is genuinely more tractable at city-proper scope than life_sciences_employment or advanced_manufacturing_employment, whose niche NAICS codes trigger suppression in most outer boroughs."
+new-york-city,tech_employment,2016,62445,high,"Same source/methodology as 2015."
+new-york-city,tech_employment,2017,63491,high,"Same source/methodology as 2015."
+new-york-city,tech_employment,2018,64070,high,"Same source/methodology as 2015."
+new-york-city,tech_employment,2019,66211,high,"Same source/methodology as 2015."
+new-york-city,tech_employment,2020,67554,high,"Same source/methodology as 2015."
+new-york-city,tech_employment,2021,68373,high,"Same source/methodology as 2015."
+new-york-city,tech_employment,2022,74234,high,"Same source/methodology as 2015."
+new-york-city,tech_employment,2023,74858,high,"Same source/methodology as 2015."
+new-york-city,tech_employment,2024,73743,high,"Same source/methodology as 2015. 2025 not imported -- only an H1 average (Q3/Q4 not yet released by BLS) is currently available, not a full-year figure."

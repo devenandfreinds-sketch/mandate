@@ -1,0 +1,7 @@
+jurisdiction,metric,year,value,confidence,notes
+washington-dc,advanced_manufacturing_employment,2015,1094,medium,"BLS QCEW Open Data API, DC (area 11001), private ownership, NAICS 31-33 (total manufacturing, the same broad-brush proxy used for this metric elsewhere in this project). DC-proper manufacturing is real but marginal (~0.14-0.18% of DC's ~750K total employment) and genuinely suppression-prone -- 4 of 11 years (2020,2021,2024,2025) are suppressed, not a full dead end but a weak series."
+washington-dc,advanced_manufacturing_employment,2016,1212,medium,"Same source/methodology as 2015."
+washington-dc,advanced_manufacturing_employment,2017,1259,medium,"Same source/methodology as 2015."
+washington-dc,advanced_manufacturing_employment,2018,1336,medium,"Same source/methodology as 2015."
+washington-dc,advanced_manufacturing_employment,2019,1326,medium,"Same source/methodology as 2015."
+washington-dc,advanced_manufacturing_employment,2022,1036,medium,"Same source/methodology as 2015. Cross-checks closely against the already-imported 2023 value (1,053), confirming that earlier figure was NOT an extraction error as previously flagged -- both are consistent, real QCEW pulls."

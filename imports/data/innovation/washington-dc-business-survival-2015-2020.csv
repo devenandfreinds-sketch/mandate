@@ -1,0 +1,7 @@
+jurisdiction,metric,year,value,confidence,notes
+washington-dc,business_survival_rate,2015,50.2,medium,"BLS Business Employment Dynamics, Table 7 ('Survival of private sector establishments by opening year') -- a NATIONAL cohort-tracking table giving a true 5-years-after-opening survival rate, not DC-specific (DC/metro-level BDS data is blocked by an API-key requirement and, even with access, only publishes coarse firm-age buckets too broad to isolate an exact 5-year mark). This is a genuinely better fit to the metric's 'after five years' definition than a 1-year survival rate would be -- flagged clearly as a national proxy, not a DC-specific figure."
+washington-dc,business_survival_rate,2016,50.7,medium,"Same source/methodology as 2015."
+washington-dc,business_survival_rate,2017,51.6,medium,"Same source/methodology as 2015."
+washington-dc,business_survival_rate,2018,51.9,medium,"Same source/methodology as 2015."
+washington-dc,business_survival_rate,2019,51.5,medium,"Same source/methodology as 2015."
+washington-dc,business_survival_rate,2020,51.4,medium,"Same source/methodology as 2015. 2021-2025 cohorts have not yet reached their 5-year mark as of this research pass (2026-09-08) -- only partial-duration survival is known for those years, deliberately not imported as if it were a 5-year rate."

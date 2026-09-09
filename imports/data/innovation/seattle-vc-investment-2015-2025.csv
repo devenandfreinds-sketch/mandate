@@ -1,0 +1,11 @@
+jurisdiction,metric,year,value,confidence,notes
+seattle,vc_investment,2015,2400000000,medium,"GeekWire (Jan 2016), citing PitchBook-NVCA, 374 deals -- scope is PACIFIC NORTHWEST, not Seattle metro specifically, a real scope caveat."
+seattle,vc_investment,2016,1500000000,medium,"GeekWire/Puget Sound Business Journal, ~298 deals -- scope is WASHINGTON STATE, not Seattle metro specifically, a real scope caveat."
+seattle,vc_investment,2017,1400000000,medium,"GeekWire (Aug 2018), Seattle-area scope -- a secondary mention within a broader article, not a dedicated annual recap."
+seattle,vc_investment,2018,2770000000,medium,"GeekWire (Jan 2020), cited as the prior-year record within the 2019 annual recap article."
+seattle,vc_investment,2019,3590000000,high,"GeekWire (Jan 14, 2020), 251 deals, direct PitchBook-NVCA citation, dedicated annual recap article."
+seattle,vc_investment,2020,4500000000,medium,"Puget Sound Business Journal (Feb 2021), citing PitchBook-NVCA."
+seattle,vc_investment,2021,8000000000,high,"Directly from the Q4 2021 PitchBook-NVCA Venture Monitor PDF's full-year cumulative 'deal activity' table, 494 deals."
+seattle,vc_investment,2022,7800000000,high,"Same source/methodology as 2021 (Q4 2022 PDF), 479 deals. 2023 not imported -- only H2 2023 data (Q3+Q4, $1.8B/161 deals) was locatable; Q1/Q2 2023 PitchBook-NVCA PDFs could not be found, so no full-year 2023 figure exists."
+seattle,vc_investment,2024,2900000000,medium,"Computed by summing all four 2024 quarterly PitchBook-NVCA Venture Monitor PDFs (Q1 $0.7B/78 deals, Q2 $0.4B/79, Q3 $1.2B/89, Q4 $0.6B/68) -- NVCA switched to quarter-only reporting starting in 2023, so no single full-year PDF exists for this year."
+seattle,vc_investment,2025,6500000000,medium,"Same quarterly-sum methodology as 2024 (Q1 $2.1B/86, Q2 $1.9B/87, Q3 $1.0B/71, Q4 $1.5B/85, 329 deals total). Flag: GeekWire's own H1-2025 recap separately cites $4.5B/210 deals for the first half, vs. this row's Q1+Q2 sum of $4.0B/173 -- likely explained by PitchBook's normal practice of revising quarterly figures upward as late-reported deals are added (the same pattern already documented for Minnesota's 2021 figure elsewhere in this project)."

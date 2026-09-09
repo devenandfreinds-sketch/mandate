@@ -1,0 +1,4 @@
+jurisdiction,metric,year,value,confidence,notes
+seattle,life_sciences_employment,2021,21428,high,"BLS QCEW Open Data API, sum of NAICS 3254 (Pharma/Medicine Mfg, 1,810) + 5417 (Scientific R&D, 16,587) + 6215 (Medical/Diagnostic Labs, 3,031), private ownership, Seattle-Tacoma-Bellevue MSA. NAICS 3254 is suppressed (disclosure_code N) in this MSA for 2015-2020 and 2024, a confirmed structural gap for those years, not unresearched."
+seattle,life_sciences_employment,2022,24505,high,"Same source/methodology as 2021 (3254=1,942 + 5417=19,172 + 6215=3,391)."
+seattle,life_sciences_employment,2023,25962,high,"Same source/methodology as 2021 (3254=1,933 + 5417=20,641 + 6215=3,388)."

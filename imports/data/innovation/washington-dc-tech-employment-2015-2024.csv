@@ -1,0 +1,11 @@
+jurisdiction,metric,year,value,confidence,notes
+washington-dc,tech_employment,2015,23375,high,"BLS QCEW Open Data API, DC (area 11001), private ownership, NAICS 5415 (Computer Systems Design) alone. SUPERSEDES a previously-imported 2023 value (11,180) that was Mandate's own sum of three NAICS codes (Software Publishers + Data Processing/Hosting + Computer Systems Design) -- a fresh direct re-pull of NAICS 5415 alone for 2023 gave 22,488, more than double the prior sum's total, indicating the original three-code pull used incorrect/mismatched parameters. Standardizes on single-NAICS 5415, matching this metric's established convention elsewhere in this project."
+washington-dc,tech_employment,2016,23425,high,"Same source/methodology as 2015."
+washington-dc,tech_employment,2017,23550,high,"Same source/methodology as 2015."
+washington-dc,tech_employment,2018,23974,high,"Same source/methodology as 2015."
+washington-dc,tech_employment,2019,24633,high,"Same source/methodology as 2015."
+washington-dc,tech_employment,2020,25857,high,"Same source/methodology as 2015."
+washington-dc,tech_employment,2021,25048,high,"Same source/methodology as 2015."
+washington-dc,tech_employment,2022,23962,high,"Same source/methodology as 2015."
+washington-dc,tech_employment,2023,22488,high,"Same source/methodology as 2015. SUPERSEDES the previously-imported value of 11,180 for this year (see 2015 row note)."
+washington-dc,tech_employment,2024,22387,high,"Same source/methodology as 2015. 2025 not imported -- BLS QCEW suppresses this NAICS code for DC in 2025 (disclosure_code N)."

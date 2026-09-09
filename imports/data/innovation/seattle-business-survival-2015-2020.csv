@@ -1,0 +1,7 @@
+jurisdiction,metric,year,value,confidence,notes
+seattle,business_survival_rate,2015,50.2,medium,"BLS Business Employment Dynamics, Table 7, NATIONAL table -- a true 5-years-after-opening cohort survival rate, matching this metric's 'after five years' definition (not the 1-year survival rate mistakenly used for this metric's existing Chicago datapoint before this same research pass corrected it). Not Seattle-specific -- a Washington-state-specific BED table could not be fetched (BLS blocks direct automated retrieval), so the national proxy is used, same as DC's."
+seattle,business_survival_rate,2016,50.7,medium,"Same source/methodology as 2015."
+seattle,business_survival_rate,2017,51.6,medium,"Same source/methodology as 2015."
+seattle,business_survival_rate,2018,51.9,medium,"Same source/methodology as 2015."
+seattle,business_survival_rate,2019,51.5,medium,"Same source/methodology as 2015."
+seattle,business_survival_rate,2020,51.4,medium,"Same source/methodology as 2015. 2021-2025 cohorts have not yet reached their 5-year mark as of this research pass (2026-09-08) -- deliberately not imported as if they were 5-year rates."

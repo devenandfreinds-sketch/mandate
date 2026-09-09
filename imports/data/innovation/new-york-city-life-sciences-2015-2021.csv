@@ -1,0 +1,8 @@
+jurisdiction,metric,year,value,confidence,notes
+new-york-city,life_sciences_employment,2015,108324,medium,"BLS QCEW Open Data API, sum of NAICS 3254 (Pharma/Medicine Mfg) + 5417 (Scientific R&D) + 6215 (Medical/Diagnostic Labs), private ownership, METRO AREA (New York-Newark-Jersey City, NY-NJ MSA, area C3562) -- NOT city-proper. NAICS 3254 essentially never discloses at the 5-borough level in any year 2015-2025 (a structural dead end for a true city-proper series), so the metro-area figure is used instead with this scope caveat. A narrower, correctly city-scoped alternative exists: NAICS 6215 alone is 5-borough-complete most years (e.g. 2023: 7,914) if a scope-accurate but narrower series is preferred to this broader metro-scoped one."
+new-york-city,life_sciences_employment,2016,108581,medium,"Same source/methodology as 2015."
+new-york-city,life_sciences_employment,2017,106916,medium,"Same source/methodology as 2015."
+new-york-city,life_sciences_employment,2018,109886,medium,"Same source/methodology as 2015."
+new-york-city,life_sciences_employment,2019,113686,medium,"Same source/methodology as 2015."
+new-york-city,life_sciences_employment,2020,113053,medium,"Same source/methodology as 2015."
+new-york-city,life_sciences_employment,2021,119482,medium,"Same source/methodology as 2015. 2022 excluded -- NAICS 6215 is suppressed that year, making the 3-code sum an undercount rather than a genuine total. 2023-2025 excluded -- a different one of the three codes is suppressed each year, making no year computable on a consistent basis."

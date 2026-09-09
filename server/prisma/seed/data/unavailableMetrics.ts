@@ -200,4 +200,13 @@ export const unavailableMetrics: UnavailableMetricSpec[] = [
   // (GASB only requires one where an annual budget is legally adopted), only for the General Fund
   // and Federal/Private Resources. A genuine legal/structural absence, not unresearched.
   { metricSlug: "capital_budget_execution_rate", jurisdictionSlug: "washington-dc" },
+  // DC innovation research pass (2026-09-08): BLS QCEW suppresses these NAICS-code/DC-area cells for
+  // these specific years (disclosure_code "N", confirmed via the raw API) -- a current-vintage
+  // suppression, consistent with how other cities' QCEW suppressions are already marked in this file.
+  { metricSlug: "tech_employment", jurisdictionSlug: "washington-dc", years: [2025] },
+  {
+    metricSlug: "advanced_manufacturing_employment",
+    jurisdictionSlug: "washington-dc",
+    years: [2020, 2021, 2024, 2025],
+  },
 ];

@@ -653,4 +653,40 @@ export const researchQueueSeed: ResearchQueueSeedItem[] = [
       "No real cumulative-total figure found for any year. Real fragments exist but are all annual INSTALLATION increments (2016 2.4mi built, 2017 4.17mi, 2018 2.34mi 'the least since 2016,' 2020-2021 combined ~10mi, 2025 9.17mi new), not cumulative network totals, and summing increments into a cumulative series risks compounding errors without a confirmed starting baseline -- not attempted. A 2015 voter-approved levy target of 110mi of protected bike lanes + greenways by end of 2024 (only ~57%/~63mi built as of early 2023) is a program-specific subset, not the full network. Concrete next step: SDOT's Bicycle Master Plan progress-report PDFs are the most likely source of an authoritative 'total network miles by year' figure but resisted WebFetch/pdftotext extraction in the time available this pass -- a good target for a follow-up with more robust PDF access, similar in nature to other Seattle PDF-extraction dead-ends already logged in this file.",
     priority: 3,
   },
+  {
+    key: "minneapolis-vc-investment-scope-gap-years",
+    jurisdictionSlug: "minneapolis",
+    metricSlug: "vc_investment",
+    taskType: "metric",
+    researchQuestion:
+      "vc_investment is now real for 2019-2021 and 2024-2025 (NVCA's congressional-district CD-05 breakdown, a Minneapolis-specific proxy -- see sources.ts nvca_minnesota_cd_map). 2015-2018, 2022, and 2023 have only Minnesota-STATEWIDE totals (2015 $641.6M ... 2023 $1.2B, various vintages, PitchBook-sourced via NVCA one-pagers and Twin Cities Business/Star Tribune coverage of MN DEED analysis) -- a much larger scope than the city, deliberately not imported. Concrete next step: check whether older NVCA one-pager vintages (recoverable via Wayback Machine, several already used for the years that DID get a CD-05 figure) also break out CD-05 for these specific gap years -- not fully exhausted this pass.",
+    priority: 4,
+  },
+  {
+    key: "nyc-business-survival-rate-needs-verification",
+    jurisdictionSlug: "new-york-city",
+    metricSlug: "business_survival_rate",
+    taskType: "metric",
+    researchQuestion:
+      "NOT IMPORTED, deliberately, despite a seemingly complete 2015-2025 series being found: a 2026-09-08 research pass extracted BLS Business Employment Dynamics Table 7 (New York STATE, not NYC-specific -- the standard proxy this project already uses for this metric) via a secondary summarization tool, because BLS blocked direct curl/bot access to bls.gov/bdm/ny_age_total_table7.txt. The researcher's own report explicitly flagged this as moderate, not high, confidence and recommended 'a follow-up pass with a real browser fetch to confirm exact digits before import' -- a national cross-check produced a similar but not digit-identical series. Values as found (needing verification, not yet trusted): 2015 51.1%, 2016 50.9%, 2017 49.9%, 2018 50.4%, 2019 49.8%, 2020 48.1%, 2021 47.2%, 2022 49.1%, 2023 49.8%, 2024 49.5%, 2025 51.9%. Next step: re-fetch the same table with a real browser session (not curl) and byte-verify these exact figures before importing.",
+    priority: 5,
+  },
+  {
+    key: "nyc-vc-investment-remaining-gaps",
+    jurisdictionSlug: "new-york-city",
+    metricSlug: "vc_investment",
+    taskType: "metric",
+    researchQuestion:
+      "vc_investment is now real for 2021, 2023, and 2024 (NYCEDC 'State of the NYC Economy' reports, NYC-proper scope -- see sources.ts nycedc_state_of_economy). 2015-2020, 2022, and 2025 have no clean single-year NYC-proper figure from a non-paywalled source -- PitchBook's own platform-level regional tables are subscription-gated and NVCA's national Venture Monitor PDFs don't break out this metro. NYCEDC reports do cite some multi-year COMBINED totals covering parts of this range (2017-2019 combined $50.9B; 2021-2023 combined $97.3B) but these cannot be cleanly decomposed into individual years without guessing -- not used. Concrete next step: check whether NYCEDC has published additional single-year annual reports (not just the two vintages already found) covering the gap years directly.",
+    priority: 4,
+  },
+  {
+    key: "chicago-business-survival-rate-2024-mislabeled",
+    jurisdictionSlug: "chicago",
+    metricSlug: "business_survival_rate",
+    taskType: "metric",
+    researchQuestion:
+      "Methodology-lead decision: a 2026-09-08 cross-city research pass discovered that this metric's existing 2024 value (77.9%, 'estimated' quality) is BLS Business Employment Dynamics' 1-YEAR survival rate, not a 5-year rate -- a genuinely different statistic than this metric's own 'after five years' definition calls for. 2015-2020 have since been corrected with the true national 5-year cohort rate from the same BLS BED Table 7 (50.2%...51.4%, see sources.ts bls_bed and the newly-imported rows), matching the convention now used for DC and Minnesota. 2024's value was NOT touched by that correction (there is no valid replacement -- the 2024 cohort's true 5-year mark won't be reachable until 2029) and remains the wrong statistic in the live series. Decide: (a) revert 2024 back to placeholder/unavailable until real 5-year data exists in 2029, or (b) keep the 1-year figure with a clearly different label/definition as an interim leading indicator, explicitly distinguished from the 5-year figures elsewhere in the same series.",
+    priority: 6,
+  },
 ];

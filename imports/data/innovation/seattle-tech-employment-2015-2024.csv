@@ -1,0 +1,11 @@
+jurisdiction,metric,year,value,confidence,notes
+seattle,tech_employment,2015,40086,high,"BLS QCEW Open Data API, NAICS 5415 (Computer Systems Design and Related Services), private ownership, Seattle-Tacoma-Bellevue MSA. SUPERSEDES a previously-imported 2024 value (150,802) that used a different, broader methodology (WA ESD Professional/Scientific/Technical Services supersector, King County) -- standardizing on single-NAICS-5415 QCEW to match the established cross-city convention already used for Chicago, Minneapolis, DC, and NYC's tech_employment series."
+seattle,tech_employment,2016,42337,high,"Same source/methodology as 2015."
+seattle,tech_employment,2017,44502,high,"Same source/methodology as 2015."
+seattle,tech_employment,2018,46772,high,"Same source/methodology as 2015."
+seattle,tech_employment,2019,48550,high,"Same source/methodology as 2015."
+seattle,tech_employment,2020,49799,high,"Same source/methodology as 2015."
+seattle,tech_employment,2021,55147,high,"Same source/methodology as 2015."
+seattle,tech_employment,2022,62241,high,"Same source/methodology as 2015."
+seattle,tech_employment,2023,58631,high,"Same source/methodology as 2015."
+seattle,tech_employment,2024,55913,high,"Same source/methodology as 2015 (see 2015 row for the supersession note). 2025 not imported -- annual QCEW not yet published; only quarterly Q1/Q2 2025 figures exist, a methodology mismatch with an annual-average series."

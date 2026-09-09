@@ -1,0 +1,11 @@
+jurisdiction,metric,year,value,confidence,notes
+seattle,advanced_manufacturing_employment,2015,186744,medium,"BLS QCEW Open Data API, NAICS 31-33 (total manufacturing), private ownership, Seattle-Tacoma-Bellevue MSA -- matches the broad total-manufacturing convention already established for this metric in Chicago (via FRED) and DC (via QCEW), for cross-city consistency. A narrower, arguably more conceptually accurate alternative was also found and NOT used here: NAICS 3364 (Aerospace/Boeing) alone, fully clean 2015-2024 (e.g. 2015: 91,108), which better matches 'high-value, technology-intensive manufacturing' than a total-manufacturing figure that also includes food processing, wood products, etc. -- flagged for methodology-lead reconsideration rather than decided unilaterally."
+seattle,advanced_manufacturing_employment,2016,184165,medium,"Same source/methodology as 2015 (aerospace-only alternative: 87,923)."
+seattle,advanced_manufacturing_employment,2017,177201,medium,"Same source/methodology as 2015 (aerospace-only alternative: 80,927)."
+seattle,advanced_manufacturing_employment,2018,177691,medium,"Same source/methodology as 2015 (aerospace-only alternative: 80,734)."
+seattle,advanced_manufacturing_employment,2019,183367,medium,"Same source/methodology as 2015 (aerospace-only alternative: 85,316)."
+seattle,advanced_manufacturing_employment,2020,167397,medium,"Same source/methodology as 2015 (aerospace-only alternative: 76,975)."
+seattle,advanced_manufacturing_employment,2021,154517,medium,"Same source/methodology as 2015 (aerospace-only alternative: 65,121)."
+seattle,advanced_manufacturing_employment,2022,159298,medium,"Same source/methodology as 2015 (aerospace-only alternative: 69,056)."
+seattle,advanced_manufacturing_employment,2023,163198,medium,"Same source/methodology as 2015 (aerospace-only alternative: 75,252)."
+seattle,advanced_manufacturing_employment,2024,164271,medium,"Same source/methodology as 2015 (aerospace-only alternative: 77,836). 2025 not imported -- annual QCEW not yet published for either basis."
