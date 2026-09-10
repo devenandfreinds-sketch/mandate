@@ -1,0 +1,2 @@
+jurisdiction,metric,year,value,confidence,notes
+minneapolis,homelessness_count,2016,3056,medium,"HUD Office of Community Planning and Development, '2007-2025 Point-in-Time Estimates by CoC' (posted May 2026, accompanying the 2025 AHAR Part 1), CoC MN-500 (Minneapolis/Hennepin County). Fills a year this project previously marked structurally unavailable, since the individual per-year PopSub PDF for 2016 could not be located under any filename convention -- this consolidated HUD file covers it via a different document."

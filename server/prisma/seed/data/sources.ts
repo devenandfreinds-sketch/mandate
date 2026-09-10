@@ -2629,7 +2629,7 @@ export const sources: SourceSeedSpec[] = [
   },
   {
     key: "nyc_911_response_reporting",
-    name: "NYC 911 End-to-End Response Time Reporting",
+    name: "NYC 911 End-to-End Response Time Reporting (FDNY/NYPD Joint)",
     publisher: "City of New York (911/NYPD/FDNY joint reporting)",
     url: "https://www.nyc.gov/",
     sourceType: "government_dataset",
@@ -3372,6 +3372,54 @@ export const sources: SourceSeedSpec[] = [
     methodology:
       "Used as this project's graduate_employment_rate figure for Seattle -- a genuine literal recent-college-graduate employment rate (unlike the workforce-program-participant proxy used for Washington DC and Minneapolis), though scoped to University of Washington graduates specifically, not all Seattle-area institutions. Each row is an academic-year graduating class (e.g. '2014-2015' = degrees awarded Summer 2014-Spring 2025), mapped to Mandate's calendar-year label using the class's second/graduation year. Response rates have declined over time (29% in 2014-15 to ~13% in 2024-25), a limitation the reports themselves disclose -- this is self-reported alumni survey data, not a census of all graduates. 'Employed' includes both full-time and part-time employment as current primary status; a separate, higher 'career-related job' percentage also exists in these reports but is not used here.",
     defaultConfidence: "high",
+    country: "United States",
+    language: "en",
+  },
+  {
+    key: "nyc_hud_coc_pit_count",
+    name: "HUD Continuum of Care Point-in-Time Count — New York City (NY-600)",
+    publisher: "U.S. Department of Housing and Urban Development",
+    url: "https://files.hudexchange.info/reports/published/",
+    sourceType: "government_dataset",
+    citation:
+      "HUD's annual 'Continuum of Care Homeless Assistance Programs — Homeless Populations and Subpopulations Report,' CoC NY-600 (New York City), unduplicated sheltered (Emergency Shelter + Transitional Housing) plus unsheltered count on one night in January. Same HUD PIT convention already used for Chicago, Minneapolis, and Washington DC's homelessness_count series.",
+    isPlaceholder: false,
+    updateFrequency: "annual",
+    methodology:
+      "SUPERSEDES this project's prior NYC homelessness_count series, which used the NYC DHS 'Daily Report' -- a narrower, different-scope figure measuring only the average daily census of people in DHS-operated shelters specifically (excluding unsheltered/street homelessness and non-DHS Continuum of Care shelter capacity such as HRA domestic-violence shelters, runaway/homeless-youth shelters, and asylum-seeker HERRC shelters run by other agencies), and using a different timing convention (daily average vs. one-night January count). This HUD PIT series is the correct scope-matched equivalent to the other 3 cities' data. 2021's unsheltered count is a lower-confidence figure: HUD permitted CoCs to skip or modify the unsheltered survey that year due to COVID-19 transmission risk, and the NY-600 report itself cautions the unsheltered and total counts for that year may be incomplete. The 2023-2024 sharp increase (+59%) and 2024-2025 decline (-10%) are real, reflecting NYC's asylum-seeker/migrant shelter influx and subsequent policy response, not a data error.",
+    defaultConfidence: "high",
+    country: "United States",
+    language: "en",
+  },
+  {
+    key: "census_hvs_dc_vacancy",
+    name: "U.S. Census Bureau Housing Vacancy Survey — District of Columbia",
+    publisher: "U.S. Census Bureau",
+    url: "https://fred.stlouisfed.org/series/DCRVAC",
+    sourceType: "government_dataset",
+    citation:
+      "U.S. Census Bureau, 'Residential Vacancies and Homeownership' (Housing Vacancy Survey), series DCRVAC, rental vacancy rate, District of Columbia, via FRED.",
+    isPlaceholder: false,
+    updateFrequency: "annual",
+    methodology:
+      "The Housing Vacancy Survey (HVS) is a CPS-based supplemental survey, methodologically distinct from the American Community Survey (ACS) already used for this project's existing 2024 DC vacancy_rate row (6.8%) -- a genuinely different survey, not just a different vintage. Because DC is coterminous with a single Census geography (unlike most other cities in this project, where a state-level HVS series would be a scope mismatch), this series is DC-specific rather than a state/metro proxy, making it usable here. The HVS and ACS figures converge closely for 2024 (both 6.8%), supporting its use to complete the series; ACS's own 1-year DP04 data for other years could not be retrieved in this research pass (data.census.gov's table UI is JavaScript-rendered and Census's api.census.gov endpoint requires a registered API key, neither accessible with available tools) -- a concrete next step for a future pass to potentially supersede this HVS series with true ACS data for full-series methodological consistency.",
+    defaultConfidence: "high",
+    country: "United States",
+    language: "en",
+  },
+  {
+    key: "minneapolis_ccs_permits",
+    name: "City of Minneapolis Construction Code Services (CCS) Permits",
+    publisher: "City of Minneapolis, Construction Code Services",
+    url: "https://opendata.minneapolismn.gov/datasets/cityoflakes::ccs-permits",
+    sourceType: "government_dataset",
+    citation:
+      "City of Minneapolis building permit records (OpenDataMPLS), filtered to new-construction residential work types with new dwelling units, status 'Closed,' summed by the year of the permit's completeDate field ('the date the final inspection has been completed and passed'), not its issueDate (which instead reproduces this project's existing housing_permits_issued metric).",
+    isPlaceholder: false,
+    updateFrequency: "continuous",
+    methodology:
+      "This project previously listed housing_completions as confirmed structurally unavailable for Minneapolis (no aggregated government-published completions statistic located); this raw permit-level dataset, aggregated by completion date, was found in a later research pass and supersedes that conclusion -- see unavailableMetrics.ts. The dataset's earliest usable records begin around late 2016, so 2015-2016 remain genuinely unavailable (system ramp-up), and 2017 is likely an undercount for the same reason. Because completion can lag issuance by years, the most recent 1-2 years are subject to slight future upward revision as remaining in-progress permits from those cohorts eventually close.",
+    defaultConfidence: "medium",
     country: "United States",
     language: "en",
   },

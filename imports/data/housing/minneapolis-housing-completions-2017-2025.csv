@@ -1,0 +1,10 @@
+jurisdiction,metric,year,value,confidence,notes
+minneapolis,housing_completions,2017,43,medium,"City of Minneapolis Construction Code Services (CCS) Permits (OpenDataMPLS), new-construction residential permits with new dwelling units, status Closed, summed by year of completeDate. Likely a partial-year undercount -- the dataset's earliest usable records begin around late 2016, so 2017 is a system ramp-up year (13 permits total)."
+minneapolis,housing_completions,2018,1496,high,"Same source/methodology as 2017 (88 permits)."
+minneapolis,housing_completions,2019,1640,high,"Same source/methodology as 2017 (95 permits)."
+minneapolis,housing_completions,2020,2605,high,"Same source/methodology as 2017 (189 permits)."
+minneapolis,housing_completions,2021,3190,high,"Same source/methodology as 2017 (129 permits)."
+minneapolis,housing_completions,2022,2457,high,"Same source/methodology as 2017 (128 permits)."
+minneapolis,housing_completions,2023,4376,high,"Same source/methodology as 2017 (153 permits)."
+minneapolis,housing_completions,2024,3090,high,"Same source/methodology as 2017 (144 permits). Subject to slight future upward revision as remaining in-progress permits from this cohort eventually close."
+minneapolis,housing_completions,2025,2141,medium,"Same source/methodology as 2017 (128 permits). Most recent complete calendar year -- subject to more upward revision than earlier years as still-open permits from this cohort close."

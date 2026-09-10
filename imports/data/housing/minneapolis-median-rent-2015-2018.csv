@@ -1,0 +1,5 @@
+jurisdiction,metric,year,value,confidence,notes
+minneapolis,median_rent,2015,912,high,"U.S. Census Bureau, American Community Survey 1-Year Estimates, Table B25064 (Median Gross Rent), Minneapolis city, Minnesota. Same methodology as the project's existing 2019/2021-2024 rows."
+minneapolis,median_rent,2016,932,high,"Same source/methodology as 2015."
+minneapolis,median_rent,2017,989,high,"Same source/methodology as 2015."
+minneapolis,median_rent,2018,1052,high,"Same source/methodology as 2015."

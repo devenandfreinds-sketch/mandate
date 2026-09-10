@@ -1,0 +1,2 @@
+jurisdiction,metric,year,value,confidence,notes
+washington-dc,homelessness_count,2016,8350,medium,"DC Mayor's Office press release ('Mayor Bowser Announces Homelessness Is Down 47%...'), citing the 2016 Point-in-Time count as the baseline for that comparison. HUD's own PopSub PDF for this specific year could not be located under any filename convention tried in this or a prior research pass -- this fills that gap via the same official PIT count result as reported through DC's own mayoral office rather than HUD's raw document."

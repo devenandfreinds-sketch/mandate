@@ -1,0 +1,5 @@
+jurisdiction,metric,year,value,confidence,notes
+minneapolis,vacancy_rate,2015,3.1,high,"U.S. Census Bureau, ACS 1-Year Estimates, Table DP04, Minneapolis city, Minnesota -- rental vacancy rate. Same methodology as the project's existing 2019/2021-2024 rows."
+minneapolis,vacancy_rate,2016,3.5,high,"Same source/methodology as 2015."
+minneapolis,vacancy_rate,2017,4.2,high,"Same source/methodology as 2015."
+minneapolis,vacancy_rate,2018,4.5,high,"Same source/methodology as 2015."

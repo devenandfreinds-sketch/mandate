@@ -1,0 +1,12 @@
+jurisdiction,metric,year,value,confidence,notes
+new-york-city,housing_completions,2015,15594,high,"NYC Rent Guidelines Board, '2026 Housing Supply Report,' Appendix 4, citing NYC Department of City Planning Housing Database (Certificates of Occupancy issued by NYC DOB for newly constructed Class A residential units). Re-pulled from a single, current report vintage for full-series consistency -- DCP revises prior years' completions as late-filed Certificates of Occupancy are recorded, and this project's prior series mixed figures across different report vintages."
+new-york-city,housing_completions,2016,23451,high,"Same source as 2015."
+new-york-city,housing_completions,2017,25472,high,"Same source as 2015."
+new-york-city,housing_completions,2018,28638,high,"Same source as 2015. Trivial revision from a previously-imported 28,635."
+new-york-city,housing_completions,2019,24693,high,"Same source as 2015. SUPERSEDES a previously-imported value of 20,155 for this year -- that figure and the previously-imported 2020 value (24,692) appear to have been transposed between the two years in an earlier import; this and the 2020 row below now each carry the figure that matches their own year in the current report vintage."
+new-york-city,housing_completions,2020,20167,high,"Same source as 2015. See 2019's note re: the 2019/2020 transposition now corrected."
+new-york-city,housing_completions,2021,28202,high,"Same source as 2015. Trivial revision from a previously-imported 28,199."
+new-york-city,housing_completions,2022,25881,high,"Same source as 2015. Trivial revision from a previously-imported 25,871."
+new-york-city,housing_completions,2023,27964,high,"Same source as 2015. Trivial revision from a previously-imported 27,962."
+new-york-city,housing_completions,2024,33861,high,"Same source as 2015. Minor downward revision from a previously-imported 33,974 as DCP's database was updated in the current report vintage."
+new-york-city,housing_completions,2025,38691,high,"Same source as 2015. Fills this project's previously-missing 11th year. Independently cross-checked against a separate DCP 'Housing Production Snapshot' press citation of 38,682 for the same year -- within single-digit rounding."

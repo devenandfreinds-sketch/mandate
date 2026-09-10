@@ -789,6 +789,42 @@ export const researchQueueSeed: ResearchQueueSeedItem[] = [
     priority: 3,
   },
   {
+    key: "nyc-vacancy-rate-nychvs-structural-gap",
+    jurisdictionSlug: "new-york-city",
+    metricSlug: "vacancy_rate",
+    taskType: "metric",
+    researchQuestion:
+      "vacancy_rate is real for 2017 (3.63%), 2021 (4.54%), and 2023 (1.41%) via the NYC Housing and Vacancy Survey (NYCHVS), plus an out-of-window 2014 value (3.45%). This is NOT a research gap for the other 8 years in this project's 2015-2025 window -- the NYCHVS is conducted only every ~3 years by law (survey years: ...2011, 2014, 2017, 2021, 2023...), so 2015, 2016, 2018, 2019, 2020, 2022, 2024, 2025 are structurally impossible to fill with genuine NYCHVS data. No annual substitute vacancy survey exists for NYC specifically at this rent-stabilization-relevant scope. Kept open only as a marker that this metric is at its real ceiling for NYC, not unresearched.",
+    priority: 2,
+  },
+  {
+    key: "dc-median-rent-acs-1yr-access-gap",
+    jurisdictionSlug: "washington-dc",
+    metricSlug: "median_rent",
+    taskType: "metric",
+    researchQuestion:
+      "median_rent has only 1 real year (2024, $1,931, ACS 1-Year Table B25064). A research pass to fill 2015-2019/2021-2023 hit a pure access gap, not a data gap: data.census.gov's table UI is JavaScript-rendered and not scrapable with available tools, and api.census.gov's ACS endpoints now require a registered API key that isn't configured in this environment. The data itself is real and public. Concrete next step: register a free Census API key (api.census.gov/data/key_signup.html) and query `api.census.gov/data/{year}/acs/acs1?get=NAME,B25064_001E&for=state:11` for each year (DC is FIPS state code 11) -- or find another tool/session with working JS rendering for data.census.gov. A 5-year pooled ACS estimate ($1,900, 2019-2023 combined) was found via DC's own Office of Planning but was deliberately not imported as a single-year figure since it is a genuinely different statistical construct (multi-year rolling average) from the rest of this series.",
+    priority: 3,
+  },
+  {
+    key: "dc-vacancy-rate-acs-vs-hvs-reconciliation",
+    jurisdictionSlug: "washington-dc",
+    metricSlug: "vacancy_rate",
+    taskType: "metric",
+    researchQuestion:
+      "vacancy_rate is now real for 2015-2023 and 2025 via the Census Bureau's Housing Vacancy Survey (HVS, series DCRVAC), plus the existing 2024 ACS-based value -- both surveys give an identical 6.8% for 2024, which supported using HVS to complete the rest of the series. HVS and ACS are genuinely different surveys (HVS is CPS-based, ACS is a separate larger annual survey), and true ACS 1-Year Table DP04 data for 2015-2023/2025 could not be retrieved due to the same Census API access gap described in dc-median-rent-acs-1yr-access-gap. Concrete next step: once ACS access is available, pull DP04 rental vacancy rate for DC for these years and check whether it still matches HVS closely (as it did for 2024) or diverges -- if it diverges, the whole series should be re-supplied from ACS alone for consistency with the metric's original methodology.",
+    priority: 3,
+  },
+  {
+    key: "dc-housing-completions-no-government-series",
+    jurisdictionSlug: "washington-dc",
+    metricSlug: "housing_completions",
+    taskType: "metric",
+    researchQuestion:
+      "housing_completions has no real data for DC and no official DC government agency publishes a standalone annual 'total housing units completed' series (unlike NYC's DCP Housing Database or Seattle's SDCI data). DC's raw Certificate-of-Occupancy dataset (Open Data DC) is unaggregated by year/use-type and would require original analysis rather than sourcing an existing published figure. The closest real candidate is the Washington DC Economic Partnership's (WDCEP) annual 'DC Development Report,' which explicitly defines 'completed' as first-CO-issuance and sources from permit/CO/DMPED records -- but WDCEP is an independent nonprofit, not a government publisher (found figures: 2022 6,749 units, 2023 5,320 units, 2021 ~6,443 derived). Deliberately not imported as government-tier data. This is a methodology-lead decision, not a research gap: does this project accept a non-government, government-data-derived aggregator (comparable to how FRED aggregates government survey data) for a metric with no direct government-published equivalent, and if so under what quality tier (likely 'alternative')?",
+    priority: 2,
+  },
+  {
     key: "nyc-graduate-employment-rate-wioa-lead",
     jurisdictionSlug: "new-york-city",
     metricSlug: "graduate_employment_rate",
@@ -796,5 +832,23 @@ export const researchQueueSeed: ResearchQueueSeedItem[] = [
     researchQuestion:
       "graduate_employment_rate has no real data for NYC -- no literal 'recent college graduate employment rate' series exists from any primary source found. CUNY's own 'CUNY Beyond' initiative states a single baseline ('only 1 in 5 CUNY first-year students earn a living wage after graduation,' ~20%) but this is a one-time figure mixing employment with a living-wage threshold, not a multi-year series, and individual CUNY colleges' own graduation surveys are inconsistent (25%-82%) due to differing methodologies. The strongest genuine lead, not yet extracted: NYS DOL's own public WIOA Program Performance Dashboard (Tableau, https://dol.ny.gov/wioa-program-performance), filterable to Local Area = 'New York City,' Program = 'Title I Adult,' Measure = 'Employed in 2nd Quarter After Exit' -- a legitimate NYC-specific workforce-program employment-rate proxy analogous to DC's DOES-based proxy already used for this same metric, with exit-quarter data reportedly available back to 2017 Q3. This pass could not reliably extract exact per-year percentages from the interactive Tableau chart and deliberately did not fabricate estimated figures from its visual range (~45%-70% over 2018-2025). Concrete next step: a dedicated pass to extract this Tableau series' underlying data (e.g. via its 'View Data' / download option or the Tableau API) would give a real, citable proxy series.",
     priority: 3,
+  },
+  {
+    key: "minneapolis-affordable-housing-2015-2017-2020-2021-2023-2025-gaps",
+    jurisdictionSlug: "minneapolis",
+    metricSlug: "affordable_housing_completions",
+    taskType: "metric",
+    researchQuestion:
+      "affordable_housing_completions is now real for 2018, 2019, and 2022 via City of Minneapolis CPED's 'The Way Home' progress reports (units at financial closing/construction start, not physical completion). Every other year in this project's window only exists as a multi-year average in the primary reports (2011-2018 baseline ~322-330/yr; 2019-2021 avg 634/yr; 2022-2024 avg 637/yr), not a single-year figure -- deliberately not imported to avoid fabricating annual splits from an average. Concrete next step: CPED may have individual-year figures in an underlying dataset or annual budget document that these progress-report PDFs only summarize as multi-year averages; worth checking Minneapolis's open data portal or CPED's internal reporting directly rather than the public-facing progress reports.",
+    priority: 2,
+  },
+  {
+    key: "seattle-affordable-housing-2015-2017-2021-gaps",
+    jurisdictionSlug: "seattle",
+    metricSlug: "affordable_housing_completions",
+    taskType: "metric",
+    researchQuestion:
+      "affordable_housing_completions is now real for 2018-2020 and 2022-2025 (Seattle Office of Housing Annual Investments Reports, cited via press coverage for 2018-2020 since the primary PDFs are no longer publicly hosted). 2015-2017 and 2021 have no reliable completions-only figure -- only a general pre-HALA baseline (~800 units/year) exists for the earliest years, not a specific single-year count, and 2021's report was not found. Concrete next step: request the pre-2024 Annual Investments Reports directly from the Office of Housing (housing@seattle.gov), which the 2018-2020 figures themselves required going through press coverage rather than a direct primary-source read.",
+    priority: 2,
   },
 ];

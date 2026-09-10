@@ -143,20 +143,27 @@ export const unavailableMetrics: UnavailableMetricSpec[] = [
   { metricSlug: "housing_starts", jurisdictionSlug: "washington-dc" },
   // Same pass: housing_completions confirmed unavailable for Minneapolis and DC specifically --
   // HUD SOCDS explicitly states only its Building Permits database is actively maintained (no
-  // completions series), and neither city publishes an aggregated annual "units completed/CO'd"
+  // completions series), and DC does not publish an aggregated annual "units completed/CO'd"
   // statistic from its own certificate-of-occupancy process (only permit-level microdata lookups
   // exist, which would require original analysis to aggregate, not citation of an existing
   // government-published number). NYC and Seattle are NOT included here: NYC has a real DCP-sourced
   // series (imported), and Seattle's status is a genuine unresolved source conflict, not a confirmed
-  // absence -- see the seattle-housing-completions-citation-conflict research task.
-  { metricSlug: "housing_completions", jurisdictionSlug: "minneapolis" },
+  // absence -- see the seattle-housing-completions-citation-conflict research task. Minneapolis was
+  // originally listed here too, but a later housing research pass (2026-09-10) found a genuine
+  // completions series after all -- see the City's own Construction Code Services (CCS) Permits
+  // open-data feed (completeDate field), now imported for 2017-2025.
   { metricSlug: "housing_completions", jurisdictionSlug: "washington-dc" },
+  // Minneapolis's CCS Permits open-data feed's earliest usable records begin around late 2016 --
+  // 2015-2016 predate the dataset's coverage, a genuine gap distinct from the years now imported.
+  { metricSlug: "housing_completions", jurisdictionSlug: "minneapolis", years: [2015, 2016] },
   // Second DSA research round (2026-08-30): HUD's PopSub Point-in-Time homelessness reports could
   // not be located for 2016 under any filename convention for either CoC, while every other year
   // 2015/2017-2025 was retrieved successfully from the same file server -- a confirmed archive gap
-  // for that one reporting cycle, not an unresearched year.
-  { metricSlug: "homelessness_count", jurisdictionSlug: "washington-dc", years: [2016] },
-  { metricSlug: "homelessness_count", jurisdictionSlug: "minneapolis", years: [2016] },
+  // for that one reporting cycle, not an unresearched year. A later housing research pass
+  // (2026-09-10) found 2016 data for both cities after all via different documents (DC: a mayoral
+  // press release citing the same official PIT count; Minneapolis: HUD's own consolidated
+  // "2007-2025 Point-in-Time Estimates by CoC" file, not the individual per-year PopSub PDF) -- now
+  // imported for both, so these entries are removed rather than left stale.
   // Minnesota BCA's annual Uniform Crime Report only publishes a combined Part I index-crime rate
   // for individual agencies in 2015 and earlier -- no violent/property split exists at city level
   // for that year (the offense-category-breakdown supplement format only began with 2016 data).
@@ -209,4 +216,10 @@ export const unavailableMetrics: UnavailableMetricSpec[] = [
     jurisdictionSlug: "washington-dc",
     years: [2020, 2021, 2024, 2025],
   },
+  // Housing research pass (2026-09-10): King County Regional Homelessness Authority confirmed no
+  // Point-in-Time count was conducted in 2021 (HUD granted a COVID-19 waiver, no count held), 2023
+  // (KCRHA moved to a biennial even-year full-count schedule after taking over from All Home in
+  // 2022), or 2025 (next full count after 2024 was January 2026, outside this project's window).
+  // A confirmed structural absence, not an unresearched gap.
+  { metricSlug: "homelessness_count", jurisdictionSlug: "seattle", years: [2021, 2023, 2025] },
 ];

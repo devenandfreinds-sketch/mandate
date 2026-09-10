@@ -1,0 +1,7 @@
+jurisdiction,metric,year,value,confidence,notes
+seattle,homelessness_count,2015,10047,high,"'King County One Night Count: Summary of 2016 Data' (Table 8), All Home, updated May 9, 2016. King County-wide total, same scope as this project's existing 2022/2024 rows. Methodology era: One Night Count (unsheltered street count + HMIS/survey-based shelter count) -- a genuinely different methodology than 2017-2020's 'Count Us In' and 2022/2024's Respondent-Driven-Sampling eras; the 2017 Count Us In report itself explicitly warns against direct comparison to pre-2017 data. Imported anyway, clearly flagged, since it is the same underlying official county PIT count entity across all eras."
+seattle,homelessness_count,2016,10688,high,"Same source as 2015, count night Jan 29, 2016."
+seattle,homelessness_count,2017,11643,high,"'2017 Seattle/King County Point-in-Time Count of Persons Experiencing Homelessness' ('Count Us In'), All Home / Applied Survey Research, count night Jan 27, 2017. First year of the 'Count Us In' methodology era -- see 2015's note on cross-era comparability."
+seattle,homelessness_count,2018,12112,high,"'2018 Seattle/King County Count Us In,' All Home/ASR, count night Jan 26, 2018."
+seattle,homelessness_count,2019,11199,high,"'2019 Seattle/King County Count Us In,' All Home/ASR, count night Jan 25, 2019."
+seattle,homelessness_count,2020,11751,high,"'2020 Seattle/King County Count Us In,' All Home, July 2020 -- the last All Home report before King County Regional Homelessness Authority (KCRHA) took over and changed methodology again for 2022."

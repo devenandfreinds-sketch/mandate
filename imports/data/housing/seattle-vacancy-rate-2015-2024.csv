@@ -1,0 +1,9 @@
+jurisdiction,metric,year,value,confidence,notes
+seattle,vacancy_rate,2015,2.7,high,"U.S. Census Bureau, American Community Survey 1-Year Estimates, Table DP04, Seattle city, Washington -- rental vacancy rate row."
+seattle,vacancy_rate,2016,2.5,high,"Same source/methodology as 2015."
+seattle,vacancy_rate,2017,3.9,high,"Same source/methodology as 2015."
+seattle,vacancy_rate,2018,3.1,high,"Same source/methodology as 2015."
+seattle,vacancy_rate,2019,4.0,high,"Same source/methodology as 2015."
+seattle,vacancy_rate,2021,6.7,high,"Same source/methodology as 2015."
+seattle,vacancy_rate,2022,5.9,high,"Same source/methodology as 2015."
+seattle,vacancy_rate,2024,5.6,high,"Same source/methodology as 2015."

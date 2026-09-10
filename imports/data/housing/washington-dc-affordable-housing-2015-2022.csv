@@ -1,0 +1,9 @@
+jurisdiction,metric,year,value,confidence,notes
+washington-dc,affordable_housing_completions,2015,1342,high,"DC Department of Housing and Community Development, 'FY2015 Housing Production Trust Fund Annual Report and Affordable Housing Production Report' -- 1,244 rental + 98 homeownership units funded/legally obligated. Same 'units funded' methodology as the project's existing FY2023 row -- DHCD does not publish a separate physical-completions series (see that row's own note)."
+washington-dc,affordable_housing_completions,2016,2669,high,"DHCD, 'Fiscal Year 2016 Housing Production Trust Fund Annual Report' -- 2,442 rental + 96 homeownership + 119 cooperative + 12 other units funded."
+washington-dc,affordable_housing_completions,2017,2898,high,"DHCD, 'Fiscal Year 2017 Housing Production Trust Fund Annual Report' -- 2,609 rental + 80 homeownership + 209 cooperative units funded."
+washington-dc,affordable_housing_completions,2018,3055,high,"DHCD, 'Fiscal Year 2018 Housing Production Trust Fund Annual Report' -- 2,742 rental + 50 homeownership + 263 cooperative units funded."
+washington-dc,affordable_housing_completions,2019,3749,high,"DHCD, 'Fiscal Year 2019 Housing Production Trust Fund Annual Report' -- 3,511 rental + 71 homeownership + 167 cooperative units funded."
+washington-dc,affordable_housing_completions,2020,1065,high,"DHCD, 'Housing Production Trust Fund Annual Report, Fiscal Year 2020' -- 1,026 rental + 26 homeownership + 13 cooperative units funded."
+washington-dc,affordable_housing_completions,2021,766,high,"DHCD, 'Housing Production Trust Fund Annual Report, Fiscal Year 2021' -- 738 rental + 28 homeownership units funded."
+washington-dc,affordable_housing_completions,2022,722,high,"DHCD, 'Fiscal Year 2022 Housing Production Trust Fund Annual Report' -- 707 rental + 15 homeownership units funded."

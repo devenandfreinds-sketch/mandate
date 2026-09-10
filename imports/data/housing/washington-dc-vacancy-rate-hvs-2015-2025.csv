@@ -1,0 +1,11 @@
+jurisdiction,metric,year,value,confidence,notes
+washington-dc,vacancy_rate,2015,5.4,high,"U.S. Census Bureau, Housing Vacancy Survey (HVS), series DCRVAC, rental vacancy rate, District of Columbia, via FRED."
+washington-dc,vacancy_rate,2016,5.8,high,"Same source/methodology as 2015."
+washington-dc,vacancy_rate,2017,7.1,high,"Same source/methodology as 2015."
+washington-dc,vacancy_rate,2018,7.9,high,"Same source/methodology as 2015."
+washington-dc,vacancy_rate,2019,6.0,high,"Same source/methodology as 2015."
+washington-dc,vacancy_rate,2020,8.2,high,"Same source/methodology as 2015."
+washington-dc,vacancy_rate,2021,9.8,high,"Same source/methodology as 2015."
+washington-dc,vacancy_rate,2022,7.9,high,"Same source/methodology as 2015."
+washington-dc,vacancy_rate,2023,7.4,high,"Same source/methodology as 2015."
+washington-dc,vacancy_rate,2025,7.9,high,"Same source/methodology as 2015."

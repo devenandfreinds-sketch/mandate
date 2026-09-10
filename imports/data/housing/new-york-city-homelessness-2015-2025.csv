@@ -1,0 +1,12 @@
+jurisdiction,metric,year,value,confidence,notes
+new-york-city,homelessness_count,2015,75323,high,"HUD 'Continuum of Care Homeless Assistance Programs — Homeless Populations and Subpopulations Report,' CoC NY-600 (New York City), PIT date 2/9/2015: sheltered (ES+TH) 72,140 + unsheltered 3,183. SUPERSEDES this project's prior NYC series, which used the NYC DHS 'Daily Report' -- a narrower, DHS-shelter-only average daily census that excludes unsheltered homelessness and non-DHS Continuum of Care shelter capacity (see sources.ts for the full scope-mismatch explanation)."
+new-york-city,homelessness_count,2016,73523,high,"Same source/methodology as 2015. PIT date 2/9/2016: sheltered 70,685 + unsheltered 2,838."
+new-york-city,homelessness_count,2017,76501,high,"Same source/methodology as 2015. PIT date 2/7/2017: sheltered 72,565 + unsheltered 3,936."
+new-york-city,homelessness_count,2018,78676,high,"Same source/methodology as 2015. PIT date 1/22/2018: sheltered 74,965 + unsheltered 3,711."
+new-york-city,homelessness_count,2019,78604,high,"Same source/methodology as 2015. PIT date 1/28/2019: sheltered 74,982 + unsheltered 3,622."
+new-york-city,homelessness_count,2020,77943,high,"Same source/methodology as 2015. PIT date 1/27/2020: sheltered 74,039 + unsheltered 3,904."
+new-york-city,homelessness_count,2021,68358,medium,"Same source/methodology as 2015. PIT date 1/26/2021: sheltered 65,975 + unsheltered 2,383. HUD permitted CoCs to skip/modify the unsheltered survey this year due to COVID-19 transmission risk; NY-600's own report cautions the unsheltered and total counts for this year may be incomplete -- lower confidence than other years."
+new-york-city,homelessness_count,2022,61840,high,"Same source/methodology as 2015. PIT date 1/25/2022: sheltered 58,385 + unsheltered 3,455."
+new-york-city,homelessness_count,2023,88025,high,"Same source/methodology as 2015. PIT date 1/24/2023: sheltered 83,940 + unsheltered 4,085."
+new-york-city,homelessness_count,2024,140134,high,"Same source/methodology as 2015. PIT date 1/23/2024: sheltered 135,737 + unsheltered 4,397. The +59% jump from 2023 is real, consistent with independently reported NYC asylum-seeker/migrant shelter influx dynamics, not a data error."
+new-york-city,homelessness_count,2025,125683,high,"Same source/methodology as 2015. PIT date 1/28/2025: sheltered 121,010 + unsheltered 4,673. The -10% decline from 2024 is consistent with independently reported shelter-system policy changes."

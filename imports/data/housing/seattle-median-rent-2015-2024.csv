@@ -1,0 +1,10 @@
+jurisdiction,metric,year,value,confidence,notes
+seattle,median_rent,2015,1356,high,"U.S. Census Bureau, American Community Survey 1-Year Estimates, Table B25064 (Median Gross Rent), Seattle city, Washington."
+seattle,median_rent,2016,1448,high,"Same source/methodology as 2015."
+seattle,median_rent,2017,1555,high,"Same source/methodology as 2015."
+seattle,median_rent,2018,1699,high,"Same source/methodology as 2015."
+seattle,median_rent,2019,1744,high,"Same source/methodology as 2015."
+seattle,median_rent,2021,1787,high,"Same source/methodology as 2015."
+seattle,median_rent,2022,1877,high,"Same source/methodology as 2015."
+seattle,median_rent,2023,1948,high,"Same source/methodology as 2015."
+seattle,median_rent,2024,2007,high,"Same source/methodology as 2015."
