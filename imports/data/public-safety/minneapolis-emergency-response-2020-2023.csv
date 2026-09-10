@@ -1,0 +1,5 @@
+jurisdiction,metric,year,value,confidence,notes
+minneapolis,emergency_response_minutes,2020,5.28,high,"Minneapolis Fire Department's own annual Budget Committee presentation ('FY2022 Fire Department Budget Overview'), directly-stated 'overall average response time,' measured from 911 call to arrival."
+minneapolis,emergency_response_minutes,2021,5.30,high,"Same source/methodology as 2020 (FY2023 Budget Presentation)."
+minneapolis,emergency_response_minutes,2022,5.43,high,"Same source/methodology as 2020 (FY2024 Budget Presentation)."
+minneapolis,emergency_response_minutes,2023,5.57,high,"Same source/methodology as 2020 (FY2025 Budget Presentation). FY2026 Budget Presentation (covering 2024) replaced this narrative average-minutes figure with only a percent-within-5-minutes performance table -- a different statistical shape, so 2024/2025 are not imported. Pre-2020 budget decks omit the response-time slide entirely (a genuine gap in the source itself, not an access failure)."

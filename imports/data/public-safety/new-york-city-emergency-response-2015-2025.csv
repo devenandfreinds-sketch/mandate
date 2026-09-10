@@ -1,0 +1,12 @@
+jurisdiction,metric,year,value,confidence,notes
+new-york-city,emergency_response_minutes,2015,9.22,high,"NYC Mayor's Management Report (MMR), FDNY chapter, ambulance response to life-threatening (Segment 1-2-3) medical emergencies, end-to-end, WMATA-style fiscal year (Jul-Jun) mapped directly to Mandate's calendar-year label -- cross-verified via NYC Independent Budget Office's 'Trends From a Decade: 2014-2024 Response Times To Medical Emergencies Getting Worse' (Mar 2026), Figure 7."
+new-york-city,emergency_response_minutes,2016,9.15,high,"Same source/methodology as 2015."
+new-york-city,emergency_response_minutes,2017,8.93,high,"Same source/methodology as 2015."
+new-york-city,emergency_response_minutes,2018,8.97,high,"Same source/methodology as 2015."
+new-york-city,emergency_response_minutes,2019,9.37,high,"Same source/methodology as 2015."
+new-york-city,emergency_response_minutes,2020,10.32,high,"Same source/methodology as 2015."
+new-york-city,emergency_response_minutes,2021,9.57,high,"Same source/methodology as 2015."
+new-york-city,emergency_response_minutes,2022,10.28,high,"Same source/methodology as 2015."
+new-york-city,emergency_response_minutes,2023,10.72,high,"Same source/methodology as 2015."
+new-york-city,emergency_response_minutes,2024,10.87,high,"NYC MMR (fiscal year), independently confirmed via Fox5NY (Oct 2025) citing the FY2025 MMR directly. SUPERSEDES a previously-imported CY2024 value (11.87) sourced from NYC's calendar-year 911 Open Data reporting -- NYC maintains two genuinely non-identical official series for essentially the same measurement (fiscal-year MMR vs. calendar-year Open Data/MODA dashboard), explicitly acknowledged as such by the IBO's own report; this row standardizes on the fiscal-year MMR series for a complete, internally consistent 2015-2025 run."
+new-york-city,emergency_response_minutes,2025,11.35,high,"NYC MMR (fiscal year), per Fox5NY (Oct 2025) citing the FY2025 MMR directly."

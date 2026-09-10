@@ -689,4 +689,49 @@ export const researchQueueSeed: ResearchQueueSeedItem[] = [
       "Methodology-lead decision: a 2026-09-08 cross-city research pass discovered that this metric's existing 2024 value (77.9%, 'estimated' quality) is BLS Business Employment Dynamics' 1-YEAR survival rate, not a 5-year rate -- a genuinely different statistic than this metric's own 'after five years' definition calls for. 2015-2020 have since been corrected with the true national 5-year cohort rate from the same BLS BED Table 7 (50.2%...51.4%, see sources.ts bls_bed and the newly-imported rows), matching the convention now used for DC and Minnesota. 2024's value was NOT touched by that correction (there is no valid replacement -- the 2024 cohort's true 5-year mark won't be reachable until 2029) and remains the wrong statistic in the live series. Decide: (a) revert 2024 back to placeholder/unavailable until real 5-year data exists in 2029, or (b) keep the 1-year figure with a clearly different label/definition as an interim leading indicator, explicitly distinguished from the 5-year figures elsewhere in the same series.",
     priority: 6,
   },
+  {
+    key: "seattle-emergency-response-2023-2025-gap",
+    jurisdictionSlug: "seattle",
+    metricSlug: "emergency_response_minutes",
+    taskType: "metric",
+    researchQuestion:
+      "emergency_response_minutes is now real for 2015-2022 (SPD's annual Year-End Crime Report, Priority-1 CAD-to-arrival median). SPD discontinued this report format after 2022 -- its 2025 successor ('Year in Review') omits response-time data entirely. Only Q1-specific, precinct-broken-out quarterly SLI staffing reports exist for 2023-2025 (e.g. Q1 2025 citywide P1 median 7.0 min, mean 10.3) -- not a clean full-year citywide figure, and precinct tables were not aggregated since that would require estimation. Concrete next step, not yet attempted: Seattle's open 911/CAD dataset on data.seattle.gov could in principle be queried directly to compute true annual medians for 2023-2025, the same kind of raw-data computation this project has already done successfully elsewhere (e.g. this jurisdiction's own violent_crime_rate/property_crime_rate, mandate-computed from WASPC data). Separately, SFD's own annual reports publish real fire/EMS response data for 2022-2024, but only as percentile-compliance-to-threshold rates (e.g. '76% of first-engine arrivals within 4 minutes'), not mean/median minutes -- structurally incompatible with this metric's unit without an unsupported conversion, confirming this metric is police- not fire/EMS-scoped for Seattle specifically.",
+    priority: 3,
+  },
+  {
+    key: "nyc-clearance-rate-2015-2022-methodology-gap",
+    jurisdictionSlug: "new-york-city",
+    metricSlug: "clearance_rate",
+    taskType: "metric",
+    researchQuestion:
+      "clearance_rate is now real for 2023-2025 (NYPD's own quarterly clearance-report Excel files, combined violent-crime categories, first full years under NYPD's reformed May-2024 methodology). 2015-2016 are a confirmed dead end -- no NYPD clearance files exist for those years at all. 2017(Q4 only)-2022 are a genuine methodology gap, not unresearched: NYPD's older quarterly files for that window give only per-category, per-quarter PERCENTAGES (no raw complaint/clearance counts), computed same-quarter-arrests/same-quarter-complaints -- a documented artifact of the old methodology (e.g. Murder clearance recorded as 102.9% in one 2020 quarter, 200% in one 2022 quarter). Converting these into the 2023-2025 series' volume-weighted combined-violent-crime rate would require fabricating category weights, so it was not attempted. FBI Crime Data Explorer is a confirmed dead end -- NYPD was not submitting data to the FBI's national UCR/NIBRS program as of 2023. NYS DCJS ('Crime in New York State' annual reports) is a genuinely unresolved lead, not ruled out -- worth checking whether its appendices publish a comparable clearance indicator.",
+    priority: 4,
+  },
+  {
+    key: "dc-clearance-rate-2015-2021-gap",
+    jurisdictionSlug: "washington-dc",
+    metricSlug: "clearance_rate",
+    taskType: "metric",
+    researchQuestion:
+      "clearance_rate is now real for 2022-2025 (see sources.ts dc_council_mpd_oversight_testimony). 2018-2021 could not be used despite a candidate MPD-submitted table existing -- its Robbery column is internally impossible (clearances exceeding offenses in at least one year), a genuine data-quality problem in MPD's own submission, confirmed by direct visual inspection of the rendered PDF. 2015-2017 have only unweighted per-offense KPI percentages with no underlying counts, which cannot be blended without fabricating weights. Concrete fallback available for all of 2015-2021 if a narrower proxy is acceptable: MPD's public homicide-only closure-rate page (mpdc.dc.gov/node/208772) gives a clean, continuous series for every year 2010-2025 (2015: 62%, 2016: 70%, 2017: 71%, 2018: 66%, 2019: 68%, 2020: 69%, 2021: 67%) -- the same narrow-proxy approach already used (and now superseded) for 2024.",
+    priority: 4,
+  },
+  {
+    key: "dc-emergency-response-remaining-gaps",
+    jurisdictionSlug: "washington-dc",
+    metricSlug: "emergency_response_minutes",
+    taskType: "metric",
+    researchQuestion:
+      "emergency_response_minutes is now real for 2018-2023 (see sources.ts dc_fems_monthly_ops_reports). FY2024/FY2025 only have percent-within-NFPA-threshold KPIs in FEMS's Performance Accountability Report and DC Council oversight testimony (e.g. '54.9% of higher-priority EMS calls met the arrival benchmark' for FY24) -- a different statistical shape that cannot be cleanly converted to an average-minutes figure, not attempted. 2015-2017 predate FEMS's own Monthly Operating Report series, which itself states it began in FY18 -- nothing earlier was located in any PAR or hearing document. Concrete next step: whether a citywide FY24/FY25 average-minutes figure exists anywhere DC hasn't made public (e.g. via a records request) was not determinable through public web sources this pass.",
+    priority: 3,
+  },
+  {
+    key: "minneapolis-clearance-rate-2019-2020-offense-count-conflict",
+    jurisdictionSlug: "minneapolis",
+    metricSlug: "clearance_rate",
+    taskType: "metric",
+    researchQuestion:
+      "clearance_rate is now real for 2015-2018, 2021-2022, 2024-2025 (FBI Crime Data Explorer, Minneapolis PD agency-level actuals -- see sources.ts, offense counts for 2016-2018 match this project's existing MN-BCA-sourced violent_crime_rate data exactly). 2019 and 2020 are DELIBERATELY NOT IMPORTED: FBI CDE's offense totals for those two years (4,045 and 5,091) do not match this project's existing MN-BCA-sourced offense counts (3,385 and 4,508) for the same crime categories -- a real, unresolved cross-source conflict, verified twice (not a computation error). Likely explanation: FBI's actuals database may hold later-revised MPD submissions for a period with documented MPD data-reporting issues around the 2020 unrest, while the MN BCA figures already in this repo reflect the originally-published UCR numbers. Concrete next step: check MN BCA's own historical clearance table (if one exists) for 2019-2020 to see which source's offense counts it corroborates, rather than picking one of the two conflicting figures arbitrarily.",
+    priority: 5,
+  },
 ];

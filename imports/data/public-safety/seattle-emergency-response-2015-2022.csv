@@ -1,0 +1,9 @@
+jurisdiction,metric,year,value,confidence,notes
+seattle,emergency_response_minutes,2015,6.6,high,"SPD 2021 Year-End Crime Report, p.10, 'Priority Response Time by Year' chart -- Priority-1 (immediate/life-threat) calls, citywide, time from CAD-event creation to first-unit arrival (includes dispatch delay + travel time). CORRECTS a methodology inconsistency: the metric is explicitly defined as MEDIAN response time, but the existing 2022 value (10.3) stored the MEAN instead -- this and all following rows use median throughout, and the 2022 row below replaces the prior mean-based value with SPD's own published median (7.2) for consistency."
+seattle,emergency_response_minutes,2016,6.3,high,"Same source/methodology as 2015."
+seattle,emergency_response_minutes,2017,6.2,high,"Same source/methodology as 2015."
+seattle,emergency_response_minutes,2018,6.3,high,"Same source/methodology as 2015."
+seattle,emergency_response_minutes,2019,6.2,high,"Same source/methodology as 2015."
+seattle,emergency_response_minutes,2020,6.6,high,"Same source/methodology as 2015."
+seattle,emergency_response_minutes,2021,7.5,high,"Same source/methodology as 2015, independently confirmed in the report body text and again in the 2022 report's comparison chart."
+seattle,emergency_response_minutes,2022,7.2,high,"SPD 2022 Crime Report, same methodology -- REPLACES the previously-imported mean value (10.3) with SPD's own published median for this year, matching the metric's definition and the rest of this series. SPD discontinued its annual 'Year-End Crime Report' format after 2022 (its 2025 successor, 'Year in Review,' omits response-time data entirely) -- a confirmed structural gap for 2023-2025, not unresearched; only Q1-specific, precinct-broken-out quarterly data exists for those years, not a clean full-year citywide figure."

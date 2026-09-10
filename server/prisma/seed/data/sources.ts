@@ -2002,9 +2002,11 @@ export const sources: SourceSeedSpec[] = [
     publisher: "NYC Mayor's Office of Operations",
     url: "https://www.nyc.gov/site/operations/performance/mmr.page",
     sourceType: "government_report",
-    citation: "The City's own biannual agency-performance report, including DOB permit-review timelines.",
+    citation: "The City's own biannual agency-performance report, including DOB permit-review timelines and FDNY ambulance response-time indicators.",
     isPlaceholder: false,
     updateFrequency: "annual",
+    methodology:
+      "For emergency_response_minutes: FDNY chapter, ambulance response to life-threatening (Segment 1-2-3) medical emergencies, end-to-end, WMATA-style fiscal year (Jul-Jun) mapped directly to Mandate's calendar-year label. NYC maintains a SECOND, genuinely non-identical official series for the same underlying measurement -- a calendar-year figure published via NYC Open Data's '911 End-to-End Data' dataset / the MODA dashboard -- which the IBO's own analysis explicitly notes diverges from the MMR figure by up to ~1 minute for a nominally 'same' year (e.g. FY2024 MMR 10:52 vs. the MODA site's 'exactly 12 minutes'). These two series should not be mixed within one row/year; this jurisdiction's series uses the MMR fiscal-year convention throughout for full-series consistency.",
     defaultConfidence: "high",
     country: "United States",
     language: "en",
@@ -3225,6 +3227,54 @@ export const sources: SourceSeedSpec[] = [
     updateFrequency: "annual",
     methodology:
       "Different report vintages have not fully reconciled with each other for at least one overlapping year (2023: $18.5B stated directly in the 2024-vintage report vs. ~$16.9B implied by the 2025-vintage report's '+41% to $23.8B in 2024' framing) -- flagged per-row rather than silently resolved. Several NYCEDC reports also cite multi-year COMBINED totals (e.g. 2017-2019 combined $50.9B) which cannot be cleanly decomposed into single-year figures and were not imported. A separate, broader-scope PitchBook-NVCA metro figure exists for 2024 ($28.5B, via a NYS Comptroller report, covering the full 4-state New York-Newark-NJ-CT-PA metro) -- not used here to keep this series NYC-proper and consistent.",
+    defaultConfidence: "estimated",
+    country: "United States",
+    language: "en",
+  },
+  {
+    key: "dc_fems_monthly_ops_reports",
+    name: "DC Fire and EMS Department (FEMS) Monthly Operating Reports",
+    publisher: "DC Fire and EMS Department",
+    url: "https://fems.dc.gov/page/fems-operations",
+    sourceType: "government_report",
+    citation:
+      "FEMS's own monthly operating reports, average response time (mm:ss) for Higher Priority EMS Calls (G1-C2-C3), First Responder -- aggregated here from 12 published monthly averages into a DC-fiscal-year (Oct-Sep) figure, mapped directly to Mandate's calendar-year label.",
+    isPlaceholder: false,
+    updateFrequency: "monthly",
+    methodology:
+      "FEMS's own reporting only exists for FY18-FY23 (this series' 2018-2023 rows) -- FEMS stopped publishing these reports afterward, and its FY24/FY25 pre-hearing testimony and Performance Accountability Report only give percent-within-NFPA-threshold KPIs, a different statistical shape that cannot be cleanly converted to an average-minutes figure. 2015-2017 predate FEMS's own operating-report series, which itself states it began in FY18. The fiscal-year-to-calendar-year aggregation is analyst-computed (simple mean of 12 published monthly figures) since FEMS itself never publishes one fiscal-year total -- cross-checked against a call-volume-weighted version for one year, which landed within 0.01 min of the simple mean.",
+    defaultConfidence: "estimated",
+    country: "United States",
+    language: "en",
+  },
+  {
+    key: "dc_council_mpd_oversight_testimony",
+    name: "DC Council Performance Oversight — MPD Pre-Hearing Responses",
+    publisher: "Metropolitan Police Department / DC Council",
+    url: "https://dccouncil.gov/",
+    sourceType: "government_report",
+    citation:
+      "MPD's annual DC Council Performance Oversight pre-hearing responses, which since ~2024 have begun directly stating a blended 'Violent Crime' clearance rate (Homicide + Sex Abuse + Assault with a Dangerous Weapon + Robbery, matching this metric's convention) -- a document MPD was not producing in this form when an earlier research pass first investigated this metric.",
+    isPlaceholder: false,
+    updateFrequency: "annual",
+    methodology:
+      "SUPERSEDES a previously-imported 2024 value (60%) that was actually MPD's homicide-only closure rate, not the properly-scoped violent-crime blend -- both are real, correctly-labeled figures for their respective (different) scopes. 2022's figure is analyst-computed from MPD's own published per-offense counts (no blended figure was explicitly stated that year) but is internally consistent to the tenth of a percent. 2025's stated 56% does not exactly reproduce from the same document's own underlying counts (57.2%, a ~1-point gap not fully resolved) -- MPD's own stated figure is used. 2018-2021 could not be used: MPD's own submitted clearance table for that window has an internally impossible Robbery column (clearances exceeding offenses in at least one year), a genuine data-quality problem in MPD's own submission, confirmed by direct visual inspection of the rendered PDF, not a parsing artifact. 2015-2017 have only unweighted per-offense KPI percentages with no underlying counts, which cannot be blended without fabricating weights.",
+    defaultConfidence: "estimated",
+    country: "United States",
+    language: "en",
+  },
+  {
+    key: "minneapolis_fire_budget_presentation",
+    name: "Minneapolis Fire Department Budget Committee Presentation",
+    publisher: "City of Minneapolis, Minneapolis Fire Department",
+    url: "https://lims.minneapolismn.gov/",
+    sourceType: "government_report",
+    citation:
+      "MFD's own annual Budget Committee presentation, which directly states the prior year's actual 'overall average response time' (measured 911-call-to-arrival) alongside NFPA 5-minute-standard compliance percentages.",
+    isPlaceholder: false,
+    updateFrequency: "annual",
+    methodology:
+      "lims.minneapolismn.gov returns an HTTP 403 to automated WebFetch-style tools but loads normally in a real browser session -- a fixable access pattern, not a confirmed data absence, worth noting for future research on this domain. The FY2026 Budget Presentation (covering 2024) replaced the narrative average-minutes figure with only a percent-within-threshold performance table, a different statistical shape -- 2024/2025 are not imported for that reason. Pre-2020 budget decks omit the response-time slide entirely (a genuine gap in the source, most visible in the FY2021 deck, a COVID/unrest-year austerity presentation). Hennepin County's own EMS System Report was checked as an alternative but reports only a county-wide (not city-specific) 90th-percentile figure, a scope and statistical-shape mismatch, not used.",
     defaultConfidence: "estimated",
     country: "United States",
     language: "en",
