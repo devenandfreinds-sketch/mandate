@@ -1,0 +1,8 @@
+jurisdiction,metric,year,value,confidence,notes
+new-york-city,median_wages,2016,45219,high,"BLS Occupational Employment and Wage Statistics, New York-Newark-Jersey City, NY-NJ-PA MSA (area code 35620), 'All Occupations,' median hourly wage $21.74, annualized at 2,080 hours/year per BLS's own OEWS convention. Same metro-area-proxy scope as the project's existing 2023 value."
+new-york-city,median_wages,2017,45906,high,"Same source/methodology as 2016: median hourly $22.07."
+new-york-city,median_wages,2018,47091,high,"Same source/methodology as 2016: median hourly $22.64."
+new-york-city,median_wages,2019,48838,high,"Same source/methodology as 2016: median hourly $23.48."
+new-york-city,median_wages,2020,52021,high,"Same source/methodology as 2016: median hourly $25.01."
+new-york-city,median_wages,2021,55806,high,"Same source/methodology as 2016: median hourly $26.83."
+new-york-city,median_wages,2022,57387,high,"Same source/methodology as 2016: median hourly $27.59."

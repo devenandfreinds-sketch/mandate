@@ -1,0 +1,10 @@
+jurisdiction,metric,year,value,confidence,notes
+new-york-city,labor_force_participation,2015,63.8,high,"U.S. Census Bureau, American Community Survey 1-Year Estimates, Table DP03, New York city, New York -- 'Population 16 years and over, In labor force' as % of population 16+. Cross-validated against NYC Dept. of City Planning's own republished PDF table for this year (exact match)."
+new-york-city,labor_force_participation,2016,63.8,high,"Same source/methodology as 2015."
+new-york-city,labor_force_participation,2017,63.8,high,"Same source/methodology as 2015."
+new-york-city,labor_force_participation,2018,63.5,high,"Same source/methodology as 2015."
+new-york-city,labor_force_participation,2019,64.0,high,"Same source/methodology as 2015. SUPERSEDES a previously-imported value of 60.4 for this year, which was labeled under this same Source name but whose notes actually cited a different, uncreated source (NYS Comptroller/LAUS analysis) -- a pre-existing labeling mismatch. This row is genuine ACS DP03 data matching the Source's own name."
+new-york-city,labor_force_participation,2021,62.5,high,"Same source/methodology as 2015. SUPERSEDES a previously-imported value of 59.7 for this year, for the same reason as 2019 (genuine ACS DP03 data replacing a mislabeled NYS-Comptroller-sourced figure)."
+new-york-city,labor_force_participation,2022,63.3,high,"Same source/methodology as 2015."
+new-york-city,labor_force_participation,2023,64.0,high,"Same source/methodology as 2015."
+new-york-city,labor_force_participation,2024,63.7,high,"Same source/methodology as 2015."

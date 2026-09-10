@@ -1,0 +1,3 @@
+jurisdiction,metric,year,value,confidence,notes
+washington-dc,graduate_employment_rate,2015,52.7,medium,"Derived by Mandate, not directly printed as a percentage by DOES: Employed (18,353) / Total People Served (34,820), from the FY2017 Annual Report table -- applying the identical Employed/Total-Served formula DOES itself states in later report years. Same proxy scope as the project's other graduate_employment_rate rows (workforce-program participants, not literal recent college graduates)."
+washington-dc,graduate_employment_rate,2016,47.6,medium,"Derived the same way as 2015: Employed (16,762) / Total People Served (35,200), from the FY2017/FY2018 Annual Report tables."

@@ -1,0 +1,9 @@
+jurisdiction,metric,year,value,confidence,notes
+seattle,skills_training_participation,2013,60000,high,"Workforce Development Council of Seattle-King County, 'Year of Innovation and Opportunity, Report to the Community 2013-2014': 'Between July 2013 and June 2014, the WDC served 60,000 jobseekers and 1,190 businesses through our programs.' Program Year Jul 2013-Jun 2014, mapped to its start year."
+seattle,skills_training_participation,2016,52000,high,"WDC Annual Report, Program Year 2016 (Jul 2016-Jun 2017), 'Impact Overview: 52,000 job seekers served.'"
+seattle,skills_training_participation,2017,46921,high,"WDC Annual Report, Program Year 2017 (Jul 2017-Jun 2018), 'Impact Overview: 46,921 people served.'"
+seattle,skills_training_participation,2018,41610,high,"WDC 'Transformation,' Annual Report 2018-2019 (Jul 2018-Jun 2019): 'Impact Overview / Job Seekers / 41,610 people served.'"
+seattle,skills_training_participation,2019,41069,high,"WDC 'From Response to Recovery,' Annual Report 2019-2020 (Jul 2019-Jun 2020), published Dec 2020: 'we served 41,069 people, including 1,365 young people (age 16-24).'"
+seattle,skills_training_participation,2020,35000,high,"WDC Annual Report, PY 2020-2021 (Jul 2020-Jun 2021) cover page: '35,000 jobseekers served' (+2,000 businesses)."
+seattle,skills_training_participation,2021,39701,high,"WDC Annual Report, PY2021 (Jul 2021-Jun 2022): '39,701 job seekers served' (+2,138 businesses)."
+seattle,skills_training_participation,2022,81216,high,"WDC Annual Report, PY2022 (Jul 2022-Jun 2023): total staff-assisted + self-services figure, used here (rather than the same report's narrower 33,945 WIOA-enrolled-only figure) for consistency with every other year's broader 'total served' framing."

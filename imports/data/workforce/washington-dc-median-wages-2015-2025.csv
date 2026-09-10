@@ -1,0 +1,4 @@
+jurisdiction,metric,year,value,confidence,notes
+washington-dc,median_wages,2015,66040,high,"BLS OEWS May 2015 State data file, District of Columbia, SOC 00-0000 'All Occupations,' A_MEDIAN field. Same DC-as-state scope as the project's existing 2016-2023 rows."
+washington-dc,median_wages,2024,88000,high,"BLS OEWS May 2024 State data file, District of Columbia, SOC 00-0000 'All Occupations,' A_MEDIAN field. Same scope as existing rows."
+washington-dc,median_wages,2025,91540,high,"BLS OEWS May 2025 State data file, District of Columbia, SOC 00-0000 'All Occupations,' A_MEDIAN field. Same scope as existing rows."

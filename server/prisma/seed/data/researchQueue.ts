@@ -734,4 +734,67 @@ export const researchQueueSeed: ResearchQueueSeedItem[] = [
       "clearance_rate is now real for 2015-2018, 2021-2022, 2024-2025 (FBI Crime Data Explorer, Minneapolis PD agency-level actuals -- see sources.ts, offense counts for 2016-2018 match this project's existing MN-BCA-sourced violent_crime_rate data exactly). 2019 and 2020 are DELIBERATELY NOT IMPORTED: FBI CDE's offense totals for those two years (4,045 and 5,091) do not match this project's existing MN-BCA-sourced offense counts (3,385 and 4,508) for the same crime categories -- a real, unresolved cross-source conflict, verified twice (not a computation error). Likely explanation: FBI's actuals database may hold later-revised MPD submissions for a period with documented MPD data-reporting issues around the 2020 unrest, while the MN BCA figures already in this repo reflect the originally-published UCR numbers. Concrete next step: check MN BCA's own historical clearance table (if one exists) for 2019-2020 to see which source's offense counts it corroborates, rather than picking one of the two conflicting figures arbitrarily.",
     priority: 5,
   },
+  {
+    key: "nyc-labor-force-participation-2020-methodology-mismatch",
+    jurisdictionSlug: "new-york-city",
+    metricSlug: "labor_force_participation",
+    taskType: "metric",
+    researchQuestion:
+      "labor_force_participation is now real for 2015-2019, 2021-2024 (Census ACS 1-Year Estimates, Table DP03, city-level). 2020 could not be filled with ACS data because the Census Bureau suppressed all standard ACS 1-Year estimates nationally that year (COVID data-collection disruption) -- the existing 2020 value (58.8%) instead comes from a different, pre-existing source labeled 'Census ACS Table DP03 — New York City' whose own notes actually cite a NYS Comptroller (OSC) report using NYS DOL LAUS/BLS CPS data, a genuine Source-name-vs-citation mismatch predating this research pass. The number itself may well be accurate, but its Source attribution is wrong and no 'NYS Comptroller (OSC)' source entry currently exists in sources.ts. 2025 is also unfilled -- the Census Bureau has delayed the 2025 ACS 1-Year release (per a 2026 Commerce Dept. disclosure-avoidance announcement) and no vintage exists yet. Concrete next step: create a correctly-named NYS-Comptroller-or-LAUS source entry and re-tag the 2020 row under it (without changing its value), and re-check for the 2025 ACS release periodically.",
+    priority: 4,
+  },
+  {
+    key: "nyc-median-wages-metro-scope-gaps",
+    jurisdictionSlug: "new-york-city",
+    metricSlug: "median_wages",
+    taskType: "metric",
+    researchQuestion:
+      "median_wages now has a consistent BLS OEWS metro-area (New York-Newark-Jersey City, NY-NJ-PA MSA) median series for 2016-2023. 2015 and 2024 use a different, city-level ACS Table DP03 'median earnings for workers' figure instead, because BLS discontinued static per-metro HTML pages after the May-2023 vintage and its pre-2016 static pages don't exist in an extractable format -- only bulk 'special request' ZIP/XLSX files remain for those years, which could not be retrieved in this research pass (network access to bls.gov's special-requests archive was unavailable). The 2024 row also SUPERSEDED a previously-imported ACS 'per capita income' figure that was a genuinely wrong economic concept for this metric (population-wide average including non-workers/retirees/capital income, not a wages figure) -- that fix is solid regardless of the metro-vs-city scope question. 2025 has no median_wages figure at all: BLS's May-2025 metro release states only a MEAN hourly wage ($41.50) with no published median, and importing a mean under a metric named median_wages would repeat the exact mean-for-median bug already fixed elsewhere in this project (e.g. Seattle emergency_response_minutes), so it was deliberately left unfilled. Concrete next step: fetch BLS's bulk MSA data files (oesm24ma.zip, oesm25ma.zip, area code 35620) directly, which should contain the true median for both years and let 2024 be re-supplied at metro scope instead of the city-level ACS proxy.",
+    priority: 3,
+  },
+  {
+    key: "minneapolis-median-wages-2015-2024-2025-gaps",
+    jurisdictionSlug: "minneapolis",
+    metricSlug: "median_wages",
+    taskType: "metric",
+    researchQuestion:
+      "median_wages now has a consistent BLS OEWS metro-area (Minneapolis-St. Paul-Bloomington, MN-WI MSA) median-hourly-wage series for 2016-2023. 2015 could not be filled: BLS did not publish a per-metro HTML table with a stated median hourly wage that year, only a mean ($25.70/hr) via a Midwest regional release -- importing that would repeat the mean-for-median mislabeling bug already fixed elsewhere in this project. 2024/2025 have the same problem: BLS's regional news releases for those years state only a MEAN hourly wage ($34.73/hr and $35.86/hr), with no published median -- deliberately not imported. Concrete next step: fetch BLS's bulk MSA data files (oesm24ma.zip, oesm25ma.zip, area code 33460) directly, which should contain the true median for both years; the same file family is needed for New York City's identical 2024/2025 gap (see nyc-median-wages-metro-scope-gaps).",
+    priority: 3,
+  },
+  {
+    key: "minneapolis-skills-training-2015-2021-2024-gaps",
+    jurisdictionSlug: "minneapolis",
+    metricSlug: "skills_training_participation",
+    taskType: "metric",
+    researchQuestion:
+      "skills_training_participation is now real for 2022, 2023, and 2025 (City of Minneapolis Employment and Training (MET) Annual Reports, total residents served across MET's combined workforce programs). 2015-2021 editions of this report were not locatable online in this research pass -- worth a follow-up check directly with the City's Community Planning & Economic Development department, since MET's public web page currently only posts 2022 onward. 2024 was deliberately not imported: that year's Annual Summary states only 'over 10,000 individuals served' with no precise total, unlike every other year's report, which states an exact figure -- importing an invented precise number to fill the gap would violate this project's no-estimation rule.",
+    priority: 3,
+  },
+  {
+    key: "seattle-median-wages-2015-2024-gaps",
+    jurisdictionSlug: "seattle",
+    metricSlug: "median_wages",
+    taskType: "metric",
+    researchQuestion:
+      "median_wages now has a consistent BLS OEWS Seattle-Tacoma-Bellevue MSA median-hourly-wage series for 2016, 2018-2023, 2025 (2017/2020 pre-existing). 2015 could not be filled at the full-MSA scope: only the narrower, now-retired 'Seattle-Bellevue-Everett Metropolitan Division' (excludes Pierce/Tacoma county) has published data for that year, a genuine geography mismatch with the rest of the series, and even that only gives a mean hourly wage ($29.33), not a median. 2024 has the same problem as New York City and Minneapolis's identical 2024 gap: BLS's regional press release states only a mean hourly wage ($43.16), no median -- deliberately not imported to avoid the mean-for-median mislabeling bug already fixed elsewhere in this project. Concrete next step: fetch BLS's bulk MSA data file (oesm24ma.zip, area code 42660), same fix needed for NYC/Minneapolis's 2024 gap (see nyc-median-wages-metro-scope-gaps).",
+    priority: 3,
+  },
+  {
+    key: "seattle-skills-training-2014-2015-2023-2024-gaps",
+    jurisdictionSlug: "seattle",
+    metricSlug: "skills_training_participation",
+    taskType: "metric",
+    researchQuestion:
+      "skills_training_participation is now real for 2013, 2016-2022 (Workforce Development Council of Seattle-King County Annual Reports to the Community, total people/jobseekers served per Program Year). PY2014 and PY2015 reports were not locatable in WDC's own public archive -- a genuine gap, not an access failure, worth a follow-up direct check with WDC. PY2023's filing is Washington State ESD's WIOA Annual Performance Narrative Report, a narrative document giving only per-program enrollment counts (e.g. WIOA Dislocated Worker: 605 participants) with no single 'total served' headline comparable to other years -- not imported to avoid fabricating an aggregate. PY2024 is only archived as a Form 990 tax filing with no cleanly extractable total.",
+    priority: 3,
+  },
+  {
+    key: "nyc-graduate-employment-rate-wioa-lead",
+    jurisdictionSlug: "new-york-city",
+    metricSlug: "graduate_employment_rate",
+    taskType: "metric",
+    researchQuestion:
+      "graduate_employment_rate has no real data for NYC -- no literal 'recent college graduate employment rate' series exists from any primary source found. CUNY's own 'CUNY Beyond' initiative states a single baseline ('only 1 in 5 CUNY first-year students earn a living wage after graduation,' ~20%) but this is a one-time figure mixing employment with a living-wage threshold, not a multi-year series, and individual CUNY colleges' own graduation surveys are inconsistent (25%-82%) due to differing methodologies. The strongest genuine lead, not yet extracted: NYS DOL's own public WIOA Program Performance Dashboard (Tableau, https://dol.ny.gov/wioa-program-performance), filterable to Local Area = 'New York City,' Program = 'Title I Adult,' Measure = 'Employed in 2nd Quarter After Exit' -- a legitimate NYC-specific workforce-program employment-rate proxy analogous to DC's DOES-based proxy already used for this same metric, with exit-quarter data reportedly available back to 2017 Q3. This pass could not reliably extract exact per-year percentages from the interactive Tableau chart and deliberately did not fabricate estimated figures from its visual range (~45%-70% over 2018-2025). Concrete next step: a dedicated pass to extract this Tableau series' underlying data (e.g. via its 'View Data' / download option or the Tableau API) would give a real, citable proxy series.",
+    priority: 3,
+  },
 ];

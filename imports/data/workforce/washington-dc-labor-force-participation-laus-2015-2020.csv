@@ -1,0 +1,5 @@
+jurisdiction,metric,year,value,confidence,notes
+washington-dc,labor_force_participation,2015,69.6,high,"BLS Local Area Unemployment Statistics, series LBSNSA11 ('Labor Force Participation Rate for the District of Columbia'), not seasonally adjusted, annual average, via FRED. DOES's own 'Annual Economic Report 2015' reports only a CY2014 figure (69.5%), with no CY2015 headline LFPR stated, so this year uses BLS's own LAUS series instead."
+washington-dc,labor_force_participation,2017,70.5,high,"Same source/methodology as 2015. DOES's 'Annual Economic Report 2017' contains no headline LFPR figure that year (report format focused on UI claims/demand data)."
+washington-dc,labor_force_participation,2018,70.5,high,"Same source/methodology as 2015. DOES's FY2018 Annual Report likewise has no LFPR section."
+washington-dc,labor_force_participation,2020,69.8,high,"Same source/methodology as 2015. DOES's FY2020 report discusses only the unemployment rate, not LFPR."

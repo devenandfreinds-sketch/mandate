@@ -1,0 +1,12 @@
+jurisdiction,metric,year,value,confidence,notes
+seattle,graduate_employment_rate,2015,70,high,"University of Washington Office of Educational Assessment, 'University of Washington Graduates, Six Months After Graduation,' Report 16-01 (Sept 2016), academic year 2014-2015 undergraduate degree recipients (all 3 UW campuses), percent employed full-time + part-time as current primary status. Response rate 29%."
+seattle,graduate_employment_rate,2016,69,high,"OEA Report 17-01, academic year 2015-2016. Response rate 29%."
+seattle,graduate_employment_rate,2017,65,high,"OEA Report 18-01 (June 2018), academic year 2016-2017. Response rate 27%."
+seattle,graduate_employment_rate,2018,70,high,"OEA Report 19-01, academic year 2017-2018. Response rate 24%."
+seattle,graduate_employment_rate,2019,70,high,"OEA Report 20-01 (Nov 2021), academic year 2018-2019. Response rate 26.6% (23.6% undergrad)."
+seattle,graduate_employment_rate,2020,62,high,"OEA Report 21-03 (Nov 2021), academic year 2019-2020. Response rate 27.2% (25.6% undergrad)."
+seattle,graduate_employment_rate,2021,65,high,"OEA Report 22-02 (Mar 2022), academic year 2020-2021. Response rate 24.1% (22.4% undergrad)."
+seattle,graduate_employment_rate,2022,67,high,"OEA Report 23-02 (Mar 2023), academic year 2021-2022. Response rate 21.0% (19.1% undergrad)."
+seattle,graduate_employment_rate,2023,66,high,"OEA Report 24-02 (Apr 2024), academic year 2022-2023. Response rate 20.6% (19.1% undergrad)."
+seattle,graduate_employment_rate,2024,63,high,"OEA Report 25-02 (Mar 2025), academic year 2023-2024. Response rate 15.1% (14.1% undergrad)."
+seattle,graduate_employment_rate,2025,60,high,"IAE Report 26-02 (Apr 2026), academic year 2024-2025. Response rate 12.81% (11.3% undergrad), the lowest in the series -- a declining-response-rate trend the reports themselves disclose."

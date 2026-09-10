@@ -1,0 +1,10 @@
+jurisdiction,metric,year,value,confidence,notes
+seattle,labor_force_participation,2015,73.5,high,"U.S. Census Bureau, American Community Survey 1-Year Estimates, Table DP03, Seattle city, Washington -- 'Population 16 years and over, In labor force' as % of population 16+."
+seattle,labor_force_participation,2016,73.5,high,"Same source/methodology as 2015. Cross-validated against an archived City of Seattle OPCD PDF ('2016 American Community Survey 1-Year Estimates,' ACS_16_1YR_DP03.pdf), exact match."
+seattle,labor_force_participation,2017,73.2,high,"Same source/methodology as 2015."
+seattle,labor_force_participation,2018,73.4,high,"Same source/methodology as 2015."
+seattle,labor_force_participation,2019,75.1,high,"Same source/methodology as 2015."
+seattle,labor_force_participation,2021,73.3,high,"Same source/methodology as 2015."
+seattle,labor_force_participation,2022,73.5,high,"Same source/methodology as 2015."
+seattle,labor_force_participation,2023,75.3,high,"Same source/methodology as 2015."
+seattle,labor_force_participation,2024,75.6,high,"Same source/methodology as 2015. SUPERSEDES a previously-imported value of 74.0 for this year, which came from a 2020-2024 5-YEAR ACS estimate rather than the single-year snapshot used throughout this series -- a genuinely different statistical construct, not a data error, now corrected for full-series consistency."

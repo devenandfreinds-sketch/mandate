@@ -1,0 +1,7 @@
+jurisdiction,metric,year,value,confidence,notes
+minneapolis,median_wages,2016,43181,high,"BLS Occupational Employment and Wage Statistics, Minneapolis-St. Paul-Bloomington, MN-WI MSA (area code 33460), 'All Occupations,' median hourly wage $20.76, annualized at 2,080 hours/year. Same methodology as the project's existing 2019/2023 rows."
+minneapolis,median_wages,2017,44221,high,"Same source/methodology as 2016: median hourly $21.26."
+minneapolis,median_wages,2018,45531,high,"Same source/methodology as 2016: median hourly $21.89."
+minneapolis,median_wages,2020,49712,high,"Same source/methodology as 2016: median hourly $23.90."
+minneapolis,median_wages,2021,48630,high,"Same source/methodology as 2016: median hourly $23.38."
+minneapolis,median_wages,2022,50960,high,"Same source/methodology as 2016: median hourly $24.50."

@@ -1,0 +1,10 @@
+jurisdiction,metric,year,value,confidence,notes
+washington-dc,skills_training_participation,2015,34820,high,"DC DOES, 'District of Columbia Annual Economic Report 2017,' table 'DOES Employment Outcomes,' p.24, line 'Total People Served (Local+Federal).'"
+washington-dc,skills_training_participation,2016,35200,high,"Same source as 2015, cross-validated against an identical figure in the FY2018 Annual Report."
+washington-dc,skills_training_participation,2017,33398,high,"Cross-validated identically across the FY2017, FY2018, and FY2019 ('Talent Forward DC') Annual Reports."
+washington-dc,skills_training_participation,2018,29435,high,"DOES FY2018 Annual Economic Report; cross-validated in the FY2019 and FY2020 reports."
+washington-dc,skills_training_participation,2019,28087,high,"DOES 'Talent Forward DC: Annual Economic and Workforce Report FY2019'; cross-validated in the FY2020 report."
+washington-dc,skills_training_participation,2020,21136,high,"DOES 'Talent Forward DC — Annual Economic and Workforce Report FY2020'; cross-validated in the FY2021 and FY2023 reports. Line item relabeled 'Total Individuals Served' starting this report year, but values are continuous across the label change in every overlapping year."
+washington-dc,skills_training_participation,2021,18763,high,"DOES 'Annual Economic and Workforce Report FY2021,' Table 2; cross-validated in the FY2023 and FY2024 reports."
+washington-dc,skills_training_participation,2022,20724,high,"DOES 'Annual Economic and Workforce Report FY2023,' Table 2, explicitly noted there as a 14% increase to FY2023's 23,634; cross-validated in the FY2024 report."
+washington-dc,skills_training_participation,2023,23634,high,"DOES 'Annual Economic and Workforce Report FY2023,' Table 2, and independently restated in the FY2024 report as the prior-year comparison figure ('up from 23,634 in FY2023'). Not previously imported despite being directly stated in both reports."

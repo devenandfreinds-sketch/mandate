@@ -1,0 +1,7 @@
+jurisdiction,metric,year,value,confidence,notes
+minneapolis,labor_force_participation,2016,73.8,high,"U.S. Census Bureau, American Community Survey 1-Year Estimates, Table DP03, Minneapolis city, Minnesota -- 'Population 16 years and over, In labor force' as % of population 16+. Same methodology as the project's existing 2015/2019/2024 rows."
+minneapolis,labor_force_participation,2017,74.6,high,"Same source/methodology as 2016."
+minneapolis,labor_force_participation,2018,74.2,high,"Same source/methodology as 2016."
+minneapolis,labor_force_participation,2021,73.8,high,"Same source/methodology as 2016."
+minneapolis,labor_force_participation,2022,72.3,high,"Same source/methodology as 2016."
+minneapolis,labor_force_participation,2023,74.9,high,"Same source/methodology as 2016."

@@ -1,0 +1,4 @@
+jurisdiction,metric,year,value,confidence,notes
+washington-dc,labor_force_participation,2016,70.1,high,"DC DOES, 'District of Columbia Annual Economic Report 2016,' Table 12, sourced from BLS Current Population Survey (CPS)."
+washington-dc,labor_force_participation,2019,71.1,high,"DC DOES, 'Talent Forward DC: Annual Economic and Workforce Report FY2019,' p.27-28, sourced from DOES Office of Labor Market Research and Performance."
+washington-dc,labor_force_participation,2021,69.2,high,"DC DOES, 'Annual Economic and Workforce Report FY2021,' Table 12, sourced from BLS CPS."

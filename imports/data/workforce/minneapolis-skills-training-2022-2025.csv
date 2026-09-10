@@ -1,0 +1,4 @@
+jurisdiction,metric,year,value,confidence,notes
+minneapolis,skills_training_participation,2022,7889,high,"City of Minneapolis Employment and Training (MET), '2022 Annual Summary,' p.8 -- total Minneapolis residents served across MET's combined workforce programs."
+minneapolis,skills_training_participation,2023,10436,high,"City of Minneapolis Employment and Training (MET), '2023 Annual Report,' p.8 ('Outcomes and impact')."
+minneapolis,skills_training_participation,2025,15227,high,"City of Minneapolis Employment and Training (MET), '2025 Annual Report,' p.6 ('Outcomes: Served 15,227 individuals')."

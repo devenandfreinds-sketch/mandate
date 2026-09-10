@@ -1,0 +1,7 @@
+jurisdiction,metric,year,value,confidence,notes
+seattle,median_wages,2016,47653,high,"BLS Occupational Employment and Wage Statistics, Seattle-Tacoma-Bellevue, WA MSA (area code 42660), 'All Occupations,' median hourly wage $22.91, annualized at 2,080 hours/year. Same annualized-median-hourly methodology as the project's existing 2017/2020/2025 rows."
+seattle,median_wages,2018,50856,high,"Same source/methodology as 2016: median hourly $24.45. Note: this row and 2016/2019 use the full Seattle-Tacoma-Bellevue MSA (area 42660), while the existing 2017 row uses the narrower, since-retired Seattle-Bellevue-Everett Metropolitan Division (area 42644) -- both area codes existed in parallel for a period, and this project's 2020+ rows already standardized on the full MSA, so 2018 is the actual transition point in this series rather than 2020 as previously documented."
+seattle,median_wages,2019,53352,high,"Same source/methodology as 2016: median hourly $25.65."
+seattle,median_wages,2021,60237,high,"Same source/methodology as 2016: median hourly $28.96."
+seattle,median_wages,2022,61818,high,"Same source/methodology as 2016: median hourly $29.72."
+seattle,median_wages,2023,65270,high,"Same source/methodology as 2016: median hourly $31.38."

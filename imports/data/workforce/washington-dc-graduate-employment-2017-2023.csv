@@ -1,0 +1,8 @@
+jurisdiction,metric,year,value,confidence,notes
+washington-dc,graduate_employment_rate,2017,45,high,"DC DOES, 'Talent Forward DC' FY2019 Annual Report, Table 1 (also appears in the FY2020 report). Proxy figure -- DOES's own workforce-program-participant employment rate (Employed / Total People Served), not a literal 'recent college graduate' rate; no true graduate-specific figure is published for DC. Same proxy convention as the project's existing 2024 value."
+washington-dc,graduate_employment_rate,2018,49,high,"Same source/methodology as 2017."
+washington-dc,graduate_employment_rate,2019,45,high,"Same source/methodology as 2017."
+washington-dc,graduate_employment_rate,2020,44,high,"DOES FY2020 Annual Report, Table 1. Same proxy methodology as 2017."
+washington-dc,graduate_employment_rate,2021,34,high,"DOES 'Annual Economic and Workforce Report FY2021,' Table 2. Same proxy methodology as 2017."
+washington-dc,graduate_employment_rate,2022,35,high,"DOES FY2023 Annual Report, Table 2. Same proxy methodology as 2017."
+washington-dc,graduate_employment_rate,2023,40,high,"DOES FY2023 Annual Report, Table 2. Same proxy methodology as 2017."

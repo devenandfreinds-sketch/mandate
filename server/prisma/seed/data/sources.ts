@@ -2842,6 +2842,22 @@ export const sources: SourceSeedSpec[] = [
     language: "en",
   },
   {
+    key: "bls_laus_lfpr_dc",
+    name: "BLS Local Area Unemployment Statistics — DC Labor Force Participation Rate",
+    publisher: "U.S. Bureau of Labor Statistics (LAUS program)",
+    url: "https://fred.stlouisfed.org/series/LBSNSA11",
+    sourceType: "government_dataset",
+    citation:
+      "BLS LAUS, series LBSNSA11, 'Labor Force Participation Rate for the District of Columbia,' not seasonally adjusted, annual average computed from official monthly values, via FRED.",
+    isPlaceholder: false,
+    updateFrequency: "monthly",
+    methodology:
+      "Used only for years where DOES's own Annual Economic and Workforce Report does not state a headline labor force participation rate (its report format varies by year). Both this series and DOES's own CPS-table figure trace back to the same underlying Current Population Survey, but LAUS is a modeled monthly series averaged to an annual figure, while DOES's own figure is a direct annual CPS tabulation -- the two differ by up to ~0.3 percentage points in years where both exist, which is within normal cross-methodology noise, not a substantive conflict.",
+    defaultConfidence: "high",
+    country: "United States",
+    language: "en",
+  },
+  {
     key: "dc_does_lfpr",
     name: "DC Department of Employment Services — Monthly Labor Market Releases",
     publisher: "DC Department of Employment Services (DOES)",
@@ -3276,6 +3292,86 @@ export const sources: SourceSeedSpec[] = [
     methodology:
       "lims.minneapolismn.gov returns an HTTP 403 to automated WebFetch-style tools but loads normally in a real browser session -- a fixable access pattern, not a confirmed data absence, worth noting for future research on this domain. The FY2026 Budget Presentation (covering 2024) replaced the narrative average-minutes figure with only a percent-within-threshold performance table, a different statistical shape -- 2024/2025 are not imported for that reason. Pre-2020 budget decks omit the response-time slide entirely (a genuine gap in the source, most visible in the FY2021 deck, a COVID/unrest-year austerity presentation). Hennepin County's own EMS System Report was checked as an alternative but reports only a county-wide (not city-specific) 90th-percentile figure, a scope and statistical-shape mismatch, not used.",
     defaultConfidence: "estimated",
+    country: "United States",
+    language: "en",
+  },
+  {
+    key: "minneapolis_met_annual_report",
+    name: "City of Minneapolis Employment and Training (MET) Annual Report",
+    publisher: "City of Minneapolis, Community Planning & Economic Development",
+    url: "https://www2.minneapolismn.gov/business-services/workforce-development/minneapolis-employment-training/plans-reports/",
+    sourceType: "government_report",
+    citation:
+      "MET's own annual report/summary, stating total Minneapolis residents served across its workforce programs (Step Up youth internships, the Guaranteed Basic Income pilot's workforce-adjacent outreach, CareerForce walk-in services, and WIOA-funded programs combined). This is Minneapolis's direct equivalent to Chicago's Cook Workforce Partnership annual reports.",
+    isPlaceholder: false,
+    updateFrequency: "annual",
+    methodology:
+      "This is the broadest available participation count -- it is not restricted to WIOA-enrolled participants. A narrower WIOA-only cross-check exists via the U.S. DOL's 'WIOA Local Workforce Development Board Performance' dashboard (Local Board Code 27010, 'Minneapolis Employment & Training Program'), which reported 981 total WIOA core-program participants for Program Year 2024 -- much smaller because it excludes Step Up, GBI, and general drop-in services. Only 2022, 2023, and 2025 editions state a precise total; the 2024 Annual Summary states only 'over 10,000 individuals' with no exact figure, so 2024 is not imported. 2015-2021 editions were not locatable online in this research pass.",
+    defaultConfidence: "high",
+    country: "United States",
+    language: "en",
+  },
+  {
+    key: "dol_wioa_local_board_performance",
+    name: "US DOL WIOA Local Workforce Development Board Performance Dashboard",
+    publisher: "U.S. Department of Labor, Employment and Training Administration",
+    url: "https://www.dol.gov/agencies/eta/performance/results",
+    sourceType: "government_dataset",
+    citation:
+      "ETA's local-board-level WIOA performance dashboard (published under Executive Order 14278), reporting each Local Workforce Development Board's core-program participant counts and employment-rate outcomes (Employment Rate 2nd/4th Quarter After Exit) by program stream (Adult, Dislocated Worker, Youth).",
+    isPlaceholder: false,
+    updateFrequency: "annual",
+    methodology:
+      "A brand-new publication as of Program Year 2024 -- no historical archive of this exact dashboard format was found for earlier years, so any figure sourced from it is a single-year data point, not part of a continuous series. Used here as a workforce-program employment-rate proxy for graduate_employment_rate (this project's established proxy convention for this metric, matching Washington DC's DOES-based proxy), not a literal recent-graduate rate. Where a jurisdiction's local board reports separate Adult/Dislocated Worker/Youth rates rather than one blended figure, Mandate computes a participant-count-weighted average across the three streams using each stream's 'Employment Rate 2nd Quarter After Exit' -- a Mandate-side computation from real published component figures, flagged as such.",
+    defaultConfidence: "medium",
+    country: "United States",
+    language: "en",
+  },
+  {
+    key: "census_acs_dp03_seattle_1yr",
+    name: "Census ACS Table DP03 — Seattle",
+    publisher: "U.S. Census Bureau (American Community Survey)",
+    url: "https://data.census.gov/table/ACSDP1Y2024.DP03?g=160XX00US5363000",
+    sourceType: "government_dataset",
+    citation:
+      "Census ACS 1-Year Estimates, Table DP03, 'Population 16 years and over, In labor force' as % of population 16+, Seattle city, Washington.",
+    isPlaceholder: false,
+    updateFrequency: "annual",
+    methodology:
+      "Distinct from the project's older 'Census ACS — Seattle Labor Force Participation' source, which used 5-Year rolling estimates (2009-2013 and 2020-2024 vintages) rather than single-year snapshots. This source uses 1-Year estimates throughout, matching the methodology already used for New York City, Minneapolis, and Washington DC's labor_force_participation series. The existing 2024 value (74.0%, from the 2020-2024 5-year vintage) is SUPERSEDED by this source's 2024 1-year figure (75.6%) for full-series consistency; the existing 2013 value is left untouched as it falls outside this project's standard 2015-2025 window. 2020 has no ACS 1-year estimate (nationally suppressed); 2025 was not yet released as of this research pass (Sept 2026).",
+    defaultConfidence: "high",
+    country: "United States",
+    language: "en",
+  },
+  {
+    key: "wdc_seattle_king_county_annual_report",
+    name: "Workforce Development Council of Seattle-King County — Annual Report to the Community",
+    publisher: "Workforce Development Council of Seattle-King County",
+    url: "https://www.seakingwdc.org/annual-report-archive",
+    sourceType: "government_report",
+    citation:
+      "WDC's own annual Report to the Community, headline 'total people/jobseekers served' figure across its workforce programs each Program Year (July 1 - June 30). Mapped to Mandate's calendar-year label using the Program Year's start year (e.g. PY2016, July 2016-June 2017, is labeled 2016).",
+    isPlaceholder: false,
+    updateFrequency: "annual",
+    methodology:
+      "PY2014 and PY2015 reports were not locatable in WDC's own archive -- a genuine gap in the public record, not an access failure. PY2022's report separates results into a narrower 'WIOA-enrolled' figure (33,945) and a broader 'total staff-assisted + self-services' figure (81,216); the broader figure is used here for consistency with every other year's 'total served' framing. PY2023's filing (WA state ESD's WIOA Annual Performance Narrative) is a narrative document giving only per-program enrollment counts, with no single 'total served' headline, so it is not imported; PY2024 is only archived as a Form 990 tax filing with no cleanly extractable total.",
+    defaultConfidence: "high",
+    country: "United States",
+    language: "en",
+  },
+  {
+    key: "uw_oea_graduate_survey",
+    name: "University of Washington Office of Educational Assessment — Graduates Six Months After Graduation",
+    publisher: "University of Washington, Office of Educational Assessment / Institutional Assessment & Evaluation",
+    url: "https://www.washington.edu/assessment/reports/",
+    sourceType: "academic",
+    citation:
+      "UW's own annual NACE-conformant alumni survey, 'University of Washington Graduates, Six Months After Graduation.' Undergraduate degree recipients, all 3 campuses (Seattle, Bothell, Tacoma) combined, percent employed full-time or part-time as their current primary status approximately six months after graduation.",
+    isPlaceholder: false,
+    updateFrequency: "annual",
+    methodology:
+      "Used as this project's graduate_employment_rate figure for Seattle -- a genuine literal recent-college-graduate employment rate (unlike the workforce-program-participant proxy used for Washington DC and Minneapolis), though scoped to University of Washington graduates specifically, not all Seattle-area institutions. Each row is an academic-year graduating class (e.g. '2014-2015' = degrees awarded Summer 2014-Spring 2025), mapped to Mandate's calendar-year label using the class's second/graduation year. Response rates have declined over time (29% in 2014-15 to ~13% in 2024-25), a limitation the reports themselves disclose -- this is self-reported alumni survey data, not a census of all graduates. 'Employed' includes both full-time and part-time employment as current primary status; a separate, higher 'career-related job' percentage also exists in these reports but is not used here.",
+    defaultConfidence: "high",
     country: "United States",
     language: "en",
   },
