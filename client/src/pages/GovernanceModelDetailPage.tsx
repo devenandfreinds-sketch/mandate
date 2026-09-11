@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { PageContainer } from "@/components/layout/PageContainer";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -74,25 +74,33 @@ export function GovernanceModelDetailPage() {
       )}
 
       <section className="mt-10">
-        <h2 className="mb-4 text-xl font-semibold">Institutional Pipeline Analysis</h2>
-        {pipelineSummary && pipelineSummary.policyAreaCount > 0 ? (
+        <div className="mb-4 flex flex-wrap items-baseline justify-between gap-2">
+          <h2 className="text-xl font-semibold">Mandate Institutional Index</h2>
+          <Link to="/methodology/pipeline" className="text-xs text-muted-foreground hover:underline">
+            How is this calculated?
+          </Link>
+        </div>
+        {pipelineSummary && pipelineSummary.researchedPolicyAreaCount > 0 ? (
           <Card>
             <CardHeader>
-              <CardTitle className="text-base">
-                Average maturity stage: {pipelineSummary.averageStage.toFixed(1)} / 5
-              </CardTitle>
+              <CardTitle className="text-base">{pipelineSummary.averageStage.toFixed(1)} / 5</CardTitle>
             </CardHeader>
             <CardContent className="space-y-3">
+              <p className="text-xs text-muted-foreground">
+                Based on {pipelineSummary.researchedPolicyAreaCount} of {pipelineSummary.policyAreaCount} tracked policy areas with completed
+                research across {model.jurisdictions.length} jurisdiction{model.jurisdictions.length === 1 ? "" : "s"}. Policy areas not yet
+                researched are excluded from this average, not scored as zero.
+              </p>
               {pipelineSummary.byCategory.map((c) => (
                 <div key={c.categorySlug} className="flex items-center justify-between">
                   <span className="text-sm">{c.categoryName}</span>
-                  <PipelineStageBadge stage={Math.round(c.averageStage)} label={`avg across ${model.jurisdictions.length} jurisdictions`} />
+                  <PipelineStageBadge stage={Math.round(c.averageStage)} label={`avg of ${c.researchedCount} researched`} />
                 </div>
               ))}
             </CardContent>
           </Card>
         ) : (
-          <p className="text-sm text-muted-foreground">Pipeline analysis coming soon for this governance model.</p>
+          <p className="text-sm text-muted-foreground">No researched pipeline assessments yet for this governance model.</p>
         )}
       </section>
 

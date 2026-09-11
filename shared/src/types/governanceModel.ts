@@ -30,13 +30,24 @@ export interface GovernanceModelDetail extends GovernanceModelSummary {
   timelineEvents: TimelineEvent[];
 }
 
+/**
+ * The Mandate Institutional Index for a governance model: how far, on average, its jurisdictions'
+ * institutions have progressed along the 0-5 pipeline (see PIPELINE_STAGE_DEFINITIONS), computed
+ * ONLY from assessments a researcher has actually completed (dataQuality !== "placeholder"). This
+ * is deliberate: a governance model with 2 real assessments and a model with 20 should never look
+ * identical just because unresearched policy areas were quietly averaged in as if they were real
+ * findings. `policyAreaCount` is the total assessed (including placeholders, for coverage context);
+ * `researchedPolicyAreaCount` is the subset actually backing `averageStage` and `byCategory`.
+ */
 export interface PipelineSummary {
   governanceModelSlug: string;
   averageStage: number;
   policyAreaCount: number;
+  researchedPolicyAreaCount: number;
   byCategory: Array<{
     categorySlug: string;
     categoryName: string;
     averageStage: number;
+    researchedCount: number;
   }>;
 }

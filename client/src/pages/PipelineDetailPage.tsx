@@ -4,8 +4,9 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { DataQualityBadge } from "@/components/governance/DataQualityBadge";
 import { PipelineStageBadge } from "@/components/charts/PipelineStageBadge";
-import { usePipelineHistory } from "@/hooks/usePlaceMetrics";
-import { formatUtcDate } from "@/lib/utils";
+import { MetricSparkline } from "@/components/charts/MetricSparkline";
+import { usePipelineHistory, usePlaceMetrics } from "@/hooks/usePlaceMetrics";
+import { formatUtcDate, formatMetricValue } from "@/lib/utils";
 import { SOURCE_TIERS } from "@mandate/shared";
 import type { EvidenceLink, SupportingLegislation } from "@mandate/shared";
 
@@ -35,35 +36,72 @@ export function PipelineDetailPage() {
         </Link>
       </div>
 
-      <div className="mt-3 flex flex-wrap items-center gap-3">
-        <PipelineStageBadge stage={current.stage} label={current.stageLabel} />
-        <DataQualityBadge dataQuality={current.dataQuality} />
-      </div>
-
       <p className="mt-2 text-xs text-muted-foreground">
-        Pipeline scores measure institutional development and implementation maturity, not ideological agreement.{" "}
+        This page separates what the evidence shows from what Mandate concluded from it — see{" "}
         <Link to="/methodology/pipeline" className="underline">
-          How is this scored?
+          how pipeline stages are scored
         </Link>
+        .
       </p>
 
       <section className="mt-6 grid gap-6 sm:grid-cols-2">
-        <Card>
+        <Card className="sm:col-span-2">
           <CardHeader>
-            <CardTitle className="text-base">Neutral Summary</CardTitle>
+            <CardTitle className="text-base">1. What The Evidence Shows</CardTitle>
           </CardHeader>
-          <CardContent className="text-sm text-muted-foreground">
-            {current.evidenceSummary ?? "No summary documented yet for this assessment."}
+          <CardContent className="space-y-4">
+            {current.legislation.length === 0 && current.evidenceLinks.length === 0 ? (
+              <p className="text-sm text-muted-foreground">No evidence records attached to this assessment yet.</p>
+            ) : (
+              <>
+                {current.legislation.map((l) => (
+                  <LegislationRow key={l.id} legislation={l} />
+                ))}
+                {current.evidenceLinks.map((e) => (
+                  <EvidenceRow key={e.id} evidence={e} />
+                ))}
+              </>
+            )}
           </CardContent>
         </Card>
 
-        <Card>
+        <Card className="sm:col-span-2">
           <CardHeader>
-            <CardTitle className="text-base">Assessment Date &amp; Last Updated</CardTitle>
+            <CardTitle className="text-base">2. Mandate's Classification</CardTitle>
           </CardHeader>
-          <CardContent className="space-y-1 text-sm text-muted-foreground">
-            <div>Assessed as of: {formatDate(current.assessmentDate)}</div>
-            <div>Last updated: {formatDate(current.updatedAt)}</div>
+          <CardContent className="space-y-3">
+            <div className="flex flex-wrap items-center gap-2">
+              <PipelineStageBadge stage={current.stage} label={current.stageLabel} />
+              <DataQualityBadge dataQuality={current.dataQuality} />
+            </div>
+            <p className="text-sm text-muted-foreground">
+              {current.evidenceSummary ?? "No summary documented yet for why this stage was assigned."}
+            </p>
+            <p className="text-xs text-muted-foreground">
+              Assessed as of {formatDate(current.assessmentDate)} · last updated {formatDate(current.updatedAt)}. This stage reflects
+              institutional maturity, not whether the underlying policy is a good idea.
+            </p>
+          </CardContent>
+        </Card>
+
+        {current.categorySlug && (
+          <Card className="sm:col-span-2">
+            <CardHeader>
+              <CardTitle className="text-base">3. Does It Show Up In The Outcome Data?</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <OutcomeMetricPreview jurisdictionSlug={jurisdictionSlug} categorySlug={current.categorySlug} categoryName={current.categoryName} />
+            </CardContent>
+          </Card>
+        )}
+
+        <Card className="sm:col-span-2">
+          <CardHeader>
+            <CardTitle className="text-base">4. Limitations &amp; Interpretation</CardTitle>
+          </CardHeader>
+          <CardContent className="text-sm text-muted-foreground">
+            <p className="mb-2 text-xs uppercase tracking-wide text-muted-foreground/70">Analyst judgment, not raw evidence</p>
+            {current.limitations ?? "No known limitations documented for this assessment yet."}
           </CardContent>
         </Card>
 
@@ -93,35 +131,6 @@ export function PipelineDetailPage() {
 
         <Card className="sm:col-span-2">
           <CardHeader>
-            <CardTitle className="text-base">Evidence Supporting the Current Score</CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            {current.legislation.length === 0 && current.evidenceLinks.length === 0 ? (
-              <p className="text-sm text-muted-foreground">No evidence records attached to this assessment yet.</p>
-            ) : (
-              <>
-                {current.legislation.map((l) => (
-                  <LegislationRow key={l.id} legislation={l} />
-                ))}
-                {current.evidenceLinks.map((e) => (
-                  <EvidenceRow key={e.id} evidence={e} />
-                ))}
-              </>
-            )}
-          </CardContent>
-        </Card>
-
-        <Card className="sm:col-span-2">
-          <CardHeader>
-            <CardTitle className="text-base">Limitations</CardTitle>
-          </CardHeader>
-          <CardContent className="text-sm text-muted-foreground">
-            {current.limitations ?? "No known limitations documented for this assessment yet."}
-          </CardContent>
-        </Card>
-
-        <Card className="sm:col-span-2">
-          <CardHeader>
             <CardTitle className="text-base">Research Passport</CardTitle>
           </CardHeader>
           <CardContent className="grid gap-x-6 gap-y-1 text-sm text-muted-foreground sm:grid-cols-2">
@@ -134,6 +143,61 @@ export function PipelineDetailPage() {
         </Card>
       </section>
     </PageContainer>
+  );
+}
+
+/**
+ * Connects institutional maturity (the stage above) to whatever outcome metrics this project
+ * already tracks for the same category+jurisdiction -- so a viewer can ask "the institution is
+ * rated as operating/improving, but does the outcome data actually back that up?" without leaving
+ * the page. Picks the series with the most non-placeholder values as the most informative one to
+ * show; falls back to the first series if every one is still placeholder.
+ */
+function OutcomeMetricPreview({
+  jurisdictionSlug,
+  categorySlug,
+  categoryName,
+}: {
+  jurisdictionSlug: string | undefined;
+  categorySlug: string;
+  categoryName: string | null;
+}) {
+  const { data: seriesList, isLoading } = usePlaceMetrics(jurisdictionSlug, categorySlug);
+
+  if (isLoading) return <p className="text-sm text-muted-foreground">Loading outcome metrics…</p>;
+  if (!seriesList || seriesList.length === 0) {
+    return <p className="text-sm text-muted-foreground">No {categoryName ?? "category"} metrics tracked for this jurisdiction yet.</p>;
+  }
+
+  const bestSeries = [...seriesList].sort((a, b) => {
+    const realCount = (s: typeof a) => s.values.filter((v) => v.dataQuality !== "placeholder").length;
+    return realCount(b) - realCount(a);
+  })[0];
+
+  const sortedValues = [...bestSeries.values].sort((a, b) => new Date(a.periodStart).getTime() - new Date(b.periodStart).getTime());
+  const latest = sortedValues[sortedValues.length - 1];
+
+  return (
+    <div className="space-y-3">
+      <div className="flex flex-wrap items-center justify-between gap-2">
+        <span className="text-sm font-medium">{bestSeries.metricDefinition.name}</span>
+        {latest && <DataQualityBadge dataQuality={latest.dataQuality} />}
+      </div>
+      {sortedValues.length >= 2 ? (
+        <MetricSparkline values={sortedValues} height={56} />
+      ) : (
+        <p className="text-sm text-muted-foreground">Not enough real data points yet for a trend.</p>
+      )}
+      {latest && (
+        <p className="text-sm text-muted-foreground">
+          Most recent: {formatMetricValue(latest.value, bestSeries.metricDefinition.unit, bestSeries.metricDefinition.decimalPrecision, latest.currencyCode)}{" "}
+          ({latest.periodLabel})
+        </p>
+      )}
+      <Link to={`/places/${jurisdictionSlug}?category=${categorySlug}#historical-charts`} className="text-sm underline">
+        View all {categoryName ?? "category"} metrics for {jurisdictionSlug} →
+      </Link>
+    </div>
   );
 }
 

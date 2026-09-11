@@ -104,12 +104,15 @@ export async function getPipelineSummary(slug: string): Promise<PipelineSummary 
     include: { policyArea: { include: { category: { select: { slug: true, name: true } } } } },
   });
 
-  const overallAvg = assessments.length
-    ? assessments.reduce((sum, a) => sum + a.stage, 0) / assessments.length
-    : 0;
+  // The Mandate Institutional Index only ever averages researched assessments. A placeholder
+  // (synthetic, never-researched) stage is not a finding -- averaging it in would let coverage
+  // gaps quietly masquerade as institutional performance data. See PipelineSummary's doc comment.
+  const researched = assessments.filter((a) => a.dataQuality !== "placeholder");
+
+  const overallAvg = researched.length ? researched.reduce((sum, a) => sum + a.stage, 0) / researched.length : 0;
 
   const byCategoryMap = new Map<string, { categoryName: string; total: number; count: number }>();
-  for (const a of assessments) {
+  for (const a of researched) {
     const category = a.policyArea.category;
     if (!category) continue;
     const entry = byCategoryMap.get(category.slug) ?? { categoryName: category.name, total: 0, count: 0 };
@@ -122,10 +125,12 @@ export async function getPipelineSummary(slug: string): Promise<PipelineSummary 
     governanceModelSlug: slug,
     averageStage: Number(overallAvg.toFixed(2)),
     policyAreaCount: assessments.length,
+    researchedPolicyAreaCount: researched.length,
     byCategory: Array.from(byCategoryMap.entries()).map(([categorySlug, v]) => ({
       categorySlug,
       categoryName: v.categoryName,
       averageStage: Number((v.total / v.count).toFixed(2)),
+      researchedCount: v.count,
     })),
   };
 }

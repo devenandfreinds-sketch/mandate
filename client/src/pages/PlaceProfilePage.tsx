@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useSearchParams } from "react-router-dom";
 import { PageContainer } from "@/components/layout/PageContainer";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -24,10 +24,12 @@ export function PlaceProfilePage() {
   const { data: place, isLoading } = usePlace(slug);
   const { data: categories } = useCategories();
   const { data: pipeline } = usePlacePipeline(slug);
+  const [searchParams] = useSearchParams();
+  const categoryFromLink = searchParams.get("category") ?? undefined;
 
   const [selectedAdmin, setSelectedAdmin] = useState<AdministrationSummary | null>(null);
   const [selectedCategory, setSelectedCategory] = useState<string | undefined>(undefined);
-  const activeCategory = selectedCategory ?? categories?.[0]?.slug;
+  const activeCategory = selectedCategory ?? categoryFromLink ?? categories?.[0]?.slug;
 
   const { data: seriesList } = usePlaceMetrics(slug, activeCategory, selectedAdmin?.id);
 
@@ -95,7 +97,7 @@ export function PlaceProfilePage() {
       )}
 
       {categories && (
-        <section className="mt-10">
+        <section id="historical-charts" className="mt-10">
           <h2 className="mb-4 text-xl font-semibold">Historical Charts</h2>
           <Tabs value={activeCategory} onValueChange={setSelectedCategory}>
             <TabsList className="flex-wrap">
