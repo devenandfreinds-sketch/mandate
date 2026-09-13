@@ -8,7 +8,7 @@ export const fiscalHealthMetrics: MetricSeedSpec[] = [
     unit: "currency",
     higherIsBetter: true,
     decimalPrecision: 0,
-    sortOrder: 0,
+    sortOrder: 1,
     scalesWithPopulation: false,
     baseValue: -20_000_000,
     jurisdictionOverrides: {
@@ -29,7 +29,7 @@ export const fiscalHealthMetrics: MetricSeedSpec[] = [
     unit: "currency",
     higherIsBetter: false,
     decimalPrecision: 0,
-    sortOrder: 1,
+    sortOrder: 0,
     scalesWithPopulation: false,
     baseValue: 7500,
     jurisdictionOverrides: {
