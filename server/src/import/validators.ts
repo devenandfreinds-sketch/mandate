@@ -84,10 +84,21 @@ export function parseValue(raw: string): number | null {
   return Number.isFinite(value) ? value : null;
 }
 
+// Percent-unit metrics that can legitimately exceed 100% in the real world (e.g. an over-funded
+// pension plan, assets > liabilities) get their own, wider ceiling here instead of the generic
+// 105 cap -- otherwise real government-reported values get rejected as if they were data-entry
+// errors. Keep this list narrow: every other percent metric in this project (unemployment rate,
+// vacancy rate, mode share, etc.) is capped well under 100 by definition, so the generic 105 cap
+// still catches genuine fat-finger errors (e.g. "1043" typed for "104.3") for those metrics.
+const PERCENT_METRICS_ALLOWING_OVER_100: Record<string, number> = {
+  pension_funding_ratio: 150,
+};
+
 /** Sanity-checks a value against its metric's unit. Not exhaustive — catches clearly impossible values. */
-export function isValueInRange(value: number, unit: string): { valid: boolean; reason?: string } {
+export function isValueInRange(value: number, unit: string, metricSlug?: string): { valid: boolean; reason?: string } {
   if (unit === "percent") {
-    if (value < -1 || value > 105) return { valid: false, reason: `Percent value ${value} is outside a plausible 0-100 range` };
+    const ceiling = (metricSlug && PERCENT_METRICS_ALLOWING_OVER_100[metricSlug]) || 105;
+    if (value < -1 || value > ceiling) return { valid: false, reason: `Percent value ${value} is outside a plausible 0-${ceiling} range` };
   }
   if ((unit === "count" || unit === "days" || unit === "minutes" || unit === "miles") && value < 0) {
     return { valid: false, reason: `${unit} value ${value} cannot be negative` };

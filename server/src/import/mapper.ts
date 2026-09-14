@@ -77,7 +77,7 @@ export function mapRows(
       fail(`Could not parse value "${rawValue}" as a number`);
       continue;
     }
-    const range = isValueInRange(value, metric.unit);
+    const range = isValueInRange(value, metric.unit, metric.slug);
     if (!range.valid) {
       fail(range.reason ?? `Value ${value} is out of range for unit "${metric.unit}"`);
       continue;
