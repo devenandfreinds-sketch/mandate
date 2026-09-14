@@ -4,6 +4,7 @@ import { ThemeToggle } from "./ThemeToggle";
 
 const NAV_ITEMS = [
   { to: "/dashboard", label: "Dashboard" },
+  { to: "/findings", label: "Findings" },
   { to: "/governance-models", label: "Governance Models" },
   { to: "/research", label: "Research Map" },
   { to: "/data-catalog", label: "Data Catalog" },

@@ -8,6 +8,8 @@ import { MetricDetailPage } from "@/pages/MetricDetailPage";
 import { PipelineDetailPage } from "@/pages/PipelineDetailPage";
 import { PipelineMethodologyPage } from "@/pages/PipelineMethodologyPage";
 import { DataCatalogPage } from "@/pages/DataCatalogPage";
+import { FindingsListPage } from "@/pages/FindingsListPage";
+import { FindingDetailPage } from "@/pages/FindingDetailPage";
 import { ResearchMapPage } from "@/pages/ResearchMapPage";
 import { ResearchJurisdictionDetailPage } from "@/pages/ResearchJurisdictionDetailPage";
 import { ContributePage } from "@/pages/ContributePage";
@@ -32,6 +34,8 @@ export function AppRoutes() {
       <Route path="/metrics/:slug" element={<MetricDetailPage />} />
       <Route path="/methodology/pipeline" element={<PipelineMethodologyPage />} />
       <Route path="/data-catalog" element={<DataCatalogPage />} />
+      <Route path="/findings" element={<FindingsListPage />} />
+      <Route path="/findings/:slug" element={<FindingDetailPage />} />
       <Route path="/research" element={<ResearchMapPage />} />
       <Route path="/research/:jurisdictionSlug" element={<ResearchJurisdictionDetailPage />} />
       <Route path="/contribute" element={<ContributePage />} />
