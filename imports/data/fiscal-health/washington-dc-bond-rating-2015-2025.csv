@@ -1,0 +1,12 @@
+jurisdiction,metric,year,value,confidence,notes
+washington-dc,bond_rating_index,2015,8,medium,"Mandate-computed median of the 3 major agencies' GO bond ratings as of year-end 2015: Moody's Aa1 (9, upgraded from Aa2 on Mar 12, 2015 per DC OCFO press release), S&P AA (8), Fitch AA (8) -- median 8."
+washington-dc,bond_rating_index,2016,8,medium,"Same as 2015: Moody's Aa1 (9), S&P AA (8), Fitch AA (8) -- median 8. No rating action found this year."
+washington-dc,bond_rating_index,2017,8,medium,"Same as 2015: Moody's Aa1 (9), S&P AA (8), Fitch AA (8) -- median 8. No rating action found this year."
+washington-dc,bond_rating_index,2018,9,medium,"Mandate-computed median as of year-end 2018: Moody's Aaa (10, upgraded from Aa1 on Jul 12, 2018 -- DC OCFO press release, 'the highest possible rating'), S&P AA+ (9, upgraded from AA on Jul 3, 2018), Fitch AA+ (9, upgraded from AA on Jul 3, 2018) -- median 9."
+washington-dc,bond_rating_index,2019,9,medium,"Same as 2018: Moody's Aaa (10), S&P AA+ (9), Fitch AA+ (9) -- median 9. No rating action found this year."
+washington-dc,bond_rating_index,2020,9,medium,"Same as 2018: Moody's Aaa (10), S&P AA+ (9), Fitch AA+ (9) -- median 9. No rating action found this year."
+washington-dc,bond_rating_index,2021,9,medium,"Same as 2018: Moody's Aaa (10), S&P AA+ (9), Fitch AA+ (9) -- median 9. No rating action found this year."
+washington-dc,bond_rating_index,2022,9,medium,"Same as 2018: Moody's Aaa (10), S&P AA+ (9), Fitch AA+ (9) -- median 9. No rating action found this year."
+washington-dc,bond_rating_index,2023,9,medium,"Same as 2018: Moody's Aaa (10), S&P AA+ (9), Fitch AA+ (9) -- median 9. No rating action found this year."
+washington-dc,bond_rating_index,2024,9,medium,"Same as 2018: Moody's Aaa (10), S&P AA+ (9), Fitch AA+ (9, confirmed as of Aug 2024) -- median 9."
+washington-dc,bond_rating_index,2025,9,medium,"Year-end 2025: Moody's Aa1 (9, downgraded from Aaa on Apr 23, 2025 with a negative outlook, citing federal-workforce and federal-spending cuts affecting DC's economy per DC OCFO's own statement), S&P AA+ (9), Fitch AA+ (9) -- median 9, unchanged despite Moody's downgrade since Moody's had been the outlier at the top."

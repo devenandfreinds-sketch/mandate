@@ -1,0 +1,12 @@
+jurisdiction,metric,year,value,confidence,notes
+new-york-city,bond_rating_index,2015,8,medium,"Mandate-computed median of the 3 major agencies' GO bond ratings as of FY2015 (year ended Jun 30, 2015): Moody's Aa2 (8), S&P AA (8), Fitch AA (8) -- median 8."
+new-york-city,bond_rating_index,2016,8,medium,"Same as 2015: Moody's Aa2 (8), S&P AA (8), Fitch AA (8) -- median 8."
+new-york-city,bond_rating_index,2017,8,medium,"Same as 2015: Moody's Aa2 (8), S&P AA (8), Fitch AA (8) -- median 8."
+new-york-city,bond_rating_index,2018,8,medium,"Same as 2015: Moody's Aa2 (8, confirmed via Apr 2018 rating report), S&P AA (8), Fitch AA (8) -- median 8."
+new-york-city,bond_rating_index,2019,8,medium,"FY2019 (year ended Jun 30, 2019): Moody's Aa1 (9, upgraded from Aa2 on Mar 1, 2019 -- the first NYC GO upgrade since 2007), S&P AA (8), Fitch AA (8) -- median 8, since 2 of 3 agencies held at AA/8 throughout."
+new-york-city,bond_rating_index,2020,8,medium,"FY2020 (year ended Jun 30, 2020): Moody's Aa1 (9, still in effect at fiscal year-end -- the downgrade back to Aa2 came Oct 1, 2020, after this FY closed), S&P AA (8), Fitch AA (8) -- median 8."
+new-york-city,bond_rating_index,2021,8,medium,"FY2021: Moody's Aa2 (8, downgraded from Aa1 on Oct 1, 2020, within this fiscal year), S&P AA (8), Fitch AA (8) -- median 8."
+new-york-city,bond_rating_index,2022,8,medium,"Same as 2021: Moody's Aa2 (8), S&P AA (8), Fitch AA (8) -- median 8."
+new-york-city,bond_rating_index,2023,8,medium,"Same as 2021: Moody's Aa2 (8), S&P AA (8), Fitch AA (8) -- median 8."
+new-york-city,bond_rating_index,2024,8,medium,"Same as 2021: Moody's Aa2 (8), S&P AA (8), Fitch AA (8) -- median 8."
+new-york-city,bond_rating_index,2025,8,medium,"Moody's Aa2 (8), S&P AA (8, stable outlook), Fitch AA (8, though moved to a negative outlook as of Mar 2026 per the NYC Comptroller's 'Risks to the City's Credit Ratings' report -- rating itself unchanged) -- median 8. S&P and Fitch never moved off AA/8 anywhere in this 11-year window; only Moody's had a brief Aa1 upgrade (2019-2020) before reverting to Aa2, an unusually stable overall picture."

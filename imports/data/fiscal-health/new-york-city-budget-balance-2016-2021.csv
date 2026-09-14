@@ -1,0 +1,7 @@
+jurisdiction,metric,year,value,confidence,notes
+new-york-city,budget_balance,2016,5198000,high,"NYC Comptroller Annual Comprehensive Financial Report, FY2016, Governmental Funds Statement of Revenues, Expenditures, and Changes in Fund Balances, General Fund column, 'Net change in fund balances' line. Same basis as the project's existing 2015/2022-2025 rows (pre-restricted-fund-activities adjustment)."
+new-york-city,budget_balance,2017,5210000,high,"Same source/methodology as 2016, FY2017 ACFR."
+new-york-city,budget_balance,2018,5104000,high,"Same source/methodology as 2016, FY2018 ACFR."
+new-york-city,budget_balance,2019,5083000,high,"Same source/methodology as 2016, FY2019 ACFR."
+new-york-city,budget_balance,2020,-40808000,high,"Same source/methodology as 2016, FY2020 ACFR."
+new-york-city,budget_balance,2021,-413599000,high,"Same source/methodology as 2016, FY2021 ACFR."

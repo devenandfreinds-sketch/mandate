@@ -1,0 +1,10 @@
+jurisdiction,metric,year,value,confidence,notes
+seattle,capital_investment,2015,1215411000,high,"City of Seattle FY2015 ACFR, Note 6 'Capital Assets,' Table 6-1, capital-asset additions at cost: governmental activities ($272,097K) + business-type activities ($943,314K). Same basis as the project's existing FY2023/FY2025 rows."
+seattle,capital_investment,2016,1493896000,high,"City of Seattle FY2016 ACFR, Note 6, Table 6-1: governmental ($445,876K) + business-type ($1,048,020K)."
+seattle,capital_investment,2017,1086936000,high,"City of Seattle FY2017 ACFR, Note 6, Table 6-1: governmental ($222,187K) + business-type ($864,749K)."
+seattle,capital_investment,2018,1905132000,high,"City of Seattle FY2018 ACFR, Note 6, Table 6-1: governmental ($776,305K) + business-type ($1,128,827K)."
+seattle,capital_investment,2019,1757637000,high,"City of Seattle FY2019 ACFR, Note 6, Table 6-1: governmental ($755,626K) + business-type ($1,002,011K)."
+seattle,capital_investment,2020,1656025000,high,"City of Seattle FY2020 ACFR, Note 6, Table 6-1: governmental ($747,123K) + business-type ($908,902K)."
+seattle,capital_investment,2021,1713924000,high,"City of Seattle FY2021 ACFR, Note 6, Table 6-1: governmental ($729,592K) + business-type ($984,332K)."
+seattle,capital_investment,2022,1716217000,high,"City of Seattle FY2022 ACFR, Note 6, Table 6-1: governmental ($528,450K) + business-type ($1,187,767K)."
+seattle,capital_investment,2024,1938527000,high,"City of Seattle FY2024 ACFR, Note 6, Table 6-1: governmental ($1,116,839K) + business-type ($821,688K). Fills this project's previously-missing year between the existing FY2023 and FY2025 rows."

@@ -1,0 +1,12 @@
+jurisdiction,metric,year,value,confidence,notes
+seattle,budget_balance,2015,66667000,high,"City of Seattle FY2015 ACFR, Statement B-4 (Statement of Revenues, Expenditures, and Changes in Fund Balances - Governmental Funds), General Fund column, GAAP-basis Net Change in Fund Balance."
+seattle,budget_balance,2016,38860000,high,"Same source/methodology as 2015, FY2016 ACFR Statement B-4."
+seattle,budget_balance,2017,52553000,high,"Same source/methodology as 2015, FY2017 ACFR Statement B-4."
+seattle,budget_balance,2018,-18390000,high,"Same source/methodology as 2015, FY2018 ACFR Statement B-4."
+seattle,budget_balance,2019,101816000,high,"Same source/methodology as 2015, FY2019 ACFR Statement B-4."
+seattle,budget_balance,2020,-70551000,high,"Same source/methodology as 2015, FY2020 ACFR Statement B-4."
+seattle,budget_balance,2021,202557000,high,"Same source/methodology as 2015, FY2021 ACFR Statement B-4."
+seattle,budget_balance,2022,337983000,high,"City of Seattle FY2022 ACFR, Statement B-4, GAAP-basis Net Change in Fund Balance. A separate budgetary-basis figure (-$14,733K, Schedule C-1) also exists in the same ACFR and differs sharply due to the City's treatment of encumbrances/non-lapsing appropriations -- this row uses the GAAP basis for consistency across all 11 years."
+seattle,budget_balance,2023,184722000,high,"Same source/methodology as 2022, FY2023 ACFR Statement B-4. Budgetary-basis alternative: -$93,444K (Schedule C-1), not used here for the same reason as 2022."
+seattle,budget_balance,2024,-90755000,high,"Same source/methodology as 2015, FY2024 ACFR Statement B-4."
+seattle,budget_balance,2025,67305000,high,"City of Seattle FY2025 ACFR, Statement B-4, GAAP-basis Net Change in Fund Balance. Budgetary-basis alternative: -$284,968K (Schedule C-1), not used here for the same reason as 2022/2023."
