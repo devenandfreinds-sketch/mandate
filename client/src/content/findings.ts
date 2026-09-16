@@ -6,7 +6,7 @@ export interface FindingSource {
 export interface FindingSection {
   heading: string;
   paragraphs: string[];
-  /** A short, visually distinct aside within the section — used for flagged uncertainty, not a footnote. */
+  /** A short, visually distinct aside within the section: used for flagged uncertainty, not a footnote. */
   note?: string;
 }
 
@@ -24,7 +24,7 @@ export const findings: Finding[] = [
   {
     slug: "chicago-dc-pension-gap",
     title: "Chicago vs. DC: The 76-Point Pension Gap",
-    dek: "Washington DC's pension system is 104% funded. Chicago's is 28%. Same year, same accounting rules — but not the same story.",
+    dek: "Washington DC's pension system is 104% funded. Chicago's is 28%. They're reported the same way, in the same year, and the gap isn't quite what it looks like.",
     publishedDate: "2026-09-13",
     category: "Fiscal Health",
     sections: [
@@ -35,39 +35,39 @@ export const findings: Finding[] = [
       {
         heading: "What the data shows",
         paragraphs: [
-          "Chicago has four city pension funds: general employees, laborers, police, and fire. As of FY2025, they're funded at 28%, 44%, 26%, and 25%. Add them together and you get 28.1% — the number usually quoted, but it hides the fact that laborers are funded almost twice as well as everyone else.",
-          "DC's retirement system — which covers teachers, police, and fire — is 104.2% funded. Fully funded and then some.",
-          "Same fiscal year. Same accounting standard. A 76-point gap.",
+          "Chicago has four city pension funds: general employees, laborers, police, and fire. As of FY2025 they're funded at 28%, 44%, 26%, and 25%. Combined, that's 28.1%, the number usually quoted, though it papers over the fact that the laborers' fund is funded almost twice as well as the other three.",
+          "DC's retirement system, which covers teachers, police, and fire, is 104.2% funded. It holds more assets than liabilities.",
+          "Both figures come from the same fiscal year and the same accounting standard. The gap between them is 76 percentage points.",
         ],
       },
       {
         heading: "Controls",
         paragraphs: [
-          "A few things that could explain this away, checked and ruled out.",
-          "Is DC just assuming a rosier investment return, making its math look easier? No — DC actually assumes a more conservative return (6.25%) than Chicago does (6.65–6.75%). If anything this understates the gap, not the reverse.",
-          "Are they even measuring the same group of workers? Not quite. Chicago's number includes general city employees and laborers — regular municipal workers. DC doesn't have a pension fund for those workers at all; they get a 401(k)-style account instead, which can't rack up unfunded debt the way a pension can. So part of Chicago's low number comes from including a category of worker that DC simply doesn't pension in the traditional sense. That's a real difference, but it's not the biggest one.",
+          "A couple of things worth checking before taking that gap at face value.",
+          "One is the investment-return assumption each city uses to value its liabilities. A rosier assumption makes the math easier, and that's not what's happening here: DC actually assumes a more conservative return (6.25%) than Chicago does (6.65–6.75%). If anything, matching assumptions would widen the gap, not close it.",
+          "The other question is whether the two numbers even cover the same workers. Not quite. Chicago's figure includes general city employees and laborers, ordinary municipal staff. DC doesn't run a pension fund for that group at all; they're on a 401(k)-style account instead, which can't accumulate unfunded liability the way a pension can. That explains some of the gap. It's not most of it.",
         ],
       },
       {
         heading: "The complication",
         paragraphs: [
-          "In 1997, Congress did something for DC it has never done for Chicago: it took DC's oldest pension debt — everything police, fire, and teachers had earned before mid-1997 — and moved it onto the federal government's books. The U.S. Treasury pays those benefits now, not DC.",
-          "DC's pension system today only has to cover what's been earned since that reset. It's not an old, decades-deep hole. It's a plan that's basically been running clean for under 30 years, with the federal government quietly holding the bag on everything older.",
-          "Chicago never got a reset like that. Every dollar its four funds owe, going back decades, is still sitting on the city's own books. Nobody stepped in.",
-          "So DC's 104% isn't proof DC out-managed Chicago. It's proof DC had its debt forgiven and then behaved responsibly with what was left.",
+          "In 1997, Congress did something for DC that it has never done for Chicago. It took on DC's oldest pension debt directly, everything police officers, firefighters, and teachers had earned before mid-1997, and shifted responsibility for paying it to the U.S. Treasury.",
+          "That left DC's pension system covering only benefits earned after that date. Instead of a decades-deep shortfall, it's had a clean run of under 30 years, with the older debt sitting on the federal government's books instead of the District's.",
+          "Chicago got no equivalent deal. The full liability its four funds have built up since they were created is still on the city's own books. No other level of government has taken any of it off Chicago's hands.",
+          "Given that, DC's 104% says less about superior management than about which decades of debt DC was still on the hook for in the first place.",
         ],
-        note: "One thing not fully confirmed: whether judges were part of that same 1997 deal. They're handled by a similar federal program, but the wording connecting them to it wasn't something we could pin down from the source we had.",
+        note: "One thing not fully confirmed: whether judges were part of that same 1997 arrangement. They're handled through a similar federal program, but the specific language tying them to it wasn't something we could pin down from the source we had.",
       },
       {
         heading: "What this means",
         paragraphs: [
-          "The honest version of this finding isn't \"fund your pensions like DC does.\" It's: once a pension hole gets deep enough, a city may not be able to grow or budget its way out of it alone — it needs someone else to write some of it off. DC got that. Chicago hasn't, and has no path to ask for it.",
+          "The takeaway probably isn't \"fund your pensions the way DC does.\" It's closer to this: past a certain depth, a city may not be able to grow or budget its way out of a pension shortfall on its own. It needs another government to absorb part of the debt. DC had that happen in 1997. Chicago hasn't, and there's no existing process for it to ask.",
         ],
       },
       {
         heading: "What this doesn't show",
         paragraphs: [
-          "This doesn't mean Chicago is doing a good job — no comparison was run against a version of Chicago that got debt relief, because that hasn't happened. It also doesn't give a clean police-vs-police, fire-vs-fire comparison, since DC lumps teachers in with police and fire in one combined number. And it says nothing about Chicago's teachers, who are on an entirely separate pension fund not covered here.",
+          "None of this means Chicago is managing its pensions well; there's no version of Chicago that got debt relief to compare against, because that hasn't happened. It also isn't a clean police-to-police or fire-to-fire comparison, since DC reports teachers, police, and fire as one combined figure. And it doesn't touch Chicago's teachers, who have their own separate pension fund outside the four covered here.",
         ],
       },
     ],
