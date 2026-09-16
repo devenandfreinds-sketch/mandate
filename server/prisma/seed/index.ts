@@ -24,6 +24,7 @@ import { newYorkCityResearchedPipelineAssessments } from "./data/newYorkCityRese
 import { seattleResearchedPipelineAssessments } from "./data/seattleResearchedPipeline.js";
 import { minneapolisResearchedPipelineAssessments } from "./data/minneapolisResearchedPipeline.js";
 import { washingtonDcResearchedPipelineAssessments } from "./data/washingtonDcResearchedPipeline.js";
+import { durhamResearchedPipelineAssessments } from "./data/durhamResearchedPipeline.js";
 import { researchQueueSeed } from "./data/researchQueue.js";
 import {
   generateAnnualSeries,
@@ -381,6 +382,7 @@ async function main() {
     ...seattleResearchedPipelineAssessments,
     ...minneapolisResearchedPipelineAssessments,
     ...washingtonDcResearchedPipelineAssessments,
+    ...durhamResearchedPipelineAssessments,
   ];
   const researchedPairs = new Set(
     allResearchedPipelineAssessments.map((r) => `${r.jurisdictionSlug}::${r.policyAreaSlug}`)
