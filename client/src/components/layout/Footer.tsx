@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export function Footer() {
   return (
     <footer className="border-t border-border">
@@ -7,6 +9,11 @@ export function Footer() {
           endorse or criticize any political movement.
         </p>
         <p className="mt-2">Data shown in this preview is placeholder data. See Methodology for sourcing details.</p>
+        <p className="mt-4">
+          <Link to="/team" className="underline">
+            Team
+          </Link>
+        </p>
       </div>
     </footer>
   );

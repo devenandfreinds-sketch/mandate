@@ -10,6 +10,7 @@ import { PipelineMethodologyPage } from "@/pages/PipelineMethodologyPage";
 import { DataCatalogPage } from "@/pages/DataCatalogPage";
 import { FindingsListPage } from "@/pages/FindingsListPage";
 import { FindingDetailPage } from "@/pages/FindingDetailPage";
+import { TeamPage } from "@/pages/TeamPage";
 import { ResearchMapPage } from "@/pages/ResearchMapPage";
 import { ResearchJurisdictionDetailPage } from "@/pages/ResearchJurisdictionDetailPage";
 import { ContributePage } from "@/pages/ContributePage";
@@ -39,6 +40,7 @@ export function AppRoutes() {
       <Route path="/research" element={<ResearchMapPage />} />
       <Route path="/research/:jurisdictionSlug" element={<ResearchJurisdictionDetailPage />} />
       <Route path="/contribute" element={<ContributePage />} />
+      <Route path="/team" element={<TeamPage />} />
       <Route path="/admin/login" element={<AdminLoginPage />} />
       <Route
         path="/admin/imports"
