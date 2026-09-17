@@ -1,0 +1,10 @@
+jurisdiction,metric,year,value,confidence,notes
+durham-county,skills_training_participation,2016-17,35080,high,"DfE 'Further Education and Skills' publication, total FE and skills participation (learner's home local authority), ages 19+, all levels, County Durham LAD, excluding apprenticeships."
+durham-county,skills_training_participation,2017-18,31570,high,"DfE 'Further Education and Skills' publication, County Durham LAD."
+durham-county,skills_training_participation,2018-19,29710,high,"DfE 'Further Education and Skills' publication, County Durham LAD."
+durham-county,skills_training_participation,2019-20,22950,high,"DfE 'Further Education and Skills' publication, County Durham LAD."
+durham-county,skills_training_participation,2020-21,20860,high,"DfE 'Further Education and Skills' publication, County Durham LAD."
+durham-county,skills_training_participation,2021-22,20150,high,"DfE 'Further Education and Skills' publication, County Durham LAD."
+durham-county,skills_training_participation,2022-23,22120,high,"DfE 'Further Education and Skills' publication, County Durham LAD."
+durham-county,skills_training_participation,2023-24,23070,high,"DfE 'Further Education and Skills' publication, County Durham LAD."
+durham-county,skills_training_participation,2024-25,21710,high,"DfE 'Further Education and Skills' publication, County Durham LAD. Devolved Adult Skills Fund administration transferred to the North East Mayoral Strategic Authority from Aug 2024, but this national DfE release continues to cover County Durham's figures; NEMSA's own Evidence Hub publishes only whole-region totals, not a County-Durham-specific breakdown."

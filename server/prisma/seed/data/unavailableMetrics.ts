@@ -222,4 +222,13 @@ export const unavailableMetrics: UnavailableMetricSpec[] = [
   // 2022), or 2025 (next full count after 2024 was January 2026, outside this project's window).
   // A confirmed structural absence, not an unresearched gap.
   { metricSlug: "homelessness_count", jurisdictionSlug: "seattle", years: [2021, 2023, 2025] },
+  // Durham workforce research pass (2026-09-17): confirmed no UK source publishes graduate
+  // employment/outcome rates broken down by local authority of domicile. HESA's Graduate Outcomes
+  // survey reports only at provider/subject/national-region level; HESA's local-authority tables
+  // cover student domicile (where they enrolled from) and, separately, a graduate-mobility marker
+  // (migration flows), neither of which is an employment-outcome rate; DfE/ONS LEO Graduate and
+  // Postgraduate Outcomes is regional-level only. Confirmed absent, not merely unresearched --
+  // Mandate's Greater Manchester research reached the same conclusion but did not fully rule out
+  // the newer HESA mobility-marker release, which this pass checked and also ruled out.
+  { metricSlug: "graduate_employment_rate", jurisdictionSlug: "durham-county" },
 ];

@@ -1,0 +1,10 @@
+jurisdiction,metric,year,value,confidence,notes
+durham-county,labor_force_participation,2015,73.0,medium,"ONS Annual Population Survey (APS) via Nomis, County Durham UA, economically active (16-64) / population (16-64), calendar year (Jan-Dec)."
+durham-county,labor_force_participation,2016,75.9,medium,"ONS APS via Nomis, County Durham UA, calendar year."
+durham-county,labor_force_participation,2017,76.2,medium,"ONS APS via Nomis, County Durham UA, calendar year."
+durham-county,labor_force_participation,2018,77.5,medium,"ONS APS via Nomis, County Durham UA, calendar year."
+durham-county,labor_force_participation,2019,75.5,medium,"ONS APS via Nomis, County Durham UA, calendar year."
+durham-county,labor_force_participation,2020,76.9,medium,"ONS APS via Nomis, County Durham UA, calendar year."
+durham-county,labor_force_participation,2021,74.1,medium,"ONS APS via Nomis, County Durham UA, calendar year."
+durham-county,labor_force_participation,2024,73.9,medium,"ONS APS via Nomis, County Durham UA, calendar year (Jan-Dec 2024) -- distinct from the existing FY2024(Apr 2024-Mar 2025)=74.1% figure already on file, which uses the UK fiscal-year convention rather than calendar year (the two happen to be close but are not the same measurement window)."
+durham-county,labor_force_participation,2025,76.7,medium,"ONS APS via Nomis, County Durham UA, calendar year (Jan-Dec 2025, most recent available)."

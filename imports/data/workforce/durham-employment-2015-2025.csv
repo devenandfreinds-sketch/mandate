@@ -1,0 +1,12 @@
+jurisdiction,metric,year,value,confidence,notes
+durham-county,employment,2015,226600,medium,"ONS Annual Population Survey (APS) via Nomis, County Durham UA, number of people aged 16+ in employment (paid work in reference week, temporarily absent, on government-supported training, or unpaid family work), calendar year (Jan-Dec). Employment rate (16-64): 67.3%."
+durham-county,employment,2016,238000,medium,"ONS APS via Nomis, County Durham UA, calendar year. Employment rate (16-64): 70.9%."
+durham-county,employment,2017,238300,medium,"ONS APS via Nomis, County Durham UA, calendar year. Employment rate (16-64): 71.3%."
+durham-county,employment,2018,252100,medium,"ONS APS via Nomis, County Durham UA, calendar year. Employment rate (16-64): 74.6%."
+durham-county,employment,2019,241000,medium,"ONS APS via Nomis, County Durham UA, calendar year. Employment rate (16-64): 71.2%."
+durham-county,employment,2020,236600,medium,"ONS APS via Nomis, County Durham UA, calendar year. Employment rate (16-64): 71.3%."
+durham-county,employment,2021,238000,medium,"ONS APS via Nomis, County Durham UA, calendar year. Employment rate (16-64): 71.1%."
+durham-county,employment,2022,242500,medium,"ONS APS via Nomis, County Durham UA, calendar year. Employment rate (16-64): 72.2%."
+durham-county,employment,2023,251100,medium,"ONS APS via Nomis, County Durham UA, calendar year. Employment rate (16-64): 74.5%."
+durham-county,employment,2024,240000,medium,"ONS APS via Nomis, County Durham UA, calendar year. Employment rate (16-64): 71.0%."
+durham-county,employment,2025,251100,medium,"ONS APS via Nomis, County Durham UA, calendar year (most recent available). Employment rate (16-64): 73.0%."

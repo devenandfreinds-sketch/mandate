@@ -1,0 +1,5 @@
+jurisdiction,metric,year,value,confidence,notes
+durham-county,apprenticeships,2015-16,11587,high,"DfE 'FE data library: apprenticeships,' Apprenticeship Participation 2014/15 to 2018/19 dataset, unrounded sum across all providers/levels for County Durham LAD. Confirmed this series measures PARTICIPATION (not starts) -- cross-checked 2019/20 against the existing on-file figure (8,270), which matches this same participation definition exactly (2019/20 starts alone would be 3,670, a different and much smaller figure)."
+durham-county,apprenticeships,2016-17,11872,high,"DfE 'FE data library: apprenticeships,' Apprenticeship Participation 2014/15 to 2018/19 dataset, County Durham LAD. See 2015-16 note on participation-vs-starts confirmation."
+durham-county,apprenticeships,2017-18,9406,high,"DfE 'FE data library: apprenticeships,' Apprenticeship Participation 2014/15 to 2018/19 dataset, County Durham LAD."
+durham-county,apprenticeships,2018-19,7277,high,"DfE 'FE data library: apprenticeships,' Apprenticeship Participation 2014/15 to 2018/19 dataset, County Durham LAD."

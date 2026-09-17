@@ -1,0 +1,10 @@
+jurisdiction,metric,year,value,confidence,notes
+durham-county,median_wages,2015,20878,high,"ONS ASHE Table 7.7a, 'All employee jobs' worksheet (full-time + part-time combined, place-of-work basis), County Durham (E06000047), gross annual pay median. Distinct from the higher 'Full-Time' worksheet in the same workbook (£24,062 for this year) -- the existing on-file 2024/2025 figures use the 'All employee jobs' cut, so this series matches that methodology rather than introducing a full-time-only figure."
+durham-county,median_wages,2016,21189,high,"ONS ASHE Table 7.7a, 'All employee jobs,' County Durham. See 2015 note."
+durham-county,median_wages,2017,21877,high,"ONS ASHE Table 7.7a, 'All employee jobs,' County Durham. See 2015 note."
+durham-county,median_wages,2018,22132,high,"ONS ASHE Table 7.7a, 'All employee jobs,' County Durham. See 2015 note."
+durham-county,median_wages,2019,22489,high,"ONS ASHE Table 7.7a, 'All employee jobs,' County Durham. See 2015 note."
+durham-county,median_wages,2020,22796,medium,"ONS ASHE Table 7.7a, 'All employee jobs,' County Durham. ONS flagged all 2020 ASHE earnings estimates economy-wide for extra caution due to furlough-scheme distortions and reduced survey response, independent of this figure's own (good) coefficient of variation."
+durham-county,median_wages,2021,22464,high,"ONS ASHE Table 7.7a, 'All employee jobs,' County Durham. ONS's 2020 furlough-related caution applies to a lesser degree here as tapering continued."
+durham-county,median_wages,2022,25018,high,"ONS ASHE Table 7.7a, 'All employee jobs,' County Durham."
+durham-county,median_wages,2023,26200,high,"ONS ASHE Table 7.7a, 'All employee jobs,' County Durham."

@@ -2366,6 +2366,22 @@ export const sources: SourceSeedSpec[] = [
     language: "en",
   },
   {
+    key: "dfe_fes_participation_durham",
+    name: "DfE Further Education and Skills — Participation by Local Authority",
+    publisher: "UK Department for Education",
+    url: "https://explore-education-statistics.service.gov.uk/find-statistics/further-education-and-skills",
+    sourceType: "government_dataset",
+    citation:
+      "DfE 'Further Education and Skills' publication (Explore Education Statistics, accredited official statistics), total FE and skills participation (learner's home local authority basis), ages 19+, all levels, County Durham LAD, excluding apprenticeships (reported separately by the same publisher).",
+    isPlaceholder: false,
+    updateFrequency: "annual",
+    methodology:
+      "Academic year (Aug-Jul) series. The 2015/16 edition of this dataset is organized by the PROVIDER's local authority (delivery location) rather than the learner's home local authority used in every other year of this series, creating a genuine definitional break -- 2015/16 is deliberately left unresearched rather than spliced in under a different geography basis. Two independently published DfE data-catalogue extracts (2021/22 and 2025/26 editions) were cross-validated and agree exactly for their overlapping years (2019/20-2021/22).",
+    defaultConfidence: "high",
+    country: "United Kingdom",
+    language: "en",
+  },
+  {
     key: "durham_cc_official_press",
     name: "Durham County Council Official News Releases",
     publisher: "Durham County Council",
