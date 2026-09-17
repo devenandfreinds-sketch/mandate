@@ -2395,6 +2395,54 @@ export const sources: SourceSeedSpec[] = [
     country: "United Kingdom",
     language: "en",
   },
+  {
+    key: "durham_cc_amr",
+    name: "Durham County Council County Durham Plan Annual Monitoring Report (AMR)",
+    publisher: "Durham County Council",
+    url: "https://www.durham.gov.uk/article/7444/Development-Plan-supporting-documents",
+    sourceType: "government_report",
+    citation:
+      "Durham County Council's own annual monitoring reports against the County Durham Plan (adopted 21 Oct 2020), one PDF edition per financial year, covering housing completions (Table 1, gross/net), affordable housing completions by tenure (indicator QH3), and housing units approved (indicator QD2).",
+    isPlaceholder: false,
+    updateFrequency: "annual",
+    methodology:
+      "Net completions (gross minus demolitions/conversions/HMO losses) is the standard planning-statistics convention and the figure Durham itself measures against its 1,308/year housing-requirement target -- used here rather than gross completions. The AMR series begins at FY2016/17 (no earlier edition exists, since the Plan itself was only adopted in 2020); 'units approved' (QD2) is only reported from FY2020/21 onward under a unified county-wide monitoring format.",
+    defaultConfidence: "high",
+    country: "United Kingdom",
+    language: "en",
+  },
+  {
+    key: "mhclg_live_tables_1006_1008",
+    name: "MHCLG Live Tables 1006-1008 — Additional Affordable Housing Supply, Completions",
+    publisher: "UK Ministry of Housing, Communities & Local Government",
+    url: "https://www.gov.uk/government/collections/affordable-housing-supply",
+    sourceType: "government_dataset",
+    citation:
+      "MHCLG's nationally-consistent local-authority-level affordable housing completions series (Live Table 1008C total, built from component tables 1006C/1006aC/1007bC), County Durham (ONS E06000047).",
+    isPlaceholder: false,
+    updateFrequency: "annual",
+    methodology:
+      "Used only to fill years Durham's own AMR does not cover (FY2014/15-2019/20). Where both this table and the AMR report a figure for the same year, they disagree by a meaningful margin (likely a difference in reporting/cutoff convention) -- Durham's own AMR is treated as the primary source for any year it covers, and this table is not used to override it.",
+    defaultConfidence: "high",
+    country: "United Kingdom",
+    language: "en",
+  },
+  {
+    key: "mhclg_statutory_homelessness",
+    name: "MHCLG Statutory Homelessness Live Tables (Local Authority Detail)",
+    publisher: "UK Ministry of Housing, Communities & Local Government",
+    url: "https://www.gov.uk/government/statistical-data-sets/live-tables-on-homelessness",
+    sourceType: "government_dataset",
+    citation:
+      "MHCLG's local-authority-level statutory homelessness figures for County Durham (ONS E06000047): pre-2018 P1E collection ('households accepted as homeless, in priority need') and post-2018 H-CLIC collection ('households owed a prevention or relief duty' under the Homelessness Reduction Act 2017).",
+    isPlaceholder: false,
+    updateFrequency: "quarterly",
+    methodology:
+      "The Homelessness Reduction Act 2017 (in force April 2018) created new, much broader statutory duties, so pre- and post-2018 figures are not directly comparable and should not be read as a single continuous trend. County Durham's FY2021/22 figure is suppressed in MHCLG's own published table and is not estimated or interpolated here.",
+    defaultConfidence: "high",
+    country: "United Kingdom",
+    language: "en",
+  },
 
   // =========================================================
   // DSA-aligned cities clean-out pass (2026-08-14): fiscal + crime metrics for New York City,

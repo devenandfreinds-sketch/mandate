@@ -1,0 +1,12 @@
+jurisdiction,metric,year,value,confidence,notes
+durham-county,housing_starts,2014-15,1230,high,"MHCLG Live Table 253, 'all starts,' County Durham (E06000047), rounded to nearest 10."
+durham-county,housing_starts,2015-16,1210,high,"MHCLG Live Table 253, 'all starts,' County Durham (E06000047), rounded to nearest 10."
+durham-county,housing_starts,2016-17,1600,high,"MHCLG Live Table 253, 'all starts,' County Durham (E06000047), rounded to nearest 10."
+durham-county,housing_starts,2017-18,1460,high,"MHCLG Live Table 253, 'all starts,' County Durham (E06000047), rounded to nearest 10."
+durham-county,housing_starts,2018-19,1850,high,"MHCLG Live Table 253, 'all starts,' County Durham (E06000047), rounded to nearest 10."
+durham-county,housing_starts,2019-20,1440,high,"MHCLG Live Table 253, 'all starts,' County Durham (E06000047), rounded to nearest 10."
+durham-county,housing_starts,2020-21,1580,high,"MHCLG Live Table 253, 'all starts,' County Durham (E06000047), rounded to nearest 10."
+durham-county,housing_starts,2021-22,1620,high,"MHCLG Live Table 253, 'all starts,' County Durham (E06000047), rounded to nearest 10."
+durham-county,housing_starts,2022-23,1810,high,"MHCLG Live Table 253, 'all starts,' County Durham (E06000047), rounded to nearest 10."
+durham-county,housing_starts,2023-24,1260,high,"MHCLG Live Table 253, 'all starts,' County Durham (E06000047), rounded to nearest 10."
+durham-county,housing_starts,2024-25,1270,high,"MHCLG Live Table 253, 'all starts,' County Durham (E06000047), rounded to nearest 10."

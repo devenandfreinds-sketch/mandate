@@ -1,0 +1,10 @@
+jurisdiction,metric,year,value,confidence,notes
+durham-county,housing_completions,2016-17,1410,high,"Net housing completions, County Durham Plan Annual Monitoring Report (AMR) 2022/23 edition, Table 1. Net = gross minus demolitions/conversions/HMO losses -- the convention Durham itself measures against its 1,308/yr housing-requirement target."
+durham-county,housing_completions,2017-18,1339,high,"Net housing completions, AMR 2022/23 edition, Table 1."
+durham-county,housing_completions,2018-19,1463,high,"Net housing completions, AMR 2022/23 edition, Table 1."
+durham-county,housing_completions,2019-20,1628,high,"Net housing completions, AMR 2022/23 edition, Table 1."
+durham-county,housing_completions,2020-21,1328,high,"Net housing completions, AMR 2020/21 edition, Table 1."
+durham-county,housing_completions,2021-22,1671,high,"Net housing completions, AMR 2021/22 edition, Table 1."
+durham-county,housing_completions,2022-23,1561,high,"Net housing completions, AMR 2022/23 edition, Table 1."
+durham-county,housing_completions,2023-24,1295,high,"Net housing completions, AMR 2023/24 edition, Table 1."
+durham-county,housing_completions,2024-25,1753,high,"Net housing completions, AMR 2024/25 edition, Table 1."

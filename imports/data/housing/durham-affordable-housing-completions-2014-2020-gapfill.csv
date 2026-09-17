@@ -1,0 +1,7 @@
+jurisdiction,metric,year,value,confidence,notes
+durham-county,affordable_housing_completions,2014-15,422,medium,"MHCLG Live Table 1008C (additional affordable dwellings, completions), County Durham (E06000047). Durham's own AMR does not cover this year (the County Durham Plan was adopted Oct 2020, and the AMR's affordable-housing indicator only reports from FY2020/21) -- this national live table fills the gap, but disagrees with the AMR's own figures by a meaningful margin in years where both exist, so treat as a different measurement convention rather than directly continuous with the AMR-sourced 2020/21+ series."
+durham-county,affordable_housing_completions,2015-16,111,medium,"MHCLG Live Table 1008C, County Durham (E06000047). See 2014-15 note on methodology difference from the AMR-sourced years."
+durham-county,affordable_housing_completions,2016-17,330,medium,"MHCLG Live Table 1008C, County Durham (E06000047). See 2014-15 note."
+durham-county,affordable_housing_completions,2017-18,314,medium,"MHCLG Live Table 1008C, County Durham (E06000047). See 2014-15 note."
+durham-county,affordable_housing_completions,2018-19,658,medium,"MHCLG Live Table 1008C, County Durham (E06000047). See 2014-15 note."
+durham-county,affordable_housing_completions,2019-20,515,medium,"MHCLG Live Table 1008C, County Durham (E06000047). See 2014-15 note."

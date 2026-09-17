@@ -1,0 +1,3 @@
+jurisdiction,metric,year,value,confidence,notes
+durham-county,housing_completions,2014-15,1180,medium,"MHCLG Live Table 253, 'all completions,' County Durham (E06000047), rounded to nearest 10. Durham's own AMR series only begins FY2016/17 (the County Durham Plan was adopted Oct 2020), so this earlier gap is filled from the independently-sourced national live table rather than a local monitoring report -- a different (building-control/NHBC-reported) methodology than the AMR figures used for 2016/17 onward, hence 'medium' rather than 'high' confidence."
+durham-county,housing_completions,2015-16,1280,medium,"MHCLG Live Table 253, 'all completions,' County Durham (E06000047), rounded to nearest 10. See 2014-15 note on methodology difference from the AMR-sourced years."

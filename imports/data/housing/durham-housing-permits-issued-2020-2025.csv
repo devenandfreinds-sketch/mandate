@@ -1,0 +1,6 @@
+jurisdiction,metric,year,value,confidence,notes
+durham-county,housing_permits_issued,2020-21,2370,high,"Number of housing units approved (indicator QD2), County Durham Plan AMR 2020/21 edition. Durham operated under saved policies from 7 predecessor districts pre-2020 with no single consolidated county-wide 'units approved' figure, so no reliable earlier equivalent was found."
+durham-county,housing_permits_issued,2021-22,2528,high,"Number of housing units approved (indicator QD2), AMR 2021/22 edition."
+durham-county,housing_permits_issued,2022-23,744,high,"Number of housing units approved (indicator QD2), AMR 2022/23 edition."
+durham-county,housing_permits_issued,2023-24,1729,high,"Number of housing units approved (indicator QD2), AMR 2023/24 edition."
+durham-county,housing_permits_issued,2024-25,3832,high,"Number of housing units approved (indicator QD2), AMR 2024/25 edition."

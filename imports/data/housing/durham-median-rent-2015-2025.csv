@@ -1,0 +1,12 @@
+jurisdiction,metric,year,value,confidence,notes
+durham-county,median_rent,2015,462,medium,"ONS Price Index of Private Rents (PIPR), County Durham, December 2015 value. This is ONS's modelled MEAN average private rent, not a true median -- ONS's separate Private Rental Market Summary Statistics series does publish a true median for County Durham, but only from Oct 2018-Sep 2019 onward (discontinued Dec 2023), so it cannot cover this full period alone. Used here as the best available full-coverage annual series; flagged as a mean-vs-median methodology note rather than a literal median."
+durham-county,median_rent,2016,464,medium,"ONS PIPR, County Durham, December 2016 value. See 2015 note on mean-vs-median methodology."
+durham-county,median_rent,2017,473,medium,"ONS PIPR, County Durham, December 2017 value. See 2015 note."
+durham-county,median_rent,2018,473,medium,"ONS PIPR, County Durham, December 2018 value. See 2015 note."
+durham-county,median_rent,2019,478,medium,"ONS PIPR, County Durham, December 2019 value. See 2015 note."
+durham-county,median_rent,2020,481,medium,"ONS PIPR, County Durham, December 2020 value. See 2015 note."
+durham-county,median_rent,2021,494,medium,"ONS PIPR, County Durham, December 2021 value. See 2015 note."
+durham-county,median_rent,2022,513,medium,"ONS PIPR, County Durham, December 2022 value. See 2015 note."
+durham-county,median_rent,2023,536,medium,"ONS PIPR, County Durham, December 2023 value. See 2015 note."
+durham-county,median_rent,2024,583,medium,"ONS PIPR, County Durham, December 2024 value. See 2015 note."
+durham-county,median_rent,2025,623,medium,"ONS PIPR, County Durham, December 2025 value. See 2015 note."
