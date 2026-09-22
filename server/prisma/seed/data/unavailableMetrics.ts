@@ -231,4 +231,22 @@ export const unavailableMetrics: UnavailableMetricSpec[] = [
   // Mandate's Greater Manchester research reached the same conclusion but did not fully rule out
   // the newer HESA mobility-marker release, which this pass checked and also ruled out.
   { metricSlug: "graduate_employment_rate", jurisdictionSlug: "durham-county" },
+  // Durham fiscal-health research pass (2026-09-22): confirmed English shire/unitary councils
+  // (including Durham) carry no public credit rating from Moody's/S&P/Fitch -- they borrow via the
+  // Public Works Loan Board and money markets, not rated public bond issuance, so ratings mentioned
+  // in their own Statement of Accounts refer only to counterparty-risk criteria for where the
+  // council deposits cash, never a rating of the council itself. Same conclusion as Greater
+  // Manchester Combined Authority's still-placeholder bond_rating_index; genuinely rated UK bodies
+  // are rare and tend to be London-mayoralty-linked (e.g. Transport for London) or, in at least one
+  // case (Warrington BC), a council that took on unusually large commercial-investment debt and had
+  // its rating withdrawn in 2024 over unaudited accounts -- confirmed absent, not unresearched.
+  { metricSlug: "bond_rating_index", jurisdictionSlug: "durham-county" },
+  // Durham Pension Fund (LGPS) actuarial valuations are triennial (2016, 2019, 2022, 2025) --
+  // non-valuation years structurally have no funded-percentage figure to report, not merely an
+  // unresearched gap.
+  {
+    metricSlug: "pension_funding_ratio",
+    jurisdictionSlug: "durham-county",
+    years: [2015, 2017, 2018, 2020, 2021, 2023, 2024],
+  },
 ];

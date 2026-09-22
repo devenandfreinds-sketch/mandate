@@ -1,0 +1,9 @@
+jurisdiction,metric,year,value,confidence,notes
+durham-county,budget_balance,2015-16,43736000,high,"Durham County Council Statement of Accounts 2015/16, Comprehensive Income and Expenditure Statement, 'Surplus (-) or Deficit on Provision of Services': audited actual outturn SURPLUS of GBP43.736m (positive raw CIES figure = surplus, under this line's own sign convention)."
+durham-county,budget_balance,2016-17,-59674000,high,"Durham County Council Statement of Accounts 2016/17, CIES 'Surplus (-) or Deficit on Provision of Services': audited actual outturn deficit of GBP59.674m."
+durham-county,budget_balance,2017-18,-16999000,high,"Durham County Council Statement of Accounts 2017/18, CIES 'Surplus (-) or Deficit on Provision of Services': audited actual outturn deficit of GBP16.999m."
+durham-county,budget_balance,2018-19,-127908000,high,"Durham County Council Statement of Accounts 2018/19, CIES 'Surplus (-) or Deficit on Provision of Services': audited actual outturn deficit of GBP127.908m."
+durham-county,budget_balance,2019-20,-104530000,high,"Durham County Council Statement of Accounts 2019/20, CIES 'Surplus (-) or Deficit on Provision of Services': audited actual outturn deficit of GBP104.530m."
+durham-county,budget_balance,2020-21,-71602000,high,"Durham County Council Statement of Accounts 2020/21, CIES 'Surplus (-) or Deficit on Provision of Services': audited actual outturn deficit of GBP71.602m."
+durham-county,budget_balance,2021-22,-153744000,high,"Durham County Council Statement of Accounts 2021/22, CIES 'Surplus (-) or Deficit on Provision of Services': audited actual outturn deficit of GBP153.744m."
+durham-county,budget_balance,2022-23,-58285000,high,"Durham County Council Statement of Accounts 2022/23, CIES 'Surplus (-) or Deficit on Provision of Services': audited actual outturn deficit of GBP58.285m. Independently reconciled against this same figure appearing as the comparator column in the 2023-24 accounts already on file."

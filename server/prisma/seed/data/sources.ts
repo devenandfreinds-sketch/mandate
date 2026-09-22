@@ -2305,14 +2305,14 @@ export const sources: SourceSeedSpec[] = [
     key: "durham_cc_pension_valuation",
     name: "Durham County Council Pension Fund Actuarial Valuation",
     publisher: "Durham County Council Pension Fund (LGPS), valued by Aon",
-    url: "https://www.durham.gov.uk/media/41994/LGPS-Valuation-Report-2023/pdf/LGPSValuationReport2023.pdf",
+    url: "https://www.durham.gov.uk/media/49502/LGPS-Valuation-Report-2025/pdf/PensionFundActuarialValuationReport2025.pdf",
     sourceType: "government_report",
     citation:
-      "Durham County Council Pension Fund's triennial actuarial valuation as at 31 March 2022 (the most recent valuation whose whole-fund percentage was independently confirmed this pass), corroborated by Note 22 of the Fund's own Annual Report and Accounts, year ended 31 March 2025.",
+      "Durham County Council Pension Fund's triennial actuarial valuations as at 31 March 2016, 2019, 2022, and 2025 (by Aon). The 2025 report's own reconciliation table (p.7) restates the 2022 valuation's funded position on a granular basis as 97.5% (deficit GBP93.1m), consistent with the 2022 report's own dashboard figure noted elsewhere; its 'at a glance' headline for 2022 was 98%.",
     isPlaceholder: false,
     updateFrequency: "triennial",
     methodology:
-      "A further valuation as at 31 March 2025 exists and has been adopted for contribution-rate-setting (per the Fund's Funding Strategy Statement, 5 December 2025), but its whole-fund funding percentage was not confirmed against a primary document this pass -- a press summary (Local Government Chronicle) claims 'no change' from 2022, but this is not yet imported pending primary-source confirmation.",
+      "A prior research pass could only confirm the 2025 valuation's existence via a press paraphrase claiming 'no change' from 2022 -- this has since been resolved against the primary 2025 Valuation Report itself: the fund is 98.1% funded as at 31 March 2025 (deficit GBP72.1m, assets GBP3,759.2m / liabilities GBP3,831.3m), a genuine (if small) improvement from 2022's 97.5% granular figure, not literally 'no change.' The 2016 valuation (81% funded, deficit GBP529.3m) was also confirmed this pass, corroborated verbatim in the 2019 report's own history section.",
     defaultConfidence: "high",
     country: "United Kingdom",
     language: "en",
