@@ -1,0 +1,11 @@
+jurisdiction,metric,year,value,confidence,notes
+durham-county,advanced_manufacturing_employment,2015,7050,estimated,"ONS BRES via Nomis (NM_189_1), employees, SIC 2007 divisions 26-30 in full, EXCLUDING division 21 (to avoid double-counting with life_sciences_employment) and excluding division 20, County Durham. Matches Mandate's Greater Manchester advanced_manufacturing_employment definition exactly (verified by reproducing GM's 2018 figure bit-for-bit with these same parameters). Coded 'estimated' per Mandate's own established convention for this metric: it is a defensible but analyst-constructed proxy following the Eurostat/UN high/medium-high-technology manufacturing convention, not an official ONS-published series in its own right."
+durham-county,advanced_manufacturing_employment,2016,7450,estimated,"ONS BRES via Nomis, SIC divisions 26-30 excl. 21 and 20, County Durham. See 2015 note on 'estimated' coding convention."
+durham-county,advanced_manufacturing_employment,2017,9000,estimated,"ONS BRES via Nomis, SIC divisions 26-30 excl. 21 and 20, County Durham."
+durham-county,advanced_manufacturing_employment,2018,9500,estimated,"ONS BRES via Nomis, SIC divisions 26-30 excl. 21 and 20, County Durham."
+durham-county,advanced_manufacturing_employment,2019,8800,estimated,"ONS BRES via Nomis, SIC divisions 26-30 excl. 21 and 20, County Durham."
+durham-county,advanced_manufacturing_employment,2020,6750,estimated,"ONS BRES via Nomis, SIC divisions 26-30 excl. 21 and 20, County Durham."
+durham-county,advanced_manufacturing_employment,2021,7000,estimated,"ONS BRES via Nomis, SIC divisions 26-30 excl. 21 and 20, County Durham."
+durham-county,advanced_manufacturing_employment,2022,7000,estimated,"ONS BRES via Nomis, SIC divisions 26-30 excl. 21 and 20, County Durham."
+durham-county,advanced_manufacturing_employment,2023,7800,estimated,"ONS BRES via Nomis, SIC divisions 26-30 excl. 21 and 20, County Durham."
+durham-county,advanced_manufacturing_employment,2024,7050,estimated,"ONS BRES via Nomis, SIC divisions 26-30 excl. 21 and 20, County Durham. Provisional (first-published vintage), same status as Mandate's existing GM 2024 figure."

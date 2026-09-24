@@ -249,4 +249,40 @@ export const unavailableMetrics: UnavailableMetricSpec[] = [
     jurisdictionSlug: "durham-county",
     years: [2015, 2017, 2018, 2020, 2021, 2023, 2024],
   },
+  // Durham innovation research pass (2026-09-24): confirmed after a genuine search, not assumed.
+  // patent_creation -- UK IPO's regular "Facts and Figures" statistics only break down to English
+  // region level; the IPO's one-off geocoded patent dataset is a static 2018 snapshot (~30%
+  // postcode completeness), not a maintained annual series suitable for import.
+  { metricSlug: "patent_creation", jurisdictionSlug: "durham-county" },
+  // ai_companies -- DCMS/DSIT's UK AI Sector Study breaks companies down only to English region
+  // level; no local-authority-level source found from Beauhurst or any other checked source.
+  { metricSlug: "ai_companies", jurisdictionSlug: "durham-county" },
+  // commercial_rd_investment -- ONS Business Enterprise R&D (BERD) publishes only region-level
+  // figures (North East, not County Durham specifically); no LA-level breakdown exists.
+  { metricSlug: "commercial_rd_investment", jurisdictionSlug: "durham-county" },
+  // vc_investment -- British Business Bank's Nations and Regions Tracker publishes equity-deal
+  // data only at North East region level. The Finance Durham Fund (GBP17.29m deployed since 2017)
+  // is a public co-investment vehicle, not a market-wide private VC activity measure, and would
+  // misrepresent this metric if substituted in -- not imported under this metric for that reason.
+  { metricSlug: "vc_investment", jurisdictionSlug: "durham-county" },
+  // startup_formation -- Companies House's live search has no county/local-authority filter, and
+  // its bulk incorporation data would require a bespoke postcode-to-LA geocoding exercise beyond a
+  // standard data pull. The only county-level figure found (Inform Direct, a secondary aggregator)
+  // did not reconcile cleanly to the E06000047 unitary-authority boundary -- not imported. No
+  // verified primary source distinguishes this from business_formation, which is imported instead.
+  { metricSlug: "startup_formation", jurisdictionSlug: "durham-county" },
+  // ONS BRES and Business Demography had not yet published a 2025 edition as of this research
+  // pass (Sept 2026) -- a temporary, not permanent, gap; revisit once that edition is released.
+  { metricSlug: "tech_employment", jurisdictionSlug: "durham-county", years: [2025] },
+  { metricSlug: "life_sciences_employment", jurisdictionSlug: "durham-county", years: [2025] },
+  { metricSlug: "advanced_manufacturing_employment", jurisdictionSlug: "durham-county", years: [2025] },
+  { metricSlug: "business_formation", jurisdictionSlug: "durham-county", years: [2025] },
+  // business_survival_rate is a 3-year survival rate measured 3 years after a cohort's birth year;
+  // the 2022 cohort only has a published 2-year rate so far, 2023 only a 1-year rate, and 2024/2025
+  // cohorts are too recent for any rate yet -- all four years are a temporary, not permanent, gap.
+  {
+    metricSlug: "business_survival_rate",
+    jurisdictionSlug: "durham-county",
+    years: [2022, 2023, 2024, 2025],
+  },
 ];

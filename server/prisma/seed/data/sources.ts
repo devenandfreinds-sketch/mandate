@@ -2382,6 +2382,54 @@ export const sources: SourceSeedSpec[] = [
     language: "en",
   },
   {
+    key: "nomis_bres_durham",
+    name: "Nomis Business Register and Employment Survey (BRES) — County Durham",
+    publisher: "UK Office for National Statistics (via Nomis)",
+    url: "https://www.nomisweb.co.uk/",
+    sourceType: "government_dataset",
+    citation:
+      "ONS Business Register and Employment Survey (BRES), dataset NM_189_1, employee jobs by SIC 2007 industry, County Durham (E06000047).",
+    isPlaceholder: false,
+    updateFrequency: "annual",
+    methodology:
+      "Uses the exact same SIC 2007 groupings already established for Mandate's Greater Manchester data, for cross-jurisdiction comparability: tech_employment = divisions 58-63 in full; life_sciences_employment = division 21 in full (2110+2120) + 2660 + 3250; advanced_manufacturing_employment = divisions 26-30 in full, EXCLUDING division 21 (to avoid double-counting with life sciences) and excluding division 20. BRES local-authority data is only available from 2015 onward (a pre-2015 methodology change makes earlier years non-comparable). BRES counts are rounded and subject to disclosure control.",
+    defaultConfidence: "high",
+    country: "United Kingdom",
+    language: "en",
+  },
+  {
+    key: "ons_business_demography_durham",
+    name: "ONS Business Demography (Births, Deaths, Survival) — County Durham",
+    publisher: "UK Office for National Statistics",
+    url: "https://www.ons.gov.uk/businessindustryandtrade/business/activitysizeandlocation/datasets/businessdemographyreferencetable",
+    sourceType: "government_dataset",
+    citation:
+      "ONS Business Demography annual reference tables, County Durham (E06000047): Table 1.1 (business births, by count) and Table 5.1 (survival rates of businesses by birth-cohort year, by percentage).",
+    isPlaceholder: false,
+    updateFrequency: "annual",
+    methodology:
+      "3-year survival rate is measured 3 years after a cohort's birth year, so recent cohorts (2022, 2023) do not yet have a published 3-year figure -- only shorter (1-year, 2-year) rates exist for those, which are not comparable to the 3-year series and are not imported. ONS revises historical editions of this dataset over time; figures here are as published in the specific annual edition cited per data point.",
+    defaultConfidence: "high",
+    country: "United Kingdom",
+    language: "en",
+  },
+  {
+    key: "hesa_hebci_durham_spinouts",
+    name: "HESA Higher Education Business and Community Interaction (HE-BCI) Survey — Durham University",
+    publisher: "Higher Education Statistics Agency",
+    url: "https://www.hesa.ac.uk/data-and-analysis/providers/business-community/table-4e",
+    sourceType: "government_dataset",
+    citation:
+      "HESA HE-BCI Table 4e, 'Intellectual property: Spin-off activities by HE provider,' Durham University (UKPRN 10007143), category 'Spin-offs with some HEP ownership,' count of newly registered companies in the reporting period.",
+    isPlaceholder: false,
+    updateFrequency: "annual",
+    methodology:
+      "HESA restates prior years on each release; figures here are as published in the 2022/23 edition. 2023/24 was not obtained this pass (HESA's site required bypassing a bot-check not attempted) -- the newer HESA Spin-out Register (published June 2025) likely covers it and is worth a follow-up pull.",
+    defaultConfidence: "high",
+    country: "United Kingdom",
+    language: "en",
+  },
+  {
     key: "durham_cc_official_press",
     name: "Durham County Council Official News Releases",
     publisher: "Durham County Council",

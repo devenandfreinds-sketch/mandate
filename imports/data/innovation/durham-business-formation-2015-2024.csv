@@ -1,0 +1,11 @@
+jurisdiction,metric,year,value,confidence,notes
+durham-county,business_formation,2015,1640,high,"ONS Business Demography reference tables, Table 1.1, business births (count of new enterprises), County Durham. Published in the 2018 edition (v6, corrected)."
+durham-county,business_formation,2016,1805,high,"ONS Business Demography reference tables, Table 1.1, County Durham. Published in the 2018 edition (v6, corrected)."
+durham-county,business_formation,2017,1610,high,"ONS Business Demography reference tables, Table 1.1, County Durham. Published in the 2018 edition (v6, corrected)."
+durham-county,business_formation,2018,1610,high,"ONS Business Demography reference tables, Table 1.1, County Durham. Published in the 2018 edition (v6, corrected)."
+durham-county,business_formation,2019,1650,high,"ONS Business Demography reference tables, Table 1.1a, County Durham. Published in the current (2024) edition."
+durham-county,business_formation,2020,1775,high,"ONS Business Demography reference tables, Table 1.1b, County Durham. Published in the current (2024) edition."
+durham-county,business_formation,2021,1810,high,"ONS Business Demography reference tables, Table 1.1c, County Durham. Published in the current (2024) edition."
+durham-county,business_formation,2022,1805,high,"ONS Business Demography reference tables, Table 1.1c, County Durham. Published in the current (2024) edition."
+durham-county,business_formation,2023,1625,high,"ONS Business Demography reference tables, Table 1.1c, County Durham. Published in the current (2024) edition."
+durham-county,business_formation,2024,1580,high,"ONS Business Demography reference tables, Table 1.1d, County Durham. Published in the current (2024) edition; provisional, may revise in the next edition."

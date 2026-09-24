@@ -1,0 +1,10 @@
+jurisdiction,metric,year,value,confidence,notes
+durham-county,business_survival_rate,2013,60.65,high,"ONS Business Demography reference tables, Table 5.1, 3-year survival rate of businesses born in 2013, County Durham. Published in the 2018 edition (v8, corrected footnote)."
+durham-county,business_survival_rate,2014,61.58,high,"ONS Business Demography reference tables, Table 5.1, 3-year survival rate of businesses born in 2014, County Durham. Published in the 2019 edition (v11)."
+durham-county,business_survival_rate,2015,57.62,high,"ONS Business Demography reference tables, Table 5.1, 3-year survival rate of businesses born in 2015, County Durham. Published in the 2018 edition (v8, corrected footnote)."
+durham-county,business_survival_rate,2016,57.34,high,"ONS Business Demography reference tables, Table 5.1, 3-year survival rate of businesses born in 2016, County Durham. Published in the 2019 edition (v11)."
+durham-county,business_survival_rate,2017,54.97,high,"ONS Business Demography reference tables, Table 5.1, 3-year survival rate of businesses born in 2017, County Durham. Published in the 2020 edition (v14)."
+durham-county,business_survival_rate,2018,60.38,high,"ONS Business Demography reference tables, Table 5.1, 3-year survival rate of businesses born in 2018, County Durham. Published in the 2021 edition (v15)."
+durham-county,business_survival_rate,2019,60.00,high,"ONS Business Demography reference tables, Table 5.1, 3-year survival rate of businesses born in 2019, County Durham. Published in the current (2024) edition."
+durham-county,business_survival_rate,2020,50.99,high,"ONS Business Demography reference tables, Table 5.1, 3-year survival rate of businesses born in 2020, County Durham. Published in the current (2024) edition."
+durham-county,business_survival_rate,2021,54.97,high,"ONS Business Demography reference tables, Table 5.1, 3-year survival rate of businesses born in 2021, County Durham. Published in the current (2024) edition."

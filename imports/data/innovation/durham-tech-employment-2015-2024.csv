@@ -1,0 +1,11 @@
+jurisdiction,metric,year,value,confidence,notes
+durham-county,tech_employment,2015,1850,high,"ONS BRES via Nomis (NM_189_1), employees, SIC 2007 divisions 58-63 in full, County Durham. Matches Mandate's Greater Manchester tech_employment definition exactly (verified by reproducing GM's 2018 figure bit-for-bit with these same parameters)."
+durham-county,tech_employment,2016,1105,high,"ONS BRES via Nomis, SIC divisions 58-63, County Durham."
+durham-county,tech_employment,2017,2070,high,"ONS BRES via Nomis, SIC divisions 58-63, County Durham."
+durham-county,tech_employment,2018,1730,high,"ONS BRES via Nomis, SIC divisions 58-63, County Durham."
+durham-county,tech_employment,2019,1950,high,"ONS BRES via Nomis, SIC divisions 58-63, County Durham."
+durham-county,tech_employment,2020,1655,high,"ONS BRES via Nomis, SIC divisions 58-63, County Durham."
+durham-county,tech_employment,2021,1725,high,"ONS BRES via Nomis, SIC divisions 58-63, County Durham."
+durham-county,tech_employment,2022,1880,high,"ONS BRES via Nomis, SIC divisions 58-63, County Durham."
+durham-county,tech_employment,2023,2525,high,"ONS BRES via Nomis, SIC divisions 58-63, County Durham."
+durham-county,tech_employment,2024,2135,high,"ONS BRES via Nomis, SIC divisions 58-63, County Durham. Provisional (first-published vintage, not yet through its first annual revision), same status as Mandate's existing GM 2024 figure."

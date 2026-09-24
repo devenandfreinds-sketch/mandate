@@ -1,0 +1,11 @@
+jurisdiction,metric,year,value,confidence,notes
+durham-county,life_sciences_employment,2015,1610,high,"ONS BRES via Nomis (NM_189_1), employees, SIC 2007 division 21 in full (2110+2120) + SIC 2660 + SIC 3250, County Durham. Matches Mandate's Greater Manchester life_sciences_employment definition exactly (verified by reproducing GM's 2018 figure bit-for-bit with these same parameters)."
+durham-county,life_sciences_employment,2016,1595,high,"ONS BRES via Nomis, SIC 21+2660+3250, County Durham."
+durham-county,life_sciences_employment,2017,1575,high,"ONS BRES via Nomis, SIC 21+2660+3250, County Durham."
+durham-county,life_sciences_employment,2018,1595,high,"ONS BRES via Nomis, SIC 21+2660+3250, County Durham."
+durham-county,life_sciences_employment,2019,1605,high,"ONS BRES via Nomis, SIC 21+2660+3250, County Durham."
+durham-county,life_sciences_employment,2020,1525,high,"ONS BRES via Nomis, SIC 21+2660+3250, County Durham."
+durham-county,life_sciences_employment,2021,2335,high,"ONS BRES via Nomis, SIC 21+2660+3250, County Durham."
+durham-county,life_sciences_employment,2022,1560,high,"ONS BRES via Nomis, SIC 21+2660+3250, County Durham."
+durham-county,life_sciences_employment,2023,1820,high,"ONS BRES via Nomis, SIC 21+2660+3250, County Durham."
+durham-county,life_sciences_employment,2024,1540,high,"ONS BRES via Nomis, SIC 21+2660+3250, County Durham. Provisional (first-published vintage), same status as Mandate's existing GM 2024 figure."
