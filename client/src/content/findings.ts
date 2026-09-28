@@ -110,6 +110,63 @@ export const findings: Finding[] = [
     ],
     sources: [],
   },
+  {
+    slug: "durham-lowest-tax-rise-with-a-catch",
+    title: "Durham's Lowest Tax Rise in 15 Years Came With a Catch",
+    dek: "Reform UK's first budget for Durham County Council set council tax at 1.99%, the smallest increase in 15 years. Weeks earlier, the same administration cut rebates for roughly 26,000 of the county's lowest-income households.",
+    publishedDate: "2026-09-28",
+    category: "Fiscal Health",
+    sections: [
+      {
+        heading: "The question",
+        paragraphs: [
+          "Reform UK campaigned on lower taxes. Its first full budget for Durham County Council delivered the smallest council tax increase in 15 years. Did every resident get the same deal?",
+        ],
+      },
+      {
+        heading: "What the data shows",
+        paragraphs: [
+          "On 11 February 2026, Durham County Council set its 2026/27 council tax increase at 1.99%, entirely from the adult social care precept, with 0% on the core rate. Full Fact independently verified this as the lowest increase in 15 years and found that no Reform-controlled upper-tier council in England had cut council tax in cash terms.",
+          "Three months earlier, on 19 November 2025, the same Reform cabinet voted to cut the cap on the Council Tax Reduction Scheme for working-age claimants from 100% to 90%, effective 1 April 2026. The change is expected to raise about £2.161 million a year by requiring council tax support recipients to pay at least 10% of their bill themselves, pulling an estimated 26,000 low-income working-age residents into paying council tax for the first time and reducing the rebate for roughly 2,400 more.",
+          "Both decisions fall in the same budget cycle and the same financial year.",
+        ],
+      },
+      {
+        heading: "Controls",
+        paragraphs: [
+          "The 4.99% rise for 2025/26, the year before this one, is sometimes cited as evidence of how far Reform brought the rate down. That figure was set by the outgoing Liberal Democrat-led coalition in February 2025, three months before Reform took control, not by the administration it's being compared against.",
+          "Council tax support schemes have been under pressure nationally since local welfare funding was devolved to councils in 2013, and caps get tightened under councils of every party facing budget shortfalls. Whether Durham's cut is a distinctively Reform choice, or the kind of tightening most financially stretched English councils are making regardless of who runs them, isn't something this piece can settle without a wider survey of other councils' 2025/26 and 2026/27 decisions on the same scheme.",
+        ],
+      },
+      {
+        heading: "The complication",
+        paragraphs: [
+          "A 1.99% headline increase describes what happens to a bill that was already being paid in full. For the roughly 26,000 residents newly required to cover 10% of a bill they weren't paying at all, the relevant comparison isn't 1.99%. It's the size of a bill that didn't exist for them the year before.",
+          "The council's own justification for the two decisions differs. The LCTRS cut was argued on budgetary grounds, closing part of a projected four-year deficit. The 1.99% rate was framed as tax restraint. They were debated separately, even though they land on some of the same households' finances in the same year.",
+        ],
+      },
+      {
+        heading: "What this means",
+        paragraphs: [
+          "A single headline tax-rate figure can describe very different experiences depending on who's asked. Durham's 2026/27 budget held the general rate about as low as an English county council can while still funding adult social care, and it did that partly by asking its lowest-income residents to start covering more of their own bill.",
+        ],
+      },
+      {
+        heading: "What this doesn't show",
+        paragraphs: [
+          "This isn't evidence that Reform UK's low-tax platform is insincere, or that the Council Tax Reduction Scheme cut was avoidable given the council's finances. It also doesn't establish how Durham's approach compares to other councils managing similar shortfalls, Reform-led or otherwise, which would need a broader look at English council budgets for the same two years.",
+        ],
+      },
+    ],
+    sources: [
+      { label: "Durham County Council, \"Council tax increase revised to 1.99 per cent,\" 11 February 2026", url: "https://www.durham.gov.uk/article/34796/News-Council-tax-increase-revised-to-1-99-per-cent" },
+      { label: "Full Fact, \"Did Reform UK break its promises on council tax?,\" 9 April 2026 (updated 6 May 2026)", url: "https://fullfact.org/politics/reform-council-tax-record/" },
+      { label: "Durham County Council, \"Consultation proposed on changes to council tax support\"", url: "https://www.durham.gov.uk/article/33290/News-Consultation-proposed-on-changes-to-council-tax-support" },
+      { label: "Durham County Council, \"Residents invited to take part in consultation on proposed changes to Council Tax Reduction scheme\"", url: "https://www.durham.gov.uk/article/33412/News-Residents-invited-to-take-part-in-consultation-on-proposed-changes-to-Council-Tax-Reduction-scheme" },
+      { label: "North East Bylines, \"Council tax shock for thousands of Durham's poorest – thanks to Reform UK,\" 22 November 2025", url: "https://northeastbylines.co.uk/news/politics/council-tax-shock-for-thousands-of-durhams-poorest-thanks-to-reform-uk/" },
+      { label: "Durham County Council, \"Councillors to agree budget for next four years,\" February 2025", url: "https://www.durham.gov.uk/article/32465/News-Councillors-to-agree-budget-for-next-four-years" },
+    ],
+  },
 ];
 
 export function getFindingBySlug(slug: string): Finding | undefined {
