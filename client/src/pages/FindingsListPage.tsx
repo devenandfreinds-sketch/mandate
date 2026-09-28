@@ -24,6 +24,7 @@ export function FindingsListPage() {
                   <span className="text-xs text-muted-foreground">{formatUtcDate(f.publishedDate, { year: "numeric", month: "short", day: "numeric" })}</span>
                 </div>
                 <CardTitle className="text-lg">{f.title}</CardTitle>
+                {f.author && <p className="text-xs text-muted-foreground">By {f.author}</p>}
               </CardHeader>
               <CardContent className="text-sm text-muted-foreground">{f.dek}</CardContent>
             </Card>

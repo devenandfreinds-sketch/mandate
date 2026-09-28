@@ -33,6 +33,7 @@ export function FindingDetailPage() {
         </span>
       </div>
       <h1 className="mt-2 text-2xl font-semibold">{finding.title}</h1>
+      {finding.author && <p className="mt-1 text-xs text-muted-foreground">By {finding.author}</p>}
       <p className="mt-2 max-w-3xl text-muted-foreground">{finding.dek}</p>
 
       <div className="mt-8 max-w-3xl space-y-8">
@@ -52,24 +53,26 @@ export function FindingDetailPage() {
           </section>
         ))}
 
-        <section>
-          <Card>
-            <CardHeader>
-              <CardTitle className="text-base">Sources</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <ul className="space-y-2 text-sm">
-                {finding.sources.map((s) => (
-                  <li key={s.url}>
-                    <a href={s.url} target="_blank" rel="noreferrer" className="underline">
-                      {s.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </CardContent>
-          </Card>
-        </section>
+        {finding.sources.length > 0 && (
+          <section>
+            <Card>
+              <CardHeader>
+                <CardTitle className="text-base">Sources</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <ul className="space-y-2 text-sm">
+                  {finding.sources.map((s) => (
+                    <li key={s.url}>
+                      <a href={s.url} target="_blank" rel="noreferrer" className="underline">
+                        {s.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </CardContent>
+            </Card>
+          </section>
+        )}
       </div>
     </PageContainer>
   );

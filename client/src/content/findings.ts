@@ -16,6 +16,8 @@ export interface Finding {
   dek: string;
   publishedDate: string;
   category: string;
+  /** Byline. Omit for Mandate's own staff-researched findings (the default, unattributed). */
+  author?: string;
   sections: FindingSection[];
   sources: FindingSource[];
 }
@@ -78,6 +80,35 @@ export const findings: Finding[] = [
       { label: "Code of the District of Columbia § 1-901.01 (the 1997 pension transfer, in DC's own words)", url: "https://code.dccouncil.gov/us/dc/council/code/sections/1-901.01" },
       { label: "GAO, \"D.C. Pensions: Plans Consuming Growing Share of District Budget,\" 1994", url: "https://www.gao.gov/products/t-hehs-94-192" },
     ],
+  },
+  {
+    slug: "fc-barcelona-vs-citadel-miami",
+    title: "FC Barcelona vs. Citadel",
+    dek: "What does this say about Miami's governance strategy?",
+    publishedDate: "2026-09-27",
+    category: "Economic Development",
+    author: "Deven Mishra",
+    sections: [
+      {
+        heading: "What does this say about Miami's governance strategy?",
+        paragraphs: [
+          "In recent years, many companies have moved down to more \"lifestyle\" cities. Few cities have been affected by this boom quite as much as Miami. It has seen major moves down south, particularly from the North.",
+          "Some of the most prominent moves have been FC Barcelona's North American commercial operations from NYC to Miami and Citadel from Chicago to Miami. These two moves tell us quite a bit about Miami's governance strategy.",
+          "FC Barcelona was courted by Miami's business development institutions and supported by the government to move its commercial operations down to the city. FC Barcelona still has a soccer academy based in NYC.",
+          "Citadel has been studied quite extensively, but essentially, it boils down to this: Ken Griffin, CEO of Citadel, has stated that there were two reasons that pushed the firm away from Chicago. While Miami's lifestyle and tax benefits are often discussed, Griffin stated that taxes were not a factor in his decision. His concerns instead centered on Chicago's business environment and public safety.",
+        ],
+      },
+      {
+        heading: "FC Barcelona",
+        paragraphs: [
+          "FC Barcelona conveys a cohesive strategy of appealing to international business very directly through sports branding and commercial partnerships.",
+          "However, it is evident that, in terms of fostering and attracting talent itself, Miami is still not on the same level as its Northern counterparts.",
+          "Though FC Barcelona has moved its North American commercial operations to Miami, its football club remains in Barcelona, and its academy network continues to operate in other cities, including New York.",
+          "The broader question is whether Miami can translate its success in attracting international businesses into a more developed talent ecosystem.",
+        ],
+      },
+    ],
+    sources: [],
   },
 ];
 
