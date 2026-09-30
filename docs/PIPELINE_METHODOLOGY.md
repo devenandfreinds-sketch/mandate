@@ -101,6 +101,25 @@ Every transition above Stage 0 should cite at least one evidence record (a `Evid
 `SupportingLegislation` row) — this is enforced in the Admin Pipeline form (a submission for stage > 0
 with zero evidence and no legislation is blocked client-side) as of this hardening pass.
 
+## 11. Whose record does a score measure?
+
+**The jurisdiction's, not the current administration's.** A stage describes the institutional
+capacity a jurisdiction has today, whoever built it. An institution created by a previous
+administration and still operating is scored on its current state like any other; it is not zeroed out
+because the governing party changed, and it is not credited to the new one either.
+
+Because a stage alone does not say who built what, researchers must state provenance explicitly
+whenever the institution predates the tracked administration: name the administration (or era) that
+created it and say whether the current one has expanded, maintained, cut, or replaced it. Put this in
+the assessment's evidence summary or limitations, where it renders alongside the score. What the
+current administration has actually done shows up in how the pipeline moves while it is in office
+(new institutions, stage changes, dated continuity or cuts), not in the starting score it inherited.
+
+Decided September 2026 on the Durham County Council case (`docs/DURHAM_CASE_STUDY.md`), where
+DurhamWorks (launched 2015) was the first mature institution to sit entirely outside the tracked
+administration's tenure (Reform UK, from May 2025). This matches how every earlier assessment
+(Chicago, Greater Manchester, the DSA cities) had already been scored implicitly.
+
 ---
 
 ## Data quality vocabulary — what each label actually means

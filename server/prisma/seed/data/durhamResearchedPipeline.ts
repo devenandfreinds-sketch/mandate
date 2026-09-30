@@ -285,9 +285,9 @@ export const durhamResearchedPipelineAssessments: ResearchedPipelineAssessmentSp
     assessmentDate: "2026-07-09",
     isCurrent: true,
     evidenceSummary:
-      "DurhamWorks, Durham County Council's own youth (16-24, NEET) employment-support programme, is the subject of a named UK government impact evaluation (DWP Employment Data Lab, 9 July 2026) that used propensity-score matching against a ~54,000-person comparison pool across 4,868 evaluated participants. It found statistically significant positive effects: 56% employment at 2 years versus 50% for the matched comparison group, 61% versus 53% sustained employment (6+ months), and 35% versus 23% completing an education or training course.",
+      "DurhamWorks, Durham County Council's own youth (16-24, NEET) employment-support programme, is the subject of a named UK government impact evaluation (DWP Employment Data Lab, 9 July 2026) that used propensity-score matching against a ~54,000-person comparison pool across 4,868 evaluated participants. It found statistically significant positive effects: 56% employment at 2 years versus 50% for the matched comparison group, 61% versus 53% sustained employment (6+ months), and 35% versus 23% completing an education or training course. DurhamWorks launched in August 2015, a decade before Reform UK took control of the council in May 2025, and now runs on UK Shared Prosperity Fund money.",
     limitations:
-      "This is a single evaluation of one specific programme (youth NEET support) rather than a repeated, multi-period improving-outcomes series, and does not cover the wider workforce-development landscape: devolved adult-skills-budget funding for County Durham sits with the North East Mayoral Strategic Authority (a regional body Mandate does not model as its own jurisdiction), and Durham's own Apprenticeship Strategy 2025-2028 (adopted by the Reform cabinet, November 2025) is primarily an internal council-workforce pipeline rather than a general public job-placement programme.",
+      "This is a single evaluation of one specific programme (youth NEET support) rather than a repeated, multi-period improving-outcomes series, and does not cover the wider workforce-development landscape: devolved adult-skills-budget funding for County Durham sits with the North East Mayoral Strategic Authority (a regional body Mandate does not model as its own jurisdiction), and Durham's own Apprenticeship Strategy 2025-2028 (adopted by the Reform cabinet, November 2025) is primarily an internal council-workforce pipeline rather than a general public job-placement programme. Provenance: DurhamWorks launched in August 2015 under the then-Labour administration, and the evaluation covers only participants who started between August 2015 and October 2021, when European Social Fund financing ended; the ESF-funded phases closed in December 2023. It continues today as a council project funded by the UK Shared Prosperity Fund. The stage reflects County Durham's institutional capacity (Mandate scores jurisdiction-level institutional history), not an achievement of the Reform UK administration in office since May 2025, which has continued rather than created it.",
     evidenceLinks: [
       {
         label: "Employment Data Lab Analysis: Durham County Council DurhamWorks programme",
@@ -296,6 +296,16 @@ export const durhamResearchedPipelineAssessments: ResearchedPipelineAssessmentSp
         evidenceType: "report",
         publicationDate: "2026-07-09",
         publisher: "Department for Work and Pensions (GOV.UK)",
+        sourceTier: "government",
+        sourceKey: null,
+      },
+      {
+        label: "DurhamWorks",
+        description: "Durham County Council's current programme page, confirming DurhamWorks still operates for 16-24 year-old NEETs and is now funded through the UK Shared Prosperity Fund.",
+        url: "https://www.durham.gov.uk/article/26945/DurhamWorks",
+        evidenceType: "article",
+        publicationDate: null,
+        publisher: "Durham County Council",
         sourceTier: "government",
         sourceKey: null,
       },

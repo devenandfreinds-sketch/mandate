@@ -118,13 +118,34 @@ existing multiple-dated-row structure (already used for Greater Manchester's alt
 timeline) supports either reading — it requires a decision about what the score is supposed to mean.
 Deferred here, not implemented, pending that decision.
 
+**Resolved (September 2026): jurisdiction-level institutional history.** Scores describe the
+jurisdiction's institutional capacity regardless of which administration built it, and every
+assessment of a pre-existing institution states its provenance explicitly. The rule is now written up
+as #11 in `docs/PIPELINE_METHODOLOGY.md`.
+
+## Update: pipeline assessments created (September 2026)
+
+The "no PipelineAssessment rows" decision above describes the first pass only and no longer reflects
+the site. A later research pass scored all 7 policy areas for Durham in
+`server/prisma/seed/data/durhamResearchedPipeline.ts` (the file's header comment summarizes each
+score). In particular, `workforce-development-institution` is scored **stage 5** for DurhamWorks on
+the DWP Employment Data Lab impact evaluation (9 July 2026), under the jurisdiction-history reading
+above. Its evidence summary and limitations record that DurhamWorks launched in August 2015, that the
+evaluation covers only 2015-2021 participants from the ESF-funded phases (which closed December 2023),
+and that it now continues on UK Shared Prosperity Fund money, continued rather than created by Reform.
+The Finance Durham Fund, NETPark, the County Durham Plan's affordable-housing policy and the Council
+House Delivery Programme likewise predate Reform and are scored on the same basis. NETPark's assessment
+does not yet state its provenance explicitly, as rule #11 now requires; add that on the next pass. Real
+metric data has since been imported for Housing, Workforce, Fiscal Health and Innovation;
+Government Capacity, Transit and Public Safety remain synthetic placeholder.
+
 ## Open items carried into a future pass
 
 1. Confirm the 18 February 2026 budget vote's actual outcome/tally from a primary source.
 2. Confirm the 16 July 2025 climate-vote division from `democracy.durham.gov.uk` directly (unreachable
    this pass) rather than press paraphrase.
-3. Resolve the jurisdiction-history-vs-administration-attribution question above, then decide whether
-   `workforce-development-institution` gets a Stage 4-5 historical assessment for Durham.
+3. ~~Resolve the jurisdiction-history-vs-administration-attribution question above.~~ Done
+   (September 2026): jurisdiction history; DurhamWorks scored stage 5.
 4. Pull the remaining metrics: crime rates (Durham Constabulary force area, same ONS/Home Office method
    already proven for Greater Manchester this pass), business formation/survival, tech employment.
 5. Confirm the Durham CC Pension Fund's 2025 triennial valuation percentage from its primary Valuation
