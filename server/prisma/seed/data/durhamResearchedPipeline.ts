@@ -147,7 +147,7 @@ export const durhamResearchedPipelineAssessments: ResearchedPipelineAssessmentSp
     evidenceSummary:
       "Durham's planning-mandated affordable-housing requirement is operating and producing measurable annual output: the County Durham Plan Annual Monitoring Report 2023/24 records 433 affordable-housing completions that year (169 Affordable Rent, 154 Shared Ownership, 55 Social Rent via Homes England grant, plus 55 via Section 106 agreements), against a countywide need of 836 affordable homes/year identified in the Strategic Housing Market Assessment. This continued through the May 2025 change of political control without disruption.",
     limitations:
-      "This assessment requires combining the AMR's completions table with the separately reported need figure and shortfall history (2,647 affordable homes delivered against 4,180 needed, 2017/18-2021/22, a 36.7% shortfall), so it is coded 'estimated' rather than 'government' despite both source numbers being government-published. No improving trend is shown -- delivery has run below need in every measured period -- so stage 5 is not claimed. The council's own housing-requirement target was recalculated upward from 1,308 to 2,036 dwellings/year in 2026 under a revised national Standard Method, with 5-year land supply reported at only 3.92 years (below the statutory minimum) as of a September 2026 scrutiny committee report, suggesting the shortfall is set to widen rather than close.",
+      "This assessment requires combining the AMR's completions table with the separately reported need figure and shortfall history (2,647 affordable homes delivered against 4,180 needed, 2017/18-2021/22, a 36.7% shortfall), so it is coded 'estimated' rather than 'government' despite both source numbers being government-published. No improving trend is shown -- delivery has run below need in every measured period -- so stage 5 is not claimed. The council's own housing-requirement target was recalculated upward from 1,308 to 2,036 dwellings/year in 2026 under a revised national Standard Method, with 5-year land supply reported at only 3.92 years (below the statutory minimum) as of a September 2026 scrutiny committee report, suggesting the shortfall is set to widen rather than close. Provenance: Policy 15 was adopted on 21 October 2020 as part of the County Durham Plan under the then-Labour administration, ran through the Liberal Democrat-led coalition (2021-2025), and has been continued, not created or replaced, by the Reform UK administration since May 2025. The stage reflects County Durham's institutional capacity, not an achievement of the Reform administration.",
     evidenceLinks: [
       {
         label: "County Durham Plan Annual Monitoring Report 2023/24",
@@ -181,9 +181,9 @@ export const durhamResearchedPipelineAssessments: ResearchedPipelineAssessmentSp
     assessmentDate: "2024-08-16",
     isCurrent: true,
     evidenceSummary:
-      "The council's direct-build Council House Delivery Programme, agreed in 2020 and advanced through the Liberal Democrat-led coalition (Phase 1 sites agreed by Cabinet February 2021; Phase 2 sites December 2021; an updated ~GBP100m, six-year-to-2029 business case approved July 2023), reached a funded, staffed, construction-ready state when delivery partner T Manners & Sons was appointed by August 2024. Named sites under construction as of this research pass: Greenwood Avenue, Burnhope (32 homes, started autumn 2025) and Portland Avenue, Seaham (33 homes, started summer 2025), both expected to complete in 2026.",
+      "The council's direct-build Council House Delivery Programme, agreed by Cabinet in October 2020 under the then-Labour administration and advanced through the Liberal Democrat-led coalition (Phase 1 sites agreed by Cabinet February 2021; Phase 2 sites December 2021; an updated ~GBP100m, six-year-to-2029 business case approved July 2023), reached a funded, staffed, construction-ready state when delivery partner T Manners & Sons was appointed by August 2024. Named sites under construction as of this research pass: Greenwood Avenue, Burnhope (32 homes, started autumn 2025) and Portland Avenue, Seaham (33 homes, started summer 2025), both expected to complete in 2026.",
     limitations:
-      "No completed units were confirmed as of this research pass (target completion dates of autumn/winter 2026 had not yet been independently verified), so stage 4 ('operating with observable outputs') is not yet claimed. The programme's accounting basis (Housing Revenue Account vs. General Fund/capital programme) and whether it sits inside a distinct legal vehicle could not be confirmed from any source accessed in this research pass. Construction proceeded on schedule across the May 2025 change of political control with no evidence found that Reform UK created, expanded, or cut this specific programme.",
+      "No completed units were confirmed as of this research pass (target completion dates of autumn/winter 2026 had not yet been independently verified), so stage 4 ('operating with observable outputs') is not yet claimed. The programme's accounting basis (Housing Revenue Account vs. General Fund/capital programme) and whether it sits inside a distinct legal vehicle could not be confirmed from any source accessed in this research pass. Construction proceeded on schedule across the May 2025 change of political control with no evidence found that Reform UK created, expanded, or cut this specific programme; Reform cabinet member Cllr Joe Quinn launched the Seaham (August 2025) and Spennymoor (November 2025) schemes under the same 500-homes target. Provenance: Cabinet agreed the programme in October 2020 under the then-Labour administration (confirmed from a December 2024 Overview and Scrutiny report; the exact October cabinet date was not confirmed), and the Liberal Democrat-led coalition agreed its sites and approved the July 2023 revised business case, which moved the target to 2029 and cut the council's capital contribution from GBP12.5m to GBP4.5m. The stage reflects County Durham's institutional capacity, not an achievement of the Reform administration.",
     evidenceLinks: [
       {
         label: "GBP100m plan for 500 council houses takes step forward",
@@ -193,6 +193,16 @@ export const durhamResearchedPipelineAssessments: ResearchedPipelineAssessmentSp
         publicationDate: "2024-08-16",
         publisher: "Aycliffe Today (mirroring a Durham County Council release)",
         sourceTier: "alternative",
+        sourceKey: null,
+      },
+      {
+        label: "Council House Delivery Programme update (Overview and Scrutiny, 18 December 2024)",
+        description: "Council scrutiny report (archived copy; democracy.durham.gov.uk was unreachable) confirming the October 2020 Cabinet agreement, the 2021 site approvals, and the July 2023 revised business case.",
+        url: "https://web.archive.org/web/2025/https://democracy.durham.gov.uk/documents/s198884/Item%206%20CHDP%20Update%20Report%20OSC%2018%20December%202024%20FINAL%20003.pdf",
+        evidenceType: "report",
+        publicationDate: "2024-12-18",
+        publisher: "Durham County Council",
+        sourceTier: "government",
         sourceKey: null,
       },
     ],
@@ -234,7 +244,7 @@ export const durhamResearchedPipelineAssessments: ResearchedPipelineAssessmentSp
     evidenceSummary:
       "As of an April 2026 council report, the Finance Durham Fund had made 58 investments into 38 companies (GBP17.29 million deployed since 2017), leveraging a further GBP40 million of follow-on private investment, supporting an estimated 1,500 jobs and GBP44 million of GVA impact, with GBP3.7 million still available to award. Reform cabinet member Cllr Joe Quinn publicly credited the fund's economic impact in the same report.",
     limitations:
-      "Figures are a cumulative since-2017 total rather than a multi-period improving trend, so stage 5 is not claimed. Durham County Council's precise governance role beyond sole funder (e.g. a board seat) was not confirmed from any source accessed. The Reform administration cut Business Durham's general business-support budget by GBP634,000 (18.7 FTE) in a November 2025 savings package while continuing to promote this specific fund -- evidence of continuity for this institution specifically, not the wider business-support service.",
+      "Figures are a cumulative since-2017 total rather than a multi-period improving trend, so stage 5 is not claimed. Durham County Council's precise governance role beyond sole funder (e.g. a board seat) was not confirmed from any source accessed. The Reform administration cut Business Durham's general business-support budget by GBP634,000 (18.7 FTE) in a November 2025 savings package while continuing to promote this specific fund -- evidence of continuity for this institution specifically, not the wider business-support service. Provenance: the fund was put to the council's Cabinet in June 2016 and launched in 2017, both under the then-Labour administration; it ran through the Liberal Democrat-led coalition (2021-2025) and has been continued, not created or expanded, by the Reform UK administration since May 2025. The stage reflects County Durham's institutional capacity, not an achievement of the Reform administration.",
     evidenceLinks: [
       {
         label: "Business growth fund generates GBP40m",
@@ -244,6 +254,16 @@ export const durhamResearchedPipelineAssessments: ResearchedPipelineAssessmentSp
         publicationDate: "2026-04-14",
         publisher: "Durham County Council",
         sourceTier: "government",
+        sourceKey: null,
+      },
+      {
+        label: "Finance Durham set to bank GBP20m",
+        description: "Trade-press report that the proposed GBP20m Finance Durham fund went before the council's Cabinet in June 2016, under the then-Labour administration.",
+        url: "https://www.themj.co.uk/finance-durham-set-bank-gbp20m",
+        evidenceType: "news_article",
+        publicationDate: "2016-06-15",
+        publisher: "The MJ",
+        sourceTier: "alternative",
         sourceKey: null,
       },
     ],
@@ -260,8 +280,38 @@ export const durhamResearchedPipelineAssessments: ResearchedPipelineAssessmentSp
     evidenceSummary:
       "NETPark, owned by Durham County Council and operated by Business Durham with Durham University and the Centre for Process Innovation as strategic partners, now hosts 40+ companies and 700+ jobs in advanced materials, semiconductors, and life sciences. On 26 November 2024 the North East Combined Authority's Cabinet approved GBP11.3 million from the GBP160m North East Investment Zone fund for Phase 3 site works, projected to create 250+ direct jobs.",
     limitations:
-      "Phase 3's projected 1,250-job, GBP625m-over-10-years figure (from the Council Plan 2025-2030) is a forward projection, not a confirmed outcome, so stage 5 is not claimed. The Phase 3 capital award itself came from the North East Combined Authority, not Durham County Council directly, alongside a separately reported GBP62m Durham County Council commitment to the same phase.",
+      "Phase 3's projected 1,250-job, GBP625m-over-10-years figure (from the Council Plan 2025-2030) is a forward projection, not a confirmed outcome, so stage 5 is not claimed. The Phase 3 capital award itself came from the North East Combined Authority, not Durham County Council directly, alongside a separately reported GBP62m Durham County Council commitment to the same phase. Provenance: NETPark was developed by Durham County Council under its long-running Labour control; its first building, the NETPark Research Institute, opened in July 2004, and a 2017 expansion (the GBP7.4m Explorer buildings and a road opening 26 more acres) drew on North East LEP Local Growth Fund grants. The original pre-2004 funding partners could not be confirmed from a primary source. Phase 3 itself was approved by Cabinet on 15 September 2021 at GBP49.6m (later reported as GBP62m of a roughly GBP100m total), under the Liberal Democrat-led coalition, with further North East LEP (November 2022) and Investment Zone (November 2024) grants. The Reform UK administration in office since May 2025 has continued the park rather than created, expanded or cut it: in April 2026 the council reported the Phase 3 expansion fully operational, and its Council Plan 2025-2030 names NETPark's development as an economic priority. The stage reflects County Durham's institutional capacity (Mandate scores jurisdiction-level institutional history), not an achievement of the Reform administration.",
     evidenceLinks: [
+      {
+        label: "The NETPark story",
+        description: "NETPark's own history page: the NETPark Research Institute opened on 23 July 2004, with Kromek as first tenant.",
+        url: "https://www.northeasttechnologypark.com/netpark-story",
+        evidenceType: "article",
+        publicationDate: null,
+        publisher: "NETPark / Business Durham (Durham County Council)",
+        sourceTier: "government",
+        sourceKey: null,
+      },
+      {
+        label: "Cabinet to be asked to agree near GBP50m investment in growth of NETPark",
+        description: "Council release (archived copy; the original durham.gov.uk article 26170 now returns 404) stating the council developed NETPark and that Cabinet would decide the GBP49.6m Phase 3 investment on 15 September 2021.",
+        url: "https://web.archive.org/web/2021/https://www.durham.gov.uk/article/26170/Cabinet-to-be-asked-to-agree-near-50m-investment-in-growth-of-NETPark",
+        evidenceType: "news_article",
+        publicationDate: "2021-09-07",
+        publisher: "Durham County Council",
+        sourceTier: "government",
+        sourceKey: null,
+      },
+      {
+        label: "NETPark expansion fully operational",
+        description: "April 2026 council release, quoting Reform cabinet member Cllr Joe Quinn, reporting the GBP100m Phase 3 expansion as fully operational.",
+        url: "https://www.durham.gov.uk/article/35337",
+        evidenceType: "news_article",
+        publicationDate: "2026-04-10",
+        publisher: "Durham County Council",
+        sourceTier: "government",
+        sourceKey: null,
+      },
       {
         label: "GBP11m funding for NETPark",
         description: "Confirms NEIZ Phase 3 funding, jobs projection, and Durham County Council's own capital commitment to the same phase.",

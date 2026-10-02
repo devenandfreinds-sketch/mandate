@@ -134,19 +134,37 @@ above. Its evidence summary and limitations record that DurhamWorks launched in 
 evaluation covers only 2015-2021 participants from the ESF-funded phases (which closed December 2023),
 and that it now continues on UK Shared Prosperity Fund money, continued rather than created by Reform.
 The Finance Durham Fund, NETPark, the County Durham Plan's affordable-housing policy and the Council
-House Delivery Programme likewise predate Reform and are scored on the same basis. NETPark's assessment
-does not yet state its provenance explicitly, as rule #11 now requires; add that on the next pass. Real
+House Delivery Programme likewise predate Reform and are scored on the same basis; as of October 2026
+each of their current assessments states its provenance explicitly, as rule #11 requires. Labour-era
+origins: NETPark (opened 2004, expanded 2017), the Finance Durham Fund (to Cabinet June 2016, launched
+2017), Policy 15 (adopted October 2020) and the Council House Delivery Programme (agreed October 2020).
+NETPark's Phase 3, by contrast, was approved by the Liberal Democrat-led coalition's Cabinet on
+15 September 2021. Reform has continued all four without creating, expanding or cutting them. Real
 metric data has since been imported for Housing, Workforce, Fiscal Health and Innovation;
 Government Capacity, Transit and Public Safety remain synthetic placeholder.
 
 ## Open items carried into a future pass
 
-1. Confirm the 18 February 2026 budget vote's actual outcome/tally from a primary source.
-2. Confirm the 16 July 2025 climate-vote division from `democracy.durham.gov.uk` directly (unreachable
-   this pass) rather than press paraphrase.
+1. Confirm the 18 February 2026 budget vote's actual outcome/tally from a primary source. Still open
+   (October 2026): `democracy.durham.gov.uk` refused HTTPS connections again, and the Wayback Machine
+   holds no capture of that meeting.
+2. Confirm the 16 July 2025 climate-vote division from `democracy.durham.gov.uk` directly rather than
+   press paraphrase. Still open (October 2026), same access failure. What is now primary-confirmed is
+   the motion as tabled: item 13 on the archived agenda frontsheet (County Council is committee
+   `CId=153`, this meeting `MId=16220`), moved by Cllr D Grimes, resolving to rescind the 20 February
+   2019 Climate Emergency Declaration, declare a "County Durham Care Emergency" for children's social
+   care and SEND, and ask Cabinet to redirect resources toward care. The agenda does not name the
+   mover's party, and any amendment made on the day would not appear there. Next step: the minutes at
+   `ieListDocuments.aspx?CId=153&MId=16220`, or the following meeting's agenda pack, which carries
+   these minutes for approval.
 3. ~~Resolve the jurisdiction-history-vs-administration-attribution question above.~~ Done
    (September 2026): jurisdiction history; DurhamWorks scored stage 5.
 4. Pull the remaining metrics: crime rates (Durham Constabulary force area, same ONS/Home Office method
-   already proven for Greater Manchester this pass), business formation/survival, tech employment.
-5. Confirm the Durham CC Pension Fund's 2025 triennial valuation percentage from its primary Valuation
-   Report (only a press paraphrase, "no change" from 2022, was found this pass).
+   already proven for Greater Manchester this pass). ~~Business formation/survival, tech
+   employment.~~ Done (September 2026, Innovation round, commit `e788d8f`): ONS Business Demography and
+   BRES, using Greater Manchester's exact SIC groupings. The rest of Public Safety, plus Government
+   Capacity and Transit, is still synthetic placeholder.
+5. ~~Confirm the Durham CC Pension Fund's 2025 triennial valuation percentage from its primary
+   Valuation Report.~~ Done (September 2026, Fiscal Health round, commit `77ff3e8`): the Aon 2025
+   valuation gives 98.1% funded, up from the 2022 valuation's 97.5% granular figure. The earlier press
+   paraphrase of "no change" undersold a small real improvement.
