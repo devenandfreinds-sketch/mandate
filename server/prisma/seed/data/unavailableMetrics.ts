@@ -285,4 +285,63 @@ export const unavailableMetrics: UnavailableMetricSpec[] = [
     jurisdictionSlug: "durham-county",
     years: [2022, 2023, 2024, 2025],
   },
+  // Durham research sweep (2026-10-08): every entry below was confirmed by an independent verifier;
+  // full evidence in imports/research/durham-sweep-2026-10.json.
+  // bike_infrastructure_miles -- the council's Cycling and Walking Delivery Plan 2019-2029 commits to
+  // auditing the network but reports no length; its 'Where to cycle' page gives bridleways, byways and
+  // 'over 150km of railway paths', which are shared rights of way, not dedicated bike infrastructure.
+  { metricSlug: "bike_infrastructure_miles", jurisdictionSlug: "durham-county" },
+  // agency_vacancy_rate -- no council-wide vacancy rate is published. Workforce strategies report
+  // sickness and turnover (different measures); the only vacancy figure found is children's social
+  // workers (10.8%, March 2025), one professional group, not the whole establishment.
+  { metricSlug: "agency_vacancy_rate", jurisdictionSlug: "durham-county" },
+  // digital_government_adoption -- no 0-100 benchmark scores Durham. Socitm Better Connected used star
+  // ratings; the council reports only a contact-channel share (58% non-digital, vs 77% pre-pandemic),
+  // and building a composite from it would mean inventing a methodology. Same outcome as Chicago.
+  { metricSlug: "digital_government_adoption", jurisdictionSlug: "durham-county" },
+  // major_infrastructure_delivery_rate -- capital outturn reports give spend and reprofiling in GBP, not
+  // a count or share of projects delivered on schedule; no RAG or on-time measure in ten years of reports.
+  { metricSlug: "major_infrastructure_delivery_rate", jurisdictionSlug: "durham-county" },
+  // permit_approval_days -- Durham Building Control publishes service targets, not results; the
+  // Building Safety Regulator KPIs have no decision-time median; and English building control is
+  // partly run by private approvers, so council data would not cover all permits anyway.
+  { metricSlug: "permit_approval_days", jurisdictionSlug: "durham-county" },
+  // planning_efficiency_index -- no 0-100 composite exists for any English planning authority. MHCLG
+  // P151/P153 publish % of decisions within 13/8 weeks or agreed time, which is reproducible for
+  // Durham and GM if Mandate ever defines a percent-on-time metric, but is not this index.
+  { metricSlug: "planning_efficiency_index", jurisdictionSlug: "durham-county" },
+  // procurement_timeline_days -- no published median; the Contracts Register has no tender-issue or
+  // award dates. Derivable in principle from Find a Tender / Contracts Finder notices, but that means
+  // building a bespoke dataset from individual notices: revisit as its own project, not a data pull.
+  { metricSlug: "procurement_timeline_days", jurisdictionSlug: "durham-county" },
+  // vacancy_rate (re-checked; previously left placeholder) -- the metric is RENTAL vacancy. MHCLG Live
+  // Table 615 gives whole-stock and social-landlord vacancy only; nothing isolates private-rented
+  // vacancy or uses a rental-inventory denominator. Whole-stock vacancy must not be substituted.
+  { metricSlug: "vacancy_rate", jurisdictionSlug: "durham-county" },
+  // planning_approval_days (re-checked) -- MHCLG publishes only % decided within statutory time, no
+  // average or median; planning.data.gov.uk holds 0 Durham applications; the 2025 FOI coverage gives
+  // only ranges of averages by category, not a median.
+  { metricSlug: "planning_approval_days", jurisdictionSlug: "durham-county" },
+  // homelessness_count (re-checked, then verified again) -- the metric is a single-night point-in-time
+  // count of sheltered AND unsheltered individuals. MHCLG publishes household duty flows and an
+  // unsheltered-only autumn rough-sleeping snapshot. Shelter's annual 'Homelessness in England' local
+  // estimates are the closest proxy but are rejected: a modelled composite from different nights, not
+  // a consistent series (reference dates move, no 2020, a 2019 recording artefact), the Dec 2023
+  // edition used autumn-2019 rough-sleeping figures for every council, and Shelter's terms forbid
+  // commercial reuse. A proxy, if ever wanted, should be computed from the OGL government tables.
+  { metricSlug: "homelessness_count", jurisdictionSlug: "durham-county" },
+  // active_transportation_mode_share -- only the decennial Census measures this at local-authority
+  // level (2011 and 2021 imported); intervening years have no figure, like the triennial pension valuations.
+  {
+    metricSlug: "active_transportation_mode_share",
+    jurisdictionSlug: "durham-county",
+    years: [2015, 2016, 2017, 2018, 2019, 2020, 2022, 2023, 2024, 2025],
+  },
+  // average_commute_minutes -- ONS ad hoc 008005 gives County Durham only for 2015 and 2016 (imported);
+  // later ONS ad hocs use pre-2009 district geography with no weights, and no later LA series exists.
+  {
+    metricSlug: "average_commute_minutes",
+    jurisdictionSlug: "durham-county",
+    years: [2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025],
+  },
 ];

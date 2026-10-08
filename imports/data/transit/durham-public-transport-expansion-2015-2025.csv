@@ -1,0 +1,12 @@
+jurisdiction,metric,year,value,confidence,notes
+durham-county,public_transport_expansion_miles,2015,0,estimated,No new rail or BRT route-miles opened in County Durham. Inferred from absence.
+durham-county,public_transport_expansion_miles,2016,0,estimated,No new rail or BRT route-miles opened. Inferred from absence.
+durham-county,public_transport_expansion_miles,2017,0,estimated,No new rail or BRT route-miles opened. Inferred from absence.
+durham-county,public_transport_expansion_miles,2018,0,estimated,No new rail or BRT route-miles opened. Inferred from absence.
+durham-county,public_transport_expansion_miles,2019,0,estimated,No new rail or BRT route-miles opened. Inferred from absence.
+durham-county,public_transport_expansion_miles,2020,0,estimated,"Horden station opened 29 June 2020 (Network Rail) on the existing Durham Coast Line. It is a new station, not new route, so 0 route-miles."
+durham-county,public_transport_expansion_miles,2021,0,estimated,No new rail or BRT route-miles opened. Inferred from absence.
+durham-county,public_transport_expansion_miles,2022,0,estimated,No new rail or BRT route-miles opened. Inferred from absence.
+durham-county,public_transport_expansion_miles,2023,0,estimated,No new rail or BRT route-miles opened. Inferred from absence.
+durham-county,public_transport_expansion_miles,2024,0,estimated,"No new rail or BRT route-miles opened in County Durham. The Northumberland Line (December 2024) is in Northumberland, outside the council area."
+durham-county,public_transport_expansion_miles,2025,0,estimated,"No new rail or BRT route-miles opened. The Leamside Line (Penshaw to Tursdale Junction, partly in County Durham) remained disused, at SOBC stage per the NECA January 2026 report."

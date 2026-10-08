@@ -1,0 +1,11 @@
+jurisdiction,metric,year,value,confidence,notes
+durham-county,transit_ridership,2015-16,22111604,high,"BUS01e, row E06000047 'Durham', column '2016' (year ending March 2016) = 22.11160388592 million. Bus only. County Durham UA geography (excludes Darlington)."
+durham-county,transit_ridership,2016-17,21945347,high,"BUS01e, row E06000047, column '2017' = 21.94534749242 million. Bus only."
+durham-county,transit_ridership,2017-18,21653556,high,"BUS01e, row E06000047, column '2018' = 21.6535556546 million. Bus only."
+durham-county,transit_ridership,2018-19,22102973,high,"BUS01e, row E06000047, column '2019' = 22.10297315168 million. Bus only."
+durham-county,transit_ridership,2019-20,20787746,high,"BUS01e, row E06000047, column '2020' = 20.78774589744 million. The last weeks of this year (March 2020) fall in the start of the COVID-19 period."
+durham-county,transit_ridership,2020-21,8740309,high,"BUS01e, row E06000047, column '2021' = 8.74030855456 million. The whole year was under COVID-19 restrictions, which explains the collapse."
+durham-county,transit_ridership,2021-22,17642980,estimated,"BUS01e, row E06000047, column '2022' = 17.64298005987 million. DfT marks years ending March 2022 to 2025 as PROVISIONAL on the cover sheet."
+durham-county,transit_ridership,2022-23,17332601,estimated,"BUS01e, row E06000047, column '2023' = 17.33260129336 million. Provisional (DfT cover sheet)."
+durham-county,transit_ridership,2023-24,17165086,estimated,"BUS01e, row E06000047, column '2024' = 17.16508614337 million. Provisional (DfT cover sheet)."
+durham-county,transit_ridership,2024-25,17728172,estimated,"BUS01e, row E06000047, column '2025' = 17.72817155319 million. Provisional (DfT cover sheet). Latest available; the next release is due November 2026."

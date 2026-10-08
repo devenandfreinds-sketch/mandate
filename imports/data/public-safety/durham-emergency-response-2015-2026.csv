@@ -1,0 +1,12 @@
+jurisdiction,metric,year,value,confidence,notes
+durham-county,emergency_response_minutes,2015-16,8.89,estimated,"FIRE1001 Data - annual, 2015/16, Durham FRA, Primary: 8 min 53 s (n=828). Dwelling fires: 8 min 00 s (7.997, n=281). Mean, not median. FRA = County Durham + Darlington."
+durham-county,emergency_response_minutes,2016-17,8.68,estimated,"FIRE1001, 2016/17, Durham FRA, Primary: 8 min 41 s (n=845). Dwellings: 7.71 (7 min 43 s). Mean, FRA geography."
+durham-county,emergency_response_minutes,2017-18,8.48,estimated,"FIRE1001, 2017/18, Durham FRA, Primary: 8 min 29 s (n=958). Dwellings: 7.70 (7 min 42 s). Mean, FRA geography."
+durham-county,emergency_response_minutes,2018-19,8.44,estimated,"FIRE1001, 2018/19, Durham FRA, Primary: 8 min 26 s (n=943). Dwellings: 7.62 (7 min 37 s). Mean, FRA geography."
+durham-county,emergency_response_minutes,2019-20,8.42,estimated,"FIRE1001, 2019/20, Durham FRA, Primary: 8 min 25 s (n=877). Dwellings: 7.56 (7 min 33 s). Mean, FRA geography."
+durham-county,emergency_response_minutes,2020-21,8.56,estimated,"FIRE1001, 2020/21, Durham FRA, Primary: 8 min 34 s (n=828). Dwellings: 7.88 (7 min 53 s). HMICFRS cited 8:34 as the fastest of the predominantly rural FRSs. Mean, FRA geography."
+durham-county,emergency_response_minutes,2021-22,8.85,estimated,"FIRE1001, 2021/22, Durham FRA, Primary: 8 min 51 s (n=852). Dwellings: 7.98 (7 min 59 s). Mean, FRA geography."
+durham-county,emergency_response_minutes,2022-23,9.29,estimated,"FIRE1001, 2022/23, Durham FRA, Primary: 9 min 18 s (n=882). Dwellings: 8.48 (8 min 29 s). Same year as GM's 7.35 life-risk precedent; GM on this same FIRE1001 basis is 7.22 primary and 6.65 dwellings. Mean, FRA geography."
+durham-county,emergency_response_minutes,2023-24,8.8,estimated,"FIRE1001, 2023/24, Durham FRA, Primary: 8 min 48 s (n=815). Dwellings: 7.87 (7 min 52 s). Mean, FRA geography."
+durham-county,emergency_response_minutes,2024-25,9.03,estimated,"FIRE1001, 2024/25, Durham FRA, Primary: 9 min 02 s (n=881). Dwellings: 8.03 (8 min 02 s). Mean, FRA geography."
+durham-county,emergency_response_minutes,2025-26,9.18,estimated,"FIRE1001 (published 22 July 2026), 2025/26, Durham FRA, Primary: 9 min 11 s (n=971). Dwellings: 8.40 (8 min 24 s). Latest year, may be revised. Mean, FRA geography."

@@ -1,0 +1,10 @@
+jurisdiction,metric,year,value,confidence,notes
+durham-county,transit_reliability,2015-16,89,high,"BUS09a, row E06000047 'Durham exc Darlington', column '2016' (YE March 2016) = 89. Non-frequent services only."
+durham-county,transit_reliability,2016-17,93,high,"BUS09a, row E06000047, column '2017' = 93."
+durham-county,transit_reliability,2017-18,88,high,"BUS09a, row E06000047, column '2018' = 88."
+durham-county,transit_reliability,2018-19,88,high,"BUS09a, row E06000047, column '2019 [r] [note 6]' = 88. DfT revised YE March 2019 to 2024 for some areas."
+durham-county,transit_reliability,2019-20,88,high,"BUS09a, row E06000047, column '2020 [r] [note 6]' = 88."
+durham-county,transit_reliability,2020-21,92,high,"BUS09a, row E06000047, column '2021 [r] [note 6]' = 92. This was a COVID-19 year with low road traffic, which likely flatters punctuality."
+durham-county,transit_reliability,2022-23,77,high,"BUS09a, row E06000047, column '2023 [r] [note 6]' = 77. FY2021-22 (column '2022') is [z] ('not applicable' in DfT's notation; no figure published), so that year is omitted."
+durham-county,transit_reliability,2023-24,76,high,"BUS09a, row E06000047, column '2024 [r] [note 6]' = 76."
+durham-county,transit_reliability,2024-25,80,high,"BUS09a, row E06000047, column '2025' = 80. Latest available."

@@ -1,0 +1,11 @@
+jurisdiction,metric,year,value,confidence,notes
+durham-county,clearance_rate,2015-16,34.85,estimated,"prc-outcomes-open-data-mar2016, Force 'Durham' (County Durham + Darlington force area). Charge/summons 6,927 + OOC formal 2,443 + OOC informal 2,993 + TIC 344 = 12,707 / 36,459 offences recorded = 34.85%. All-crime, not violent-specific."
+durham-county,clearance_rate,2016-17,25.41,estimated,"prc-outcomes-open-data-mar2017, Force 'Durham'. 6,219 + 2,295 + 2,908 + 420 = 11,842 / 46,608 = 25.41%. All-crime, force area."
+durham-county,clearance_rate,2017-18,23.27,estimated,"prc-outcomes-open-data-mar2018, Force 'Durham'. 6,138 + 1,719 + 5,868 + 553 = 14,278 / 61,371 = 23.27%. All-crime, force area."
+durham-county,clearance_rate,2018-19,22.61,estimated,"prc-outcomes-open-data-mar2019, Force 'Durham'. 6,340 + 1,399 + 6,325 + 358 = 14,422 / 63,794 = 22.61%. All-crime, force area."
+durham-county,clearance_rate,2019-20,17.08,estimated,"prc-outcomes-open-data-mar2020, Force 'Durham'. 5,607 + 1,130 + 4,031 + 246 = 11,014 / 64,474 = 17.08%. Outcome 22 (411, excluded per the GM method) starts this year. All-crime, force area. Unlike GM, Durham's year is complete."
+durham-county,clearance_rate,2020-21,14.96,estimated,"prc-outcomes-open-data-mar2021, Force 'Durham'. 4,854 + 807 + 2,547 + 137 = 8,345 / 55,786 = 14.96%. Outcome 22 = 882 excluded. All-crime, force area."
+durham-county,clearance_rate,2021-22,14.26,estimated,"prc-outcomes-open-data-mar2022, Force 'Durham'. 4,914 + 1,096 + 2,272 + 139 = 8,421 / 59,056 = 14.26%. Outcome 22 = 810 excluded. All-crime, force area."
+durham-county,clearance_rate,2022-23,15.13,estimated,"prc-outcomes-open-data-mar2023, Force 'Durham'. 5,300 + 1,206 + 3,027 + 147 = 9,680 / 63,999 = 15.13%. All-crime, force area."
+durham-county,clearance_rate,2023-24,15.26,estimated,"prc-outcomes-open-data-mar2024, Force 'Durham'. 6,326 + 1,240 + 2,098 + 139 = 9,803 / 64,228 = 15.26%. All-crime, force area."
+durham-county,clearance_rate,2024-25,15.94,estimated,"prc-outcomes-open-data-mar2025, Force 'Durham'. 7,045 + 866 + 1,387 + 163 = 9,461 / 59,356 = 15.94%. 514 offences still not yet assigned an outcome, so slightly provisional. All-crime, force area."

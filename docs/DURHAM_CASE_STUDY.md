@@ -140,8 +140,36 @@ origins: NETPark (opened 2004, expanded 2017), the Finance Durham Fund (to Cabin
 2017), Policy 15 (adopted October 2020) and the Council House Delivery Programme (agreed October 2020).
 NETPark's Phase 3, by contrast, was approved by the Liberal Democrat-led coalition's Cabinet on
 15 September 2021. Reform has continued all four without creating, expanding or cutting them. Real
-metric data has since been imported for Housing, Workforce, Fiscal Health and Innovation;
-Government Capacity, Transit and Public Safety remain synthetic placeholder.
+metric data has since been imported for Housing, Workforce, Fiscal Health and Innovation.
+
+## Update: research sweep completes Durham (October 2026)
+
+A multi-agent research sweep covered the 20 metrics that were still placeholder, with an independent
+verifier re-deriving every value from its primary table (results and the critic's report in
+`imports/research/`). Durham now has **no placeholder data**: every metric is either sourced or
+explicitly `unavailable` with a documented reason in `server/prisma/seed/data/unavailableMetrics.ts`.
+
+- **Public Safety:** violent and property crime rates (FY2015-16 to FY2025-26) match Greater
+  Manchester's ONS method on the council (CSP) area. FY2020-21 onward are ONS-published
+  (`government`); FY2015-16 to FY2019-20 are derived from Home Office counts and ONS population
+  (`estimated`). Clearance rate reproduces GM's all-crime method (force area, includes Darlington).
+  Fire response time is the Home Office FIRE1001 mean for primary fires (fire authority area).
+- **Transit:** bus ridership and punctuality from DfT BUS01e/BUS09a (council area, bus only), walk and
+  cycle mode share from the 2011 and 2021 Censuses, commute time for 2015 and 2016 only (noisy LFS
+  estimates), and source-backed zeros for new rail/BRT miles. Bike infrastructure is `unavailable`.
+- **Government Capacity:** capital budget execution from the council's own outturn reports
+  (`estimated`, like GM). The other six are `unavailable`; most are composite indices or internal
+  measures no English council publishes.
+- **Housing re-check:** rental vacancy, planning approval days and homelessness count confirmed
+  `unavailable`. Shelter's homelessness estimates were checked and rejected (licence bars commercial
+  reuse, and one edition is wrong for every council); see
+  `imports/research/durham-homelessness-shelter-check-2026-10.md`.
+
+**Comparability follow-ups for Greater Manchester (not yet done, would change existing GM data):**
+GM's transit_ridership (Metrolink only, calendar 2024) and transit_reliability (one month of TfGM
+data) are not comparable with Durham's DfT bus series, and GM's own BUS01e/BUS09a rows exist. GM's
+emergency_response_minutes (GMFRS life-risk composite, labelled `government`) differs from the
+FIRE1001 basis used for Durham (GM FY2022-23 on that basis: 7.22).
 
 ## Open items carried into a future pass
 
@@ -159,8 +187,10 @@ Government Capacity, Transit and Public Safety remain synthetic placeholder.
    these minutes for approval.
 3. ~~Resolve the jurisdiction-history-vs-administration-attribution question above.~~ Done
    (September 2026): jurisdiction history; DurhamWorks scored stage 5.
-4. Pull the remaining metrics: crime rates (Durham Constabulary force area, same ONS/Home Office method
-   already proven for Greater Manchester this pass). ~~Business formation/survival, tech
+4. ~~Pull the remaining metrics: crime rates (Durham Constabulary force area, same ONS/Home Office
+   method already proven for Greater Manchester this pass).~~ Done (October 2026 research sweep): crime
+   rates use the County Durham community safety partnership area (the council area, not the force
+   area) with Greater Manchester's exact offence groups and conversion. ~~Business formation/survival, tech
    employment.~~ Done (September 2026, Innovation round, commit `e788d8f`): ONS Business Demography and
    BRES, using Greater Manchester's exact SIC groupings. The rest of Public Safety, plus Government
    Capacity and Transit, is still synthetic placeholder.

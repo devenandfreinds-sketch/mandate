@@ -1,0 +1,13 @@
+jurisdiction,metric,year,value,confidence,notes
+durham-county,violent_crime_rate,2020-21,3798,high,"ONS CSP tables YE Mar 2021 (csptablemar21.xlsx) Table C5, County Durham CSP (E06000047): VAP 37.978 per 1,000 (mid-2019 pop 530,100) -> 3798. COVID year."
+durham-county,violent_crime_rate,2021-22,3752,high,"ONS CSP tables YE Mar 2022 (cspyemar22final.xlsx) C5, County Durham CSP: VAP 37.517 per 1,000 (mid-2020 pop 533,100) -> 3752."
+durham-county,violent_crime_rate,2022-23,3968,high,"ONS CSP tables YE Mar 2023 (csptablesyemar231.xlsx) C5, County Durham CSP: VAP 39.680 per 1,000 (mid-2021 pop 521,300) -> 3968."
+durham-county,violent_crime_rate,2023-24,3848,high,"ONS CSP tables YE Mar 2024 (csptablesyemar24correction.xlsx) C5, County Durham CSP: VAP 38.477 per 1,000 (mid-2022 pop 528,100) -> 3848."
+durham-county,violent_crime_rate,2024-25,3443,high,"ONS PFA data tables YE Mar 2025, Table C4, County Durham CSP: VAP 34.427 per 1,000 -> 3443. ONS C4 still used the mid-2022 pop (528,100), not the mid-2023 basis its force-level table and Greater Manchester's FY2024-25 row use; on mid-2023 this would be about 3,406 (~1% lower). Kept as published. Force-area P3 (mid-2023 pop) is 34.46 per 1,000."
+durham-county,violent_crime_rate,2025-26,3508,high,"ONS PFA data tables YE Mar 2026, Table C4, County Durham CSP: VAP 35.079 per 1,000 (mid-2024 pop 538,000; C2 count 18,873) -> 3508. Latest year, subject to revision. Force-area P3 is 35.36 per 1,000."
+durham-county,property_crime_rate,2020-21,3146,high,"ONS CSP tables YE Mar 2021 C5, County Durham CSP: Robbery 0.221 + Theft 18.595 + CDA 12.647 = 31.462 per 1,000 -> 3146. COVID year."
+durham-county,property_crime_rate,2021-22,3515,high,"ONS CSP tables YE Mar 2022 C5, County Durham CSP: 0.264 + 20.051 + 14.836 = 35.152 per 1,000 -> 3515."
+durham-county,property_crime_rate,2022-23,3959,high,"ONS CSP tables YE Mar 2023 C5, County Durham CSP: 0.305 + 23.984 + 15.297 = 39.586 per 1,000 -> 3959."
+durham-county,property_crime_rate,2023-24,4233,high,"ONS CSP tables YE Mar 2024 (correction) C5, County Durham CSP: 0.343 + 27.565 + 14.423 = 42.331 per 1,000 -> 4233."
+durham-county,property_crime_rate,2024-25,4100,high,"ONS PFA data tables YE Mar 2025 C4, County Durham CSP: 0.394 + 26.594 + 14.008 = 40.996 per 1,000 -> 4100 (C4 used the mid-2022 pop of 528,100, not mid-2023; about 1% higher than a mid-2023 basis. Kept as published). Force-area P3 is 40.86 per 1,000."
+durham-county,property_crime_rate,2025-26,3868,high,"ONS PFA data tables YE Mar 2026 C4, County Durham CSP: 0.563 + 24.397 + 13.715 = 38.676 per 1,000 (mid-2024 pop 538,000) -> 3868. Latest year, subject to revision. Force-area P3 is 38.86 per 1,000."

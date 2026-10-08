@@ -1,0 +1,11 @@
+jurisdiction,metric,year,value,confidence,notes
+durham-county,violent_crime_rate,2015-16,1464,estimated,"Derived: HO CSP open data 2015/16, County Durham VAP Q1-Q4 = 7,582 / ONS original mid-2014 pop 517,773 (ukmye2015 MYE5) x100,000 = 1464.35. The ONS PFA rate for the force area (County Durham + Darlington, Table P2) is 15.21 per 1,000 = 1521, given for reference only."
+durham-county,violent_crime_rate,2016-17,2256,estimated,"Derived: HO CSP open data 2016/17, County Durham VAP 11,722 / mid-2015 pop 519,695 = 2255.55 per 100k. Force-area comparator (PFA P3) is 23.44 per 1,000."
+durham-county,violent_crime_rate,2017-18,3290,estimated,"Derived: HO CSP open data 2017/18, County Durham VAP 17,164 / mid-2016 pop 521,776 = 3289.53 per 100k. Series break: stalking and harassment was widened this year (the same break exists in GM). Force-area comparator is 33.90 per 1,000."
+durham-county,violent_crime_rate,2018-19,3858,estimated,"Derived: HO CSP open data 2018/19, County Durham VAP 20,203 / mid-2017 pop 523,662 = 3858.02 per 100k. Force-area comparator is 39.31 per 1,000."
+durham-county,violent_crime_rate,2019-20,3956,estimated,"Derived: HO CSP open data 2019/20, County Durham VAP 20,848 / mid-2018 pop 526,980 = 3956.13 per 100k. Force-area comparator is 41.59 per 1,000. GM has no row for this year (GMP IT gap)."
+durham-county,property_crime_rate,2015-16,3342,estimated,"Derived: HO CSP open data 2015/16, County Durham Theft 11,337 + Robbery 89 + CDA 5,878 = 17,304 / ONS original mid-2014 pop 517,773 = 3342.01 per 100k. Force-area (County Durham + Darlington) ONS P2 is 35.75 per 1,000, for reference."
+durham-county,property_crime_rate,2016-17,3747,estimated,"Derived: HO CSP open data 2016/17, County Durham 12,568 + 121 + 6,784 = 19,473 / mid-2015 pop 519,695 = 3747.01 per 100k."
+durham-county,property_crime_rate,2017-18,4440,estimated,"Derived: HO CSP open data 2017/18, County Durham 14,635 + 186 + 8,348 = 23,169 / mid-2016 pop 521,776 = 4440.41 per 100k."
+durham-county,property_crime_rate,2018-19,4375,estimated,"Derived: HO CSP open data 2018/19, County Durham 14,848 + 159 + 7,905 = 22,912 / mid-2017 pop 523,662 = 4375.34 per 100k."
+durham-county,property_crime_rate,2019-20,4238,estimated,"Derived: HO CSP open data 2019/20, County Durham 14,581 + 176 + 7,579 = 22,336 / mid-2018 pop 526,980 = 4238.49 per 100k."
