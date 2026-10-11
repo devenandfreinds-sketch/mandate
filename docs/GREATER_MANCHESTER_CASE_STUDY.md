@@ -383,3 +383,46 @@ hardcoded to "Campaign Promise" regardless of `dataQuality`. This reads oddly fo
 "Unavailable" data-quality badge and neutral-summary text both communicate the real finding correctly,
 so this is a cosmetic label mismatch, not a data or methodology problem. Worth a small UI fix (e.g., a
 stage-0-plus-unavailable-specific label) if this combination recurs for other jurisdictions.
+
+## Research sweep (October 2026): every metric researched, six rows corrected
+
+A multi-agent sweep researched GM's 25 never-researched metrics, with an independent verifier re-deriving
+every value (results and critic's report in `imports/research/gm-sweep-2026-10*`). It ran right after
+the equivalent Durham sweep and used Durham's methods as the reference, so the two UK jurisdictions now
+sit on the same sources wherever both have data. GM's only remaining placeholders are older partial gaps
+(e.g. median_wages 2015-2023, BRES 2015-2017), not never-researched metrics.
+
+Geography rule applied throughout: GM = the GMCA area (10 boroughs). Counts are summed across the 10
+boroughs or taken from a published Met County / combined-authority row that equals that sum; medians,
+means and rates are never averaged across boroughs.
+
+**New data:** walk/cycle mode share (Census 2011, 2021); new rail, Metrolink and busway miles (2015-2025,
+estimated: Second City Crossing, the Leigh guided busway, the Ordsall Chord, the Trafford Park line);
+housing starts (MHCLG LT253, FY2015-16 to FY2025-26; the last two years are `estimated` because
+Tameside's and Manchester's returns look incomplete); business births (ONS reference tables, latest
+edition for each year); university spinouts (HESA Table 4e across GM-headquartered providers); business
+R&D (ONS BERD ITL2, 2022-2024, the first years published at this geography); skills participation (DfE,
+which includes 19+ apprentices, so never add it to the apprenticeships metric); commute time for 2014
+only (the one year ONS published a GM-level mean).
+
+**Six existing rows replaced (approved 2026-10-11):**
+- `median_rent`: was Manchester district's PIPR value (a mean, one district). Now the published GM median
+  from ONS/VOA Private Rental Market Summary Statistics, FY2015-16 to FY2022-23, when the series ended.
+- `labor_force_participation`: was Manchester district's employment rate. Now GM's APS economic activity
+  rate 16-64 (combined authority), 2015-2025.
+- `apprenticeships`: was STARTS; Durham's is participation. Now GM participation, AY2015-16 to AY2024-25.
+- `transit_ridership`: was one Metrolink-only year. Now DfT BUS01e bus journeys, FY2015-16 to FY2024-25,
+  matching Durham (bus only; Metrolink is excluded, as Durham has no tram).
+- `transit_reliability`: was one month of TfGM data. Now DfT BUS09a, FY2015-16 to FY2024-25.
+- `emergency_response_minutes`: was GMFRS's 'life risk' composite (7.35). Now Home Office FIRE1001
+  primary-fire mean, FY2015-16 to FY2025-26, matching Durham (FY2022-23 on this basis: 7.22).
+
+The three replaced rows on calendar-year periods are retired by `imports/research/gm-retire-rows-2026-10.sql`.
+
+**Confirmed unavailable (17):** see `server/prisma/seed/data/unavailableMetrics.ts`. Note `vc_investment`:
+a GM figure exists (British Business Bank / Beauhurst, 84 deals and GBP354m in 2024), but BBB's terms bar
+commercial reuse, so it can't be served through Mandate's paid API without a licence.
+
+**Open:** spinouts AY2023-24 (HESA blocks automated access; check manually); the capital execution
+denominator still differs from Durham's (forecast vs revised budget); US VC figures derived from PitchBook
+raise the same licence question as the BBB figure.

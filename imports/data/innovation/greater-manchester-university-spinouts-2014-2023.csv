@@ -1,0 +1,10 @@
+jurisdiction,metric,year,value,confidence,notes
+greater-manchester,university_spinouts,2014-15,10,high,"Table 4e, 'Number (of newly registered companies within the reporting period)', 'Spin-offs with some HEP ownership': UoM 9 + MMU 1, others 0. Sum across GM-based providers. 'Formal spin-offs, not HEP owned' adds 1 (UoM) and is not included."
+greater-manchester,university_spinouts,2015-16,2,high,"Table 4e, same metric and category: UoM 2, others 0. Sum across GM-based providers. 'Formal spin-offs, not HEP owned': 2 (UoM), not included."
+greater-manchester,university_spinouts,2016-17,2,high,"Table 4e, same metric and category: UoM 1 + Salford 1, others 0. Sum across GM-based providers. 'Formal spin-offs, not HEP owned': 1 (UoM), not included."
+greater-manchester,university_spinouts,2017-18,2,high,"Table 4e, same metric and category: UoM 2, others 0. Sum across GM-based providers. 'Formal spin-offs, not HEP owned': 1 (UoM), not included."
+greater-manchester,university_spinouts,2018-19,6,high,"Table 4e, same metric and category: UoM 5 + MMU 1, others 0. Sum across GM-based providers. 'Formal spin-offs, not HEP owned': 2 (UoM 1, Salford 1), not included."
+greater-manchester,university_spinouts,2019-20,9,high,"Table 4e, same metric and category: UoM 9, others 0 (Nazarene, Luther King House and Futureworks report from this year, all 0). Sum across GM-based providers. HESA notes the 2019/20 figures come from the 2020/21 return."
+greater-manchester,university_spinouts,2020-21,13,high,"Table 4e, same metric and category: UoM 13, others 0 (UA92 reports from this year, 0). Sum across GM-based providers."
+greater-manchester,university_spinouts,2021-22,10,high,"Table 4e, same metric and category: UoM 10, others 0. Sum across GM-based providers. 'Formal spin-offs, not HEP owned': 1 (UoM), not included."
+greater-manchester,university_spinouts,2022-23,8,high,"Table 4e, same metric and category: UoM 6 + MMU 2, others 0. Sum across GM-based providers. 'Formal spin-offs, not HEP owned': 1 (Salford), not included. Values are as published in the 2022/23 edition; HESA allowed restatement of earlier years before 2021/22."

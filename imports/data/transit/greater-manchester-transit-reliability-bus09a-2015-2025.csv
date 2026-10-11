@@ -1,0 +1,11 @@
+jurisdiction,metric,year,value,confidence,notes
+greater-manchester,transit_reliability,2015-16,83,high,"bus09.ods sheet BUS09a, row E11000001 'Greater Manchester CA', column 2016 (YE Mar 2016) = 83. Published GM figure."
+greater-manchester,transit_reliability,2016-17,84,high,"BUS09a, row E11000001, column 2017 = 84."
+greater-manchester,transit_reliability,2017-18,84,high,"BUS09a, row E11000001, column 2018 = 84."
+greater-manchester,transit_reliability,2018-19,85,high,"BUS09a, row E11000001, column '2019 [r] [note 6]' = 85 (revised)."
+greater-manchester,transit_reliability,2019-20,84,high,"BUS09a, row E11000001, column '2020 [r] [note 6]' = 84 (revised)."
+greater-manchester,transit_reliability,2020-21,88,high,"BUS09a, row E11000001, column '2021 [r] [note 6]' = 88 (revised). COVID year."
+greater-manchester,transit_reliability,2021-22,83,high,"BUS09a, row E11000001, column '2022 [r] [note 6]' = 83 (revised)."
+greater-manchester,transit_reliability,2022-23,73.8,high,"BUS09a, row E11000001, column '2023 [r] [note 6]' = 73.8 (revised)."
+greater-manchester,transit_reliability,2023-24,69,high,"BUS09a, row E11000001, column '2024 [r] [note 6]' = 69 (revised)."
+greater-manchester,transit_reliability,2024-25,73,high,"BUS09a, row E11000001, column 2025 = 73."

@@ -1,0 +1,11 @@
+jurisdiction,metric,year,value,confidence,notes
+greater-manchester,transit_ridership,2015-16,205404622,high,"bus01.ods sheet BUS01e, row E11000001 'Greater Manchester CA', column 2016 (YE Mar 2016) = 205.40462185 million. Published GM row (= 10 boroughs); bus only."
+greater-manchester,transit_ridership,2016-17,201245285,high,"BUS01e, row E11000001 Greater Manchester CA, column 2017 = 201.24528537 million. Bus only."
+greater-manchester,transit_ridership,2017-18,194666267,high,"BUS01e, row E11000001, column 2018 = 194.66626719 million. Bus only."
+greater-manchester,transit_ridership,2018-19,189691545,high,"BUS01e, row E11000001, column 2019 = 189.69154550 million. Bus only."
+greater-manchester,transit_ridership,2019-20,177885993,high,"BUS01e, row E11000001, column 2020 = 177.88599340 million. Bus only."
+greater-manchester,transit_ridership,2020-21,68797254,high,"BUS01e, row E11000001, column 2021 = 68.79725380 million. COVID-affected year. Bus only."
+greater-manchester,transit_ridership,2021-22,121482835,high,"BUS01e, row E11000001, column 2022 = 121.48283543 million. Provisional per cover sheet. Bus only."
+greater-manchester,transit_ridership,2022-23,143188537,high,"BUS01e, row E11000001, column 2023 = 143.18853691 million. Provisional. Bus only."
+greater-manchester,transit_ridership,2023-24,154474770,high,"BUS01e, row E11000001, column 2024 = 154.47477 million. Provisional. Franchising Tranche 1 from Sep 2023. Bus only."
+greater-manchester,transit_ridership,2024-25,171036213,high,"BUS01e, row E11000001, column 2025 = 171.03621276 million. Provisional. Bus only."

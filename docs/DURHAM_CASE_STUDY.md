@@ -198,3 +198,14 @@ FIRE1001 basis used for Durham (GM FY2022-23 on that basis: 7.22).
    Valuation Report.~~ Done (September 2026, Fiscal Health round, commit `77ff3e8`): the Aon 2025
    valuation gives 98.1% funded, up from the 2022 valuation's 97.5% granular figure. The earlier press
    paraphrase of "no change" undersold a small real improvement.
+
+**Corrections made during the Greater Manchester sweep (October 2026):**
+- `apprenticeships` AY2015-16 to AY2018-19 were an adults-only (19+) cut and ran about 18% low, creating
+  a false break at 2019-20. They are now all-age participation from DfE's Explore Education Statistics
+  (13,860 / 14,070 / 11,400 / 9,130), confirmed against four data sets.
+- `median_wages` 2015-2023 were stored as USD; they are GBP. Re-imported with the correct currency code.
+- `average_commute_minutes` gains 2014 (24.10), from the same ONS table, so Durham and GM share a year.
+- Not changed (founder decision): Durham's skills_training_participation notes say "excluding
+  apprenticeships", but DfE's total includes 19+ apprentices; Durham's business births for 2016-2018 come
+  from an older ONS edition than GM's.
+

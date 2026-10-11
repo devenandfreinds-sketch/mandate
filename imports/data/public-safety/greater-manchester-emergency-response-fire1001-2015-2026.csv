@@ -1,0 +1,12 @@
+jurisdiction,metric,year,value,confidence,notes
+greater-manchester,emergency_response_minutes,2015-16,7.38,estimated,"FIRE1001.xlsx 'Data - annual' row 1204: 2015/16, Primary, Greater Manchester, incidents 4,392, TOTAL_RESPONSE_TIME 0.005122384 x 1440 = 7.376 min. Mean, primary fires only."
+greater-manchester,emergency_response_minutes,2016-17,7.11,estimated,"'Data - annual' row 1429: 2016/17, Primary, Greater Manchester, 4,350 incidents, 0.00493922922 x 1440 = 7.112."
+greater-manchester,emergency_response_minutes,2017-18,7.12,estimated,"'Data - annual' row 1652: 2017/18, 4,413 incidents, 0.00494704961 x 1440 = 7.124."
+greater-manchester,emergency_response_minutes,2018-19,7.21,estimated,"'Data - annual' row 1876: 2018/19, 4,148 incidents, 0.00500366619 x 1440 = 7.205."
+greater-manchester,emergency_response_minutes,2019-20,7.09,estimated,"'Data - annual' row 2099: 2019/20, 4,021 incidents, 0.00492424297 x 1440 = 7.091."
+greater-manchester,emergency_response_minutes,2020-21,7.01,estimated,"'Data - annual' row 2323: 2020/21, 3,537 incidents, 0.00486469075 x 1440 = 7.005."
+greater-manchester,emergency_response_minutes,2021-22,7.19,estimated,"'Data - annual' row 2546: 2021/22, 3,409 incidents, 0.00499497493 x 1440 = 7.193."
+greater-manchester,emergency_response_minutes,2022-23,7.22,estimated,"'Data - annual' row 2770: 2022/23, 3,322 incidents, 0.00501466072 x 1440 = 7.221 (matches Durham verifier's 7.22)."
+greater-manchester,emergency_response_minutes,2023-24,7.23,estimated,"'Data - annual' row 2993: 2023/24, 3,259 incidents, 0.00502035294 x 1440 = 7.229."
+greater-manchester,emergency_response_minutes,2024-25,7.38,estimated,"'Data - annual' row 3213: 2024/25, 3,299 incidents, 0.00512398163 x 1440 = 7.379."
+greater-manchester,emergency_response_minutes,2025-26,7.58,estimated,"'Data - annual' row 3437: 2025/26, 3,504 incidents, 0.00526158242 x 1440 = 7.577. First year on FaRDaP, so most likely to be revised."

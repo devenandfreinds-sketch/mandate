@@ -3695,4 +3695,102 @@ export const sources: SourceSeedSpec[] = [
     country: "United Kingdom",
     language: "en",
   },
+  // =========================================================
+  // Greater Manchester research sweep (October 2026). GM = the GMCA area, the 10 boroughs; every
+  // figure is a published GM-level row (Met County E11000001 / combined authority E47000001) or a
+  // plain sum of the 10 boroughs' counts, never an average of borough medians or rates. Sources
+  // shared with Durham (DfT bus tables, FIRE1001, Census, LFS 008005, DfE, MHCLG LT253) are reused
+  // so the two jurisdictions sit on identical source records. See imports/research/gm-sweep-2026-10*.
+  // =========================================================
+  {
+    key: "ons_aps_greater_manchester",
+    name: "ONS Annual Population Survey (APS) — Greater Manchester Combined Authority",
+    publisher: "UK Office for National Statistics (via Nomis)",
+    url: "https://www.nomisweb.co.uk/datasets/apsnew",
+    sourceType: "government_dataset",
+    citation: "Nomis NM_17_5 'annual population survey (variables (percentages))', geography E47000001 Greater Manchester (combined authority), variable 18 'Economic activity rate - aged 16-64', Jan-Dec periods.",
+    isPlaceholder: false,
+    updateFrequency: "quarterly",
+    methodology:
+      "Economic activity rate for ages 16-64, a published combined-authority figure (not an average of boroughs), matching Durham's APS economic-activity definition. Replaces an earlier GM row that was Manchester district's employment rate, a different place and a different concept.",
+    defaultConfidence: "high",
+    country: "United Kingdom",
+    language: "en",
+  },
+  {
+    key: "ons_business_demography_reference_gm",
+    name: "ONS Business Demography Reference Tables (Table 1.1, Enterprise Births) — Greater Manchester",
+    publisher: "Office for National Statistics",
+    url: "https://www.ons.gov.uk/businessindustryandtrade/business/activitysizeandlocation/datasets/businessdemographyreferencetable",
+    sourceType: "government_dataset",
+    citation: "ONS 'Business demography, UK' reference tables, Table 1.1 births of new enterprises, row 'Greater Manchester Metropolitan County' (E11000001), which equals the sum of the 10 boroughs.",
+    isPlaceholder: false,
+    updateFrequency: "annual",
+    methodology:
+      "Count of enterprise births from the IDBR, control-rounded to base 5. Each year is taken from the LATEST edition that covers it. Note: Durham's 2015-2018 rows were taken from an older edition, so for 2016-2018 the two jurisdictions sit on different vintages (Durham's latest-edition values would be 1,770 / 1,565 / 1,565 rather than 1,805 / 1,610 / 1,610).",
+    defaultConfidence: "high",
+    country: "United Kingdom",
+    language: "en",
+  },
+  {
+    key: "hesa_hebci_gm_providers",
+    name: "HESA HE-BCI Table 4e (Spin-off Activities) — Greater Manchester Providers",
+    publisher: "Higher Education Statistics Agency (Jisc)",
+    url: "https://www.hesa.ac.uk/data-and-analysis/providers/business-community/table-4e",
+    sourceType: "government_dataset",
+    citation: "HESA Higher Education Business and Community Interaction survey, Table 4e, newly registered 'spin-offs with some HEP ownership', summed across higher education providers headquartered in the 10 GM boroughs (University of Manchester, Manchester Metropolitan, Salford, Bolton, RNCM and others listed in row notes).",
+    isPlaceholder: false,
+    updateFrequency: "annual",
+    methodology:
+      "Same measure as Durham's (Durham University, Table 4e), summed over GM-headquartered providers. Licensed CC BY 4.0. AY2023-24 not retrieved (HESA served a bot challenge); check manually.",
+    defaultConfidence: "high",
+    country: "United Kingdom",
+    language: "en",
+  },
+  {
+    key: "ons_voa_private_rental_market_summary",
+    name: "ONS/VOA Private Rental Market Summary Statistics in England (Table 2.7)",
+    publisher: "Office for National Statistics (Valuation Office Agency before the April 2019-March 2020 edition)",
+    url: "https://www.ons.gov.uk/peoplepopulationandcommunity/housing/datasets/privaterentalmarketsummarystatisticsinengland",
+    sourceType: "government_dataset",
+    citation: "Table 2.7, summary of monthly private rents by administrative area, all categories, row 'Greater Manchester (Met County)' E11000001; editions April 2015-March 2016 to April 2022-March 2023 (series discontinued).",
+    isPlaceholder: false,
+    updateFrequency: "annual",
+    methodology:
+      "Median monthly private rent (GBP per calendar month), all bedroom categories, from VOA rent officers' Lettings Information Database for tenancies active in each 12-month April-March window. A published GM-level median, not an average of borough medians. ONS cautions against comparing across periods or areas because the sample is not a fixed panel. The series ended with the 2022-23 edition; its replacement (PIPR) has no GM geography and no median. The same table also publishes County Durham (E06000047).",
+    defaultConfidence: "high",
+    country: "United Kingdom",
+    language: "en",
+  },
+  {
+    key: "ons_berd_itl2",
+    name: "ONS Business Enterprise R&D (BERD) by ITL2 Region",
+    publisher: "Office for National Statistics",
+    url: "https://www.ons.gov.uk/economy/governmentpublicsectorandtaxes/researchanddevelopmentexpenditure/datasets/businessenterpriseresearchanddevelopmentukdes",
+    sourceType: "government_dataset",
+    citation: "ONS 'Business enterprise research and development, UK: 2024', worksheet 18, expenditure on R&D performed in UK businesses by ITL2 (berd2024official.xlsx, 28 November 2025). The ITL2 area 'Greater Manchester' equals the GMCA area.",
+    isPlaceholder: false,
+    updateFrequency: "annual",
+    methodology:
+      "Business R&D expenditure in current prices, GBP millions converted to whole GBP. Regional figures combine larger firms' reported R&D locations with smaller firms allocated to their main business address. Official Statistics (not accredited). ITL2 tables start with 2022, so earlier years are a permanent gap. County Durham has no equivalent because it sits inside larger ITL2 areas.",
+    defaultConfidence: "high",
+    country: "United Kingdom",
+    language: "en",
+  },
+  {
+    key: "gm_rail_metrolink_busway_openings",
+    name: "Greater Manchester Rail, Metrolink and Busway Openings (DfT LRT0203, TfGM, Network Rail)",
+    publisher: "Department for Transport; Transport for Greater Manchester; Network Rail",
+    url: "https://www.gov.uk/government/statistical-data-sets/light-rail-and-tram-statistics-lrt",
+    sourceType: "government_report",
+    citation:
+      "DfT light rail route-km (LRT0203) for Metrolink, with TfGM/GMCA, Network Rail and contractor documentation for opening dates and lengths: Metrolink Second City Crossing phase 1 (December 2015), Leigh-Salford-Manchester guided busway (April 2016), Second City Crossing completion and Ordsall Chord (2017), Trafford Park line (March 2020).",
+    isPlaceholder: false,
+    updateFrequency: "event_driven",
+    methodology:
+      "Route length of each new rail line (Metrolink or heavy rail) or dedicated busway entering revenue service, assigned to its calendar year of opening, km converted to miles. On-highway bus lanes and new stops on existing track are excluded, matching Durham's definition. Some lengths rest on trade press and contractor pages (facts only, no text reproduced); the Ordsall Chord's ~300m length rests on Rail Engineer alone. Imported as 'estimated'.",
+    defaultConfidence: "estimated",
+    country: "United Kingdom",
+    language: "en",
+  },
 ];

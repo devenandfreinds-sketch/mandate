@@ -257,8 +257,10 @@ export const unavailableMetrics: UnavailableMetricSpec[] = [
   // ai_companies -- DCMS/DSIT's UK AI Sector Study breaks companies down only to English region
   // level; no local-authority-level source found from Beauhurst or any other checked source.
   { metricSlug: "ai_companies", jurisdictionSlug: "durham-county" },
-  // commercial_rd_investment -- ONS Business Enterprise R&D (BERD) publishes only region-level
-  // figures (North East, not County Durham specifically); no LA-level breakdown exists.
+  // commercial_rd_investment -- ONS Business Enterprise R&D (BERD) publishes no local-authority figures.
+  // Its ITL2 tables (from 2022) place County Durham inside larger areas ("Tees Valley and Durham",
+  // "Northumberland, Durham and Tyne and Wear"), so no County Durham figure exists. (Greater Manchester
+  // is its own ITL2 area, which is why GM has this metric and Durham does not.)
   { metricSlug: "commercial_rd_investment", jurisdictionSlug: "durham-county" },
   // vc_investment -- British Business Bank's Nations and Regions Tracker publishes equity-deal
   // data only at North East region level. The Finance Durham Fund (GBP17.29m deployed since 2017)
@@ -344,4 +346,67 @@ export const unavailableMetrics: UnavailableMetricSpec[] = [
     jurisdictionSlug: "durham-county",
     years: [2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025],
   },
+  // Greater Manchester research sweep (2026-10-11): each confirmed by an independent verifier;
+  // evidence in imports/research/gm-sweep-2026-10.json. GM = the GMCA area (10 boroughs).
+  // bike_infrastructure_miles -- TfGM's cycle-routes open data is mixed-quality council map data: ~40%
+  // of its 'traffic-free' length is mountain-bike-only surface, segregated tracks are mixed with shared
+  // footways, and status coding changes between editions. No measured dedicated length. Same as Durham.
+  { metricSlug: "bike_infrastructure_miles", jurisdictionSlug: "greater-manchester" },
+  // housing_permits_issued -- MHCLG/Glenigan 'housing units granted planning permission' is England-only;
+  // PS1/PS2 count applications, not units; Places for Everyone covers 9 boroughs (not Stockport) and
+  // reports no units-permitted flow; borough AMRs define it differently and can't be summed cleanly.
+  { metricSlug: "housing_permits_issued", jurisdictionSlug: "greater-manchester" },
+  // homelessness_count, planning_approval_days, vacancy_rate -- Durham's reasoning holds for GM: no
+  // sheltered+unsheltered point-in-time count (A Bed Every Night is a scheme caseload); no median
+  // decision days in England; no rental-specific vacancy series (Table 615 is whole-stock).
+  { metricSlug: "homelessness_count", jurisdictionSlug: "greater-manchester" },
+  { metricSlug: "planning_approval_days", jurisdictionSlug: "greater-manchester" },
+  { metricSlug: "vacancy_rate", jurisdictionSlug: "greater-manchester" },
+  // vc_investment -- the British Business Bank tracker does publish a GM figure (84 deals, GBP354m in
+  // 2024), but it is BBB analysis of Beauhurst data and BBB's terms (clause 5.5) bar commercial reuse,
+  // so it cannot be served through Mandate's paid API. Unavailable pending a licence.
+  { metricSlug: "vc_investment", jurisdictionSlug: "greater-manchester" },
+  // startup_formation, ai_companies, patent_creation -- as for Durham: no official GM-level source
+  // distinct from business births; DSIT's AI sector study is region-level; UK IPO counts are region-level.
+  { metricSlug: "startup_formation", jurisdictionSlug: "greater-manchester" },
+  { metricSlug: "ai_companies", jurisdictionSlug: "greater-manchester" },
+  { metricSlug: "patent_creation", jurisdictionSlug: "greater-manchester" },
+  // bond_rating_index -- GMCA has no public credit rating; its 2023/24 accounts show PWLB, EIB and market
+  // loans but no bond issuance (rating-agency mentions are treasury counterparty criteria). Same as Durham.
+  { metricSlug: "bond_rating_index", jurisdictionSlug: "greater-manchester" },
+  // Government capacity -- GMCA publishes no establishment vacancy rate, no 0-100 digital index (UN LOSI's
+  // UK pilot sampled only Wigan), no on-schedule project share (capital reports are financial), no permit
+  // decision times (building control sits with boroughs and private approvers), no planning composite
+  // (boroughs decide applications; MHCLG P151/P153 are %-on-time), and no procurement-cycle KPI.
+  { metricSlug: "agency_vacancy_rate", jurisdictionSlug: "greater-manchester" },
+  { metricSlug: "digital_government_adoption", jurisdictionSlug: "greater-manchester" },
+  { metricSlug: "major_infrastructure_delivery_rate", jurisdictionSlug: "greater-manchester" },
+  { metricSlug: "permit_approval_days", jurisdictionSlug: "greater-manchester" },
+  { metricSlug: "planning_efficiency_index", jurisdictionSlug: "greater-manchester" },
+  { metricSlug: "procurement_timeline_days", jurisdictionSlug: "greater-manchester" },
+  // graduate_employment_rate -- HESA Graduate Outcomes is by provider; DfE LEO graduate outcomes are
+  // national or regional only. Same as Durham.
+  { metricSlug: "graduate_employment_rate", jurisdictionSlug: "greater-manchester" },
+  // average_commute_minutes -- ONS published a GM-level mean only for 2014 (imported). Later ad hocs give
+  // borough means only, and weighting them would mean imputing suppressed cells.
+  {
+    metricSlug: "average_commute_minutes",
+    jurisdictionSlug: "greater-manchester",
+    years: [2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025],
+  },
+  // commercial_rd_investment -- ONS BERD ITL2 tables start with 2022 (imported 2022-2024); earlier years
+  // were never published at this geography. 2025 not yet released.
+  {
+    metricSlug: "commercial_rd_investment",
+    jurisdictionSlug: "greater-manchester",
+    years: [2015, 2016, 2017, 2018, 2019, 2020, 2021, 2025],
+  },
+  // active_transportation_mode_share -- decennial Census only (2011, 2021 imported), as for Durham.
+  {
+    metricSlug: "active_transportation_mode_share",
+    jurisdictionSlug: "greater-manchester",
+    years: [2015, 2016, 2017, 2018, 2019, 2020, 2022, 2023, 2024, 2025],
+  },
+  // business_formation 2025 -- ONS had not published the 2025 edition as of this pass (temporary gap).
+  { metricSlug: "business_formation", jurisdictionSlug: "greater-manchester", years: [2025] },
 ];

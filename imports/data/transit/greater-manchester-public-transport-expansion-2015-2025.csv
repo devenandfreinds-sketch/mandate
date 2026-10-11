@@ -1,0 +1,12 @@
+jurisdiction,metric,year,value,confidence,notes
+greater-manchester,public_transport_expansion_miles,2015,0.37,estimated,"Metrolink 2CC phase 1, Victoria-Exchange Square, opened 6 Dec 2015, 0.6 km (VolkerRail 7 Dec 2015) = 0.37 mi."
+greater-manchester,public_transport_expansion_miles,2016,4.5,estimated,"Leigh-Tyldesley-Ellenbrook guided busway opened 3 Apr 2016, 4.5 mi bus-only guideway (TfGM via Transport Network 30 Mar 2016). On-highway bus lanes excluded."
+greater-manchester,public_transport_expansion_miles,2017,0.62,estimated,"2CC remainder St Peter's Square-Exchange Square opened 26 Feb 2017: 1.3 km whole 2CC minus 0.6 km opened 2015 = 0.7 km (researcher split; 1.3 km if read as all new in 2017). PLUS Ordsall Chord, new heavy-rail link in Salford, in passenger service 10 Dec 2017, approx 300 m route length (Rail Engineer; trade sources range 300-350 m). Total 1.0 km = 0.62 mi. Included because the Durham definition counts new rail. Metrolink-only value would be 0.43 mi."
+greater-manchester,public_transport_expansion_miles,2018,0,estimated,No new rail or dedicated BRT. DfT LRT0203 Metrolink 97 route km at Mar 2018 and Mar 2019.
+greater-manchester,public_transport_expansion_miles,2019,0,estimated,No new rail or dedicated BRT. DfT LRT0203 97 km at Mar 2019; GMCA 21 Feb 2020: network 'just under 100 Km' before Trafford Park Line.
+greater-manchester,public_transport_expansion_miles,2020,3.42,estimated,"Metrolink Trafford Park Line Pomona-Trafford Centre opened 22 Mar 2020, 5.5 km (EIB project 20180016; Railway Gazette 22 Mar 2020) = 3.42 mi. DfT LRT0203 97 to 103 km."
+greater-manchester,public_transport_expansion_miles,2021,0,estimated,DfT LRT0203 Metrolink unchanged at 103 km. No new rail line or dedicated BRT found.
+greater-manchester,public_transport_expansion_miles,2022,0,estimated,DfT LRT0203 unchanged at 103 km. No new rail line or dedicated BRT found.
+greater-manchester,public_transport_expansion_miles,2023,0,estimated,"DfT LRT0203 unchanged at 103 km (LRT0204 64.0 mi). Bus franchising from Sep 2023 is service reform, not new corridor."
+greater-manchester,public_transport_expansion_miles,2024,0,estimated,DfT LRT0203 unchanged at 103 km. No new rail line or dedicated BRT found.
+greater-manchester,public_transport_expansion_miles,2025,0,estimated,DfT LRT0203 unchanged at 103 km (Mar 2025 to Mar 2026). No new rail line or dedicated BRT found.

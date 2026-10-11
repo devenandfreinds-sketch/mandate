@@ -1,0 +1,4 @@
+jurisdiction,metric,year,value,confidence,notes
+greater-manchester,commercial_rd_investment,2022,1137000000,high,"berd2024official.xlsx, sheet '18', row 16 'Greater Manchester', col 2022 = £1,137m. This is a published ITL2/combined-authority figure, not a borough sum. The 2023 edition (berd2023official.xlsx sheet 18 row 13) showed £1,132m, revised in the 2024 edition."
+greater-manchester,commercial_rd_investment,2023,995000000,high,"berd2024official.xlsx, sheet '18', row 16 'Greater Manchester', col 2023 = £995m. The 2023 edition showed £985m. ONS Note 9 says ITL2 values are point-in-time estimates, so the 2022-to-2023 fall may not be a real decline."
+greater-manchester,commercial_rd_investment,2024,1040000000,high,"berd2024official.xlsx, sheet '18', row 16 'Greater Manchester', col 2024 = £1,040m. ITL 2025 boundaries (Note 8); Greater Manchester ITL2 remains the GMCA area (same values under E47000001 in Explore Local Statistics)."
