@@ -577,3 +577,101 @@ model ImportRowResult {
 
   @@index([importJobId])
 }
+
+// =========================================================
+// CUSTOMER OUTREACH (internal sales CRM for the Civic API; see docs/OUTREACH.md). Reached only at the
+// unlinked /outreach route behind its own password (OUTREACH_PASSWORD_HASH) or an admin session.
+// Lives in the live schema only: excluded from data releases (src/release/cutRelease.ts) and never
+// read by public routes or the Civic API.
+// =========================================================
+
+model OutreachAccount {
+  id        String  @id @default(cuid())
+  slug      String  @unique
+  name      String
+  city      String // "Chicago" | "New York" | ...
+  segment   String? // Residential | Commercial | Debt | Impact | ...
+  website   String?
+  hq        String?
+  strategy  String?
+  aumLabel  String?
+  aumSource String?
+  fitScore  Int?
+  fitReason String?
+  whyMandate String?
+  evidence  Json? // [{fact, url}]
+  sources   Json? // [url]
+  caveats   String?
+
+  // Published firm inbox only (never guessed); individual people live in OutreachContact.
+  contactEmail       String?
+  contactEmailType   String? // investor | general | lending | leasing | media | none
+  contactEmailSource String?
+  contactOther       String?
+
+  // prospect | contacted | replied | meeting | trial | negotiating | won | lost | not_fit
+  stage        String    @default("prospect")
+  doNotContact Boolean   @default(false)
+  priority     String?   // high | medium | low
+  nextStep     String?
+  nextStepDate DateTime?
+  dealTier     String?   // developer | professional | institutional
+  dealValueAnnual Int?   // expected annual contract value, whole currency units
+  draftSubject String?
+  draftBody    String?
+  notes        String?
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+
+  contacts   OutreachContact[]
+  activities OutreachActivity[]
+
+  @@index([stage])
+  @@index([city])
+  @@index([nextStepDate])
+}
+
+// A specific person at an account, entered by the team (e.g. who replied). Never scraped.
+model OutreachContact {
+  id        String   @id @default(cuid())
+  accountId String
+  name      String
+  role      String?
+  email     String?
+  phone     String?
+  notes     String?
+  createdAt DateTime @default(now())
+
+  account    OutreachAccount    @relation(fields: [accountId], references: [id], onDelete: Cascade)
+  activities OutreachActivity[]
+
+  @@index([accountId])
+}
+
+// Everything that happened, in order: emails sent and received, calls, meetings, notes, stage moves.
+model OutreachActivity {
+  id         String   @id @default(cuid())
+  accountId  String
+  contactId  String?
+  type       String // email_sent | email_received | call | meeting | note | stage_change | bounce | opt_out | trial
+  occurredAt DateTime @default(now())
+  subject    String?
+  body       String?
+  createdAt  DateTime @default(now())
+
+  account OutreachAccount  @relation(fields: [accountId], references: [id], onDelete: Cascade)
+  contact OutreachContact? @relation(fields: [contactId], references: [id], onDelete: SetNull)
+
+  @@index([accountId, occurredAt])
+  @@index([occurredAt])
+}
+
+model OutreachTemplate {
+  id        String   @id @default(cuid())
+  name      String
+  purpose   String? // first_touch | follow_up | reply | meeting_recap
+  subject   String
+  body      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}

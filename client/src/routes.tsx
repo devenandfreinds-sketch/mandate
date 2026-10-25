@@ -14,6 +14,7 @@ import { TeamPage } from "@/pages/TeamPage";
 import { ResearchMapPage } from "@/pages/ResearchMapPage";
 import { ResearchJurisdictionDetailPage } from "@/pages/ResearchJurisdictionDetailPage";
 import { ContributePage } from "@/pages/ContributePage";
+import { OutreachPage } from "@/pages/OutreachPage";
 import { AdminLoginPage } from "@/pages/admin/AdminLoginPage";
 import { AdminImportsPage } from "@/pages/admin/AdminImportsPage";
 import { AdminPipelinePage } from "@/pages/admin/AdminPipelinePage";
@@ -41,6 +42,8 @@ export function AppRoutes() {
       <Route path="/research/:jurisdictionSlug" element={<ResearchJurisdictionDetailPage />} />
       <Route path="/contribute" element={<ContributePage />} />
       <Route path="/team" element={<TeamPage />} />
+      {/* Unlisted: no nav link anywhere. Password-protected inside the page. */}
+      <Route path="/outreach" element={<OutreachPage />} />
       <Route path="/admin/login" element={<AdminLoginPage />} />
       <Route
         path="/admin/imports"

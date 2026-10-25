@@ -26,8 +26,10 @@ export function isAdminRequest(req: Request): boolean {
   if (!header?.startsWith("Bearer ")) return false;
   const token = header.slice("Bearer ".length);
   try {
-    jwt.verify(token, getSessionSecret());
-    return true;
+    // The role check matters: outreach-CRM tokens (server/src/outreach/outreachAuth.ts) are signed
+    // with the same secret, and must never pass as admin.
+    const payload = jwt.verify(token, getSessionSecret());
+    return typeof payload === "object" && payload.role === "admin";
   } catch {
     return false;
   }

@@ -10,6 +10,7 @@ import { catalogRouter } from "./catalog.routes.js";
 import { researchMapRouter } from "./researchMap.routes.js";
 import { externalContributionsRouter } from "./externalContributions.routes.js";
 import { adminRouter } from "./admin/index.js";
+import { outreachRouter } from "../outreach/routes.js";
 
 export const apiRouter = Router();
 
@@ -24,3 +25,4 @@ apiRouter.use("/data-catalog", catalogRouter);
 apiRouter.use("/research-map", researchMapRouter);
 apiRouter.use("/external-contributions", externalContributionsRouter);
 apiRouter.use("/admin", adminRouter);
+apiRouter.use("/outreach", outreachRouter);

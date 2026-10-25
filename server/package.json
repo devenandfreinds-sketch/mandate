@@ -13,7 +13,8 @@
     "db:seed": "tsx prisma/seed/index.ts",
     "import": "tsx src/import/cli.ts",
     "admin:set-password": "tsx src/scripts/setAdminPassword.ts",
-    "test": "vitest run"
+    "test": "vitest run",
+    "outreach:set-password": "tsx src/scripts/setOutreachPassword.ts"
   },
   "dependencies": {
     "@mandate/shared": "*",

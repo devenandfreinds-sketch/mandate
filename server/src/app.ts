@@ -10,6 +10,9 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export function createApp() {
   const app = express();
+  // Railway sits one proxy in front of the app. Without this, req.ip is the proxy's address for
+  // every visitor, so the per-IP login throttle would lock everyone out at once.
+  app.set("trust proxy", 1);
   // CLIENT_URL restricts CORS to the deployed client's origin when set (recommended in production,
   // e.g. a separate Railway service). Falls back to reflecting any origin for local/single-service use.
   // credentials: true is no longer required for auth (bearer token, not a cookie -- see
