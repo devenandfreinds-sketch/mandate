@@ -76,9 +76,54 @@ affected births, deaths and survival rates. Small boroughs' rates move a lot yea
 
 Borough-level rates are in the CSV.
 
+## 3. Rental vacancy: social rented homes only (MHCLG Table 615 + RSH SDR)
+
+No government or other highly reputable source publishes a **private** rental vacancy rate for
+Greater Manchester or its boroughs. The rented homes government does measure are **social** homes,
+so this section covers those only.
+
+- **Vacant counts:** MHCLG Live Table 615, sheets `PRP_general_needs_vacants`,
+  `PRP_gen_needs_vacant_not_avail` and `LA_owned_vacants` (31 March each year).
+- **Stock (denominators):**
+  - Housing associations: Regulator of Social Housing, Statistical Data Return look-up tools
+    2021-2025, sheet `STOCK_BY_LA`. General needs self-contained units plus bedspaces, large
+    providers only, because only large providers report vacancies. Not yet in Mandate's registry;
+    it is a government (Tier 1) source.
+  - Council-owned: MHCLG Live Table 100, local authority column.
+- **Data:** `gm-social-rented-vacancy-mhclg-rsh-2026-11.csv` (2021-2025; 10 boroughs, GM sum,
+  England for the housing association rate).
+- **Measures:**
+  - Housing association vacancy = general needs vacant / general needs stock.
+  - Vacant and available = vacant minus "vacant, not available for letting" (e.g. awaiting major
+    works or demolition), over stock. This is the closest match to Mandate's `vacancy_rate`
+    definition ("vacant and available").
+  - Council-owned vacancy = LA-owned vacant / LA-owned stock. No availability split exists.
+
+| Year | GM HA vacant % | GM HA vacant & available % | England HA vacant % | England HA vacant & available % | GM council-owned vacant % | GM all social vacant % |
+|---|---|---|---|---|---|---|
+| 2021 | 1.18 | 0.55 | 1.35 | 0.74 | 1.43 | 1.24 |
+| 2022 | 1.18 | 0.45 | 1.47 | 0.82 | 1.66 | 1.30 |
+| 2023 | 1.66 | 0.49 | 1.62 | 0.76 | 1.29 | 1.56 |
+| 2024 | 1.77 | 0.51 | 1.65 | 0.75 | 1.36 | 1.67 |
+| 2025 | 1.82 | 0.52 | 1.65 | 0.68 | 1.46 | 1.72 |
+
+2025 GM: 3,119 housing association general needs homes vacant, 2,225 of them not available for
+letting, out of 171,746. Council-owned: 850 vacant out of 58,418.
+
+**Caveats:**
+- The rise in GM housing association vacancy since 2023 is mostly homes **not available for
+  letting**, concentrated in Rochdale (4.6% vacant in 2025) and Bolton (2.9%). Lettable vacancy
+  stayed around 0.5%.
+- Bolton and Tameside own no council housing (transferred), and Trafford owns 29 homes.
+  Rochdale's council-owned rate (37.5% in 2025) is 24 of 64 homes, too small to read.
+- The dates line up (both 31 March). SDR stock at LA level is unweighted provider returns.
+
 ## Decisions for the methodology lead
 
 1. Import the 1-5 year survival series? `business_survival_rate` is defined as 5-year, so only the
    5-year rows fit it as-is; the shorter windows would need their own metrics.
 2. Add whole-stock vacancy as a separate metric (never labelled rental vacancy), as the October 2026
    GM sweep suggested?
+3. Import social-rented "vacant and available" (section 3) under `vacancy_rate` with a clear
+   "social rented only" label, or as its own metric? Either way, add the Regulator of Social Housing
+   SDR to the source registry first.
