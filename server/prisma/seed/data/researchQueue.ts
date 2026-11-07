@@ -851,4 +851,13 @@ export const researchQueueSeed: ResearchQueueSeedItem[] = [
       "affordable_housing_completions is now real for 2018-2020 and 2022-2025 (Seattle Office of Housing Annual Investments Reports, cited via press coverage for 2018-2020 since the primary PDFs are no longer publicly hosted). 2015-2017 and 2021 have no reliable completions-only figure -- only a general pre-HALA baseline (~800 units/year) exists for the earliest years, not a specific single-year count, and 2021's report was not found. Concrete next step: request the pre-2024 Annual Investments Reports directly from the Office of Housing (housing@seattle.gov), which the 2018-2020 figures themselves required going through press coverage rather than a direct primary-source read.",
     priority: 2,
   },
+  {
+    key: "chicago-persistent-absence-rate",
+    jurisdictionSlug: "chicago",
+    metricSlug: "persistent_absence_rate",
+    taskType: "metric",
+    researchQuestion:
+      "persistent_absence_rate (new Education category, real-data-only) has data for Greater Manchester only (DfE, AY2015-16 to AY2024-25). Pull CPS district-level chronic absenteeism (students missing 10%+ of enrolled days) from the Illinois Report Card / ISBE Report Card data files, 2015-16 onward. Do NOT use CPS's own 'chronic truancy' file (isbepublicdata_mobility_chronictruancy): it counts only unexcused absences under the Illinois truancy statute and is not comparable to England's persistent absence. CPS's metrics_attendance file is average daily attendance, also not comparable. Note in the import that England counts sessions (half-days) and Illinois counts days. Blocked in the 2026-11-07 pass only by network access to illinoisreportcard.com, not by data availability.",
+    priority: 2,
+  },
 ];

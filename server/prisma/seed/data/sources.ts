@@ -3793,4 +3793,20 @@ export const sources: SourceSeedSpec[] = [
     country: "United Kingdom",
     language: "en",
   },
+  {
+    key: "dfe_pupil_absence_gm",
+    name: "DfE Pupil Absence in Schools in England — Greater Manchester (persistent absence)",
+    publisher: "UK Department for Education",
+    url: "https://explore-education-statistics.service.gov.uk/find-statistics/pupil-absence-in-schools-in-england",
+    sourceType: "government_dataset",
+    citation:
+      "DfE 'Pupil absence in schools in England', data set 'Absence for persistent and severe absentees' (EES API data set 019d209c-08dc-74b6-9edb-52d521406fcf), local authority level, school type Total, absence type Persistent absence and Total pupils, summed across Greater Manchester's 10 local authorities (E08000001-E08000010).",
+    isPlaceholder: false,
+    updateFrequency: "annual",
+    methodology:
+      "GM rate = sum of the 10 LAs' persistent-absentee enrolments / sum of their total enrolments (never an average of borough percentages). Persistent absence = missing 10% or more of possible sessions, the threshold DfE has used since 2015/16. Covers state-funded primary, secondary and special schools. No 2019/20 data (collection cancelled during COVID). 2020/21 excludes sessions when schools were closed to most pupils, so it is not comparable with other years. Academy and council-maintained schools are both included; Mandate does not attribute this metric to GMCA, which has no schools powers.",
+    defaultConfidence: "high",
+    country: "United Kingdom",
+    language: "en",
+  },
 ];

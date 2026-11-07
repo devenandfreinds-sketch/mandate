@@ -426,3 +426,27 @@ commercial reuse, so it can't be served through Mandate's paid API without a lic
 **Open:** spinouts AY2023-24 (HESA blocks automated access; check manually); the capital execution
 denominator still differs from Durham's (forecast vs revised budget); US VC figures derived from PitchBook
 raise the same licence question as the BBB figure.
+
+## Education and last placeholder gaps (November 2026)
+
+**New category, Education, real-data-only.** One metric, `persistent_absence_rate` (pupils missing 10%+
+of sessions). The seed generates no synthetic values for metrics flagged `realDataOnly`, so other
+jurisdictions show a gap instead of fake numbers. GM: DfE "Pupil absence in schools in England",
+AY2015-16 to AY2024-25, summed across the 10 LAs (counts, not averaged percentages). Borough, primary
+and secondary breakdowns are in `imports/research/gm-persistent-absence-by-borough-2015-2025.csv`.
+GMCA has no schools powers, so this is context for GM, not a mayoral scorecard metric. The write-up
+is the finding `greater-manchester-schools-who-runs-what`.
+
+Headline: 10.5% (2015/16) → 21.9% peak (2021/22) → 18.1% (2024/25), tracking England almost exactly
+(10.5% → 22.5% → 18.1%). Several figures in circulation were wrong, and the finding corrects them:
+national 10.1% → 20.5% (DfE: 10.5% → 22.5%); Manchester city 23.5% (DfE full year: 21.7%); "Oldham
+had one of the smallest absence increases" (it doubled, mid-pack).
+
+**Placeholder gaps closed:** `median_wages` 2015-2023 (ASHE via Nomis NM_99_1, GM Met County; the
+same query reproduces the existing 2024/2025 rows exactly) and BRES `tech_employment`,
+`life_sciences_employment` and `advanced_manufacturing_employment` 2015-2017 (NM_189_1, Employees; the
+same query reproduces the existing 2018 rows exactly). These were the two gap areas the October sweep named; check production for any others.
+
+**Open:** Chicago chronic absenteeism (Illinois Report Card; research task
+`chicago-persistent-absence-rate`). The CPS "chronic truancy" file is not comparable.
+Production steps: `imports/research/PRODUCTION_SYNC_2026-11.md`.

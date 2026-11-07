@@ -26,6 +26,7 @@ const CATEGORY_CHART_VAR: Record<string, string> = {
   transit: "--chart-5",
   "public-safety": "--chart-6",
   "fiscal-health": "--chart-7",
+  education: "--chart-8",
 };
 
 export function categoryChartColor(categorySlug: string): string {

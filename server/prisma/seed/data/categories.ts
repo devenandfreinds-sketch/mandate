@@ -64,4 +64,12 @@ export const categories: CategorySeedSpec[] = [
     colorHex: "#4338ca",
     sortOrder: 6,
   },
+  {
+    slug: "education",
+    name: "Education",
+    description: "School attendance and persistent/chronic absence. Real data only: no synthetic placeholders are generated for this category.",
+    icon: "graduation-cap",
+    colorHex: "#db2777",
+    sortOrder: 7,
+  },
 ];

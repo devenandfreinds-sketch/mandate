@@ -1,0 +1,10 @@
+jurisdiction,metric,year,value,confidence,notes
+greater-manchester,median_wages,2015,21451,high,"ONS ASHE Table 7.7a (Nomis NM_99_1: pay=Annual pay - gross, item=Median, sex=Total i.e. all employee jobs, place-of-work basis), Greater Manchester (Met County) E11000001. Pulled 2026-11-07; same series as the existing 2024/2025 rows, which Nomis reproduces exactly (30465, 31706). CV 2.3%."
+greater-manchester,median_wages,2016,22134,high,"ONS ASHE Table 7.7a via Nomis NM_99_1, GM Met County E11000001. See 2015 note. CV 2.2%."
+greater-manchester,median_wages,2017,22628,high,"ONS ASHE Table 7.7a via Nomis NM_99_1, GM Met County E11000001. See 2015 note. CV 2.0%."
+greater-manchester,median_wages,2018,23172,high,"ONS ASHE Table 7.7a via Nomis NM_99_1, GM Met County E11000001. See 2015 note. CV 2.4%."
+greater-manchester,median_wages,2019,23917,high,"ONS ASHE Table 7.7a via Nomis NM_99_1, GM Met County E11000001. See 2015 note. CV 2.4%."
+greater-manchester,median_wages,2020,24560,high,"ONS ASHE Table 7.7a via Nomis NM_99_1, GM Met County E11000001. See 2015 note. CV 2.1%. April 2020 reference period fell during the first lockdown; ONS flags furlough effects on pay for this year."
+greater-manchester,median_wages,2021,24342,high,"ONS ASHE Table 7.7a via Nomis NM_99_1, GM Met County E11000001. See 2015 note. CV 2.6%. Furlough still in effect at the April 2021 reference date."
+greater-manchester,median_wages,2022,26412,high,"ONS ASHE Table 7.7a via Nomis NM_99_1, GM Met County E11000001. See 2015 note. CV 2.7%."
+greater-manchester,median_wages,2023,28702,high,"ONS ASHE Table 7.7a via Nomis NM_99_1, GM Met County E11000001. See 2015 note. CV 2.4%."

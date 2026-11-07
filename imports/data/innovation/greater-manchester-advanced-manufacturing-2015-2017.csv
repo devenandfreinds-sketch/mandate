@@ -1,0 +1,4 @@
+jurisdiction,metric,year,value,confidence,notes
+greater-manchester,advanced_manufacturing_employment,2015,21030,medium,"Nomis BRES (NM_189_1, employment_status=Employees), sum of Greater Manchester's 10 boroughs, SIC divisions 26-30 (analyst-constructed proxy, same as the 2018-2024 file). Same query reproduces the existing 2018 row exactly (19310). Pulled 2026-11-07."
+greater-manchester,advanced_manufacturing_employment,2016,19895,medium,"Nomis BRES (NM_189_1, employment_status=Employees), sum of Greater Manchester's 10 boroughs, SIC 26-30 proxy. See 2015 note."
+greater-manchester,advanced_manufacturing_employment,2017,22905,medium,"Nomis BRES (NM_189_1, employment_status=Employees), sum of Greater Manchester's 10 boroughs, SIC 26-30 proxy. See 2015 note."

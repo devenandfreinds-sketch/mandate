@@ -10,6 +10,7 @@ import { governmentCapacityMetrics } from "./data/metricDefinitions/governmentCa
 import { transitMetrics } from "./data/metricDefinitions/transit.js";
 import { publicSafetyMetrics } from "./data/metricDefinitions/publicSafety.js";
 import { fiscalHealthMetrics } from "./data/metricDefinitions/fiscalHealth.js";
+import { educationMetrics } from "./data/metricDefinitions/education.js";
 import { governanceModels } from "./data/governanceModels.js";
 import { jurisdictions } from "./data/jurisdictions.js";
 import { administrations } from "./data/administrations.js";
@@ -45,6 +46,7 @@ const metricsByCategory: Record<string, MetricSeedSpec[]> = {
   transit: transitMetrics,
   "public-safety": publicSafetyMetrics,
   "fiscal-health": fiscalHealthMetrics,
+  education: educationMetrics,
 };
 
 function assertSafeToRun() {
@@ -599,6 +601,7 @@ async function main() {
     const adminWindows = administrationsByJurisdiction.get(j.slug) ?? [];
 
     for (const spec of allMetricSpecs) {
+      if (spec.realDataOnly) continue;
       const metricDefinitionId = metricDefIdBySlug.get(spec.slug)!;
       if (realDataPairs.has(`${metricDefinitionId}::${jurisdictionId}`)) continue;
 

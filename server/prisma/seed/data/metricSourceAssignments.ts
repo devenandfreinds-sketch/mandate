@@ -310,4 +310,13 @@ export const metricSourceAssignments: MetricSourceAssignment[] = [
     sourceKey: "municipal_cafr",
     calculationMethod: "Total capital expenditure on infrastructure and public assets for the fiscal year, from the jurisdiction's ACFR or capital budget report.",
   },
+  // Education
+  {
+    metricSlug: "persistent_absence_rate",
+    sourceKey: "dfe_pupil_absence_gm",
+    calculationMethod:
+      "Pupils missing 10%+ of possible sessions divided by all enrolled pupils, for the academic year. UK jurisdictions: DfE 'Pupil absence in schools in England', counts summed across constituent local authorities. US jurisdictions (not yet researched): state report-card 'chronic absenteeism' (10%+ of enrolled days), e.g. Illinois Report Card for CPS.",
+    limitations:
+      "England counts sessions (half-days) and US systems count days, and US definitions vary by state on minimum enrolment and whether suspensions count, so cross-country comparisons are close but not exact. Covers schools in the area, regardless of who runs them: in England neither GMCA nor the mayor runs schools, so this is a context metric, not a measure of a mayoral administration's record. 2019/20 has no data; 2020/21 is affected by COVID closures.",
+  },
 ];

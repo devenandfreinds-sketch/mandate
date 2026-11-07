@@ -167,6 +167,77 @@ export const findings: Finding[] = [
       { label: "Durham County Council, \"Councillors to agree budget for next four years,\" February 2025", url: "https://www.durham.gov.uk/article/32465/News-Councillors-to-agree-budget-for-next-four-years" },
     ],
   },
+  {
+    slug: "greater-manchester-schools-who-runs-what",
+    title: "Greater Manchester's Schools: The Mayor Doesn't Run Them, and Absence Has Fallen Back to England's Level",
+    dek: "Greater Manchester's mayor has no power over schools, so Andy Burnham's education bet was a technical-education track, the MBacc. Meanwhile persistent absence across the ten boroughs nearly doubled after COVID and is only now coming down.",
+    publishedDate: "2026-11-07",
+    category: "Education",
+    sections: [
+      {
+        heading: "Who runs what",
+        paragraphs: [
+          "The Greater Manchester Combined Authority and its mayor don't run schools. The ten borough councils still handle admissions, attendance enforcement and support for children with special educational needs. A growing share of schools are academies run by trusts that answer to the Department for Education in London, and the DfE's regional office approves academy changes.",
+          "The mayor's real lever is skills and technical education. Greater Manchester has controlled its adult skills budget since 2019, and later devolution deals gave the combined authority more say over post-16 technical education.",
+          "That's the sharpest contrast with Chicago, where Chicago Public Schools and its board run schools directly and the mayor's appointees have historically controlled that board. A Greater Manchester mayor can't be judged on school attendance or test scores the way a Chicago mayor can.",
+        ],
+      },
+      {
+        heading: "The flagship policy: the MBacc",
+        paragraphs: [
+          "The Greater Manchester Baccalaureate (MBacc), launched under Andy Burnham, is the combined authority's technical counterpart to the national EBacc, the set of GCSE subjects (English, maths, sciences, a language, history or geography) that the government uses to measure academic breadth. Each MBacc 'gateway' points 14-year-olds toward the GCSEs, then the T Levels and apprenticeships, that the city-region's main employers say they need.",
+          "The combined authority's case is that the EBacc fits only a minority: by its count, around 40% of Greater Manchester pupils study for it and about a quarter pass every subject. It describes the MBacc as a route for the other two-thirds who won't go to university.",
+          "Employer buy-in is the measurable part so far. The combined authority reported more than 700 new T Level placements pledged in the MBacc's first year, and more than 1,000 from over 350 employers by late 2025.",
+          "Critics argue that a separate track sorts 14-year-olds early and could harden into a two-tier system that narrows options rather than widening them.",
+        ],
+        note: "Placement figures are the combined authority's own pledge counts, not placements actually completed. No independent evaluation of MBacc outcomes exists yet.",
+      },
+      {
+        heading: "Persistent absence: what the data shows",
+        paragraphs: [
+          "England counts a pupil as 'persistently absent' if they miss 10% or more of possible school sessions, roughly one day a fortnight. That's close to the US definition of chronic absenteeism (10% or more of enrolled days), so the two can be compared, with care.",
+          "Across Greater Manchester's ten boroughs, persistent absence was about 11% before the pandemic (10.5% in 2015/16, 11.6% in 2017/18). It jumped to 21.9% in 2021/22, more than one in five pupils, and has fallen each year since: 20.8%, 19.9%, and 18.1% in 2024/25. England followed almost the same path, from 10.5% in 2015/16 to 22.5% in 2021/22 and 18.1% in 2024/25.",
+          "Secondary schools are the problem. In 2024/25, 22.7% of Greater Manchester secondary pupils were persistently absent, against 13.4% in primary schools.",
+          "The spread between boroughs is wide. Salford was highest in 2021/22 at 26.0% and still is in 2024/25 at 20.6%, even though it has also fallen the most since the peak (5.5 points). Trafford, the most affluent borough, is lowest at 12.6%.",
+        ],
+        note: "Greater Manchester's figure is total persistent absentees divided by total enrolments across the ten boroughs, not an average of borough percentages. There is no 2019/20 data, and 2020/21 (12.9%) excludes lockdown closures, so it isn't comparable with other years.",
+      },
+      {
+        heading: "Corrections to figures in circulation",
+        paragraphs: [
+          "Some widely shared numbers on this topic don't match the DfE's full-year statistics. Nationally, persistent absence rose from 10.5% (2015/16) to 22.5% (2021/22), not 10.1% to 20.5%. For Manchester city, the DfE's full-year figure for 2021/22 is 21.7%. The 23.5% figure in a council committee report probably comes from a different collection period.",
+          "A claim that Oldham had the worst child poverty in Greater Manchester but one of the smallest absence increases also doesn't hold up on the full-year data. Oldham's rate doubled between 2015/16 and 2021/22, from 12.0% to 24.1%, which is roughly in the middle of the ten boroughs.",
+        ],
+      },
+      {
+        heading: "Other pressures",
+        paragraphs: [
+          "Greater Manchester has more 16- to 19-year-olds than it has college and sixth-form places, a result of a population bulge moving through the system. The government gave Greater Manchester and Leeds GBP10 million each in capital funding to add places.",
+          "Families of children with special educational needs describe a postcode lottery between boroughs, with some councils missing the 20-week legal deadline for issuing education, health and care plans.",
+        ],
+      },
+      {
+        heading: "What this doesn't show",
+        paragraphs: [
+          "Absence trends in Greater Manchester say little about the mayor, who has no power over schools. They reflect borough councils, academy trusts and national DfE policy. That's why Mandate shows this as context for Greater Manchester rather than as part of a mayoral scorecard.",
+          "It also isn't yet a like-for-like comparison with Chicago. CPS publishes attendance rates and a 'chronic truancy' measure that counts only unexcused absences. The comparable chronic absenteeism figure comes from the Illinois Report Card, which Mandate hasn't added yet.",
+        ],
+      },
+    ],
+    sources: [
+      { label: "Department for Education, \"Pupil absence in schools in England\" (Explore Education Statistics), 2015/16 to 2024/25, data set \"Absence for persistent and severe absentees\"", url: "https://explore-education-statistics.service.gov.uk/find-statistics/pupil-absence-in-schools-in-england" },
+      { label: "Mandate borough-level breakdown (CSV, from the DfE data above)", url: "https://github.com/devenandfreinds-sketch/mandate/blob/main/imports/research/gm-persistent-absence-by-borough-2015-2025.csv" },
+      { label: "GMCA, \"Andy Burnham unveils plan to turbocharge growth in Greater Manchester with new technical education route: the Greater Manchester Baccalaureate\"", url: "https://www.greatermanchester-ca.gov.uk/news/andy-burnham-unveils-plan-to-turbocharge-growth-in-greater-manchester-with-new-technical-education-route-the-greater-manchester-baccalaureate/" },
+      { label: "GMCA, \"Mayor joins students celebrating exam results as Greater Manchester marks one year delivering the UK's first integrated technical education system\"", url: "https://greatermanchester-ca.gov.uk/news/mayor-joins-students-celebrating-exam-results-as-greater-manchester-marks-one-year-delivering-the-uk-s-first-integrated-technical-education-system" },
+      { label: "GMCA, \"Landmark moment for technical education in Greater Manchester as employers pledge 1000 new industry placements\"", url: "https://www.greatermanchester-ca.gov.uk/news/landmark-moment-for-technical-education-in-greater-manchester-as-employers-pledge-1000-new-industry-placements/" },
+      { label: "GMCA, MBacc introduction for educators", url: "https://www.greatermanchester-ca.gov.uk/media/5kuj4j0i/mbacc-introductionforeducators-notes-plaintext-1.pdf" },
+      { label: "Oldham Chronicle, \"The new route for the two-thirds of young people who don't go to university\"", url: "https://www.oldham-chronicle.co.uk/news-features/139/main-news/151830/the-new-route-for-the-twothirds-of-young-people-who-don%E2%80%99t-go-to-university" },
+      { label: "Mancunian Matters, poverty and school absence in Greater Manchester", url: "https://www.mancunianmatters.co.uk/?p=142980" },
+      { label: "Manchester City Council, \"School Attendance in Manchester\"", url: "https://democracy.manchester.gov.uk/documents/s35470/School%20Attendance%20in%20Manchester.pdf" },
+      { label: "FE Week, 16-19 population bulge capital funding", url: "https://feweek.co.uk/?p=145485" },
+      { label: "Local Government Lawyer, \"Manchester region wins greater devolved powers\"", url: "https://localgovernmentlawyer.co.uk/governance/314-governance-a-risk-articles/655-manchester-region-wins-greater-devolved-powers" },
+    ],
+  },
 ];
 
 export function getFindingBySlug(slug: string): Finding | undefined {

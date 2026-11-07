@@ -17,6 +17,13 @@ export interface MetricSeedSpec {
   variancePercent: number;
   floor?: number;
   ceiling?: number;
+  /**
+   * true: never generate synthetic placeholder values for this metric. Jurisdictions without imported
+   * real data simply show "No data available." Used for categories added after the placeholder era
+   * (e.g. Education), where a fake series for every city would mislead more than a visible gap.
+   * baseValue/trend/variance are then unused but kept for type compatibility.
+   */
+  realDataOnly?: boolean;
 }
 
 export interface AdministrationWindow {
