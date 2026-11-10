@@ -3,7 +3,8 @@
 **Cities:** Greater Manchester, Chicago, Seattle, New York City, Washington DC, Dublin.
 **Scope rule:** government sources first; reputable news only where no government record exists
 (Flock contracts), and each such figure is labelled. Pulled 2026-11-10.
-Nothing in the seed data was changed. These are research files for review before any import.
+The headline series are now in the app as five real-data-only metrics (see `PRODUCTION_SYNC_2026-11-six-city.md`);
+these research files hold the full cross-district detail behind them. NAEP gaps are computed from unrounded means.
 
 ## 1. School funding vs standardized test scores
 
@@ -12,7 +13,7 @@ in every system checked. Holding need constant, funding has a small positive, no
 
 | Comparison | n | Funding vs scores r (p) | Need vs scores r | Funding vs scores after need, partial r (p) |
 |---|---|---|---|---|
-| US big-city districts, NAEP 2024 | 26 | −0.16 (0.45) | −0.82 | +0.19 (0.36) |
+| US big-city districts, NAEP 2024 | 26 | −0.15 (0.45) | −0.82 | +0.19 (0.36) |
 | Washington districts 10k+, SBAC 2023-24 | 32 | −0.15 (0.41) | −0.94 | +0.07 (0.69) |
 | All English local authorities, GCSE 2024/25 | 151 | +0.17 (0.04) | −0.31 | +0.64 (<0.001) |
 | English LAs outside London | 119 | −0.56 (<0.001) | −0.63 | −0.03 (0.75) |
@@ -26,7 +27,7 @@ outside London funding follows disadvantage and the partial correlation is zero.
 | District | Spending per pupil | Child poverty | Avg gap to national public (pts) | Gap vs model (spending + poverty) |
 |---|---|---|---|---|
 | New York City | $35,796 | 23.4% | −5.0 | +5.0 |
-| DC Public Schools | $31,529 | 24.6% | −4.8 | +7.2 |
+| DC Public Schools | $31,529 | 24.6% | −4.7 | +7.3 |
 | Chicago | $24,330 | 20.9% | −8.5 | +0.6 |
 
 Seattle (state test, not NAEP): $22,564 per pupil, 34.3% low income, 63.1% meeting standard

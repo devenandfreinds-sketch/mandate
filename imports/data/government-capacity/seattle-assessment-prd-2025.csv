@@ -1,0 +1,2 @@
+jurisdiction,metric,year,value,confidence,notes
+seattle,residential_assessment_prd,2025,1.012,high,"Mandate ratio study from King County Assessor extracts: 2025 appraised values (1 Jan 2025, taxes payable 2026) vs 2024 market sales of Seattle single-family homes, n=3,141 after 1.5xIQR trim. Median 0.924, COD 8.5, PRB -0.021. Passes IAAO; cheapest tenth 0.96 vs most expensive 0.88. Pulled 2026-11-10."

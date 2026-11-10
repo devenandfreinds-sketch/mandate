@@ -1,0 +1,2 @@
+jurisdiction,metric,year,value,confidence,notes
+seattle,flock_cameras_per_100k,2026,0,high,Seattle City Council (2026-02-24): 'Seattle does not contract with Flock Safety.' SPD's own vehicle-mounted Axon ALPR is not counted and has been suspended since 2026-03-20. Pulled 2026-11-10.

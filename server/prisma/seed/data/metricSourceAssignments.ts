@@ -319,4 +319,45 @@ export const metricSourceAssignments: MetricSourceAssignment[] = [
     limitations:
       "England counts sessions (half-days) and US systems count days, and US definitions vary by state on minimum enrolment and whether suspensions count, so cross-country comparisons are close but not exact. Covers schools in the area, regardless of who runs them: in England neither GMCA nor the mayor runs schools, so this is a context metric, not a measure of a mayoral administration's record. 2019/20 has no data; 2020/21 is affected by COVID closures.",
   },
+  // Six-city pull, November 2026 (see imports/research/six-city-civic-brief-2026-11.md)
+  {
+    metricSlug: "per_pupil_school_spending",
+    sourceKey: "census_school_finances",
+    calculationMethod:
+      "U.S. jurisdictions: Census per-pupil current spending, (TCURELSC - V91 - V92) / V33, for the school district serving the city (CPS District 299, NYC DOE, DC Public Schools, Seattle School District 1). Fiscal year = year the school year ends.",
+    limitations:
+      "Nominal dollars, not adjusted for inflation or local wage costs (NYC and Seattle labour costs are far above Chicago's). DCPS excludes DC's charter schools (about 45% of DC public-school pupils). Greater Manchester has no comparable district-wide series: England's DfE schools block per pupil (about GBP 5,900-6,800 per pupil in 2024-25) covers formula funding only and excludes pupil premium and high-needs money, so it is kept in research files rather than imported here. Spending is not a measure of outcomes: across 26 large US districts it does not correlate with NAEP scores once child poverty is accounted for (see imports/research/six-city-civic-brief-2026-11.md).",
+  },
+  {
+    metricSlug: "naep_score_gap_vs_national",
+    sourceKey: "nces_naep_tuda",
+    calculationMethod:
+      "Mean of four gaps (district mean - U.S. public-school mean) on NAEP grade 4 and 8 mathematics and reading, in NAEP scale points.",
+    limitations:
+      "Only NAEP TUDA districts have this measure: Chicago, New York City and DC Public Schools (not Seattle, Minneapolis or Durham). DCPS excludes DC charter schools. Scores reflect student poverty strongly (r = -0.82 with child poverty across the 26 TUDA districts in 2024), so compare cities with that in mind. NAEP is tested every two years; 2021 was skipped for COVID.",
+  },
+  {
+    metricSlug: "gcse_attainment8",
+    sourceKey: "dfe_ks4_gm",
+    calculationMethod:
+      "Pupil-weighted mean of local authorities' average Attainment 8 scores (state-funded schools), weights = pupils at the end of key stage 4.",
+    limitations:
+      "England only, so no US comparison. 2019/20 and 2020/21 used teacher-assessed grades after exams were cancelled and are not comparable with exam years. Attainment 8 is a points total, not a standardised test score. GMCA does not run schools; this is context for Greater Manchester, not a mayoral record.",
+  },
+  {
+    metricSlug: "flock_cameras_per_100k",
+    sourceKey: null,
+    calculationMethod:
+      "Flock Safety cameras operated by or contracted to the city government or police, divided by the U.S. Census Bureau Vintage 2025 population (1 July 2025), times 100,000. Each city's figure cites its own contract or agency statement.",
+    limitations:
+      "No government publishes these counts; DC's figure comes from news reporting of the MPD contract. Zeros mean the city or police confirmed no Flock contract; they do not mean no plate readers (NYPD, SPD and CPD run or access other systems, and Chicago police buy access to privately owned Flock cameras). Greater Manchester and Durham are not imported: no public record exists either way. A context metric, not a performance score.",
+  },
+  {
+    metricSlug: "residential_assessment_prd",
+    sourceKey: null,
+    calculationMethod:
+      "IAAO price-related differential: mean(assessed / sale price) / (sum assessed / sum sale price), over arm's-length home sales, after trimming ratios outside 1.5 x IQR. Chicago, NYC and Seattle are Mandate's calculations from assessor open data; DC is OTR's published figure. Year = valuation date.",
+    limitations:
+      "Each city's property scope differs: Chicago 1-6 unit homes, NYC tax class 1 (1-3 family), Seattle single-family, DC all residential. NYC uses market value, before the assessment caps that make taxable values more regressive still. The cheapest sales can include distressed or non-market sales that slip through filters and inflate low-end ratios. IAAO standard is 0.98-1.03.",
+  },
 ];

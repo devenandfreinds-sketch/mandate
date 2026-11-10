@@ -58,4 +58,19 @@ export const publicSafetyMetrics: MetricSeedSpec[] = [
     variancePercent: 0.1,
     floor: 3,
   },
+  {
+    slug: "flock_cameras_per_100k",
+    name: "Flock Cameras per 100,000 Residents",
+    description:
+      "Flock Safety automated licence-plate reader cameras operated by, or under contract to, the city government or its police department, per 100,000 residents. Excludes cameras owned by businesses, neighbourhood associations or other agencies, and other plate-reader vendors. A context metric on surveillance footprint: a lower number is not a judgement that fewer cameras is better policing.",
+    unit: "index",
+    higherIsBetter: false,
+    decimalPrecision: 2,
+    sortOrder: 4,
+    scalesWithPopulation: false,
+    baseValue: 0,
+    trendPercentPerYear: 0,
+    variancePercent: 0,
+    realDataOnly: true,
+  },
 ];

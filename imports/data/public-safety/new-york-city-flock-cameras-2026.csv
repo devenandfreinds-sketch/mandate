@@ -1,0 +1,2 @@
+jurisdiction,metric,year,value,confidence,notes
+new-york-city,flock_cameras_per_100k,2026,0,high,"NYPD, NYC DOT and MTA confirmed no Flock contracts (West Side Rag 2026-08-13). NYPD runs its own plate-reader network (Domain Awareness System), not counted. Pulled 2026-11-10."

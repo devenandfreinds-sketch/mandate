@@ -1,0 +1,2 @@
+jurisdiction,metric,year,value,confidence,notes
+chicago,residential_assessment_prd,2024,1.009,high,"Mandate ratio study from Cook County Assessor open data: 2024 initial (mailed) values x10 vs 2023 arm's-length sales of 1-6 unit homes in Chicago's 8 townships, n=13,091 after 1.5xIQR trim. Median ratio 0.954, COD 14.3, PRB 0.000. Passes IAAO, but the cheapest tenth of sales (under $137,000) has median ratio 1.09 vs 0.93 mid-market. Values as of 1 Jan 2024 (city reassessment year). Pulled 2026-11-10."

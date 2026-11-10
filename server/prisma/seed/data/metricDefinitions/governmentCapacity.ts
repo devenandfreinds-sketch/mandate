@@ -104,4 +104,19 @@ export const governmentCapacityMetrics: MetricSeedSpec[] = [
     floor: 0,
     ceiling: 100,
   },
+  {
+    slug: "residential_assessment_prd",
+    name: "Home Assessment Fairness (Price-Related Differential)",
+    description:
+      "IAAO price-related differential for homes: the mean of (assessed value / sale price) divided by total assessed value / total sale price, over arm's-length sales. 1.00 means cheap and expensive homes are assessed at the same level. IAAO's standard is 0.98 to 1.03; above 1.03 means cheaper homes are over-assessed relative to expensive ones (regressive). Year is the assessment's valuation date.",
+    unit: "index",
+    higherIsBetter: false,
+    decimalPrecision: 3,
+    sortOrder: 7,
+    scalesWithPopulation: false,
+    baseValue: 0,
+    trendPercentPerYear: 0,
+    variancePercent: 0,
+    realDataOnly: true,
+  },
 ];
