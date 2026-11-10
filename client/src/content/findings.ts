@@ -238,6 +238,191 @@ export const findings: Finding[] = [
       { label: "Local Government Lawyer, \"Manchester region wins greater devolved powers\"", url: "https://localgovernmentlawyer.co.uk/governance/314-governance-a-risk-articles/655-manchester-region-wins-greater-devolved-powers" },
     ],
   },
+  {
+    slug: "us-farm-tariff-aid-30-percent-of-income",
+    title: "Federal Aid Is Now 30% of U.S. Farm Income, and Farm Bankruptcies Are Still Rising",
+    dek: "Washington's $12 billion 'bridge' payment for tariff-hit farmers is only part of a record year of federal farm payments. They hold average farm income steady, but market income is falling, debt is at a record, and Chapter 12 filings keep climbing.",
+    publishedDate: "2026-11-10",
+    category: "Trade & Agriculture",
+    sections: [
+      {
+        heading: "The question",
+        paragraphs: [
+          "How are American farmers coping with the tariff fight, and with the aid that was meant to bridge it? This is a national question rather than a city one: none of the six cities Mandate tracks is a farm economy.",
+        ],
+      },
+      {
+        heading: "What the aid is",
+        paragraphs: [
+          "The Farmer Bridge Assistance program, announced in December 2025, is a $12 billion package. $11 billion goes to row crops as a one-time payment per acre planted in 2025; the rest goes to specialty crops through a separate program. Payments were capped at $155,000 per person or entity, farmers with average adjusted gross income over $900,000 were excluded, and the money was due out by February 28, 2026.",
+          "It isn't a rebate. Farmers don't get back the tariffs they paid; they get a flat payment per acre, set crop by crop.",
+          "The rates are very uneven. Rice gets $132.89 an acre and cotton $117.35. Corn gets $44.36, wheat $39.35, and soybeans $30.88, even though soybeans are the crop most exposed to lost Chinese demand. Flax is lowest, at $8.05.",
+        ],
+      },
+      {
+        heading: "What the data shows",
+        paragraphs: [
+          "USDA's Economic Research Service forecasts $47.4 billion in direct government payments to farms in 2026, up $19.5 billion (about 70%) in a year and the highest in its 2019–2026 series. That's 29.9% of the $158.4 billion forecast net farm income. In 2024 the share was 7.9%.",
+          "Even with that money, net farm income is forecast to fall 2.6% in 2026, or 5.5% after inflation. Strip out government payments and net crop-insurance payments and ERS has farm income falling $34 billion, or 26%, to its lowest level since 2020.",
+          "Costs and debt are both up. Total farm expenses are forecast at $492.8 billion (+4.5%) and farm debt at a record $605.1 billion (+4.6%).",
+          "Chapter 12, the bankruptcy chapter for family farms, tells the same story. Filings rose from 216 in 2024 to 315 in 2025, up 46%. In the first nine months of 2026 there were 292, against 246 in the same period of 2025, up 19%.",
+        ],
+      },
+      {
+        heading: "The complication",
+        paragraphs: [
+          "Most of this year's jump in federal payments isn't tariff aid. ERS expects about $15 billion in 2026 from the Farm Bill's Agricultural Risk Coverage and Price Loss Coverage programs, which pay out automatically when crop prices or revenues fall. That's more than the forecast rise in the bridge payments and other ad hoc aid combined.",
+          "So the headline \"30% of farm income\" is mostly a price story with tariff aid on top, not tariff aid alone.",
+        ],
+      },
+      {
+        heading: "What this means",
+        paragraphs: [
+          "The aid has kept average farm finances close to break-even. ERS forecasts median farm-household income at $108,460, up about 5%. But the share of farm income that now comes from Washington is back to pandemic-era levels, and debt and bankruptcies are rising underneath it. The farms most exposed are the ones that rely most on markets the trade fight has hit, soybeans above all.",
+        ],
+      },
+      {
+        heading: "What this doesn't show",
+        paragraphs: [
+          "Chapter 12 only covers farmers who make most of their income from farming, so it understates distress among part-time and smaller farms. ERS's 2026 figures are forecasts, not final numbers. And the per-acre rates say nothing about whether each crop's payment matches what that crop actually lost; USDA didn't publish a loss-by-crop calculation alongside the rates.",
+        ],
+        note: "The per-acre rates come from farmdoc daily's tabulation of USDA's December 31, 2025 announcement, because the USDA page refused automated access. The bankruptcy counts are U.S. Courts data as compiled by the American Farm Bureau Federation and the National Agricultural Law Center. Both should be checked against the primary documents.",
+      },
+    ],
+    sources: [
+      { label: "USDA Economic Research Service, U.S. farm sector financial indicators 2019–2026F (September 3, 2026 forecast)", url: "https://www.ers.usda.gov/data-products/farm-income-and-wealth-statistics/data-files-us-and-state-level-farm-income-and-wealth-statistics" },
+      { label: "USDA Economic Research Service, farm income forecast webinar transcript, September 3, 2026", url: "https://www.ers.usda.gov/sites/default/files/2026_09_03%20Webinar%20Transcript_Farm%20Income.pdf" },
+      { label: "USDA, \"USDA Announces Commodity Payment Rates for Farmer Bridge Assistance Program\" (December 31, 2025)", url: "https://www.usda.gov/about-usda/news/press-releases/2025/12/31/usda-announces-commodity-payment-rates-farmer-bridge-assistance-program" },
+      { label: "farmdoc daily (University of Illinois), \"Farmer Bridge Assistance Program Payment Rates\" (January 6, 2026)", url: "https://farmdocdaily.illinois.edu/2026/01/farmer-bridge-assistance-program-payment-rates.html" },
+      { label: "Federal Register, Farmer Bridge Assistance (FBA) Program notice (February 23, 2026)", url: "https://www.federalregister.gov/documents/2026/02/23/2026-03456/farmer-bridge-assistance-fba-program" },
+      { label: "University of Arkansas System Division of Agriculture / National Agricultural Law Center, Q3 2026 Chapter 12 filings (October 22, 2026)", url: "https://www.uaex.uada.edu/media-resources/news/2026/october/10-22-2026-ark-nalc-q3-bankruptcies.aspx" },
+      { label: "Investigate Midwest, \"Farm bankruptcies jumped 46% in 2025\" (AFBF analysis of U.S. Courts data)", url: "https://investigatemidwest.org/2026/02/25/farm-bankruptcies-jumped-46-in-2025-as-debt-loads-and-costs-rise/" },
+      { label: "Mandate research brief with charts and CSVs (six-city social brief, November 2026)", url: "https://github.com/devenandfreinds-sketch/mandate/blob/main/imports/research/six-city-social-brief-2026-11/README.md" },
+    ],
+  },
+  {
+    slug: "addiction-follows-poverty-inside-cities",
+    title: "Addiction Follows Poverty Inside Cities, but Less So Between Them",
+    dek: "In New York, Greater Manchester and Dublin, the poorer the neighbourhood, the worse the addiction harm. Across cities the pattern weakens: Seattle has the lowest poverty of the four U.S. cities but one of the highest overdose death rates.",
+    publishedDate: "2026-11-10",
+    category: "Public Health",
+    sections: [
+      {
+        heading: "The question",
+        paragraphs: [
+          "How common is addiction in New York, Chicago, Seattle, Washington DC, Greater Manchester and Dublin, and how closely does it track poverty?",
+        ],
+      },
+      {
+        heading: "What can be measured",
+        paragraphs: [
+          "No government publishes a count of people with addiction for any of these cities. There are three official stand-ins, and they measure different things. The U.S. survey on drug use (SAMHSA's NSDUH) estimates the share of people with a substance use disorder, but only by state. Overdose deaths, from the CDC, and drug-misuse deaths, from ONS in England, capture the most severe harm. Ireland's Health Research Board counts treatment episodes, which reflect access to treatment as well as need.",
+          "Because the definitions differ, the U.S., English and Irish figures below shouldn't be compared with each other directly.",
+        ],
+      },
+      {
+        heading: "How common it is",
+        paragraphs: [
+          "About one in six Americans aged 12 and over (16.9%) met the clinical criteria for a substance use disorder in 2023–2024. Washington DC is far above that, at 23.9%, nearly one in four. Illinois is at 18.3%, New York 17.3% and Washington State 16.6%.",
+          "Overdose deaths have fallen sharply everywhere since 2023. In 2025, per 100,000 residents: Washington DC 39.2, Seattle's King County 36.2, New York City 20.8, Chicago's Cook County 18.6, against a U.S. rate of 20.7. Cook County's rate is down 55% from its 2022 peak.",
+          "In Greater Manchester, drug-misuse deaths registered in 2023–2025 ran at 11.2 per 100,000 in Manchester itself, nearly double England's 6.0. The other nine boroughs ranged from 5.1 (Wigan) to 8.6 (Tameside).",
+        ],
+      },
+      {
+        heading: "The link to poverty",
+        paragraphs: [
+          "Inside New York City the relationship is strong. Across the five boroughs, the poverty rate and the overdose death rate correlate at 0.90. The Bronx, at 28.7% poverty, had 42.3 overdose deaths per 100,000 in 2025; Queens, at 13.4%, had 12.6.",
+          "In Greater Manchester, Manchester is both the most deprived borough (4th most deprived of 296 English districts) and the one with the most drug deaths. Across all ten boroughs the correlation is 0.55, but most of that comes from Manchester. Oldham and Rochdale are among the most deprived boroughs yet sit below England's average death rate.",
+          "Ireland shows the cleanest gradient. Addiction treatment rates rise with every step of neighbourhood deprivation: 148.3 episodes per 10,000 people in the most deprived areas against 11.5 in the most affluent, a 13-fold gap. For heroin the gap is 41-fold. County Dublin has 28% of Ireland's population but 52% of its cocaine treatment cases. Of everyone treated for drugs in Ireland in 2025, 59% were unemployed and 12% were homeless.",
+        ],
+      },
+      {
+        heading: "The complication",
+        paragraphs: [
+          "Between cities, poverty explains much less. Across the five NYC boroughs plus Cook County, King County and DC, the correlation falls to 0.41. Seattle is the clearest exception: King County has the lowest poverty rate of the eight (8.8%) but the third-highest overdose death rate. Fentanyl reached the West Coast later than the East, and King County's deaths peaked in 2023, after most East Coast cities had peaked. The drug supply and when it changed matter alongside poverty.",
+        ],
+      },
+      {
+        heading: "What this doesn't show",
+        paragraphs: [
+          "These are correlations across five to ten places each, not proof that poverty causes addiction. The relationship runs both ways: addiction also pushes people into poverty, unemployment and homelessness. U.S. survey data is only available by state, so the city figures rely on deaths rather than on how many people are living with addiction. 2025 U.S. overdose counts are still provisional; up to 40% of Bronx records were pending.",
+        ],
+        note: "U.S. overdose rates are Mandate's calculation: CDC provisional county deaths divided by Census Vintage 2025 population. NYC's own health department publishes overdose rates by neighbourhood poverty level, which would sharpen the within-city picture, but its site refused automated access for this pull.",
+      },
+    ],
+    sources: [
+      { label: "SAMHSA, 2023–2024 National Survey on Drug Use and Health state prevalence estimates (Tables 24, 25, 27, 29)", url: "https://www.samhsa.gov/data/report/2023-2024-nsduh-state-prevalence-estimates" },
+      { label: "CDC NCHS, provisional county-level drug overdose death counts (data as of October 4, 2026)", url: "https://data.cdc.gov/resource/gb4e-yj24.json" },
+      { label: "CDC NCHS, provisional national drug overdose death counts", url: "https://data.cdc.gov/resource/xkb8-kh2a.json" },
+      { label: "U.S. Census Bureau, Small Area Income and Poverty Estimates 2024", url: "https://www2.census.gov/programs-surveys/saipe/datasets/2024/2024-state-and-county/est24all.txt" },
+      { label: "U.S. Census Bureau, Vintage 2025 county population estimates", url: "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/counties/totals/co-est2025-alldata.csv" },
+      { label: "ONS, Deaths related to drug poisoning by local authority, England and Wales, 1993–2025 (November 4, 2026)", url: "https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/deaths/datasets/drugmisusedeathsbylocalauthority" },
+      { label: "MHCLG, English Indices of Deprivation 2025", url: "https://www.gov.uk/government/statistics/english-indices-of-deprivation-2025" },
+      { label: "Health Research Board & Pobal, \"An exploration of the relationship between addiction treatment and geographic deprivation\" (May 2026)", url: "https://www.drugsandalcohol.ie/45587/" },
+      { label: "Health Research Board, National Drug Treatment Reporting System 2025", url: "https://www.drugsandalcohol.ie/45416/" },
+      { label: "Mandate research brief with charts and CSVs (six-city social brief, November 2026)", url: "https://github.com/devenandfreinds-sketch/mandate/blob/main/imports/research/six-city-social-brief-2026-11/README.md" },
+    ],
+  },
+  {
+    slug: "losing-public-aid-six-cities",
+    title: "SNAP Rolls Down 13% in a Year: Who's Losing Public Aid Across Six Cities",
+    dek: "Food aid has fallen fastest in Illinois, down 21.6% in a year. Medicaid enrollment is down 16–23% since 2023 in all four U.S. states Mandate tracks. In Britain about 5% of claimants with work conditions are under a sanction, and in Dublin homelessness is at a record.",
+    publishedDate: "2026-11-10",
+    category: "Social Safety Net",
+    sections: [
+      {
+        heading: "The question",
+        paragraphs: [
+          "What share of people in New York, Chicago, Seattle, Washington DC, Greater Manchester and Dublin have been cut off from public services and aid?",
+        ],
+      },
+      {
+        heading: "What can be measured",
+        paragraphs: [
+          "No government publishes a \"percent cut off\" figure for any of these cities. The closest official measures are program caseloads (SNAP food aid and Medicaid in the U.S.), benefit sanctions in the UK, and homelessness in Dublin. U.S. caseloads are reported by state, not city.",
+        ],
+        note: "Not everyone who leaves a program was cut off. Some leave because their income rose or they found other coverage, and administrative data doesn't record the reason.",
+      },
+      {
+        heading: "What the data shows: U.S.",
+        paragraphs: [
+          "SNAP fell 13.3% nationally between July 2025 and July 2026, from 41.6 million people to 36.1 million: 5.5 million fewer. Illinois fell furthest, down 21.6% (407,079 people, or 3.2% of all Illinoisans). New York fell 9.3% (272,988 people), Washington State 7.6% (68,549) and DC 6.9% (9,665). The Illinois decline is steady month after month from late 2025, not a one-month reporting blip.",
+          "Medicaid and CHIP enrollment is down sharply from its pandemic-era peak in March 2023: Illinois 23.4% (894,219 fewer people), DC 20.0% (59,229), Washington State 18.9% (414,366) and New York 15.8% (1,189,681). In DC that's equivalent to 8.5% of all residents.",
+        ],
+      },
+      {
+        heading: "Why the U.S. numbers are moving",
+        paragraphs: [
+          "For SNAP, the 2025 budget reconciliation law (H.R. 1, signed July 4, 2025) extended work requirements to adults aged 55 to 64 and to parents of children 14 and over, removed exemptions for veterans, homeless people and former foster youth, and shifted more of the program's costs to states. States began applying the new rules from late 2025. In November 2025 the federal shutdown also disrupted benefits while courts fought over whether USDA had to pay them. SNAP participation has fallen every month since. USDA itself says participation fluctuates and that no single policy explains the drop.",
+          "For Medicaid, most of the fall since 2023 is the 'unwinding' of pandemic-era continuous coverage. By a KFF count of CMS data, 25.2 million people were disenrolled nationally, and 69% of them lost coverage for procedural reasons, such as missing paperwork, rather than being found ineligible. Enrollment kept falling, about 7% nationally from July 2025 to July 2026. H.R. 1's Medicaid work requirements begin by January 1, 2027, though states can seek extensions.",
+        ],
+      },
+      {
+        heading: "What the data shows: Greater Manchester and Dublin",
+        paragraphs: [
+          "In Britain, the nearest equivalent to being cut off is a Universal Credit sanction, which reduces or stops a claimant's payment for a set period. In May 2026, 5.2% of claimants subject to work conditions were under a sanction, 106,589 people across Great Britain. The rate has stayed between about 5% and 7% since 2023. The Greater Manchester Jobcentre district issued roughly 3,400 new sanction decisions in April 2026, up from about 2,300 in April 2023.",
+          "In Dublin, 12,429 people were living in homeless emergency accommodation in August 2026, including 4,158 children. That's 0.85% of the county's residents, up 5.5% in a year. Nationally, 12.6% of people in Ireland are at risk of poverty and 4.7% live in consistent poverty; the region that includes Dublin is lower, at 9.6% and 3.4%.",
+        ],
+        note: "The Greater Manchester sanction counts are a Mandate estimate. DWP publishes the district figure only for claimants who declared an ethnicity (74.9% in April 2026), and we scaled that count up by the response rate. DWP doesn't publish a borough-level sanction rate in its tables; that requires Stat-Xplore.",
+      },
+      {
+        heading: "What this doesn't show",
+        paragraphs: [
+          "State figures blur the cities inside them: NYC is about 43% of New York State, Cook County about 41% of Illinois and King County about 29% of Washington State. July 2026 SNAP and Medicaid figures are preliminary and will be revised. And the measures aren't the same across countries: a SNAP exit, a Medicaid disenrollment, a UK sanction and a night in Dublin emergency accommodation are different experiences, so this is a side-by-side, not a league table.",
+        ],
+      },
+    ],
+    sources: [
+      { label: "USDA Food and Nutrition Service, SNAP data tables and National Data Bank state monthly files (data as of October 9, 2026)", url: "https://www.fns.usda.gov/pd/supplemental-nutrition-assistance-program-snap" },
+      { label: "CMS, data.medicaid.gov, State Medicaid and CHIP Applications, Eligibility Determinations, and Enrollment Data", url: "https://data.medicaid.gov/" },
+      { label: "KFF, Medicaid Enrollment and Unwinding Tracker (compiling CMS data)", url: "https://www.kff.org/medicaid/medicaid-enrollment-and-unwinding-tracker/" },
+      { label: "U.S. Census Bureau, Vintage 2025 state and county population estimates", url: "https://www2.census.gov/programs-surveys/popest/datasets/2020-2025/counties/totals/co-est2025-alldata.csv" },
+      { label: "DWP, Benefit sanctions statistics to May 2026 (Tables 2.1 and 7.4.3)", url: "https://www.gov.uk/government/statistics/benefit-sanctions-statistics-to-may-2026" },
+      { label: "Dublin Region Homeless Executive, monthly report on homelessness, August 2026", url: "https://www.homelessdublin.ie/info/figures" },
+      { label: "CSO, Survey on Income and Living Conditions (SILC) 2025", url: "https://www.cso.ie/en/releasesandpublications/ep/p-silc/surveyonincomeandlivingconditionssilc2025/" },
+      { label: "Mandate research brief with charts and CSVs (six-city social brief, November 2026)", url: "https://github.com/devenandfreinds-sketch/mandate/blob/main/imports/research/six-city-social-brief-2026-11/README.md" },
+    ],
+  },
 ];
 
 export function getFindingBySlug(slug: string): Finding | undefined {
