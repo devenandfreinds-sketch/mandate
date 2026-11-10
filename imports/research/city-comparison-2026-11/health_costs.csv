@@ -1,0 +1,206 @@
+series,area,year,value,unit,source
+cpi_medical,Seattle,2015,100.0,index 2015=100,BLS CPI-U medical care via FRED CUURA423SAM
+cpi_all_items,Seattle,2015,100.0,index 2015=100,BLS CPI-U all items via FRED CUURA423SA0
+cpi_medical,Seattle,2016,103.02,index 2015=100,BLS CPI-U medical care via FRED CUURA423SAM
+cpi_all_items,Seattle,2016,102.27,index 2015=100,BLS CPI-U all items via FRED CUURA423SA0
+cpi_medical,Seattle,2017,103.07,index 2015=100,BLS CPI-U medical care via FRED CUURA423SAM
+cpi_all_items,Seattle,2017,105.41,index 2015=100,BLS CPI-U all items via FRED CUURA423SA0
+cpi_medical,Seattle,2018,103.98,index 2015=100,BLS CPI-U medical care via FRED CUURA423SAM
+cpi_all_items,Seattle,2018,108.74,index 2015=100,BLS CPI-U all items via FRED CUURA423SA0
+cpi_medical,Seattle,2019,106.29,index 2015=100,BLS CPI-U medical care via FRED CUURA423SAM
+cpi_all_items,Seattle,2019,111.45,index 2015=100,BLS CPI-U all items via FRED CUURA423SA0
+cpi_medical,Seattle,2020,107.96,index 2015=100,BLS CPI-U medical care via FRED CUURA423SAM
+cpi_all_items,Seattle,2020,113.28,index 2015=100,BLS CPI-U all items via FRED CUURA423SA0
+cpi_medical,Seattle,2021,108.77,index 2015=100,BLS CPI-U medical care via FRED CUURA423SAM
+cpi_all_items,Seattle,2021,118.94,index 2015=100,BLS CPI-U all items via FRED CUURA423SA0
+cpi_medical,Seattle,2022,112.85,index 2015=100,BLS CPI-U medical care via FRED CUURA423SAM
+cpi_all_items,Seattle,2022,129.59,index 2015=100,BLS CPI-U all items via FRED CUURA423SA0
+cpi_medical,Seattle,2023,115.73,index 2015=100,BLS CPI-U medical care via FRED CUURA423SAM
+cpi_all_items,Seattle,2023,136.93,index 2015=100,BLS CPI-U all items via FRED CUURA423SA0
+cpi_medical,Seattle,2024,125.84,index 2015=100,BLS CPI-U medical care via FRED CUURA423SAM
+cpi_all_items,Seattle,2024,141.79,index 2015=100,BLS CPI-U all items via FRED CUURA423SA0
+cpi_medical,Seattle,2025,128.78,index 2015=100,BLS CPI-U medical care via FRED CUURA423SAM
+cpi_all_items,Seattle,2025,145.24,index 2015=100,BLS CPI-U all items via FRED CUURA423SA0
+cpi_medical,Chicago,2015,100.0,index 2015=100,BLS CPI-U medical care via FRED CUURA207SAM
+cpi_all_items,Chicago,2015,100.0,index 2015=100,BLS CPI-U all items via FRED CUURA207SA0
+cpi_medical,Chicago,2016,103.12,index 2015=100,BLS CPI-U medical care via FRED CUURA207SAM
+cpi_all_items,Chicago,2016,100.66,index 2015=100,BLS CPI-U all items via FRED CUURA207SA0
+cpi_medical,Chicago,2017,107.09,index 2015=100,BLS CPI-U medical care via FRED CUURA207SAM
+cpi_all_items,Chicago,2017,102.55,index 2015=100,BLS CPI-U all items via FRED CUURA207SA0
+cpi_medical,Chicago,2018,108.5,index 2015=100,BLS CPI-U medical care via FRED CUURA207SAM
+cpi_all_items,Chicago,2018,104.35,index 2015=100,BLS CPI-U all items via FRED CUURA207SA0
+cpi_medical,Chicago,2019,109.98,index 2015=100,BLS CPI-U medical care via FRED CUURA207SAM
+cpi_all_items,Chicago,2019,105.88,index 2015=100,BLS CPI-U all items via FRED CUURA207SA0
+cpi_medical,Chicago,2020,115.22,index 2015=100,BLS CPI-U medical care via FRED CUURA207SAM
+cpi_all_items,Chicago,2020,107.06,index 2015=100,BLS CPI-U all items via FRED CUURA207SA0
+cpi_medical,Chicago,2021,114.53,index 2015=100,BLS CPI-U medical care via FRED CUURA207SAM
+cpi_all_items,Chicago,2021,111.58,index 2015=100,BLS CPI-U all items via FRED CUURA207SA0
+cpi_medical,Chicago,2022,116.45,index 2015=100,BLS CPI-U medical care via FRED CUURA207SAM
+cpi_all_items,Chicago,2022,120.0,index 2015=100,BLS CPI-U all items via FRED CUURA207SA0
+cpi_medical,Chicago,2023,116.96,index 2015=100,BLS CPI-U medical care via FRED CUURA207SAM
+cpi_all_items,Chicago,2023,123.99,index 2015=100,BLS CPI-U all items via FRED CUURA207SA0
+cpi_medical,Chicago,2024,121.04,index 2015=100,BLS CPI-U medical care via FRED CUURA207SAM
+cpi_all_items,Chicago,2024,128.29,index 2015=100,BLS CPI-U all items via FRED CUURA207SA0
+cpi_medical,Chicago,2025,123.62,index 2015=100,BLS CPI-U medical care via FRED CUURA207SAM
+cpi_all_items,Chicago,2025,132.24,index 2015=100,BLS CPI-U all items via FRED CUURA207SA0
+cpi_medical,New York,2015,100.0,index 2015=100,BLS CPI-U medical care via FRED CUURA101SAM
+cpi_all_items,New York,2015,100.0,index 2015=100,BLS CPI-U all items via FRED CUURA101SA0
+cpi_medical,New York,2016,103.68,index 2015=100,BLS CPI-U medical care via FRED CUURA101SAM
+cpi_all_items,New York,2016,101.08,index 2015=100,BLS CPI-U all items via FRED CUURA101SA0
+cpi_medical,New York,2017,106.4,index 2015=100,BLS CPI-U medical care via FRED CUURA101SAM
+cpi_all_items,New York,2017,103.06,index 2015=100,BLS CPI-U all items via FRED CUURA101SA0
+cpi_medical,New York,2018,109.05,index 2015=100,BLS CPI-U medical care via FRED CUURA101SAM
+cpi_all_items,New York,2018,105.02,index 2015=100,BLS CPI-U all items via FRED CUURA101SA0
+cpi_medical,New York,2019,114.12,index 2015=100,BLS CPI-U medical care via FRED CUURA101SAM
+cpi_all_items,New York,2019,106.76,index 2015=100,BLS CPI-U all items via FRED CUURA101SA0
+cpi_medical,New York,2020,119.2,index 2015=100,BLS CPI-U medical care via FRED CUURA101SAM
+cpi_all_items,New York,2020,108.58,index 2015=100,BLS CPI-U all items via FRED CUURA101SA0
+cpi_medical,New York,2021,119.99,index 2015=100,BLS CPI-U medical care via FRED CUURA101SAM
+cpi_all_items,New York,2021,112.18,index 2015=100,BLS CPI-U all items via FRED CUURA101SA0
+cpi_medical,New York,2022,126.9,index 2015=100,BLS CPI-U medical care via FRED CUURA101SAM
+cpi_all_items,New York,2022,119.03,index 2015=100,BLS CPI-U all items via FRED CUURA101SA0
+cpi_medical,New York,2023,125.92,index 2015=100,BLS CPI-U medical care via FRED CUURA101SAM
+cpi_all_items,New York,2023,123.58,index 2015=100,BLS CPI-U all items via FRED CUURA101SA0
+cpi_medical,New York,2024,124.87,index 2015=100,BLS CPI-U medical care via FRED CUURA101SAM
+cpi_all_items,New York,2024,128.27,index 2015=100,BLS CPI-U all items via FRED CUURA101SA0
+cpi_medical,New York,2025,126.99,index 2015=100,BLS CPI-U medical care via FRED CUURA101SAM
+cpi_all_items,New York,2025,132.6,index 2015=100,BLS CPI-U all items via FRED CUURA101SA0
+cpi_medical,US average,2015,100.0,index 2015=100,BLS CPI-U medical care via FRED CPIMEDNS
+cpi_all_items,US average,2015,100.0,index 2015=100,BLS CPI-U all items via FRED CPIAUCNS
+cpi_medical,US average,2016,103.79,index 2015=100,BLS CPI-U medical care via FRED CPIMEDNS
+cpi_all_items,US average,2016,101.26,index 2015=100,BLS CPI-U all items via FRED CPIAUCNS
+cpi_medical,US average,2017,106.4,index 2015=100,BLS CPI-U medical care via FRED CPIMEDNS
+cpi_all_items,US average,2017,103.42,index 2015=100,BLS CPI-U all items via FRED CPIAUCNS
+cpi_medical,US average,2018,108.5,index 2015=100,BLS CPI-U medical care via FRED CPIMEDNS
+cpi_all_items,US average,2018,105.94,index 2015=100,BLS CPI-U all items via FRED CPIAUCNS
+cpi_medical,US average,2019,111.56,index 2015=100,BLS CPI-U medical care via FRED CPIMEDNS
+cpi_all_items,US average,2019,107.86,index 2015=100,BLS CPI-U all items via FRED CPIAUCNS
+cpi_medical,US average,2020,116.14,index 2015=100,BLS CPI-U medical care via FRED CPIMEDNS
+cpi_all_items,US average,2020,109.2,index 2015=100,BLS CPI-U all items via FRED CPIAUCNS
+cpi_medical,US average,2021,117.58,index 2015=100,BLS CPI-U medical care via FRED CPIMEDNS
+cpi_all_items,US average,2021,114.33,index 2015=100,BLS CPI-U all items via FRED CPIAUCNS
+cpi_medical,US average,2022,122.34,index 2015=100,BLS CPI-U medical care via FRED CPIMEDNS
+cpi_all_items,US average,2022,123.47,index 2015=100,BLS CPI-U all items via FRED CPIAUCNS
+cpi_medical,US average,2023,122.91,index 2015=100,BLS CPI-U medical care via FRED CPIMEDNS
+cpi_all_items,US average,2023,128.56,index 2015=100,BLS CPI-U all items via FRED CPIAUCNS
+cpi_medical,US average,2024,126.21,index 2015=100,BLS CPI-U medical care via FRED CPIMEDNS
+cpi_all_items,US average,2024,132.35,index 2015=100,BLS CPI-U all items via FRED CPIAUCNS
+cpi_medical,US average,2025,129.85,index 2015=100,BLS CPI-U medical care via FRED CPIMEDNS
+cpi_all_items,US average,2025,135.83,index 2015=100,BLS CPI-U all items via FRED CPIAUCNS
+cpi_medical,Greater Manchester (UK),2015,100.0,index 2015=100,"ONS CPI 06 Health (D7BZ), UK-wide"
+cpi_all_items,Greater Manchester (UK),2015,100.0,index 2015=100,"ONS CPI all items (D7BT), UK-wide"
+cpi_medical,Greater Manchester (UK),2016,102.1,index 2015=100,"ONS CPI 06 Health (D7BZ), UK-wide"
+cpi_all_items,Greater Manchester (UK),2016,100.7,index 2015=100,"ONS CPI all items (D7BT), UK-wide"
+cpi_medical,Greater Manchester (UK),2017,104.8,index 2015=100,"ONS CPI 06 Health (D7BZ), UK-wide"
+cpi_all_items,Greater Manchester (UK),2017,103.4,index 2015=100,"ONS CPI all items (D7BT), UK-wide"
+cpi_medical,Greater Manchester (UK),2018,107.4,index 2015=100,"ONS CPI 06 Health (D7BZ), UK-wide"
+cpi_all_items,Greater Manchester (UK),2018,105.9,index 2015=100,"ONS CPI all items (D7BT), UK-wide"
+cpi_medical,Greater Manchester (UK),2019,110.1,index 2015=100,"ONS CPI 06 Health (D7BZ), UK-wide"
+cpi_all_items,Greater Manchester (UK),2019,107.8,index 2015=100,"ONS CPI all items (D7BT), UK-wide"
+cpi_medical,Greater Manchester (UK),2020,112.6,index 2015=100,"ONS CPI 06 Health (D7BZ), UK-wide"
+cpi_all_items,Greater Manchester (UK),2020,108.7,index 2015=100,"ONS CPI all items (D7BT), UK-wide"
+cpi_medical,Greater Manchester (UK),2021,114.1,index 2015=100,"ONS CPI 06 Health (D7BZ), UK-wide"
+cpi_all_items,Greater Manchester (UK),2021,111.6,index 2015=100,"ONS CPI all items (D7BT), UK-wide"
+cpi_medical,Greater Manchester (UK),2022,117.4,index 2015=100,"ONS CPI 06 Health (D7BZ), UK-wide"
+cpi_all_items,Greater Manchester (UK),2022,121.7,index 2015=100,"ONS CPI all items (D7BT), UK-wide"
+cpi_medical,Greater Manchester (UK),2023,126.4,index 2015=100,"ONS CPI 06 Health (D7BZ), UK-wide"
+cpi_all_items,Greater Manchester (UK),2023,130.5,index 2015=100,"ONS CPI all items (D7BT), UK-wide"
+cpi_medical,Greater Manchester (UK),2024,134.0,index 2015=100,"ONS CPI 06 Health (D7BZ), UK-wide"
+cpi_all_items,Greater Manchester (UK),2024,133.9,index 2015=100,"ONS CPI all items (D7BT), UK-wide"
+cpi_medical,Greater Manchester (UK),2025,139.1,index 2015=100,"ONS CPI 06 Health (D7BZ), UK-wide"
+cpi_all_items,Greater Manchester (UK),2025,138.4,index 2015=100,"ONS CPI all items (D7BT), UK-wide"
+family_premium,Washington (Seattle),2015,16627,USD per enrolled employee per year,AHRQ MEPS-IC Table II.D.1 (2015-2020 AHRQ; 2021-2025 via KFF State Health Facts)
+family_premium,Washington (Seattle),2016,18301,USD per enrolled employee per year,AHRQ MEPS-IC Table II.D.1 (2015-2020 AHRQ; 2021-2025 via KFF State Health Facts)
+family_premium,Washington (Seattle),2017,19472,USD per enrolled employee per year,AHRQ MEPS-IC Table II.D.1 (2015-2020 AHRQ; 2021-2025 via KFF State Health Facts)
+family_premium,Washington (Seattle),2018,18783,USD per enrolled employee per year,AHRQ MEPS-IC Table II.D.1 (2015-2020 AHRQ; 2021-2025 via KFF State Health Facts)
+family_premium,Washington (Seattle),2019,20033,USD per enrolled employee per year,AHRQ MEPS-IC Table II.D.1 (2015-2020 AHRQ; 2021-2025 via KFF State Health Facts)
+family_premium,Washington (Seattle),2020,19476,USD per enrolled employee per year,AHRQ MEPS-IC Table II.D.1 (2015-2020 AHRQ; 2021-2025 via KFF State Health Facts)
+family_premium,Washington (Seattle),2021,21914,USD per enrolled employee per year,AHRQ MEPS-IC Table II.D.1 (2015-2020 AHRQ; 2021-2025 via KFF State Health Facts)
+family_premium,Washington (Seattle),2023,24355,USD per enrolled employee per year,AHRQ MEPS-IC Table II.D.1 (2015-2020 AHRQ; 2021-2025 via KFF State Health Facts)
+family_premium,Washington (Seattle),2024,25355,USD per enrolled employee per year,AHRQ MEPS-IC Table II.D.1 (2015-2020 AHRQ; 2021-2025 via KFF State Health Facts)
+family_premium,Washington (Seattle),2025,27618,USD per enrolled employee per year,AHRQ MEPS-IC Table II.D.1 (2015-2020 AHRQ; 2021-2025 via KFF State Health Facts)
+family_premium,Illinois (Chicago),2015,17227,USD per enrolled employee per year,AHRQ MEPS-IC Table II.D.1 (2015-2020 AHRQ; 2021-2025 via KFF State Health Facts)
+family_premium,Illinois (Chicago),2016,18510,USD per enrolled employee per year,AHRQ MEPS-IC Table II.D.1 (2015-2020 AHRQ; 2021-2025 via KFF State Health Facts)
+family_premium,Illinois (Chicago),2017,19656,USD per enrolled employee per year,AHRQ MEPS-IC Table II.D.1 (2015-2020 AHRQ; 2021-2025 via KFF State Health Facts)
+family_premium,Illinois (Chicago),2018,20407,USD per enrolled employee per year,AHRQ MEPS-IC Table II.D.1 (2015-2020 AHRQ; 2021-2025 via KFF State Health Facts)
+family_premium,Illinois (Chicago),2019,20659,USD per enrolled employee per year,AHRQ MEPS-IC Table II.D.1 (2015-2020 AHRQ; 2021-2025 via KFF State Health Facts)
+family_premium,Illinois (Chicago),2020,21775,USD per enrolled employee per year,AHRQ MEPS-IC Table II.D.1 (2015-2020 AHRQ; 2021-2025 via KFF State Health Facts)
+family_premium,Illinois (Chicago),2021,20878,USD per enrolled employee per year,AHRQ MEPS-IC Table II.D.1 (2015-2020 AHRQ; 2021-2025 via KFF State Health Facts)
+family_premium,Illinois (Chicago),2023,24290,USD per enrolled employee per year,AHRQ MEPS-IC Table II.D.1 (2015-2020 AHRQ; 2021-2025 via KFF State Health Facts)
+family_premium,Illinois (Chicago),2024,24993,USD per enrolled employee per year,AHRQ MEPS-IC Table II.D.1 (2015-2020 AHRQ; 2021-2025 via KFF State Health Facts)
+family_premium,Illinois (Chicago),2025,28248,USD per enrolled employee per year,AHRQ MEPS-IC Table II.D.1 (2015-2020 AHRQ; 2021-2025 via KFF State Health Facts)
+family_premium,New York,2015,19630,USD per enrolled employee per year,AHRQ MEPS-IC Table II.D.1 (2015-2020 AHRQ; 2021-2025 via KFF State Health Facts)
+family_premium,New York,2016,19375,USD per enrolled employee per year,AHRQ MEPS-IC Table II.D.1 (2015-2020 AHRQ; 2021-2025 via KFF State Health Facts)
+family_premium,New York,2017,21317,USD per enrolled employee per year,AHRQ MEPS-IC Table II.D.1 (2015-2020 AHRQ; 2021-2025 via KFF State Health Facts)
+family_premium,New York,2018,21904,USD per enrolled employee per year,AHRQ MEPS-IC Table II.D.1 (2015-2020 AHRQ; 2021-2025 via KFF State Health Facts)
+family_premium,New York,2019,22874,USD per enrolled employee per year,AHRQ MEPS-IC Table II.D.1 (2015-2020 AHRQ; 2021-2025 via KFF State Health Facts)
+family_premium,New York,2020,23381,USD per enrolled employee per year,AHRQ MEPS-IC Table II.D.1 (2015-2020 AHRQ; 2021-2025 via KFF State Health Facts)
+family_premium,New York,2021,23450,USD per enrolled employee per year,AHRQ MEPS-IC Table II.D.1 (2015-2020 AHRQ; 2021-2025 via KFF State Health Facts)
+family_premium,New York,2023,26355,USD per enrolled employee per year,AHRQ MEPS-IC Table II.D.1 (2015-2020 AHRQ; 2021-2025 via KFF State Health Facts)
+family_premium,New York,2024,27188,USD per enrolled employee per year,AHRQ MEPS-IC Table II.D.1 (2015-2020 AHRQ; 2021-2025 via KFF State Health Facts)
+family_premium,New York,2025,29752,USD per enrolled employee per year,AHRQ MEPS-IC Table II.D.1 (2015-2020 AHRQ; 2021-2025 via KFF State Health Facts)
+family_premium,District of Columbia,2015,19104,USD per enrolled employee per year,AHRQ MEPS-IC Table II.D.1 (2015-2020 AHRQ; 2021-2025 via KFF State Health Facts)
+family_premium,District of Columbia,2016,18864,USD per enrolled employee per year,AHRQ MEPS-IC Table II.D.1 (2015-2020 AHRQ; 2021-2025 via KFF State Health Facts)
+family_premium,District of Columbia,2017,20960,USD per enrolled employee per year,AHRQ MEPS-IC Table II.D.1 (2015-2020 AHRQ; 2021-2025 via KFF State Health Facts)
+family_premium,District of Columbia,2018,21810,USD per enrolled employee per year,AHRQ MEPS-IC Table II.D.1 (2015-2020 AHRQ; 2021-2025 via KFF State Health Facts)
+family_premium,District of Columbia,2019,22311,USD per enrolled employee per year,AHRQ MEPS-IC Table II.D.1 (2015-2020 AHRQ; 2021-2025 via KFF State Health Facts)
+family_premium,District of Columbia,2020,22502,USD per enrolled employee per year,AHRQ MEPS-IC Table II.D.1 (2015-2020 AHRQ; 2021-2025 via KFF State Health Facts)
+family_premium,District of Columbia,2021,24455,USD per enrolled employee per year,AHRQ MEPS-IC Table II.D.1 (2015-2020 AHRQ; 2021-2025 via KFF State Health Facts)
+family_premium,District of Columbia,2023,25793,USD per enrolled employee per year,AHRQ MEPS-IC Table II.D.1 (2015-2020 AHRQ; 2021-2025 via KFF State Health Facts)
+family_premium,District of Columbia,2024,27457,USD per enrolled employee per year,AHRQ MEPS-IC Table II.D.1 (2015-2020 AHRQ; 2021-2025 via KFF State Health Facts)
+family_premium,District of Columbia,2025,29371,USD per enrolled employee per year,AHRQ MEPS-IC Table II.D.1 (2015-2020 AHRQ; 2021-2025 via KFF State Health Facts)
+family_premium,US average,2015,17322,USD per enrolled employee per year,AHRQ MEPS-IC Table II.D.1 (2015-2020 AHRQ; 2021-2025 via KFF State Health Facts)
+family_premium,US average,2016,17710,USD per enrolled employee per year,AHRQ MEPS-IC Table II.D.1 (2015-2020 AHRQ; 2021-2025 via KFF State Health Facts)
+family_premium,US average,2017,18687,USD per enrolled employee per year,AHRQ MEPS-IC Table II.D.1 (2015-2020 AHRQ; 2021-2025 via KFF State Health Facts)
+family_premium,US average,2018,19565,USD per enrolled employee per year,AHRQ MEPS-IC Table II.D.1 (2015-2020 AHRQ; 2021-2025 via KFF State Health Facts)
+family_premium,US average,2019,20486,USD per enrolled employee per year,AHRQ MEPS-IC Table II.D.1 (2015-2020 AHRQ; 2021-2025 via KFF State Health Facts)
+family_premium,US average,2020,20758,USD per enrolled employee per year,AHRQ MEPS-IC Table II.D.1 (2015-2020 AHRQ; 2021-2025 via KFF State Health Facts)
+family_premium,US average,2021,21381,USD per enrolled employee per year,AHRQ MEPS-IC Table II.D.1 (2015-2020 AHRQ; 2021-2025 via KFF State Health Facts)
+family_premium,US average,2023,23938,USD per enrolled employee per year,AHRQ MEPS-IC Table II.D.1 (2015-2020 AHRQ; 2021-2025 via KFF State Health Facts)
+family_premium,US average,2024,24540,USD per enrolled employee per year,AHRQ MEPS-IC Table II.D.1 (2015-2020 AHRQ; 2021-2025 via KFF State Health Facts)
+family_premium,US average,2025,26281,USD per enrolled employee per year,AHRQ MEPS-IC Table II.D.1 (2015-2020 AHRQ; 2021-2025 via KFF State Health Facts)
+family_employee_share,Washington (Seattle),2015,4265,USD per enrolled employee per year,AHRQ MEPS-IC Table II.D.2 (2015)
+family_employee_share,Washington (Seattle),2025,8222,USD per enrolled employee per year,MEPS-IC 2025 via KFF State Health Facts
+family_employee_share,Illinois (Chicago),2015,3890,USD per enrolled employee per year,AHRQ MEPS-IC Table II.D.2 (2015)
+family_employee_share,Illinois (Chicago),2025,7838,USD per enrolled employee per year,MEPS-IC 2025 via KFF State Health Facts
+family_employee_share,New York,2015,5190,USD per enrolled employee per year,AHRQ MEPS-IC Table II.D.2 (2015)
+family_employee_share,New York,2025,7075,USD per enrolled employee per year,MEPS-IC 2025 via KFF State Health Facts
+family_employee_share,District of Columbia,2015,5120,USD per enrolled employee per year,AHRQ MEPS-IC Table II.D.2 (2015)
+family_employee_share,District of Columbia,2025,8028,USD per enrolled employee per year,MEPS-IC 2025 via KFF State Health Facts
+family_employee_share,US average,2015,4710,USD per enrolled employee per year,AHRQ MEPS-IC Table II.D.2 (2015)
+family_employee_share,US average,2025,7314,USD per enrolled employee per year,MEPS-IC 2025 via KFF State Health Facts
+uk_spend_per_person,UK total,2015,2931,"GBP per person, nominal",ONS UK Health Accounts Table 1c (2025 provisional)
+uk_spend_per_person,UK government-financed,2015,2306,"GBP per person, nominal",ONS UK Health Accounts Table 1c
+uk_spend_per_person,UK out-of-pocket,2015,473,"GBP per person, nominal",ONS UK Health Accounts Table 1c
+uk_spend_per_person,UK total,2016,3006,"GBP per person, nominal",ONS UK Health Accounts Table 1c (2025 provisional)
+uk_spend_per_person,UK government-financed,2016,2376,"GBP per person, nominal",ONS UK Health Accounts Table 1c
+uk_spend_per_person,UK out-of-pocket,2016,483,"GBP per person, nominal",ONS UK Health Accounts Table 1c
+uk_spend_per_person,UK total,2017,3077,"GBP per person, nominal",ONS UK Health Accounts Table 1c (2025 provisional)
+uk_spend_per_person,UK government-financed,2017,2413,"GBP per person, nominal",ONS UK Health Accounts Table 1c
+uk_spend_per_person,UK out-of-pocket,2017,502,"GBP per person, nominal",ONS UK Health Accounts Table 1c
+uk_spend_per_person,UK total,2018,3186,"GBP per person, nominal",ONS UK Health Accounts Table 1c (2025 provisional)
+uk_spend_per_person,UK government-financed,2018,2500,"GBP per person, nominal",ONS UK Health Accounts Table 1c
+uk_spend_per_person,UK out-of-pocket,2018,524,"GBP per person, nominal",ONS UK Health Accounts Table 1c
+uk_spend_per_person,UK total,2019,3348,"GBP per person, nominal",ONS UK Health Accounts Table 1c (2025 provisional)
+uk_spend_per_person,UK government-financed,2019,2641,"GBP per person, nominal",ONS UK Health Accounts Table 1c
+uk_spend_per_person,UK out-of-pocket,2019,542,"GBP per person, nominal",ONS UK Health Accounts Table 1c
+uk_spend_per_person,UK total,2020,3834,"GBP per person, nominal",ONS UK Health Accounts Table 1c (2025 provisional)
+uk_spend_per_person,UK government-financed,2020,3181,"GBP per person, nominal",ONS UK Health Accounts Table 1c
+uk_spend_per_person,UK out-of-pocket,2020,498,"GBP per person, nominal",ONS UK Health Accounts Table 1c
+uk_spend_per_person,UK total,2021,4151,"GBP per person, nominal",ONS UK Health Accounts Table 1c (2025 provisional)
+uk_spend_per_person,UK government-financed,2021,3429,"GBP per person, nominal",ONS UK Health Accounts Table 1c
+uk_spend_per_person,UK out-of-pocket,2021,559,"GBP per person, nominal",ONS UK Health Accounts Table 1c
+uk_spend_per_person,UK total,2022,4174,"GBP per person, nominal",ONS UK Health Accounts Table 1c (2025 provisional)
+uk_spend_per_person,UK government-financed,2022,3375,"GBP per person, nominal",ONS UK Health Accounts Table 1c
+uk_spend_per_person,UK out-of-pocket,2022,617,"GBP per person, nominal",ONS UK Health Accounts Table 1c
+uk_spend_per_person,UK total,2023,4335,"GBP per person, nominal",ONS UK Health Accounts Table 1c (2025 provisional)
+uk_spend_per_person,UK government-financed,2023,3510,"GBP per person, nominal",ONS UK Health Accounts Table 1c
+uk_spend_per_person,UK out-of-pocket,2023,629,"GBP per person, nominal",ONS UK Health Accounts Table 1c
+uk_spend_per_person,UK total,2024,4624,"GBP per person, nominal",ONS UK Health Accounts Table 1c (2025 provisional)
+uk_spend_per_person,UK government-financed,2024,3745,"GBP per person, nominal",ONS UK Health Accounts Table 1c
+uk_spend_per_person,UK out-of-pocket,2024,657,"GBP per person, nominal",ONS UK Health Accounts Table 1c
+uk_spend_per_person,UK total,2025,4966,"GBP per person, nominal",ONS UK Health Accounts Table 1c (2025 provisional)
+uk_spend_per_person,UK government-financed,2025,4036,"GBP per person, nominal",ONS UK Health Accounts Table 1c
+uk_spend_per_person,UK out-of-pocket,2025,698,"GBP per person, nominal",ONS UK Health Accounts Table 1c
+icb_allocation_per_patient,NHS Greater Manchester ICB,2025,2065,"GBP per registered patient, 2025/26 core services",House of Commons Library CBP-10031
+icb_allocation_per_patient,England ICB average,2025,1975,"GBP per registered patient, 2025/26 core services",House of Commons Library CBP-10031

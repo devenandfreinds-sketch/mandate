@@ -1,0 +1,70 @@
+city,school_year,year_start,pct,measure,eligible,enrolled,source
+Chicago,2014-15,2014,86.0,"Free/reduced-price lunch / economically disadvantaged, CPS 20th-day count",341243,396683,Chicago Public Schools demographics reports
+Chicago,2015-16,2015,80.7,"Free/reduced-price lunch / economically disadvantaged, CPS 20th-day count",316731,392285,Chicago Public Schools demographics reports
+Chicago,2016-17,2016,80.2,"Free/reduced-price lunch / economically disadvantaged, CPS 20th-day count",305900,381349,Chicago Public Schools demographics reports
+Chicago,2017-18,2017,77.7,"Free/reduced-price lunch / economically disadvantaged, CPS 20th-day count",288572,371382,Chicago Public Schools demographics reports
+Chicago,2018-19,2018,76.6,"Free/reduced-price lunch / economically disadvantaged, CPS 20th-day count",276836,361314,Chicago Public Schools demographics reports
+Chicago,2019-20,2019,76.4,"Free/reduced-price lunch / economically disadvantaged, CPS 20th-day count",271179,355156,Chicago Public Schools demographics reports
+Chicago,2020-21,2020,63.8,"Free/reduced-price lunch / economically disadvantaged, CPS 20th-day count",217392,340658,Chicago Public Schools demographics reports
+Chicago,2021-22,2021,69.8,"Free/reduced-price lunch / economically disadvantaged, CPS 20th-day count",230496,330411,Chicago Public Schools demographics reports
+Chicago,2022-23,2022,72.7,"Free/reduced-price lunch / economically disadvantaged, CPS 20th-day count",234283,322106,Chicago Public Schools demographics reports
+Chicago,2023-24,2023,70.7,"Free/reduced-price lunch / economically disadvantaged, CPS 20th-day count",228466,323251,Chicago Public Schools demographics reports
+Chicago,2024-25,2024,71.6,"Free/reduced-price lunch / economically disadvantaged, CPS 20th-day count",232954,325305,Chicago Public Schools demographics reports
+Chicago,2025-26,2025,71.8,"Free/reduced-price lunch / economically disadvantaged, CPS 20th-day count",227119,316224,Chicago Public Schools demographics reports
+Chicago,2026-27,2026,68.9,"Free/reduced-price lunch / economically disadvantaged, CPS 20th-day count",209961,304687,Chicago Public Schools demographics reports
+England (reference),2015-16,2015,14.3,Free school meals eligible (state-funded),1142043,7976511,"DfE Schools, pupils and their characteristics"
+England (reference),2016-17,2016,14.0,Free school meals eligible (state-funded),1128403,8085812,"DfE Schools, pupils and their characteristics"
+England (reference),2017-18,2017,13.6,Free school meals eligible (state-funded),1106633,8153225,"DfE Schools, pupils and their characteristics"
+England (reference),2018-19,2018,15.4,Free school meals eligible (state-funded),1270941,8238809,"DfE Schools, pupils and their characteristics"
+England (reference),2019-20,2019,17.3,Free school meals eligible (state-funded),1440788,8313488,"DfE Schools, pupils and their characteristics"
+England (reference),2020-21,2020,20.8,Free school meals eligible (state-funded),1737598,8342521,"DfE Schools, pupils and their characteristics"
+England (reference),2021-22,2021,22.5,Free school meals eligible (state-funded),1897449,8418604,"DfE Schools, pupils and their characteristics"
+England (reference),2022-23,2022,23.8,Free school meals eligible (state-funded),2019509,8481878,"DfE Schools, pupils and their characteristics"
+England (reference),2023-24,2023,24.6,Free school meals eligible (state-funded),2094169,8498587,"DfE Schools, pupils and their characteristics"
+England (reference),2024-25,2024,25.7,Free school meals eligible (state-funded),2171916,8449949,"DfE Schools, pupils and their characteristics"
+England (reference),2025-26,2025,26.5,Free school meals eligible (state-funded),2214994,8359972,"DfE Schools, pupils and their characteristics"
+Greater Manchester,2015-16,2015,18.2,"Free school meals eligible (10 boroughs, state-funded)",78809,432668,"DfE Schools, pupils and their characteristics"
+Greater Manchester,2016-17,2016,17.7,"Free school meals eligible (10 boroughs, state-funded)",78206,441467,"DfE Schools, pupils and their characteristics"
+Greater Manchester,2017-18,2017,17.3,"Free school meals eligible (10 boroughs, state-funded)",77261,447816,"DfE Schools, pupils and their characteristics"
+Greater Manchester,2018-19,2018,19.4,"Free school meals eligible (10 boroughs, state-funded)",88267,454282,"DfE Schools, pupils and their characteristics"
+Greater Manchester,2019-20,2019,21.8,"Free school meals eligible (10 boroughs, state-funded)",100525,460787,"DfE Schools, pupils and their characteristics"
+Greater Manchester,2020-21,2020,26.1,"Free school meals eligible (10 boroughs, state-funded)",120611,461984,"DfE Schools, pupils and their characteristics"
+Greater Manchester,2021-22,2021,28.1,"Free school meals eligible (10 boroughs, state-funded)",131567,467949,"DfE Schools, pupils and their characteristics"
+Greater Manchester,2022-23,2022,29.6,"Free school meals eligible (10 boroughs, state-funded)",139792,472378,"DfE Schools, pupils and their characteristics"
+Greater Manchester,2023-24,2023,30.7,"Free school meals eligible (10 boroughs, state-funded)",146025,475369,"DfE Schools, pupils and their characteristics"
+Greater Manchester,2024-25,2024,32.4,"Free school meals eligible (10 boroughs, state-funded)",153864,474338,"DfE Schools, pupils and their characteristics"
+Greater Manchester,2025-26,2025,33.4,"Free school meals eligible (10 boroughs, state-funded)",156838,469012,"DfE Schools, pupils and their characteristics"
+New York,2014-15,2014,72.2,"Poverty (FRL-eligible or HRA benefits), NYC DOE district schools",810688,1122783,NYC DOE Demographic Snapshot (NYC Open Data / InfoHub)
+New York,2015-16,2015,70.7,"Poverty (FRL-eligible or HRA benefits), NYC DOE district schools",801696,1133963,NYC DOE Demographic Snapshot (NYC Open Data / InfoHub)
+New York,2016-17,2016,70.2,"Poverty (FRL-eligible or HRA benefits), NYC DOE district schools",800985,1141232,NYC DOE Demographic Snapshot (NYC Open Data / InfoHub)
+New York,2017-18,2017,75.4,"Poverty (FRL-eligible or HRA benefits), NYC DOE district schools",856483,1135334,NYC DOE Demographic Snapshot (NYC Open Data / InfoHub)
+New York,2018-19,2018,74.0,"Poverty (FRL-eligible or HRA benefits), NYC DOE district schools",834003,1126501,NYC DOE Demographic Snapshot (NYC Open Data / InfoHub)
+New York,2019-20,2019,73.7,"Poverty (FRL-eligible or HRA benefits), NYC DOE district schools",834657,1131868,NYC DOE Demographic Snapshot (NYC Open Data / InfoHub)
+New York,2020-21,2020,73.0,"Poverty (FRL-eligible or HRA benefits), NYC DOE district schools",798531,1094138,NYC DOE Demographic Snapshot (NYC Open Data / InfoHub)
+New York,2021-22,2021,71.2,"Poverty (FRL-eligible or HRA benefits), NYC DOE district schools",654437,919136,NYC DOE Demographic Snapshot (NYC Open Data / InfoHub)
+New York,2022-23,2022,73.3,"Poverty (FRL-eligible or HRA benefits), NYC DOE district schools",664829,906977,NYC DOE Demographic Snapshot (NYC Open Data / InfoHub)
+New York,2023-24,2023,75.9,"Poverty (FRL-eligible or HRA benefits), NYC DOE district schools",692651,912064,NYC DOE Demographic Snapshot (NYC Open Data / InfoHub)
+New York,2024-25,2024,75.6,"Poverty (FRL-eligible or HRA benefits), NYC DOE district schools",685340,906248,NYC DOE Demographic Snapshot (NYC Open Data / InfoHub)
+New York,2025-26,2025,74.0,"Poverty (FRL-eligible or HRA benefits), NYC DOE district schools",654533,884644,NYC DOE Demographic Snapshot (NYC Open Data / InfoHub)
+Seattle,2014-15,2014,40.5,"Low-income (free/reduced-price meal eligible), Seattle Public Schools",21633,53361,OSPI Report Card Enrollment (data.wa.gov)
+Seattle,2015-16,2015,38.9,"Low-income (free/reduced-price meal eligible), Seattle Public Schools",20937,53767,OSPI Report Card Enrollment (data.wa.gov)
+Seattle,2016-17,2016,37.1,"Low-income (free/reduced-price meal eligible), Seattle Public Schools",20301,54722,OSPI Report Card Enrollment (data.wa.gov)
+Seattle,2017-18,2017,35.1,"Low-income (free/reduced-price meal eligible), Seattle Public Schools",19411,55321,OSPI Report Card Enrollment (data.wa.gov)
+Seattle,2018-19,2018,33.7,"Low-income (free/reduced-price meal eligible), Seattle Public Schools",18618,55325,OSPI Report Card Enrollment (data.wa.gov)
+Seattle,2019-20,2019,32.8,"Low-income (free/reduced-price meal eligible), Seattle Public Schools",18387,56051,OSPI Report Card Enrollment (data.wa.gov)
+Seattle,2020-21,2020,33.1,"Low-income (free/reduced-price meal eligible), Seattle Public Schools",17889,54021,OSPI Report Card Enrollment (data.wa.gov)
+Seattle,2021-22,2021,34.0,"Low-income (free/reduced-price meal eligible), Seattle Public Schools",17585,51653,OSPI Report Card Enrollment (data.wa.gov)
+Seattle,2022-23,2022,35.3,"Low-income (free/reduced-price meal eligible), Seattle Public Schools",18206,51528,OSPI Report Card Enrollment (data.wa.gov)
+Seattle,2023-24,2023,34.3,"Low-income (free/reduced-price meal eligible), Seattle Public Schools",17496,50968,OSPI Report Card Enrollment (data.wa.gov)
+Seattle,2024-25,2024,34.3,"Low-income (free/reduced-price meal eligible), Seattle Public Schools",17538,51200,OSPI Report Card Enrollment (data.wa.gov)
+Seattle,2025-26,2025,35.1,"Low-income (free/reduced-price meal eligible), Seattle Public Schools",17862,50948,OSPI Report Card Enrollment (data.wa.gov)
+Washington DC,2015-16,2015,45.9,"At-risk (TANF/SNAP, homeless, foster care, over-age HS), all DC public schools",,87344,OSSE enrollment audit
+Washington DC,2017-18,2017,43.7,"At-risk (TANF/SNAP, homeless, foster care, over-age HS), all DC public schools",39917,91322,OSSE enrollment audit
+Washington DC,2018-19,2018,43.4,"At-risk (TANF/SNAP, homeless, foster care, over-age HS), all DC public schools",40285,92813,OSSE enrollment audit
+Washington DC,2019-20,2019,42.0,"At-risk (TANF/SNAP, homeless, foster care, over-age HS), all DC public schools",39611,94412,OSSE enrollment audit
+Washington DC,2020-21,2020,42.4,"At-risk (TANF/SNAP, homeless, foster care, over-age HS), all DC public schools",39654,93438,OSSE enrollment audit
+Washington DC,2021-22,2021,45.5,"At-risk (TANF/SNAP, homeless, foster care, over-age HS), all DC public schools",42525,93361,OSSE enrollment audit
+Washington DC,2022-23,2022,48.0,"At-risk (TANF/SNAP, homeless, foster care, over-age HS), all DC public schools",46012,95883,OSSE enrollment audit
+Washington DC,2023-24,2023,45.6,"At-risk (TANF/SNAP, homeless, foster care, over-age HS), all DC public schools",44838,98330,OSSE enrollment audit
+Washington DC,2024-25,2024,45.4,"At-risk (TANF/SNAP, homeless, foster care, over-age HS), all DC public schools",45074,99237,OSSE enrollment audit
+Washington DC,2025-26,2025,44.7,"At-risk (TANF/SNAP, homeless, foster care, over-age HS), all DC public schools",44303,99135,OSSE enrollment audit

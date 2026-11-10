@@ -1,0 +1,657 @@
+<meta name="dash-one-writer">
+<style>
+.cc{display:flex;flex-direction:column;gap:var(--cds-gap-xl);max-width:1100px;margin:0 auto}
+.cc h1{font-family:var(--font-anthropic-serif);font-weight:400;font-size:var(--cds-font-size-title);margin:0;text-wrap:balance}
+.cc h2{font-size:var(--cds-font-size-heading);font-weight:var(--cds-font-weight-medium);margin:0;text-wrap:balance}
+.cc h3{font-size:var(--cds-font-size-body);font-weight:var(--cds-font-weight-medium);margin:0}
+.cc p{margin:0;max-width:72ch;line-height:1.55}
+.cc-lede{color:var(--color-fg-muted)}
+.cc-eyebrow{font-size:var(--cds-font-size-caption);letter-spacing:.06em;text-transform:uppercase;color:var(--color-fg-muted)}
+.cc-section{display:flex;flex-direction:column;gap:var(--cds-gap-lg);padding-top:var(--cds-pad-lg);border-top:1px solid var(--color-border-line)}
+.cc-grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:var(--cds-gap-lg)}
+.cc-grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:var(--cds-gap-lg)}
+.cc-card{background:var(--color-panel);border:1px solid var(--color-border-line);border-radius:var(--cds-radius);padding:var(--cds-pad-lg);display:flex;flex-direction:column;gap:var(--cds-gap-sm);min-width:0}
+.cc-note{font-size:var(--cds-font-size-caption);color:var(--color-fg-muted);line-height:1.5}
+.cc-legend{display:flex;flex-wrap:wrap;gap:var(--cds-gap-xs) var(--cds-gap-md);font-size:var(--cds-font-size-caption);color:var(--color-fg-muted)}
+.cc-legend span.cc-li{display:inline-flex;align-items:center;gap:6px}
+.cc-sw{display:inline-block;width:14px;height:0;border-top:2px solid var(--cds-chart-muted)}
+.cc-chart{position:relative;min-height:260px;width:100%}
+.cc-chart.cc-short{min-height:220px}
+.cc-chart svg{display:block;overflow:visible}
+.cc-axis text{fill:var(--cds-text-secondary);font-size:var(--cds-font-size-caption);font-variant-numeric:tabular-nums}
+.cc-grid-line{stroke:var(--cds-chart-grid);stroke-width:1}
+.cc-ref{stroke:var(--cds-chart-reference);stroke-width:1;stroke-dasharray:3 3}
+.cc-cross{stroke:var(--cds-chart-axis);stroke-width:1}
+.cc-tip{position:absolute;pointer-events:none;background:var(--cds-surface-popover);border:1px solid var(--cds-border);box-shadow:var(--cds-shadow-popover);border-radius:var(--cds-radius);padding:8px 10px;font-size:var(--cds-font-size-caption);min-width:150px;z-index:2;font-variant-numeric:tabular-nums}
+.cc-tip .cc-th{font-weight:var(--cds-font-weight-medium);margin-bottom:4px}
+.cc-tip .cc-tr{display:flex;gap:8px;align-items:center;justify-content:space-between;color:var(--cds-text-secondary)}
+.cc-tip .cc-tr b{color:var(--color-fg);font-weight:var(--cds-font-weight-medium)}
+.cc-fail{font-size:var(--cds-font-size-caption);color:var(--color-fg-muted);padding:var(--cds-pad-md) 0}
+.cc-tablewrap{overflow-x:auto;min-width:0}
+.cc-table{border-collapse:collapse;width:100%;font-size:var(--cds-font-size-caption);font-variant-numeric:tabular-nums}
+.cc-table th{text-align:right;font-weight:var(--cds-font-weight-medium);color:var(--color-fg-muted);padding:6px 8px;border-bottom:1px solid var(--color-border-line);white-space:nowrap}
+.cc-table td{text-align:right;padding:6px 8px;border-bottom:1px solid var(--color-border-line);white-space:nowrap}
+.cc-table th:first-child,.cc-table td:first-child{text-align:left}
+.cc-good{color:var(--color-ok)}
+.cc-bad{color:var(--color-bad)}
+.cc-findings{display:flex;flex-direction:column;gap:var(--cds-gap-sm);padding-left:1.1em;margin:0;max-width:80ch;line-height:1.55}
+.cc details{border-top:1px solid var(--color-border-line);padding-top:var(--cds-pad-md)}
+.cc details summary{cursor:pointer;font-weight:var(--cds-font-weight-medium)}
+.cc details ul{line-height:1.55;padding-left:1.1em;max-width:90ch}
+[data-dash-source-state=refreshing]{opacity:.5}
+</style>
+
+<div class="cc">
+  <header id="top" style="display:flex;flex-direction:column;gap:var(--cds-gap-sm)">
+    <div class="cc-eyebrow">Seattle · Greater Manchester · Chicago · New York · Washington DC · 2015–2025</div>
+    <h1>Five-City Lunch, Health &amp; Climate Ledger</h1>
+    <p class="cc-lede">Greater Manchester is the only place where child poverty, measured by free school meals, rose sharply: from <b data-draw="v" data-source="meals_change" data-field="base_pct" data-where="city=Greater Manchester" data-fmt="pct">—</b> to <b data-draw="v" data-source="meals_change" data-field="latest_pct" data-where="city=Greater Manchester" data-fmt="pct">—</b> of pupils. Employer family health premiums in the four US places rose between <b data-draw="v" data-source="premium_change" data-field="pct" data-where="area=New York" data-fmt="chg">—</b> and <b data-draw="v" data-source="premium_change" data-field="pct" data-where="area=Washington (Seattle)" data-fmt="chg">—</b>. Every city cut its measured emissions while running warmer than its 1991–2020 normal.</p>
+    <p class="cc-note">Built from government statistical releases (DfE, OSPI, NYC DOE, Chicago Public Schools, OSSE, BLS, AHRQ, ONS, NOAA, Met Office, EPA, DEFRA, DESNZ and each city's own emissions inventory). Each number links to its source in Sources. Measures are not identical across the US and UK; the notes under each chart say where they differ.</p>
+  </header>
+
+  <!-- ================= Q1 ================= -->
+  <section class="cc-section" id="lunch">
+    <div class="cc-eyebrow">Question 1</div>
+    <h2>What share of students get free or reduced-price meals?</h2>
+    <p>US districts count students eligible for free or reduced-price lunch (or a close substitute). England counts pupils eligible for free school meals, a stricter, benefits-based test with no "reduced" tier. New York now has the highest share, <b data-draw="v" data-source="meals_change" data-field="latest_pct" data-where="city=New York" data-fmt="pct">—</b>, while Chicago's fell from <b data-draw="v" data-source="meals_change" data-field="base_pct" data-where="city=Chicago" data-fmt="pct">—</b> in 2015–16 to <b data-draw="v" data-source="meals_change" data-field="latest_pct" data-where="city=Chicago" data-fmt="pct">—</b>. Greater Manchester moved <b data-draw="v" data-source="meals_change" data-field="change_pts" data-where="city=Greater Manchester" data-fmt="pts">—</b>, the largest change of any place here.</p>
+
+    <div class="cc-card" id="meals-chart-card">
+      <h3>Students eligible for free or reduced-price meals, % of enrolment</h3>
+      <div class="cc-legend">
+        <span class="cc-li"><i class="cc-sw" data-series="Seattle"></i>Seattle Public Schools</span>
+        <span class="cc-li"><i class="cc-sw" data-series="Greater Manchester"></i>Greater Manchester (10 boroughs)</span>
+        <span class="cc-li"><i class="cc-sw" data-series="Chicago"></i>Chicago Public Schools</span>
+        <span class="cc-li"><i class="cc-sw" data-series="New York"></i>NYC DOE</span>
+        <span class="cc-li"><i class="cc-sw" data-series="Washington DC"></i>DC public schools (at-risk)</span>
+        <span class="cc-li"><i class="cc-sw" data-series="England (reference)"></i>England average</span>
+      </div>
+      <div class="cc-chart" data-draw="meals_chart" data-source="school_meals" id="meals-chart"></div>
+      <p class="cc-note">School years on the axis are labelled by the year they start. NYC switched to a broader poverty definition in 2017–18 (adds students in families receiving HRA benefits), which explains its jump that year. Chicago's 2020–21 dip reflects pandemic-era paperwork, not a fall in need. DC has no usable federal lunch figure because every DC school serves universal free meals, so its line is OSSE's "at-risk" share (TANF/SNAP, homeless, foster care, over-age high schoolers); 2016–17 was not published in that form.</p>
+    </div>
+
+    <div class="cc-grid2">
+      <div class="cc-card" id="meals-table-card">
+        <h3>Change over the decade</h3>
+        <div class="cc-tablewrap">
+          <table class="cc-table" data-source="meals_change" data-row-key="city" data-order="Greater Manchester,England (reference),Seattle,Chicago,New York,Washington DC">
+            <thead><tr><th data-field="city">Place</th><th data-field="base_year">From</th><th data-field="base_pct" data-fmt="pct">Share</th><th data-field="latest_year">To</th><th data-field="latest_pct" data-fmt="pct">Share</th><th data-field="change_pts" data-fmt="pts" data-good="down">Change</th></tr></thead>
+            <tbody data-draw="tbl"></tbody>
+          </table>
+        </div>
+        <p class="cc-note">Seattle and DC moved by a few points; New York sits roughly flat once its 2017 definition change is allowed for.</p>
+      </div>
+      <div class="cc-card" id="gm-boroughs-card">
+        <h3>Greater Manchester by borough, free school meals %</h3>
+        <div class="cc-tablewrap">
+          <table class="cc-table" data-source="gm_boroughs" data-row-key="borough" data-sort="pct_2025_26">
+            <thead><tr><th data-field="borough">Borough</th><th data-field="pct_2015_16" data-fmt="pct">2015/16</th><th data-field="pct_2025_26" data-fmt="pct">2025/26</th><th data-field="change_pts" data-fmt="pts" data-good="down">Change</th></tr></thead>
+            <tbody data-draw="tbl"></tbody>
+          </table>
+        </div>
+        <p class="cc-note">Manchester itself now has close to half of pupils eligible. England-wide eligibility also rose, driven by Universal Credit transitional protections that keep pupils eligible once they qualify, as well as by rising need.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= Q2 ================= -->
+  <section class="cc-section" id="health">
+    <div class="cc-eyebrow">Question 2</div>
+    <h2>How has the cost of healthcare changed?</h2>
+    <p>Two measures describe cost. The consumer price index for medical care tracks the price of care itself; it rose <b data-draw="v" data-source="cost_change" data-field="medical_pct" data-where="area=Seattle" data-fmt="chg">—</b> in Seattle, <b data-draw="v" data-source="cost_change" data-field="medical_pct" data-where="area=Chicago" data-fmt="chg">—</b> in Chicago and <b data-draw="v" data-source="cost_change" data-field="medical_pct" data-where="area=New York" data-fmt="chg">—</b> in New York from 2015 to 2025, slower than prices overall. Employer health insurance, which most working families rely on, rose much faster: the average family premium in Washington State went from <b data-draw="v" data-source="premium_change" data-field="p2015" data-where="area=Washington (Seattle)" data-fmt="usd">—</b> to <b data-draw="v" data-source="premium_change" data-field="p2025" data-where="area=Washington (Seattle)" data-fmt="usd">—</b> a year. In the UK, where care is tax-funded, spending per person rose <b data-draw="v" data-source="uk_change" data-field="pct" data-where="area=UK total" data-fmt="chg">—</b>, and NHS health prices rose <b data-draw="v" data-source="cost_change" data-field="medical_pct" data-where="area=Greater Manchester (UK)" data-fmt="chg">—</b>.</p>
+
+    <div class="cc-grid2">
+      <div class="cc-card" id="cpi-chart-card">
+        <h3>Medical-care prices, index 2015 = 100</h3>
+        <div class="cc-legend">
+          <span class="cc-li"><i class="cc-sw" data-series="Seattle"></i>Seattle metro</span>
+          <span class="cc-li"><i class="cc-sw" data-series="Greater Manchester (UK)"></i>UK (applies to Greater Manchester)</span>
+          <span class="cc-li"><i class="cc-sw" data-series="Chicago"></i>Chicago metro</span>
+          <span class="cc-li"><i class="cc-sw" data-series="New York"></i>New York metro</span>
+          <span class="cc-li"><i class="cc-sw" data-series="US average"></i>US average</span>
+        </div>
+        <div class="cc-chart" data-draw="cpi_chart" data-source="health_costs" id="cpi-chart"></div>
+        <p class="cc-note">BLS CPI-U medical care (annual averages) and ONS CPI health. BLS stopped publishing a medical-care index for the Washington DC area after its 2018 area redesign, so DC is shown through premiums only. The US index understates what households pay for insurance because it measures insurers' retained earnings, not premiums.</p>
+      </div>
+      <div class="cc-card" id="premium-chart-card">
+        <h3>Average employer family premium per enrolled worker, US dollars a year</h3>
+        <div class="cc-legend">
+          <span class="cc-li"><i class="cc-sw" data-series="Washington (Seattle)"></i>Washington State</span>
+          <span class="cc-li"><i class="cc-sw" data-series="Illinois (Chicago)"></i>Illinois</span>
+          <span class="cc-li"><i class="cc-sw" data-series="New York"></i>New York State</span>
+          <span class="cc-li"><i class="cc-sw" data-series="District of Columbia"></i>District of Columbia</span>
+          <span class="cc-li"><i class="cc-sw" data-series="US average"></i>US average</span>
+        </div>
+        <div class="cc-chart" data-draw="premium_chart" data-source="health_costs" id="premium-chart"></div>
+        <p class="cc-note">AHRQ Medical Expenditure Panel Survey, Insurance Component (private-sector employers), reported by state; 2022 is omitted because the state table was not available in the sources used. Totals combine the employer's and the worker's share.</p>
+      </div>
+    </div>
+
+    <div class="cc-grid2">
+      <div class="cc-card" id="cost-table-card">
+        <h3>Price change 2015 → 2025: medical care vs everything</h3>
+        <div class="cc-tablewrap">
+          <table class="cc-table" data-source="cost_change" data-row-key="area" data-order="Seattle,Greater Manchester (UK),Chicago,New York,US average">
+            <thead><tr><th data-field="area">Area</th><th data-field="medical_pct" data-fmt="chg">Medical care</th><th data-field="all_items_pct" data-fmt="chg">All items</th><th data-field="gap_pts" data-fmt="pts">Medical minus all</th></tr></thead>
+            <tbody data-draw="tbl"></tbody>
+          </table>
+        </div>
+        <p class="cc-note">Medical prices outpaced general inflation only in the UK. In Seattle, overall prices (largely housing) rose far faster than medical prices.</p>
+      </div>
+      <div class="cc-card" id="premium-table-card">
+        <h3>Family premiums and the worker's share, 2015 → 2025</h3>
+        <div class="cc-tablewrap">
+          <table class="cc-table" data-source="premium_change" data-row-key="area" data-order="Washington (Seattle),Illinois (Chicago),New York,District of Columbia,US average">
+            <thead><tr><th data-field="area">State</th><th data-field="p2015" data-fmt="usd">2015</th><th data-field="p2025" data-fmt="usd">2025</th><th data-field="pct" data-fmt="chg">Change</th><th data-field="real_pct" data-fmt="chg">After inflation</th><th data-field="emp2025" data-fmt="usd">Worker pays, 2025</th><th data-field="emp_pct" data-fmt="chg">Worker share change</th></tr></thead>
+            <tbody data-draw="tbl"></tbody>
+          </table>
+        </div>
+        <p class="cc-note">"After inflation" deflates by the US all-items CPI. Workers in Illinois and Washington State saw their own family contribution roughly double.</p>
+      </div>
+    </div>
+
+    <div class="cc-grid2">
+      <div class="cc-card" id="uk-chart-card">
+        <h3>UK healthcare spending per person, £ (nominal)</h3>
+        <div class="cc-legend">
+          <span class="cc-li"><i class="cc-sw" data-series="UK total"></i>All healthcare</span>
+          <span class="cc-li"><i class="cc-sw" data-series="UK government-financed"></i>Government-financed (NHS)</span>
+          <span class="cc-li"><i class="cc-sw" data-series="UK out-of-pocket"></i>Paid out of pocket</span>
+        </div>
+        <div class="cc-chart cc-short" data-draw="uk_chart" data-source="health_costs" id="uk-chart"></div>
+        <p class="cc-note">ONS UK Health Accounts; 2025 is provisional. Out-of-pocket spending (prescriptions, dentistry, opticians, over-the-counter medicines) rose <b data-draw="v" data-source="uk_change" data-field="pct" data-where="area=UK out-of-pocket" data-fmt="chg">—</b>, to <b data-draw="v" data-source="uk_change" data-field="v2025" data-where="area=UK out-of-pocket" data-fmt="gbp">—</b> per person.</p>
+      </div>
+      <div class="cc-card" id="gm-nhs-card">
+        <h3>Greater Manchester's NHS budget</h3>
+        <p>NHS Greater Manchester, the integrated care board that has run the city-region's NHS budget since 2022 (and its devolved predecessor since 2016), receives <b data-draw="v" data-source="health_costs" data-field="value" data-where="series=icb_allocation_per_patient&amp;area=NHS Greater Manchester ICB" data-fmt="gbp">—</b> per registered patient for core services in 2025/26, against an England average of <b data-draw="v" data-source="health_costs" data-field="value" data-where="series=icb_allocation_per_patient&amp;area=England ICB average" data-fmt="gbp">—</b>. The higher figure reflects the needs-based funding formula: more deprivation and poorer health mean more money per head.</p>
+        <p class="cc-note">House of Commons Library briefing CBP-10031. There is no Greater Manchester-only price index; the UK CPI and UK Health Accounts apply to it.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= Q3 ================= -->
+  <section class="cc-section" id="climate">
+    <div class="cc-eyebrow">Question 3</div>
+    <h2>How has climate change shown up in each city?</h2>
+    <p>Atmospheric measurement and emissions accounting tell different parts of the story. Carbon dioxide at NOAA's Mauna Loa baseline station rose from <b data-draw="v" data-source="climate" data-field="value" data-where="metric=co2_ppm&amp;year=2015" data-fmt="ppm">—</b> to <b data-draw="v" data-source="climate" data-field="value" data-where="metric=co2_ppm&amp;year=2025" data-fmt="ppm">—</b>, and every city's 2015–2025 average temperature ran above its 1991–2020 normal, by <b data-draw="v" data-source="temp_summary" data-field="anomaly_c" data-where="area=Washington DC" data-fmt="c2">—</b> in Washington DC up to <b data-draw="v" data-source="temp_summary" data-field="anomaly_c" data-where="area=Chicago" data-fmt="c2">—</b> in Chicago. Meanwhile each city's own inventory shows emissions falling: <b data-draw="v" data-source="emis_change" data-field="pct" data-where="area=Greater Manchester" data-fmt="chg">—</b> in Greater Manchester, <b data-draw="v" data-source="emis_change" data-field="pct" data-where="area=Washington DC" data-fmt="chg">—</b> in DC and <b data-draw="v" data-source="emis_change" data-field="pct" data-where="area=New York" data-fmt="chg">—</b> in New York.</p>
+
+    <h3 style="margin-top:var(--cds-gap-sm)">Atmospheric measurement</h3>
+    <div class="cc-grid2">
+      <div class="cc-card" id="temp-chart-card">
+        <h3>Annual temperature vs the 1991–2020 normal, °C</h3>
+        <div class="cc-legend">
+          <span class="cc-li"><i class="cc-sw" data-series="Seattle"></i>Seattle (Sea-Tac)</span>
+          <span class="cc-li"><i class="cc-sw" data-series="Greater Manchester"></i>NW England (Met Office)</span>
+          <span class="cc-li"><i class="cc-sw" data-series="Chicago"></i>Chicago (O'Hare)</span>
+          <span class="cc-li"><i class="cc-sw" data-series="New York"></i>New York (Central Park)</span>
+          <span class="cc-li"><i class="cc-sw" data-series="Washington DC"></i>Washington (Reagan National)</span>
+        </div>
+        <div class="cc-chart" data-draw="temp_chart" data-source="temp_anom" id="temp-chart"></div>
+        <p class="cc-note">NOAA NCEI station records (converted from °F) and the Met Office HadUK-Grid regional series for North West England. Single years swing with weather; the decade average is the signal. Chicago O'Hare has no 2012 annual value.</p>
+      </div>
+      <div class="cc-card" id="temp-table-card">
+        <h3>Warming at a glance</h3>
+        <div class="cc-tablewrap">
+          <table class="cc-table" data-source="temp_summary" data-row-key="area" data-order="Seattle,Greater Manchester,Chicago,New York,Washington DC">
+            <thead><tr><th data-field="area">Place</th><th data-field="normal_c" data-fmt="c1">Normal 1991–2020</th><th data-field="recent_c" data-fmt="c1">Average 2015–2025</th><th data-field="anomaly_c" data-fmt="c2">Difference</th><th data-field="trend_c_decade" data-fmt="c2">Trend per decade</th><th data-field="since">Trend since</th></tr></thead>
+            <tbody data-draw="tbl"></tbody>
+          </table>
+        </div>
+        <p class="cc-note">Trend is the least-squares slope of annual means over the full record shown. All five places warmed by roughly 0.2 °C per decade.</p>
+        <h3 style="margin-top:var(--cds-gap-md)">Carbon dioxide at Mauna Loa, ppm</h3>
+        <div class="cc-chart cc-short" data-draw="co2_chart" data-source="climate" id="co2-chart"></div>
+        <p class="cc-note">CO₂ mixes globally, so one baseline record stands for all five cities.</p>
+      </div>
+    </div>
+
+    <div class="cc-grid2">
+      <div class="cc-card" id="aqi-chart-card">
+        <h3>Days with "good" air quality (AQI 0–50), US metros</h3>
+        <div class="cc-legend">
+          <span class="cc-li"><i class="cc-sw" data-series="Seattle"></i>Seattle</span>
+          <span class="cc-li"><i class="cc-sw" data-series="Chicago"></i>Chicago</span>
+          <span class="cc-li"><i class="cc-sw" data-series="New York"></i>New York</span>
+          <span class="cc-li"><i class="cc-sw" data-series="Washington DC"></i>Washington DC</span>
+        </div>
+        <div class="cc-chart" data-draw="aqi_chart" data-source="climate" id="aqi-chart"></div>
+        <p class="cc-note">EPA AirData, metro-wide. Good days rose in all four metros, but wildfire smoke now drives the worst days: Chicago had <b data-draw="v" data-source="climate" data-field="value" data-where="metric=aqi_unhealthy_days&amp;area=Chicago&amp;year=2023" data-fmt="d0">—</b> days above AQI 100 in 2023 (Canadian wildfire smoke), against <b data-draw="v" data-source="climate" data-field="value" data-where="metric=aqi_unhealthy_days&amp;area=Chicago&amp;year=2022" data-fmt="d0">—</b> the year before.</p>
+      </div>
+      <div class="cc-card" id="man-air-card">
+        <h3>Manchester Piccadilly air quality, µg/m³</h3>
+        <div class="cc-legend">
+          <span class="cc-li"><i class="cc-sw" data-series="no2_ugm3"></i>Nitrogen dioxide (NO₂)</span>
+          <span class="cc-li"><i class="cc-sw" data-series="pm25_ugm3"></i>Fine particles (PM2.5)</span>
+        </div>
+        <div class="cc-chart" data-draw="man_chart" data-source="climate" id="man-chart"></div>
+        <p class="cc-note">DEFRA Automatic Urban and Rural Network, site MAN3, annual means of hourly readings. NO₂, mostly from traffic, fell from <b data-draw="v" data-source="climate" data-field="value" data-where="metric=no2_ugm3&amp;year=2015" data-fmt="d1">—</b> to <b data-draw="v" data-source="climate" data-field="value" data-where="metric=no2_ugm3&amp;year=2025" data-fmt="d1">—</b> µg/m³; PM2.5 barely moved and remains above the WHO guideline of 5 µg/m³.</p>
+      </div>
+    </div>
+
+    <h3 style="margin-top:var(--cds-gap-sm)">Emissions accounting</h3>
+    <div class="cc-grid2">
+      <div class="cc-card" id="emis-chart-card">
+        <h3>Greenhouse-gas emissions, index (year nearest 2015 = 100)</h3>
+        <div class="cc-legend">
+          <span class="cc-li"><i class="cc-sw" data-series="Seattle"></i>Seattle (core sectors)</span>
+          <span class="cc-li"><i class="cc-sw" data-series="Greater Manchester"></i>Greater Manchester (territorial)</span>
+          <span class="cc-li"><i class="cc-sw" data-series="Chicago"></i>Chicago (approx.)</span>
+          <span class="cc-li"><i class="cc-sw" data-series="New York"></i>New York (citywide)</span>
+          <span class="cc-li"><i class="cc-sw" data-series="Washington DC"></i>Washington DC (citywide)</span>
+        </div>
+        <div class="cc-chart" data-draw="emis_chart" data-source="emis_index" id="emis-chart"></div>
+        <p class="cc-note">Indexing puts inventories of very different size and scope on one scale. Dots mark years an inventory exists; Seattle publishes every two years and Chicago's newest public citywide inventory is for 2017.</p>
+      </div>
+      <div class="cc-card" id="emis-table-card">
+        <h3>Inventory totals, million tonnes CO₂e</h3>
+        <div class="cc-tablewrap">
+          <table class="cc-table" data-source="emis_change" data-row-key="area" data-order="Greater Manchester,Washington DC,New York,Chicago,Seattle">
+            <thead><tr><th data-field="area">Place</th><th data-field="base_year">Base year</th><th data-field="base_mt" data-fmt="mt">Then</th><th data-field="latest_year">Latest</th><th data-field="latest_mt" data-fmt="mt">Now</th><th data-field="pct" data-fmt="chg" data-good="down">Change</th><th data-field="first_year">Since</th><th data-field="pct_since_first" data-fmt="chg" data-good="down">Long-run change</th></tr></thead>
+            <tbody data-draw="tbl"></tbody>
+          </table>
+        </div>
+        <p class="cc-note">Per resident, Greater Manchester fell from <b data-draw="v" data-source="climate" data-field="value" data-where="metric=ghg_t_per_person&amp;area=Greater Manchester&amp;year=2015" data-fmt="d2">—</b> to <b data-draw="v" data-source="climate" data-field="value" data-where="metric=ghg_t_per_person&amp;area=Greater Manchester&amp;year=2024" data-fmt="d2">—</b> tonnes and Seattle from <b data-draw="v" data-source="climate" data-field="value" data-where="metric=ghg_t_per_person&amp;area=Seattle&amp;year=2008" data-fmt="d2">—</b> (2008) to <b data-draw="v" data-source="climate" data-field="value" data-where="metric=ghg_t_per_person&amp;area=Seattle&amp;year=2022" data-fmt="d2">—</b> (2022). Chicago's tonnages are approximate: they apply the city's published percentage cuts to its 2005 baseline of 36.2 Mt.</p>
+      </div>
+    </div>
+
+    <ul class="cc-findings">
+      <li>Greater Manchester's decline came mostly from homes, commerce and industry as the UK grid dropped coal; transport emissions were flat until 2020 and have stayed about 15% lower since.</li>
+      <li>DC credits greener regional electricity and more efficient commercial buildings for most of its cut. New York's buildings still produce about two-thirds of its emissions.</li>
+      <li>Seattle's electricity is already mostly hydropower, so its emissions are dominated by road transport (about 58%), which fell only during the pandemic.</li>
+      <li>These are territorial (production-based) inventories. Consumption-based accounting is much larger: Seattle estimates about 16 t CO₂e per resident once goods and services consumed are counted.</li>
+    </ul>
+  </section>
+
+  <details id="sources-notes">
+    <summary>Definitions, methods and source documents</summary>
+    <ul>
+      <li><b>Greater Manchester school meals</b>: DfE "Schools, pupils and their characteristics" (January census, state-funded schools), summed over Bolton, Bury, Manchester, Oldham, Rochdale, Salford, Stockport, Tameside, Trafford and Wigan.</li>
+      <li><b>Seattle</b>: OSPI Report Card Enrollment, Seattle School District No. 1, "Low-Income" (eligible for free or reduced-price meals). <b>New York</b>: NYC DOE Demographic Snapshot, district schools (excludes charters). <b>Chicago</b>: CPS 20th-day "Free/Reduced Lunch" / "Economically Disadvantaged" report. <b>DC</b>: OSSE enrollment audit, at-risk students in DCPS and public charter schools.</li>
+      <li><b>Prices</b>: BLS CPI-U (via FRED series CUURA423SAM, CUURA207SAM, CUURA101SAM, CPIMEDNS and matching all-items series); ONS series D7BZ and D7BT. <b>Premiums</b>: AHRQ MEPS-IC Tables II.D.1 and II.D.2 (2015–2020 from AHRQ; 2021 and 2023–2025 as tabulated by KFF State Health Facts from MEPS-IC). <b>UK spending</b>: ONS UK Health Accounts reference tables, Table 1c.</li>
+      <li><b>Temperature</b>: NOAA NCEI Climate at a Glance city series (USW00024233, USW00094846, USW00094728, USW00013743); Met Office HadUK-Grid "England NW and N Wales". <b>CO₂</b>: NOAA GML Mauna Loa annual means. <b>Air quality</b>: EPA AirData annual AQI by CBSA; DEFRA AURN Manchester Piccadilly.</li>
+      <li><b>Emissions</b>: DESNZ UK local authority GHG statistics 2005–2024; NYC Greenhouse Gas Emissions Inventory (NYC Open Data); DC DOEE 2006–2023 inventory workbook; Seattle OSE 2022 Community GHG Inventory (core sectors summed from Appendix A, before carbon offsets); City of Chicago 2017 GHG Inventory Report (−11.0% in 2015 and −16.9% in 2017 vs 2005) and the 2008 Chicago Climate Action Plan baseline.</li>
+    </ul>
+  </details>
+</div>
+
+<script>
+window.CC = (function () {
+  var ORDER = { 'Seattle': 0, 'Greater Manchester': 1, 'Chicago': 2, 'New York': 3, 'Washington DC': 4 };
+  var ALIAS = { 'Washington (Seattle)': 'Seattle', 'Illinois (Chicago)': 'Chicago', 'District of Columbia': 'Washington DC', 'Greater Manchester (UK)': 'Greater Manchester', 'UK total': 'Greater Manchester', 'no2_ugm3': 'Greater Manchester' };
+  function colorFor(name) {
+    var k = ALIAS[name] || name;
+    if (k in ORDER) return dash.colors[ORDER[k] % dash.colors.length];
+    return 'var(--cds-chart-muted)';
+  }
+  function dashedFor(name) {
+    return name === 'England (reference)' || name === 'US average' || name === 'UK out-of-pocket' || name === 'pm25_ugm3';
+  }
+  var f1 = d3.format('.1f'), s1 = d3.format('+.1f'), s2 = d3.format('+.2f'), c0 = d3.format(',.0f'), f2 = d3.format('.2f');
+  function fmt(v, kind) {
+    if (v === null || v === undefined || v === '') return '—';
+    var n = +v;
+    switch (kind) {
+      case 'pct': return f1(n) + '%';
+      case 'pts': return s1(n) + ' pts';
+      case 'chg': return s1(n) + '%';
+      case 'usd': return '$' + c0(n);
+      case 'gbp': return '£' + c0(n);
+      case 'c1': return f1(n) + ' °C';
+      case 'c2': return s2(n) + ' °C';
+      case 'mt': return f2(n);
+      case 'ppm': return f1(n) + ' ppm';
+      case 'd0': return c0(n);
+      case 'd1': return f1(n);
+      case 'd2': return f2(n);
+      default: return String(v);
+    }
+  }
+  function series(rows, keyField, xField, yField, filter) {
+    var by = new Map();
+    rows.forEach(function (r) {
+      if (filter && !filter(r)) return;
+      var k = r[keyField];
+      if (!by.has(k)) by.set(k, []);
+      by.get(k).push([+r[xField], +r[yField]]);
+    });
+    return Array.from(by, function (e) { e[1].sort(function (a, b) { return a[0] - b[0]; }); return { name: e[0], pts: e[1] }; });
+  }
+  function fail(el, d) {
+    if (d.status === 'error' || d.status === 'missing' || d.status === 'declined') {
+      var p = document.createElement('div'); p.className = 'cc-fail'; p.textContent = 'Failed to load';
+      el.replaceChildren(p);
+    } else { el.replaceChildren(); }
+  }
+  function lineChart(el, cfg) {
+    var W = Math.max(260, el.clientWidth || 600), H = cfg.height || 260;
+    el.replaceChildren();
+    var svg = d3.select(el).append('svg').attr('width', '100%').attr('viewBox', '0 0 ' + W + ' ' + H)
+      .attr('role', 'img').attr('aria-label', cfg.aria);
+    var all = [];
+    cfg.series.forEach(function (s) { all = all.concat(s.pts); });
+    if (!all.length) return;
+    var xd = d3.extent(all, function (p) { return p[0]; });
+    var yd = cfg.yDomain ? cfg.yDomain.slice() : d3.extent(all, function (p) { return p[1]; });
+    if (cfg.ref != null) { yd[0] = Math.min(yd[0], cfg.ref); yd[1] = Math.max(yd[1], cfg.ref); }
+    var y = d3.scaleLinear().domain(yd).nice(5);
+    var yt = y.ticks(5);
+    var meas = svg.append('g').attr('class', 'cc-axis'), maxw = 0;
+    yt.forEach(function (t) { var tx = meas.append('text').text(cfg.yFmt(t)); maxw = Math.max(maxw, tx.node().getComputedTextLength()); });
+    meas.remove();
+    var m = { top: 10, right: Math.ceil((cfg.xLabW || 44) / 2), bottom: 24, left: Math.max(Math.ceil(maxw) + 10, Math.ceil((cfg.xLabW || 44) / 2)) };
+    var x = d3.scaleLinear().domain(xd).range([m.left, W - m.right]);
+    y.range([H - m.bottom, m.top]);
+    svg.append('g').selectAll('line').data(yt).join('line').attr('class', 'cc-grid-line')
+      .attr('x1', m.left).attr('x2', W - m.right).attr('y1', function (d) { return y(d); }).attr('y2', function (d) { return y(d); });
+    svg.append('g').attr('class', 'cc-axis').selectAll('text').data(yt).join('text')
+      .attr('x', m.left - 6).attr('y', function (d) { return y(d); }).attr('dy', '0.32em').attr('text-anchor', 'end').text(cfg.yFmt);
+    var xlabW = cfg.xLabW || 44;
+    var span = xd[1] - xd[0];
+    var step = Math.max(1, Math.ceil(span / Math.max(1, Math.floor((W - m.left - m.right) / xlabW))));
+    var nice = [1, 2, 5, 10, 20, 25];
+    step = nice.find(function (s) { return s >= step; }) || step;
+    var xt = [];
+    for (var v = Math.ceil(xd[0] / step) * step; v <= xd[1]; v += step) xt.push(v);
+    svg.append('g').attr('class', 'cc-axis').selectAll('text').data(xt).join('text')
+      .attr('x', function (d) { return x(d); }).attr('y', H - 6)
+      .attr('text-anchor', 'middle')
+      .text(cfg.xFmt);
+    if (cfg.ref != null) svg.append('line').attr('class', 'cc-ref').attr('x1', m.left).attr('x2', W - m.right).attr('y1', y(cfg.ref)).attr('y2', y(cfg.ref));
+    var line = d3.line().x(function (p) { return x(p[0]); }).y(function (p) { return y(p[1]); });
+    cfg.series.forEach(function (s) {
+      var c = cfg.colorFor ? cfg.colorFor(s.name) : colorFor(s.name);
+      var path = svg.append('path').datum(s.pts).attr('d', line).style('fill', 'none').style('stroke', c).style('stroke-width', 2)
+        .style('stroke-linejoin', 'round').style('stroke-linecap', 'round');
+      if (dashedFor(s.name)) path.style('stroke-dasharray', '5 4');
+      if (cfg.dots) svg.append('g').selectAll('circle').data(s.pts).join('circle')
+        .attr('cx', function (p) { return x(p[0]); }).attr('cy', function (p) { return y(p[1]); }).attr('r', 3)
+        .style('fill', c).style('stroke', 'var(--color-panel)').style('stroke-width', 1.5);
+    });
+    var cross = svg.append('line').attr('class', 'cc-cross').attr('y1', m.top).attr('y2', H - m.bottom).style('display', 'none');
+    var tip = document.createElement('div'); tip.className = 'cc-tip'; tip.hidden = true; el.appendChild(tip);
+    svg.append('rect').attr('x', m.left).attr('y', 0).attr('width', W - m.left - m.right).attr('height', H)
+      .style('fill', 'transparent').style('pointer-events', 'all')
+      .on('pointermove', function (ev) {
+        var pt = d3.pointer(ev, svg.node());
+        var scale = W / svg.node().getBoundingClientRect().width;
+        var yr = Math.round(x.invert(pt[0]));
+        yr = Math.max(xd[0], Math.min(xd[1], yr));
+        var rows = [];
+        cfg.series.forEach(function (s) {
+          var hit = s.pts.find(function (p) { return p[0] === yr; });
+          if (hit) rows.push([s, hit[1]]);
+        });
+        if (!rows.length) { tip.hidden = true; cross.style('display', 'none'); return; }
+        rows.sort(function (a, b) { return b[1] - a[1]; });
+        cross.style('display', null).attr('x1', x(yr)).attr('x2', x(yr));
+        tip.replaceChildren();
+        var th = document.createElement('div'); th.className = 'cc-th'; th.textContent = cfg.xFmt(yr); tip.appendChild(th);
+        rows.forEach(function (r) {
+          var tr = document.createElement('div'); tr.className = 'cc-tr';
+          var nm = document.createElement('span'); nm.style.display = 'inline-flex'; nm.style.alignItems = 'center'; nm.style.gap = '6px';
+          var sw = document.createElement('i'); sw.className = 'cc-sw'; sw.style.borderTopColor = cfg.colorFor ? cfg.colorFor(r[0].name) : colorFor(r[0].name);
+          var lb = document.createElement('span'); lb.textContent = (cfg.labels && cfg.labels[r[0].name]) || r[0].name;
+          nm.appendChild(sw); nm.appendChild(lb);
+          var val = document.createElement('b'); val.textContent = cfg.tipFmt ? cfg.tipFmt(r[1]) : cfg.yFmt(r[1]);
+          tr.appendChild(nm); tr.appendChild(val); tip.appendChild(tr);
+        });
+        tip.hidden = false;
+        var px = x(yr) / scale, cw = el.clientWidth, tw = tip.offsetWidth;
+        var left = px + 12; if (left + tw > cw) left = px - tw - 12; if (left < 0) left = 0;
+        tip.style.left = left + 'px'; tip.style.top = '4px';
+      })
+      .on('pointerleave', function () { tip.hidden = true; cross.style('display', 'none'); });
+  }
+  return { colorFor: colorFor, dashedFor: dashedFor, fmt: fmt, series: series, lineChart: lineChart, fail: fail };
+})();
+
+/* ---- calculations (readers see these in Sources) ---- */
+dash.calc('meals_change', {
+  inputs: ['school_meals'],
+  title: 'Meal eligibility: 2015-16 vs latest year',
+  description: 'For each place, the 2015-16 share, the latest share and the change in percentage points.',
+  fn: function (meals) {
+    var by = {};
+    meals.forEach(function (r) { (by[r.city] = by[r.city] || []).push(r); });
+    return Object.keys(by).map(function (city) {
+      var rs = by[city].slice().sort(function (a, b) { return +a.year_start - +b.year_start; });
+      var base = rs.find(function (r) { return +r.year_start === 2015; }) || rs[0];
+      var last = rs[rs.length - 1];
+      return { city: city, base_year: base.school_year, base_pct: +base.pct, latest_year: last.school_year, latest_pct: +last.pct,
+        change_pts: Math.round((+last.pct - +base.pct) * 10) / 10 };
+    });
+  }
+});
+dash.calc('cost_change', {
+  inputs: ['health_costs'],
+  title: 'Medical vs all-items price change, 2015-2025',
+  description: 'Percent change in the medical-care and all-items price indexes between 2015 and 2025.',
+  fn: function (health) {
+    function get(series, area, year) {
+      var r = health.find(function (r) { return r.series === series && r.area === area && +r.year === year; });
+      return r ? +r.value : null;
+    }
+    function r1(v) { return Math.round(v * 10) / 10; }
+    var areas = [];
+    health.forEach(function (r) { if (r.series === 'cpi_medical' && areas.indexOf(r.area) < 0) areas.push(r.area); });
+    return areas.map(function (area) {
+      var med = get('cpi_medical', area, 2025) / get('cpi_medical', area, 2015) * 100 - 100;
+      var all = get('cpi_all_items', area, 2025) / get('cpi_all_items', area, 2015) * 100 - 100;
+      return { area: area, medical_pct: r1(med), all_items_pct: r1(all), gap_pts: r1(med - all) };
+    });
+  }
+});
+dash.calc('premium_change', {
+  inputs: ['health_costs'],
+  title: 'Family premium change, 2015-2025',
+  description: 'Average employer family premium in 2015 and 2025, the percent change, the change after US inflation, and the worker contribution.',
+  fn: function (health) {
+    function get(series, area, year) {
+      var r = health.find(function (r) { return r.series === series && r.area === area && +r.year === year; });
+      return r ? +r.value : null;
+    }
+    function r1(v) { return Math.round(v * 10) / 10; }
+    var cpi = get('cpi_all_items', 'US average', 2025) / get('cpi_all_items', 'US average', 2015);
+    var areas = [];
+    health.forEach(function (r) { if (r.series === 'family_premium' && areas.indexOf(r.area) < 0) areas.push(r.area); });
+    return areas.map(function (area) {
+      var a = get('family_premium', area, 2015), b = get('family_premium', area, 2025);
+      var e0 = get('family_employee_share', area, 2015), e1 = get('family_employee_share', area, 2025);
+      return { area: area, p2015: a, p2025: b, pct: r1((b / a - 1) * 100), real_pct: r1((b / a / cpi - 1) * 100),
+        emp2015: e0, emp2025: e1, emp_pct: r1((e1 / e0 - 1) * 100) };
+    });
+  }
+});
+dash.calc('uk_change', {
+  inputs: ['health_costs'],
+  title: 'UK health spending per person, 2015-2025',
+  description: 'UK healthcare spending per person in 2015 and 2025 (nominal) and the percent change.',
+  fn: function (health) {
+    var areas = [];
+    health.forEach(function (r) { if (r.series === 'uk_spend_per_person' && areas.indexOf(r.area) < 0) areas.push(r.area); });
+    return areas.map(function (area) {
+      var v = function (y) { return +health.find(function (r) { return r.series === 'uk_spend_per_person' && r.area === area && +r.year === y; }).value; };
+      return { area: area, v2015: v(2015), v2025: v(2025), pct: Math.round((v(2025) / v(2015) - 1) * 1000) / 10 };
+    });
+  }
+});
+dash.calc('temp_summary', {
+  inputs: ['climate'],
+  title: 'Temperature normal, recent average and trend',
+  description: 'Per place: mean annual temperature 1991-2020, mean 2015-2025, their difference, and the least-squares trend per decade over the full record.',
+  fn: function (climate) {
+    var by = {};
+    climate.forEach(function (r) { if (r.metric === 'temp_c') (by[r.area] = by[r.area] || []).push([+r.year, +r.value]); });
+    function mean(a) { return a.reduce(function (s, v) { return s + v; }, 0) / a.length; }
+    return Object.keys(by).map(function (area) {
+      var pts = by[area];
+      var normal = mean(pts.filter(function (p) { return p[0] >= 1991 && p[0] <= 2020; }).map(function (p) { return p[1]; }));
+      var recent = mean(pts.filter(function (p) { return p[0] >= 2015 && p[0] <= 2025; }).map(function (p) { return p[1]; }));
+      var mx = mean(pts.map(function (p) { return p[0]; })), my = mean(pts.map(function (p) { return p[1]; }));
+      var num = 0, den = 0;
+      pts.forEach(function (p) { num += (p[0] - mx) * (p[1] - my); den += (p[0] - mx) * (p[0] - mx); });
+      var since = Math.min.apply(null, pts.map(function (p) { return p[0]; }));
+      return { area: area, normal_c: Math.round(normal * 100) / 100, recent_c: Math.round(recent * 100) / 100,
+        anomaly_c: Math.round((recent - normal) * 100) / 100, trend_c_decade: Math.round(num / den * 10 * 100) / 100, since: String(since) };
+    });
+  }
+});
+dash.calc('temp_anom', {
+  inputs: ['climate'],
+  title: 'Annual temperature anomaly',
+  description: 'Each year from 1995 minus that place’s 1991-2020 mean, in degrees C.',
+  fn: function (climate) {
+    var by = {};
+    climate.forEach(function (r) { if (r.metric === 'temp_c') (by[r.area] = by[r.area] || []).push([+r.year, +r.value]); });
+    var out = [];
+    Object.keys(by).forEach(function (area) {
+      var base = by[area].filter(function (p) { return p[0] >= 1991 && p[0] <= 2020; });
+      var normal = base.reduce(function (s, p) { return s + p[1]; }, 0) / base.length;
+      by[area].forEach(function (p) { if (p[0] >= 1995) out.push({ area: area, year: p[0], anomaly_c: Math.round((p[1] - normal) * 100) / 100 }); });
+    });
+    return out;
+  }
+});
+dash.calc('emis_change', {
+  inputs: ['climate'],
+  title: 'Emissions: base year vs latest inventory',
+  description: 'Per place: 2015, or the nearest inventory year from 2014 on where 2015 is missing (base), the latest year, the percent change, and the change since the earliest inventory.',
+  fn: function (climate) {
+    var by = {};
+    climate.forEach(function (r) { if (r.metric === 'ghg_mt') (by[r.area] = by[r.area] || []).push([+r.year, +r.value]); });
+    return Object.keys(by).map(function (area) {
+      var pts = by[area].sort(function (a, b) { return a[0] - b[0]; });
+      var base = pts.find(function (p) { return p[0] === 2015; }) || pts.find(function (p) { return p[0] >= 2014; });
+      var last = pts[pts.length - 1], first = pts[0];
+      return { area: area, base_year: String(base[0]), base_mt: base[1], latest_year: String(last[0]), latest_mt: last[1],
+        pct: Math.round((last[1] / base[1] - 1) * 1000) / 10, first_year: String(first[0]),
+        pct_since_first: Math.round((last[1] / first[1] - 1) * 1000) / 10 };
+    });
+  }
+});
+dash.calc('emis_index', {
+  inputs: ['climate'],
+  title: 'Emissions index',
+  description: 'Each inventory year as a share of the base year (2015, or the nearest inventory year from 2014 on = 100).',
+  fn: function (climate) {
+    var by = {};
+    climate.forEach(function (r) { if (r.metric === 'ghg_mt') (by[r.area] = by[r.area] || []).push([+r.year, +r.value]); });
+    var out = [];
+    Object.keys(by).forEach(function (area) {
+      var pts = by[area].sort(function (a, b) { return a[0] - b[0]; });
+      var base = pts.find(function (p) { return p[0] === 2015; }) || pts.find(function (p) { return p[0] >= 2014; });
+      pts.forEach(function (p) { out.push({ area: area, year: p[0], index: Math.round(p[1] / base[1] * 1000) / 10 }); });
+    });
+    return out;
+  }
+});
+
+/* ---- legend swatches ---- */
+document.querySelectorAll('.cc-sw[data-series]').forEach(function (s) {
+  var n = s.getAttribute('data-series');
+  s.style.borderTopColor = CC.colorFor(n);
+  if (CC.dashedFor(n)) s.style.borderTopStyle = 'dashed';
+});
+
+/* ---- single values ---- */
+dash.draw('v', function (el) {
+  var d = dash.data(el.getAttribute('data-source'));
+  if (d.status !== 'ok' || !Array.isArray(d.data)) { el.textContent = '—'; return; }
+  var conds = (el.getAttribute('data-where') || '').split('&').filter(Boolean).map(function (p) { return p.split('=').map(decodeURIComponent); });
+  var row = d.data.find(function (r) { return conds.every(function (c) { return String(r[c[0]]) === c[1]; }); });
+  el.textContent = row ? CC.fmt(row[el.getAttribute('data-field')], el.getAttribute('data-fmt')) : '—';
+});
+
+/* ---- tables ---- */
+dash.draw('tbl', function (el) {
+  var table = el.closest('table');
+  var d = dash.data(table.getAttribute('data-source'));
+  if (d.status !== 'ok' || !Array.isArray(d.data)) { el.replaceChildren(); return; }
+  var key = table.getAttribute('data-row-key');
+  var cols = Array.from(table.querySelectorAll('th')).map(function (th) { return { f: th.getAttribute('data-field'), fmt: th.getAttribute('data-fmt'), good: th.getAttribute('data-good') }; });
+  var rows = d.data.slice();
+  var order = table.getAttribute('data-order');
+  if (order) { var o = order.split(','); rows = rows.filter(function (r) { return o.indexOf(r[key]) >= 0; }).sort(function (a, b) { return o.indexOf(a[key]) - o.indexOf(b[key]); }); }
+  var sortBy = table.getAttribute('data-sort');
+  if (sortBy) rows.sort(function (a, b) { return +b[sortBy] - +a[sortBy]; });
+  el.replaceChildren();
+  rows.forEach(function (r) {
+    var tr = document.createElement('tr');
+    cols.forEach(function (c) {
+      var td = document.createElement('td');
+      td.textContent = c.fmt ? CC.fmt(r[c.f], c.fmt) : String(r[c.f]);
+      if (c.good === 'down' && r[c.f] !== '' && r[c.f] != null) td.className = +r[c.f] < 0 ? 'cc-good' : (+r[c.f] > 0 ? 'cc-bad' : '');
+      tr.appendChild(td);
+    });
+    el.appendChild(tr);
+  });
+});
+
+/* ---- charts ---- */
+var schoolYear = function (y) { return y + '–' + String(y + 1).slice(2); };
+var plainYear = d3.format('d');
+dash.draw('meals_chart', function (el) {
+  var d = dash.data('school_meals');
+  if (d.status !== 'ok') return CC.fail(el, d);
+  CC.lineChart(el, { series: CC.series(d.data, 'city', 'year_start', 'pct'), yDomain: [0, 100], xFmt: schoolYear, xLabW: 70,
+    yFmt: function (v) { return v + '%'; }, tipFmt: function (v) { return d3.format('.1f')(v) + '%'; }, dots: true,
+    aria: 'Line chart of the share of students eligible for free or reduced-price meals by school year, 2014-15 to 2026-27, for five cities and England.' });
+});
+dash.draw('cpi_chart', function (el) {
+  var d = dash.data('health_costs');
+  if (d.status !== 'ok') return CC.fail(el, d);
+  CC.lineChart(el, { series: CC.series(d.data, 'area', 'year', 'value', function (r) { return r.series === 'cpi_medical'; }), ref: 100,
+    xFmt: plainYear, yFmt: d3.format('d'), tipFmt: d3.format('.1f'),
+    aria: 'Line chart of medical-care price indexes, 2015 = 100, for Seattle, Chicago, New York, the US average and the UK, 2015-2025.' });
+});
+dash.draw('premium_chart', function (el) {
+  var d = dash.data('health_costs');
+  if (d.status !== 'ok') return CC.fail(el, d);
+  CC.lineChart(el, { series: CC.series(d.data, 'area', 'year', 'value', function (r) { return r.series === 'family_premium'; }), dots: true,
+    xFmt: plainYear, yFmt: function (v) { return '$' + d3.format(',.0f')(v / 1000) + 'k'; }, tipFmt: function (v) { return '$' + d3.format(',.0f')(v); },
+    aria: 'Line chart of average employer family health premiums, 2015-2025, for Washington State, Illinois, New York, DC and the US average.' });
+});
+dash.draw('uk_chart', function (el) {
+  var d = dash.data('health_costs');
+  if (d.status !== 'ok') return CC.fail(el, d);
+  CC.lineChart(el, { series: CC.series(d.data, 'area', 'year', 'value', function (r) { return r.series === 'uk_spend_per_person'; }), height: 220, yDomain: [0, 5000],
+    xFmt: plainYear, yFmt: function (v) { return '£' + d3.format(',.0f')(v); },
+    labels: { 'UK total': 'All healthcare', 'UK government-financed': 'Government', 'UK out-of-pocket': 'Out of pocket' },
+    aria: 'Line chart of UK healthcare spending per person in pounds, 2015-2025: total, government-financed and out-of-pocket.' });
+});
+dash.draw('temp_chart', function (el) {
+  var d = dash.data('temp_anom');
+  if (d.status !== 'ok') return CC.fail(el, d);
+  CC.lineChart(el, { series: CC.series(d.data, 'area', 'year', 'anomaly_c'), ref: 0,
+    xFmt: plainYear, yFmt: function (v) { return d3.format('+.1f')(v); }, tipFmt: function (v) { return d3.format('+.2f')(v) + ' °C'; },
+    aria: 'Line chart of annual temperature anomalies against the 1991-2020 normal, 1995-2025, for five cities.' });
+});
+dash.draw('co2_chart', function (el) {
+  var d = dash.data('climate');
+  if (d.status !== 'ok') return CC.fail(el, d);
+  CC.lineChart(el, { series: CC.series(d.data, 'area', 'year', 'value', function (r) { return r.metric === 'co2_ppm'; }), height: 200, dots: true,
+    colorFor: function () { return 'var(--color-fg)'; }, xFmt: plainYear, yFmt: d3.format('d'), tipFmt: function (v) { return d3.format('.2f')(v) + ' ppm'; },
+    aria: 'Line chart of annual mean carbon dioxide at Mauna Loa, 2015-2025, rising from about 401 to 427 ppm.' });
+});
+dash.draw('aqi_chart', function (el) {
+  var d = dash.data('climate');
+  if (d.status !== 'ok') return CC.fail(el, d);
+  CC.lineChart(el, { series: CC.series(d.data, 'area', 'year', 'value', function (r) { return r.metric === 'aqi_good_days'; }), yDomain: [0, 250],
+    xFmt: plainYear, yFmt: d3.format('d'), tipFmt: function (v) { return v + ' days'; },
+    aria: 'Line chart of days per year with good air quality, 2015-2025, for Seattle, Chicago, New York and Washington DC metros.' });
+});
+dash.draw('man_chart', function (el) {
+  var d = dash.data('climate');
+  if (d.status !== 'ok') return CC.fail(el, d);
+  CC.lineChart(el, { series: CC.series(d.data, 'metric', 'year', 'value', function (r) { return r.metric === 'no2_ugm3' || r.metric === 'pm25_ugm3'; }), yDomain: [0, 45],
+    colorFor: function (n) { return n === 'no2_ugm3' ? CC.colorFor('Greater Manchester') : 'var(--cds-chart-muted)'; },
+    labels: { no2_ugm3: 'NO₂', pm25_ugm3: 'PM2.5' },
+    xFmt: plainYear, yFmt: d3.format('d'), tipFmt: function (v) { return d3.format('.1f')(v) + ' µg/m³'; },
+    aria: 'Line chart of annual mean nitrogen dioxide and PM2.5 at Manchester Piccadilly, 2015-2025.' });
+});
+dash.draw('emis_chart', function (el) {
+  var d = dash.data('emis_index');
+  if (d.status !== 'ok') return CC.fail(el, d);
+  CC.lineChart(el, { series: CC.series(d.data, 'area', 'year', 'index'), ref: 100, dots: true,
+    xFmt: plainYear, yFmt: d3.format('d'), tipFmt: d3.format('.1f'),
+    aria: 'Line chart of greenhouse-gas emissions indexed to the base year near 2015, 2005-2024, for five cities.' });
+});
+</script>
