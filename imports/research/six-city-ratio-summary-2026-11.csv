@@ -1,0 +1,6 @@
+city,property_type,n_sales,median_ratio,cod,prd,prb,values_vs_sales,published_by
+Chicago,Residential (1-6 unit homes),13091,0.954,14.3,1.009,-0.0,2024 initial values vs 2023 sales,Mandate calculation from county/city open data
+New York City,Class 1 homes (1-3 family),17383,1.017,16.7,1.045,-0.054,FY2027 market values vs 2025 sales,Mandate calculation from NYC DOF open data
+Seattle,Single-family homes,3141,0.924,8.5,1.012,-0.021,2025 values (tax year 2026) vs 2024 sales,Mandate calculation from county/city open data
+Washington DC,Residential,5353,0.978,5,1.0,0.012,FY2025 values vs 2023 sales,DC Office of Tax and Revenue
+Washington DC,Commercial,171,0.948,12,1.05,0.018,FY2025 values vs 2023 sales,DC Office of Tax and Revenue
