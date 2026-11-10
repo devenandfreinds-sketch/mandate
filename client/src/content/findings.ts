@@ -423,6 +423,161 @@ export const findings: Finding[] = [
       { label: "Mandate research brief with charts and CSVs (six-city social brief, November 2026)", url: "https://github.com/devenandfreinds-sketch/mandate/blob/main/imports/research/six-city-social-brief-2026-11/README.md" },
     ],
   },
+  {
+    slug: "who-pays-what-tax-by-income",
+    title: "Who Pays What: The Top 1% Pay 7× the Bottom Half's Income Tax Rate, Until the Very Top",
+    dek: "In the U.S., federal income tax rises with income until the top 0.1%, then falls. In the UK, the poorest fifth pay as large a share of their income in tax as the richest. In Ireland, the top 10% pay almost two-thirds of income tax and USC.",
+    publishedDate: "2026-11-10",
+    category: "Fiscal Health",
+    sections: [
+      {
+        heading: "The question",
+        paragraphs: [
+          "What share of their income do the wealthiest pay in tax, compared with middle- and lower-income people, in the three countries Mandate's six cities sit in?",
+        ],
+      },
+      {
+        heading: "United States: federal income tax",
+        paragraphs: [
+          "IRS data for tax year 2023 shows the bottom half of taxpayers paid 3.7% of their income in federal income tax. The 50th to 90th percentile, roughly the middle class, paid 9.2%; the 90th to 99th percentile 16.8%; and the top 1% 26.3%, about seven times the bottom half's rate.",
+          "The top 1% earned 20.6% of all income and paid 38.4% of all federal income tax. The bottom half earned 12.3% of income and paid 3.3% of the tax.",
+          "The rate stops rising at the very top. The top 0.1% paid 26.7%, the top 0.01% 25.2%, and the top 0.001% (about 1,500 returns) 23.6%. More of their income is long-term capital gains and dividends, which are taxed at no more than 20% plus a 3.8% investment tax, against a 37% top rate on wages.",
+        ],
+        note: "The IRS rates for the bottom 50%, 50th–90th and 90th–99th percentiles are Mandate calculations from the IRS's published income and tax shares.",
+      },
+      {
+        heading: "The complication",
+        paragraphs: [
+          "Income tax isn't the whole picture. Wage earners also pay 7.65% in Social Security and Medicare tax, and the Social Security part stops at an annual wage cap. Counting all federal taxes, CBO puts the 2022 average rate at 1.4% for the lowest fifth, 23.2% for the highest fifth and 31.5% for the top 1%.",
+          "The IRS measure also misses income that is never taxed. Gains on assets that are never sold don't count as income. A 2021 White House study that counted them found the 400 wealthiest families paid an average federal income tax rate of 8.2% over 2010–2018, with a range of 6% to 12%.",
+        ],
+        note: "The CBO figures are as reported by the Tax Foundation, because cbo.gov blocks automated access. Verify them against CBO's \"The Distribution of Household Income, 2022\" before citing.",
+      },
+      {
+        heading: "United Kingdom and Ireland",
+        paragraphs: [
+          "Counting all taxes, the UK's burden is U-shaped. In 2023/24 the poorest fifth of households paid 36.7% of their gross income in tax, the middle fifth 30.2% and the richest fifth 36.2%. The poorest pay mostly through VAT, duties and council tax (21.0% of income in indirect taxes alone); the richest pay mostly through income tax.",
+          "In Ireland, the top 1% of taxpayer units, with income over €290,000, were projected to pay about 24% of all income tax and Universal Social Charge in 2024. The top 10%, earning over €102,000, were projected to pay about 63%.",
+        ],
+      },
+      {
+        heading: "What this doesn't show",
+        paragraphs: [
+          "None of these figures include state and local taxes in the U.S., which take a bigger share of income from lower earners; no federal agency publishes that for these four cities. The three countries measure different things (income tax rates, all taxes, shares of tax paid), so they shouldn't be ranked against each other. And Ireland's effective tax rates by income band are only published in interactive tools that couldn't be extracted.",
+        ],
+      },
+    ],
+    sources: [
+      { label: "IRS Statistics of Income, Table 4.1: shares of AGI and income tax, and average tax rates by percentile, tax years 2001–2023", url: "https://www.irs.gov/statistics/soi-tax-stats-individual-statistical-tables-by-tax-rate-and-income-percentile" },
+      { label: "White House CEA & OMB, \"What Is the Average Federal Individual Income Tax Rate on the Wealthiest Americans?\" (2021, archived)", url: "https://bidenwhitehouse.archives.gov/cea/written-materials/2021/09/23/what-is-the-average-federal-individual-income-tax-rate-on-the-wealthiest-americans/" },
+      { label: "CBO, The Distribution of Household Income, 2022 (January 2026)", url: "https://www.cbo.gov/publication/61911" },
+      { label: "Tax Foundation, summary of CBO's 2022 household income report", url: "https://taxfoundation.org/data/all/federal/us-income-growth-progressive-tax-code-2022/" },
+      { label: "ONS, Effects of taxes and benefits on household income, FYE 2024, reference tables (Table 8)", url: "https://www.ons.gov.uk/peoplepopulationandcommunity/personalandhouseholdfinances/incomeandwealth/datasets/theeffectsoftaxesandbenefitsonhouseholdincomefinancialyearending2014" },
+      { label: "Houses of the Oireachtas, parliamentary question on income tax and USC paid by top earners (May 21, 2024)", url: "https://www.oireachtas.ie/en/debates/question/2024-05-21/109/" },
+      { label: "Irish Times, \"Top 10% of Irish earners now paying almost two-thirds of income tax and USC\" (Tax Strategy Group figures)", url: "https://irishtimes.com/business/2024/07/23/top-10-of-irish-earners-now-paying-almost-two-thirds-of-income-tax-and-usc" },
+      { label: "Mandate research brief with charts and CSVs (taxes, jobs and the 2025 budget law, November 2026)", url: "https://github.com/devenandfreinds-sketch/mandate/blob/main/imports/research/tax-jobs-obbba-brief-2026-11/README.md" },
+    ],
+  },
+  {
+    slug: "twenty-years-of-jobs-six-cities",
+    title: "Twenty Years of Jobs in Six Cities: Two Shocks, a Long Recovery, and Trouble in DC",
+    dek: "Every city went through the 2009–12 crash and the 2020 pandemic, and every one recovered. Since 2005, Dublin and Seattle have added work fastest and Chicago slowest. Now DC is the only one of the four U.S. metros losing jobs.",
+    publishedDate: "2026-11-10",
+    category: "Workforce",
+    sections: [
+      {
+        heading: "The question",
+        paragraphs: [
+          "What have employment and unemployment looked like in New York, Chicago, Seattle, Washington DC, Greater Manchester and Dublin over the past 20 years?",
+        ],
+      },
+      {
+        heading: "What the data shows",
+        paragraphs: [
+          "Unemployment peaked in the financial-crisis years in most cities: 10.5% in metro Chicago (2010), 10.3% in metro Seattle (2010), 10.1% in DC (2011), 9.8% in Greater Manchester (2009) and 12.8% in the Dublin region (2011). Ireland was hit hardest: national unemployment more than tripled, from 4.4% in 2005 to 15.4% in 2012. New York's peak came in the pandemic instead, at 10.4% in 2020.",
+          "By 2025 all six were back to between 4.6% and 6.3% unemployment. All four U.S. cities are above their 2019 lows, though. Seattle has risen from 3.0% in 2019 to 5.1% in the first nine months of 2026.",
+          "Job growth since 2005 has been uneven. Metro Seattle's payroll jobs grew 29%, New York's 19% and Washington DC's 16%; Chicago's grew 8%. The number of Dublin residents in work grew 45%.",
+        ],
+        note: "Dublin's figure counts residents in work, not payroll jobs, and spans a CSO series change in 2012, so it isn't strictly comparable with the U.S. metros.",
+      },
+      {
+        heading: "The complication: DC and Greater Manchester",
+        paragraphs: [
+          "Washington DC is the outlier right now. In January–September 2026, metro DC had 2.5% fewer payroll jobs than in the same months of 2025, about 86,000 fewer. It is the only one of the four U.S. metros to shrink. Unemployment in the District itself rose from 4.7% in 2022 to 6.3% in 2025. That coincides with the 2025 reductions in the federal workforce, which is an unusually large employer in DC.",
+          "Greater Manchester's problem is different. Its unemployment rate is now about the same as England's, but its employment rate for people aged 16–64 has been 3 to 5 points below England's every year since 2005: 72.3% against 75.8% in 2025. More working-age people there are outside the labour market altogether, rather than looking for work.",
+        ],
+      },
+      {
+        heading: "What this doesn't show",
+        paragraphs: [
+          "The three countries measure unemployment with different surveys, so each city should be compared with its own national line rather than with cities abroad. New York, Chicago and Seattle are metro-area figures, while DC unemployment covers the District itself. U.S. averages for 2025 leave out October, which BLS did not collect during the federal shutdown. And Ireland's standard 2020–21 rates understate pandemic joblessness, because many people on the Pandemic Unemployment Payment weren't counted as unemployed.",
+        ],
+      },
+    ],
+    sources: [
+      { label: "BLS Local Area Unemployment Statistics and Current Employment Statistics, via FRED (St. Louis Fed): NEWY636URN, CHIC917URN, SEAT653URN, WASH911URN, DCUR, UNRATE and matching nonfarm jobs series", url: "https://fred.stlouisfed.org/" },
+      { label: "ONS Annual Population Survey via Nomis (dataset NM_17_5): employment and unemployment rates, Greater Manchester and England", url: "https://www.nomisweb.co.uk/" },
+      { label: "CSO Labour Force Survey, tables QNQ22 (to 2016) and QLF08 (2012 on), Dublin region and State", url: "https://data.cso.ie/" },
+      { label: "Mandate research brief with charts and CSVs (taxes, jobs and the 2025 budget law, November 2026)", url: "https://github.com/devenandfreinds-sketch/mandate/blob/main/imports/research/tax-jobs-obbba-brief-2026-11/README.md" },
+    ],
+  },
+  {
+    slug: "what-the-2025-budget-law-did",
+    title: "What the 2025 Budget Law Did to the Average American: Under 1% for the Middle, −3% at the Bottom",
+    dek: "CBO estimates middle-income households gain $800 to $1,200 a year from the \"One Big Beautiful Bill Act\", mostly because the 2017 tax cuts didn't expire. The poorest 10% lose about $1,200 a year and the richest 10% gain $13,600. The biggest Medicaid changes haven't started yet.",
+    publishedDate: "2026-11-10",
+    category: "Fiscal Health",
+    sections: [
+      {
+        heading: "The question",
+        paragraphs: [
+          "What has the 2025 reconciliation law (P.L. 119-21, the \"One Big Beautiful Bill Act\") actually done to the average American?",
+        ],
+      },
+      {
+        heading: "What it changed",
+        paragraphs: [
+          "On taxes, it made the 2017 tax law's income tax brackets (10% to 37%) permanent. It also raised the child tax credit to $2,200 per child and the standard deduction to $15,750 for single filers and $31,500 for joint filers in 2025.",
+          "It added four temporary deductions that run from 2025 through 2028: up to $25,000 of tips, up to $12,500 of overtime pay ($25,000 for joint filers), an extra $6,000 for each person aged 65 or older, and up to $10,000 of interest on loans for U.S.-assembled cars. It also raised the cap on state and local tax deductions to $40,000 until 2030, and the estate tax exemption to $15 million per person.",
+          "On the safety net, it extended SNAP work requirements to adults aged 18–64 and to parents of children 14 and over, and from fiscal 2027–28 shifts more SNAP costs to states. Medicaid expansion adults aged 19–64 will need 80 hours a month of work, study or service from December 31, 2026, and eligibility checks every six months from January 1, 2027.",
+        ],
+      },
+      {
+        heading: "What the data shows",
+        paragraphs: [
+          "CBO's distributional analysis puts the average change in household resources over 2026–2034 at −$1,200 a year (−3.1% of income) for the lowest 10%, +$800 to +$1,200 a year (under 1%) for the middle, and +$13,600 a year (+2.7%) for the highest 10%.",
+          "CBO and JCT estimate the law adds $3.4 trillion to deficits over 2025–2034. It cuts federal Medicaid spending by $989.7 billion, $325.6 billion of it from the work requirement, and federal SNAP spending by $186.7 billion. CBO projects 10.0 million more people uninsured in 2034, and 2.4 million fewer people on SNAP in an average month from the work-requirement changes alone.",
+          "Some effects are already visible. In the 2026 filing season, the first under the new law, the average tax refund was $3,276, up 11.5% from $2,939, and total refunds rose 18.1% to $325 billion.",
+        ],
+        note: "CBO's figures are quoted through the Congressional Research Service and named news reports, because cbo.gov blocks automated access. The middle-decile gain was reported only as a range. CBO's analysis excludes tariffs, the cost of servicing the added debt, and economic feedback.",
+      },
+      {
+        heading: "What this means",
+        paragraphs: [
+          "For most middle-income households, the main effect is a tax increase that didn't happen: CBO measures against a baseline in which the 2017 tax cuts expired after 2025. The new deductions help the people who qualify, but they end after 2028.",
+          "For the lowest-income households it is a net loss, driven by SNAP and Medicaid. Most of the Medicaid effect is still ahead, because the work requirement and six-month eligibility checks start at the turn of 2027.",
+          "In dollars, the top 10% gain more than 10 times what middle households gain. As a share of income, the top 10% gain about as much as the bottom 10% lose.",
+        ],
+      },
+      {
+        heading: "What this doesn't show",
+        paragraphs: [
+          "Bigger refunds also reflect how much tax was withheld during the year, so not all of the rise is the new law. And not all of the fall in SNAP and Medicaid enrollment since mid-2025 is due to the law either; administrative data doesn't record why people leave. The full ten-decile CBO table is in a PDF that couldn't be downloaded, so only the bottom, middle and top groups are shown here.",
+        ],
+      },
+    ],
+    sources: [
+      { label: "CRS R48611, Tax Provisions in P.L. 119-21, the FY2025 Reconciliation Law (July 29, 2025)", url: "https://www.everycrsreport.com/reports/R48611.html" },
+      { label: "CRS R48633, Health Provisions in P.L. 119-21 (August 18, 2025), citing CBO", url: "https://www.everycrsreport.com/reports/R48633.html" },
+      { label: "CRS R48552, SNAP and Related Nutrition Programs in P.L. 119-21 (August 15, 2025), citing CBO", url: "https://www.everycrsreport.com/reports/R48552.html" },
+      { label: "CBO, Distributional Effects of Public Law 119-21 (August 11, 2025)", url: "https://www.cbo.gov/publication/61367" },
+      { label: "Thomson Reuters Checkpoint, \"CBO Analyzes Distributional Effects of Budget Act\" (August 13, 2025)", url: "https://tax.thomsonreuters.com/news/cbo-analyzes-distributional-effects-of-budget-act/" },
+      { label: "NM Political Report, CBO distributional figures (August 15, 2025)", url: "https://nmpoliticalreport.com/2025/08/15/report-shows-reconciliation-law-will-cost-poorest-americans-1200-annually-while-wealthy-gain-13600/" },
+      { label: "IRS, Filing season statistics for week ending May 8, 2026", url: "https://www.irs.gov/newsroom/filing-season-statistics-for-week-ending-may-8-2026" },
+      { label: "IRS, Working Families Tax Cuts: individuals and workers", url: "https://www.irs.gov/newsroom/working-families-tax-cuts-individuals-and-workers" },
+      { label: "Mandate research brief with charts and CSVs (taxes, jobs and the 2025 budget law, November 2026)", url: "https://github.com/devenandfreinds-sketch/mandate/blob/main/imports/research/tax-jobs-obbba-brief-2026-11/README.md" },
+    ],
+  },
 ];
 
 export function getFindingBySlug(slug: string): Finding | undefined {
