@@ -43,17 +43,17 @@
 
 <div class="cc">
   <header id="top" style="display:flex;flex-direction:column;gap:var(--cds-gap-sm)">
-    <div class="cc-eyebrow">Seattle · Greater Manchester · Chicago · New York · Washington DC · 2015–2025</div>
-    <h1>Five-City Lunch, Health &amp; Climate Ledger</h1>
-    <p class="cc-lede">Greater Manchester is the only place where child poverty, measured by free school meals, rose sharply: from <b data-draw="v" data-source="meals_change" data-field="base_pct" data-where="city=Greater Manchester" data-fmt="pct">—</b> to <b data-draw="v" data-source="meals_change" data-field="latest_pct" data-where="city=Greater Manchester" data-fmt="pct">—</b> of pupils. Employer family health premiums in the four US places rose between <b data-draw="v" data-source="premium_change" data-field="pct" data-where="area=New York" data-fmt="chg">—</b> and <b data-draw="v" data-source="premium_change" data-field="pct" data-where="area=Washington (Seattle)" data-fmt="chg">—</b>. Every city cut its measured emissions while running warmer than its 1991–2020 normal.</p>
-    <p class="cc-note">Built from government statistical releases (DfE, OSPI, NYC DOE, Chicago Public Schools, OSSE, BLS, AHRQ, ONS, NOAA, Met Office, EPA, DEFRA, DESNZ and each city's own emissions inventory). Each number links to its source in Sources. Measures are not identical across the US and UK; the notes under each chart say where they differ.</p>
+    <div class="cc-eyebrow">Seattle · Greater Manchester · Chicago · New York · Washington DC · Dublin · 2015–2025</div>
+    <h1>Six-City Lunch, Health &amp; Climate Ledger</h1>
+    <p class="cc-lede">Greater Manchester is the only place where child poverty, measured by free school meals, rose sharply: from <b data-draw="v" data-source="meals_change" data-field="base_pct" data-where="city=Greater Manchester" data-fmt="pct">—</b> to <b data-draw="v" data-source="meals_change" data-field="latest_pct" data-where="city=Greater Manchester" data-fmt="pct">—</b> of pupils. Employer family health premiums in the four US places rose between <b data-draw="v" data-source="premium_change" data-field="pct" data-where="area=New York" data-fmt="chg">—</b> and <b data-draw="v" data-source="premium_change" data-field="pct" data-where="area=Washington (Seattle)" data-fmt="chg">—</b>. Every city, or for Dublin its country, cut measured emissions while running warmer than its 1991–2020 normal.</p>
+    <p class="cc-note">Built from government statistical releases (DfE, OSPI, NYC DOE, Chicago Public Schools, OSSE, Ireland's Department of Social Protection and CSO, BLS, AHRQ, ONS, Eurostat, NOAA, Met Office, EPA, DEFRA, DESNZ and each city's own emissions inventory). Each number links to its source in Sources. Measures are not identical across the US, UK and Ireland; the notes under each chart say where they differ.</p>
   </header>
 
   <!-- ================= Q1 ================= -->
   <section class="cc-section" id="lunch">
     <div class="cc-eyebrow">Question 1</div>
     <h2>What share of students get free or reduced-price meals?</h2>
-    <p>US districts count students eligible for free or reduced-price lunch (or a close substitute). England counts pupils eligible for free school meals, a stricter, benefits-based test with no "reduced" tier. New York now has the highest share, <b data-draw="v" data-source="meals_change" data-field="latest_pct" data-where="city=New York" data-fmt="pct">—</b>, while Chicago's fell from <b data-draw="v" data-source="meals_change" data-field="base_pct" data-where="city=Chicago" data-fmt="pct">—</b> in 2015–16 to <b data-draw="v" data-source="meals_change" data-field="latest_pct" data-where="city=Chicago" data-fmt="pct">—</b>. Greater Manchester moved <b data-draw="v" data-source="meals_change" data-field="change_pts" data-where="city=Greater Manchester" data-fmt="pts">—</b>, the largest change of any place here.</p>
+    <p>US districts count students eligible for free or reduced-price lunch (or a close substitute). England counts pupils eligible for free school meals, a stricter, benefits-based test with no "reduced" tier. New York now has the highest share, <b data-draw="v" data-source="meals_change" data-field="latest_pct" data-where="city=New York" data-fmt="pct">—</b>, while Chicago's fell from <b data-draw="v" data-source="meals_change" data-field="base_pct" data-where="city=Chicago" data-fmt="pct">—</b> in 2015–16 to <b data-draw="v" data-source="meals_change" data-field="latest_pct" data-where="city=Chicago" data-fmt="pct">—</b>. Greater Manchester moved <b data-draw="v" data-source="meals_change" data-field="change_pts" data-where="city=Greater Manchester" data-fmt="pts">—</b>, the largest rise in need of any place here. Ireland has no means test for school meals and publishes no Dublin count, so Dublin is shown through the national School Meals Programme: the share of all pupils receiving a state-funded meal rose from <b data-draw="v" data-source="meals_change" data-field="base_pct" data-where="city=Dublin" data-fmt="pct">—</b> to <b data-draw="v" data-source="meals_change" data-field="latest_pct" data-where="city=Dublin" data-fmt="pct">—</b>, driven by policy (hot meals rolled out to every primary school) rather than by rising poverty.</p>
 
     <div class="cc-card" id="meals-chart-card">
       <h3>Students eligible for free or reduced-price meals, % of enrolment</h3>
@@ -63,17 +63,18 @@
         <span class="cc-li"><i class="cc-sw" data-series="Chicago"></i>Chicago Public Schools</span>
         <span class="cc-li"><i class="cc-sw" data-series="New York"></i>NYC DOE</span>
         <span class="cc-li"><i class="cc-sw" data-series="Washington DC"></i>DC public schools (at-risk)</span>
+        <span class="cc-li"><i class="cc-sw" data-series="Dublin"></i>Dublin (Ireland, school-meals coverage)</span>
         <span class="cc-li"><i class="cc-sw" data-series="England (reference)"></i>England average</span>
       </div>
       <div class="cc-chart" data-draw="meals_chart" data-source="school_meals" id="meals-chart"></div>
-      <p class="cc-note">School years on the axis are labelled by the year they start. NYC switched to a broader poverty definition in 2017–18 (adds students in families receiving HRA benefits), which explains its jump that year. Chicago's 2020–21 dip reflects pandemic-era paperwork, not a fall in need. DC has no usable federal lunch figure because every DC school serves universal free meals, so its line is OSSE's "at-risk" share (TANF/SNAP, homeless, foster care, over-age high schoolers); 2016–17 was not published in that form.</p>
+      <p class="cc-note">School years on the axis are labelled by the year they start. NYC switched to a broader poverty definition in 2017–18 (adds students in families receiving HRA benefits), which explains its jump that year. Chicago's 2020–21 dip reflects pandemic-era paperwork, not a fall in need. DC has no usable federal lunch figure because every DC school serves universal free meals, so its line is OSSE's "at-risk" share (TANF/SNAP, homeless, foster care, over-age high schoolers); 2016–17 was not published in that form. Dublin's line is a different kind of measure: pupils actually served by Ireland's School Meals Programme (no individual eligibility test, schools opt in), nationally; the 2023–24 jump is the hot-meals expansion to 900 more primary schools. From 2025–26 about 682,000 children are in eligible schools (Dáil reply, May 2025).</p>
     </div>
 
     <div class="cc-grid2">
       <div class="cc-card" id="meals-table-card">
         <h3>Change over the decade</h3>
         <div class="cc-tablewrap">
-          <table class="cc-table" data-source="meals_change" data-row-key="city" data-order="Greater Manchester,England (reference),Seattle,Chicago,New York,Washington DC">
+          <table class="cc-table" data-source="meals_change" data-row-key="city" data-order="Greater Manchester,England (reference),Seattle,Chicago,New York,Washington DC,Dublin">
             <thead><tr><th data-field="city">Place</th><th data-field="base_year">From</th><th data-field="base_pct" data-fmt="pct">Share</th><th data-field="latest_year">To</th><th data-field="latest_pct" data-fmt="pct">Share</th><th data-field="change_pts" data-fmt="pts" data-good="down">Change</th></tr></thead>
             <tbody data-draw="tbl"></tbody>
           </table>
@@ -97,7 +98,7 @@
   <section class="cc-section" id="health">
     <div class="cc-eyebrow">Question 2</div>
     <h2>How has the cost of healthcare changed?</h2>
-    <p>Two measures describe cost. The consumer price index for medical care tracks the price of care itself; it rose <b data-draw="v" data-source="cost_change" data-field="medical_pct" data-where="area=Seattle" data-fmt="chg">—</b> in Seattle, <b data-draw="v" data-source="cost_change" data-field="medical_pct" data-where="area=Chicago" data-fmt="chg">—</b> in Chicago and <b data-draw="v" data-source="cost_change" data-field="medical_pct" data-where="area=New York" data-fmt="chg">—</b> in New York from 2015 to 2025, slower than prices overall. Employer health insurance, which most working families rely on, rose much faster: the average family premium in Washington State went from <b data-draw="v" data-source="premium_change" data-field="p2015" data-where="area=Washington (Seattle)" data-fmt="usd">—</b> to <b data-draw="v" data-source="premium_change" data-field="p2025" data-where="area=Washington (Seattle)" data-fmt="usd">—</b> a year. In the UK, where care is tax-funded, spending per person rose <b data-draw="v" data-source="uk_change" data-field="pct" data-where="area=UK total" data-fmt="chg">—</b>, and NHS health prices rose <b data-draw="v" data-source="cost_change" data-field="medical_pct" data-where="area=Greater Manchester (UK)" data-fmt="chg">—</b>.</p>
+    <p>Two measures describe cost. The consumer price index for medical care tracks the price of care itself; it rose <b data-draw="v" data-source="cost_change" data-field="medical_pct" data-where="area=Seattle" data-fmt="chg">—</b> in Seattle, <b data-draw="v" data-source="cost_change" data-field="medical_pct" data-where="area=Chicago" data-fmt="chg">—</b> in Chicago and <b data-draw="v" data-source="cost_change" data-field="medical_pct" data-where="area=New York" data-fmt="chg">—</b> in New York from 2015 to 2025, slower than prices overall. Employer health insurance, which most working families rely on, rose much faster: the average family premium in Washington State went from <b data-draw="v" data-source="premium_change" data-field="p2015" data-where="area=Washington (Seattle)" data-fmt="usd">—</b> to <b data-draw="v" data-source="premium_change" data-field="p2025" data-where="area=Washington (Seattle)" data-fmt="usd">—</b> a year. In the UK, where care is tax-funded, spending per person rose <b data-draw="v" data-source="spend_change" data-field="pct" data-where="area=UK total" data-fmt="chg">—</b> and health prices rose <b data-draw="v" data-source="cost_change" data-field="medical_pct" data-where="area=Greater Manchester (UK)" data-fmt="chg">—</b>. In Ireland (Dublin), health prices rose <b data-draw="v" data-source="cost_change" data-field="medical_pct" data-where="area=Dublin (Ireland)" data-fmt="chg">—</b> and spending per person <b data-draw="v" data-source="spend_change" data-field="pct" data-where="area=Ireland total" data-fmt="chg">—</b> to 2024.</p>
 
     <div class="cc-grid2">
       <div class="cc-card" id="cpi-chart-card">
@@ -107,10 +108,11 @@
           <span class="cc-li"><i class="cc-sw" data-series="Greater Manchester (UK)"></i>UK (applies to Greater Manchester)</span>
           <span class="cc-li"><i class="cc-sw" data-series="Chicago"></i>Chicago metro</span>
           <span class="cc-li"><i class="cc-sw" data-series="New York"></i>New York metro</span>
+          <span class="cc-li"><i class="cc-sw" data-series="Dublin (Ireland)"></i>Ireland (applies to Dublin)</span>
           <span class="cc-li"><i class="cc-sw" data-series="US average"></i>US average</span>
         </div>
         <div class="cc-chart" data-draw="cpi_chart" data-source="health_costs" id="cpi-chart"></div>
-        <p class="cc-note">BLS CPI-U medical care (annual averages) and ONS CPI health. BLS stopped publishing a medical-care index for the Washington DC area after its 2018 area redesign, so DC is shown through premiums only. The US index understates what households pay for insurance because it measures insurers' retained earnings, not premiums.</p>
+        <p class="cc-note">BLS CPI-U medical care (annual averages), ONS CPI health and CSO CPI health (Ireland; rebased from its Dec 2016 base). BLS stopped publishing a medical-care index for the Washington DC area after its 2018 area redesign, so DC is shown through premiums only. The US index understates what households pay for insurance because it measures insurers' retained earnings, not premiums.</p>
       </div>
       <div class="cc-card" id="premium-chart-card">
         <h3>Average employer family premium per enrolled worker, US dollars a year</h3>
@@ -130,12 +132,12 @@
       <div class="cc-card" id="cost-table-card">
         <h3>Price change 2015 → 2025: medical care vs everything</h3>
         <div class="cc-tablewrap">
-          <table class="cc-table" data-source="cost_change" data-row-key="area" data-order="Seattle,Greater Manchester (UK),Chicago,New York,US average">
+          <table class="cc-table" data-source="cost_change" data-row-key="area" data-order="Seattle,Greater Manchester (UK),Chicago,New York,Dublin (Ireland),US average">
             <thead><tr><th data-field="area">Area</th><th data-field="medical_pct" data-fmt="chg">Medical care</th><th data-field="all_items_pct" data-fmt="chg">All items</th><th data-field="gap_pts" data-fmt="pts">Medical minus all</th></tr></thead>
             <tbody data-draw="tbl"></tbody>
           </table>
         </div>
-        <p class="cc-note">Medical prices outpaced general inflation only in the UK. In Seattle, overall prices (largely housing) rose far faster than medical prices.</p>
+        <p class="cc-note">Medical prices outpaced general inflation only in the UK. In Ireland they lagged it, over a period when the state cut prescription charges and extended free GP care to more children. In Seattle, overall prices (largely housing) rose far faster than medical prices.</p>
       </div>
       <div class="cc-card" id="premium-table-card">
         <h3>Family premiums and the worker's share, 2015 → 2025</h3>
@@ -151,14 +153,21 @@
 
     <div class="cc-grid2">
       <div class="cc-card" id="uk-chart-card">
-        <h3>UK healthcare spending per person, £ (nominal)</h3>
+        <h3>UK and Ireland healthcare spending per person, index 2015 = 100</h3>
         <div class="cc-legend">
-          <span class="cc-li"><i class="cc-sw" data-series="UK total"></i>All healthcare</span>
-          <span class="cc-li"><i class="cc-sw" data-series="UK government-financed"></i>Government-financed (NHS)</span>
-          <span class="cc-li"><i class="cc-sw" data-series="UK out-of-pocket"></i>Paid out of pocket</span>
+          <span class="cc-li"><i class="cc-sw" data-series="UK total"></i>UK, all healthcare</span>
+          <span class="cc-li"><i class="cc-sw" data-series="UK out-of-pocket"></i>UK, paid out of pocket</span>
+          <span class="cc-li"><i class="cc-sw" data-series="Ireland total"></i>Ireland, all healthcare</span>
+          <span class="cc-li"><i class="cc-sw" data-series="Ireland out-of-pocket"></i>Ireland, paid out of pocket</span>
         </div>
-        <div class="cc-chart cc-short" data-draw="uk_chart" data-source="health_costs" id="uk-chart"></div>
-        <p class="cc-note">ONS UK Health Accounts; 2025 is provisional. Out-of-pocket spending (prescriptions, dentistry, opticians, over-the-counter medicines) rose <b data-draw="v" data-source="uk_change" data-field="pct" data-where="area=UK out-of-pocket" data-fmt="chg">—</b>, to <b data-draw="v" data-source="uk_change" data-field="v2025" data-where="area=UK out-of-pocket" data-fmt="gbp">—</b> per person.</p>
+        <div class="cc-chart cc-short" data-draw="uk_chart" data-source="spend_index" id="uk-chart"></div>
+        <div class="cc-tablewrap">
+          <table class="cc-table" data-source="spend_change" data-row-key="area" data-order="UK total,UK government-financed,UK out-of-pocket,Ireland total,Ireland government-financed,Ireland out-of-pocket">
+            <thead><tr><th data-field="area">Spending per person</th><th data-field="v2015" data-fmt="money">2015</th><th data-field="last_year">Latest</th><th data-field="v_last" data-fmt="money">Amount</th><th data-field="pct" data-fmt="chg">Change</th></tr></thead>
+            <tbody data-draw="tbl"></tbody>
+          </table>
+        </div>
+        <p class="cc-note">ONS UK Health Accounts (2025 provisional) and Eurostat health accounts for Ireland (latest 2024). Amounts are nominal, in each country's own currency. Out-of-pocket spending covers prescriptions, dentistry, opticians, GP fees (in Ireland) and over-the-counter medicines.</p>
       </div>
       <div class="cc-card" id="gm-nhs-card">
         <h3>Greater Manchester's NHS budget</h3>
@@ -172,7 +181,7 @@
   <section class="cc-section" id="climate">
     <div class="cc-eyebrow">Question 3</div>
     <h2>How has climate change shown up in each city?</h2>
-    <p>Atmospheric measurement and emissions accounting tell different parts of the story. Carbon dioxide at NOAA's Mauna Loa baseline station rose from <b data-draw="v" data-source="climate" data-field="value" data-where="metric=co2_ppm&amp;year=2015" data-fmt="ppm">—</b> to <b data-draw="v" data-source="climate" data-field="value" data-where="metric=co2_ppm&amp;year=2025" data-fmt="ppm">—</b>, and every city's 2015–2025 average temperature ran above its 1991–2020 normal, by <b data-draw="v" data-source="temp_summary" data-field="anomaly_c" data-where="area=Washington DC" data-fmt="c2">—</b> in Washington DC up to <b data-draw="v" data-source="temp_summary" data-field="anomaly_c" data-where="area=Chicago" data-fmt="c2">—</b> in Chicago. Meanwhile each city's own inventory shows emissions falling: <b data-draw="v" data-source="emis_change" data-field="pct" data-where="area=Greater Manchester" data-fmt="chg">—</b> in Greater Manchester, <b data-draw="v" data-source="emis_change" data-field="pct" data-where="area=Washington DC" data-fmt="chg">—</b> in DC and <b data-draw="v" data-source="emis_change" data-field="pct" data-where="area=New York" data-fmt="chg">—</b> in New York.</p>
+    <p>Atmospheric measurement and emissions accounting tell different parts of the story. Carbon dioxide at NOAA's Mauna Loa baseline station rose from <b data-draw="v" data-source="climate" data-field="value" data-where="metric=co2_ppm&amp;year=2015" data-fmt="ppm">—</b> to <b data-draw="v" data-source="climate" data-field="value" data-where="metric=co2_ppm&amp;year=2025" data-fmt="ppm">—</b>, and every city's 2015–2025 average temperature ran above its 1991–2020 normal (Dublin by <b data-draw="v" data-source="temp_summary" data-field="anomaly_c" data-where="area=Dublin" data-fmt="c2">—</b>), by <b data-draw="v" data-source="temp_summary" data-field="anomaly_c" data-where="area=Washington DC" data-fmt="c2">—</b> in Washington DC up to <b data-draw="v" data-source="temp_summary" data-field="anomaly_c" data-where="area=Chicago" data-fmt="c2">—</b> in Chicago. Meanwhile each city's own inventory shows emissions falling: <b data-draw="v" data-source="emis_change" data-field="pct" data-where="area=Greater Manchester" data-fmt="chg">—</b> in Greater Manchester, <b data-draw="v" data-source="emis_change" data-field="pct" data-where="area=Washington DC" data-fmt="chg">—</b> in DC and <b data-draw="v" data-source="emis_change" data-field="pct" data-where="area=New York" data-fmt="chg">—</b> in New York. Dublin has no annual city inventory; Ireland's national emissions fell <b data-draw="v" data-source="emis_change" data-field="pct" data-where="area=Ireland national (for Dublin)" data-fmt="chg">—</b>.</p>
 
     <h3 style="margin-top:var(--cds-gap-sm)">Atmospheric measurement</h3>
     <div class="cc-grid2">
@@ -184,22 +193,23 @@
           <span class="cc-li"><i class="cc-sw" data-series="Chicago"></i>Chicago (O'Hare)</span>
           <span class="cc-li"><i class="cc-sw" data-series="New York"></i>New York (Central Park)</span>
           <span class="cc-li"><i class="cc-sw" data-series="Washington DC"></i>Washington (Reagan National)</span>
+          <span class="cc-li"><i class="cc-sw" data-series="Dublin"></i>Dublin (Phoenix Park)</span>
         </div>
         <div class="cc-chart" data-draw="temp_chart" data-source="temp_anom" id="temp-chart"></div>
-        <p class="cc-note">NOAA NCEI station records (converted from °F) and the Met Office HadUK-Grid regional series for North West England. Single years swing with weather; the decade average is the signal. Chicago O'Hare has no 2012 annual value.</p>
+        <p class="cc-note">NOAA NCEI station records (converted from °F) and the Met Office HadUK-Grid regional series for North West England. Single years swing with weather; the decade average is the signal. Chicago O'Hare has no 2012 annual value. Dublin uses Met Éireann's Phoenix Park station as archived by NOAA; it is missing 2006–08 and 2010–12, so its normal rests on 24 of 30 years.</p>
       </div>
       <div class="cc-card" id="temp-table-card">
         <h3>Warming at a glance</h3>
         <div class="cc-tablewrap">
-          <table class="cc-table" data-source="temp_summary" data-row-key="area" data-order="Seattle,Greater Manchester,Chicago,New York,Washington DC">
+          <table class="cc-table" data-source="temp_summary" data-row-key="area" data-order="Seattle,Greater Manchester,Chicago,New York,Washington DC,Dublin">
             <thead><tr><th data-field="area">Place</th><th data-field="normal_c" data-fmt="c1">Normal 1991–2020</th><th data-field="recent_c" data-fmt="c1">Average 2015–2025</th><th data-field="anomaly_c" data-fmt="c2">Difference</th><th data-field="trend_c_decade" data-fmt="c2">Trend per decade</th><th data-field="since">Trend since</th></tr></thead>
             <tbody data-draw="tbl"></tbody>
           </table>
         </div>
-        <p class="cc-note">Trend is the least-squares slope of annual means over the full record shown. All five places warmed by roughly 0.2 °C per decade.</p>
+        <p class="cc-note">Trend is the least-squares slope of annual means over the full record shown. All six places warmed by roughly 0.2 °C per decade.</p>
         <h3 style="margin-top:var(--cds-gap-md)">Carbon dioxide at Mauna Loa, ppm</h3>
         <div class="cc-chart cc-short" data-draw="co2_chart" data-source="climate" id="co2-chart"></div>
-        <p class="cc-note">CO₂ mixes globally, so one baseline record stands for all five cities.</p>
+        <p class="cc-note">CO₂ mixes globally, so one baseline record stands for all six cities.</p>
       </div>
     </div>
 
@@ -222,7 +232,7 @@
           <span class="cc-li"><i class="cc-sw" data-series="pm25_ugm3"></i>Fine particles (PM2.5)</span>
         </div>
         <div class="cc-chart" data-draw="man_chart" data-source="climate" id="man-chart"></div>
-        <p class="cc-note">DEFRA Automatic Urban and Rural Network, site MAN3, annual means of hourly readings. NO₂, mostly from traffic, fell from <b data-draw="v" data-source="climate" data-field="value" data-where="metric=no2_ugm3&amp;year=2015" data-fmt="d1">—</b> to <b data-draw="v" data-source="climate" data-field="value" data-where="metric=no2_ugm3&amp;year=2025" data-fmt="d1">—</b> µg/m³; PM2.5 barely moved and remains above the WHO guideline of 5 µg/m³.</p>
+        <p class="cc-note">DEFRA Automatic Urban and Rural Network, site MAN3, annual means of hourly readings. NO₂, mostly from traffic, fell from <b data-draw="v" data-source="climate" data-field="value" data-where="metric=no2_ugm3&amp;year=2015" data-fmt="d1">—</b> to <b data-draw="v" data-source="climate" data-field="value" data-where="metric=no2_ugm3&amp;year=2025" data-fmt="d1">—</b> µg/m³; PM2.5 barely moved and remains above the WHO guideline of 5 µg/m³. Dublin follows the same pattern by EPA Ireland's account: traffic NO₂ is falling (St John's Road West last breached the EU annual limit in 2019) while winter PM2.5 from solid-fuel heating keeps Dublin above WHO guidelines. EPA Ireland publishes these trends only as charts, so they are not plotted here.</p>
       </div>
     </div>
 
@@ -236,6 +246,7 @@
           <span class="cc-li"><i class="cc-sw" data-series="Chicago"></i>Chicago (approx.)</span>
           <span class="cc-li"><i class="cc-sw" data-series="New York"></i>New York (citywide)</span>
           <span class="cc-li"><i class="cc-sw" data-series="Washington DC"></i>Washington DC (citywide)</span>
+          <span class="cc-li"><i class="cc-sw" data-series="Ireland national (for Dublin)"></i>Ireland national (for Dublin)</span>
         </div>
         <div class="cc-chart" data-draw="emis_chart" data-source="emis_index" id="emis-chart"></div>
         <p class="cc-note">Indexing puts inventories of very different size and scope on one scale. Dots mark years an inventory exists; Seattle publishes every two years and Chicago's newest public citywide inventory is for 2017.</p>
@@ -243,12 +254,12 @@
       <div class="cc-card" id="emis-table-card">
         <h3>Inventory totals, million tonnes CO₂e</h3>
         <div class="cc-tablewrap">
-          <table class="cc-table" data-source="emis_change" data-row-key="area" data-order="Greater Manchester,Washington DC,New York,Chicago,Seattle">
+          <table class="cc-table" data-source="emis_change" data-row-key="area" data-order="Greater Manchester,Washington DC,New York,Ireland national (for Dublin),Chicago,Seattle">
             <thead><tr><th data-field="area">Place</th><th data-field="base_year">Base year</th><th data-field="base_mt" data-fmt="mt">Then</th><th data-field="latest_year">Latest</th><th data-field="latest_mt" data-fmt="mt">Now</th><th data-field="pct" data-fmt="chg" data-good="down">Change</th><th data-field="first_year">Since</th><th data-field="pct_since_first" data-fmt="chg" data-good="down">Long-run change</th></tr></thead>
             <tbody data-draw="tbl"></tbody>
           </table>
         </div>
-        <p class="cc-note">Per resident, Greater Manchester fell from <b data-draw="v" data-source="climate" data-field="value" data-where="metric=ghg_t_per_person&amp;area=Greater Manchester&amp;year=2015" data-fmt="d2">—</b> to <b data-draw="v" data-source="climate" data-field="value" data-where="metric=ghg_t_per_person&amp;area=Greater Manchester&amp;year=2024" data-fmt="d2">—</b> tonnes and Seattle from <b data-draw="v" data-source="climate" data-field="value" data-where="metric=ghg_t_per_person&amp;area=Seattle&amp;year=2008" data-fmt="d2">—</b> (2008) to <b data-draw="v" data-source="climate" data-field="value" data-where="metric=ghg_t_per_person&amp;area=Seattle&amp;year=2022" data-fmt="d2">—</b> (2022). Chicago's tonnages are approximate: they apply the city's published percentage cuts to its 2005 baseline of 36.2 Mt.</p>
+        <p class="cc-note">Per resident, Greater Manchester fell from <b data-draw="v" data-source="climate" data-field="value" data-where="metric=ghg_t_per_person&amp;area=Greater Manchester&amp;year=2015" data-fmt="d2">—</b> to <b data-draw="v" data-source="climate" data-field="value" data-where="metric=ghg_t_per_person&amp;area=Greater Manchester&amp;year=2024" data-fmt="d2">—</b> tonnes and Seattle from <b data-draw="v" data-source="climate" data-field="value" data-where="metric=ghg_t_per_person&amp;area=Seattle&amp;year=2008" data-fmt="d2">—</b> (2008) to <b data-draw="v" data-source="climate" data-field="value" data-where="metric=ghg_t_per_person&amp;area=Seattle&amp;year=2022" data-fmt="d2">—</b> (2022). Chicago's tonnages are approximate: they apply the city's published percentage cuts to its 2005 baseline of 36.2 Mt. Dublin's only area-wide inventory is the 2016 baseline by Codema, the Dublin councils' energy agency: <b data-draw="v" data-source="climate" data-field="value" data-where="metric=ghg_mt_city_baseline&amp;area=Dublin region (4 councils)" data-fmt="d2">—</b> Mt for the four council areas, <b data-draw="v" data-source="climate" data-field="value" data-where="metric=ghg_mt_city_baseline&amp;area=Dublin City Council area" data-fmt="d2">—</b> Mt for Dublin City, or <b data-draw="v" data-source="climate" data-field="value" data-where="metric=ghg_t_per_person&amp;area=Dublin&amp;year=2016" data-fmt="d1">—</b> t per resident.</p>
       </div>
     </div>
 
@@ -267,6 +278,7 @@
       <li><b>Seattle</b>: OSPI Report Card Enrollment, Seattle School District No. 1, "Low-Income" (eligible for free or reduced-price meals). <b>New York</b>: NYC DOE Demographic Snapshot, district schools (excludes charters). <b>Chicago</b>: CPS 20th-day "Free/Reduced Lunch" / "Economically Disadvantaged" report. <b>DC</b>: OSSE enrollment audit, at-risk students in DCPS and public charter schools.</li>
       <li><b>Prices</b>: BLS CPI-U (via FRED series CUURA423SAM, CUURA207SAM, CUURA101SAM, CPIMEDNS and matching all-items series); ONS series D7BZ and D7BT. <b>Premiums</b>: AHRQ MEPS-IC Tables II.D.1 and II.D.2 (2015–2020 from AHRQ; 2021 and 2023–2025 as tabulated by KFF State Health Facts from MEPS-IC). <b>UK spending</b>: ONS UK Health Accounts reference tables, Table 1c.</li>
       <li><b>Temperature</b>: NOAA NCEI Climate at a Glance city series (USW00024233, USW00094846, USW00094728, USW00013743); Met Office HadUK-Grid "England NW and N Wales". <b>CO₂</b>: NOAA GML Mauna Loa annual means. <b>Air quality</b>: EPA AirData annual AQI by CBSA; DEFRA AURN Manchester Piccadilly.</li>
+      <li><b>Dublin</b>: Department of Social Protection, Analytical Paper on the School Meals Programme (children served 2015/16–2023/24) with CSO enrolment tables EDA42 and EDA72; CSO CPI table CPA01; Eurostat hlth_sha11_hf (health spending per person) and env_air_gge (national GHG, excl. LULUCF); NOAA NCEI Global Summary of the Month, Dublin Phoenix Park (EI000003969); Codema Baseline Emission Inventories 2016; EPA Ireland, Air Quality in Ireland 2025.</li>
       <li><b>Emissions</b>: DESNZ UK local authority GHG statistics 2005–2024; NYC Greenhouse Gas Emissions Inventory (NYC Open Data); DC DOEE 2006–2023 inventory workbook; Seattle OSE 2022 Community GHG Inventory (core sectors summed from Appendix A, before carbon offsets); City of Chicago 2017 GHG Inventory Report (−11.0% in 2015 and −16.9% in 2017 vs 2005) and the 2008 Chicago Climate Action Plan baseline.</li>
     </ul>
   </details>
@@ -274,18 +286,19 @@
 
 <script>
 window.CC = (function () {
-  var ORDER = { 'Seattle': 0, 'Greater Manchester': 1, 'Chicago': 2, 'New York': 3, 'Washington DC': 4 };
-  var ALIAS = { 'Washington (Seattle)': 'Seattle', 'Illinois (Chicago)': 'Chicago', 'District of Columbia': 'Washington DC', 'Greater Manchester (UK)': 'Greater Manchester', 'UK total': 'Greater Manchester', 'no2_ugm3': 'Greater Manchester' };
+  var ORDER = { 'Seattle': 0, 'Greater Manchester': 1, 'Chicago': 2, 'New York': 3, 'Washington DC': 4, 'Dublin': 5 };
+  var ALIAS = { 'Washington (Seattle)': 'Seattle', 'Illinois (Chicago)': 'Chicago', 'District of Columbia': 'Washington DC', 'Greater Manchester (UK)': 'Greater Manchester', 'UK total': 'Greater Manchester', 'UK out-of-pocket': 'Greater Manchester', 'no2_ugm3': 'Greater Manchester',
+    'Dublin (Ireland)': 'Dublin', 'Ireland national (for Dublin)': 'Dublin', 'Ireland total': 'Dublin', 'Ireland out-of-pocket': 'Dublin' };
   function colorFor(name) {
     var k = ALIAS[name] || name;
-    if (k in ORDER) return dash.colors[ORDER[k] % dash.colors.length];
+    if (k in ORDER) return ORDER[k] < dash.colors.length ? dash.colors[ORDER[k]] : 'var(--color-fg)';
     return 'var(--cds-chart-muted)';
   }
   function dashedFor(name) {
-    return name === 'England (reference)' || name === 'US average' || name === 'UK out-of-pocket' || name === 'pm25_ugm3';
+    return name === 'England (reference)' || name === 'US average' || name === 'UK out-of-pocket' || name === 'Ireland out-of-pocket' || name === 'pm25_ugm3';
   }
   var f1 = d3.format('.1f'), s1 = d3.format('+.1f'), s2 = d3.format('+.2f'), c0 = d3.format(',.0f'), f2 = d3.format('.2f');
-  function fmt(v, kind) {
+  function fmt(v, kind, row) {
     if (v === null || v === undefined || v === '') return '—';
     var n = +v;
     switch (kind) {
@@ -294,6 +307,7 @@ window.CC = (function () {
       case 'chg': return s1(n) + '%';
       case 'usd': return '$' + c0(n);
       case 'gbp': return '£' + c0(n);
+      case 'money': return (row && row.currency === 'EUR' ? '€' : '£') + c0(n);
       case 'c1': return f1(n) + ' °C';
       case 'c2': return s2(n) + ' °C';
       case 'mt': return f2(n);
@@ -460,17 +474,33 @@ dash.calc('premium_change', {
     });
   }
 });
-dash.calc('uk_change', {
+dash.calc('spend_change', {
   inputs: ['health_costs'],
-  title: 'UK health spending per person, 2015-2025',
-  description: 'UK healthcare spending per person in 2015 and 2025 (nominal) and the percent change.',
+  title: 'UK and Ireland health spending per person, 2015 vs latest',
+  description: 'Healthcare spending per person in 2015 and the latest year (nominal, own currency) and the percent change.',
   fn: function (health) {
-    var areas = [];
-    health.forEach(function (r) { if (r.series === 'uk_spend_per_person' && areas.indexOf(r.area) < 0) areas.push(r.area); });
-    return areas.map(function (area) {
-      var v = function (y) { return +health.find(function (r) { return r.series === 'uk_spend_per_person' && r.area === area && +r.year === y; }).value; };
-      return { area: area, v2015: v(2015), v2025: v(2025), pct: Math.round((v(2025) / v(2015) - 1) * 1000) / 10 };
+    var by = {};
+    health.forEach(function (r) { if (r.series === 'health_spend_per_person') (by[r.area] = by[r.area] || []).push(r); });
+    return Object.keys(by).map(function (area) {
+      var rs = by[area].slice().sort(function (a, b) { return +a.year - +b.year; });
+      var first = rs.find(function (r) { return +r.year === 2015; }), last = rs[rs.length - 1];
+      return { area: area, currency: /EUR/.test(last.unit) ? 'EUR' : 'GBP', v2015: +first.value, last_year: String(last.year), v_last: +last.value,
+        pct: Math.round((+last.value / +first.value - 1) * 1000) / 10 };
     });
+  }
+});
+dash.calc('spend_index', {
+  inputs: ['health_costs'],
+  title: 'Health spending per person, index',
+  description: 'UK and Ireland spending per person (total and out of pocket) as an index, 2015 = 100.',
+  fn: function (health) {
+    var keep = ['UK total', 'UK out-of-pocket', 'Ireland total', 'Ireland out-of-pocket'], by = {}, out = [];
+    health.forEach(function (r) { if (r.series === 'health_spend_per_person' && keep.indexOf(r.area) >= 0) (by[r.area] = by[r.area] || []).push(r); });
+    Object.keys(by).forEach(function (area) {
+      var base = +by[area].find(function (r) { return +r.year === 2015; }).value;
+      by[area].forEach(function (r) { out.push({ area: area, year: +r.year, index: Math.round(+r.value / base * 1000) / 10 }); });
+    });
+    return out;
   }
 });
 dash.calc('temp_summary', {
@@ -577,7 +607,7 @@ dash.draw('tbl', function (el) {
     var tr = document.createElement('tr');
     cols.forEach(function (c) {
       var td = document.createElement('td');
-      td.textContent = c.fmt ? CC.fmt(r[c.f], c.fmt) : String(r[c.f]);
+      td.textContent = c.fmt ? CC.fmt(r[c.f], c.fmt, r) : String(r[c.f]);
       if (c.good === 'down' && r[c.f] !== '' && r[c.f] != null) td.className = +r[c.f] < 0 ? 'cc-good' : (+r[c.f] > 0 ? 'cc-bad' : '');
       tr.appendChild(td);
     });
@@ -593,14 +623,14 @@ dash.draw('meals_chart', function (el) {
   if (d.status !== 'ok') return CC.fail(el, d);
   CC.lineChart(el, { series: CC.series(d.data, 'city', 'year_start', 'pct'), yDomain: [0, 100], xFmt: schoolYear, xLabW: 70,
     yFmt: function (v) { return v + '%'; }, tipFmt: function (v) { return d3.format('.1f')(v) + '%'; }, dots: true,
-    aria: 'Line chart of the share of students eligible for free or reduced-price meals by school year, 2014-15 to 2026-27, for five cities and England.' });
+    aria: 'Line chart of the share of students eligible for free or reduced-price meals by school year, 2014-15 to 2026-27, for six cities and England.' });
 });
 dash.draw('cpi_chart', function (el) {
   var d = dash.data('health_costs');
   if (d.status !== 'ok') return CC.fail(el, d);
   CC.lineChart(el, { series: CC.series(d.data, 'area', 'year', 'value', function (r) { return r.series === 'cpi_medical'; }), ref: 100,
     xFmt: plainYear, yFmt: d3.format('d'), tipFmt: d3.format('.1f'),
-    aria: 'Line chart of medical-care price indexes, 2015 = 100, for Seattle, Chicago, New York, the US average and the UK, 2015-2025.' });
+    aria: 'Line chart of medical-care price indexes, 2015 = 100, for Seattle, Chicago, New York, the US average, the UK and Ireland, 2015-2025.' });
 });
 dash.draw('premium_chart', function (el) {
   var d = dash.data('health_costs');
@@ -610,19 +640,18 @@ dash.draw('premium_chart', function (el) {
     aria: 'Line chart of average employer family health premiums, 2015-2025, for Washington State, Illinois, New York, DC and the US average.' });
 });
 dash.draw('uk_chart', function (el) {
-  var d = dash.data('health_costs');
+  var d = dash.data('spend_index');
   if (d.status !== 'ok') return CC.fail(el, d);
-  CC.lineChart(el, { series: CC.series(d.data, 'area', 'year', 'value', function (r) { return r.series === 'uk_spend_per_person'; }), height: 220, yDomain: [0, 5000],
-    xFmt: plainYear, yFmt: function (v) { return '£' + d3.format(',.0f')(v); },
-    labels: { 'UK total': 'All healthcare', 'UK government-financed': 'Government', 'UK out-of-pocket': 'Out of pocket' },
-    aria: 'Line chart of UK healthcare spending per person in pounds, 2015-2025: total, government-financed and out-of-pocket.' });
+  CC.lineChart(el, { series: CC.series(d.data, 'area', 'year', 'index'), height: 220, ref: 100,
+    xFmt: plainYear, yFmt: d3.format('d'), tipFmt: d3.format('.1f'),
+    aria: 'Line chart of UK and Ireland healthcare spending per person, total and out of pocket, indexed to 2015 = 100, 2015-2025.' });
 });
 dash.draw('temp_chart', function (el) {
   var d = dash.data('temp_anom');
   if (d.status !== 'ok') return CC.fail(el, d);
   CC.lineChart(el, { series: CC.series(d.data, 'area', 'year', 'anomaly_c'), ref: 0,
     xFmt: plainYear, yFmt: function (v) { return d3.format('+.1f')(v); }, tipFmt: function (v) { return d3.format('+.2f')(v) + ' °C'; },
-    aria: 'Line chart of annual temperature anomalies against the 1991-2020 normal, 1995-2025, for five cities.' });
+    aria: 'Line chart of annual temperature anomalies against the 1991-2020 normal, 1995-2025, for six cities.' });
 });
 dash.draw('co2_chart', function (el) {
   var d = dash.data('climate');
@@ -652,6 +681,6 @@ dash.draw('emis_chart', function (el) {
   if (d.status !== 'ok') return CC.fail(el, d);
   CC.lineChart(el, { series: CC.series(d.data, 'area', 'year', 'index'), ref: 100, dots: true,
     xFmt: plainYear, yFmt: d3.format('d'), tipFmt: d3.format('.1f'),
-    aria: 'Line chart of greenhouse-gas emissions indexed to the base year near 2015, 2005-2024, for five cities.' });
+    aria: 'Line chart of greenhouse-gas emissions indexed to the base year near 2015, 2005-2024, for five cities and Ireland nationally.' });
 });
 </script>

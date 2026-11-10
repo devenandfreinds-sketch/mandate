@@ -87,6 +87,28 @@ cpi_medical,US average,2024,126.21,index 2015=100,BLS CPI-U medical care via FRE
 cpi_all_items,US average,2024,132.35,index 2015=100,BLS CPI-U all items via FRED CPIAUCNS
 cpi_medical,US average,2025,129.85,index 2015=100,BLS CPI-U medical care via FRED CPIMEDNS
 cpi_all_items,US average,2025,135.83,index 2015=100,BLS CPI-U all items via FRED CPIAUCNS
+cpi_medical,Dublin (Ireland),2015,100.0,index 2015=100,"CSO CPI Health (CPA01), Ireland-wide, rebased"
+cpi_all_items,Dublin (Ireland),2015,100.0,index 2015=100,"CSO CPI All items (CPA01), Ireland-wide, rebased"
+cpi_medical,Dublin (Ireland),2016,101.22,index 2015=100,"CSO CPI Health (CPA01), Ireland-wide, rebased"
+cpi_all_items,Dublin (Ireland),2016,100.0,index 2015=100,"CSO CPI All items (CPA01), Ireland-wide, rebased"
+cpi_medical,Dublin (Ireland),2017,102.54,index 2015=100,"CSO CPI Health (CPA01), Ireland-wide, rebased"
+cpi_all_items,Dublin (Ireland),2017,100.4,index 2015=100,"CSO CPI All items (CPA01), Ireland-wide, rebased"
+cpi_medical,Dublin (Ireland),2018,102.74,index 2015=100,"CSO CPI Health (CPA01), Ireland-wide, rebased"
+cpi_all_items,Dublin (Ireland),2018,100.9,index 2015=100,"CSO CPI All items (CPA01), Ireland-wide, rebased"
+cpi_medical,Dublin (Ireland),2019,103.55,index 2015=100,"CSO CPI Health (CPA01), Ireland-wide, rebased"
+cpi_all_items,Dublin (Ireland),2019,101.79,index 2015=100,"CSO CPI All items (CPA01), Ireland-wide, rebased"
+cpi_medical,Dublin (Ireland),2020,106.5,index 2015=100,"CSO CPI Health (CPA01), Ireland-wide, rebased"
+cpi_all_items,Dublin (Ireland),2020,101.5,index 2015=100,"CSO CPI All items (CPA01), Ireland-wide, rebased"
+cpi_medical,Dublin (Ireland),2021,108.22,index 2015=100,"CSO CPI Health (CPA01), Ireland-wide, rebased"
+cpi_all_items,Dublin (Ireland),2021,103.89,index 2015=100,"CSO CPI All items (CPA01), Ireland-wide, rebased"
+cpi_medical,Dublin (Ireland),2022,109.44,index 2015=100,"CSO CPI Health (CPA01), Ireland-wide, rebased"
+cpi_all_items,Dublin (Ireland),2022,111.96,index 2015=100,"CSO CPI All items (CPA01), Ireland-wide, rebased"
+cpi_medical,Dublin (Ireland),2023,112.69,index 2015=100,"CSO CPI Health (CPA01), Ireland-wide, rebased"
+cpi_all_items,Dublin (Ireland),2023,119.04,index 2015=100,"CSO CPI All items (CPA01), Ireland-wide, rebased"
+cpi_medical,Dublin (Ireland),2024,114.92,index 2015=100,"CSO CPI Health (CPA01), Ireland-wide, rebased"
+cpi_all_items,Dublin (Ireland),2024,121.54,index 2015=100,"CSO CPI All items (CPA01), Ireland-wide, rebased"
+cpi_medical,Dublin (Ireland),2025,117.87,index 2015=100,"CSO CPI Health (CPA01), Ireland-wide, rebased"
+cpi_all_items,Dublin (Ireland),2025,124.23,index 2015=100,"CSO CPI All items (CPA01), Ireland-wide, rebased"
 cpi_medical,Greater Manchester (UK),2015,100.0,index 2015=100,"ONS CPI 06 Health (D7BZ), UK-wide"
 cpi_all_items,Greater Manchester (UK),2015,100.0,index 2015=100,"ONS CPI all items (D7BT), UK-wide"
 cpi_medical,Greater Manchester (UK),2016,102.1,index 2015=100,"ONS CPI 06 Health (D7BZ), UK-wide"
@@ -169,38 +191,68 @@ family_employee_share,District of Columbia,2015,5120,USD per enrolled employee p
 family_employee_share,District of Columbia,2025,8028,USD per enrolled employee per year,MEPS-IC 2025 via KFF State Health Facts
 family_employee_share,US average,2015,4710,USD per enrolled employee per year,AHRQ MEPS-IC Table II.D.2 (2015)
 family_employee_share,US average,2025,7314,USD per enrolled employee per year,MEPS-IC 2025 via KFF State Health Facts
-uk_spend_per_person,UK total,2015,2931,"GBP per person, nominal",ONS UK Health Accounts Table 1c (2025 provisional)
-uk_spend_per_person,UK government-financed,2015,2306,"GBP per person, nominal",ONS UK Health Accounts Table 1c
-uk_spend_per_person,UK out-of-pocket,2015,473,"GBP per person, nominal",ONS UK Health Accounts Table 1c
-uk_spend_per_person,UK total,2016,3006,"GBP per person, nominal",ONS UK Health Accounts Table 1c (2025 provisional)
-uk_spend_per_person,UK government-financed,2016,2376,"GBP per person, nominal",ONS UK Health Accounts Table 1c
-uk_spend_per_person,UK out-of-pocket,2016,483,"GBP per person, nominal",ONS UK Health Accounts Table 1c
-uk_spend_per_person,UK total,2017,3077,"GBP per person, nominal",ONS UK Health Accounts Table 1c (2025 provisional)
-uk_spend_per_person,UK government-financed,2017,2413,"GBP per person, nominal",ONS UK Health Accounts Table 1c
-uk_spend_per_person,UK out-of-pocket,2017,502,"GBP per person, nominal",ONS UK Health Accounts Table 1c
-uk_spend_per_person,UK total,2018,3186,"GBP per person, nominal",ONS UK Health Accounts Table 1c (2025 provisional)
-uk_spend_per_person,UK government-financed,2018,2500,"GBP per person, nominal",ONS UK Health Accounts Table 1c
-uk_spend_per_person,UK out-of-pocket,2018,524,"GBP per person, nominal",ONS UK Health Accounts Table 1c
-uk_spend_per_person,UK total,2019,3348,"GBP per person, nominal",ONS UK Health Accounts Table 1c (2025 provisional)
-uk_spend_per_person,UK government-financed,2019,2641,"GBP per person, nominal",ONS UK Health Accounts Table 1c
-uk_spend_per_person,UK out-of-pocket,2019,542,"GBP per person, nominal",ONS UK Health Accounts Table 1c
-uk_spend_per_person,UK total,2020,3834,"GBP per person, nominal",ONS UK Health Accounts Table 1c (2025 provisional)
-uk_spend_per_person,UK government-financed,2020,3181,"GBP per person, nominal",ONS UK Health Accounts Table 1c
-uk_spend_per_person,UK out-of-pocket,2020,498,"GBP per person, nominal",ONS UK Health Accounts Table 1c
-uk_spend_per_person,UK total,2021,4151,"GBP per person, nominal",ONS UK Health Accounts Table 1c (2025 provisional)
-uk_spend_per_person,UK government-financed,2021,3429,"GBP per person, nominal",ONS UK Health Accounts Table 1c
-uk_spend_per_person,UK out-of-pocket,2021,559,"GBP per person, nominal",ONS UK Health Accounts Table 1c
-uk_spend_per_person,UK total,2022,4174,"GBP per person, nominal",ONS UK Health Accounts Table 1c (2025 provisional)
-uk_spend_per_person,UK government-financed,2022,3375,"GBP per person, nominal",ONS UK Health Accounts Table 1c
-uk_spend_per_person,UK out-of-pocket,2022,617,"GBP per person, nominal",ONS UK Health Accounts Table 1c
-uk_spend_per_person,UK total,2023,4335,"GBP per person, nominal",ONS UK Health Accounts Table 1c (2025 provisional)
-uk_spend_per_person,UK government-financed,2023,3510,"GBP per person, nominal",ONS UK Health Accounts Table 1c
-uk_spend_per_person,UK out-of-pocket,2023,629,"GBP per person, nominal",ONS UK Health Accounts Table 1c
-uk_spend_per_person,UK total,2024,4624,"GBP per person, nominal",ONS UK Health Accounts Table 1c (2025 provisional)
-uk_spend_per_person,UK government-financed,2024,3745,"GBP per person, nominal",ONS UK Health Accounts Table 1c
-uk_spend_per_person,UK out-of-pocket,2024,657,"GBP per person, nominal",ONS UK Health Accounts Table 1c
-uk_spend_per_person,UK total,2025,4966,"GBP per person, nominal",ONS UK Health Accounts Table 1c (2025 provisional)
-uk_spend_per_person,UK government-financed,2025,4036,"GBP per person, nominal",ONS UK Health Accounts Table 1c
-uk_spend_per_person,UK out-of-pocket,2025,698,"GBP per person, nominal",ONS UK Health Accounts Table 1c
+health_spend_per_person,UK total,2015,2931,"GBP per person, nominal",ONS UK Health Accounts Table 1c (2025 provisional)
+health_spend_per_person,UK government-financed,2015,2306,"GBP per person, nominal",ONS UK Health Accounts Table 1c
+health_spend_per_person,UK out-of-pocket,2015,473,"GBP per person, nominal",ONS UK Health Accounts Table 1c
+health_spend_per_person,UK total,2016,3006,"GBP per person, nominal",ONS UK Health Accounts Table 1c (2025 provisional)
+health_spend_per_person,UK government-financed,2016,2376,"GBP per person, nominal",ONS UK Health Accounts Table 1c
+health_spend_per_person,UK out-of-pocket,2016,483,"GBP per person, nominal",ONS UK Health Accounts Table 1c
+health_spend_per_person,UK total,2017,3077,"GBP per person, nominal",ONS UK Health Accounts Table 1c (2025 provisional)
+health_spend_per_person,UK government-financed,2017,2413,"GBP per person, nominal",ONS UK Health Accounts Table 1c
+health_spend_per_person,UK out-of-pocket,2017,502,"GBP per person, nominal",ONS UK Health Accounts Table 1c
+health_spend_per_person,UK total,2018,3186,"GBP per person, nominal",ONS UK Health Accounts Table 1c (2025 provisional)
+health_spend_per_person,UK government-financed,2018,2500,"GBP per person, nominal",ONS UK Health Accounts Table 1c
+health_spend_per_person,UK out-of-pocket,2018,524,"GBP per person, nominal",ONS UK Health Accounts Table 1c
+health_spend_per_person,UK total,2019,3348,"GBP per person, nominal",ONS UK Health Accounts Table 1c (2025 provisional)
+health_spend_per_person,UK government-financed,2019,2641,"GBP per person, nominal",ONS UK Health Accounts Table 1c
+health_spend_per_person,UK out-of-pocket,2019,542,"GBP per person, nominal",ONS UK Health Accounts Table 1c
+health_spend_per_person,UK total,2020,3834,"GBP per person, nominal",ONS UK Health Accounts Table 1c (2025 provisional)
+health_spend_per_person,UK government-financed,2020,3181,"GBP per person, nominal",ONS UK Health Accounts Table 1c
+health_spend_per_person,UK out-of-pocket,2020,498,"GBP per person, nominal",ONS UK Health Accounts Table 1c
+health_spend_per_person,UK total,2021,4151,"GBP per person, nominal",ONS UK Health Accounts Table 1c (2025 provisional)
+health_spend_per_person,UK government-financed,2021,3429,"GBP per person, nominal",ONS UK Health Accounts Table 1c
+health_spend_per_person,UK out-of-pocket,2021,559,"GBP per person, nominal",ONS UK Health Accounts Table 1c
+health_spend_per_person,UK total,2022,4174,"GBP per person, nominal",ONS UK Health Accounts Table 1c (2025 provisional)
+health_spend_per_person,UK government-financed,2022,3375,"GBP per person, nominal",ONS UK Health Accounts Table 1c
+health_spend_per_person,UK out-of-pocket,2022,617,"GBP per person, nominal",ONS UK Health Accounts Table 1c
+health_spend_per_person,UK total,2023,4335,"GBP per person, nominal",ONS UK Health Accounts Table 1c (2025 provisional)
+health_spend_per_person,UK government-financed,2023,3510,"GBP per person, nominal",ONS UK Health Accounts Table 1c
+health_spend_per_person,UK out-of-pocket,2023,629,"GBP per person, nominal",ONS UK Health Accounts Table 1c
+health_spend_per_person,UK total,2024,4624,"GBP per person, nominal",ONS UK Health Accounts Table 1c (2025 provisional)
+health_spend_per_person,UK government-financed,2024,3745,"GBP per person, nominal",ONS UK Health Accounts Table 1c
+health_spend_per_person,UK out-of-pocket,2024,657,"GBP per person, nominal",ONS UK Health Accounts Table 1c
+health_spend_per_person,UK total,2025,4966,"GBP per person, nominal",ONS UK Health Accounts Table 1c (2025 provisional)
+health_spend_per_person,UK government-financed,2025,4036,"GBP per person, nominal",ONS UK Health Accounts Table 1c
+health_spend_per_person,UK out-of-pocket,2025,698,"GBP per person, nominal",ONS UK Health Accounts Table 1c
+health_spend_per_person,Ireland total,2015,4097,"EUR per person, nominal",Eurostat hlth_sha11_hf (CSO System of Health Accounts)
+health_spend_per_person,Ireland government-financed,2015,2947,"EUR per person, nominal",Eurostat hlth_sha11_hf
+health_spend_per_person,Ireland out-of-pocket,2015,557,"EUR per person, nominal",Eurostat hlth_sha11_hf
+health_spend_per_person,Ireland total,2016,4247,"EUR per person, nominal",Eurostat hlth_sha11_hf (CSO System of Health Accounts)
+health_spend_per_person,Ireland government-financed,2016,3068,"EUR per person, nominal",Eurostat hlth_sha11_hf
+health_spend_per_person,Ireland out-of-pocket,2016,569,"EUR per person, nominal",Eurostat hlth_sha11_hf
+health_spend_per_person,Ireland total,2017,4407,"EUR per person, nominal",Eurostat hlth_sha11_hf (CSO System of Health Accounts)
+health_spend_per_person,Ireland government-financed,2017,3206,"EUR per person, nominal",Eurostat hlth_sha11_hf
+health_spend_per_person,Ireland out-of-pocket,2017,571,"EUR per person, nominal",Eurostat hlth_sha11_hf
+health_spend_per_person,Ireland total,2018,4594,"EUR per person, nominal",Eurostat hlth_sha11_hf (CSO System of Health Accounts)
+health_spend_per_person,Ireland government-financed,2018,3393,"EUR per person, nominal",Eurostat hlth_sha11_hf
+health_spend_per_person,Ireland out-of-pocket,2018,573,"EUR per person, nominal",Eurostat hlth_sha11_hf
+health_spend_per_person,Ireland total,2019,4793,"EUR per person, nominal",Eurostat hlth_sha11_hf (CSO System of Health Accounts)
+health_spend_per_person,Ireland government-financed,2019,3575,"EUR per person, nominal",Eurostat hlth_sha11_hf
+health_spend_per_person,Ireland out-of-pocket,2019,592,"EUR per person, nominal",Eurostat hlth_sha11_hf
+health_spend_per_person,Ireland total,2020,5257,"EUR per person, nominal",Eurostat hlth_sha11_hf (CSO System of Health Accounts)
+health_spend_per_person,Ireland government-financed,2020,4116,"EUR per person, nominal",Eurostat hlth_sha11_hf
+health_spend_per_person,Ireland out-of-pocket,2020,590,"EUR per person, nominal",Eurostat hlth_sha11_hf
+health_spend_per_person,Ireland total,2021,5633,"EUR per person, nominal",Eurostat hlth_sha11_hf (CSO System of Health Accounts)
+health_spend_per_person,Ireland government-financed,2021,4353,"EUR per person, nominal",Eurostat hlth_sha11_hf
+health_spend_per_person,Ireland out-of-pocket,2021,629,"EUR per person, nominal",Eurostat hlth_sha11_hf
+health_spend_per_person,Ireland total,2022,5944,"EUR per person, nominal",Eurostat hlth_sha11_hf (CSO System of Health Accounts)
+health_spend_per_person,Ireland government-financed,2022,4612,"EUR per person, nominal",Eurostat hlth_sha11_hf
+health_spend_per_person,Ireland out-of-pocket,2022,669,"EUR per person, nominal",Eurostat hlth_sha11_hf
+health_spend_per_person,Ireland total,2023,6264,"EUR per person, nominal",Eurostat hlth_sha11_hf (CSO System of Health Accounts)
+health_spend_per_person,Ireland government-financed,2023,4851,"EUR per person, nominal",Eurostat hlth_sha11_hf
+health_spend_per_person,Ireland out-of-pocket,2023,695,"EUR per person, nominal",Eurostat hlth_sha11_hf
+health_spend_per_person,Ireland total,2024,6728,"EUR per person, nominal",Eurostat hlth_sha11_hf (CSO System of Health Accounts)
+health_spend_per_person,Ireland government-financed,2024,5229,"EUR per person, nominal",Eurostat hlth_sha11_hf
+health_spend_per_person,Ireland out-of-pocket,2024,713,"EUR per person, nominal",Eurostat hlth_sha11_hf
 icb_allocation_per_patient,NHS Greater Manchester ICB,2025,2065,"GBP per registered patient, 2025/26 core services",House of Commons Library CBP-10031
 icb_allocation_per_patient,England ICB average,2025,1975,"GBP per registered patient, 2025/26 core services",House of Commons Library CBP-10031
