@@ -1,0 +1,9 @@
+county,fips,poverty_rate_pct_2024,median_household_income_2024_usd,overdose_deaths_2025,population_2025,overdose_rate_per_100k_2025,source
+Bronx,36005,28.7,46486,595,1406332,42.3,Census SAIPE 2024 (est24all.txt); CDC VSRR 12-mo ending Dec 2025; Census Vintage 2025
+Brooklyn (Kings),36047,19.2,80696,487,2653963,18.3,Census SAIPE 2024 (est24all.txt); CDC VSRR 12-mo ending Dec 2025; Census Vintage 2025
+Manhattan (New York Co.),36061,15.5,105713,309,1664862,18.6,Census SAIPE 2024 (est24all.txt); CDC VSRR 12-mo ending Dec 2025; Census Vintage 2025
+Queens,36081,13.4,84684,296,2358182,12.6,Census SAIPE 2024 (est24all.txt); CDC VSRR 12-mo ending Dec 2025; Census Vintage 2025
+Staten Island (Richmond),36085,11.5,96437,97,501290,19.4,Census SAIPE 2024 (est24all.txt); CDC VSRR 12-mo ending Dec 2025; Census Vintage 2025
+Cook County (Chicago),17031,13.7,82729,965,5194625,18.6,Census SAIPE 2024 (est24all.txt); CDC VSRR 12-mo ending Dec 2025; Census Vintage 2025
+King County (Seattle),53033,8.8,121984,848,2344939,36.2,Census SAIPE 2024 (est24all.txt); CDC VSRR 12-mo ending Dec 2025; Census Vintage 2025
+Washington DC,11001,16.4,109289,272,693645,39.2,Census SAIPE 2024 (est24all.txt); CDC VSRR 12-mo ending Dec 2025; Census Vintage 2025

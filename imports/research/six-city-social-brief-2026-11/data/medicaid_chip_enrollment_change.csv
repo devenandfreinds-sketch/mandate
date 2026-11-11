@@ -1,0 +1,5 @@
+state,enrollment_mar_2023,enrollment_jul_2025,enrollment_jul_2026_prelim,pct_change_since_mar_2023,pct_change_jul2025_to_jul2026,source
+New York (NYC),7518061,6551887,6328380,-15.8,-3.4,"CMS data.medicaid.gov, State Medicaid and CHIP Applications, Eligibility Determinations, and Enrollment Data (July 2026 preliminary)"
+Illinois (Chicago),3826461,3113340,2932242,-23.4,-5.8,"CMS data.medicaid.gov, State Medicaid and CHIP Applications, Eligibility Determinations, and Enrollment Data (July 2026 preliminary)"
+Washington (Seattle),2192395,1799915,1778029,-18.9,-1.2,"CMS data.medicaid.gov, State Medicaid and CHIP Applications, Eligibility Determinations, and Enrollment Data (July 2026 preliminary)"
+Washington DC,296412,259767,237183,-20.0,-8.7,"CMS data.medicaid.gov, State Medicaid and CHIP Applications, Eligibility Determinations, and Enrollment Data (July 2026 preliminary)"

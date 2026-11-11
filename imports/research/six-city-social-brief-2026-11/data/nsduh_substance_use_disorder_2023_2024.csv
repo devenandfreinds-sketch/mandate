@@ -1,0 +1,6 @@
+state,sud_pct_age12plus,sud_ci_low,sud_ci_high,drug_use_disorder_pct,alcohol_use_disorder_pct,opioid_use_disorder_pct,source
+Washington DC,23.85,21.31,26.59,13.3,15.79,1.04,"SAMHSA NSDUH 2023-2024 state small-area estimates, Tables 24/25/27/29 (published 2025-12-17); past-year, DSM-5"
+Illinois (Chicago),18.31,16.79,19.93,10.41,11.85,1.87,"SAMHSA NSDUH 2023-2024 state small-area estimates, Tables 24/25/27/29 (published 2025-12-17); past-year, DSM-5"
+New York (NYC),17.29,15.95,18.71,10.2,9.63,1.81,"SAMHSA NSDUH 2023-2024 state small-area estimates, Tables 24/25/27/29 (published 2025-12-17); past-year, DSM-5"
+Washington (Seattle),16.62,14.72,18.72,9.62,9.42,1.58,"SAMHSA NSDUH 2023-2024 state small-area estimates, Tables 24/25/27/29 (published 2025-12-17); past-year, DSM-5"
+United States,16.93,16.55,17.32,9.68,9.93,1.73,"SAMHSA NSDUH 2023-2024 state small-area estimates, Tables 24/25/27/29 (published 2025-12-17); past-year, DSM-5"
