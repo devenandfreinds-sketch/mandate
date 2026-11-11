@@ -3,8 +3,8 @@
 **Cities:** Greater Manchester, Chicago, Seattle, New York City, Washington DC, Dublin.
 **Scope rule:** government sources first; reputable news only where no government record exists
 (Flock contracts), and each such figure is labelled. Pulled 2026-11-10.
-The headline series are now in the app as five real-data-only metrics (see `PRODUCTION_SYNC_2026-11-six-city.md`);
-these research files hold the full cross-district detail behind them. NAEP gaps are computed from unrounded means.
+Every series that maps to a Mandate city is now in the app as a real-data-only metric (12 metrics; see
+`PRODUCTION_SYNC_2026-11-six-city.md`). This brief keeps the cross-district results and Dublin figures as text. NAEP gaps are computed from unrounded means.
 
 ## 1. School funding vs standardized test scores
 
@@ -38,8 +38,9 @@ schools); Manchester gets the most (£6,777, 51.8% disadvantaged) and scores 44.
 possible. ERC NAMER 2021: DEIS Urban Band 1 pupils score ~30 points below urban non-DEIS pupils,
 unchanged since 2014.
 
-Files: `us-tuda-spending-vs-naep-2024.csv`, `wa-districts-spending-vs-sbac-2023-24.csv`,
-`england-la-schools-funding-vs-attainment8-2024-25.csv`.
+In the app: `imports/data/education/` (spending, NAEP gap, child poverty, Seattle state test, GM Attainment 8
+and schools block funding). The cross-district files behind the correlations (26 NAEP districts, 32 Washington
+districts, 151 English councils) cover places outside Mandate and were removed; they are in git at commit `7805add`.
 
 Sources: Census Annual Survey of School System Finances FY2024 (elsec24, Table 18; Boston and
 Cleveland computed as (TCURELSC−V91−V92)/V33, the formula that reproduces Table 18); NAEP Data
@@ -60,7 +61,8 @@ b3e19901-…); DfE NFF summary tables 2025-26 workbook, 2024-25 schools block ba
 
 No government publishes a Flock count; DC's figure is the MPD contract (Washington Sun/NOTUS,
 2026-08-28). Populations: Census Vintage 2025; ONS mid-2025 via Nomis; CSO Census 2022 (F1001).
-File: `six-city-flock-alpr-per-capita-2026-11.csv`.
+In the app: `imports/data/public-safety/*-flock-cameras-2026.csv` (Chicago, NYC, DC, Seattle). Greater Manchester
+and Dublin rows were removed: no record either way, and Dublin is not a Mandate jurisdiction.
 
 ## 3. Over-assessed property
 
@@ -72,7 +74,7 @@ File: `six-city-flock-alpr-per-capita-2026-11.csv`.
 | New York City | Taxable value as % of sale price | 5.19% cheapest tenth vs 2.19% top tenth |
 | New York City | Tax Commission 2025 | 57,198 applications; 12.3% accepted reductions ($3.95bn AV); Class 1 only 3.3% |
 | Washington DC | OTR FY2025 ratio study | residential PRD 1.00 (pass); **commercial PRD 1.05 (fail)** |
-| Washington DC | RPTAC tax year 2024 | 6% of residential and 8% of commercial appeals reduced |
+| Washington DC | RPTAC tax year 2024 | 14% of residential (359 of 2,557) and 8% of commercial appeals reduced (the report's text says 6% for residential, which contradicts its own counts) |
 | Seattle | Single-family ratio study (2025 values vs 2024 sales) | median 0.924, COD 8.5, PRD 1.012 (pass); 0.96 cheapest vs 0.88 top |
 | Greater Manchester | VOA council tax challenges 2025-26 | 3,540 received; 380 of 2,940 resolved (12.9%) cut a band; 2.9 per 10k dwellings vs England 3.9 |
 | Dublin | Revenue LPT (national, 2021) | 13% of owners chose a higher band than guidance, 22% lower, 65% same |
@@ -82,9 +84,9 @@ mean ratio / weighted mean ratio, PRB regression on log2 value proxy) except DC,
 published study. Low-price tenths can be inflated by distressed or non-market sales that slip
 through filters; the direction matches published findings (e.g. NYC's 2021 Advisory Commission).
 Seattle has no appeal figures here (King County Board of Equalization not pulled).
-Files: `chicago-residential-ratio-study-2024.csv`, `nyc-class1-ratio-study-fy2027.csv`,
-`seattle-single-family-ratio-study-2025.csv`, `six-city-ratio-deciles-2026-11.csv`,
-`six-city-ratio-summary-2026-11.csv`, `six-city-property-assessment-summary-2026-11.csv`.
+In the app: `imports/data/government-capacity/` (PRD, median ratio, COD, DC commercial PRD, appeal reduction
+rates for Chicago, NYC, DC and Greater Manchester). The price-tenth tables and Dublin rows can't be imported and
+were removed; they are in git at commit `7805add`, and the key figures are in the import rows' notes.
 
 Sources: Cook County Assessor open data (uzyt-m557, wvhk-k5uv, y282-6ig3) and Board of Review
 (7pny-nedm); NYC DOF (8y4t-faws, w2pb-icbu); NYC Tax Commission 2025 Annual Report; DC OTR FY2025

@@ -1,0 +1,3 @@
+jurisdiction,metric,year,value,confidence,notes
+greater-manchester,schools_block_funding_per_pupil,2024-25,6360,high,"DfE NFF summary tables 2025-26, Schools_Block sheet: 2024-25 baseline (DSG schools block plus TPAG, TPECG and CSBG grants) GBP 2,741,528,802 for 431,026.5 pupils across GM's 10 LAs. England: GBP 6,298. Pulled 2026-11-11."
+greater-manchester,schools_block_funding_per_pupil,2025-26,6502,estimated,"DfE NFF summary tables 2025-26, Schools_Block sheet: provisional 2025-26 NFF funding (excluding growth and falling rolls) across GM's 10 LAs on 2024-25 pupil numbers (431,026.5). Provisional; final DSG uses October 2024 census pupils. England: GBP 6,439. Pulled 2026-11-11."

@@ -360,4 +360,61 @@ export const metricSourceAssignments: MetricSourceAssignment[] = [
     limitations:
       "Each city's property scope differs: Chicago 1-6 unit homes, NYC tax class 1 (1-3 family), Seattle single-family, DC all residential. NYC uses market value, before the assessment caps that make taxable values more regressive still. The cheapest sales can include distressed or non-market sales that slip through filters and inflate low-end ratios. IAAO standard is 0.98-1.03.",
   },
+  // Six-city pull, part 2: every remaining series from the November 2026 session
+  {
+    metricSlug: "school_age_child_poverty_rate",
+    sourceKey: "census_saipe_school_districts",
+    calculationMethod:
+      "Children aged 5-17 in families in poverty / relevant children aged 5-17, SAIPE school-district estimates, income year shown.",
+    limitations:
+      "Model-based estimates with margins of error (larger for Seattle's small poverty count). Measures where children live, not who attends district schools. Not the same as free/reduced-price lunch or 'low income' counts that districts report (Seattle's OSPI low-income share was 34.3% in 2023-24 against a SAIPE poverty rate of 8.5%). US only.",
+  },
+  {
+    metricSlug: "state_test_met_standard_pct",
+    sourceKey: "ospi_report_card_assessment",
+    calculationMethod:
+      "Mean of the ELA and maths shares of tested students at grade level (levels 3-4) on the state test, all grades, year = spring of the school year.",
+    limitations:
+      "Different states use different tests and cut scores, so values can only be compared over time within one state. Seattle only so far; Chicago (IAR), New York (NYSTP) and DC (PARCC/DC CAPE) state results are not yet pulled. No Washington test in 2019-20; 2020-21 excluded.",
+  },
+  {
+    metricSlug: "schools_block_funding_per_pupil",
+    sourceKey: "dfe_nff_schools_block_gm",
+    calculationMethod:
+      "Sum of the 10 Greater Manchester LAs' schools block funding / sum of their schools block pupils. UK financial year (April-March).",
+    limitations:
+      "Formula funding only: excludes pupil premium (about GBP 1,500 per disadvantaged pupil), high-needs and early-years blocks, so it is lower than total spending and not comparable with US 'current spending per pupil'. 2025-26 is provisional. GMCA has no schools powers.",
+  },
+  {
+    metricSlug: "residential_assessment_median_ratio",
+    sourceKey: null,
+    calculationMethod:
+      "Median of (assessed value / sale price), IAAO conventions. Chicago, NYC and Seattle: Mandate's calculations from assessor open data (see residential_assessment_prd); DC: OTR's published figure. Year = valuation date.",
+    limitations:
+      "Target is 1.00 (IAAO range 0.90-1.10); the app's 'lower is better' label does not apply cleanly to this measure. Property scopes differ by city.",
+  },
+  {
+    metricSlug: "residential_assessment_cod",
+    sourceKey: null,
+    calculationMethod:
+      "IAAO coefficient of dispersion: 100 x mean |ratio - median| / median, over trimmed arm's-length sales.",
+    limitations:
+      "Property scopes differ by city. DC's very low COD (5) is OTR's own published figure; IAAO notes CODs under 5 can signal sales chasing.",
+  },
+  {
+    metricSlug: "commercial_assessment_prd",
+    sourceKey: "dc_otr_assessment_ratio",
+    calculationMethod:
+      "IAAO price-related differential over commercial sales, as published by the assessor.",
+    limitations:
+      "DC only (171 sales in 2023). Commercial ratio studies have small samples and are volatile year to year.",
+  },
+  {
+    metricSlug: "property_appeal_reduction_rate",
+    sourceKey: null,
+    calculationMethod:
+      "Appeals or challenges decided in the year that ended with a lower value or band, divided by all decided. Each row's note names the stage measured.",
+    limitations:
+      "Not like-for-like: Chicago is the Assessor's first-level review, New York the Tax Commission, DC the second-level appeals commission, and Greater Manchester VOA band challenges. Seattle (King County Board of Equalization) is not yet pulled.",
+  },
 ];
