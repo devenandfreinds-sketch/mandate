@@ -1,0 +1,2 @@
+jurisdiction,metric,year,value,confidence,notes
+new-york-city,residential_assessment_prd,2026,1.045,high,"Mandate ratio study from NYC DOF: FY2027 final market values (status date 5 Jan 2026) vs 2025 sales of tax class 1 one- to three-family homes, n=17,383 after 1.5xIQR trim. Median 1.017, COD 16.7, PRB -0.054. Fails IAAO (regressive): cheapest tenth of sales median ratio 1.30, most expensive 0.88. Pulled 2026-11-10."

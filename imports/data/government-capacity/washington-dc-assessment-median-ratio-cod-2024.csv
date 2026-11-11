@@ -1,0 +1,3 @@
+jurisdiction,metric,year,value,confidence,notes
+washington-dc,residential_assessment_median_ratio,2024,0.978,high,"DC OTR FY2025 Assessment Ratio Report, residential, values as of 1 Jan 2024 vs 2023 sales, n=5,353 (OTR's published figure). Pulled 2026-11-11."
+washington-dc,residential_assessment_cod,2024,5,high,"DC OTR FY2025 Assessment Ratio Report, residential, values as of 1 Jan 2024 vs 2023 sales, n=5,353 (OTR's published figure). Pulled 2026-11-11."

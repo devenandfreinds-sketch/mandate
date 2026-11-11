@@ -1,0 +1,2 @@
+jurisdiction,metric,year,value,confidence,notes
+chicago,flock_cameras_per_100k,2026,0,high,"No active city Flock contract (CPD spokesperson, FOX 32 2026-10-07). CPD buys access to privately owned Flock cameras' data via reseller CDW-G and ran 23,000+ Flock searches May-July 2026; those cameras are not city-operated, so not counted. Pulled 2026-11-10."

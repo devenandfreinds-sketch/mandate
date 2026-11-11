@@ -1,0 +1,2 @@
+jurisdiction,metric,year,value,confidence,notes
+washington-dc,residential_assessment_prd,2024,1.00,high,"DC OTR FY2025 Assessment Ratio Report (values as of 1 Jan 2024 vs calendar-2023 arm's-length sales): residential n=5,353, median 97.8%, COD 5, PRD 1.00, PRB 0.012. Published by OTR, not recomputed. Commercial PRD 1.05 (fails IAAO, n=171) is not in this residential metric. Pulled 2026-11-10."

@@ -1,0 +1,3 @@
+jurisdiction,metric,year,value,confidence,notes
+new-york-city,residential_assessment_median_ratio,2026,1.017,high,"NYC DOF FY2027 final market values vs 2025 sales of tax class 1 homes, n=17,383 (Mandate ratio study). Pulled 2026-11-11."
+new-york-city,residential_assessment_cod,2026,16.7,high,"NYC DOF FY2027 final market values vs 2025 sales of tax class 1 homes, n=17,383 (Mandate ratio study). Pulled 2026-11-11."

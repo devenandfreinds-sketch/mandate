@@ -578,6 +578,124 @@ export const findings: Finding[] = [
       { label: "Mandate research brief with charts and CSVs (taxes, jobs and the 2025 budget law, November 2026)", url: "https://github.com/devenandfreinds-sketch/mandate/blob/main/imports/research/tax-jobs-obbba-brief-2026-11/README.md" },
     ],
   },
+  {
+    slug: "school-spending-vs-test-scores-six-cities",
+    title: "More School Money Doesn't Predict Higher Test Scores in Big Cities. Poverty Does.",
+    dek: "Across 26 large US school districts, per-pupil spending has almost no link to NAEP scores, while child poverty explains most of the gap. Washington State and Greater Manchester show the same pattern. New York and DC beat what their poverty predicts; Chicago lands right on it.",
+    publishedDate: "2026-11-10",
+    category: "Education",
+    sections: [
+      {
+        heading: "The question",
+        paragraphs: [
+          "Do cities that spend more per pupil get better test scores? We checked Chicago, New York City, Washington DC, Seattle and Greater Manchester against their peers, using only government data. Dublin can't be checked: Ireland doesn't publish test results by area.",
+        ],
+      },
+      {
+        heading: "What the data shows",
+        paragraphs: [
+          "NAEP, the national test given the same way in every US city, is the only fair way to compare Chicago, New York and DC. Across the 26 big-city districts NAEP tested in 2024, per-pupil spending and average scores are essentially unrelated (r = -0.15). Child poverty is strongly related (r = -0.82): poorer districts score lower almost without exception.",
+          "New York spends $35,796 per pupil (fiscal 2024), DC Public Schools $31,529 and Chicago $24,330. On NAEP, New York averages 5.0 points below the national public-school mean across 4th and 8th grade reading and math, DC 4.7 below and Chicago 8.5 below.",
+          "Seattle isn't in NAEP's city sample, so we compared it with Washington's 31 other districts over 10,000 students on the state test. Same result: spending and scores are unrelated (r = -0.15), and the share of low-income students predicts scores almost perfectly (r = -0.94). Seattle spends $22,564 per pupil and 63% of its students meet the state standard.",
+          "In Greater Manchester, the boroughs that get the most school funding per pupil have the lowest GCSE scores (r = -0.56 across the ten boroughs), because England's funding formula sends more money where there is more disadvantage. Trafford gets the least (about GBP 5,900 per pupil) and scores highest, helped by its selective grammar schools.",
+        ],
+      },
+      {
+        heading: "Controls",
+        paragraphs: [
+          "Because funding formulas give poorer districts more money, a raw comparison makes money look useless or even harmful. Holding poverty constant, extra spending shows a small positive association with scores in all three places (partial r = +0.19 across US cities, +0.07 in Washington, +0.11 in Greater Manchester), but none is statistically significant.",
+          "Against a model using both spending and poverty, New York scores about 5 points better than expected and DC about 7 better. Chicago scores almost exactly as expected.",
+        ],
+        note: "These are district-level correlations. They can't show whether a given dollar raises scores, and they say nothing about how money is spent inside a district. Spending isn't adjusted for local wage costs, which are much higher in New York and Seattle.",
+      },
+      {
+        heading: "Dublin",
+        paragraphs: [
+          "Ireland funds schools centrally at national per-pupil rates, with extra money for disadvantaged schools under DEIS, and publishes no test results by school or county. The Educational Research Centre's 2021 national assessment found pupils in the most disadvantaged urban schools still score about 30 points below other urban pupils, the same gap as in 2014.",
+        ],
+      },
+    ],
+    sources: [
+      { label: "U.S. Census Bureau, Annual Survey of School System Finances, FY2024 (Table 18 and individual unit file)", url: "https://www.census.gov/data/tables/2024/econ/school-finances/secondary-education-finance.html" },
+      { label: "NCES, The Nation's Report Card: NAEP 2024 Trial Urban District Assessment (Data Service)", url: "https://www.nationsreportcard.gov/" },
+      { label: "U.S. Census Bureau, Small Area Income and Poverty Estimates, school districts 2024", url: "https://www.census.gov/programs-surveys/saipe.html" },
+      { label: "Washington OSPI Report Card data (assessment, per-pupil expenditure, enrollment), data.wa.gov", url: "https://data.wa.gov/" },
+      { label: "Department for Education, Key stage 4 performance 2024/25 (Explore Education Statistics)", url: "https://explore-education-statistics.service.gov.uk/find-statistics/key-stage-4-performance" },
+      { label: "Department for Education, National funding formula tables for schools and high needs: 2025 to 2026", url: "https://www.gov.uk/government/publications/national-funding-formula-tables-for-schools-and-high-needs-2025-to-2026" },
+      { label: "Educational Research Centre, NAMER 2021 DEIS report", url: "https://www.erc.ie/wp-content/uploads/2025/12/B23572-NAMER-DEIS-report-Online.pdf" },
+      { label: "Mandate research files (CSV and method notes)", url: "https://github.com/devenandfreinds-sketch/mandate/blob/main/imports/research/six-city-civic-brief-2026-11.md" },
+    ],
+  },
+  {
+    slug: "flock-cameras-six-cities",
+    title: "Of Six Cities, Only DC's Police Run Flock Cameras",
+    dek: "Washington DC's police contract for 67 Flock licence-plate cameras, about 10 per 100,000 residents. New York and Seattle say they use none. Chicago has no contract, but its police pay for access to privately owned Flock cameras and searched them more than 23,000 times in three months.",
+    publishedDate: "2026-11-10",
+    category: "Public Safety",
+    sections: [
+      {
+        heading: "What the data shows",
+        paragraphs: [
+          "Flock Safety sells cameras that read licence plates and log where and when each car passed. Washington DC's Metropolitan Police Department signed a $336,000 one-year contract for 67 Flock cameras in December 2024 and extended it through 2026 for another $201,000. That is 9.7 cameras per 100,000 residents.",
+          "New York City's police department, transport department and the MTA all say they have no Flock contract. Seattle's City Council says the same. Seattle police instead fitted their whole vehicle fleet with plate readers from another vendor, then switched them off in March 2026 to comply with a new Washington state law.",
+          "Chicago has no Flock contract either, but that understates its use. The city pays a reseller for access to Flock's network of privately owned cameras, and audit logs obtained by FOX 32 show Chicago police ran more than 23,000 Flock searches from May to July 2026, without local rules governing that access.",
+          "We found no record of Flock use by police in Greater Manchester or Dublin. UK police use a national plate-reader network run through the Home Office; Ireland's Garda use mainly vehicle-mounted readers.",
+        ],
+        note: "No government publishes Flock camera counts. DC's figure comes from news reporting of the MPD contract, and it excludes Flock cameras run by federal agencies on federal land in DC.",
+      },
+    ],
+    sources: [
+      { label: "Washington Sun / NOTUS, \"D.C. Won't Say How It's Using Its Flock Cameras\", 28 August 2026", url: "https://www.notus.org/metro/dc-flock-cameras" },
+      { label: "FOX 32 Chicago, Chicago police Flock searches and audit logs, 7 October 2026", url: "https://www.fox32chicago.com/news/chicago-police-flock-searches-audit-logs" },
+      { label: "Chicago Sun-Times, Flock licence-plate readers in Chicago suburbs, 27 August 2026", url: "https://chicago.suntimes.com/crime/2026/08/27/flock-license-plate-reader-alpr-chicago-suburb" },
+      { label: "West Side Rag, \"An Upper West Side Flock Camera Map Misunderstanding\", 13 August 2026", url: "https://www.westsiderag.com/2026/08/13/an-upper-west-side-flock-camera-map-misunderstanding" },
+      { label: "Seattle City Council, Public Safety Chair statement on SPD technology, 24 February 2026", url: "https://council.seattle.gov/2026/02/24/public-safety-chair-kettle-setting-the-record-straight-on-misconceptions-about-technology-used-by-seattle-police-department-for-crime-prevention/" },
+      { label: "KUOW, Police pause licence plate readers under new Washington restrictions, 3 April 2026", url: "https://www.kuow.org/stories/police-pause-license-plate-readers-to-comply-with-new-wa-state-restrictions" },
+      { label: "U.S. Census Bureau, city population estimates, Vintage 2025", url: "https://www.census.gov/data/tables/time-series/demo/popest/2020s-total-cities-and-towns.html" },
+    ],
+  },
+  {
+    slug: "over-assessed-homes-six-cities",
+    title: "New York Over-Values Its Cheapest Homes. Chicago, Seattle and DC Pass the Fairness Test.",
+    dek: "Comparing assessed values with actual sale prices, New York's cheapest one-to-three-family homes are valued at 130% of what they sold for and its most expensive at 88%, failing the assessors' own fairness standard. Chicago, Seattle and DC pass for homes, though DC fails for commercial property.",
+    publishedDate: "2026-11-10",
+    category: "Government Capacity",
+    sections: [
+      {
+        heading: "How over-assessment is measured",
+        paragraphs: [
+          "Assessors check their own work with a ratio study: divide each home's assessed value by the price it actually sold for. The International Association of Assessing Officers (IAAO) sets a fairness test called the price-related differential (PRD). A PRD between 0.98 and 1.03 passes. Above 1.03 means cheaper homes are assessed at a higher share of their value than expensive ones, so their owners pay more than their share.",
+        ],
+      },
+      {
+        heading: "What the data shows",
+        paragraphs: [
+          "New York City fails. For one-to-three-family homes, the Department of Finance's fiscal 2027 market values have a PRD of 1.045. In the cheapest tenth of 2025 sales, values were 130% of sale prices; in the most expensive tenth, 88%. Taxable value, after New York's assessment caps, was 5.2% of sale price for the cheapest homes and 2.2% for the most expensive.",
+          "Chicago passes overall (PRD 1.009) after its 2024 reassessment, but the cheapest tenth of homes, those selling under $137,000, were assessed at 109% of sale price against about 93% for mid-priced homes. Appeals then cut values on 26% of homes and 45% of commercial properties, removing 23% of commercial assessed value.",
+          "Seattle passes (PRD 1.012), with only a mild tilt: 96% of sale price for the cheapest homes, 88% for the most expensive. DC's own study shows homes passing (PRD 1.00) but commercial property failing (PRD 1.05), which favours the most valuable buildings.",
+          "Appeals rarely fix the problem for homeowners. New York's Tax Commission accepted reductions on 12% of 2025 applications, but only 3% of the few homeowner (Class 1) applications. In DC, 14% of residential appeals to the appeals commission won a reduction in tax year 2024.",
+        ],
+        note: "Chicago, New York and Seattle figures are Mandate's own ratio studies from assessor open data, following IAAO methods; DC's are the Office of Tax and Revenue's published figures. The cheapest sales can include distressed sales that slip through filters and inflate low-end ratios.",
+      },
+      {
+        heading: "Greater Manchester and Dublin",
+        paragraphs: [
+          "England's council tax uses bands fixed by each home's value in April 1991, so there is no current assessment to test. Of 2,940 band challenges the Valuation Office Agency resolved for Greater Manchester in 2025-26, 380 (13%) lowered a band.",
+          "Ireland's Local Property Tax is self-assessed. For 2021, Revenue reports 13% of owners nationally chose a higher band than its guidance, 22% a lower one and 65% the same. It publishes no Dublin-only figures.",
+        ],
+      },
+    ],
+    sources: [
+      { label: "Cook County Assessor's Office, open data: Assessed Values and Parcel Sales", url: "https://datacatalog.cookcountyil.gov/" },
+      { label: "NYC Department of Finance, Property Valuation and Assessment Data (NYC Open Data)", url: "https://data.cityofnewyork.us/City-Government/Property-Valuation-and-Assessment-Data-Tax-Classes/8y4t-faws" },
+      { label: "NYC Tax Commission, 2025 Annual Report", url: "https://www.nyc.gov/site/taxcommission/reports/annual-report.page" },
+      { label: "King County Department of Assessments, data downloads", url: "https://info.kingcounty.gov/assessor/DataDownload/default.aspx" },
+      { label: "DC Office of Tax and Revenue, FY2025 Assessment Ratio Report", url: "https://otr.cfo.dc.gov/page/assessment-materials-and-reports" },
+      { label: "DC Real Property Tax Appeals Commission, Tax Year 2024 Annual Report", url: "https://rptac.dc.gov/publications" },
+      { label: "Valuation Office Agency, Council Tax: challenges and changes, March 2026", url: "https://www.gov.uk/government/statistics/council-tax-challenges-and-changes-in-england-and-wales-march-2026" },
+      { label: "Revenue, Local Property Tax Valuation for 2026 to 2030: Technical Paper", url: "https://www.revenue.ie/en/corporate/documents/research/property-valuation-technical-paper-2026.pdf" },
+    ],
+  },
 ];
 
 export function getFindingBySlug(slug: string): Finding | undefined {

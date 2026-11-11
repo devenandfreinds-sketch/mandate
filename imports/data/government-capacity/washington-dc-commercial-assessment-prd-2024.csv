@@ -1,0 +1,2 @@
+jurisdiction,metric,year,value,confidence,notes
+washington-dc,commercial_assessment_prd,2024,1.05,high,"DC OTR FY2025 Assessment Ratio Report, commercial: 171 sales in 2023, median ratio 94.8%, weighted mean 85.8%, COD 12, PRD 1.05, PRB 0.018. Fails IAAO's 0.98-1.03 range: lower-value commercial properties assessed at a higher share of value. Values as of 1 Jan 2024. Pulled 2026-11-11."

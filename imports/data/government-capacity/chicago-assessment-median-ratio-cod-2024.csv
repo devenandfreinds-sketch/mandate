@@ -1,0 +1,3 @@
+jurisdiction,metric,year,value,confidence,notes
+chicago,residential_assessment_median_ratio,2024,0.954,high,"Cook County Assessor open data, 2024 initial values vs 2023 sales of 1-6 unit homes, n=13,091 (Mandate ratio study). Pulled 2026-11-11."
+chicago,residential_assessment_cod,2024,14.3,high,"Cook County Assessor open data, 2024 initial values vs 2023 sales of 1-6 unit homes, n=13,091 (Mandate ratio study). Pulled 2026-11-11."

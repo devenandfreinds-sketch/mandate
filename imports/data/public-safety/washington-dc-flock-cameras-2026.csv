@@ -1,0 +1,2 @@
+jurisdiction,metric,year,value,confidence,notes
+washington-dc,flock_cameras_per_100k,2026,9.66,estimated,"67 Flock cameras under the Metropolitan Police Department's contract ($336,000 one-year contract, December 2024, extended through end of 2026 for $201,000; Washington Sun/NOTUS 2026-08-28) / 693,645 residents (Census Vintage 2025) x 100,000. Excludes federal agencies' own Flock cameras on federal land. Pulled 2026-11-10."
