@@ -1,0 +1,4 @@
+group,avg_federal_tax_rate_all_taxes_pct,year,source
+Lowest quintile,1.4,2022,"CBO, The Distribution of Household Income, 2022 (Jan 2026), as reported by the Tax Foundation; cbo.gov blocks automated access, verify against the report"
+Highest quintile,23.2,2022,same
+Top 1%,31.5,2022,same
