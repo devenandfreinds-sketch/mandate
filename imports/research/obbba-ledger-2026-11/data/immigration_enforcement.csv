@@ -1,0 +1,30 @@
+measure,period,value,unit,source,verified_this_pull,notes
+ICE regular appropriations,FY2025,10.042,USD billions,CRS R48704,yes,
+ICE funding in P.L. 119-21,FY2025-2029,74.85,USD billions,CRS R48704,yes,
+ICE detention capacity in P.L. 119-21,FY2025-2029,45.0,USD billions,CRS R48704,yes,FY2025 custody operations were $2.427B
+CBP border wall and infrastructure in P.L. 119-21,FY2025-2029,46.55,USD billions,CRS R48704,yes,
+CBP total in P.L. 119-21,FY2025-2029,64.733,USD billions,CRS R48704,yes,
+DHS total in P.L. 119-21,FY2025-2029,191.02,USD billions,CRS R48704,yes,
+Immigration courts regular appropriations,FY2025,0.8,USD billions,"American Immigration Council fact sheet (Aug. 14, 2026)",yes,
+OBBBA ICE funds spent or set aside,by July 2026,58,USD billions,"American Immigration Council fact sheet (Aug. 14, 2026)",yes,
+People in ICE detention,2025-01,39000,people,Migration Policy Institute (Oct. 2026),yes,Average daily population
+People in ICE detention,2026-01,71000,people,"Human Rights Watch / PHR, Dying in Detention (June 2026)",yes,"'Over 71,000'"
+People in ICE detention,2026-04,64000,people,"Human Rights Watch / PHR, Dying in Detention (June 2026)",yes,
+People in ICE detention,2026-07-11,65765,people,TRAC Immigration Quick Facts,yes,"70.6% (46,436) had no criminal conviction"
+Detention facilities in use,2025-01,134,facilities,Migration Policy Institute (Oct. 2026),yes,
+Detention facilities in use,2026-07,272,facilities,Migration Policy Institute (Oct. 2026),yes,
+ICE deportations,FY2021,59011,people,"ICE annual report, as recalled; DHS says 'just over 59,000'",partly,
+ICE deportations,FY2022,72177,people,"ICE annual report, as recalled; DHS release cites 72,190",partly,
+ICE deportations,FY2023,142580,people,"ICE annual report, as recalled",no,"DHS says FY22-24 combined were 486,000, which is consistent"
+ICE deportations,FY2024,271484,people,"ICE annual report, as recalled",no,"DHS says FY22-24 combined were 486,000, which is consistent"
+ICE deportations,FY2025,442640,people,"DHS release, Nov. 12, 2026",yes,DHS count includes voluntary departures
+ICE deportations,FY2026,483200,people,"DHS release, Nov. 12, 2026",yes,DHS count includes voluntary departures; TRAC found formal removals were 63% of the total in Jul-Aug 2026
+ICE arrests,FY2026,491000,people,"DHS release, Nov. 12, 2026",yes,"'More than 491,000'"
+Deaths in ICE custody,First Trump term (4 years),49,deaths,Migration Policy Institute (Oct. 2026),yes,
+Deaths in ICE custody,Biden term (4 years),26,deaths,Migration Policy Institute (Oct. 2026),yes,
+Deaths in ICE custody,Second Trump term to Oct. 2026,60,deaths,Migration Policy Institute (Oct. 2026),yes,'At least 60'
+Deaths in ICE custody,FY2026,37,deaths,Migration Policy Institute (Oct. 2026),yes,Most in the agency's history
+Deaths in ICE custody,CY2024,11,deaths,"KFF (Mar. 2026), from ICE detainee death reports",yes,
+Deaths in ICE custody,CY2025,33,deaths,"KFF (Mar. 2026), from ICE detainee death reports",yes,
+US citizen children with a parent taken into ICE custody,2025-01 to 2026-04,145000,children,"Brookings estimate, via American Immigration Council",yes,"Estimated 22,000 left with no parent at home"
+Cases where federal judges ruled against ICE detention arguments,by mid-Oct 2026,13500,cases,"Politico tally, via Migration Policy Institute",yes,

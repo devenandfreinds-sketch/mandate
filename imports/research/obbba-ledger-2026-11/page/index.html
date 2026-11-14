@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+<title>Big Beautiful Bill Ledger</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a public ledger. One reading column, figures set in mono, charts on a slightly raised sheet. */
+:root{
+  --bg:#f3f5f8; --sheet:#fcfcfb; --ink:#10151d; --ink2:#465160; --muted:#7a8494;
+  --rule:#d9dee6; --grid:#e4e8ee; --base:#b9c1cd;
+  --gain:#2a78d6; --loss:#e34948; --gain-soft:#dbe8f9; --loss-soft:#fbe1e0;
+  --mark:#10151d;
+  --display:"Archivo","Arial Narrow",system-ui,sans-serif;
+  --body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0e1116; --sheet:#1a1a19; --ink:#eef0f3; --ink2:#b9c0cb; --muted:#8a93a1;
+    --rule:#2c323b; --grid:#2a2e35; --base:#454c57;
+    --gain:#3987e5; --loss:#e66767; --gain-soft:#1b2c44; --loss-soft:#43201f;
+    --mark:#eef0f3; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0e1116; --sheet:#1a1a19; --ink:#eef0f3; --ink2:#b9c0cb; --muted:#8a93a1;
+  --rule:#2c323b; --grid:#2a2e35; --base:#454c57;
+  --gain:#3987e5; --loss:#e66767; --gain-soft:#1b2c44; --loss-soft:#43201f;
+  --mark:#eef0f3; color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.55}
+.wrap{max-width:860px;margin:0 auto;padding-block:40px 72px;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));
+  display:flex;flex-direction:column;gap:56px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.08}
+h1{font-size:clamp(2.2rem,7vw,3.8rem);font-weight:800;letter-spacing:-.02em}
+h2{font-size:clamp(1.5rem,4.2vw,2.1rem);font-weight:800;letter-spacing:-.01em}
+h3{font-size:1.05rem;font-weight:700;line-height:1.25}
+p{margin:0;max-width:66ch}
+a{color:inherit;text-underline-offset:2px}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--gain);outline-offset:2px}
+.eyebrow{font-family:var(--mono);font-size:.74rem;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+header{display:flex;flex-direction:column;gap:16px;border-top:6px solid var(--mark);padding-top:20px}
+.lede{font-size:1.14rem;color:var(--ink2)}
+section{display:flex;flex-direction:column;gap:20px}
+.sec-head{display:flex;flex-direction:column;gap:10px;border-top:2px solid var(--mark);padding-top:14px}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.tile{padding:16px 16px 16px 0;display:flex;flex-direction:column;gap:6px;min-width:0}
+.tile + .tile{padding-left:16px;border-left:1px solid var(--rule)}
+.tile .v{font-family:var(--display);font-weight:800;font-size:2rem;line-height:1}
+.tile .l{font-size:.86rem;color:var(--ink2)}
+.tile .s{font-family:var(--mono);font-size:.7rem;color:var(--muted)}
+@media (max-width:620px){.tiles{grid-template-columns:1fr 1fr}.tile:nth-child(3){padding-left:0;border-left:0}.tile:nth-child(n+3){border-top:1px solid var(--rule)}}
+figure{margin:0;background:var(--sheet);border:1px solid var(--rule);border-radius:6px;padding:18px;display:flex;flex-direction:column;gap:14px;min-width:0}
+figcaption{display:flex;flex-direction:column;gap:4px}
+figcaption .sub{font-size:.88rem;color:var(--ink2)}
+.src{font-family:var(--mono);font-size:.7rem;color:var(--muted);line-height:1.5}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:.8rem;color:var(--ink2)}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+.seg{display:inline-flex;border:1px solid var(--rule);border-radius:6px;overflow:hidden;align-self:flex-start}
+.seg button{font:500 .8rem var(--body);padding:6px 12px;background:transparent;color:var(--ink2);border:0;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--mark);color:var(--sheet)}
+/* horizontal bars */
+.hb{display:grid;grid-template-columns:minmax(92px,34%) 1fr auto;gap:7px 10px;align-items:center}
+.hb .lab{font-size:.84rem;color:var(--ink2);line-height:1.25;min-width:0}
+.hb .trk{position:relative;height:18px;min-width:0}
+.hb .trk::before{content:"";position:absolute;top:-4px;bottom:-4px;left:var(--z);width:1px;background:var(--base)}
+.hb .bar{position:absolute;top:1px;height:16px;border-radius:0 4px 4px 0;background:var(--gain)}
+.hb .bar.neg{border-radius:4px 0 0 4px;background:var(--loss)}
+.hb .val{font-family:var(--mono);font-size:.8rem;font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}
+.hb .row{display:contents}
+.hb .row:hover .lab{color:var(--ink)}
+.hb .hit{grid-column:1/-1;height:0}
+svg{display:block;width:100%;height:auto;overflow:visible}
+svg text{font-family:var(--body);fill:var(--muted);font-size:11px}
+svg text.v{fill:var(--ink);font-family:var(--mono);font-size:11px}
+details.tbl{font-size:.82rem}
+details.tbl summary{cursor:pointer;color:var(--muted);font-family:var(--mono);font-size:.72rem}
+.tw{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:.84rem;font-variant-numeric:tabular-nums}
+th,td{text-align:left;padding:7px 12px 7px 0;border-bottom:1px solid var(--rule);vertical-align:top}
+th{font-family:var(--mono);font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:500}
+td.n,th.n{text-align:right;font-family:var(--mono);white-space:nowrap;padding-right:0}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.two > *{min-width:0}
+.note{border-left:3px solid var(--base);padding:2px 0 2px 14px;color:var(--ink2);font-size:.93rem}
+.facts{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.facts li{display:grid;grid-template-columns:minmax(96px,150px) 1fr;gap:14px;padding:11px 0;border-bottom:1px solid var(--rule);font-size:.93rem}
+.facts li b{font-family:var(--display);font-weight:800;font-size:1.25rem;line-height:1.1}
+.facts li span{color:var(--ink2);min-width:0}
+.tl{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.tl li{display:grid;grid-template-columns:104px 1fr;gap:14px;padding:10px 0;border-bottom:1px solid var(--rule);font-size:.93rem}
+.tl time{font-family:var(--mono);font-size:.78rem;color:var(--muted);padding-top:2px}
+.tl .done time{color:var(--ink)}
+#tip{position:fixed;z-index:20;pointer-events:none;background:var(--mark);color:var(--sheet);font-size:.78rem;line-height:1.35;padding:6px 9px;border-radius:5px;max-width:240px}
+footer{font-size:.84rem;color:var(--ink2);display:flex;flex-direction:column;gap:12px;border-top:2px solid var(--mark);padding-top:14px}
+footer ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:5px}
+</style>
+
+<div class="wrap">
+<header>
+  <div class="eyebrow">Public Law 119-21 · signed July 4, 2025 · figures as of November 14, 2026</div>
+  <h1>The One Big Beautiful Bill, in numbers</h1>
+  <p class="lede">The law cut taxes by about $4.5 trillion over ten years, cut health and food programs by about $1.1 trillion, and gave immigration enforcement its largest budget in history. This page lays out who gains, who loses, what has happened in the first 16 months, and what is still scheduled.</p>
+  <div class="tiles">
+    <div class="tile"><div class="v">+$3.4T</div><div class="l">added to deficits, 2025–2034, before interest</div><div class="s">CBO</div></div>
+    <div class="tile"><div class="v">63.9%</div><div class="l">of the net gain in household resources goes to the top tenth</div><div class="s">CBO</div></div>
+    <div class="tile"><div class="v">10M</div><div class="l">more people uninsured by 2034</div><div class="s">CBO</div></div>
+    <div class="tile"><div class="v">$74.85B</div><div class="l">for ICE, on top of a $10B annual budget</div><div class="s">CRS</div></div>
+  </div>
+</header>
+
+<section>
+  <div class="sec-head"><div class="eyebrow">The tax side</div><h2>Every major tax break, and what paid for part of them</h2>
+  <p>Most of the cost comes from making the 2017 tax cuts permanent. The new breaks for tips, overtime, seniors and car loans are small by comparison and expire after 2028. Bars to the left raise revenue.</p></div>
+  <figure>
+    <figcaption><h3>Ten-year cost of the main tax provisions</h3><div class="sub">Billions of dollars, fiscal 2025–2034. Right adds to the deficit, left reduces it.</div></figcaption>
+    <div class="legend"><span><i style="background:var(--loss)"></i>Costs revenue (tax cut)</span><span><i style="background:var(--gain)"></i>Raises revenue</span></div>
+    <div id="c-prov"></div>
+    <div class="src">Source: Bipartisan Policy Center tax provisions explorer, from Joint Committee on Taxation scores. * temporary provision.</div>
+  </figure>
+  <figure>
+    <figcaption><h3>The spending side</h3><div class="sub">Billions of dollars over ten years. Cuts to the left, new spending to the right.</div></figcaption>
+    <div id="c-spend"></div>
+    <div class="src">Sources: CBO via KFF (Medicaid), CBO (SNAP), CRS R48704 (homeland security budget authority), enacted text (defense, approximate).</div>
+  </figure>
+</section>
+
+<section>
+  <div class="sec-head"><div class="eyebrow">Who gains, who loses</div><h2>The bottom tenth loses $1,214 a year. The top tenth gains $13,622.</h2>
+  <p>The Congressional Budget Office combined the tax cuts with the Medicaid and food-assistance cuts and measured the net effect on each tenth of households. The bottom two tenths end up with less. Everyone from the middle up gains, and the gains grow with income.</p></div>
+  <figure>
+    <figcaption><h3>Average yearly change in household resources, 2026–2034</h3><div class="sub">By income decile, taxes and benefits combined, 2025 dollars.</div></figcaption>
+    <div class="seg" role="group" aria-label="Unit"><button id="u-d" aria-pressed="true">Dollars</button><button id="u-p" aria-pressed="false">% of income</button></div>
+    <div id="c-dec"></div>
+    <div class="src">Source: CBO, “How the 2025 Reconciliation Act Will Affect the Distribution of Resources Available to Households,” Aug. 11, 2025.</div>
+  </figure>
+  <div class="two">
+    <figure>
+      <figcaption><h3>Average federal tax cut in 2026</h3><div class="sub">Compared with letting the 2017 cuts expire. Taxes only, no benefit cuts.</div></figcaption>
+      <div id="c-itep1"></div>
+      <div class="src">Source: ITEP microsimulation model, Oct. 2026. ITEP reports the top 1% figure as “more than $70,000.”</div>
+    </figure>
+    <figure>
+      <figcaption><h3>Net change in taxes and costs in 2026</h3><div class="sub">Adds tariff and price effects and the lapsed health-insurance credits. Right means paying more.</div></figcaption>
+      <div id="c-itep2"></div>
+      <div class="src">Source: ITEP, Oct. 2026. Includes policies outside this law. ITEP is a left-leaning tax research group.</div>
+    </figure>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><div class="eyebrow">The one percent</div><h2>What the law does for the highest earners</h2>
+  <p>ITEP defines the top 1% in 2026 as households above $960,600, averaging $2.85 million in income. On a taxes-only basis they receive more than $70,000 each this year. They are the only income group still ahead after tariffs and price increases are counted.</p></div>
+  <ul class="facts">
+    <li><b>$70,000+</b><span>Average 2026 tax cut for the top 1%, against $1,160 for the middle fifth (ITEP).</span></li>
+    <li><b>$2.3T</b><span>Ten-year cost of the provisions whose benefits flow mostly to the top 10%: business tax cuts, the pass-through deduction, the top-rate cut, and the estate tax cut (Center for American Progress, from JCT scores).</span></li>
+    <li><b>≈ $1 : $1</b><span>For each dollar cut from programs serving low-income households, the top 1% receive about a dollar in tax cuts over the decade (CAP analysis of JCT and CBO data, reported by NBC News).</span></li>
+    <li><b>$15M</b><span>Estate tax exemption per person from 2026, $30 million for a couple, made permanent and indexed to inflation. Ten-year cost: $212 billion.</span></li>
+    <li><b>37%</b><span>Top income tax rate made permanent. It would have returned to 39.6% in 2026.</span></li>
+    <li><b>0–8%</b><span>Effective federal tax rates ITEP found for Meta, Amazon, Alphabet and Tesla after the law, driven by full expensing of equipment and research.</span></li>
+  </ul>
+</section>
+
+<section>
+  <div class="sec-head"><div class="eyebrow">The president</div><h2>How Donald Trump stands to benefit</h2>
+  <p>There is no reliable dollar figure for what the law saves Trump personally. His current tax returns are not public, and I found no independent estimate. What can be shown is which provisions fit the way his wealth is held, and separately, how his net worth has changed in office.</p></div>
+  <div class="tw"><table>
+    <thead><tr><th>Provision</th><th>What it does</th><th>Why it fits his holdings</th></tr></thead>
+    <tbody>
+      <tr><td>Pass-through deduction (Sec. 199A)</td><td>20% deduction on qualified business income, made permanent. $737B over ten years.</td><td>The Trump Organization is a collection of several hundred pass-through entities, and real estate qualifies.</td></tr>
+      <tr><td>100% bonus depreciation</td><td>Immediate write-off of qualifying property, restored permanently for assets acquired after Jan. 19, 2025.</td><td>Applies to building improvements, golf course equipment and aircraft.</td></tr>
+      <tr><td>Business interest deduction</td><td>Limit calculated before depreciation again, allowing larger interest write-offs.</td><td>Favors debt-financed real estate.</td></tr>
+      <tr><td>Estate tax exemption</td><td>$15M per person, permanent.</td><td>Shields roughly $3 million more per person from the 40% estate tax than pre-2017 law would have. Small next to a multibillion-dollar estate.</td></tr>
+      <tr><td>Top rate at 37%</td><td>Avoids a return to 39.6%.</td><td>Applies to ordinary income above about $640,000.</td></tr>
+      <tr><td>Opportunity zones</td><td>Program made permanent with new zones from 2027.</td><td>A capital-gains deferral used heavily by real estate developers.</td></tr>
+    </tbody>
+  </table></div>
+  <figure>
+    <figcaption><h3>Trump’s estimated net worth</h3><div class="sub">Billions of dollars, Forbes estimates. This is wealth gained while in office, not money from the tax law.</div></figcaption>
+    <div id="c-nw"></div>
+    <div class="src">Source: Forbes, Sept. 2026, via Time. Forbes attributes most of the rise to crypto ventures (memecoin, stablecoin, World Liberty Financial tokens) and overseas licensing deals. His 2025 disclosure reported over $1 billion in crypto-related income.</div>
+  </figure>
+  <p class="note">The two things are easy to blur. The tax provisions lower what he and his heirs owe going forward by an unknown amount. The $2.7 billion rise since the 2024 election came mainly from crypto and licensing, which the bill did not create.</p>
+</section>
+
+<section>
+  <div class="sec-head"><div class="eyebrow">Health and food</div><h2>The cuts arrive slowly, then keep growing</h2>
+  <p>Medicaid loses $911 billion in federal funding over ten years, and nearly two thirds of that lands after 2030. Food assistance changed first: work requirements expanded in November 2025 and enrollment has fallen every month since.</p></div>
+  <div class="two">
+    <figure>
+      <figcaption><h3>Additional people without health insurance</h3><div class="sub">Millions, compared with prior law.</div></figcaption>
+      <div id="c-unins"></div>
+      <div class="src">Source: CBO, Aug. 2025, via NBC News.</div>
+    </figure>
+    <figure>
+      <figcaption><h3>Federal Medicaid cuts by fiscal year</h3><div class="sub">Billions of dollars.</div></figcaption>
+      <div id="c-mcaid"></div>
+      <div class="src">Source: KFF analysis of CBO estimates.</div>
+    </figure>
+  </div>
+  <figure>
+    <figcaption><h3>People receiving SNAP, change since July 2025</h3><div class="sub">Millions. Georgia excluded for data problems.</div></figcaption>
+    <div id="c-snap"></div>
+    <div class="src">Source: NBC News analysis of USDA data via the Center on Budget and Policy Priorities, through March 2026.</div>
+  </figure>
+  <ul class="facts">
+    <li><b>4.1M</b><span>Fewer people on SNAP by March 2026. Arizona alone lost more than 450,000 recipients by May, many of them eligible but caught by new paperwork rules, according to advocates.</span></li>
+    <li><b>700+</b><span>Rural hospitals at risk of closing within two to three years (Center for Healthcare Quality and Payment Reform). Many were struggling before the law.</span></li>
+    <li><b>$50B vs $137B</b><span>The law’s rural health fund next to its estimated Medicaid cuts in rural areas (KFF). The fund ends after 2030 and the cuts do not.</span></li>
+    <li><b>996,000</b><span>Fewer jobs nationwide in 2029 from the Medicaid cuts, half of them in health care (Commonwealth Fund projection).</span></li>
+    <li><b>$4.7T</b><span>Projected addition to the national debt over the decade, including interest, in CBO’s February 2026 outlook.</span></li>
+  </ul>
+</section>
+
+<section>
+  <div class="sec-head"><div class="eyebrow">Immigration enforcement</div><h2>ICE got seven years of budget in one bill</h2>
+  <p>The law gave the Department of Homeland Security $191 billion. ICE received $74.85 billion to spend through 2029, including $45 billion for detention. By July 2026 it had spent or committed $58 billion of that. Detention, deportations, deaths in custody and shootings by agents all rose. Some of that rise began in early 2025, before the money arrived.</p></div>
+  <figure>
+    <figcaption><h3>Where the homeland security money went</h3><div class="sub">Billions of dollars. Law totals are multi-year; the ICE and immigration court baselines are one year.</div></figcaption>
+    <div id="c-fund"></div>
+    <div class="src">Sources: Congressional Research Service R48704; American Immigration Council.</div>
+  </figure>
+  <div class="two">
+    <figure>
+      <figcaption><h3>People held in ICE detention</h3><div class="sub">70.6% of those held in July 2026 had no criminal conviction.</div></figcaption>
+      <div id="c-det"></div>
+      <div class="src">Sources: Migration Policy Institute; Human Rights Watch; TRAC (July 11, 2026).</div>
+    </figure>
+    <figure>
+      <figcaption><h3>ICE deportations by fiscal year</h3><div class="sub">Thousands. DHS counts for 2025–26 include voluntary departures.</div></figcaption>
+      <div id="c-dep"></div>
+      <div class="src">Sources: ICE annual reports; DHS release, Nov. 12, 2026. TRAC found formal removals were 63% of the DHS total in July–Aug. 2026.</div>
+    </figure>
+  </div>
+  <div class="two">
+    <figure>
+      <figcaption><h3>Deaths in ICE custody</h3><div class="sub">By administration. The current count covers about 21 months.</div></figcaption>
+      <div id="c-death"></div>
+      <div class="src">Source: Migration Policy Institute, Oct. 2026. Fiscal 2026 had 37 deaths, the most in ICE’s history. Calendar 2024 had 11; 2025 had 33 (KFF).</div>
+    </figure>
+    <figure>
+      <figcaption><h3>Shootings involving immigration agents</h3><div class="sub">Incidents per quarter since Jan. 20, 2025. Includes exchanges of fire and off-duty incidents.</div></figcaption>
+      <div id="c-shoot"></div>
+      <div class="src">Source: count of 41 incidents in Wikipedia’s sourced list, through Oct. 8, 2026; its summary cites at least 43 and 11 deaths. The Trace separately counts 32 incidents and 9 deaths.</div>
+    </figure>
+  </div>
+  <ul class="facts">
+    <li><b>4 citizens</b><span>U.S. citizens killed by immigration agents in the list above: Ruben Ray Martinez, Keith Porter, Renée Good and Alex Pretti. DHS said agents acted in self-defense in most shootings. In several cases video, witnesses or prosecutors contradicted the official account and charges against the people shot were dropped.</span></li>
+    <li><b>134 → 272</b><span>Detention facilities in use, January 2025 to July 2026. ICE paid about $1.1 billion for commercial warehouses, then moved to sell seven of them.</span></li>
+    <li><b>1 every 8 days</b><span>Rate of deaths in ICE detention in the first half of 2026 (Human Rights Watch).</span></li>
+    <li><b>145,000</b><span>U.S. citizen children with at least one parent taken into ICE custody, January 2025 to April 2026. An estimated 22,000 were left with no parent at home (Brookings).</span></li>
+    <li><b>13,500</b><span>Cases in which federal judges ruled against ICE’s detention arguments by mid-October 2026 (Politico tally, via MPI).</span></li>
+    <li><b>491,000</b><span>ICE arrests in fiscal 2026, which DHS reports as an agency record and a result it sought.</span></li>
+  </ul>
+</section>
+
+<section>
+  <div class="sec-head"><div class="eyebrow">The case for it</div><h2>What supporters point to</h2>
+  <p>The picture above leans on CBO and on critics’ analyses. These are the strongest numbers on the other side.</p></div>
+  <ul class="facts">
+    <li><b>62%</b><span>Share of taxpayers who would have faced a tax increase in 2026 if the 2017 cuts had expired (Tax Foundation).</span></li>
+    <li><b>$3,813</b><span>Average tax cut per filer in 2026, counting business cuts, falling to $2,590 in 2030 when temporary breaks end (Tax Foundation).</span></li>
+    <li><b>+0.7%</b><span>Long-run GDP and about 828,000 full-time-equivalent jobs, with growth offsetting 16% of the tax cuts’ cost (Tax Foundation).</span></li>
+    <li><b>~70%</b><span>Of filers getting a tax cut this year earned under $100,000 (Treasury). That counts people, not dollars.</span></li>
+    <li><b>$25,000</b><span>Maximum deduction for tips, with $12,500 for overtime and $6,000 for seniors, through 2028. A bartender earning $40,000 with $22,000 in tips saves about $2,400 a year (New York Times example).</span></li>
+    <li><b>Work rules</b><span>Supporters argue the Medicaid and SNAP requirements reserve benefits for people who need them and reduce fraud and improper payments.</span></li>
+  </ul>
+</section>
+
+<section>
+  <div class="sec-head"><div class="eyebrow">Schedule</div><h2>What has taken effect and what is coming</h2></div>
+  <ul class="tl">
+    <li class="done"><time>Jul 4, 2025</time><span>Signed. Tax cuts apply to the 2025 tax year. Homeland security funding becomes available.</span></li>
+    <li class="done"><time>Sep 30, 2025</time><span>Electric vehicle tax credits end.</span></li>
+    <li class="done"><time>Nov 1, 2025</time><span>SNAP work requirements extend to most adults up to 64, including veterans and homeless people.</span></li>
+    <li class="done"><time>Jan 1, 2026</time><span>$15 million estate exemption begins. Enhanced health-insurance credits lapse, which the law did not extend.</span></li>
+    <li class="done"><time>Jul 1, 2026</time><span>Federal student loan limits and repayment plans change.</span></li>
+    <li><time>Jan 1, 2027</time><span>Medicaid work requirements begin: 80 hours a month of work, school or volunteering for many adults.</span></li>
+    <li><time>Oct 2027</time><span>States with high error rates start paying 5% to 15% of SNAP benefit costs.</span></li>
+    <li><time>Oct 1, 2028</time><span>Limits on state provider taxes start tightening, squeezing how states fund Medicaid.</span></li>
+    <li><time>End of 2028</time><span>Tips, overtime, senior and car-loan deductions expire.</span></li>
+    <li><time>2030</time><span>State and local tax deduction cap drops from $40,000 back to $10,000. Rural health fund runs out.</span></li>
+  </ul>
+</section>
+
+<footer>
+  <div class="eyebrow">Sources and limits</div>
+  <p>Projections are estimates and differ by model. CBO is nonpartisan. The Tax Foundation generally favors lower taxes; ITEP and the Center for American Progress lean left. Counts of shootings and custody deaths come from trackers that use different definitions, so totals do not match exactly. The law is not the only cause of what followed: tariffs, the lapsed insurance credits and a second enforcement law in 2026 also shaped these numbers.</p>
+  <ul>
+    <li><a href="https://www.cbo.gov/publication/61570">CBO budget estimate</a> and <a href="https://www.cbo.gov/interactive/2025-reconciliation-act">distribution tool</a></li>
+    <li><a href="https://bipartisanpolicy.org/explainer/one-big-beautiful-bill-act-tax-provisions-explorer/">Bipartisan Policy Center provisions explorer</a></li>
+    <li><a href="https://itep.org/impact-of-trump-policies-on-taxes-and-consumer-costs-2026/">ITEP, taxes and costs in 2026</a> · <a href="https://taxfoundation.org/research/all/federal/big-beautiful-bill-senate-gop-tax-plan/">Tax Foundation analysis</a></li>
+    <li><a href="https://www.nbcnews.com/news/us-news/trump-big-beautiful-bill-act-tax-medicaid-snap-one-year-rcna351211">NBC News one-year review</a> · <a href="https://www.kff.org/medicaid/a-closer-look-at-the-50-billion-rural-health-transformation-program/">KFF on Medicaid and rural health</a></li>
+    <li><a href="https://www.congress.gov/crs-product/R48704">CRS on homeland security funding</a> · <a href="https://www.americanimmigrationcouncil.org/fact-sheet/the-cost-of-immigration-enforcement-and-border-security/">American Immigration Council</a></li>
+    <li><a href="https://www.migrationpolicy.org/journal/policy-beat/ice-mandatory-detention-deaths">Migration Policy Institute on detention and deaths</a> · <a href="https://tracreports.org/immigration/quickfacts/">TRAC</a> · <a href="https://www.dhs.gov/news/2026/11/12/ice-breaks-records-fiscal-year-2026-most-arrests-and-deportations-agencys-history">DHS fiscal 2026 release</a></li>
+    <li><a href="https://en.wikipedia.org/wiki/List_of_shootings_by_U.S._immigration_agents_in_the_second_Trump_administration">List of shootings by immigration agents</a> · <a href="https://www.thetrace.org/2025/12/immigration-ice-shootings-guns-tracker/">The Trace tracker</a></li>
+    <li><a href="https://time.com/article/2026/11/10/trump-net-worth-second-term/">Time on Trump’s net worth</a>, citing Forbes</li>
+  </ul>
+</footer>
+</div>
+<div id="tip" hidden></div>
+
+<script>
+const $=id=>document.getElementById(id);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function tbl(rows,fmt){return '<details class="tbl"><summary>View as table</summary><div class="tw"><table><tbody>'+rows.map(r=>'<tr><td>'+esc(r[0])+'</td><td class="n">'+esc(r[2]||fmt(r[1]))+'</td></tr>').join('')+'</tbody></table></div></details>';}
+// rows: [label, value, displayOverride?]; o.pos / o.neg: css color vars for positive and negative bars
+function hbar(el,rows,o){
+  o=Object.assign({fmt:v=>v,pos:'var(--gain)',neg:'var(--loss)'},o);
+  const mn=Math.min(0,...rows.map(r=>r[1])),mx=Math.max(0,...rows.map(r=>r[1])),sp=mx-mn||1,z=-mn/sp*100;
+  el.innerHTML='<div class="hb" style="--z:'+z+'%">'+rows.map(r=>{
+    const v=r[1],w=Math.max(Math.abs(v)/sp*100,.6),left=v<0?z-w:z,txt=r[2]||o.fmt(v);
+    return '<div class="row" data-tip="'+esc(r[0]+': '+txt)+'"><div class="lab">'+esc(r[0])+'</div><div class="trk"><div class="bar'+(v<0?' neg':'')+'" style="left:'+left+'%;width:'+w+'%;background:'+(v<0?o.neg:o.pos)+'"></div></div><div class="val">'+esc(txt)+'</div></div>';
+  }).join('')+'</div>'+tbl(rows,o.fmt);
+}
+// SVG column or line chart drawn at the container's width
+function plot(el,d){
+  const draw=()=>{
+    const W=Math.max(el.clientWidth,240),H=220,m={t:22,r:14,b:26,l:8};
+    const vals=d.values,n=vals.length,mn=Math.min(0,...vals),mx=Math.max(0,...vals),sp=(mx-mn)||1;
+    if(mn<0)m.b=46;
+    const iw=W-m.l-m.r,ih=H-m.t-m.b,y=v=>m.t+(mx-v)/sp*ih,step=iw/n,bw=Math.min(24,step*.6);
+    const cx=i=>m.l+step*(i+.5),col=d.color||'var(--gain)';
+    let s='<svg viewBox="0 0 '+W+' '+H+'" role="img" aria-label="'+esc(d.aria)+'">';
+    for(let k=0;k<=3;k++){const gv=mn+sp*k/3;s+='<line x1="'+m.l+'" x2="'+(W-m.r)+'" y1="'+y(gv)+'" y2="'+y(gv)+'" stroke="var(--grid)" stroke-width="1"/>';}
+    s+='<line x1="'+m.l+'" x2="'+(W-m.r)+'" y1="'+y(0)+'" y2="'+y(0)+'" stroke="var(--base)" stroke-width="1"/>';
+    const every=Math.ceil(n/Math.max(Math.floor(iw/46),1));
+    const showAll=step>=44;
+    if(d.type==='line'){
+      s+='<path d="M'+vals.map((v,i)=>cx(i)+' '+y(v)).join(' L')+'" fill="none" stroke="'+col+'" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>';
+      vals.forEach((v,i)=>{s+='<circle cx="'+cx(i)+'" cy="'+y(v)+'" r="4" fill="'+col+'" stroke="var(--sheet)" stroke-width="2"/>';});
+    }else{
+      vals.forEach((v,i)=>{const y0=y(0),y1=y(v),top=Math.min(y0,y1),h=Math.max(Math.abs(y1-y0),1),r=Math.min(4,h);
+        s+=v>=0?'<path d="M'+(cx(i)-bw/2)+' '+y0+'V'+(top+r)+'q0 -'+r+' '+r+' -'+r+'h'+(bw-2*r)+'q'+r+' 0 '+r+' '+r+'V'+y0+'z" fill="'+col+'"/>'
+               :'<path d="M'+(cx(i)-bw/2)+' '+y0+'V'+(top+h-r)+'q0 '+r+' '+r+' '+r+'h'+(bw-2*r)+'q'+r+' 0 '+r+' -'+r+'V'+y0+'z" fill="'+col+'"/>';});
+    }
+    vals.forEach((v,i)=>{
+      const lab=(showAll||i===n-1||(d.type!=='line'&&Math.abs(v)===Math.max(...vals.map(Math.abs))));
+      if(lab){const up=v>=0;s+='<text class="v" text-anchor="'+(i===n-1&&!showAll?'end':'middle')+'" x="'+(i===n-1&&!showAll?cx(i)+bw/2:cx(i))+'" y="'+(up?y(v)-8:y(v)+15)+'">'+esc(d.fmt(v))+'</text>';}
+      if(showAll||i%every===0||i===n-1)s+='<text text-anchor="middle" x="'+cx(i)+'" y="'+(H-8)+'">'+esc(d.labels[i])+'</text>';
+      s+='<rect x="'+(m.l+step*i)+'" y="'+m.t+'" width="'+step+'" height="'+ih+'" fill="transparent" data-tip="'+esc(d.labels[i]+': '+d.fmt(v))+'"/>';
+    });
+    el.innerHTML=s+'</svg>'+tbl(d.labels.map((l,i)=>[l,vals[i]]),d.fmt);
+  };
+  draw();let t;window.addEventListener('resize',()=>{clearTimeout(t);t=setTimeout(draw,150);});
+}
+const usd=v=>(v<0?'−$':'$')+Math.abs(v).toLocaleString('en-US');
+const sgn=v=>(v<0?'−$':'+$')+Math.abs(v).toLocaleString('en-US');
+const bn=v=>(v<0?'−$':'$')+(Math.abs(v)>=1000?(Math.abs(v)/1000).toFixed(2).replace(/0$/,'')+'T':Math.abs(v)+'B');
+
+hbar($('c-prov'),[
+ ['Lower individual tax rates',2190],['Larger standard deduction',1420],['Alternative minimum tax relief',1360],
+ ['Child tax credit',817],['Pass-through business deduction',737],['Bonus depreciation',363],['Itemized deduction limit change',255],
+ ['Estate tax exemption',212],['Research expensing',141],['Factory expensing*',141],['Senior deduction*',93],['No tax on overtime*',90],
+ ['No tax on tips*',32],['Car loan interest*',31],['Trump accounts*',15],
+ ['Home energy credits ended',-105],['Clean electricity credit ended',-166],['Health insurance credit limits',-185],
+ ['Electric vehicle credits ended',-191],['Misc. itemized deductions',-233],['State and local deduction cap*',-946],['Personal exemptions repealed',-1900]
+],{fmt:bn,pos:'var(--loss)',neg:'var(--gain)'});
+hbar($('c-spend'),[['Medicaid',-911],['SNAP food assistance',-186],['Homeland security and immigration',191],['Defense',150,'≈$150B']],{fmt:bn,pos:'var(--gain)',neg:'var(--loss)'});
+
+const DEC=['Lowest 10%','2nd','3rd','4th','5th','6th','7th','8th','9th','Highest 10%'];
+const D$=[-1214,-392,23,379,797,1211,1673,2213,3208,13622],Dp=[-3.1,-0.6,0.1,0.4,0.8,1.0,1.2,1.3,1.5,2.7];
+function dec(p){hbar($('c-dec'),DEC.map((l,i)=>[l,p?Dp[i]:D$[i]]),{fmt:p?v=>(v<0?'−':'+')+Math.abs(v).toFixed(1)+'%':sgn});
+  $('u-d').setAttribute('aria-pressed',!p);$('u-p').setAttribute('aria-pressed',!!p);}
+dec(0);$('u-d').onclick=()=>dec(0);$('u-p').onclick=()=>dec(1);
+
+hbar($('c-itep1'),[['Bottom 20%',-20,'+$20 tax'],['Second 20%',370],['Middle 20%',1160],['Fourth 20%',2570],['Next 15%',5260],['Next 4%',16880],['Top 1%',70000,'$70,000+']],{fmt:usd});
+hbar($('c-itep2'),[['Bottom 20%',750],['Second 20%',1590],['Middle 20%',1700],['Fourth 20%',1730],['Next 15%',1690],['Next 4%',1120],['Top 1%',-12560]],{fmt:sgn,pos:'var(--loss)',neg:'var(--gain)'});
+
+hbar($('c-nw'),[['2024, at the election',3.9],['Feb. 2026',7.3],['Sept. 2026',7.0]],{fmt:v=>'$'+v.toFixed(1)+'B',pos:'var(--mark)'});
+
+plot($('c-unins'),{type:'line',aria:'Additional uninsured people by year',labels:['2026','2027','2028','2029','2030','2031','2032','2033','2034'],values:[1.3,5.2,6.8,8.6,9.2,9.5,9.6,9.8,10],fmt:v=>v+'M',color:'var(--loss)'});
+plot($('c-mcaid'),{aria:'Federal Medicaid cuts by fiscal year',labels:['2025','2026','2027','2028','2029','2030','2031','2032','2033','2034'],values:[-0.045,-17,-46,-61,-92,-111,-128,-139,-151,-165],fmt:v=>Math.abs(v)<1?'−$45M':'−$'+Math.abs(v)+'B',color:'var(--loss)'});
+plot($('c-snap'),{type:'line',aria:'Change in SNAP recipients since July 2025',labels:['Aug 25','Sep','Oct','Nov','Dec','Jan 26','Feb','Mar'],values:[-0.19,-0.41,-0.89,-1.6,-2.4,-3.0,-3.5,-4.1],fmt:v=>'−'+Math.abs(v)+'M',color:'var(--loss)'});
+
+hbar($('c-fund'),[['Immigration courts, regular yearly budget',0.8],['ICE, regular yearly budget (2025)',10.0],['ICE detention, in the law',45],['Border wall, in the law',46.55],['ICE total, in the law',74.85],['All homeland security, in the law',191]],{fmt:v=>'$'+v+'B',pos:'var(--mark)'});
+plot($('c-det'),{aria:'People held in ICE detention',labels:['Jan 2025','Jan 2026','Apr 2026','Jul 2026'],values:[39000,71000,64000,65765],fmt:v=>v.toLocaleString('en-US'),color:'var(--mark)'});
+plot($('c-dep'),{aria:'ICE deportations by fiscal year',labels:['FY21','FY22','FY23','FY24','FY25','FY26'],values:[59,72,143,271,443,483],fmt:v=>v+'K',color:'var(--mark)'});
+hbar($('c-death'),[['Trump, first term (4 years)',49],['Biden (4 years)',26],['Trump, second term (to Oct. 2026)',60]],{fmt:v=>v,pos:'var(--loss)'});
+plot($('c-shoot'),{aria:'Shootings involving immigration agents per quarter',labels:['Q1 25','Q2','Q3','Q4','Q1 26','Q2','Q3','Q4*'],values:[4,1,7,11,8,4,5,1],fmt:v=>v,color:'var(--loss)'});
+
+const tip=$('tip');
+document.addEventListener('pointermove',e=>{const t=e.target.closest&&e.target.closest('[data-tip]');
+  if(!t){tip.hidden=true;return;}tip.textContent=t.dataset.tip;tip.hidden=false;
+  const w=tip.offsetWidth,x=Math.min(Math.max(e.clientX+12,8),innerWidth-w-8);tip.style.left=x+'px';tip.style.top=Math.max(e.clientY-38,8)+'px';});
+document.addEventListener('pointerleave',()=>{tip.hidden=true;});
+</script>
+
+</body>
+</html>

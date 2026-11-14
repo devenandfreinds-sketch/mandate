@@ -579,6 +579,118 @@ export const findings: Finding[] = [
     ],
   },
   {
+    slug: "2025-budget-law-who-gains-top-tenth",
+    title: "The 2025 Budget Law, Decile by Decile: The Top Tenth Gets 64% of the Gain",
+    dek: "CBO's full table shows the bottom two tenths of households end up with less and every group from the third up gains. The top 1% get a tax cut of more than $70,000 this year. How much the president saves himself is not known.",
+    publishedDate: "2026-11-14",
+    category: "Fiscal Health",
+    sections: [
+      {
+        heading: "The question",
+        paragraphs: [
+          "Who gains most from the 2025 reconciliation law (P.L. 119-21, the \"One Big Beautiful Bill Act\"), what do its tax breaks cost, and how has the president himself benefited? Our earlier finding could show only the bottom, middle and top groups. CBO's full table is now readable.",
+        ],
+      },
+      {
+        heading: "What the data shows",
+        paragraphs: [
+          "CBO combined the tax changes with the Medicaid and SNAP cuts. Averaged over 2026–2034, the lowest tenth of households loses $1,214 a year (3.1% of income) and the second tenth loses $392. The third tenth roughly breaks even at +$23. Gains then rise with income: $797 for the fifth tenth, $3,208 for the ninth and $13,622 (2.7% of income) for the highest.",
+          "Of the total net gain to households, 63.9% goes to the highest tenth.",
+          "On taxes alone, the Institute on Taxation and Economic Policy (ITEP) estimates the average 2026 cut at $1,160 for the middle fifth, $16,880 for households between $360,000 and $960,600, and more than $70,000 for the top 1%.",
+          "Most of the cost is the 2017 tax cuts made permanent: $2.19 trillion over ten years for the lower rates, $1.42 trillion for the standard deduction and $737 billion for the pass-through business deduction. The new deductions for tips ($32 billion) and overtime ($90 billion) are small by comparison and end after 2028.",
+        ],
+        note: "ITEP leans left and reports the top 1% figure only as \"more than $70,000\". The provision costs are Joint Committee on Taxation scores as compiled by the Bipartisan Policy Center.",
+      },
+      {
+        heading: "The president",
+        paragraphs: [
+          "There is no reliable figure for what the law saves Donald Trump. His current tax returns are not public and we found no independent estimate.",
+          "Several provisions fit a real estate business held through pass-through entities: the 20% pass-through deduction, immediate write-offs for qualifying property, a looser limit on deducting business interest, a 37% top rate instead of 39.6%, and an estate tax exemption of $15 million per person.",
+          "Separately, Forbes estimates his net worth rose from $3.9 billion in 2024 to $7 billion in September 2026. Forbes attributes most of that to crypto ventures and overseas licensing deals, which this law did not create.",
+        ],
+        note: "Which provisions fit his holdings is our own reading of the law against the publicly known structure of his business, not a sourced estimate.",
+      },
+      {
+        heading: "The case for it",
+        paragraphs: [
+          "The Tax Foundation estimates 62% of taxpayers would have faced a tax increase in 2026 had the 2017 cuts expired, and puts the average 2026 cut at $3,813 per filer counting business tax cuts. It projects long-run GDP 0.7% higher. The Treasury says about 70% of filers getting a cut this year earned under $100,000, which counts people, not dollars.",
+        ],
+      },
+      {
+        heading: "What this doesn't show",
+        paragraphs: [
+          "These are projections and differ by model. CBO's table leaves out tariffs, interest on the added debt and economic feedback. Unlike our earlier budget-law finding, this one uses research groups and news reports as well as government sources. Its supporting brief uses a Medicaid total of $911 billion from KFF, where the earlier finding used $989.7 billion from CRS; the two are calculated differently and have not been reconciled.",
+        ],
+      },
+    ],
+    sources: [
+      { label: "CBO, How the 2025 Reconciliation Act (P.L. 119-21) Will Affect the Distribution of Resources Available to Households (August 11, 2025)", url: "https://www.cbo.gov/interactive/2025-reconciliation-act" },
+      { label: "Bipartisan Policy Center, One Big Beautiful Bill Act Tax Provisions Explorer (JCT scores)", url: "https://bipartisanpolicy.org/explainer/one-big-beautiful-bill-act-tax-provisions-explorer/" },
+      { label: "ITEP, Impact of Key Trump Policies on Taxes and Costs: National and State Estimates (October 2026)", url: "https://itep.org/impact-of-trump-policies-on-taxes-and-consumer-costs-2026/" },
+      { label: "Tax Foundation, One Big Beautiful Bill Act Tax Policies: Details and Analysis (February 2026)", url: "https://taxfoundation.org/research/all/federal/big-beautiful-bill-senate-gop-tax-plan/" },
+      { label: "NBC News, one-year review of the law, citing the Treasury analysis (July 2026)", url: "https://www.nbcnews.com/news/us-news/trump-big-beautiful-bill-act-tax-medicaid-snap-one-year-rcna351211" },
+      { label: "Time, \"How Trump Has Increased His Net Worth by Billions in His Second Term\" (November 10, 2026), citing Forbes", url: "https://time.com/article/2026/11/10/trump-net-worth-second-term/" },
+      { label: "Mandate research brief with data files, charted page and PDF (the 2025 budget law in numbers, November 2026)", url: "https://github.com/devenandfreinds-sketch/mandate/blob/main/imports/research/obbba-ledger-2026-11/README.md" },
+    ],
+  },
+  {
+    slug: "ice-funding-after-2025-budget-law",
+    title: "ICE Got Seven Years of Budget in One Law. Detention, Deportations and Deaths in Custody All Rose.",
+    dek: "The 2025 budget law gave ICE $74.85 billion on top of a regular budget of about $10 billion a year. Detention has grown from about 39,000 people to about 66,000, and at least 60 people have died in custody in 21 months. Some of the rise began before the money arrived.",
+    publishedDate: "2026-11-14",
+    category: "Public Safety",
+    sections: [
+      {
+        heading: "The question",
+        paragraphs: [
+          "What did the 2025 reconciliation law fund in immigration enforcement, and what has changed since?",
+        ],
+      },
+      {
+        heading: "What it funded",
+        paragraphs: [
+          "The law gave the Department of Homeland Security $191 billion to spend through fiscal 2029. ICE received $74.85 billion, against regular appropriations of $10.0 billion in fiscal 2025. Of that, $45 billion is for detention, where the regular custody budget was $2.4 billion a year. Customs and Border Protection received $64.7 billion, including $46.55 billion for the border wall.",
+          "By July 2026, ICE had spent or set aside $58 billion of its share, according to the American Immigration Council.",
+        ],
+      },
+      {
+        heading: "What the data shows",
+        paragraphs: [
+          "ICE held an average of about 39,000 people in January 2025. That passed 71,000 in January 2026 and stood at 65,765 on July 11, 2026. Of those, 70.6% had no criminal conviction. The number of facilities in use rose from 134 to 272.",
+          "DHS reports 483,200 deportations and more than 491,000 arrests by ICE in fiscal 2026, both agency records, against 271,484 deportations in fiscal 2024.",
+          "At least 60 people have died in ICE custody since January 2025, according to the Migration Policy Institute. That compares with 26 in the four years of the Biden administration and 49 in the first Trump term. Fiscal 2026 had 37 deaths, the most in the agency's history.",
+          "Independent trackers count between 32 and 43 shootings involving immigration agents since January 2025, with 9 to 11 deaths. Four U.S. citizens are among those killed in the incidents listed.",
+        ],
+        note: "DHS's deportation totals for fiscal 2025 and 2026 include voluntary departures. TRAC found formal removals were 63% of the DHS total in July and August 2026. The fiscal 2024 figure is from ICE's annual report and was not re-checked in this pull.",
+      },
+      {
+        heading: "The complication",
+        paragraphs: [
+          "The law is not the only cause. Detention and deaths in custody began rising in early 2025, before the funding arrived in July, and a second law in 2026 added more.",
+          "The shootings counts come from The Trace and from a Wikipedia list built on news reports, not from a government series. Both include exchanges of fire and off-duty incidents. DHS says agents acted in self-defense in most cases. In several, video, witnesses or prosecutors contradicted the official account and charges against the people shot were dropped.",
+          "DHS presents the arrest and deportation totals as the result it set out to achieve.",
+        ],
+      },
+      {
+        heading: "What this doesn't show",
+        paragraphs: [
+          "None of this is broken down for the cities Mandate tracks. There is no official national count of shootings by immigration agents, so the totals here are floors and the trackers do not agree. A death rate per person detained would be a fairer comparison across administrations than raw counts, because the detained population has grown; we have not calculated one.",
+        ],
+      },
+    ],
+    sources: [
+      { label: "CRS R48704, Understanding the FY2026 DHS Budget Request (reconciliation funding by component)", url: "https://www.congress.gov/crs-product/R48704" },
+      { label: "American Immigration Council, The Cost of Immigration Enforcement and Border Security (August 14, 2026)", url: "https://www.americanimmigrationcouncil.org/fact-sheet/the-cost-of-immigration-enforcement-and-border-security/" },
+      { label: "Migration Policy Institute, \"ICE's Fast-Growing Detention Network Faces Scrutiny amid Record Deaths and Alleged Waste\" (October 2026)", url: "https://www.migrationpolicy.org/journal/policy-beat/ice-mandatory-detention-deaths" },
+      { label: "TRAC Immigration, detention quick facts (July 11, 2026)", url: "https://tracreports.org/immigration/quickfacts/" },
+      { label: "TRAC Immigration, removals and voluntary departures report", url: "https://tracreports.org/reports/783/" },
+      { label: "DHS, \"ICE Breaks Records in Fiscal Year 2026\" (November 12, 2026)", url: "https://www.dhs.gov/news/2026/11/12/ice-breaks-records-fiscal-year-2026-most-arrests-and-deportations-agencys-history" },
+      { label: "The Trace, \"How Many People Have Been Shot in ICE Raids?\" (tracker)", url: "https://www.thetrace.org/2025/12/immigration-ice-shootings-guns-tracker/" },
+      { label: "Wikipedia, List of shootings by U.S. immigration agents in the second Trump administration (retrieved November 14, 2026)", url: "https://en.wikipedia.org/wiki/List_of_shootings_by_U.S._immigration_agents_in_the_second_Trump_administration" },
+      { label: "Mandate research brief with data files, charted page and PDF (the 2025 budget law in numbers, November 2026)", url: "https://github.com/devenandfreinds-sketch/mandate/blob/main/imports/research/obbba-ledger-2026-11/README.md" },
+    ],
+  },
+  {
     slug: "school-spending-vs-test-scores-six-cities",
     title: "More School Money Doesn't Predict Higher Test Scores in Big Cities. Poverty Does.",
     dek: "Across 26 large US school districts, per-pupil spending has almost no link to NAEP scores, while child poverty explains most of the gap. Washington State and Greater Manchester show the same pattern. New York and DC beat what their poverty predicts; Chicago lands right on it.",
