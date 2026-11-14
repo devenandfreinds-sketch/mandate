@@ -1,0 +1,7 @@
+area,academic_year,persistent_absentees,enrolments,pa_ehc_plan,pa_sen_support,share_any_sen_pct,share_ehc_plan_pct,sen_pa_rate_pct,source
+England,2022/23,1569303,7396032,112830,305638,26.7,7.2,32.2,"DfE, Pupil absence in schools in England, absence by pupil characteristics (state-funded primary, secondary and special; six half terms)"
+Greater Manchester (10 LAs),2022/23,87667,421648,6983,17156,27.5,8.0,31.5,"DfE, Pupil absence in schools in England, absence by pupil characteristics (state-funded primary, secondary and special; six half terms)"
+England,2023/24,1487022,7453730,123335,308939,29.1,8.3,31.5,"DfE, Pupil absence in schools in England, absence by pupil characteristics (state-funded primary, secondary and special; six half terms)"
+Greater Manchester (10 LAs),2023/24,85144,427399,8057,17276,29.8,9.5,31.4,"DfE, Pupil absence in schools in England, absence by pupil characteristics (state-funded primary, secondary and special; six half terms)"
+England,2024/25,1340437,7388150,133199,296135,32.0,9.9,29.5,"DfE, Pupil absence in schools in England, absence by pupil characteristics (state-funded primary, secondary and special; six half terms)"
+Greater Manchester (10 LAs),2024/25,76758,424509,8550,16816,33.0,11.1,29.4,"DfE, Pupil absence in schools in England, absence by pupil characteristics (state-funded primary, secondary and special; six half terms)"

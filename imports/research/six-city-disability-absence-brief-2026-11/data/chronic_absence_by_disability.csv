@@ -1,0 +1,7 @@
+city,year,schools,measure,absent_total,absent_disability,absent_504,share_disability_pct,share_incl_504_pct,enrol_total,enrol_disability,enrol_share_disability_pct,rate_disability_pct,rate_without_pct,estimated,source
+Manchester,2024/25,State-funded schools (incl. academies),Special educational needs (SEN),15728,5672,,36.1,,83605,18174,21.7,31.2,14.6,no,"DfE, Pupil absence in schools in England 2024/25, absence by pupil characteristics (Manchester LA)"
+New York City,2024-25,"NYC DOE district schools, K-12 (charters excluded)",Students with disabilities (IEP),269051,84991,,31.6,,829752,198494,23.9,42.8,29.2,no,"NYC DOE, End-of-Year Attendance and Chronic Absenteeism Data (citywide)"
+Seattle,2024-25,Seattle Public Schools,Students with disabilities (IEP),11946,2877,885,24.1,31.5,51064,9106,17.8,31.6,21.6,no,OSPI Report Card SQSS 2024-25 (regular attendance; chronically absent = not regularly attending)
+Washington DC,2024-25,"DCPS and public charter schools, K-12",Students with disabilities (IEP),34112,8163,,23.9,,85068,16901,19.9,48.3,38.1,yes,"OSSE DC School Report Card 2025, Attendance metric scores (rate x student count)"
+Chicago,2024-25,Chicago Public Schools (incl. charters),Students with an IEP,122715,23127,3421,18.8,21.6,306023,51167,16.7,45.2,39.1,yes,ISBE Illinois Report Card 2025 public data set (rate x enrolment)
+East Lansing,2024-25,East Lansing Public Schools,Students with disabilities (IEP),997,175,,17.6,,3774,444,11.8,39.4,24.7,no,"CEPI MI School Data, Student Counts: Attendance 2024-25 (statewide file)"

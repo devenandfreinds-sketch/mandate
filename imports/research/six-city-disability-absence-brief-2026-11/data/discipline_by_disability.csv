@@ -1,0 +1,8 @@
+city,year,action,unit,total,with_disability,with_504,share_disability_pct,enrol_share_disability_pct,primary_measure,estimated,note,source
+Manchester,2024/25,Suspensions,actions,11282,5960,,52.8,21.8,yes,no,"SEN = EHC plan (1,533) + SEN support (4,427). 1,932 of 4,229 suspended pupils (45.7%) had SEN.","DfE, Suspensions and permanent exclusions in England 2024/25, by characteristic (Manchester LA)"
+Manchester,2024/25,Permanent exclusions,actions,109,69,,63.3,21.8,no,no,"EHC plan 15, SEN support 54.","DfE, Suspensions and permanent exclusions in England 2024/25, by characteristic (Manchester LA)"
+New York City,2024-25,Removals and suspensions,actions,35963,14759,,41.0,23.9,yes,no,"Suspensions only (principal + superintendent): 10,858 of 27,143 (40.0%).","NYC DOE, Local Law 93 annual report on student discipline (Oct 2025)"
+Seattle,2024-25,Students suspended or expelled,students,1000,369,57,36.9,17.6,yes,no,Counts students with at least one exclusionary discipline action.,OSPI Report Card Discipline 2024-25
+Washington DC,2024-25,Students given out-of-school suspension,students,6087,1717,,28.2,18.8,yes,yes,Rate x student count. In-school suspension shows the same 28.2% share.,"OSSE DC School Report Card 2025, Discipline metric scores"
+Chicago,2024-25,In- and out-of-school suspensions,actions,20758,4821,,23.2,15.8,yes,no,"Out-of-school only: 2,527 of 10,756 (23.5%).","ISBE Illinois Report Card 2025 public data set, Discipline"
+East Lansing,2021-22,Out-of-school suspensions,actions,30,11,0,36.7,11.8,yes,no,Very small numbers; Michigan does not publish discipline by disability. Enrolment share is from 2024-25.,"US Dept. of Education, Civil Rights Data Collection 2021-22"
