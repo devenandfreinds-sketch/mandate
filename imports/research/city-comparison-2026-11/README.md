@@ -5,7 +5,7 @@ Washington DC and Dublin over roughly 2015–2025. Every figure comes from a gov
 statistical release or a city's own published inventory; where a figure is
 derived or approximate, that is stated.
 
-Full written report with charts: [`REPORT.md`](REPORT.md). All charts on one page: [`charts/all-charts.png`](charts/all-charts.png).
+Full written report with charts: [`REPORT.md`](REPORT.md). Net-zero projection and data plan: [`NET_ZERO_PLAN.md`](NET_ZERO_PLAN.md). All charts on one page: [`charts/all-charts.png`](charts/all-charts.png).
 Interactive version with charts: https://claude.ai/artifact/Y3x79ZtczM8gCdpygXHuBn
 
 Data files in this folder (all compiled from the sources below):
