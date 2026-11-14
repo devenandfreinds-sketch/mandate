@@ -1,0 +1,1079 @@
+<meta charset="utf-8">
+<title>Chicago Housing Ordinance Map</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* required styles */
+
+.leaflet-pane,
+.leaflet-tile,
+.leaflet-marker-icon,
+.leaflet-marker-shadow,
+.leaflet-tile-container,
+.leaflet-pane > svg,
+.leaflet-pane > canvas,
+.leaflet-zoom-box,
+.leaflet-image-layer,
+.leaflet-layer {
+	position: absolute;
+	left: 0;
+	top: 0;
+	}
+.leaflet-container {
+	overflow: hidden;
+	}
+.leaflet-tile,
+.leaflet-marker-icon,
+.leaflet-marker-shadow {
+	-webkit-user-select: none;
+	   -moz-user-select: none;
+	        user-select: none;
+	  -webkit-user-drag: none;
+	}
+/* Prevents IE11 from highlighting tiles in blue */
+.leaflet-tile::selection {
+	background: transparent;
+}
+/* Safari renders non-retina tile on retina better with this, but Chrome is worse */
+.leaflet-safari .leaflet-tile {
+	image-rendering: -webkit-optimize-contrast;
+	}
+/* hack that prevents hw layers "stretching" when loading new tiles */
+.leaflet-safari .leaflet-tile-container {
+	width: 1600px;
+	height: 1600px;
+	-webkit-transform-origin: 0 0;
+	}
+.leaflet-marker-icon,
+.leaflet-marker-shadow {
+	display: block;
+	}
+/* .leaflet-container svg: reset svg max-width decleration shipped in Joomla! (joomla.org) 3.x */
+/* .leaflet-container img: map is broken in FF if you have max-width: 100% on tiles */
+.leaflet-container .leaflet-overlay-pane svg {
+	max-width: none !important;
+	max-height: none !important;
+	}
+.leaflet-container .leaflet-marker-pane img,
+.leaflet-container .leaflet-shadow-pane img,
+.leaflet-container .leaflet-tile-pane img,
+.leaflet-container img.leaflet-image-layer,
+.leaflet-container .leaflet-tile {
+	max-width: none !important;
+	max-height: none !important;
+	width: auto;
+	padding: 0;
+	}
+
+.leaflet-container img.leaflet-tile {
+	/* See: https://bugs.chromium.org/p/chromium/issues/detail?id=600120 */
+	mix-blend-mode: plus-lighter;
+}
+
+.leaflet-container.leaflet-touch-zoom {
+	-ms-touch-action: pan-x pan-y;
+	touch-action: pan-x pan-y;
+	}
+.leaflet-container.leaflet-touch-drag {
+	-ms-touch-action: pinch-zoom;
+	/* Fallback for FF which doesn't support pinch-zoom */
+	touch-action: none;
+	touch-action: pinch-zoom;
+}
+.leaflet-container.leaflet-touch-drag.leaflet-touch-zoom {
+	-ms-touch-action: none;
+	touch-action: none;
+}
+.leaflet-container {
+	-webkit-tap-highlight-color: transparent;
+}
+.leaflet-container a {
+	-webkit-tap-highlight-color: rgba(51, 181, 229, 0.4);
+}
+.leaflet-tile {
+	filter: inherit;
+	visibility: hidden;
+	}
+.leaflet-tile-loaded {
+	visibility: inherit;
+	}
+.leaflet-zoom-box {
+	width: 0;
+	height: 0;
+	-moz-box-sizing: border-box;
+	     box-sizing: border-box;
+	z-index: 800;
+	}
+/* workaround for https://bugzilla.mozilla.org/show_bug.cgi?id=888319 */
+.leaflet-overlay-pane svg {
+	-moz-user-select: none;
+	}
+
+.leaflet-pane         { z-index: 400; }
+
+.leaflet-tile-pane    { z-index: 200; }
+.leaflet-overlay-pane { z-index: 400; }
+.leaflet-shadow-pane  { z-index: 500; }
+.leaflet-marker-pane  { z-index: 600; }
+.leaflet-tooltip-pane   { z-index: 650; }
+.leaflet-popup-pane   { z-index: 700; }
+
+.leaflet-map-pane canvas { z-index: 100; }
+.leaflet-map-pane svg    { z-index: 200; }
+
+.leaflet-vml-shape {
+	width: 1px;
+	height: 1px;
+	}
+.lvml {
+	behavior: url(#default#VML);
+	display: inline-block;
+	position: absolute;
+	}
+
+
+/* control positioning */
+
+.leaflet-control {
+	position: relative;
+	z-index: 800;
+	pointer-events: visiblePainted; /* IE 9-10 doesn't have auto */
+	pointer-events: auto;
+	}
+.leaflet-top,
+.leaflet-bottom {
+	position: absolute;
+	z-index: 1000;
+	pointer-events: none;
+	}
+.leaflet-top {
+	top: 0;
+	}
+.leaflet-right {
+	right: 0;
+	}
+.leaflet-bottom {
+	bottom: 0;
+	}
+.leaflet-left {
+	left: 0;
+	}
+.leaflet-control {
+	float: left;
+	clear: both;
+	}
+.leaflet-right .leaflet-control {
+	float: right;
+	}
+.leaflet-top .leaflet-control {
+	margin-top: 10px;
+	}
+.leaflet-bottom .leaflet-control {
+	margin-bottom: 10px;
+	}
+.leaflet-left .leaflet-control {
+	margin-left: 10px;
+	}
+.leaflet-right .leaflet-control {
+	margin-right: 10px;
+	}
+
+
+/* zoom and fade animations */
+
+.leaflet-fade-anim .leaflet-popup {
+	opacity: 0;
+	-webkit-transition: opacity 0.2s linear;
+	   -moz-transition: opacity 0.2s linear;
+	        transition: opacity 0.2s linear;
+	}
+.leaflet-fade-anim .leaflet-map-pane .leaflet-popup {
+	opacity: 1;
+	}
+.leaflet-zoom-animated {
+	-webkit-transform-origin: 0 0;
+	    -ms-transform-origin: 0 0;
+	        transform-origin: 0 0;
+	}
+svg.leaflet-zoom-animated {
+	will-change: transform;
+}
+
+.leaflet-zoom-anim .leaflet-zoom-animated {
+	-webkit-transition: -webkit-transform 0.25s cubic-bezier(0,0,0.25,1);
+	   -moz-transition:    -moz-transform 0.25s cubic-bezier(0,0,0.25,1);
+	        transition:         transform 0.25s cubic-bezier(0,0,0.25,1);
+	}
+.leaflet-zoom-anim .leaflet-tile,
+.leaflet-pan-anim .leaflet-tile {
+	-webkit-transition: none;
+	   -moz-transition: none;
+	        transition: none;
+	}
+
+.leaflet-zoom-anim .leaflet-zoom-hide {
+	visibility: hidden;
+	}
+
+
+/* cursors */
+
+.leaflet-interactive {
+	cursor: pointer;
+	}
+.leaflet-grab {
+	cursor: -webkit-grab;
+	cursor:    -moz-grab;
+	cursor:         grab;
+	}
+.leaflet-crosshair,
+.leaflet-crosshair .leaflet-interactive {
+	cursor: crosshair;
+	}
+.leaflet-popup-pane,
+.leaflet-control {
+	cursor: auto;
+	}
+.leaflet-dragging .leaflet-grab,
+.leaflet-dragging .leaflet-grab .leaflet-interactive,
+.leaflet-dragging .leaflet-marker-draggable {
+	cursor: move;
+	cursor: -webkit-grabbing;
+	cursor:    -moz-grabbing;
+	cursor:         grabbing;
+	}
+
+/* marker & overlays interactivity */
+.leaflet-marker-icon,
+.leaflet-marker-shadow,
+.leaflet-image-layer,
+.leaflet-pane > svg path,
+.leaflet-tile-container {
+	pointer-events: none;
+	}
+
+.leaflet-marker-icon.leaflet-interactive,
+.leaflet-image-layer.leaflet-interactive,
+.leaflet-pane > svg path.leaflet-interactive,
+svg.leaflet-image-layer.leaflet-interactive path {
+	pointer-events: visiblePainted; /* IE 9-10 doesn't have auto */
+	pointer-events: auto;
+	}
+
+/* visual tweaks */
+
+.leaflet-container {
+	background: #ddd;
+	outline-offset: 1px;
+	}
+.leaflet-container a {
+	color: #0078A8;
+	}
+.leaflet-zoom-box {
+	border: 2px dotted #38f;
+	background: rgba(255,255,255,0.5);
+	}
+
+
+/* general typography */
+.leaflet-container {
+	font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-size: 0.75rem;
+	line-height: 1.5;
+	}
+
+
+/* general toolbar styles */
+
+.leaflet-bar {
+	box-shadow: 0 1px 5px rgba(0,0,0,0.65);
+	border-radius: 4px;
+	}
+.leaflet-bar a {
+	background-color: #fff;
+	border-bottom: 1px solid #ccc;
+	width: 26px;
+	height: 26px;
+	line-height: 26px;
+	display: block;
+	text-align: center;
+	text-decoration: none;
+	color: black;
+	}
+.leaflet-bar a,
+.leaflet-control-layers-toggle {
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+	display: block;
+	}
+.leaflet-bar a:hover,
+.leaflet-bar a:focus {
+	background-color: #f4f4f4;
+	}
+.leaflet-bar a:first-child {
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+	}
+.leaflet-bar a:last-child {
+	border-bottom-left-radius: 4px;
+	border-bottom-right-radius: 4px;
+	border-bottom: none;
+	}
+.leaflet-bar a.leaflet-disabled {
+	cursor: default;
+	background-color: #f4f4f4;
+	color: #bbb;
+	}
+
+.leaflet-touch .leaflet-bar a {
+	width: 30px;
+	height: 30px;
+	line-height: 30px;
+	}
+.leaflet-touch .leaflet-bar a:first-child {
+	border-top-left-radius: 2px;
+	border-top-right-radius: 2px;
+	}
+.leaflet-touch .leaflet-bar a:last-child {
+	border-bottom-left-radius: 2px;
+	border-bottom-right-radius: 2px;
+	}
+
+/* zoom control */
+
+.leaflet-control-zoom-in,
+.leaflet-control-zoom-out {
+	font: bold 18px 'Lucida Console', Monaco, monospace;
+	text-indent: 1px;
+	}
+
+.leaflet-touch .leaflet-control-zoom-in, .leaflet-touch .leaflet-control-zoom-out  {
+	font-size: 22px;
+	}
+
+
+/* layers control */
+
+.leaflet-control-layers {
+	box-shadow: 0 1px 5px rgba(0,0,0,0.4);
+	background: #fff;
+	border-radius: 5px;
+	}
+.leaflet-control-layers-toggle {
+	background-image: url(images/layers.png);
+	width: 36px;
+	height: 36px;
+	}
+.leaflet-retina .leaflet-control-layers-toggle {
+	background-image: url(images/layers-2x.png);
+	background-size: 26px 26px;
+	}
+.leaflet-touch .leaflet-control-layers-toggle {
+	width: 44px;
+	height: 44px;
+	}
+.leaflet-control-layers .leaflet-control-layers-list,
+.leaflet-control-layers-expanded .leaflet-control-layers-toggle {
+	display: none;
+	}
+.leaflet-control-layers-expanded .leaflet-control-layers-list {
+	display: block;
+	position: relative;
+	}
+.leaflet-control-layers-expanded {
+	padding: 6px 10px 6px 6px;
+	color: #333;
+	background: #fff;
+	}
+.leaflet-control-layers-scrollbar {
+	overflow-y: scroll;
+	overflow-x: hidden;
+	padding-right: 5px;
+	}
+.leaflet-control-layers-selector {
+	margin-top: 2px;
+	position: relative;
+	top: 1px;
+	}
+.leaflet-control-layers label {
+	display: block;
+	font-size: 13px;
+	font-size: 1.08333em;
+	}
+.leaflet-control-layers-separator {
+	height: 0;
+	border-top: 1px solid #ddd;
+	margin: 5px -10px 5px -6px;
+	}
+
+/* Default icon URLs */
+.leaflet-default-icon-path { /* used only in path-guessing heuristic, see L.Icon.Default */
+	background-image: url(images/marker-icon.png);
+	}
+
+
+/* attribution and scale controls */
+
+.leaflet-container .leaflet-control-attribution {
+	background: #fff;
+	background: rgba(255, 255, 255, 0.8);
+	margin: 0;
+	}
+.leaflet-control-attribution,
+.leaflet-control-scale-line {
+	padding: 0 5px;
+	color: #333;
+	line-height: 1.4;
+	}
+.leaflet-control-attribution a {
+	text-decoration: none;
+	}
+.leaflet-control-attribution a:hover,
+.leaflet-control-attribution a:focus {
+	text-decoration: underline;
+	}
+.leaflet-attribution-flag {
+	display: inline !important;
+	vertical-align: baseline !important;
+	width: 1em;
+	height: 0.6669em;
+	}
+.leaflet-left .leaflet-control-scale {
+	margin-left: 5px;
+	}
+.leaflet-bottom .leaflet-control-scale {
+	margin-bottom: 5px;
+	}
+.leaflet-control-scale-line {
+	border: 2px solid #777;
+	border-top: none;
+	line-height: 1.1;
+	padding: 2px 5px 1px;
+	white-space: nowrap;
+	-moz-box-sizing: border-box;
+	     box-sizing: border-box;
+	background: rgba(255, 255, 255, 0.8);
+	text-shadow: 1px 1px #fff;
+	}
+.leaflet-control-scale-line:not(:first-child) {
+	border-top: 2px solid #777;
+	border-bottom: none;
+	margin-top: -2px;
+	}
+.leaflet-control-scale-line:not(:first-child):not(:last-child) {
+	border-bottom: 2px solid #777;
+	}
+
+.leaflet-touch .leaflet-control-attribution,
+.leaflet-touch .leaflet-control-layers,
+.leaflet-touch .leaflet-bar {
+	box-shadow: none;
+	}
+.leaflet-touch .leaflet-control-layers,
+.leaflet-touch .leaflet-bar {
+	border: 2px solid rgba(0,0,0,0.2);
+	background-clip: padding-box;
+	}
+
+
+/* popup */
+
+.leaflet-popup {
+	position: absolute;
+	text-align: center;
+	margin-bottom: 20px;
+	}
+.leaflet-popup-content-wrapper {
+	padding: 1px;
+	text-align: left;
+	border-radius: 12px;
+	}
+.leaflet-popup-content {
+	margin: 13px 24px 13px 20px;
+	line-height: 1.3;
+	font-size: 13px;
+	font-size: 1.08333em;
+	min-height: 1px;
+	}
+.leaflet-popup-content p {
+	margin: 17px 0;
+	margin: 1.3em 0;
+	}
+.leaflet-popup-tip-container {
+	width: 40px;
+	height: 20px;
+	position: absolute;
+	left: 50%;
+	margin-top: -1px;
+	margin-left: -20px;
+	overflow: hidden;
+	pointer-events: none;
+	}
+.leaflet-popup-tip {
+	width: 17px;
+	height: 17px;
+	padding: 1px;
+
+	margin: -10px auto 0;
+	pointer-events: auto;
+
+	-webkit-transform: rotate(45deg);
+	   -moz-transform: rotate(45deg);
+	    -ms-transform: rotate(45deg);
+	        transform: rotate(45deg);
+	}
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+	background: white;
+	color: #333;
+	box-shadow: 0 3px 14px rgba(0,0,0,0.4);
+	}
+.leaflet-container a.leaflet-popup-close-button {
+	position: absolute;
+	top: 0;
+	right: 0;
+	border: none;
+	text-align: center;
+	width: 24px;
+	height: 24px;
+	font: 16px/24px Tahoma, Verdana, sans-serif;
+	color: #757575;
+	text-decoration: none;
+	background: transparent;
+	}
+.leaflet-container a.leaflet-popup-close-button:hover,
+.leaflet-container a.leaflet-popup-close-button:focus {
+	color: #585858;
+	}
+.leaflet-popup-scrolled {
+	overflow: auto;
+	}
+
+.leaflet-oldie .leaflet-popup-content-wrapper {
+	-ms-zoom: 1;
+	}
+.leaflet-oldie .leaflet-popup-tip {
+	width: 24px;
+	margin: 0 auto;
+
+	-ms-filter: "progid:DXImageTransform.Microsoft.Matrix(M11=0.70710678, M12=0.70710678, M21=-0.70710678, M22=0.70710678)";
+	filter: progid:DXImageTransform.Microsoft.Matrix(M11=0.70710678, M12=0.70710678, M21=-0.70710678, M22=0.70710678);
+	}
+
+.leaflet-oldie .leaflet-control-zoom,
+.leaflet-oldie .leaflet-control-layers,
+.leaflet-oldie .leaflet-popup-content-wrapper,
+.leaflet-oldie .leaflet-popup-tip {
+	border: 1px solid #999;
+	}
+
+
+/* div icon */
+
+.leaflet-div-icon {
+	background: #fff;
+	border: 1px solid #666;
+	}
+
+
+/* Tooltip */
+/* Base styles for the element that has a tooltip */
+.leaflet-tooltip {
+	position: absolute;
+	padding: 6px;
+	background-color: #fff;
+	border: 1px solid #fff;
+	border-radius: 3px;
+	color: #222;
+	white-space: nowrap;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	pointer-events: none;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.4);
+	}
+.leaflet-tooltip.leaflet-interactive {
+	cursor: pointer;
+	pointer-events: auto;
+	}
+.leaflet-tooltip-top:before,
+.leaflet-tooltip-bottom:before,
+.leaflet-tooltip-left:before,
+.leaflet-tooltip-right:before {
+	position: absolute;
+	pointer-events: none;
+	border: 6px solid transparent;
+	background: transparent;
+	content: "";
+	}
+
+/* Directions */
+
+.leaflet-tooltip-bottom {
+	margin-top: 6px;
+}
+.leaflet-tooltip-top {
+	margin-top: -6px;
+}
+.leaflet-tooltip-bottom:before,
+.leaflet-tooltip-top:before {
+	left: 50%;
+	margin-left: -6px;
+	}
+.leaflet-tooltip-top:before {
+	bottom: 0;
+	margin-bottom: -12px;
+	border-top-color: #fff;
+	}
+.leaflet-tooltip-bottom:before {
+	top: 0;
+	margin-top: -12px;
+	margin-left: -6px;
+	border-bottom-color: #fff;
+	}
+.leaflet-tooltip-left {
+	margin-left: -6px;
+}
+.leaflet-tooltip-right {
+	margin-left: 6px;
+}
+.leaflet-tooltip-left:before,
+.leaflet-tooltip-right:before {
+	top: 50%;
+	margin-top: -6px;
+	}
+.leaflet-tooltip-left:before {
+	right: 0;
+	margin-right: -12px;
+	border-left-color: #fff;
+	}
+.leaflet-tooltip-right:before {
+	left: 0;
+	margin-left: -12px;
+	border-right-color: #fff;
+	}
+
+/* Printing */
+
+@media print {
+	/* Prevent printers from removing background-images of controls. */
+	.leaflet-control {
+		-webkit-print-color-adjust: exact;
+		print-color-adjust: exact;
+		}
+	}
+
+/* Layout: scrolling page. Three synced theme maps in a row (stacking on phones), then one large combined map
+   with a control panel beside it, then reference tables. Look: municipal code book and building placard:
+   condensed signage type, one color per ordinance area. */
+:root{
+  --bg:#f3f4f2; --panel:#ffffff; --fg:#1d2321; --muted:#5d6763; --line:#d9ddda; --soft:#eceeec;
+  --land:#e6e8e4; --out:#d3d8d6; --ca:#a7afab; --accent:#1f5f8b;
+  --red:#c8202f; --fire:#c8202f; --heat:#df6a00; --struct:#b02a8f; --nuis:#7c8a1c; --upkeep:#8b9590; --yellow:#e2a900; --scof:#151515; --vac:#7a4bb3; --hear:#8a6a3a; --fore:#1d8a7a; --pbl:#2a6fd6; --rrz:#2a6fd6;
+  --display:"Barlow Condensed","Arial Narrow",Arial,sans-serif; --body:"Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif; --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#141817; --panel:#1b201f; --fg:#e6ebe8; --muted:#9aa5a0; --line:#2f3634; --soft:#232928;
+  --land:#232a28; --out:#181c1b; --ca:#46504c; --accent:#7ab6e0;
+  --red:#ff4d5a; --fire:#ff4d5a; --heat:#ff9a3c; --struct:#e46bd0; --nuis:#b6c445; --upkeep:#7f8a86; --yellow:#ffc933; --scof:#f2f2f2; --vac:#b48af0; --hear:#d2a868; --fore:#45c9b4; --pbl:#6aa5ff; --rrz:#6aa5ff; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#141817; --panel:#1b201f; --fg:#e6ebe8; --muted:#9aa5a0; --line:#2f3634; --soft:#232928;
+  --land:#232a28; --out:#181c1b; --ca:#46504c; --accent:#7ab6e0;
+  --red:#ff4d5a; --fire:#ff4d5a; --heat:#ff9a3c; --struct:#e46bd0; --nuis:#b6c445; --upkeep:#7f8a86; --yellow:#ffc933; --scof:#f2f2f2; --vac:#b48af0; --hear:#d2a868; --fore:#45c9b4; --pbl:#6aa5ff; --rrz:#6aa5ff; color-scheme:dark}
+body{background:var(--bg);color:var(--fg);font:14px/1.45 var(--body)}
+*{box-sizing:border-box}
+.wrap{max-width:1500px;margin:0 auto;padding-block:24px 48px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:32px}
+h1{font:700 40px/1 var(--display);letter-spacing:.01em;margin:0;text-transform:uppercase;text-wrap:balance}
+h2{font:700 24px/1.05 var(--display);letter-spacing:.02em;text-transform:uppercase;margin:0;text-wrap:balance}
+h3{font:600 14px/1.2 var(--display);letter-spacing:.08em;text-transform:uppercase;margin:0 0 6px;color:var(--muted)}
+p{margin:0}
+.lede{color:var(--muted);max-width:68ch}
+.stamp{font:500 12px var(--mono);color:var(--muted)}
+.note{font-size:12.5px;color:var(--muted)}
+a{color:var(--accent)}
+.sechead{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
+.sechead .num{font:600 13px var(--mono);color:var(--muted)}
+
+/* three maps */
+.trio{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:6px;display:flex;flex-direction:column;min-width:0;overflow:hidden}
+.card .hd{padding:14px 14px 10px;display:flex;flex-direction:column;gap:4px;border-top:6px solid var(--c)}
+.card .hd p{color:var(--muted);font-size:13px}
+.card .m{height:400px;border-block:1px solid var(--line)}
+.card .lg{padding:8px 8px 12px;display:flex;flex-direction:column;gap:0}
+.card .extra{padding:0 14px 14px;display:flex;flex-direction:column;gap:6px}
+
+/* layer rows */
+.lyr{display:grid;grid-template-columns:18px 1fr auto;gap:8px;align-items:start;padding:6px 6px;border-radius:4px;cursor:pointer}
+.lyr:hover{background:var(--soft)}
+.lyr input{margin:3px 0 0;accent-color:var(--accent)}
+.lyr .t{font-weight:600}
+.lyr .d{display:block;color:var(--muted);font-size:12px;font-weight:400;line-height:1.35}
+.lyr .n{font:500 12px var(--mono);color:var(--muted);font-variant-numeric:tabular-nums;padding-top:2px}
+.sw{display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--c);margin-right:6px;vertical-align:0;flex:none}
+.sw.sq{border-radius:1px}
+.sw.ring{background:none;border:2px solid var(--c)}
+.gone{display:grid;grid-template-columns:18px 1fr;gap:8px;padding:6px;font-size:12px;color:var(--muted)}
+.gone b{color:var(--fg);font-weight:600;font-size:13px}
+.gone .x{font:700 16px/1 var(--display);color:var(--red)}
+
+/* combined */
+.big{display:grid;grid-template-columns:1fr 360px;background:var(--panel);border:1px solid var(--line);border-radius:6px;overflow:hidden;height:min(82vh,860px);min-height:560px}
+.big .m{height:100%;min-width:0}
+.side{border-left:1px solid var(--line);overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:18px;min-width:0}
+.grp + .grp{margin-top:4px}
+input[type=search],select{width:100%;font:inherit;padding:8px 10px;border:1px solid var(--line);border-radius:4px;background:var(--bg);color:var(--fg)}
+input[type=search]:focus-visible,select:focus-visible,button:focus-visible,.lyr:focus-within,tr.click:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+.results{list-style:none;margin:6px 0 0;padding:0;display:flex;flex-direction:column;gap:2px}
+.results button{all:unset;cursor:pointer;display:flex;gap:8px;align-items:center;padding:5px 6px;border-radius:4px;width:100%;box-sizing:border-box;font-size:13px}
+.results button:hover,.results button:focus-visible{background:var(--soft)}
+.btnrow{display:flex;gap:6px;flex-wrap:wrap}
+.btn{font:600 12px var(--display);letter-spacing:.06em;text-transform:uppercase;padding:5px 9px;border:1px solid var(--line);border-radius:3px;background:var(--bg);color:var(--fg);cursor:pointer}
+.btn:hover{background:var(--soft)}
+
+table{border-collapse:collapse;width:100%;font-size:12.5px}
+th,td{text-align:left;padding:5px 6px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font:600 12px var(--display);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+td.num,th.num{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums}
+tr.click{cursor:pointer} tr.click:hover td{background:var(--soft)}
+.scroll{overflow-x:auto}
+.refs{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,2fr);gap:24px}
+.refs > section{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:16px;min-width:0}
+.cmp td:first-child{font-weight:600;width:20%}
+.method{display:flex;flex-direction:column;gap:8px;font-size:13px;color:var(--muted);max-width:75ch}
+
+.leaflet-container{font:13px/1.4 var(--body);background:var(--out)}
+.leaflet-popup-content-wrapper,.leaflet-popup-tip{background:var(--panel);color:var(--fg);border-radius:4px;box-shadow:0 2px 14px rgb(0 0 0/.25)}
+.leaflet-popup-content{margin:12px 14px;min-width:220px;max-width:300px}
+.leaflet-container a.leaflet-popup-close-button{color:var(--muted)}
+.leaflet-bar a{background:var(--panel);color:var(--fg);border-color:var(--line)}
+.leaflet-control-attribution{background:color-mix(in srgb,var(--panel) 80%,transparent)!important;color:var(--muted)}
+.leaflet-control-attribution a{color:var(--accent)}
+.pop h4{font:700 17px/1.1 var(--display);margin:0 0 4px;text-transform:uppercase;letter-spacing:.02em}
+.pop .pill{display:inline-block;font:600 11.5px var(--display);letter-spacing:.07em;text-transform:uppercase;color:#fff;background:var(--c);padding:2px 7px;border-radius:2px;margin:0 4px 6px 0}
+.pop .pill.dk{color:#1d2321}
+.pop .pill.inv{color:var(--panel)}
+.pop ul{margin:4px 0 6px;padding-left:16px}
+.pop .k{color:var(--muted);font-size:12px}
+.calabel{font:600 10.5px var(--display);letter-spacing:.05em;text-transform:uppercase;color:var(--muted);white-space:nowrap;text-align:center;pointer-events:none;text-shadow:0 0 3px var(--land),0 0 3px var(--land)}
+.mw{position:relative;min-width:0}
+.loading{position:absolute;top:10px;left:50%;transform:translateX(-50%);z-index:600;background:var(--panel);border:1px solid var(--line);border-radius:4px;padding:5px 10px;font:500 12px var(--mono);white-space:nowrap}
+
+@media (max-width:1100px){.trio{grid-template-columns:1fr}.card .m{height:360px}.refs{grid-template-columns:1fr}}
+@media (max-width:820px){.big{grid-template-columns:1fr;height:auto;min-height:0}.big .m{height:62vh}.side{border-left:0;border-top:1px solid var(--line)}h1{font-size:32px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+
+<div class="wrap">
+  <header style="display:flex;flex-direction:column;gap:10px">
+    <h1>Chicago Housing Ordinance Map</h1>
+    <p class="lede">Where Chicago's housing ordinances are being broken, building by building, from the city's own open records. Each record is labeled with the section of the Municipal Code of Chicago behind it. The first three maps each show one kind of record and move together when you pan or zoom. The last map puts everything on one map.</p>
+    <p class="stamp">City of Chicago Data Portal · pulled 14 Nov 2026</p>
+  </header>
+
+  <section>
+    <div class="trio">
+      <article class="card" style="--c:var(--fire)">
+        <div class="hd"><span class="stamp">Map 1</span><h2>Housing code violations</h2><p>Buildings with open violations of Chicago's housing code, colored by the most serious ordinance area broken.</p></div>
+        <div class="mw"><div class="m" id="m1" role="region" aria-label="Map 1: Housing code violations"></div></div>
+        <div class="lg" data-map="m1"></div>
+        <div class="extra"><p class="note">Each building shows once, in the color of its most serious open violation. Violations issued since 14 Nov 2024 and still open. <a href="#method">How buildings are grouped</a></p></div>
+      </article>
+      <article class="card" style="--c:var(--vac)">
+        <div class="hd"><span class="stamp">Map 2</span><h2>Vacant buildings</h2><p>Every vacant-building record the city publishes: 311 reports, open violations, and hearing cases.</p></div>
+        <div class="mw"><div class="m" id="m2" role="region" aria-label="Map 2: Vacant buildings"></div></div>
+        <div class="lg" data-map="m2"></div>
+        <div class="extra">
+          <div class="gone"><span class="x">✕</span><span><b>Red X signs</b><br>Not mappable. The Fire Department put red X signs on 1,804 dangerous vacant buildings starting in 2012 and phased the program out in 2014. The addresses were never published. <a href="https://www.wbez.org/curious-city/2014/10/12/chicago-quietly-phasing-out-red-x-program" target="_blank" rel="noopener">WBEZ</a></span></div>
+        </div>
+      </article>
+      <article class="card" style="--c:var(--scof)">
+        <div class="hd"><span class="stamp">Map 3</span><h2>Public lists &amp; registries</h2><p>Buildings on the city's published lists: scofflaws, foreclosed rentals, and short-term rental bans.</p></div>
+        <div class="mw"><div class="m" id="m3" role="region" aria-label="Map 3: Public lists and registries"></div></div>
+        <div class="lg" data-map="m3"></div>
+        <div class="extra">
+          <div class="gone"><span class="x">✕</span><span><b>Problem Landlord List</b><br>Not mappable. It's in the city code (2-92-416) but isn't on the data portal. The Scofflaw List includes owners.</span></div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section>
+    <div class="sechead"><span class="num">Map 4</span><h2>All together</h2><p class="lede">All three maps on one map. Fire-safety violations and Scofflaw buildings draw on top. Click any dot for the record behind it.</p></div>
+    <div class="big">
+      <div class="mw"><div class="m" id="m4" role="region" aria-label="Map 4: All records together"></div></div>
+      <aside class="side">
+        <div>
+          <h3>Layers</h3>
+          <div class="btnrow" style="margin-bottom:6px"><button class="btn" id="allon">Show all</button><button class="btn" id="alloff">Hide all</button></div>
+          <div class="lg" data-map="m4" data-grouped="1"></div>
+        </div>
+        <div>
+          <h3>Find an address</h3>
+          <input type="search" id="q" placeholder="e.g. 4610 S Michigan" autocomplete="off" aria-label="Search addresses">
+          <ul class="results" id="results"></ul>
+        </div>
+        <div>
+          <h3>Neighborhoods</h3>
+          <select id="ca" aria-label="Zoom to community area"><option value="">All 77 community areas</option></select>
+          <div class="scroll" style="margin-top:8px;max-height:320px;overflow-y:auto"><table id="catable"><thead><tr><th>Community area</th><th class="num" title="Buildings with open housing code violations">Viol.</th><th class="num" title="Buildings with open fire-safety violations">Fire</th><th class="num" title="Buildings with open heat, water or utility violations">Heat</th><th class="num" title="Vacant building reports to 311">311</th></tr></thead><tbody></tbody></table></div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <div class="refs">
+    <section>
+      <h3>Ordinances on these maps</h3>
+      <div class="scroll"><table class="cmp">
+        <thead><tr><th>Map layer</th><th>Municipal Code of Chicago</th><th>What it requires</th><th>Map</th></tr></thead>
+        <tbody>
+          <tr><td>Fire safety</td><td>13-196-100 to -160, 13-64-190, 13-160-070, 13-196-080</td><td>Working smoke and carbon monoxide detectors, clear and lit exits.</td><td>1</td></tr>
+          <tr><td>Heat, water &amp; utilities</td><td>13-196-400, -410, -430; Electrical Code 18-27; Plumbing Code 18-29</td><td>Adequate heat, hot water at 120°F or more, safe wiring and plumbing.</td><td>1</td></tr>
+          <tr><td>Porches, stairs &amp; structure</td><td>13-196-530, -570, -590, -641</td><td>Sound exterior walls, roofs, parapets, chimneys, porches and stairs.</td><td>1</td></tr>
+          <tr><td>Nuisance &amp; sanitation</td><td>7-28-060, 7-28-260, 13-196-580, -630, 15-4-970</td><td>No public nuisances, pests, garbage, debris or high weeds.</td><td>1</td></tr>
+          <tr><td>Other upkeep</td><td>13-196-550, -560; 13-12-100; 13-32-010</td><td>Windows, doors and screens kept in repair. Owners must allow inspections and get permits.</td><td>1</td></tr>
+          <tr><td>Vacant buildings</td><td>13-12-125, 13-12-140</td><td>Owners must register, secure, insure and maintain vacant buildings, post their contact information, and in some cases hire a watchman.</td><td>2</td></tr>
+          <tr><td>Scofflaw List and Problem Landlord List</td><td>2-92-416</td><td>Owners with serious, chronic violations are listed, inspected yearly, and cut off from city contracts and help.</td><td>3</td></tr>
+          <tr><td>Foreclosed rentals</td><td>Keep Chicago Renting Ordinance</td><td>New owners of foreclosed rental buildings must register with the Department of Housing and follow its tenant protections.</td><td>3</td></tr>
+          <tr><td>Short-term rental bans</td><td>4-13-260(a)(9); Chapter 4-17</td><td>Condo and co-op buildings can join the Prohibited Buildings List. Precinct voters can restrict short-term rentals.</td><td>3</td></tr>
+        </tbody>
+      </table></div>
+      <p class="note" style="margin-top:8px">Sections are as cited in the city's violation and registry records. Read the full code at <a href="https://codelibrary.amlegal.com/codes/chicago/latest/overview" target="_blank" rel="noopener">American Legal Publishing</a>.</p>
+    </section>
+    <section id="method">
+      <h3>Method and sources</h3>
+      <div class="method">
+        <p><b>Housing code violations</b> are open residential (Department of Buildings, Conservation bureau) violations issued since 14 Nov 2024. Each is sorted into an ordinance area by the code section it cites and its description. A building with several shows in the most serious area, in this order: fire safety, heat and utilities, structure, nuisance and sanitation, other upkeep. Its popup lists every violation with its code section. About 7% of violations cite no section.</p>
+        <p><b>"Open"</b> is the status in the city's file. A violation stays open after repairs until a reinspection happens.</p>
+        <p><b>Older vacant violations</b>: the city mostly stopped using vacant-building codes in this dataset after 2019. About 28,000 addresses still have one marked open, mostly from 2015–2019. Many are likely stale.</p>
+        <p><b>Restricted zones</b>: 57 of the 69 precincts enacted after the 2023 ward remap are drawn on the 2023–24 precinct map. The 123 older zones used earlier precinct lines and aren't drawn.</p>
+        <p>Datasets on <a href="https://data.cityofchicago.org" target="_blank" rel="noopener">data.cityofchicago.org</a>: Building Violations (22u3-xenr), 311 Service Requests (v6vf-nfxy), Building Code Scofflaw List (crg5-4zyp), Vacant and Abandoned Buildings – Violations (kc9i-wq85), Foreclosed Rental Property (yhcw-iu53), House Share Prohibited Buildings List (7bzs-jsyj), House Share Restricted Residential Zone Precincts (8eww-pamb), and community area and ward precinct boundaries. Full records for any address are on the city's <a href="https://webapps1.chicago.gov/buildingrecords/" target="_blank" rel="noopener">Building Records</a> site.</p>
+      </div>
+    </section>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
+<script>
+(function(){
+const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const fmt = n => n.toLocaleString("en-US");
+const dt = s => s ? new Date(s + "T12:00:00").toLocaleDateString("en-US",{month:"short",day:"numeric",year:"numeric"}) : "";
+const recordsLink = '<p style="margin-top:6px"><a href="https://webapps1.chicago.gov/buildingrecords/" target="_blank" rel="noopener">City building records →</a></p>';
+const cache = {};
+const get = name => cache[name] ||= fetch(name + ".json").then(r => { if (!r.ok) throw new Error(name); return r.json(); });
+let META = {};
+
+/* ---------- Layer catalogue (draw order = array order) ---------- */
+const CATS = [
+  {id:"fire",  c:"--fire",  t:"Fire safety", d:"Smoke and CO detectors, exits."},
+  {id:"heat",  c:"--heat",  t:"Heat, water & utilities", d:"Heat, hot water, wiring, plumbing."},
+  {id:"struct",c:"--struct",t:"Porches, stairs & structure", d:"Walls, roofs, porches, stairs, chimneys."},
+  {id:"nuis",  c:"--nuis",  t:"Nuisance & sanitation", d:"Pests, garbage, debris, weeds, nuisances."},
+  {id:"upkeep",c:"--upkeep",t:"Other upkeep", d:"Windows, doors, screens, inspection access, permits."},
+];
+function violPop(o){
+  const k = CATS[o.c];
+  let h = `<span class="pill" style="--c:var(${k.c})">${esc(k.t)}</span><h4>${esc(o.a)}</h4><p><b>${o.n}</b> open violation${o.n>1?"s":""} · latest ${dt(o.d)}</p><ul>`;
+  h += o.v.map(([c,desc,n,cite]) => `<li><i class="sw" style="--c:var(${CATS[c].c});width:8px;height:8px"></i>${esc(desc)}${n>1?` (${n})`:""}${cite?` <span class="k">§ ${esc(cite)}</span>`:""}</li>`).join("");
+  return h + `</ul>${o.n > o.v.reduce((a,v)=>a+v[2],0) ? `<p class="k">More violations in the city's records.</p>` : ""}`;
+}
+const LAYERS = [
+  {id:"rrz", poly:true, g:"lists", c:"--rrz", shape:"sq", t:"Short-term rental restricted zones", d:"Precincts where voters restricted new short-term rentals (since 2023)."},
+  {id:"vacantOld", file:"vacantOld", g:"vacant", c:"--vac", r:-.6, op:.55, t:"Older vacant-building violations", d:"Still marked open, mostly from 2015–2019. Many likely stale.",
+   pop:o=>`<span class="pill" style="--c:var(--vac)">Vacant violation (open)</span><h4>${esc(o.a)}</h4><p>${o.n} open · latest ${dt(o.d)}</p>`},
+  {id:"vacant311", file:"vacant311", g:"vacant", c:"--yellow", t:"Vacant building reports to 311", d:"All complaints since Nov 2024, open or closed.",
+   pop:o=>`<span class="pill dk" style="--c:var(--yellow)">311 vacant report</span><h4>${esc(o.a)}</h4><p>${dt(o.d)} · ${esc(o.st)}</p><p class="k">${esc(o.sr)}</p>`},
+  {id:"hearings", file:"hearings", g:"vacant", c:"--hear", t:"Vacant building hearing cases", d:"Fines over vacant buildings at the city's administrative hearings.",
+   pop:o=>`<span class="pill" style="--c:var(--hear)">Hearing case</span><h4>${esc(o.a)}</h4><p>${esc(o.who)}</p><p class="k">${dt(o.d)} · ${esc(o.dep)}</p><p class="k">${esc(o.vt)}</p><p class="k">${esc(o.disp)}${o.due?` · $${fmt(o.due)} still due`:""}</p>`},
+  ...[4,3,2,1,0].map(i => ({id:CATS[i].id, file:"viol", g:"viol", c:CATS[i].c, t:CATS[i].t, d:CATS[i].d, filter:o=>o.c===i, pop:violPop, ...(i===0?{r:.6,stroke:true}:{})})),
+  {id:"prohibited", file:"prohibited", g:"lists", c:"--pbl", t:"Short-term rental banned (building)", d:"Condo and co-op buildings that voted to ban short-term rentals.",
+   pop:o=>`<span class="pill" style="--c:var(--pbl)">Prohibited Buildings List</span><h4>${esc(o.a)}</h4><p>${esc(o.o)}</p><p class="k">${esc(o.u)} units · recorded ${dt(o.d)}</p>`},
+  {id:"foreclosed", file:"foreclosed", g:"lists", c:"--fore", shape:"sq", t:"Foreclosed rental registry", d:"Rental buildings taken in foreclosure. Chicago's only rental registration.",
+   pop:o=>`<span class="pill" style="--c:var(--fore)">Foreclosed rental</span><h4>${esc(o.a)}</h4><p>Owner: ${esc(o.o)}</p><p class="k">Registered ${dt(o.d)}</p>`},
+  {id:"scofflawPast", file:"scofflaw", g:"lists", c:"--scof", shape:"ring", filter:o=>!o.cur, t:"Scofflaw List: past listings", d:"Every list since 2021, including buildings that came off.",
+   pop:o=>`<span class="pill" style="--c:var(--muted)">Past Scofflaw listing</span><h4>${esc(o.a)}</h4><p>Owner: ${esc(o.o)}</p><p class="k">Listed ${dt(o.bd)} · court case ${esc(o.case)}</p>`},
+  {id:"scofflaw", file:"scofflaw", g:"lists", c:"--scof", shape:"sq", r:1.5, filter:o=>o.cur, t:"Scofflaw List: current", d:"Serious, chronic violations the owner hasn't fixed. Sept 2026 list.",
+   pop:o=>`<span class="pill inv" style="--c:var(--scof)">Scofflaw List</span><h4>${esc(o.a)}</h4><p>Owner: ${esc(o.o)}</p><p class="k">Listed ${dt(o.bd)} · court case ${esc(o.case)}</p>`},
+];
+const BY = Object.fromEntries(LAYERS.map(l => [l.id, l]));
+const GROUPS = {viol:"Housing code violations", vacant:"Vacant buildings", lists:"Public lists & registries"};
+const MAPS = {
+  m1:{layers:["fire","heat","struct","nuis","upkeep"], on:["fire","heat","struct","nuis","upkeep"], sync:true},
+  m2:{layers:["vacant311","hearings","vacantOld"], on:["vacant311","hearings","vacantOld"], sync:true},
+  m3:{layers:["scofflaw","scofflawPast","foreclosed","prohibited","rrz"], on:["scofflaw","scofflawPast","foreclosed","prohibited","rrz"], sync:true},
+  m4:{layers:["fire","heat","struct","nuis","upkeep","vacant311","hearings","vacantOld","scofflaw","scofflawPast","foreclosed","prohibited","rrz"],
+      on:["fire","heat","struct","nuis","upkeep","vacant311","hearings","vacantOld","scofflaw","scofflawPast","foreclosed","prohibited","rrz"], labels:true, big:true},
+};
+
+/* ---------- Geometry helpers ---------- */
+let GEO = null, caFeatures = [];
+function ringHas(r,x,y){let ins=false;for(let i=0,j=r.length-1;i<r.length;j=i++){const xi=r[i][0],yi=r[i][1],xj=r[j][0],yj=r[j][1];if(((yi>y)!=(yj>y))&&(x<(xj-xi)*(y-yi)/(yj-yi)+xi))ins=!ins;}return ins;}
+function polyHas(g,x,y){const ps=g.type==="Polygon"?[g.coordinates]:g.coordinates;return ps.some(p=>ringHas(p[0],x,y)&&!p.slice(1).some(h=>ringHas(h,x,y)));}
+function bbox(g){let a=[180,90,-180,-90];const ps=g.type==="Polygon"?[g.coordinates]:g.coordinates;ps.forEach(p=>p[0].forEach(([x,y])=>{a[0]=Math.min(a[0],x);a[1]=Math.min(a[1],y);a[2]=Math.max(a[2],x);a[3]=Math.max(a[3],y);}));return a;}
+function caOf(lat,lon){for(const f of caFeatures){const b=f._b;if(lon<b[0]||lon>b[2]||lat<b[1]||lat>b[3])continue;if(polyHas(f.geometry,lon,lat))return f.properties.n;}return null;}
+
+/* ---------- Map instances ---------- */
+const inst = {};
+let syncing = false;
+function radius(z, big){ const r = z < 10.5 ? 1.3 : z < 11 ? 1.7 : z < 12 ? 2.4 : z < 13 ? 3 : z < 15 ? 4.5 : 6; return big ? r : Math.max(1.1, r - .2); }
+
+function makeMap(id){
+  const cfg = MAPS[id];
+  const map = L.map(id,{preferCanvas:true,zoomSnap:.5,minZoom:9,maxZoom:18,scrollWheelZoom:!!cfg.big}).setView([41.835,-87.69],10);
+  map.attributionControl.setPrefix(false).addAttribution('<a href="https://data.cityofchicago.org" target="_blank" rel="noopener">City of Chicago</a>');
+  const I = {id, cfg, map, on:new Set(cfg.on), base:L.layerGroup().addTo(map), feat:L.layerGroup().addTo(map), labels:L.layerGroup().addTo(map),
+             canvas:L.canvas({padding:.3}), loading:null};
+  const ld = document.createElement("div"); ld.className = "loading"; ld.hidden = true; map.getContainer().parentNode.appendChild(ld); I.loading = ld;
+  inst[id] = I;
+  let zt;
+  map.on("zoomend", () => { clearTimeout(zt); zt = setTimeout(() => { draw(I); drawLabels(I); }, 100); });
+  if (cfg.sync) map.on("move", () => {
+    if (syncing) return; syncing = true;
+    Object.values(inst).forEach(o => { if (o !== I && o.cfg.sync) o.map.setView(map.getCenter(), map.getZoom(), {animate:false}); });
+    syncing = false;
+  });
+  return I;
+}
+function drawBase(I){
+  I.base.clearLayers();
+  L.geoJSON(GEO.city,{interactive:false,renderer:I.canvas,style:{stroke:false,fillColor:css("--land"),fillOpacity:1}}).addTo(I.base);
+  L.geoJSON(GEO.ca,{interactive:false,renderer:I.canvas,style:{color:css("--ca"),weight:I.cfg.big?.8:.5,fill:false}}).addTo(I.base);
+}
+function drawLabels(I){
+  I.labels.clearLayers();
+  if (!I.cfg.labels || I.map.getZoom() < 11.5) return;
+  caFeatures.forEach(f => I.labels.addLayer(L.marker(f.properties.lab,{interactive:false,icon:L.divIcon({className:"calabel",html:esc(f.properties.name),iconSize:[120,14],iconAnchor:[60,7]})})));
+}
+async function draw(I){
+  const seq = (I.seq = (I.seq||0) + 1);
+  const want = LAYERS.filter(l => I.cfg.layers.includes(l.id) && I.on.has(l.id));
+  const need = [...new Set(want.filter(l => l.file).map(l => l.file))];
+  const missing = need.filter(f => !(f in loaded));
+  if (missing.length){ I.loading.hidden = false; I.loading.textContent = "Loading…"; }
+  try { await Promise.all(need.map(f => get(f).then(d => loaded[f] = d))); }
+  catch(e){ I.loading.hidden = false; I.loading.textContent = "A layer didn't load. Reload the page to try again."; return; }
+  if (seq !== I.seq) return;
+  I.loading.hidden = true;
+  I.feat.clearLayers();
+  // Base must sit below markers: same canvas renderer, so redraw base first.
+  drawBase(I);
+  const z = I.map.getZoom(), r0 = radius(z, I.cfg.big), panel = css("--panel");
+  for (const l of want){
+    const col = css(l.c);
+    if (l.poly){
+      L.geoJSON(GEO.rrz,{renderer:I.canvas,style:{color:col,weight:1,fillColor:col,fillOpacity:.16},
+        onEachFeature:(f,lay)=>lay.bindPopup(`<div class="pop"><span class="pill" style="--c:var(--rrz)">Restricted zone</span><h4>Ward ${esc(f.properties.w)}, precinct ${esc(f.properties.pr)}</h4><p>${esc(f.properties.scope)}</p><p class="k">Effective ${dt(f.properties.eff)}</p>${f.properties.url?`<p><a href="${esc(f.properties.url)}" target="_blank" rel="noopener">Ordinance (PDF) →</a></p>`:""}</div>`)}).addTo(I.feat);
+      continue;
+    }
+    const r = Math.max(1, r0 + (l.r||0));
+    const style = l.shape==="ring" ? {radius:r+1.2,weight:1.4,color:col,fill:false}
+                : l.shape==="sq"   ? {radius:r+1,weight:1,color:panel,fillColor:col,fillOpacity:.95}
+                : l.stroke         ? {radius:r,weight:.8,color:panel,fillColor:col,fillOpacity:.9}
+                : {radius:r,stroke:false,fillColor:col,fillOpacity:l.op ?? .82};
+    const data = loaded[l.file];
+    for (const o of data){
+      if (l.filter && !l.filter(o)) continue;
+      if (!o.p || o.p[0] == null) continue;
+      L.circleMarker(o.p,{renderer:I.canvas,...style}).bindPopup(() => `<div class="pop">${l.pop(o)}${recordsLink}</div>`).addTo(I.feat);
+    }
+  }
+}
+const loaded = {};
+
+/* ---------- Legends / toggles ---------- */
+const COUNTS = {};
+function legendRow(I, l){
+  const lab = document.createElement("label"); lab.className = "lyr";
+  const sw = `<i class="sw${l.shape==="sq"?" sq":""}${l.shape==="ring"?" ring":""}" style="--c:var(${l.c})"></i>`;
+  lab.innerHTML = `<input type="checkbox" id="${I.id}-${l.id}" ${I.on.has(l.id)?"checked":""}><span><span class="t">${sw}${esc(l.t)}</span><span class="d">${esc(l.d)}</span></span><span class="n" data-count="${l.id}">${COUNTS[l.id]!=null?fmt(COUNTS[l.id]):""}</span>`;
+  lab.querySelector("input").addEventListener("change", e => { e.target.checked ? I.on.add(l.id) : I.on.delete(l.id); draw(I); });
+  return lab;
+}
+function buildLegend(I){
+  const el = document.querySelector(`.lg[data-map="${I.id}"]`); el.innerHTML = "";
+  if (el.dataset.grouped){
+    Object.entries(GROUPS).forEach(([g, name]) => {
+      const wrap = document.createElement("div"); wrap.className = "grp";
+      wrap.innerHTML = `<p class="note" style="font-weight:600;margin:6px 6px 0">${esc(name)}</p>`;
+      I.cfg.layers.map(id => BY[id]).filter(l => l.g === g).forEach(l => wrap.appendChild(legendRow(I, l)));
+      el.appendChild(wrap);
+    });
+  } else I.cfg.layers.forEach(id => el.appendChild(legendRow(I, BY[id])));
+}
+document.getElementById("allon").addEventListener("click", () => { const I = inst.m4; I.cfg.layers.forEach(id => I.on.add(id)); buildLegend(I); draw(I); });
+document.getElementById("alloff").addEventListener("click", () => { const I = inst.m4; I.on.clear(); buildLegend(I); draw(I); });
+
+/* ---------- Search (combined map) ---------- */
+const searchIndex = [];
+function indexAll(){
+  LAYERS.filter(l => l.file && loaded[l.file]).forEach(l => loaded[l.file].forEach(o => { if ((!l.filter || l.filter(o)) && o.p && o.a) searchIndex.push({a:o.a, p:o.p, l, o}); }));
+}
+const q = document.getElementById("q"), results = document.getElementById("results");
+q.addEventListener("input", () => {
+  const s = q.value.trim().toUpperCase().replace(/\s+/g," ");
+  results.innerHTML = "";
+  if (s.length < 3) return;
+  const hits = searchIndex.filter(x => x.a.includes(s)).slice(0,10);
+  if (!hits.length){ results.innerHTML = `<li class="note">No building in these records matches that address.</li>`; return; }
+  hits.forEach(h => {
+    const li = document.createElement("li"), b = document.createElement("button");
+    b.innerHTML = `<i class="sw${h.l.shape==="sq"?" sq":""}" style="--c:var(${h.l.c})"></i><span>${esc(h.a)}</span><span class="note" style="margin-left:auto;text-align:right">${esc(h.l.t)}</span>`;
+    b.addEventListener("click", () => {
+      const m = inst.m4.map; m.setView(h.p, 17);
+      L.popup().setLatLng(h.p).setContent(`<div class="pop">${h.l.pop(h.o)}${recordsLink}</div>`).openOn(m);
+    });
+    li.appendChild(b); results.appendChild(li);
+  });
+});
+
+/* ---------- Neighborhoods ---------- */
+const caSel = document.getElementById("ca");
+function zoomCA(n){ const f = caFeatures.find(f => f.properties.n === n); if (f) inst.m4.map.fitBounds(L.geoJSON(f.geometry).getBounds(),{padding:[20,20]}); }
+caSel.addEventListener("change", () => caSel.value ? zoomCA(+caSel.value) : inst.m4.map.fitBounds(L.geoJSON(GEO.city).getBounds()));
+function buildCATable(viol, v311){
+  const per = {}; caFeatures.forEach(f => per[f.properties.n] = {name:f.properties.name, c:[0,0,0,0]});
+  viol.forEach(o => { const n = caOf(o.p[0], o.p[1]); if (n == null) return; const c = per[n].c; c[0]++; if (o.cc[0]) c[1]++; if (o.cc[1]) c[2]++; });
+  v311.forEach(o => { if (!o.p) return; const n = caOf(o.p[0], o.p[1]); if (n != null) per[n].c[3]++; });
+  const rows = Object.entries(per).sort((a,b) => b[1].c[1]-a[1].c[1] || b[1].c[0]-a[1].c[0]);
+  const tb = document.querySelector("#catable tbody");
+  rows.forEach(([n,v]) => {
+    const tr = document.createElement("tr"); tr.className = "click"; tr.tabIndex = 0;
+    tr.innerHTML = `<td>${esc(v.name)}</td>${v.c.map(x=>`<td class="num">${fmt(x)}</td>`).join("")}`;
+    const go = () => { caSel.value = n; zoomCA(+n); };
+    tr.addEventListener("click", go); tr.addEventListener("keydown", e => { if (e.key==="Enter") go(); });
+    tb.appendChild(tr);
+  });
+  [...rows].sort((a,b)=>a[1].name.localeCompare(b[1].name)).forEach(([n,v]) => caSel.add(new Option(v.name, n)));
+}
+
+/* ---------- Boot ---------- */
+Object.keys(MAPS).forEach(makeMap);
+(async function(){
+  try{
+    const [geo, meta] = await Promise.all([get("geo"), get("meta")]);
+    GEO = geo; META = meta;
+    caFeatures = geo.ca.features; caFeatures.forEach(f => f._b = bbox(f.geometry));
+    const b = L.geoJSON(geo.city).getBounds();
+    Object.values(inst).forEach(I => { I.map.fitBounds(b,{padding:[6,6]}); I.map.setMaxBounds(b.pad(.6)); drawBase(I); });
+    const files = ["viol","scofflaw","vacant311","hearings","vacantOld","foreclosed","prohibited"];
+    await Promise.all(files.map(f => get(f).then(d => loaded[f] = d)));
+    LAYERS.forEach(l => COUNTS[l.id] = l.poly ? geo.rrz.features.length : loaded[l.file].filter(l.filter || (() => true)).length);
+    Object.values(inst).forEach(I => { buildLegend(I); draw(I); drawLabels(I); });
+    indexAll();
+    buildCATable(loaded.viol, loaded.vacant311);
+  } catch(e){ Object.values(inst).forEach(I => { I.loading.hidden = false; I.loading.textContent = "The map data didn't load. Reload the page to try again."; }); console.error(e); }
+})();
+
+/* ---------- Theme changes ---------- */
+function retheme(){ if (GEO) Object.values(inst).forEach(I => draw(I)); }
+matchMedia("(prefers-color-scheme: dark)").addEventListener("change", retheme);
+new MutationObserver(retheme).observe(document.documentElement,{attributes:true,attributeFilter:["data-theme"]});
+})();
+</script>
