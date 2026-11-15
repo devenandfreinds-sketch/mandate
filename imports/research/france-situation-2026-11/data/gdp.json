@@ -1,0 +1,154 @@
+[
+{
+"quarter": "2022-Q1",
+"growth": 0.0,
+"investment": -0.05,
+"net_trade": 0.39,
+"consumption": -0.3,
+"inventories": -0.07
+},
+{
+"quarter": "2022-Q2",
+"growth": 0.4,
+"investment": -0.09,
+"net_trade": -0.5,
+"consumption": 0.55,
+"inventories": 0.44
+},
+{
+"quarter": "2022-Q3",
+"growth": 0.5,
+"investment": 0.22,
+"net_trade": -0.68,
+"consumption": 0.49,
+"inventories": 0.5
+},
+{
+"quarter": "2022-Q4",
+"growth": 0.4,
+"investment": 0.16,
+"net_trade": 0.27,
+"consumption": 0,
+"inventories": -0.05
+},
+{
+"quarter": "2023-Q1",
+"growth": 0.1,
+"investment": 0.01,
+"net_trade": 0.42,
+"consumption": 0.13,
+"inventories": -0.43
+},
+{
+"quarter": "2023-Q2",
+"growth": 0.9,
+"investment": 0.28,
+"net_trade": 0.79,
+"consumption": 0.13,
+"inventories": -0.26
+},
+{
+"quarter": "2023-Q3",
+"growth": 0.4,
+"investment": -0.01,
+"net_trade": 0.03,
+"consumption": 0.43,
+"inventories": -0.05
+},
+{
+"quarter": "2023-Q4",
+"growth": 0.5,
+"investment": -0.18,
+"net_trade": 0.89,
+"consumption": 0.02,
+"inventories": -0.26
+},
+{
+"quarter": "2024-Q1",
+"growth": 0.2,
+"investment": -0.15,
+"net_trade": 0.36,
+"consumption": 0.26,
+"inventories": -0.24
+},
+{
+"quarter": "2024-Q2",
+"growth": 0.2,
+"investment": 0.07,
+"net_trade": 0.32,
+"consumption": -0.04,
+"inventories": -0.13
+},
+{
+"quarter": "2024-Q3",
+"growth": 0.5,
+"investment": -0.17,
+"net_trade": -0.43,
+"consumption": 0.48,
+"inventories": 0.61
+},
+{
+"quarter": "2024-Q4",
+"growth": -0.1,
+"investment": 0.01,
+"net_trade": 0.19,
+"consumption": 0.04,
+"inventories": -0.29
+},
+{
+"quarter": "2025-Q1",
+"growth": 0.2,
+"investment": 0.06,
+"net_trade": -0.42,
+"consumption": -0.05,
+"inventories": 0.58
+},
+{
+"quarter": "2025-Q2",
+"growth": 0.2,
+"investment": 0.08,
+"net_trade": -0.34,
+"consumption": 0.08,
+"inventories": 0.42
+},
+{
+"quarter": "2025-Q3",
+"growth": 0.5,
+"investment": 0.18,
+"net_trade": 0.69,
+"consumption": 0.18,
+"inventories": -0.59
+},
+{
+"quarter": "2025-Q4",
+"growth": 0.2,
+"investment": 0.02,
+"net_trade": 0.52,
+"consumption": 0.2,
+"inventories": -0.51
+},
+{
+"quarter": "2026-Q1",
+"growth": -0.2,
+"investment": -0.18,
+"net_trade": -0.86,
+"consumption": -0.09,
+"inventories": 0.96
+},
+{
+"quarter": "2026-Q2",
+"growth": 0.0,
+"investment": -0.11,
+"net_trade": 0.64,
+"consumption": 0.2,
+"inventories": -0.74
+},
+{
+"quarter": "2026-Q3",
+"growth": -0.1,
+"investment": -0.13,
+"net_trade": -0.63,
+"consumption": 0.27,
+"inventories": 0.36
+}
+]
