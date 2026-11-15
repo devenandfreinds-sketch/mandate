@@ -1,0 +1,8 @@
+item,value_usd_billions,period,source,notes
+Change in revenues,-4500,FY2025-2034,"CBO, Estimated Budgetary Effects of Public Law 119-21 (July 21, 2025), cbo.gov/publication/61570",CBO rounds to $4.5 trillion
+Change in direct spending,-1100,FY2025-2034,CBO publication 61570,CBO rounds to $1.1 trillion
+Net increase in deficits,3400,FY2025-2034,CBO publication 61570,Excludes macroeconomic and debt-service effects
+Added debt-service costs,718,FY2025-2034,"CBO, Effects on Deficits and the Debt of Public Law 119-21 (Aug. 4, 2025), cbo.gov/publication/61466",
+Cumulative deficit effect with interest,4100,FY2025-2034,CBO publication 61466,Debt held by the public 9.5 percentage points of GDP higher at end of 2034
+Cumulative effect if 10 temporary tax provisions were made permanent,5000,FY2025-2034,CBO publication 61466,Debt 11.5 points of GDP higher
+Debt limit increase,5000,enacted,CRS R48611,New limit $41.1 trillion

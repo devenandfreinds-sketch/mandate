@@ -545,11 +545,12 @@ export const findings: Finding[] = [
       {
         heading: "What the data shows",
         paragraphs: [
-          "CBO's distributional analysis puts the average change in household resources over 2026–2034 at −$1,200 a year (−3.1% of income) for the lowest 10%, +$800 to +$1,200 a year (under 1%) for the middle, and +$13,600 a year (+2.7%) for the highest 10%.",
+          "CBO's distributional analysis puts the average change in household resources over 2026–2034 at −$1,214 a year (−3.1% of income) for the lowest 10% and −$392 for the second tenth. The third tenth roughly breaks even at +$23. The fifth and sixth tenths gain $797 and $1,211 (about 1%), and the highest 10% gains $13,622 (+2.7%), which is 63.9% of the total net gain.",
           "CBO and JCT estimate the law adds $3.4 trillion to deficits over 2025–2034. It cuts federal Medicaid spending by $989.7 billion, $325.6 billion of it from the work requirement, and federal SNAP spending by $186.7 billion. CBO projects 10.0 million more people uninsured in 2034, and 2.4 million fewer people on SNAP in an average month from the work-requirement changes alone.",
           "Some effects are already visible. In the 2026 filing season, the first under the new law, the average tax refund was $3,276, up 11.5% from $2,939, and total refunds rose 18.1% to $325 billion.",
+          "SNAP enrollment has fallen in every month since the law was signed, from 41.6 million people in July 2025 to 36.1 million in July 2026, according to USDA.",
         ],
-        note: "CBO's figures are quoted through the Congressional Research Service and named news reports, because cbo.gov blocks automated access. The middle-decile gain was reported only as a range. CBO's analysis excludes tariffs, the cost of servicing the added debt, and economic feedback.",
+        note: "The decile figures are from CBO's own distribution tool, read on November 15, 2026; the budget and coverage figures are CBO estimates quoted through the Congressional Research Service. CBO's analysis excludes tariffs, the cost of servicing the added debt, and economic feedback.",
       },
       {
         heading: "What this means",
@@ -562,7 +563,7 @@ export const findings: Finding[] = [
       {
         heading: "What this doesn't show",
         paragraphs: [
-          "Bigger refunds also reflect how much tax was withheld during the year, so not all of the rise is the new law. And not all of the fall in SNAP and Medicaid enrollment since mid-2025 is due to the law either; administrative data doesn't record why people leave. The full ten-decile CBO table is in a PDF that couldn't be downloaded, so only the bottom, middle and top groups are shown here.",
+          "Bigger refunds also reflect how much tax was withheld during the year, so not all of the rise is the new law. And not all of the fall in SNAP and Medicaid enrollment since mid-2025 is due to the law either; administrative data doesn't record why people leave.",
         ],
       },
     ],
@@ -571,11 +572,126 @@ export const findings: Finding[] = [
       { label: "CRS R48633, Health Provisions in P.L. 119-21 (August 18, 2025), citing CBO", url: "https://www.everycrsreport.com/reports/R48633.html" },
       { label: "CRS R48552, SNAP and Related Nutrition Programs in P.L. 119-21 (August 15, 2025), citing CBO", url: "https://www.everycrsreport.com/reports/R48552.html" },
       { label: "CBO, Distributional Effects of Public Law 119-21 (August 11, 2025)", url: "https://www.cbo.gov/publication/61367" },
-      { label: "Thomson Reuters Checkpoint, \"CBO Analyzes Distributional Effects of Budget Act\" (August 13, 2025)", url: "https://tax.thomsonreuters.com/news/cbo-analyzes-distributional-effects-of-budget-act/" },
-      { label: "NM Political Report, CBO distributional figures (August 15, 2025)", url: "https://nmpoliticalreport.com/2025/08/15/report-shows-reconciliation-law-will-cost-poorest-americans-1200-annually-while-wealthy-gain-13600/" },
+      { label: "CBO, How the 2025 Reconciliation Act (P.L. 119-21) Will Affect the Distribution of Resources Available to Households (interactive tool, August 11, 2025)", url: "https://www.cbo.gov/interactive/2025-reconciliation-act" },
+      { label: "USDA Food and Nutrition Service, SNAP data tables (national monthly participation, data as of October 9, 2026)", url: "https://www.fna.usda.gov/pd/supplemental-nutrition-assistance-program-snap" },
       { label: "IRS, Filing season statistics for week ending May 8, 2026", url: "https://www.irs.gov/newsroom/filing-season-statistics-for-week-ending-may-8-2026" },
       { label: "IRS, Working Families Tax Cuts: individuals and workers", url: "https://www.irs.gov/newsroom/working-families-tax-cuts-individuals-and-workers" },
       { label: "Mandate research brief with charts and CSVs (taxes, jobs and the 2025 budget law, November 2026)", url: "https://github.com/devenandfreinds-sketch/mandate/blob/main/imports/research/tax-jobs-obbba-brief-2026-11/README.md" },
+    ],
+  },
+  {
+    slug: "2025-budget-law-who-gets-the-tax-cut",
+    title: "Who Gets the 2025 Tax Cut: 24% to the Top 1%, 13% to the Bottom 60%",
+    dek: "Congress's own tax scorekeeper puts $131.5 billion of the $545 billion cut in 2027 with the top 1%. The Treasury counts it differently: 97% of filers got a cut and most earned under $100,000. Both are right, because one counts dollars and the other counts people.",
+    publishedDate: "2026-11-15",
+    category: "Fiscal Health",
+    sections: [
+      {
+        heading: "The question",
+        paragraphs: [
+          "Who receives the tax cuts in the 2025 reconciliation law (P.L. 119-21, the \"One Big Beautiful Bill Act\"), what does the law cost once interest is counted, and what can be said about the president's own benefit? This uses government sources only.",
+        ],
+      },
+      {
+        heading: "What the data shows",
+        paragraphs: [
+          "The Joint Committee on Taxation (JCT) estimated the tax provisions cut federal taxes by $545.3 billion in 2027. Of that, $71.6 billion goes to the 99th to 99.9th percentile and $59.9 billion to the top 0.1%. Together the top 1% receive $131.5 billion, or 24.1%.",
+          "The bottom three fifths of taxpayers receive $69.8 billion between them, or 12.8%: $4.1 billion for the lowest fifth, $21.6 billion for the second and $44.1 billion for the middle fifth. The top fifth as a whole receives 69.4%.",
+          "By dollar income, tax units at $1 million and above get $113.6 billion, and their average federal tax rate falls from 31.1% to 27.8%. For all taxpayers it falls from 20.9% to 18.7%. Tax units under $15,000 pay $0.5 billion more in total, not less.",
+          "On cost, CBO estimates revenues fall by $4.5 trillion and direct spending by $1.1 trillion over 2025–2034, adding $3.4 trillion to deficits. Interest on the extra borrowing adds $718 billion, for $4.1 trillion in all, and leaves debt held by the public 9.5 percentage points of GDP higher in 2034.",
+        ],
+        note: "The JCT table scores the Senate substitute to H.R. 1, the version the Senate passed just before enactment, and leaves out some provisions. JCT reports totals by group, not a dollar amount per household. The shares are Mandate calculations. In 2027 the top 1% begins at about $526,000 of income adjusted for household size, and the top 0.1% at about $2.04 million.",
+      },
+      {
+        heading: "The other way of counting",
+        paragraphs: [
+          "The Treasury's analysis of the 2026 filing season says 97% of filers got a tax cut compared with letting the 2017 cuts expire. Of those, 96% earned under $200,000 and nearly 70% under $100,000.",
+          "It counts 7.5 million filers claiming the new tips deduction, 29 million the overtime deduction and 35 million the senior deduction. Filers earning $50,000 to $100,000 who claimed one of the new deductions saved over $815 on average.",
+          "These figures and JCT's do not conflict. Most of the people getting a cut are middle earners. Most of the dollars go to the top.",
+        ],
+        note: "The Treasury release is written by the administration that passed the law and presents its case.",
+      },
+      {
+        heading: "The president",
+        paragraphs: [
+          "No government body has estimated what the law saves Donald Trump, so there is no figure to report. His tax returns are not public. His annual disclosure to the Office of Government Ethics, certified June 29, 2026, lists assets and income in broad ranges and does not show tax owed.",
+          "What the law did, per the Congressional Research Service: it made permanent the 20% deduction for pass-through business income and the 37% top rate, restored 100% first-year write-offs for property acquired after January 19, 2025, made the opportunity zone incentive permanent, and raised the estate and gift exemption to $15 million per person when it had been set to fall to about $7.14 million. These favor people who own businesses through pass-through entities, hold real estate and expect a large estate.",
+        ],
+      },
+      {
+        heading: "What this doesn't show",
+        paragraphs: [
+          "JCT's table covers taxes only; our companion finding on the law covers CBO's table, which adds the Medicaid and SNAP cuts. Neither counts tariffs or economic feedback. A per-household figure for the top 1% and any estimate of the president's own savings exist only in private analyses, which are left out here.",
+        ],
+      },
+    ],
+    sources: [
+      { label: "Joint Committee on Taxation, JCX-33-25: distribution of the estimated revenue effects of the tax provisions in the Senate substitute to H.R. 1 (2025)", url: "https://www.jct.gov/getattachment/1332c86f-04b9-4b89-a418-1df4804e7427/x-33-25.pdf" },
+      { label: "CBO, Estimated Budgetary Effects of Public Law 119-21 (July 21, 2025)", url: "https://www.cbo.gov/publication/61570" },
+      { label: "CBO, Effects on Deficits and the Debt of Public Law 119-21 (August 4, 2025)", url: "https://www.cbo.gov/publication/61466" },
+      { label: "U.S. Treasury, \"New Analysis: The Working Families Tax Cuts Delivers the Largest Share of Tax Relief to American Families and Workers\" (June 2, 2026)", url: "https://home.treasury.gov/news/press-releases/sb0517" },
+      { label: "CRS R48611, Tax Provisions in P.L. 119-21, the FY2025 Reconciliation Law (July 29, 2025)", url: "https://www.everycrsreport.com/reports/R48611.html" },
+      { label: "Office of Government Ethics, the President's certified annual financial disclosure report (June 30, 2026)", url: "https://www.oge.gov/web/oge.nsf/Resources/Now+Available:+The+President%E2%80%99s+and+Vice+President%E2%80%99s+certified+annual+financial+disclosure+reports" },
+      { label: "Mandate research brief with data files, charted page and PDF (the 2025 budget law in numbers, November 2026)", url: "https://github.com/devenandfreinds-sketch/mandate/blob/main/imports/research/obbba-ledger-2026-11/README.md" },
+    ],
+  },
+  {
+    slug: "ice-funding-after-2025-budget-law",
+    title: "ICE Got Seven Years of Budget in One Law. Detention Is Up 71% and GAO Found Waste and an Uninspected Camp.",
+    dek: "The 2025 budget law gave ICE $74.85 billion on top of a regular budget of $10 billion a year. The detained population rose from 39,314 to 67,204, and DHS reports record arrests and deportations. Congress's auditor found one new facility opened without the required inspection.",
+    publishedDate: "2026-11-15",
+    category: "Public Safety",
+    sections: [
+      {
+        heading: "The question",
+        paragraphs: [
+          "What did the 2025 reconciliation law fund in immigration enforcement, and what has changed since? This uses government sources only.",
+        ],
+      },
+      {
+        heading: "What it funded",
+        paragraphs: [
+          "The law gave the Department of Homeland Security $191 billion to spend through fiscal 2029, according to the Congressional Research Service. ICE received $74.85 billion, against regular appropriations of $10.0 billion in fiscal 2025. Of that, $45 billion is for detention, where the regular custody budget was $2.4 billion a year.",
+          "Customs and Border Protection received $64.7 billion, including $46.55 billion for the border wall.",
+        ],
+      },
+      {
+        heading: "What the data shows",
+        paragraphs: [
+          "ICE's average daily detained population rose from 39,314 on January 20, 2025 to 67,204 on April 1, 2026, an increase of 71%, according to GAO's reading of ICE data. Authorized detention facilities rose from 134 to 239.",
+          "DHS reports 483,200 deportations and more than 491,000 arrests by ICE in fiscal 2026, both agency records. Fiscal 2025 had 442,640 deportations and fiscal 2021 just over 59,000.",
+          "ICE's public death-reporting page lists 12 deaths in custody in fiscal 2024, 24 in fiscal 2025 and 36 in fiscal 2026 through August 23. The previous high in the years listed was 21, in fiscal 2020.",
+        ],
+        note: "The death counts are a machine count of the entries on ICE's page as updated September 23, 2026, and should be checked by hand before citing. DHS's deportation totals include voluntary departures and are not broken out for fiscal 2022–2024.",
+      },
+      {
+        heading: "What the auditor found",
+        paragraphs: [
+          "GAO reviewed Camp East Montana, a tent facility at Fort Bliss for about 5,000 people under a contract worth up to $1.3 billion. It found up to $11.5 million wasted on services in the first two weeks, and about $7.5 million more paid for meals that were not needed.",
+          "ICE housed people there without the pre-occupancy inspection its own policy requires. The facility opened without perimeter security cameras, outdoor recreation space or space for attorney and family visits.",
+          "One death there in January 2026 followed a use of force and was ruled a homicide by asphyxia. The contractor did not provide the required reports, and evidence was missing or destroyed. A second death that month was a suicide after staff left the person unattended.",
+          "DHS agreed with all four of GAO's recommendations. ICE plans a further $38 billion acquisition program, partly to convert warehouses into detention space.",
+        ],
+      },
+      {
+        heading: "The complication",
+        paragraphs: [
+          "The law is not the only cause. Detention and deaths in custody began rising in early 2025, before the funding arrived in July. DHS presents the arrest and deportation totals as the result it set out to achieve.",
+        ],
+      },
+      {
+        heading: "What this doesn't show",
+        paragraphs: [
+          "None of this is broken down for the cities Mandate tracks. We found no official national count of shootings by immigration agents, so none is given. ICE publishes the share of detainees without a criminal conviction in spreadsheets we could not download. And raw death counts are not a rate: the detained population has grown, so deaths per person detained would be the fairer comparison, and we have not calculated one.",
+        ],
+      },
+    ],
+    sources: [
+      { label: "CRS R48704, Understanding the FY2026 DHS Budget Request (reconciliation funding by component)", url: "https://www.congress.gov/crs-product/R48704" },
+      { label: "GAO-26-108886, Immigration Detention: Waste and Performance Issues at Camp East Montana Provide Valuable Lessons for Future Facilities (June 9, 2026)", url: "https://files.gao.gov/reports/GAO-26-108886/index.html" },
+      { label: "DHS, \"ICE Breaks Records in Fiscal Year 2026, With Most Arrests and Deportations in Agency's History\" (November 12, 2026)", url: "https://www.dhs.gov/news/2026/11/12/ice-breaks-records-fiscal-year-2026-most-arrests-and-deportations-agencys-history" },
+      { label: "ICE, Detainee Death Reporting (page updated September 23, 2026)", url: "https://www.ice.gov/detain/detainee-death-reporting" },
+      { label: "Mandate research brief with data files, charted page and PDF (the 2025 budget law in numbers, November 2026)", url: "https://github.com/devenandfreinds-sketch/mandate/blob/main/imports/research/obbba-ledger-2026-11/README.md" },
     ],
   },
   {

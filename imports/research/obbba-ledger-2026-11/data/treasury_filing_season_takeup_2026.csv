@@ -1,0 +1,14 @@
+measure,value,unit,source,notes
+Filers receiving a tax cut vs TCJA expiry,97,percent of filers,"U.S. Treasury press release SB-0517 (June 2, 2026), home.treasury.gov/news/press-releases/sb0517",
+"Of those, earning under $200,000",96,percent,"U.S. Treasury press release SB-0517 (June 2, 2026), home.treasury.gov/news/press-releases/sb0517",
+"Of those, earning under $100,000",70,percent,"U.S. Treasury press release SB-0517 (June 2, 2026), home.treasury.gov/news/press-releases/sb0517",'Nearly 70%'
+Individual relief claimed from the law's provisions through April deadline,82,USD billions,"U.S. Treasury press release SB-0517 (June 2, 2026), home.treasury.gov/news/press-releases/sb0517",
+"Average tax cut, filers at $50,000-$100,000 claiming a signature cut",815,USD,"U.S. Treasury press release SB-0517 (June 2, 2026), home.treasury.gov/news/press-releases/sb0517",'Over $815'
+"Average tax cut, filers at $100,000-$200,000 claiming a signature cut",1250,USD,"U.S. Treasury press release SB-0517 (June 2, 2026), home.treasury.gov/news/press-releases/sb0517","'Over $1,250'"
+No tax on tips: filers claiming,7.5,millions,"U.S. Treasury press release SB-0517 (June 2, 2026), home.treasury.gov/news/press-releases/sb0517","Average deduction over $7,000; 90% under $100,000"
+No tax on overtime: filers claiming,29,millions,"U.S. Treasury press release SB-0517 (June 2, 2026), home.treasury.gov/news/press-releases/sb0517","Average deduction over $3,100; 75% under $100,000"
+Enhanced senior deduction: filers claiming,35,millions,"U.S. Treasury press release SB-0517 (June 2, 2026), home.treasury.gov/news/press-releases/sb0517","Average deduction over $7,500; 68% under $100,000"
+Car loan interest: filers claiming,1.4,millions,"U.S. Treasury press release SB-0517 (June 2, 2026), home.treasury.gov/news/press-releases/sb0517","Average deduction over $1,800"
+Trump accounts opened,5.5,millions,"U.S. Treasury press release SB-0517 (June 2, 2026), home.treasury.gov/news/press-releases/sb0517","1.4 million eligible for the $1,000 contribution"
+Enhanced child tax credit: families claiming,40,millions,"U.S. Treasury press release SB-0517 (June 2, 2026), home.treasury.gov/news/press-releases/sb0517","'Nearly 40 million'; 65% under $100,000"
+Standard deduction: filers claiming,127,millions,"U.S. Treasury press release SB-0517 (June 2, 2026), home.treasury.gov/news/press-releases/sb0517",90% of all filers

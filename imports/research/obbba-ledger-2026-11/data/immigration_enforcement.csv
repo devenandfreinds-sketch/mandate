@@ -1,0 +1,34 @@
+measure,period,value,unit,source,notes
+ICE regular appropriations,FY2025,10.042,USD billions,"CRS R48704, Understanding the FY2026 DHS Budget Request, congress.gov/crs-product/R48704",
+"ICE custody operations, regular appropriations",FY2025,2.427,USD billions,"CRS R48704, Understanding the FY2026 DHS Budget Request, congress.gov/crs-product/R48704",
+ICE funding in P.L. 119-21,FY2025-2029,74.85,USD billions,"CRS R48704, Understanding the FY2026 DHS Budget Request, congress.gov/crs-product/R48704",
+ICE detention capacity in P.L. 119-21,FY2025-2029,45.0,USD billions,"CRS R48704, Understanding the FY2026 DHS Budget Request, congress.gov/crs-product/R48704",
+CBP border wall and infrastructure in P.L. 119-21,FY2025-2029,46.55,USD billions,"CRS R48704, Understanding the FY2026 DHS Budget Request, congress.gov/crs-product/R48704",
+CBP total in P.L. 119-21,FY2025-2029,64.733,USD billions,"CRS R48704, Understanding the FY2026 DHS Budget Request, congress.gov/crs-product/R48704",
+DHS total in P.L. 119-21,FY2025-2029,191.02,USD billions,"CRS R48704, Understanding the FY2026 DHS Budget Request, congress.gov/crs-product/R48704",
+ICE average daily detained population,2025-01-20,39314,people,"GAO-26-108886, Immigration Detention: Waste and Performance Issues at Camp East Montana (June 9, 2026), files.gao.gov/reports/GAO-26-108886/index.html",From ICE data
+ICE average daily detained population,2026-04-01,67204,people,"GAO-26-108886, Immigration Detention: Waste and Performance Issues at Camp East Montana (June 9, 2026), files.gao.gov/reports/GAO-26-108886/index.html",Up 71%
+Authorized ICE detention facilities,2025-01-20,134,facilities,"GAO-26-108886, Immigration Detention: Waste and Performance Issues at Camp East Montana (June 9, 2026), files.gao.gov/reports/GAO-26-108886/index.html",
+Authorized ICE detention facilities,2026-04-01,239,facilities,"GAO-26-108886, Immigration Detention: Waste and Performance Issues at Camp East Montana (June 9, 2026), files.gao.gov/reports/GAO-26-108886/index.html",Up 78%
+ICE planned detention acquisition program,2026,38,USD billions,"GAO-26-108886, Immigration Detention: Waste and Performance Issues at Camp East Montana (June 9, 2026), files.gao.gov/reports/GAO-26-108886/index.html",Partly to convert warehouses
+Camp East Montana contract ceiling,awarded July 2025,1.3,USD billions,"GAO-26-108886, Immigration Detention: Waste and Performance Issues at Camp East Montana (June 9, 2026), files.gao.gov/reports/GAO-26-108886/index.html","Capacity about 5,000"
+Camp East Montana: operational services wasted,2025-08-01 to 2025-08-15,11.5,USD millions,"GAO-26-108886, Immigration Detention: Waste and Performance Issues at Camp East Montana (June 9, 2026), files.gao.gov/reports/GAO-26-108886/index.html",'Up to'
+Camp East Montana: unneeded meals paid by Army,2025-08-16 to 2025-09-30,0.423,USD millions,"GAO-26-108886, Immigration Detention: Waste and Performance Issues at Camp East Montana (June 9, 2026), files.gao.gov/reports/GAO-26-108886/index.html",
+Camp East Montana: unneeded meals paid by ICE,2025-10-01 to 2026-03-12,7.1,USD millions,"GAO-26-108886, Immigration Detention: Waste and Performance Issues at Camp East Montana (June 9, 2026), files.gao.gov/reports/GAO-26-108886/index.html",
+ICE deportations,FY2021,59000,people,"DHS press release, ICE Breaks Records in Fiscal Year 2026 (Nov. 12, 2026)","'Just over 59,000'"
+ICE deportations,FY2022-2024 combined,486000,people,"DHS press release, ICE Breaks Records in Fiscal Year 2026 (Nov. 12, 2026)",Not broken out by year
+ICE deportations,FY2025,442640,people,"DHS press release, ICE Breaks Records in Fiscal Year 2026 (Nov. 12, 2026)",
+ICE deportations,FY2026,483200,people,"DHS press release, ICE Breaks Records in Fiscal Year 2026 (Nov. 12, 2026)",Agency record per DHS
+ICE arrests,FY2021,74000,people,"DHS press release, ICE Breaks Records in Fiscal Year 2026 (Nov. 12, 2026)","'Just over 74,000'"
+ICE arrests,FY2022-2024 combined,427000,people,"DHS press release, ICE Breaks Records in Fiscal Year 2026 (Nov. 12, 2026)","'Less than 427,000'"
+ICE arrests,FY2026,491000,people,"DHS press release, ICE Breaks Records in Fiscal Year 2026 (Nov. 12, 2026)","'More than 491,000'; nearly 475,000 administrative"
+ICE arrests,2026-08,50925,people,"DHS press release, ICE Breaks Records in Fiscal Year 2026 (Nov. 12, 2026)",Single-month record per DHS
+Deaths in ICE custody,FY2018,6,deaths,"ICE, Detainee Death Reporting, ice.gov/detain/detainee-death-reporting (page updated Sept. 23, 2026)","Count of entries, read by machine from the page; verify before citing."
+Deaths in ICE custody,FY2019,8,deaths,"ICE, Detainee Death Reporting, ice.gov/detain/detainee-death-reporting (page updated Sept. 23, 2026)","Count of entries, read by machine from the page; verify before citing."
+Deaths in ICE custody,FY2020,21,deaths,"ICE, Detainee Death Reporting, ice.gov/detain/detainee-death-reporting (page updated Sept. 23, 2026)","Count of entries, read by machine from the page; verify before citing."
+Deaths in ICE custody,FY2021,5,deaths,"ICE, Detainee Death Reporting, ice.gov/detain/detainee-death-reporting (page updated Sept. 23, 2026)","Count of entries, read by machine from the page; verify before citing."
+Deaths in ICE custody,FY2022,3,deaths,"ICE, Detainee Death Reporting, ice.gov/detain/detainee-death-reporting (page updated Sept. 23, 2026)","Count of entries, read by machine from the page; verify before citing."
+Deaths in ICE custody,FY2023,4,deaths,"ICE, Detainee Death Reporting, ice.gov/detain/detainee-death-reporting (page updated Sept. 23, 2026)","Count of entries, read by machine from the page; verify before citing."
+Deaths in ICE custody,FY2024,12,deaths,"ICE, Detainee Death Reporting, ice.gov/detain/detainee-death-reporting (page updated Sept. 23, 2026)","Count of entries, read by machine from the page; verify before citing."
+Deaths in ICE custody,FY2025,24,deaths,"ICE, Detainee Death Reporting, ice.gov/detain/detainee-death-reporting (page updated Sept. 23, 2026)","Count of entries, read by machine from the page; verify before citing."
+Deaths in ICE custody,FY2026,36,deaths,"ICE, Detainee Death Reporting, ice.gov/detain/detainee-death-reporting (page updated Sept. 23, 2026)","Count of entries, read by machine from the page; verify before citing. Incomplete: latest entry Aug. 23, 2026."
