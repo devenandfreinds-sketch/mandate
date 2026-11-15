@@ -1,5 +1,0 @@
-item,change_usd_billions,source,verified_this_pull,notes
-"Medicaid, federal spending",-911,KFF allocation of CBO July 2025 estimates,yes,Lower than the $989.7B in tax-jobs-obbba-brief-2026-11 (CRS R48633). The two are not calculated the same way; reconcile before publishing either.
-"SNAP, federal spending",-186,"CBO, as recalled; tax-jobs-obbba-brief-2026-11 has $186.7B via CRS R48552",no,Matches the earlier brief's CRS-sourced figure.
-"Department of Homeland Security, budget authority",191,"CRS R48704, Understanding the FY2026 DHS Budget Request",yes,"Budget authority available FY2025-2029, not ten-year outlays."
-Defense,150,"Enacted text, as recalled",no,Approximate. Verify against CBO publication 61570.

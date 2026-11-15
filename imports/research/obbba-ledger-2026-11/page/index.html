@@ -106,203 +106,173 @@ footer ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:5px}
 
 <div class="wrap">
 <header>
-  <div class="eyebrow">Public Law 119-21 · signed July 4, 2025 · figures as of November 14, 2026</div>
+  <div class="eyebrow">Public Law 119-21 · signed July 4, 2025 · government sources only · figures as of November 15, 2026</div>
   <h1>The One Big Beautiful Bill, in numbers</h1>
-  <p class="lede">The law cut taxes by about $4.5 trillion over ten years, cut health and food programs by about $1.1 trillion, and gave immigration enforcement its largest budget in history. This page lays out who gains, who loses, what has happened in the first 16 months, and what is still scheduled.</p>
+  <p class="lede">The law cut taxes by $4.5 trillion over ten years, cut direct spending by $1.1 trillion, and gave immigration enforcement its largest budget in history. Every figure here comes from a federal agency, Congress’s own scorekeepers or its research and audit arms.</p>
   <div class="tiles">
     <div class="tile"><div class="v">+$3.4T</div><div class="l">added to deficits, 2025–2034, before interest</div><div class="s">CBO</div></div>
     <div class="tile"><div class="v">63.9%</div><div class="l">of the net gain in household resources goes to the top tenth</div><div class="s">CBO</div></div>
-    <div class="tile"><div class="v">10M</div><div class="l">more people uninsured by 2034</div><div class="s">CBO</div></div>
+    <div class="tile"><div class="v">10M</div><div class="l">more people uninsured in 2034</div><div class="s">CBO via CRS</div></div>
     <div class="tile"><div class="v">$74.85B</div><div class="l">for ICE, on top of a $10B annual budget</div><div class="s">CRS</div></div>
   </div>
 </header>
 
 <section>
-  <div class="sec-head"><div class="eyebrow">The tax side</div><h2>Every major tax break, and what paid for part of them</h2>
-  <p>Most of the cost comes from making the 2017 tax cuts permanent. The new breaks for tips, overtime, seniors and car loans are small by comparison and expire after 2028. Bars to the left raise revenue.</p></div>
+  <div class="sec-head"><div class="eyebrow">The cost</div><h2>$4.5 trillion in tax cuts, $1.1 trillion in spending cuts</h2>
+  <p>The Congressional Budget Office and the Joint Committee on Taxation scored the law against the budget as it stood in January 2025. The spending cuts cover about a quarter of the lost revenue. Borrowing covers the rest, and the interest on that borrowing adds another $718 billion.</p></div>
   <figure>
-    <figcaption><h3>Ten-year cost of the main tax provisions</h3><div class="sub">Billions of dollars, fiscal 2025–2034. Right adds to the deficit, left reduces it.</div></figcaption>
-    <div class="legend"><span><i style="background:var(--loss)"></i>Costs revenue (tax cut)</span><span><i style="background:var(--gain)"></i>Raises revenue</span></div>
-    <div id="c-prov"></div>
-    <div class="src">Source: Bipartisan Policy Center tax provisions explorer, from Joint Committee on Taxation scores. * temporary provision.</div>
-  </figure>
-  <figure>
-    <figcaption><h3>The spending side</h3><div class="sub">Billions of dollars over ten years. Cuts to the left, new spending to the right.</div></figcaption>
-    <div id="c-spend"></div>
-    <div class="src">Sources: CBO via KFF (Medicaid), CBO (SNAP), CRS R48704 (homeland security budget authority), enacted text (defense, approximate).</div>
+    <figcaption><h3>How the ten-year cost adds up</h3><div class="sub">Billions of dollars, fiscal 2025–2034. Right adds to the deficit.</div></figcaption>
+    <div id="c-cost"></div>
+    <div class="src">Sources: CBO, Estimated Budgetary Effects of Public Law 119-21 (July 21, 2025); CBO, Effects on Deficits and the Debt of Public Law 119-21 (Aug. 4, 2025). CBO puts debt held by the public 9.5 percentage points of GDP higher at the end of 2034. The law also raised the debt limit by $5 trillion, to $41.1 trillion (CRS).</div>
   </figure>
 </section>
 
 <section>
   <div class="sec-head"><div class="eyebrow">Who gains, who loses</div><h2>The bottom tenth loses $1,214 a year. The top tenth gains $13,622.</h2>
-  <p>The Congressional Budget Office combined the tax cuts with the Medicaid and food-assistance cuts and measured the net effect on each tenth of households. The bottom two tenths end up with less. Everyone from the middle up gains, and the gains grow with income.</p></div>
+  <p>CBO combined the tax cuts with the Medicaid and food-assistance cuts and measured the net effect on each tenth of households. The bottom two tenths end up with less. Everyone from the middle up gains, and the gains grow with income.</p></div>
   <figure>
     <figcaption><h3>Average yearly change in household resources, 2026–2034</h3><div class="sub">By income decile, taxes and benefits combined, 2025 dollars.</div></figcaption>
     <div class="seg" role="group" aria-label="Unit"><button id="u-d" aria-pressed="true">Dollars</button><button id="u-p" aria-pressed="false">% of income</button></div>
     <div id="c-dec"></div>
-    <div class="src">Source: CBO, “How the 2025 Reconciliation Act Will Affect the Distribution of Resources Available to Households,” Aug. 11, 2025.</div>
+    <div class="src">Source: CBO, How the 2025 Reconciliation Act (P.L. 119-21) Will Affect the Distribution of Resources Available to Households (Aug. 11, 2025). Excludes tariffs, interest on the added debt and economic feedback.</div>
   </figure>
-  <div class="two">
-    <figure>
-      <figcaption><h3>Average federal tax cut in 2026</h3><div class="sub">Compared with letting the 2017 cuts expire. Taxes only, no benefit cuts.</div></figcaption>
-      <div id="c-itep1"></div>
-      <div class="src">Source: ITEP microsimulation model, Oct. 2026. ITEP reports the top 1% figure as “more than $70,000.”</div>
-    </figure>
-    <figure>
-      <figcaption><h3>Net change in taxes and costs in 2026</h3><div class="sub">Adds tariff and price effects and the lapsed health-insurance credits. Right means paying more.</div></figcaption>
-      <div id="c-itep2"></div>
-      <div class="src">Source: ITEP, Oct. 2026. Includes policies outside this law. ITEP is a left-leaning tax research group.</div>
-    </figure>
-  </div>
 </section>
 
 <section>
-  <div class="sec-head"><div class="eyebrow">The one percent</div><h2>What the law does for the highest earners</h2>
-  <p>ITEP defines the top 1% in 2026 as households above $960,600, averaging $2.85 million in income. On a taxes-only basis they receive more than $70,000 each this year. They are the only income group still ahead after tariffs and price increases are counted.</p></div>
+  <div class="sec-head"><div class="eyebrow">The one percent</div><h2>The top 1% get 24% of the tax cut. The bottom 60% get 13%.</h2>
+  <p>The Joint Committee on Taxation, Congress’s official tax scorekeeper, split the 2027 tax cut by income group. Of $545 billion, $131.5 billion goes to the top 1%, who start at about $526,000 in size-adjusted income. The top 0.1%, above about $2.04 million, get $59.9 billion.</p></div>
+  <figure>
+    <figcaption><h3>Who receives the 2027 tax cut</h3><div class="sub">Billions of dollars, by income group. The first four rows are fifths of taxpayers; the rest split the top fifth.</div></figcaption>
+    <div id="c-jct"></div>
+    <div class="src">Source: Joint Committee on Taxation, distribution of the tax provisions in the Senate substitute to H.R. 1 (JCX-33-25, 2025). This is the version the Senate passed, scored just before enactment. JCT’s table gives totals, not a dollar amount per household.</div>
+  </figure>
   <ul class="facts">
-    <li><b>$70,000+</b><span>Average 2026 tax cut for the top 1%, against $1,160 for the middle fifth (ITEP).</span></li>
-    <li><b>$2.3T</b><span>Ten-year cost of the provisions whose benefits flow mostly to the top 10%: business tax cuts, the pass-through deduction, the top-rate cut, and the estate tax cut (Center for American Progress, from JCT scores).</span></li>
-    <li><b>≈ $1 : $1</b><span>For each dollar cut from programs serving low-income households, the top 1% receive about a dollar in tax cuts over the decade (CAP analysis of JCT and CBO data, reported by NBC News).</span></li>
-    <li><b>$15M</b><span>Estate tax exemption per person from 2026, $30 million for a couple, made permanent and indexed to inflation. Ten-year cost: $212 billion.</span></li>
-    <li><b>37%</b><span>Top income tax rate made permanent. It would have returned to 39.6% in 2026.</span></li>
-    <li><b>0–8%</b><span>Effective federal tax rates ITEP found for Meta, Amazon, Alphabet and Tesla after the law, driven by full expensing of equipment and research.</span></li>
+    <li><b>$113.6B</b><span>Share of the 2027 cut going to tax units with income of $1 million or more, 20.8% of the total (JCT).</span></li>
+    <li><b>31.1% → 27.8%</b><span>Average federal tax rate for the $1 million-and-over group, before and after. For all taxpayers it falls from 20.9% to 18.7% (JCT).</span></li>
+    <li><b>+$0.5B</b><span>Tax units under $15,000 pay more in total in 2027, not less, a 9.7% increase. By 2029 the $15,000–$30,000 group also pays slightly more (JCT).</span></li>
+    <li><b>$15M</b><span>Estate and gift tax exemption per person from 2026, indexed. It had been set to fall to about $7.14 million (CRS).</span></li>
+    <li><b>37%</b><span>Top income tax rate made permanent, along with the 20% deduction for pass-through business income and immediate write-offs for equipment bought after January 19, 2025 (CRS).</span></li>
   </ul>
 </section>
 
 <section>
   <div class="sec-head"><div class="eyebrow">The president</div><h2>How Donald Trump stands to benefit</h2>
-  <p>There is no reliable dollar figure for what the law saves Trump personally. His current tax returns are not public, and I found no independent estimate. What can be shown is which provisions fit the way his wealth is held, and separately, how his net worth has changed in office.</p></div>
+  <p>No government body has estimated what the law saves Trump personally, so there is no figure to report. His tax returns are not public. His annual financial disclosure to the Office of Government Ethics, certified June 29, 2026, lists assets and income in broad ranges and does not show tax owed.</p></div>
   <div class="tw"><table>
-    <thead><tr><th>Provision</th><th>What it does</th><th>Why it fits his holdings</th></tr></thead>
+    <thead><tr><th>Provision</th><th>What the law did</th><th>Who it applies to</th></tr></thead>
     <tbody>
-      <tr><td>Pass-through deduction (Sec. 199A)</td><td>20% deduction on qualified business income, made permanent. $737B over ten years.</td><td>The Trump Organization is a collection of several hundred pass-through entities, and real estate qualifies.</td></tr>
-      <tr><td>100% bonus depreciation</td><td>Immediate write-off of qualifying property, restored permanently for assets acquired after Jan. 19, 2025.</td><td>Applies to building improvements, golf course equipment and aircraft.</td></tr>
-      <tr><td>Business interest deduction</td><td>Limit calculated before depreciation again, allowing larger interest write-offs.</td><td>Favors debt-financed real estate.</td></tr>
-      <tr><td>Estate tax exemption</td><td>$15M per person, permanent.</td><td>Shields roughly $3 million more per person from the 40% estate tax than pre-2017 law would have. Small next to a multibillion-dollar estate.</td></tr>
-      <tr><td>Top rate at 37%</td><td>Avoids a return to 39.6%.</td><td>Applies to ordinary income above about $640,000.</td></tr>
-      <tr><td>Opportunity zones</td><td>Program made permanent with new zones from 2027.</td><td>A capital-gains deferral used heavily by real estate developers.</td></tr>
+      <tr><td>Pass-through deduction (Sec. 199A)</td><td>20% deduction on qualified business income made permanent.</td><td>Owners of partnerships, S corporations and sole proprietorships.</td></tr>
+      <tr><td>Bonus depreciation</td><td>100% first-year write-off for qualifying property acquired after Jan. 19, 2025.</td><td>Businesses buying equipment and certain improvements.</td></tr>
+      <tr><td>Estate and gift tax</td><td>Exemption raised to $15 million per person instead of falling to about $7.14 million.</td><td>Estates above the old threshold.</td></tr>
+      <tr><td>Top rate</td><td>37% made permanent.</td><td>Filers in the top bracket.</td></tr>
+      <tr><td>Opportunity zones</td><td>Capital-gains incentive made permanent and expanded.</td><td>Investors in designated areas.</td></tr>
     </tbody>
   </table></div>
-  <figure>
-    <figcaption><h3>Trump’s estimated net worth</h3><div class="sub">Billions of dollars, Forbes estimates. This is wealth gained while in office, not money from the tax law.</div></figcaption>
-    <div id="c-nw"></div>
-    <div class="src">Source: Forbes, Sept. 2026, via Time. Forbes attributes most of the rise to crypto ventures (memecoin, stablecoin, World Liberty Financial tokens) and overseas licensing deals. His 2025 disclosure reported over $1 billion in crypto-related income.</div>
-  </figure>
-  <p class="note">The two things are easy to blur. The tax provisions lower what he and his heirs owe going forward by an unknown amount. The $2.7 billion rise since the 2024 election came mainly from crypto and licensing, which the bill did not create.</p>
+  <p class="note">These provisions favor people who own businesses through pass-through entities, hold real estate and expect a large estate. Whether and how much each one lowers Trump’s own taxes cannot be established from government records. Private estimates of his net worth exist, but they are not government data and are left out here.</p>
 </section>
 
 <section>
-  <div class="sec-head"><div class="eyebrow">Health and food</div><h2>The cuts arrive slowly, then keep growing</h2>
-  <p>Medicaid loses $911 billion in federal funding over ten years, and nearly two thirds of that lands after 2030. Food assistance changed first: work requirements expanded in November 2025 and enrollment has fallen every month since.</p></div>
+  <div class="sec-head"><div class="eyebrow">Health and food</div><h2>Medicaid loses $990 billion. Food assistance rolls are down 5.5 million.</h2>
+  <p>The Medicaid cuts mostly start in 2027. Food assistance changed first, and the Agriculture Department’s own counts show enrollment falling every month since the law was signed.</p></div>
   <div class="two">
     <figure>
-      <figcaption><h3>Additional people without health insurance</h3><div class="sub">Millions, compared with prior law.</div></figcaption>
-      <div id="c-unins"></div>
-      <div class="src">Source: CBO, Aug. 2025, via NBC News.</div>
+      <figcaption><h3>Medicaid: where the cut comes from</h3><div class="sub">Billions of dollars in federal spending, fiscal 2025–2034.</div></figcaption>
+      <div id="c-mcaid"></div>
+      <div class="src">Source: CRS R48633, citing CBO. The three items shown are the largest parts of the total.</div>
     </figure>
     <figure>
-      <figcaption><h3>Federal Medicaid cuts by fiscal year</h3><div class="sub">Billions of dollars.</div></figcaption>
-      <div id="c-mcaid"></div>
-      <div class="src">Source: KFF analysis of CBO estimates.</div>
+      <figcaption><h3>SNAP: where the cut comes from</h3><div class="sub">Billions of dollars in federal spending, fiscal 2025–2034.</div></figcaption>
+      <div id="c-snapcut"></div>
+      <div class="src">Source: CRS R48552, citing CBO.</div>
     </figure>
   </div>
   <figure>
-    <figcaption><h3>People receiving SNAP, change since July 2025</h3><div class="sub">Millions. Georgia excluded for data problems.</div></figcaption>
+    <figcaption><h3>People receiving SNAP each month</h3><div class="sub">Millions, July 2025 to July 2026. The axis starts at zero.</div></figcaption>
     <div id="c-snap"></div>
-    <div class="src">Source: NBC News analysis of USDA data via the Center on Budget and Policy Priorities, through March 2026.</div>
+    <div class="src">Source: USDA Food and Nutrition Service, SNAP national monthly data, as of Oct. 9, 2026. Fiscal 2026 figures are preliminary.</div>
   </figure>
   <ul class="facts">
-    <li><b>4.1M</b><span>Fewer people on SNAP by March 2026. Arizona alone lost more than 450,000 recipients by May, many of them eligible but caught by new paperwork rules, according to advocates.</span></li>
-    <li><b>700+</b><span>Rural hospitals at risk of closing within two to three years (Center for Healthcare Quality and Payment Reform). Many were struggling before the law.</span></li>
-    <li><b>$50B vs $137B</b><span>The law’s rural health fund next to its estimated Medicaid cuts in rural areas (KFF). The fund ends after 2030 and the cuts do not.</span></li>
-    <li><b>996,000</b><span>Fewer jobs nationwide in 2029 from the Medicaid cuts, half of them in health care (Commonwealth Fund projection).</span></li>
-    <li><b>$4.7T</b><span>Projected addition to the national debt over the decade, including interest, in CBO’s February 2026 outlook.</span></li>
+    <li><b>−5.5M</b><span>Drop in SNAP recipients from July 2025 (41.6 million) to July 2026 (36.1 million), a 13.3% fall. USDA’s data do not record why people leave, and enrollment was already drifting down before the law.</span></li>
+    <li><b>10.0M</b><span>More people uninsured in 2034 from the health provisions, 7.5 million of them from the Medicaid changes (CBO, via CRS).</span></li>
+    <li><b>2.4M</b><span>Fewer people on SNAP in an average month from the work-requirement changes alone, as CBO projected (via CRS).</span></li>
+    <li><b>80 hours</b><span>Monthly work, study or service required of Medicaid expansion adults from December 31, 2026, with eligibility checks every six months from January 1, 2027 (CRS).</span></li>
   </ul>
 </section>
 
 <section>
   <div class="sec-head"><div class="eyebrow">Immigration enforcement</div><h2>ICE got seven years of budget in one bill</h2>
-  <p>The law gave the Department of Homeland Security $191 billion. ICE received $74.85 billion to spend through 2029, including $45 billion for detention. By July 2026 it had spent or committed $58 billion of that. Detention, deportations, deaths in custody and shootings by agents all rose. Some of that rise began in early 2025, before the money arrived.</p></div>
+  <p>The law gave the Department of Homeland Security $191 billion to spend through fiscal 2029. ICE received $74.85 billion, including $45 billion for detention. Detention, arrests, deportations and deaths in custody have all risen since. Some of that rise began in early 2025, before the money arrived.</p></div>
   <figure>
-    <figcaption><h3>Where the homeland security money went</h3><div class="sub">Billions of dollars. Law totals are multi-year; the ICE and immigration court baselines are one year.</div></figcaption>
+    <figcaption><h3>Where the homeland security money went</h3><div class="sub">Billions of dollars. Law totals are for fiscal 2025–2029; the two baselines are one year.</div></figcaption>
     <div id="c-fund"></div>
-    <div class="src">Sources: Congressional Research Service R48704; American Immigration Council.</div>
+    <div class="src">Source: Congressional Research Service R48704.</div>
   </figure>
   <div class="two">
     <figure>
-      <figcaption><h3>People held in ICE detention</h3><div class="sub">70.6% of those held in July 2026 had no criminal conviction.</div></figcaption>
-      <div id="c-det"></div>
-      <div class="src">Sources: Migration Policy Institute; Human Rights Watch; TRAC (July 11, 2026).</div>
-    </figure>
-    <figure>
-      <figcaption><h3>ICE deportations by fiscal year</h3><div class="sub">Thousands. DHS counts for 2025–26 include voluntary departures.</div></figcaption>
+      <figcaption><h3>ICE deportations</h3><div class="sub">Thousands per fiscal year. The second bar is the yearly average for 2022–2024.</div></figcaption>
       <div id="c-dep"></div>
-      <div class="src">Sources: ICE annual reports; DHS release, Nov. 12, 2026. TRAC found formal removals were 63% of the DHS total in July–Aug. 2026.</div>
+      <div class="src">Source: DHS release, Nov. 12, 2026. DHS gives fiscal 2021 as “just over 59,000” and 2022–2024 as 486,000 combined; the average is our division. DHS counts include voluntary departures.</div>
     </figure>
-  </div>
-  <div class="two">
     <figure>
-      <figcaption><h3>Deaths in ICE custody</h3><div class="sub">By administration. The current count covers about 21 months.</div></figcaption>
+      <figcaption><h3>Deaths in ICE custody by fiscal year</h3><div class="sub">Entries on ICE’s public death-reporting page. Fiscal 2026 runs only to Aug. 23, 2026.</div></figcaption>
       <div id="c-death"></div>
-      <div class="src">Source: Migration Policy Institute, Oct. 2026. Fiscal 2026 had 37 deaths, the most in ICE’s history. Calendar 2024 had 11; 2025 had 33 (KFF).</div>
-    </figure>
-    <figure>
-      <figcaption><h3>Shootings involving immigration agents</h3><div class="sub">Incidents per quarter since Jan. 20, 2025. Includes exchanges of fire and off-duty incidents.</div></figcaption>
-      <div id="c-shoot"></div>
-      <div class="src">Source: count of 41 incidents in Wikipedia’s sourced list, through Oct. 8, 2026; its summary cites at least 43 and 11 deaths. The Trace separately counts 32 incidents and 9 deaths.</div>
+      <div class="src">Source: ICE, Detainee Death Reporting (page updated Sept. 23, 2026). Counted by machine from the page; check against the page before citing.</div>
     </figure>
   </div>
   <ul class="facts">
-    <li><b>4 citizens</b><span>U.S. citizens killed by immigration agents in the list above: Ruben Ray Martinez, Keith Porter, Renée Good and Alex Pretti. DHS said agents acted in self-defense in most shootings. In several cases video, witnesses or prosecutors contradicted the official account and charges against the people shot were dropped.</span></li>
-    <li><b>134 → 272</b><span>Detention facilities in use, January 2025 to July 2026. ICE paid about $1.1 billion for commercial warehouses, then moved to sell seven of them.</span></li>
-    <li><b>1 every 8 days</b><span>Rate of deaths in ICE detention in the first half of 2026 (Human Rights Watch).</span></li>
-    <li><b>145,000</b><span>U.S. citizen children with at least one parent taken into ICE custody, January 2025 to April 2026. An estimated 22,000 were left with no parent at home (Brookings).</span></li>
-    <li><b>13,500</b><span>Cases in which federal judges ruled against ICE’s detention arguments by mid-October 2026 (Politico tally, via MPI).</span></li>
-    <li><b>491,000</b><span>ICE arrests in fiscal 2026, which DHS reports as an agency record and a result it sought.</span></li>
+    <li><b>39,314 → 67,204</b><span>ICE’s average daily detained population, January 20, 2025 to April 1, 2026, up 71% (GAO, from ICE data).</span></li>
+    <li><b>134 → 239</b><span>Authorized detention facilities over the same period, up 78%. ICE plans a further $38 billion acquisition program, partly to convert warehouses (GAO).</span></li>
+    <li><b>491,000</b><span>ICE arrests in fiscal 2026, nearly 475,000 of them administrative. DHS reports this and the 483,200 deportations as agency records and a result it sought.</span></li>
+    <li><b>$1.3B</b><span>Ceiling on the contract for Camp East Montana, a 5,000-bed tent facility at Fort Bliss. GAO found up to $11.5 million wasted in its first two weeks and about $7.5 million more paid for meals nobody needed.</span></li>
+    <li><b>No inspection</b><span>ICE housed people at Camp East Montana without the pre-occupancy inspection its own policy requires. The site opened without perimeter cameras, outdoor recreation space or room for attorney visits (GAO).</span></li>
+    <li><b>Homicide</b><span>A coroner’s ruling on one January 2026 death there, by asphyxia after staff used force. The contractor did not file the required reports and evidence was missing or destroyed (GAO). DHS agreed with all four GAO recommendations.</span></li>
   </ul>
+  <p class="note">There is no official national count of shootings by immigration agents in the sources used here, so this version has no shootings figure. Earlier drafts relied on news-based trackers for that.</p>
 </section>
 
 <section>
-  <div class="sec-head"><div class="eyebrow">The case for it</div><h2>What supporters point to</h2>
-  <p>The picture above leans on CBO and on critics’ analyses. These are the strongest numbers on the other side.</p></div>
+  <div class="sec-head"><div class="eyebrow">The case for it</div><h2>What the administration points to</h2>
+  <p>The Treasury analyzed the 2026 filing season, the first under the new law. Its numbers count who claimed each break, which is a different question from who got the most dollars.</p></div>
+  <figure>
+    <figcaption><h3>Filers claiming each new or expanded break</h3><div class="sub">Millions of filers, through the April 2026 deadline.</div></figcaption>
+    <div id="c-take"></div>
+    <div class="src">Source: U.S. Treasury, press release SB-0517 (June 2, 2026).</div>
+  </figure>
   <ul class="facts">
-    <li><b>62%</b><span>Share of taxpayers who would have faced a tax increase in 2026 if the 2017 cuts had expired (Tax Foundation).</span></li>
-    <li><b>$3,813</b><span>Average tax cut per filer in 2026, counting business cuts, falling to $2,590 in 2030 when temporary breaks end (Tax Foundation).</span></li>
-    <li><b>+0.7%</b><span>Long-run GDP and about 828,000 full-time-equivalent jobs, with growth offsetting 16% of the tax cuts’ cost (Tax Foundation).</span></li>
-    <li><b>~70%</b><span>Of filers getting a tax cut this year earned under $100,000 (Treasury). That counts people, not dollars.</span></li>
-    <li><b>$25,000</b><span>Maximum deduction for tips, with $12,500 for overtime and $6,000 for seniors, through 2028. A bartender earning $40,000 with $22,000 in tips saves about $2,400 a year (New York Times example).</span></li>
-    <li><b>Work rules</b><span>Supporters argue the Medicaid and SNAP requirements reserve benefits for people who need them and reduce fraud and improper payments.</span></li>
+    <li><b>97%</b><span>Of filers got a tax cut compared with letting the 2017 cuts expire. 96% of them earned under $200,000 and nearly 70% under $100,000 (Treasury).</span></li>
+    <li><b>$82B</b><span>Individual relief claimed through the April deadline from the law’s new provisions (Treasury).</span></li>
+    <li><b>$815</b><span>Average cut for filers earning $50,000–$100,000 who claimed one of the new deductions; over $1,250 for those at $100,000–$200,000 (Treasury).</span></li>
+    <li><b>$7,000</b><span>Average tips deduction, claimed by 7.5 million filers, 90% of them under $100,000. The average overtime deduction was over $3,100 (Treasury).</span></li>
+    <li><b>$3,276</b><span>Average refund in the 2026 filing season, up 11.5% from $2,939 (IRS).</span></li>
   </ul>
 </section>
 
 <section>
   <div class="sec-head"><div class="eyebrow">Schedule</div><h2>What has taken effect and what is coming</h2></div>
   <ul class="tl">
-    <li class="done"><time>Jul 4, 2025</time><span>Signed. Tax cuts apply to the 2025 tax year. Homeland security funding becomes available.</span></li>
-    <li class="done"><time>Sep 30, 2025</time><span>Electric vehicle tax credits end.</span></li>
-    <li class="done"><time>Nov 1, 2025</time><span>SNAP work requirements extend to most adults up to 64, including veterans and homeless people.</span></li>
-    <li class="done"><time>Jan 1, 2026</time><span>$15 million estate exemption begins. Enhanced health-insurance credits lapse, which the law did not extend.</span></li>
-    <li class="done"><time>Jul 1, 2026</time><span>Federal student loan limits and repayment plans change.</span></li>
-    <li><time>Jan 1, 2027</time><span>Medicaid work requirements begin: 80 hours a month of work, school or volunteering for many adults.</span></li>
-    <li><time>Oct 2027</time><span>States with high error rates start paying 5% to 15% of SNAP benefit costs.</span></li>
-    <li><time>Oct 1, 2028</time><span>Limits on state provider taxes start tightening, squeezing how states fund Medicaid.</span></li>
+    <li class="done"><time>Jul 4, 2025</time><span>Signed. Tax changes apply to the 2025 tax year. Homeland security funding becomes available.</span></li>
+    <li class="done"><time>Sep 30, 2025</time><span>Clean vehicle tax credit ends for vehicles acquired after this date.</span></li>
+    <li class="done"><time>Jan 1, 2026</time><span>$15 million estate and gift exemption begins.</span></li>
+    <li><time>Dec 31, 2026</time><span>Medicaid work requirement begins for expansion adults aged 19–64.</span></li>
+    <li><time>Jan 1, 2027</time><span>Medicaid eligibility checks every six months. States start paying 75% of SNAP administrative costs in fiscal 2027.</span></li>
+    <li><time>Fiscal 2028</time><span>States start paying a share of SNAP benefit costs.</span></li>
     <li><time>End of 2028</time><span>Tips, overtime, senior and car-loan deductions expire.</span></li>
-    <li><time>2030</time><span>State and local tax deduction cap drops from $40,000 back to $10,000. Rural health fund runs out.</span></li>
+    <li><time>2030</time><span>State and local tax deduction cap returns to $10,000 from $40,000.</span></li>
   </ul>
 </section>
 
 <footer>
   <div class="eyebrow">Sources and limits</div>
-  <p>Projections are estimates and differ by model. CBO is nonpartisan. The Tax Foundation generally favors lower taxes; ITEP and the Center for American Progress lean left. Counts of shootings and custody deaths come from trackers that use different definitions, so totals do not match exactly. The law is not the only cause of what followed: tariffs, the lapsed insurance credits and a second enforcement law in 2026 also shaped these numbers.</p>
+  <p>Every figure is from a government source: CBO, the Joint Committee on Taxation, the Congressional Research Service, GAO, the Treasury, the IRS, USDA, DHS and ICE. Projections are estimates. Treasury and DHS releases are written by the administration that passed the law and present its case. Government sources could not answer four things asked for: a per-household tax cut for the top 1%, the president’s personal savings, shootings by immigration agents, and the share of detainees without a criminal conviction.</p>
   <ul>
-    <li><a href="https://www.cbo.gov/publication/61570">CBO budget estimate</a> and <a href="https://www.cbo.gov/interactive/2025-reconciliation-act">distribution tool</a></li>
-    <li><a href="https://bipartisanpolicy.org/explainer/one-big-beautiful-bill-act-tax-provisions-explorer/">Bipartisan Policy Center provisions explorer</a></li>
-    <li><a href="https://itep.org/impact-of-trump-policies-on-taxes-and-consumer-costs-2026/">ITEP, taxes and costs in 2026</a> · <a href="https://taxfoundation.org/research/all/federal/big-beautiful-bill-senate-gop-tax-plan/">Tax Foundation analysis</a></li>
-    <li><a href="https://www.nbcnews.com/news/us-news/trump-big-beautiful-bill-act-tax-medicaid-snap-one-year-rcna351211">NBC News one-year review</a> · <a href="https://www.kff.org/medicaid/a-closer-look-at-the-50-billion-rural-health-transformation-program/">KFF on Medicaid and rural health</a></li>
-    <li><a href="https://www.congress.gov/crs-product/R48704">CRS on homeland security funding</a> · <a href="https://www.americanimmigrationcouncil.org/fact-sheet/the-cost-of-immigration-enforcement-and-border-security/">American Immigration Council</a></li>
-    <li><a href="https://www.migrationpolicy.org/journal/policy-beat/ice-mandatory-detention-deaths">Migration Policy Institute on detention and deaths</a> · <a href="https://tracreports.org/immigration/quickfacts/">TRAC</a> · <a href="https://www.dhs.gov/news/2026/11/12/ice-breaks-records-fiscal-year-2026-most-arrests-and-deportations-agencys-history">DHS fiscal 2026 release</a></li>
-    <li><a href="https://en.wikipedia.org/wiki/List_of_shootings_by_U.S._immigration_agents_in_the_second_Trump_administration">List of shootings by immigration agents</a> · <a href="https://www.thetrace.org/2025/12/immigration-ice-shootings-guns-tracker/">The Trace tracker</a></li>
-    <li><a href="https://time.com/article/2026/11/10/trump-net-worth-second-term/">Time on Trump’s net worth</a>, citing Forbes</li>
+    <li><a href="https://www.cbo.gov/publication/61570">CBO budget estimate</a> · <a href="https://www.cbo.gov/publication/61466">CBO on deficits and debt</a> · <a href="https://www.cbo.gov/interactive/2025-reconciliation-act">CBO distribution tool</a></li>
+    <li><a href="https://www.jct.gov/getattachment/1332c86f-04b9-4b89-a418-1df4804e7427/x-33-25.pdf">Joint Committee on Taxation distribution tables (JCX-33-25)</a></li>
+    <li>CRS reports <a href="https://www.everycrsreport.com/reports/R48611.html">R48611 (tax)</a>, <a href="https://www.everycrsreport.com/reports/R48633.html">R48633 (health)</a>, <a href="https://www.everycrsreport.com/reports/R48552.html">R48552 (SNAP)</a>, <a href="https://www.congress.gov/crs-product/R48704">R48704 (homeland security)</a></li>
+    <li><a href="https://www.fna.usda.gov/pd/supplemental-nutrition-assistance-program-snap">USDA SNAP data tables</a></li>
+    <li><a href="https://home.treasury.gov/news/press-releases/sb0517">Treasury filing-season analysis</a> · <a href="https://www.irs.gov/newsroom/filing-season-statistics-for-week-ending-may-8-2026">IRS filing season statistics</a></li>
+    <li><a href="https://files.gao.gov/reports/GAO-26-108886/index.html">GAO-26-108886 on Camp East Montana</a></li>
+    <li><a href="https://www.dhs.gov/news/2026/11/12/ice-breaks-records-fiscal-year-2026-most-arrests-and-deportations-agencys-history">DHS fiscal 2026 release</a> · <a href="https://www.ice.gov/detain/detainee-death-reporting">ICE detainee death reporting</a></li>
+    <li><a href="https://www.oge.gov/web/oge.nsf/Resources/Now+Available:+The+President%E2%80%99s+and+Vice+President%E2%80%99s+certified+annual+financial+disclosure+reports">Office of Government Ethics, the president’s financial disclosure</a></li>
   </ul>
 </footer>
 </div>
@@ -356,15 +326,7 @@ const usd=v=>(v<0?'−$':'$')+Math.abs(v).toLocaleString('en-US');
 const sgn=v=>(v<0?'−$':'+$')+Math.abs(v).toLocaleString('en-US');
 const bn=v=>(v<0?'−$':'$')+(Math.abs(v)>=1000?(Math.abs(v)/1000).toFixed(2).replace(/0$/,'')+'T':Math.abs(v)+'B');
 
-hbar($('c-prov'),[
- ['Lower individual tax rates',2190],['Larger standard deduction',1420],['Alternative minimum tax relief',1360],
- ['Child tax credit',817],['Pass-through business deduction',737],['Bonus depreciation',363],['Itemized deduction limit change',255],
- ['Estate tax exemption',212],['Research expensing',141],['Factory expensing*',141],['Senior deduction*',93],['No tax on overtime*',90],
- ['No tax on tips*',32],['Car loan interest*',31],['Trump accounts*',15],
- ['Home energy credits ended',-105],['Clean electricity credit ended',-166],['Health insurance credit limits',-185],
- ['Electric vehicle credits ended',-191],['Misc. itemized deductions',-233],['State and local deduction cap*',-946],['Personal exemptions repealed',-1900]
-],{fmt:bn,pos:'var(--loss)',neg:'var(--gain)'});
-hbar($('c-spend'),[['Medicaid',-911],['SNAP food assistance',-186],['Homeland security and immigration',191],['Defense',150,'≈$150B']],{fmt:bn,pos:'var(--gain)',neg:'var(--loss)'});
+hbar($('c-cost'),[['Revenue lost to tax cuts',4500,'+$4.5T'],['Direct spending cuts',-1100,'−$1.1T'],['Net added to deficits',3400,'+$3.4T'],['Interest on the added debt',718,'+$718B'],['Total with interest',4100,'+$4.1T']],{fmt:bn,pos:'var(--loss)',neg:'var(--gain)'});
 
 const DEC=['Lowest 10%','2nd','3rd','4th','5th','6th','7th','8th','9th','Highest 10%'];
 const D$=[-1214,-392,23,379,797,1211,1673,2213,3208,13622],Dp=[-3.1,-0.6,0.1,0.4,0.8,1.0,1.2,1.3,1.5,2.7];
@@ -372,20 +334,17 @@ function dec(p){hbar($('c-dec'),DEC.map((l,i)=>[l,p?Dp[i]:D$[i]]),{fmt:p?v=>(v<0
   $('u-d').setAttribute('aria-pressed',!p);$('u-p').setAttribute('aria-pressed',!!p);}
 dec(0);$('u-d').onclick=()=>dec(0);$('u-p').onclick=()=>dec(1);
 
-hbar($('c-itep1'),[['Bottom 20%',-20,'+$20 tax'],['Second 20%',370],['Middle 20%',1160],['Fourth 20%',2570],['Next 15%',5260],['Next 4%',16880],['Top 1%',70000,'$70,000+']],{fmt:usd});
-hbar($('c-itep2'),[['Bottom 20%',750],['Second 20%',1590],['Middle 20%',1700],['Fourth 20%',1730],['Next 15%',1690],['Next 4%',1120],['Top 1%',-12560]],{fmt:sgn,pos:'var(--loss)',neg:'var(--gain)'});
+const b1=v=>'$'+v.toFixed(1)+'B';
+hbar($('c-jct'),[['Lowest fifth',4.1],['Second fifth',21.6],['Middle fifth',44.1],['Fourth fifth',97.2],['80th–90th percentile',77.0],['90th–95th',57.1],['95th–99th',112.6],['99th–99.9th',71.6],['Top 0.1%',59.9]],{fmt:b1});
 
-hbar($('c-nw'),[['2024, at the election',3.9],['Feb. 2026',7.3],['Sept. 2026',7.0]],{fmt:v=>'$'+v.toFixed(1)+'B',pos:'var(--mark)'});
+hbar($('c-mcaid'),[['All Medicaid provisions',-989.7],['Work requirement',-325.6],['Provider tax limits',-191.1],['State directed payments',-149.4]],{fmt:v=>'−$'+Math.abs(v).toFixed(1)+'B'});
+hbar($('c-snapcut'),[['All nutrition provisions',-186.7],['Work requirement changes',-68.6],['State share of benefit costs',-40.8],['Thrifty Food Plan limits',-37.3],['State share of admin costs',-24.7]],{fmt:v=>'−$'+Math.abs(v).toFixed(1)+'B'});
+plot($('c-snap'),{type:'line',aria:'People receiving SNAP each month',labels:['Jul 25','Aug','Sep','Oct','Nov','Dec','Jan 26','Feb','Mar','Apr','May','Jun','Jul 26'],values:[41.6,41.4,41.2,40.7,40.0,39.2,38.6,37.9,37.5,37.1,36.7,36.5,36.1],fmt:v=>v.toFixed(1)+'M',color:'var(--loss)'});
 
-plot($('c-unins'),{type:'line',aria:'Additional uninsured people by year',labels:['2026','2027','2028','2029','2030','2031','2032','2033','2034'],values:[1.3,5.2,6.8,8.6,9.2,9.5,9.6,9.8,10],fmt:v=>v+'M',color:'var(--loss)'});
-plot($('c-mcaid'),{aria:'Federal Medicaid cuts by fiscal year',labels:['2025','2026','2027','2028','2029','2030','2031','2032','2033','2034'],values:[-0.045,-17,-46,-61,-92,-111,-128,-139,-151,-165],fmt:v=>Math.abs(v)<1?'−$45M':'−$'+Math.abs(v)+'B',color:'var(--loss)'});
-plot($('c-snap'),{type:'line',aria:'Change in SNAP recipients since July 2025',labels:['Aug 25','Sep','Oct','Nov','Dec','Jan 26','Feb','Mar'],values:[-0.19,-0.41,-0.89,-1.6,-2.4,-3.0,-3.5,-4.1],fmt:v=>'−'+Math.abs(v)+'M',color:'var(--loss)'});
-
-hbar($('c-fund'),[['Immigration courts, regular yearly budget',0.8],['ICE, regular yearly budget (2025)',10.0],['ICE detention, in the law',45],['Border wall, in the law',46.55],['ICE total, in the law',74.85],['All homeland security, in the law',191]],{fmt:v=>'$'+v+'B',pos:'var(--mark)'});
-plot($('c-det'),{aria:'People held in ICE detention',labels:['Jan 2025','Jan 2026','Apr 2026','Jul 2026'],values:[39000,71000,64000,65765],fmt:v=>v.toLocaleString('en-US'),color:'var(--mark)'});
-plot($('c-dep'),{aria:'ICE deportations by fiscal year',labels:['FY21','FY22','FY23','FY24','FY25','FY26'],values:[59,72,143,271,443,483],fmt:v=>v+'K',color:'var(--mark)'});
-hbar($('c-death'),[['Trump, first term (4 years)',49],['Biden (4 years)',26],['Trump, second term (to Oct. 2026)',60]],{fmt:v=>v,pos:'var(--loss)'});
-plot($('c-shoot'),{aria:'Shootings involving immigration agents per quarter',labels:['Q1 25','Q2','Q3','Q4','Q1 26','Q2','Q3','Q4*'],values:[4,1,7,11,8,4,5,1],fmt:v=>v,color:'var(--loss)'});
+hbar($('c-fund'),[['ICE detention, regular yearly budget (2025)',2.427,'$2.4B'],['ICE, regular yearly budget (2025)',10.042,'$10.0B'],['ICE detention, in the law',45,'$45B'],['Border wall, in the law',46.55,'$46.55B'],['Customs and Border Protection, in the law',64.733,'$64.7B'],['ICE total, in the law',74.85,'$74.85B'],['All homeland security, in the law',191.02,'$191B']],{fmt:v=>'$'+v+'B',pos:'var(--mark)'});
+plot($('c-dep'),{aria:'ICE deportations as reported by DHS',labels:['FY21','FY22–24 avg','FY25','FY26'],values:[59,162,443,483],fmt:v=>v+'K',color:'var(--mark)'});
+plot($('c-death'),{aria:'Deaths in ICE custody by fiscal year',labels:['FY18','FY19','FY20','FY21','FY22','FY23','FY24','FY25','FY26'],values:[6,8,21,5,3,4,12,24,36],fmt:v=>v,color:'var(--loss)'});
+hbar($('c-take'),[['Doubled standard deduction',127],['Child tax credit',40,'~40M'],['Senior deduction',35],['No tax on overtime',29],['No tax on tips',7.5],['Trump accounts opened',5.5],['Car loan interest',1.4]],{fmt:v=>v+'M',pos:'var(--mark)'});
 
 const tip=$('tip');
 document.addEventListener('pointermove',e=>{const t=e.target.closest&&e.target.closest('[data-tip]');
