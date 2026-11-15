@@ -1,0 +1,794 @@
+[
+{
+"key": "unemp",
+"label": "ILO unemployment rate",
+"value": 8.2,
+"unit": "%",
+"period": "Q3 2026",
+"source": "INSEE, Labour Force Survey, Q3 2026 (10 Nov 2026)",
+"url": "https://www.insee.fr/en/statistiques/9132864"
+},
+{
+"key": "unemp_yoy",
+"label": "Unemployment rate, change over one year",
+"value": 0.4,
+"unit": "points",
+"period": "Q3 2026 vs Q3 2025",
+"source": "INSEE, Labour Force Survey, Q3 2026 (10 Nov 2026)",
+"url": "https://www.insee.fr/en/statistiques/9132864"
+},
+{
+"key": "unemp_n",
+"label": "Unemployed people",
+"value": 2.63,
+"unit": "million",
+"period": "Q3 2026",
+"source": "INSEE, Labour Force Survey, Q3 2026 (10 Nov 2026)",
+"url": "https://www.insee.fr/en/statistiques/9132864"
+},
+{
+"key": "unemp_add",
+"label": "Extra unemployed people over one year",
+"value": 150,
+"unit": "thousand",
+"period": "Q3 2026 vs Q3 2025",
+"source": "INSEE, Labour Force Survey, Q3 2026 (10 Nov 2026)",
+"url": "https://www.insee.fr/en/statistiques/9132864"
+},
+{
+"key": "youth",
+"label": "Unemployment rate, ages 15-24",
+"value": 21.0,
+"unit": "%",
+"period": "Q3 2026",
+"source": "INSEE, Labour Force Survey, Q3 2026 (10 Nov 2026)",
+"url": "https://www.insee.fr/en/statistiques/9132864"
+},
+{
+"key": "lt",
+"label": "Long-term unemployed (one year or more)",
+"value": 680,
+"unit": "thousand",
+"period": "Q3 2026",
+"source": "INSEE, Labour Force Survey, Q3 2026 (10 Nov 2026)",
+"url": "https://www.insee.fr/en/statistiques/9132864"
+},
+{
+"key": "neet",
+"label": "Ages 15-29 not in employment, education or training",
+"value": 13.3,
+"unit": "%",
+"period": "Q3 2026",
+"source": "INSEE, Labour Force Survey, Q3 2026 (10 Nov 2026)",
+"url": "https://www.insee.fr/en/statistiques/9132864"
+},
+{
+"key": "emp55",
+"label": "Employment rate, ages 55-64",
+"value": 62.0,
+"unit": "%",
+"period": "Q3 2026",
+"source": "INSEE, Labour Force Survey, Q3 2026 (10 Nov 2026)",
+"url": "https://www.insee.fr/en/statistiques/9132864"
+},
+{
+"key": "gdp_q3",
+"label": "GDP growth, quarter on quarter",
+"value": -0.1,
+"unit": "%",
+"period": "Q3 2026",
+"source": "INSEE, quarterly national accounts, first estimate Q3 2026 (30 Oct 2026)",
+"url": "https://www.insee.fr/en/statistiques/9113712"
+},
+{
+"key": "gdp_q2",
+"label": "GDP growth, quarter on quarter",
+"value": 0.0,
+"unit": "%",
+"period": "Q2 2026",
+"source": "INSEE, quarterly national accounts, first estimate Q3 2026 (30 Oct 2026)",
+"url": "https://www.insee.fr/en/statistiques/9113712"
+},
+{
+"key": "gdp_q1",
+"label": "GDP growth, quarter on quarter",
+"value": -0.2,
+"unit": "%",
+"period": "Q1 2026",
+"source": "INSEE, quarterly national accounts, first estimate Q3 2026 (30 Oct 2026)",
+"url": "https://www.insee.fr/en/statistiques/9113712"
+},
+{
+"key": "gdp_2025",
+"label": "GDP growth, full year",
+"value": 0.9,
+"unit": "%",
+"period": "2025",
+"source": "INSEE, quarterly national accounts, first estimate Q3 2026 (30 Oct 2026)",
+"url": "https://www.insee.fr/en/statistiques/9113712"
+},
+{
+"key": "gdp_carry",
+"label": "Growth already locked in for 2026 (carry-over)",
+"value": 0.2,
+"unit": "%",
+"period": "2026 after Q3",
+"source": "INSEE, quarterly national accounts, first estimate Q3 2026 (30 Oct 2026)",
+"url": "https://www.insee.fr/en/statistiques/9113712"
+},
+{
+"key": "inv_q3",
+"label": "Investment (GFCF), quarter on quarter",
+"value": -0.6,
+"unit": "%",
+"period": "Q3 2026",
+"source": "INSEE, quarterly national accounts, first estimate Q3 2026 (30 Oct 2026)",
+"url": "https://www.insee.fr/en/statistiques/9113712"
+},
+{
+"key": "exp_q3",
+"label": "Exports, quarter on quarter",
+"value": -1.7,
+"unit": "%",
+"period": "Q3 2026",
+"source": "INSEE, quarterly national accounts, first estimate Q3 2026 (30 Oct 2026)",
+"url": "https://www.insee.fr/en/statistiques/9113712"
+},
+{
+"key": "cons_q3",
+"label": "Household consumption, quarter on quarter",
+"value": 0.4,
+"unit": "%",
+"period": "Q3 2026",
+"source": "INSEE, quarterly national accounts, first estimate Q3 2026 (30 Oct 2026)",
+"url": "https://www.insee.fr/en/statistiques/9113712"
+},
+{
+"key": "manuf_q3",
+"label": "Manufacturing output, quarter on quarter",
+"value": -1.4,
+"unit": "%",
+"period": "Q3 2026",
+"source": "INSEE, quarterly national accounts, first estimate Q3 2026 (30 Oct 2026)",
+"url": "https://www.insee.fr/en/statistiques/9113712"
+},
+{
+"key": "pp_q2",
+"label": "Household purchasing power per consumption unit, quarter on quarter",
+"value": -0.5,
+"unit": "%",
+"period": "Q2 2026",
+"source": "INSEE, quarterly national accounts, first estimate Q3 2026 (30 Oct 2026)",
+"url": "https://www.insee.fr/en/statistiques/9113712"
+},
+{
+"key": "cpi",
+"label": "Consumer prices, year on year (provisional)",
+"value": 3.4,
+"unit": "%",
+"period": "October 2026",
+"source": "INSEE, consumer price index, provisional October 2026 (30 Oct 2026)",
+"url": "https://www.insee.fr/en/statistiques/9107975"
+},
+{
+"key": "cpi_prev",
+"label": "Consumer prices, year on year",
+"value": 3.1,
+"unit": "%",
+"period": "September 2026",
+"source": "INSEE, consumer price index, provisional October 2026 (30 Oct 2026)",
+"url": "https://www.insee.fr/en/statistiques/9107975"
+},
+{
+"key": "cpi_ya",
+"label": "Consumer prices, year on year",
+"value": 0.9,
+"unit": "%",
+"period": "October 2025",
+"source": "INSEE, consumer price index, provisional October 2026 (30 Oct 2026)",
+"url": "https://www.insee.fr/en/statistiques/9107975"
+},
+{
+"key": "energy",
+"label": "Energy prices, year on year (provisional)",
+"value": 24.1,
+"unit": "%",
+"period": "October 2026",
+"source": "INSEE, consumer price index, provisional October 2026 (30 Oct 2026)",
+"url": "https://www.insee.fr/en/statistiques/9107975"
+},
+{
+"key": "fresh",
+"label": "Fresh food prices, year on year (provisional)",
+"value": 8.0,
+"unit": "%",
+"period": "October 2026",
+"source": "INSEE, consumer price index, provisional October 2026 (30 Oct 2026)",
+"url": "https://www.insee.fr/en/statistiques/9107975"
+},
+{
+"key": "hicp",
+"label": "Harmonised index (HICP), year on year (provisional)",
+"value": 3.8,
+"unit": "%",
+"period": "October 2026",
+"source": "INSEE, consumer price index, provisional October 2026 (30 Oct 2026)",
+"url": "https://www.insee.fr/en/statistiques/9107975"
+},
+{
+"key": "diesel",
+"label": "Diesel pump price",
+"value": 2.37,
+"unit": "€ per litre",
+"period": "September 2026",
+"source": "Wikipedia, 2026 French civil unrest (citing ministries and press)",
+"url": "https://en.wikipedia.org/wiki/2026_French_civil_unrest"
+},
+{
+"key": "smic_h",
+"label": "Gross hourly minimum wage (Smic)",
+"value": 12.31,
+"unit": "€",
+"period": "since 1 June 2026",
+"source": "BBC News, 5 Nov 2026",
+"url": "https://www.bbc.com/news/articles/ckx2qzv835pgo"
+},
+{
+"key": "smic_old",
+"label": "Net monthly minimum wage before the rise",
+"value": 1477.93,
+"unit": "€",
+"period": "November 2026",
+"source": "Sortiraparis, 9 Nov 2026 (social conference announcements)",
+"url": "https://www.sortiraparis.com/en/news/in-paris/articles/259646-minimum-wage-an-increase-from-december-1-2026-has-been-confirmed-what-to-expect"
+},
+{
+"key": "smic_new",
+"label": "Net monthly minimum wage after the rise (approx.)",
+"value": 1502,
+"unit": "€",
+"period": "from 1 December 2026",
+"source": "Sortiraparis, 9 Nov 2026 (social conference announcements)",
+"url": "https://www.sortiraparis.com/en/news/in-paris/articles/259646-minimum-wage-an-increase-from-december-1-2026-has-been-confirmed-what-to-expect"
+},
+{
+"key": "smic_rise",
+"label": "Minimum wage rise",
+"value": 1.6,
+"unit": "%",
+"period": "from 1 December 2026",
+"source": "Sortiraparis, 9 Nov 2026 (social conference announcements)",
+"url": "https://www.sortiraparis.com/en/news/in-paris/articles/259646-minimum-wage-an-increase-from-december-1-2026-has-been-confirmed-what-to-expect"
+},
+{
+"key": "smic_boost",
+"label": "Discretionary part of the rise",
+"value": 0.6,
+"unit": "points",
+"period": "from 1 December 2026",
+"source": "Sortiraparis, 9 Nov 2026 (social conference announcements)",
+"url": "https://www.sortiraparis.com/en/news/in-paris/articles/259646-minimum-wage-an-increase-from-december-1-2026-has-been-confirmed-what-to-expect"
+},
+{
+"key": "smic_gain",
+"label": "Net monthly gain (approx.)",
+"value": 24,
+"unit": "€",
+"period": "from 1 December 2026",
+"source": "Sortiraparis, 9 Nov 2026 (social conference announcements)",
+"url": "https://www.sortiraparis.com/en/news/in-paris/articles/259646-minimum-wage-an-increase-from-december-1-2026-has-been-confirmed-what-to-expect"
+},
+{
+"key": "cgt_ask",
+"label": "CGT demand: immediate minimum wage rise",
+"value": 10,
+"unit": "%",
+"period": "5 Nov 2026",
+"source": "Wikipedia, 2026 French civil unrest (citing ministries and press)",
+"url": "https://en.wikipedia.org/wiki/2026_French_civil_unrest"
+},
+{
+"key": "cfdt_ask",
+"label": "CFDT demand: extra net pay per month",
+"value": 100,
+"unit": "€",
+"period": "5 Nov 2026",
+"source": "BBC News, 5 Nov 2026",
+"url": "https://www.bbc.com/news/articles/ckx2qzv835pgo"
+},
+{
+"key": "debt",
+"label": "Public debt, share of GDP (approx.)",
+"value": 119,
+"unit": "% of GDP",
+"period": "end-June 2026",
+"source": "Wikipedia, 2026 French civil unrest (citing ministries and press)",
+"url": "https://en.wikipedia.org/wiki/2026_French_civil_unrest"
+},
+{
+"key": "debt_eur",
+"label": "Public debt",
+"value": 3.596,
+"unit": "€ trillion",
+"period": "end-June 2026",
+"source": "Wikipedia, 2026 French civil unrest (citing ministries and press)",
+"url": "https://en.wikipedia.org/wiki/2026_French_civil_unrest"
+},
+{
+"key": "debt_2025",
+"label": "Public debt, share of GDP",
+"value": 115.7,
+"unit": "% of GDP",
+"period": "end-2025",
+"source": "INSEE, general government accounts 2025 (May 2026)",
+"url": "https://www.insee.fr/fr/statistiques/8997691"
+},
+{
+"key": "def_2025",
+"label": "Public deficit",
+"value": 5.1,
+"unit": "% of GDP",
+"period": "2025",
+"source": "INSEE, general government accounts 2025 (May 2026)",
+"url": "https://www.insee.fr/fr/statistiques/8997691"
+},
+{
+"key": "def_2026",
+"label": "Public deficit, government forecast",
+"value": 5.4,
+"unit": "% of GDP",
+"period": "2026",
+"source": "Admirals budget explainer citing the government press file and Public Sénat",
+"url": "https://admiralmarkets.com/analytics/traders-blog/france-budget-2027-assembly-rejection-senate"
+},
+{
+"key": "def_2027",
+"label": "Public deficit, budget target",
+"value": 5.0,
+"unit": "% of GDP",
+"period": "2027",
+"source": "Admirals budget explainer citing the government press file and Public Sénat",
+"url": "https://admiralmarkets.com/analytics/traders-blog/france-budget-2027-assembly-rejection-senate"
+},
+{
+"key": "def_amend",
+"label": "Deficit implied by the Assembly amendments (minister estimate)",
+"value": 5.9,
+"unit": "% of GDP",
+"period": "2027",
+"source": "RFI, 5 Nov 2026",
+"url": "https://www.rfi.fr/en/france/20261105-french-mps-unanimously-reject-2027-budget-as-political-deadlock-deepens"
+},
+{
+"key": "debt_2027",
+"label": "Public debt in the draft budget",
+"value": 121.7,
+"unit": "% of GDP",
+"period": "2027",
+"source": "Admirals budget explainer citing the government press file and Public Sénat",
+"url": "https://admiralmarkets.com/analytics/traders-blog/france-budget-2027-assembly-rejection-senate"
+},
+{
+"key": "spend",
+"label": "Public spending, share of GDP",
+"value": 57.3,
+"unit": "% of GDP",
+"period": "2025",
+"source": "INSEE, general government accounts 2025 (May 2026)",
+"url": "https://www.insee.fr/fr/statistiques/8997691"
+},
+{
+"key": "savings",
+"label": "New savings measures in the draft 2027 budget",
+"value": 43,
+"unit": "€ billion",
+"period": "2027",
+"source": "Admirals budget explainer citing the government press file and Public Sénat",
+"url": "https://admiralmarkets.com/analytics/traders-blog/france-budget-2027-assembly-rejection-senate"
+},
+{
+"key": "vote_no",
+"label": "National Assembly votes against the revenue part of the budget",
+"value": 458,
+"unit": "votes",
+"period": "4 Nov 2026",
+"source": "Admirals budget explainer citing the government press file and Public Sénat",
+"url": "https://admiralmarkets.com/analytics/traders-blog/france-budget-2027-assembly-rejection-senate"
+},
+{
+"key": "vote_yes",
+"label": "Votes in favour",
+"value": 0,
+"unit": "votes",
+"period": "4 Nov 2026",
+"source": "Admirals budget explainer citing the government press file and Public Sénat",
+"url": "https://admiralmarkets.com/analytics/traders-blog/france-budget-2027-assembly-rejection-senate"
+},
+{
+"key": "oat_peak",
+"label": "10-year government bond yield, level passed on 21 October",
+"value": 5,
+"unit": "%",
+"period": "21 Oct 2026",
+"source": "Admirals budget explainer citing the government press file and Public Sénat",
+"url": "https://admiralmarkets.com/analytics/traders-blog/france-budget-2027-assembly-rejection-senate"
+},
+{
+"key": "spread_peak",
+"label": "Yield gap with Germany, weekly close",
+"value": 174,
+"unit": "basis points",
+"period": "week of 19-23 Oct 2026",
+"source": "Admirals budget explainer citing the government press file and Public Sénat",
+"url": "https://admiralmarkets.com/analytics/traders-blog/france-budget-2027-assembly-rejection-senate"
+},
+{
+"key": "oat_now",
+"label": "10-year government bond yield",
+"value": 4.7,
+"unit": "%",
+"period": "10 Nov 2026",
+"source": "Admirals budget explainer citing the government press file and Public Sénat",
+"url": "https://admiralmarkets.com/analytics/traders-blog/france-budget-2027-assembly-rejection-senate"
+},
+{
+"key": "trust",
+"label": "Trust in President Macron",
+"value": 13,
+"unit": "%",
+"period": "3-4 Nov 2026",
+"source": "Elabe barometer, 3-4 Nov 2026, via frenchpolitics.fr",
+"url": "https://www.frenchpolitics.fr/news/polls/macron-poll-approval-rating-november-2026/"
+},
+{
+"key": "distrust",
+"label": "Distrust in President Macron",
+"value": 82,
+"unit": "%",
+"period": "3-4 Nov 2026",
+"source": "Elabe barometer, 3-4 Nov 2026, via frenchpolitics.fr",
+"url": "https://www.frenchpolitics.fr/news/polls/macron-poll-approval-rating-november-2026/"
+},
+{
+"key": "notrust",
+"label": "No trust at all in President Macron",
+"value": 60,
+"unit": "%",
+"period": "3-4 Nov 2026",
+"source": "Elabe barometer, 3-4 Nov 2026, via frenchpolitics.fr",
+"url": "https://www.frenchpolitics.fr/news/polls/macron-poll-approval-rating-november-2026/"
+},
+{
+"key": "lecornu",
+"label": "Trust in Prime Minister Lecornu",
+"value": 17,
+"unit": "%",
+"period": "Nov 2026",
+"source": "Elabe barometer via The Rio Times, 5 Nov 2026",
+"url": "https://www.riotimesonline.com/macron-trust-record-low-elabe-poll-nov-5/"
+},
+{
+"key": "justified",
+"label": "Say the student movement is justified (Odoxa)",
+"value": 62,
+"unit": "%",
+"period": "1 Oct 2026",
+"source": "Wikipedia, 2026 French civil unrest (citing ministries and press)",
+"url": "https://en.wikipedia.org/wiki/2026_French_civil_unrest"
+},
+{
+"key": "lepen",
+"label": "Expect Marine Le Pen to gain from the unrest (Odoxa)",
+"value": 74,
+"unit": "%",
+"period": "27 Oct 2026",
+"source": "Wikipedia, 2026 French civil unrest (citing ministries and press)",
+"url": "https://en.wikipedia.org/wiki/2026_French_civil_unrest"
+},
+{
+"key": "t_int",
+"label": "Marchers on 5 November, Interior Ministry",
+"value": 575,
+"unit": "thousand",
+"period": "5 Nov 2026",
+"source": "Wikipedia, 2026 French civil unrest (citing ministries and press)",
+"url": "https://en.wikipedia.org/wiki/2026_French_civil_unrest"
+},
+{
+"key": "t_cgt",
+"label": "Marchers on 5 November, CGT",
+"value": 1.57,
+"unit": "million",
+"period": "5 Nov 2026",
+"source": "BBC News, 5 Nov 2026",
+"url": "https://www.bbc.com/news/articles/ckx2qzv835pgo"
+},
+{
+"key": "t_sat",
+"label": "Marchers on Saturday 14 November, Interior Ministry",
+"value": 106,
+"unit": "thousand",
+"period": "14 Nov 2026",
+"source": "HuffPost, 14 Nov 2026 (Interior Ministry count)",
+"url": "https://www.facebook.com/LeHuffPost/posts/pour-le-quatri%C3%A8me-samedi-cons%C3%A9cutif-la-mobilisation-est-en-baisse-ce-14-novembre/1603911078440782/"
+},
+{
+"key": "police",
+"label": "Police and gendarmes deployed",
+"value": 70,
+"unit": "thousand",
+"period": "5 Nov 2026",
+"source": "BBC News, 5 Nov 2026",
+"url": "https://www.bbc.com/news/articles/ckx2qzv835pgo"
+},
+{
+"key": "arrests",
+"label": "Arrests since the start",
+"value": 2700,
+"unit": "people",
+"period": "as of 22 Oct 2026",
+"source": "Wikipedia, 2026 French civil unrest (citing ministries and press)",
+"url": "https://en.wikipedia.org/wiki/2026_French_civil_unrest"
+},
+{
+"key": "jailed",
+"label": "Jailed after fast-track trials",
+"value": 217,
+"unit": "people",
+"period": "as of 22 Oct 2026",
+"source": "Wikipedia, 2026 French civil unrest (citing ministries and press)",
+"url": "https://en.wikipedia.org/wiki/2026_French_civil_unrest"
+},
+{
+"key": "shops",
+"label": "Shops looted on 17 October",
+"value": 2000,
+"unit": "shops (more than)",
+"period": "17 Oct 2026",
+"source": "BBC News, 5 Nov 2026",
+"url": "https://www.bbc.com/news/articles/ckx2qzv835pgo"
+},
+{
+"key": "officers",
+"label": "Police officers injured on 17 October",
+"value": 1000,
+"unit": "officers (about)",
+"period": "17 Oct 2026",
+"source": "Wikipedia, 2026 French civil unrest (citing ministries and press)",
+"url": "https://en.wikipedia.org/wiki/2026_French_civil_unrest"
+},
+{
+"key": "teach_strike",
+"label": "Teachers on strike, Education Ministry",
+"value": 15.81,
+"unit": "%",
+"period": "5 Nov 2026",
+"source": "CNews live report citing the ministries, 5 Nov 2026",
+"url": "https://www.cnews.fr/france/2026-11-05/manifestations-du-5-novembre-575000-manifestants-dans-toute-la-france-448"
+},
+{
+"key": "lyc_gov",
+"label": "Lycées blocked, government count",
+"value": 81,
+"unit": "schools",
+"period": "5 Nov 2026",
+"source": "CNews live report citing the ministries, 5 Nov 2026",
+"url": "https://www.cnews.fr/france/2026-11-05/manifestations-du-5-novembre-575000-manifestants-dans-toute-la-france-448"
+},
+{
+"key": "lyc_usl",
+"label": "Lycées at a standstill, student union count",
+"value": 1000,
+"unit": "schools",
+"period": "5 Nov 2026",
+"source": "CNews live report citing the ministries, 5 Nov 2026",
+"url": "https://www.cnews.fr/france/2026-11-05/manifestations-du-5-novembre-575000-manifestants-dans-toute-la-france-448"
+},
+{
+"key": "lyc_all",
+"label": "Lycées in France",
+"value": 3700,
+"unit": "schools",
+"period": "2026",
+"source": "CNews live report citing the ministries, 5 Nov 2026",
+"url": "https://www.cnews.fr/france/2026-11-05/manifestations-du-5-novembre-575000-manifestants-dans-toute-la-france-448"
+},
+{
+"key": "class_cap",
+"label": "New cap for first-year lycée classes",
+"value": 28,
+"unit": "pupils",
+"period": "from 2027",
+"source": "RFI, 27 Oct 2026",
+"url": "https://www.rfi.fr/en/france/20261027-france-pledges-admissions-overhaul-and-education-funding-to-ease-protests"
+},
+{
+"key": "class_now",
+"label": "Current average first-year lycée class (more than)",
+"value": 30,
+"unit": "pupils",
+"period": "2026",
+"source": "Wall Street Journal, 26 Oct 2026",
+"url": "https://www.wsj.com/world/europe/france-offers-concessions-to-quell-student-protests-2e164758"
+},
+{
+"key": "places_offer",
+"label": "Extra higher-education places offered",
+"value": 15,
+"unit": "thousand",
+"period": "2027-2028",
+"source": "RFI, 27 Oct 2026",
+"url": "https://www.rfi.fr/en/france/20261027-france-pledges-admissions-overhaul-and-education-funding-to-ease-protests"
+},
+{
+"key": "places_ask",
+"label": "Extra university places demanded by students",
+"value": 250,
+"unit": "thousand",
+"period": "Oct 2026",
+"source": "RFI, 27 Oct 2026",
+"url": "https://www.rfi.fr/en/france/20261027-france-pledges-admissions-overhaul-and-education-funding-to-ease-protests"
+},
+{
+"key": "reno",
+"label": "Low-interest loans for school renovation",
+"value": 4,
+"unit": "€ billion",
+"period": "until 2030",
+"source": "RFI, 27 Oct 2026",
+"url": "https://www.rfi.fr/en/france/20261027-france-pledges-admissions-overhaul-and-education-funding-to-ease-protests"
+},
+{
+"key": "uni_reno",
+"label": "University renovation programme",
+"value": 1,
+"unit": "€ billion",
+"period": "until 2029",
+"source": "RFI, 27 Oct 2026",
+"url": "https://www.rfi.fr/en/france/20261027-france-pledges-admissions-overhaul-and-education-funding-to-ease-protests"
+},
+{
+"key": "posts",
+"label": "Extra secondary teaching posts",
+"value": 500,
+"unit": "posts",
+"period": "announced 26 Oct 2026",
+"source": "RFI, 27 Oct 2026",
+"url": "https://www.rfi.fr/en/france/20261027-france-pledges-admissions-overhaul-and-education-funding-to-ease-protests"
+},
+{
+"key": "pens",
+"label": "Pension spending",
+"value": 436,
+"unit": "€ billion",
+"period": "2027",
+"source": "Reuters via Yahoo News, 13 Nov 2026",
+"url": "https://malaysia.news.yahoo.com/frances-le-pen-seeks-square-111158295.html"
+},
+{
+"key": "pens_gdp",
+"label": "Pension spending, share of GDP",
+"value": 14,
+"unit": "% of GDP",
+"period": "2027",
+"source": "Reuters via Yahoo News, 13 Nov 2026",
+"url": "https://malaysia.news.yahoo.com/frances-le-pen-seeks-square-111158295.html"
+},
+{
+"key": "pens_cost",
+"label": "Yearly cost of reversing the 2023 reform (public audit office)",
+"value": 10,
+"unit": "€ billion",
+"period": "per year",
+"source": "Reuters via Yahoo News, 13 Nov 2026",
+"url": "https://malaysia.news.yahoo.com/frances-le-pen-seeks-square-111158295.html"
+},
+{
+"key": "pens_def",
+"label": "Pension system deficit",
+"value": 5.1,
+"unit": "€ billion",
+"period": "2025",
+"source": "European Pensions (pension system deficit 2025)",
+"url": "https://www.europeanpensions.net/ep/French-pension-system-deficit-estimated-at-5-1bn-in-2025.php"
+},
+{
+"key": "ss_2026",
+"label": "Social security deficit",
+"value": 21.8,
+"unit": "€ billion",
+"period": "2026",
+"source": "Batinfo, 5 Nov 2026 (2027 social security bill)",
+"url": "https://batinfo.com/en/actuality/2027-social-security-budget%3A-the-Senate-wants-to-reinstate-the-pension-reform-and-better-protect-small-pensions_37873"
+},
+{
+"key": "ss_2027",
+"label": "Social security deficit, bill target",
+"value": 12.7,
+"unit": "€ billion",
+"period": "2027",
+"source": "Batinfo, 5 Nov 2026 (2027 social security bill)",
+"url": "https://batinfo.com/en/actuality/2027-social-security-budget%3A-the-Senate-wants-to-reinstate-the-pension-reform-and-better-protect-small-pensions_37873"
+},
+{
+"key": "thr_gov",
+"label": "Monthly pension below which pensions keep rising with inflation, government bill",
+"value": 1260,
+"unit": "€",
+"period": "2027",
+"source": "Batinfo, 5 Nov 2026 (2027 social security bill)",
+"url": "https://batinfo.com/en/actuality/2027-social-security-budget%3A-the-Senate-wants-to-reinstate-the-pension-reform-and-better-protect-small-pensions_37873"
+},
+{
+"key": "thr_sen",
+"label": "Same threshold, Senate version",
+"value": 1500,
+"unit": "€",
+"period": "2027",
+"source": "Batinfo, 5 Nov 2026 (2027 social security bill)",
+"url": "https://batinfo.com/en/actuality/2027-social-security-budget%3A-the-Senate-wants-to-reinstate-the-pension-reform-and-better-protect-small-pensions_37873"
+},
+{
+"key": "sen_save",
+"label": "Saving from reinstating the reform, Senate estimate",
+"value": 600,
+"unit": "€ million",
+"period": "2027",
+"source": "Batinfo, 5 Nov 2026 (2027 social security bill)",
+"url": "https://batinfo.com/en/actuality/2027-social-security-budget%3A-the-Senate-wants-to-reinstate-the-pension-reform-and-better-protect-small-pensions_37873"
+},
+{
+"key": "barrels",
+"label": "Diesel released from strategic reserves",
+"value": 10,
+"unit": "million barrels",
+"period": "7 Oct 2026",
+"source": "Wikipedia, 2026 French civil unrest (citing ministries and press)",
+"url": "https://en.wikipedia.org/wiki/2026_French_civil_unrest"
+},
+{
+"key": "stations",
+"label": "Service stations where diesel prices fell",
+"value": 6000,
+"unit": "stations",
+"period": "5 Nov 2026",
+"source": "RFI, 5 Nov 2026",
+"url": "https://www.rfi.fr/en/france/20261105-french-unions-join-forces-for-nationwide-strike-as-protests-intensify"
+},
+{
+"key": "stations_all",
+"label": "Service stations in France",
+"value": 10000,
+"unit": "stations",
+"period": "2026",
+"source": "RFI, 5 Nov 2026",
+"url": "https://www.rfi.fr/en/france/20261105-french-unions-join-forces-for-nationwide-strike-as-protests-intensify"
+},
+{
+"key": "ot_old",
+"label": "Tax-free overtime ceiling, before",
+"value": 7500,
+"unit": "€",
+"period": "2026",
+"source": "Sortiraparis, 9 Nov 2026 (social conference announcements)",
+"url": "https://www.sortiraparis.com/en/news/in-paris/articles/259646-minimum-wage-an-increase-from-december-1-2026-has-been-confirmed-what-to-expect"
+},
+{
+"key": "ot_new",
+"label": "Tax-free overtime ceiling, after",
+"value": 10000,
+"unit": "€",
+"period": "2027",
+"source": "Sortiraparis, 9 Nov 2026 (social conference announcements)",
+"url": "https://www.sortiraparis.com/en/news/in-paris/articles/259646-minimum-wage-an-increase-from-december-1-2026-has-been-confirmed-what-to-expect"
+},
+{
+"key": "sectors",
+"label": "Industry sectors with pay scales below the minimum wage",
+"value": 69,
+"unit": "sectors",
+"period": "Nov 2026",
+"source": "Sortiraparis, 9 Nov 2026 (social conference announcements)",
+"url": "https://www.sortiraparis.com/en/news/in-paris/articles/259646-minimum-wage-an-increase-from-december-1-2026-has-been-confirmed-what-to-expect"
+}
+]

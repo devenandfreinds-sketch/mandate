@@ -1,0 +1,30 @@
+[
+{
+"level": "Primary",
+"year": "2015",
+"france": 24,
+"oecd": 21,
+"label": "Primary, 2015"
+},
+{
+"level": "Primary",
+"year": "2024",
+"france": 21,
+"oecd": 21,
+"label": "Primary, 2024"
+},
+{
+"level": "Lower secondary",
+"year": "2015",
+"france": 25,
+"oecd": 23,
+"label": "Lower secondary, 2015"
+},
+{
+"level": "Lower secondary",
+"year": "2024",
+"france": 26,
+"oecd": 23,
+"label": "Lower secondary, 2024"
+}
+]

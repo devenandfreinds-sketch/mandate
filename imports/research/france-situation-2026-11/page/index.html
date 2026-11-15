@@ -1,0 +1,268 @@
+<meta name="dash-one-writer">
+<style>
+/* Layout: one reading column of sections; each section pairs a short text with one or two charts on a wrapping grid. */
+.fr { max-width: 1060px; margin: 0 auto; display: flex; flex-direction: column; gap: var(--cds-gap-xl); font-family: var(--font-anthropic-sans); color: var(--color-fg); font-size: var(--cds-font-size-body); line-height: 1.55; }
+.fr-eyebrow { font-size: var(--cds-font-size-caption); letter-spacing: .08em; text-transform: uppercase; color: var(--color-fg-muted); margin: 0; }
+.fr-h1 { font-family: var(--font-anthropic-serif); font-weight: 400; font-size: clamp(30px, 5vw, 46px); line-height: 1.1; margin: 6px 0 12px; text-wrap: balance; }
+.fr-lede { font-size: 1.15em; max-width: 68ch; margin: 0; }
+.fr-sec { display: flex; flex-direction: column; gap: var(--cds-gap-md); border-top: 1px solid var(--color-border-line); padding-top: var(--cds-pad-lg); }
+.fr-h2 { font-family: var(--font-anthropic-serif); font-weight: 400; font-size: var(--cds-font-size-title); line-height: 1.2; margin: 0; text-wrap: balance; }
+.fr-h3 { font-size: var(--cds-font-size-body); font-weight: var(--cds-font-weight-medium); margin: 0 0 2px; text-wrap: balance; }
+.fr-p { margin: 0; max-width: 70ch; }
+.fr-note { margin: 0; font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); max-width: 75ch; }
+.fr-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 330px), 1fr)); gap: var(--cds-gap-lg); align-items: start; }
+.fr-fig { min-width: 0; display: flex; flex-direction: column; gap: var(--cds-gap-sm); }
+.fr-chart { min-height: 150px; color: var(--color-fg-muted); }
+.fr-chart.tall { min-height: 250px; }
+.fr-box { position: relative; }
+.fr-chart text { font-family: var(--font-anthropic-sans); font-size: var(--cds-font-size-caption); fill: var(--cds-text-secondary); font-variant-numeric: tabular-nums; }
+.fr-chart text.fr-val, .fr-chart text.fr-cat { fill: var(--color-fg); }
+.fr-chart text.fr-halo { paint-order: stroke; stroke: var(--color-bg); stroke-width: 3px; stroke-linejoin: round; font-weight: var(--cds-font-weight-medium); }
+.fr-tip { position: absolute; z-index: 2; pointer-events: none; max-width: 240px; padding: 6px 9px; border-radius: var(--cds-radius); background: var(--cds-surface-popover); border: 1px solid var(--cds-border); box-shadow: var(--cds-shadow-popover); font-size: var(--cds-font-size-caption); color: var(--cds-text-secondary); line-height: 1.4; }
+.fr-tip-h { color: var(--color-fg); font-weight: var(--cds-font-weight-medium); }
+.fr-legend { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); margin: 0; }
+.fr-sw { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 5px; }
+.fr-tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: var(--cds-gap-md); }
+.fr-tile { background: var(--color-panel); border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); padding: var(--cds-pad-md); display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.fr-tile-l { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+.fr-tile-v { font-family: var(--font-anthropic-serif); font-weight: 400; font-size: 30px; line-height: 1.15; font-variant-numeric: tabular-nums; }
+.fr-tile-s { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+.fr-bad { color: var(--color-bad); }
+.fr-list { margin: 0; padding-left: 1.1em; max-width: 70ch; display: flex; flex-direction: column; gap: 4px; }
+.fr-scroll { overflow-x: auto; }
+.fr-table { border-collapse: collapse; width: 100%; font-size: var(--cds-font-size-caption); font-variant-numeric: tabular-nums; }
+.fr-table th { text-align: left; font-weight: var(--cds-font-weight-medium); color: var(--color-fg-muted); padding: 6px 10px 6px 0; border-bottom: 1px solid var(--color-border-line); white-space: nowrap; }
+.fr-table td { padding: 7px 10px 7px 0; border-bottom: 1px solid var(--color-border-line); vertical-align: top; }
+.fr-table td.fr-num, .fr-table th.fr-num { text-align: right; }
+.fr-wide { min-width: 720px; }
+.fr-pill { display: inline-block; white-space: nowrap; padding: 1px 8px; border-radius: 999px; border: 1px solid currentColor; font-weight: var(--cds-font-weight-medium); }
+.fr-pill.ok { color: var(--color-ok); } .fr-pill.warn { color: var(--color-warn); } .fr-pill.bad { color: var(--color-bad); } .fr-pill.part { color: var(--color-fg-muted); }
+.fr-verdict { background: var(--color-panel); border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); padding: var(--cds-pad-lg); display: flex; flex-direction: column; gap: var(--cds-gap-sm); }
+.fr-verdict-h { font-family: var(--font-anthropic-serif); font-weight: 400; font-size: var(--cds-font-size-title); margin: 0; }
+.fr-details { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+.fr-details a { color: inherit; }
+[data-dash-source-state=refreshing] { opacity: .5; }
+</style>
+
+<div class="fr">
+<header id="top">
+  <p class="fr-eyebrow">Situation report · figures as published by 14 November 2026</p>
+  <h1 class="fr-h1">France in November 2026</h1>
+  <p class="fr-lede">GDP fell last quarter (<b data-draw="v" data-source="facts" data-field="value" data-where="key=gdp_q3" data-dp="1">—</b>%), prices are rising <b data-draw="v" data-source="facts" data-field="value" data-where="key=cpi" data-dp="1">—</b>% a year, unemployment is at <b data-draw="v" data-source="facts" data-field="value" data-where="key=unemp" data-dp="1">—</b>% and only <b data-draw="v" data-source="facts" data-field="value" data-where="key=trust">—</b>% of people trust the president. Up to <b data-draw="v" data-source="facts" data-field="value" data-where="key=t_cgt">—</b> million people marched on 5 November. The government has answered with fuel releases, school pledges and a small minimum wage rise, and most of that is short-term relief.</p>
+</header>
+
+<section class="fr-tiles" id="headline-figures" aria-label="Headline figures">
+  <div class="fr-tile" id="tile-gdp"><span class="fr-tile-l">GDP, Q3 2026</span><span class="fr-tile-v fr-bad"><b data-draw="v" data-source="facts" data-field="value" data-where="key=gdp_q3" data-dp="1">—</b>%</span><span class="fr-tile-s">on the quarter, after <b data-draw="v" data-source="facts" data-field="value" data-where="key=gdp_q2" data-dp="1">—</b>% in Q2</span></div>
+  <div class="fr-tile" id="tile-unemp"><span class="fr-tile-l">Unemployment, Q3 2026</span><span class="fr-tile-v"><b data-draw="v" data-source="facts" data-field="value" data-where="key=unemp" data-dp="1">—</b>%</span><span class="fr-tile-s"><span class="fr-bad">+<b data-draw="v" data-source="facts" data-field="value" data-where="key=unemp_yoy" data-dp="1">—</b> points</span> in one year</span></div>
+  <div class="fr-tile" id="tile-cpi"><span class="fr-tile-l">Inflation, October 2026</span><span class="fr-tile-v"><b data-draw="v" data-source="facts" data-field="value" data-where="key=cpi" data-dp="1">—</b>%</span><span class="fr-tile-s">a year, up from <b data-draw="v" data-source="facts" data-field="value" data-where="key=cpi_ya" data-dp="1">—</b>% in October 2025</span></div>
+  <div class="fr-tile" id="tile-debt"><span class="fr-tile-l">Public debt, end-June 2026</span><span class="fr-tile-v"><b data-draw="v" data-source="facts" data-field="value" data-where="key=debt">—</b>%</span><span class="fr-tile-s">of GDP, about; <b data-draw="v" data-source="facts" data-field="value" data-where="key=debt_2025" data-dp="1">—</b>% at end-2025</span></div>
+  <div class="fr-tile" id="tile-trust"><span class="fr-tile-l">Trust in President Macron</span><span class="fr-tile-v"><b data-draw="v" data-source="facts" data-field="value" data-where="key=trust">—</b>%</span><span class="fr-tile-s">a record low; <b data-draw="v" data-source="facts" data-field="value" data-where="key=distrust">—</b>% distrust</span></div>
+  <div class="fr-tile" id="tile-march"><span class="fr-tile-l">Marchers, 5 November</span><span class="fr-tile-v"><b data-draw="v" data-source="facts" data-field="value" data-where="key=t_int">—</b>k</span><span class="fr-tile-s">Interior Ministry; unions say <b data-draw="v" data-source="facts" data-field="value" data-where="key=t_cgt">—</b> million</span></div>
+</section>
+
+<section class="fr-sec" id="overview">
+  <h2 class="fr-h2">What is going on</h2>
+  <p class="fr-p">France is in its ninth week of unrest. It began in mid-September with a revived yellow-vest movement against fuel prices, after the blockade of the Strait of Hormuz and the Bab al-Mandab Strait pushed diesel to €<b data-draw="v" data-source="facts" data-field="value" data-where="key=diesel" data-dp="2">—</b> a litre. At the end of September lycée (high school) students started blockading schools over missing teachers, crowded classes and run-down buildings. Trade unions joined in October, and the protests merged into one movement about pay, prices and public services.</p>
+  <p class="fr-p">Three pressures sit underneath it. Growth has stopped: GDP has not risen in any quarter of 2026. Prices have turned up again, driven by energy. And the state has little money to respond, with debt near <b data-draw="v" data-source="facts" data-field="value" data-where="key=debt">—</b>% of GDP and a deficit above 5%. A minority government under Prime Minister Sébastien Lecornu is trying to pass a budget with €<b data-draw="v" data-source="facts" data-field="value" data-where="key=savings">—</b> billion of savings through a parliament that rejected it <b data-draw="v" data-source="facts" data-field="value" data-where="key=vote_no">—</b> votes to <b data-draw="v" data-source="facts" data-field="value" data-where="key=vote_yes">—</b>.</p>
+  <p class="fr-p">A presidential election is due in spring 2027. That shapes every decision in the sections below.</p>
+</section>
+
+<section class="fr-sec" id="protests">
+  <h2 class="fr-h2">Protests: the biggest day came on 5 November, and weekend turnout has fallen since</h2>
+  <p class="fr-p">The Interior Ministry counted <b data-draw="v" data-source="facts" data-field="value" data-where="key=t_int">—</b> thousand marchers on 5 November, the first joint strike day called by all the main unions. The CGT union counted <b data-draw="v" data-source="facts" data-field="value" data-where="key=t_cgt">—</b> million. The two counts always differ, so both are shown. Saturday marches have shrunk for four weekends in a row, to <b data-draw="v" data-source="facts" data-field="value" data-where="key=t_sat">—</b> thousand on 14 November. The next test is a public-sector strike on Tuesday 17 November.</p>
+  <div class="fr-grid">
+    <div class="fr-fig" id="fig-protest-days">
+      <h3 class="fr-h3">Marchers on national protest days, in thousands</h3>
+      <p class="fr-legend"><span><i class="fr-sw" data-c="0"></i>Interior Ministry count</span><span><i class="fr-sw" data-c="1"></i>Organisers' count, where published</span></p>
+      <div class="fr-chart tall dash-skeleton" data-draw="c-protest-days" data-source="protest_days">—</div>
+    </div>
+    <div class="fr-fig" id="fig-protest-map">
+      <h3 class="fr-h3">Where people marched on 5 November</h3>
+      <p class="fr-legend"><span><i class="fr-sw" data-c="0"></i>Police count</span><span><i class="fr-sw" data-c="1"></i>Union count</span><span>Circle area shows the number of marchers</span></p>
+      <div class="fr-chart tall dash-skeleton" data-draw="c-protest-map" data-source="protest_cities">—</div>
+    </div>
+  </div>
+  <div class="fr-grid">
+    <div class="fr-fig" id="fig-cities">
+      <h3 class="fr-h3">City counts on 5 November</h3>
+      <div class="fr-scroll"><table class="fr-table" data-source="protest_cities" data-row-key="city">
+        <thead><tr><th data-field="city">City</th><th class="fr-num" data-field="police">Police</th><th class="fr-num" data-field="unions">Unions</th></tr></thead>
+        <tbody data-draw="t-cities"></tbody>
+      </table></div>
+      <p class="fr-note">A dash means no count was published by that side in the reports used. Only cities with a reported figure are listed.</p>
+    </div>
+    <div class="fr-fig" id="fig-violence">
+      <h3 class="fr-h3">Violence and policing</h3>
+      <p class="fr-p">The worst day was Saturday 17 October, when more than <b data-draw="v" data-source="facts" data-field="value" data-where="key=shops">—</b> shops were looted and about <b data-draw="v" data-source="facts" data-field="value" data-where="key=officers">—</b> police officers were injured. By 22 October the justice minister counted <b data-draw="v" data-source="facts" data-field="value" data-where="key=arrests">—</b> arrests and <b data-draw="v" data-source="facts" data-field="value" data-where="key=jailed">—</b> people jailed after fast-track trials. Since then the state has put <b data-draw="v" data-source="facts" data-field="value" data-where="key=police">—</b> thousand police and gendarmes on the streets on each major day, and 5 November passed with far less damage.</p>
+      <p class="fr-p">Public support is real but conditional. An Odoxa poll on 1 October found <b data-draw="v" data-source="facts" data-field="value" data-where="key=justified">—</b>% thought the student movement was justified.</p>
+    </div>
+  </div>
+</section>
+
+<section class="fr-sec" id="unions">
+  <h2 class="fr-h2">Trade unions: a joint front on pay</h2>
+  <p class="fr-p">French unions have few members compared with their neighbours, but they negotiate pay scales for almost all employees and can stop trains, schools and refineries. The two largest, the moderate CFDT and the harder-line CGT, often disagree on tactics. On 5 November they marched together. The CGT wants an immediate <b data-draw="v" data-source="facts" data-field="value" data-where="key=cgt_ask">—</b>% rise in the minimum wage. The CFDT wants €<b data-draw="v" data-source="facts" data-field="value" data-where="key=cfdt_ask">—</b> more net pay a month. The government offered <b data-draw="v" data-source="facts" data-field="value" data-where="key=smic_rise">—</b>%, and when it then postponed public-sector pay talks to 11 December, the CFDT joined the 17 November strike.</p>
+  <div class="fr-grid">
+    <div class="fr-fig" id="fig-unions">
+      <h3 class="fr-h3">Union strength: share of workplace election votes, 2025</h3>
+      <div class="fr-chart dash-skeleton" data-draw="c-unions" data-source="unions">—</div>
+      <p class="fr-note">The five confederations recognised as representative in the private sector.</p>
+    </div>
+    <div class="fr-fig" id="fig-strike">
+      <h3 class="fr-h3">Share of staff on strike on 5 November</h3>
+      <div class="fr-chart dash-skeleton" data-draw="c-strike" data-source="strike_rates">—</div>
+      <p class="fr-note">Official counts. Unions report much higher rates in schools. Strike rates were modest outside education, so the pressure comes more from the streets than from stopped work.</p>
+    </div>
+  </div>
+</section>
+
+<section class="fr-sec" id="jobs">
+  <h2 class="fr-h2">Unemployment: back above 8%, and worst for the young</h2>
+  <p class="fr-p">The unemployment rate was <b data-draw="v" data-source="facts" data-field="value" data-where="key=unemp" data-dp="1">—</b>% in the third quarter, <b data-draw="v" data-source="facts" data-field="value" data-where="key=unemp_yoy" data-dp="1">—</b> points higher than a year earlier. That is <b data-draw="v" data-source="facts" data-field="value" data-where="key=unemp_n">—</b> million people, <b data-draw="v" data-source="facts" data-field="value" data-where="key=unemp_add">—</b> thousand more than a year ago. Among 15 to 24 year-olds the rate is <b data-draw="v" data-source="facts" data-field="value" data-where="key=youth" data-dp="1">—</b>%, and <b data-draw="v" data-source="facts" data-field="value" data-where="key=neet" data-dp="1">—</b>% of people aged 15 to 29 are in neither work nor education. Part of the rise is administrative: since 2025 welfare recipients must register as job seekers, which INSEE says explains under half of the increase.</p>
+  <div class="fr-grid">
+    <div class="fr-fig" id="fig-unemp">
+      <h3 class="fr-h3">Unemployment rate, quarterly</h3>
+      <p class="fr-legend"><span><i class="fr-sw" data-c="0"></i>All ages 15 and over</span><span><i class="fr-sw" data-c="1"></i>Ages 25 to 49</span></p>
+      <div class="fr-chart tall dash-skeleton" data-draw="c-unemp" data-source="unemployment">—</div>
+    </div>
+    <div class="fr-fig" id="fig-unemp-groups">
+      <h3 class="fr-h3">Unemployment rate by group, Q3 2026</h3>
+      <div class="fr-chart dash-skeleton" data-draw="c-unemp-groups" data-source="unemployment_groups">—</div>
+      <p class="fr-note">Men's unemployment rose over the year while women's did not.</p>
+    </div>
+    <div class="fr-fig" id="fig-unemp-map">
+      <h3 class="fr-h3">Unemployment rate by region, Q2 2026 (%)</h3>
+      <div class="fr-chart tall dash-skeleton" data-draw="c-unemp-map" data-source="unemployment_regions">—</div>
+      <p class="fr-note">Darker means higher. Regional figures run one quarter behind the national rate. Overseas rates are far higher: <b data-draw="v" data-source="unemployment_regions" data-field="rate" data-where="code=03" data-dp="1">—</b>% in Guyane, <b data-draw="v" data-source="unemployment_regions" data-field="rate" data-where="code=04" data-dp="1">—</b>% in La Réunion, <b data-draw="v" data-source="unemployment_regions" data-field="rate" data-where="code=01" data-dp="1">—</b>% in Guadeloupe and <b data-draw="v" data-source="unemployment_regions" data-field="rate" data-where="code=02" data-dp="1">—</b>% in Martinique.</p>
+    </div>
+  </div>
+</section>
+
+<section class="fr-sec" id="gdp">
+  <h2 class="fr-h2">GDP: no growth in 2026</h2>
+  <p class="fr-p">Quarterly GDP growth was <b data-draw="v" data-source="facts" data-field="value" data-where="key=gdp_q1" data-dp="1">—</b>% in the first quarter, <b data-draw="v" data-source="facts" data-field="value" data-where="key=gdp_q2" data-dp="1">—</b>% in the second and <b data-draw="v" data-source="facts" data-field="value" data-where="key=gdp_q3" data-dp="1">—</b>% in the third. Households are still spending, with consumption up <b data-draw="v" data-source="facts" data-field="value" data-where="key=cons_q3" data-dp="1">—</b>%. The weakness is in investment (<b data-draw="v" data-source="facts" data-field="value" data-where="key=inv_q3" data-dp="1">—</b>%, a third straight fall), exports (<b data-draw="v" data-source="facts" data-field="value" data-where="key=exp_q3" data-dp="1">—</b>%) and factory output (<b data-draw="v" data-source="facts" data-field="value" data-where="key=manuf_q3" data-dp="1">—</b>%). Growth already locked in for the whole of 2026 is <b data-draw="v" data-source="facts" data-field="value" data-where="key=gdp_carry" data-dp="1">—</b>%, against <b data-draw="v" data-source="facts" data-field="value" data-where="key=gdp_2025" data-dp="1">—</b>% in 2025. France has avoided the usual definition of a recession, two straight quarters of falling output, only because the second quarter was flat.</p>
+  <div class="fr-fig" id="fig-gdp">
+    <h3 class="fr-h3">GDP growth on the previous quarter</h3>
+    <div class="fr-chart tall dash-skeleton" data-draw="c-gdp" data-source="gdp">—</div>
+  </div>
+</section>
+
+<section class="fr-sec" id="affordability">
+  <h2 class="fr-h2">Affordability: energy is driving prices up faster than pay</h2>
+  <p class="fr-p">Inflation was <b data-draw="v" data-source="facts" data-field="value" data-where="key=cpi_ya" data-dp="1">—</b>% a year ago. It is now <b data-draw="v" data-source="facts" data-field="value" data-where="key=cpi" data-dp="1">—</b>%, the highest since early 2024. Energy prices are up <b data-draw="v" data-source="facts" data-field="value" data-where="key=energy" data-dp="1">—</b>% in a year and fresh food <b data-draw="v" data-source="facts" data-field="value" data-where="key=fresh" data-dp="1">—</b>%. Pay has not kept up: household purchasing power per person changed by <b data-draw="v" data-source="facts" data-field="value" data-where="key=pp_q2" data-dp="1">—</b>% in the second quarter. A full-time worker on the minimum wage takes home €<b data-draw="v" data-source="facts" data-field="value" data-where="key=smic_old" data-dp="2">—</b> a month, which rises to about €<b data-draw="v" data-source="facts" data-field="value" data-where="key=smic_new">—</b> on 1 December.</p>
+  <div class="fr-grid">
+    <div class="fr-fig" id="fig-cpi">
+      <h3 class="fr-h3">Consumer prices, change over 12 months</h3>
+      <div class="fr-chart tall dash-skeleton" data-draw="c-cpi" data-source="inflation">—</div>
+      <p class="fr-note">October 2026 is INSEE's provisional estimate.</p>
+    </div>
+    <div class="fr-fig" id="fig-cpi-parts">
+      <h3 class="fr-h3">What is getting dearer: October 2026, change over 12 months</h3>
+      <div class="fr-chart dash-skeleton" data-draw="c-cpi-parts" data-source="inflation_components">—</div>
+    </div>
+  </div>
+</section>
+
+<section class="fr-sec" id="finances">
+  <h2 class="fr-h2">Public money and pensions: the constraint behind everything</h2>
+  <p class="fr-p">The state spends <b data-draw="v" data-source="facts" data-field="value" data-where="key=spend" data-dp="1">—</b>% of GDP and has run a deficit above 5% since 2023. Debt has reached about €<b data-draw="v" data-source="facts" data-field="value" data-where="key=debt_eur" data-dp="3">—</b> trillion. Lenders noticed: the French 10-year yield passed <b data-draw="v" data-source="facts" data-field="value" data-where="key=oat_peak">—</b>% on 21 October, and the gap with Germany closed one week at <b data-draw="v" data-source="facts" data-field="value" data-where="key=spread_peak">—</b> basis points, the widest since 2011. It has eased since, to a yield of <b data-draw="v" data-source="facts" data-field="value" data-where="key=oat_now" data-dp="2">—</b>% on 10 November.</p>
+  <div class="fr-grid">
+    <div class="fr-fig" id="fig-deficit">
+      <h3 class="fr-h3">Public deficit, % of GDP</h3>
+      <div class="fr-chart tall dash-skeleton" data-draw="c-deficit" data-source="public_finances">—</div>
+      <p class="fr-note">Paler bars are forecasts or targets. The EU limit is 3%.</p>
+    </div>
+    <div class="fr-fig" id="fig-debt">
+      <h3 class="fr-h3">Public debt, % of GDP</h3>
+      <div class="fr-chart tall dash-skeleton" data-draw="c-debt" data-source="public_finances">—</div>
+      <p class="fr-note">2026 is the end-June level as reported; 2027 is the draft budget's figure.</p>
+    </div>
+    <div class="fr-fig" id="fig-spread">
+      <h3 class="fr-h3">Extra yield France pays over Germany on 10-year debt</h3>
+      <div class="fr-chart dash-skeleton" data-draw="c-spread" data-source="bond_spread">—</div>
+      <p class="fr-note">In basis points (100 = one percentage point). Yearly averages, then two closes from October 2026.</p>
+    </div>
+  </div>
+  <h3 class="fr-h3" id="pensions">Pensions</h3>
+  <p class="fr-p">Pensions are the largest single public expense: €<b data-draw="v" data-source="facts" data-field="value" data-where="key=pens">—</b> billion next year, or <b data-draw="v" data-source="facts" data-field="value" data-where="key=pens_gdp">—</b>% of GDP. The 2023 reform that raises the retirement age from 62 to 64 was suspended in 2025 as the price of Socialist support for the budget. The public audit office puts the cost of scrapping it at about €<b data-draw="v" data-source="facts" data-field="value" data-where="key=pens_cost">—</b> billion a year. For 2027 the government wants pensions above €<b data-draw="v" data-source="facts" data-field="value" data-where="key=thr_gov">—</b> a month to rise by less than inflation. The Senate would lift that line to €<b data-draw="v" data-source="facts" data-field="value" data-where="key=thr_sen">—</b> and restart the reform, which it says saves €<b data-draw="v" data-source="facts" data-field="value" data-where="key=sen_save">—</b> million in 2027. The social security deficit is €<b data-draw="v" data-source="facts" data-field="value" data-where="key=ss_2026" data-dp="1">—</b> billion this year, with a target of €<b data-draw="v" data-source="facts" data-field="value" data-where="key=ss_2027" data-dp="1">—</b> billion next year. Nothing here is settled, and each party's pension plan will be a central issue in the 2027 campaign.</p>
+</section>
+
+<section class="fr-sec" id="schools">
+  <h2 class="fr-h2">Public schools: large classes, and an offer far below what students asked for</h2>
+  <p class="fr-p">The student protests are about conditions more than curriculum: teachers who are absent and not replaced, very large classes, buildings in poor repair and the stress of the Parcoursup university admissions platform. OECD data back the complaint about class size. France cut primary classes sharply after 2017, but its lower secondary classes grew and are among the largest in the OECD.</p>
+  <div class="fr-grid">
+    <div class="fr-fig" id="fig-class">
+      <h3 class="fr-h3">Average class size, pupils</h3>
+      <p class="fr-legend"><span><i class="fr-sw" data-c="0"></i>France</span><span><i class="fr-sw" data-c="1"></i>OECD average</span></p>
+      <div class="fr-chart tall dash-skeleton" data-draw="c-class" data-source="class_size">—</div>
+    </div>
+    <div class="fr-fig" id="fig-school-gap">
+      <h3 class="fr-h3">What was asked and what was offered</h3>
+      <ul class="fr-list">
+        <li>Students asked for <b data-draw="v" data-source="facts" data-field="value" data-where="key=places_ask">—</b> thousand more university places. The government offered <b data-draw="v" data-source="facts" data-field="value" data-where="key=places_offer">—</b> thousand, spread over 2027 and 2028.</li>
+        <li>First-year lycée classes average more than <b data-draw="v" data-source="facts" data-field="value" data-where="key=class_now">—</b> pupils. The new cap is <b data-draw="v" data-source="facts" data-field="value" data-where="key=class_cap">—</b>, starting in disadvantaged schools from 2027.</li>
+        <li>School buildings get up to €<b data-draw="v" data-source="facts" data-field="value" data-where="key=reno">—</b> billion, as low-interest loans to regions until 2030, and universities €<b data-draw="v" data-source="facts" data-field="value" data-where="key=uni_reno">—</b> billion until 2029.</li>
+        <li>Planned cuts to secondary teaching posts are cancelled and <b data-draw="v" data-source="facts" data-field="value" data-where="key=posts">—</b> posts are added.</li>
+      </ul>
+      <p class="fr-p">On 5 November the Education Ministry counted <b data-draw="v" data-source="facts" data-field="value" data-where="key=teach_strike" data-dp="2">—</b>% of teachers on strike. The government said <b data-draw="v" data-source="facts" data-field="value" data-where="key=lyc_gov">—</b> of <b data-draw="v" data-source="facts" data-field="value" data-where="key=lyc_all">—</b> lycées were blocked. The main student union said <b data-draw="v" data-source="facts" data-field="value" data-where="key=lyc_usl">—</b> were at a standstill, counting closures as well as blockades.</p>
+    </div>
+  </div>
+</section>
+
+<section class="fr-sec" id="trust">
+  <h2 class="fr-h2">Dissatisfaction with government: trust in the president at its lowest ever</h2>
+  <p class="fr-p">Elabe's monthly barometer puts trust in Emmanuel Macron at <b data-draw="v" data-source="facts" data-field="value" data-where="key=trust">—</b>%, the lowest it has recorded. <b data-draw="v" data-source="facts" data-field="value" data-where="key=notrust">—</b>% say they have no trust at all. The prime minister is at <b data-draw="v" data-source="facts" data-field="value" data-where="key=lecornu">—</b>%. Earlier dips on the chart came in the yellow-vest winter of 2018, the pension protests of 2023 and the government collapses of autumn 2025. An Odoxa poll on 27 October found <b data-draw="v" data-source="facts" data-field="value" data-where="key=lepen">—</b>% expect Marine Le Pen to gain from the unrest.</p>
+  <div class="fr-fig" id="fig-trust">
+    <h3 class="fr-h3">Share who trust President Macron to deal with the country's problems</h3>
+    <div class="fr-chart tall dash-skeleton" data-draw="c-trust" data-source="trust">—</div>
+  </div>
+</section>
+
+<section class="fr-sec" id="response">
+  <h2 class="fr-h2">The government's response</h2>
+  <p class="fr-p">The response came in three waves: fuel measures in September and October, an education package on 26 October, and a wage package after the social conference of 9 November. Alongside them the government has relied on heavy policing and is still trying to pass a budget that cuts spending. The horizon column is this report's own assessment of each measure, with the reason beside it.</p>
+  <div class="fr-scroll" id="fig-measures"><table class="fr-table fr-wide" data-source="measures" data-row-key="id">
+    <thead><tr><th data-field="date">Date</th><th data-field="area">Area</th><th data-field="measure">Measure</th><th data-field="horizon">Horizon</th><th data-field="why">Why</th></tr></thead>
+    <tbody data-draw="t-measures"></tbody>
+  </table></div>
+  <div class="fr-grid">
+    <div class="fr-fig" id="fig-horizon">
+      <h3 class="fr-h3">Measures by time horizon</h3>
+      <div class="fr-chart dash-skeleton" data-draw="c-horizon" data-source="horizon_counts">—</div>
+    </div>
+    <div class="fr-verdict" id="verdict">
+      <h3 class="fr-verdict-h">Verdict: a short-term response</h3>
+      <p class="fr-p"><b data-draw="v" data-source="horizon_summary" data-field="short_or_deferred" data-row="0">—</b> of the <b data-draw="v" data-source="horizon_summary" data-field="total" data-row="0">—</b> measures are temporary relief or postponements. Another <b data-draw="v" data-source="horizon_summary" data-field="partial" data-row="0">—</b> would last but are small or cover part of the problem, and most start in 2027 or later, after the presidential election.</p>
+      <p class="fr-p">Only one is a full structural change that is going ahead, the replacement of Parcoursup. The one plan aimed at the long-run problem, the 2027 budget, was voted down, and it pulls against the concessions: every euro promised to schools or wages makes the <b data-draw="v" data-source="facts" data-field="value" data-where="key=def_2027" data-dp="1">—</b>% deficit target harder.</p>
+    </div>
+  </div>
+  <h3 class="fr-h3" id="why">Why it is not a long-term solution</h3>
+  <ul class="fr-list">
+    <li><b>It treats the symptoms.</b> Releasing fuel stocks and bringing forward a wage rise ease this winter. They do not change growth, energy dependence or how pay is set.</li>
+    <li><b>The money is not there.</b> The school package relies on loans and on promises dated 2027 to 2030. Students got a small fraction of the university places they asked for.</li>
+    <li><b>The hard choices are postponed.</b> The pension age, public-sector pay and the budget itself have each been pushed back, mostly past the election.</li>
+    <li><b>There is no majority to carry a long-term plan.</b> A government whose budget loses <b data-draw="v" data-source="facts" data-field="value" data-where="key=vote_no">—</b> to <b data-draw="v" data-source="facts" data-field="value" data-where="key=vote_yes">—</b> cannot commit its successors.</li>
+  </ul>
+  <p class="fr-p">What a long-term answer would need: a budget that parliament actually votes, a settled pension rule, multi-year funding for teachers and school buildings paid from the budget, and a return to growth. None of these is in place today.</p>
+</section>
+
+<section class="fr-sec" id="next">
+  <h2 class="fr-h2">What to watch next</h2>
+  <ul class="fr-list">
+    <li><b>17 November:</b> public-sector strike and marches, now backed by the CFDT as well as the CGT and student unions.</li>
+    <li><b>18 November:</b> Senate vote on the social security budget, including pensions.</li>
+    <li><b>9 December:</b> Senate vote on the full 2027 budget.</li>
+    <li><b>11 December:</b> postponed talks on public-sector pay.</li>
+    <li><b>17 December:</b> constitutional deadline for the budget. After it the government can use article 49.3 and face a no-confidence vote, pass a stopgap special law as in the last two years, or enact the budget by ordinance, which has never been done.</li>
+  </ul>
+</section>
+
+<details class="fr-details" id="notes">
+  <summary>Sources and how to read these numbers</summary>
+  <p>Economic figures come from INSEE releases: unemployment (10 November), GDP first estimate (30 October), consumer prices (30 October, provisional) and government accounts (May 2026). Budget, bond and pension figures come from press reports of government and parliamentary documents. Polling is Elabe and Odoxa. School class sizes are from the OECD's Education at a Glance 2026. Each figure's source is listed in Sources beside the page.</p>
+  <p>Protest turnout is contested. The Interior Ministry and the organisers publish different counts and both are shown. Some turnout, arrest and damage figures are taken from the Wikipedia article on the 2026 unrest, which cites ministries and news agencies; treat them as reported, not audited. The debt figure for 2026 is the end-June level and is approximate.</p>
+  <p>The horizon labels and the verdict are an assessment written for this report, not an official classification. The page is a snapshot: the files behind it were compiled on 14 November 2026 and do not update by themselves.</p>
+</details>
+</div>
+<script src="geo.js"></script>
+<script src="charts.js"></script>

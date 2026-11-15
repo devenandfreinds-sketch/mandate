@@ -1,0 +1,51 @@
+[
+{
+"period": "2021",
+"oat_yield": 0.01,
+"bund_yield": -0.37,
+"spread_bp": 38,
+"kind": "annual average"
+},
+{
+"period": "2022",
+"oat_yield": 1.7,
+"bund_yield": 1.14,
+"spread_bp": 56,
+"kind": "annual average"
+},
+{
+"period": "2023",
+"oat_yield": 2.99,
+"bund_yield": 2.43,
+"spread_bp": 56,
+"kind": "annual average"
+},
+{
+"period": "2024",
+"oat_yield": 2.98,
+"bund_yield": 2.32,
+"spread_bp": 65,
+"kind": "annual average"
+},
+{
+"period": "2025",
+"oat_yield": 3.37,
+"bund_yield": 2.61,
+"spread_bp": 76,
+"kind": "annual average"
+},
+{
+"period": "23 Oct 2026",
+"oat_yield": null,
+"bund_yield": null,
+"spread_bp": 174,
+"kind": "weekly close"
+},
+{
+"period": "26 Oct 2026",
+"oat_yield": null,
+"bund_yield": null,
+"spread_bp": 153,
+"kind": "daily close"
+}
+]

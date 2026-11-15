@@ -1,0 +1,51 @@
+[
+{
+"city": "Paris",
+"lat": 48.8566,
+"lon": 2.3522,
+"police": null,
+"unions": 350000
+},
+{
+"city": "Marseille",
+"lat": 43.2965,
+"lon": 5.3698,
+"police": 14000,
+"unions": 150000
+},
+{
+"city": "Lyon",
+"lat": 45.764,
+"lon": 4.8357,
+"police": 30000,
+"unions": 55000
+},
+{
+"city": "Strasbourg",
+"lat": 48.5734,
+"lon": 7.7521,
+"police": 10000,
+"unions": 26000
+},
+{
+"city": "Nantes",
+"lat": 47.2184,
+"lon": -1.5536,
+"police": null,
+"unions": 30000
+},
+{
+"city": "Perpignan",
+"lat": 42.6887,
+"lon": 2.8948,
+"police": 3500,
+"unions": 6000
+},
+{
+"city": "Clermont-Ferrand",
+"lat": 45.7772,
+"lon": 3.087,
+"police": 5200,
+"unions": null
+}
+]

@@ -1,0 +1,121 @@
+[
+{
+"code": "84",
+"region": "Auvergne-Rhône-Alpes",
+"rate": 7.2,
+"change_1y": 0.7,
+"overseas": false
+},
+{
+"code": "27",
+"region": "Bourgogne-Franche-Comté",
+"rate": 7.4,
+"change_1y": 0.6,
+"overseas": false
+},
+{
+"code": "53",
+"region": "Bretagne",
+"rate": 6.8,
+"change_1y": 0.7,
+"overseas": false
+},
+{
+"code": "24",
+"region": "Centre-Val de Loire",
+"rate": 7.8,
+"change_1y": 0.9,
+"overseas": false
+},
+{
+"code": "94",
+"region": "Corse",
+"rate": 6.9,
+"change_1y": 0.5,
+"overseas": false
+},
+{
+"code": "44",
+"region": "Grand Est",
+"rate": 7.9,
+"change_1y": 0.7,
+"overseas": false
+},
+{
+"code": "32",
+"region": "Hauts-de-France",
+"rate": 10.0,
+"change_1y": 0.9,
+"overseas": false
+},
+{
+"code": "11",
+"region": "Île-de-France",
+"rate": 8.2,
+"change_1y": 0.9,
+"overseas": false
+},
+{
+"code": "28",
+"region": "Normandie",
+"rate": 7.9,
+"change_1y": 0.7,
+"overseas": false
+},
+{
+"code": "75",
+"region": "Nouvelle-Aquitaine",
+"rate": 7.5,
+"change_1y": 0.7,
+"overseas": false
+},
+{
+"code": "76",
+"region": "Occitanie",
+"rate": 9.7,
+"change_1y": 0.7,
+"overseas": false
+},
+{
+"code": "52",
+"region": "Pays de la Loire",
+"rate": 6.8,
+"change_1y": 0.7,
+"overseas": false
+},
+{
+"code": "93",
+"region": "Provence-Alpes-Côte d'Azur",
+"rate": 8.7,
+"change_1y": 0.7,
+"overseas": false
+},
+{
+"code": "01",
+"region": "Guadeloupe",
+"rate": 16.4,
+"change_1y": -0.1,
+"overseas": true
+},
+{
+"code": "02",
+"region": "Martinique",
+"rate": 12.8,
+"change_1y": -1.1,
+"overseas": true
+},
+{
+"code": "03",
+"region": "Guyane",
+"rate": 20.4,
+"change_1y": 3.4,
+"overseas": true
+},
+{
+"code": "04",
+"region": "La Réunion",
+"rate": 18.8,
+"change_1y": 3.4,
+"overseas": true
+}
+]

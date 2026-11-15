@@ -1,0 +1,38 @@
+[
+{
+"year": "2022",
+"deficit": 4.7,
+"debt": 111.4,
+"status": "actual"
+},
+{
+"year": "2023",
+"deficit": 5.4,
+"debt": 109.5,
+"status": "actual"
+},
+{
+"year": "2024",
+"deficit": 5.8,
+"debt": 112.6,
+"status": "actual"
+},
+{
+"year": "2025",
+"deficit": 5.1,
+"debt": 115.7,
+"status": "actual"
+},
+{
+"year": "2026",
+"deficit": 5.4,
+"debt": 119.0,
+"status": "government forecast; debt as of end-June"
+},
+{
+"year": "2027",
+"deficit": 5.0,
+"debt": 121.7,
+"status": "draft budget target"
+}
+]

@@ -1,0 +1,155 @@
+[
+{
+"id": "m01",
+"date": "16 Sep",
+"area": "Cost of living",
+"measure": "Fuel subsidies for affected industries raised to the EU maximum, until 31 December",
+"type": "Temporary subsidy",
+"horizon": "Short term",
+"why": "Expires in weeks; does nothing about the price shock itself."
+},
+{
+"id": "m02",
+"date": "2 Oct",
+"area": "Cost of living",
+"measure": "G7 release of 100 million barrels of oil and diesel over four months",
+"type": "Emergency stock release",
+"horizon": "Short term",
+"why": "A one-off release; stocks must be rebuilt later."
+},
+{
+"id": "m03",
+"date": "7 Oct",
+"area": "Cost of living",
+"measure": "10 million barrels of diesel released from French strategic reserves",
+"type": "Emergency stock release",
+"horizon": "Short term",
+"why": "Lowered prices at about 6 in 10 stations; one-off."
+},
+{
+"id": "m04",
+"date": "26 Oct",
+"area": "Schools",
+"measure": "First-year lycée classes capped at 28 pupils, starting in disadvantaged schools from 2027",
+"type": "Rule change",
+"horizon": "Long term, partial",
+"why": "Structural, but covers one year group and starts in some schools only."
+},
+{
+"id": "m05",
+"date": "26 Oct",
+"area": "Schools",
+"measure": "Planned cuts to secondary teaching posts cancelled, plus 500 new posts",
+"type": "Staffing",
+"horizon": "Short term",
+"why": "Stops a cut; 500 posts is small against thousands of schools."
+},
+{
+"id": "m06",
+"date": "26 Oct",
+"area": "Schools",
+"measure": "Up to €4 billion in low-interest loans to regions for school renovation, until 2030",
+"type": "Loans",
+"horizon": "Long term, partial",
+"why": "Multi-year, but loans add to regional debt rather than new state money."
+},
+{
+"id": "m07",
+"date": "26 Oct",
+"area": "Universities",
+"measure": "€1 billion university renovation programme, until 2029",
+"type": "Investment",
+"horizon": "Long term, partial",
+"why": "Multi-year investment, modest in size."
+},
+{
+"id": "m08",
+"date": "26 Oct",
+"area": "Universities",
+"measure": "15,000 extra higher-education places across 2027 and 2028",
+"type": "Capacity",
+"horizon": "Long term, partial",
+"why": "Students asked for 250,000 places."
+},
+{
+"id": "m09",
+"date": "26 Oct",
+"area": "Universities",
+"measure": "Parcoursup admissions platform reformed for 2027 and replaced in 2028",
+"type": "Reform",
+"horizon": "Long term",
+"why": "A real structural change, delivered after the 2027 election."
+},
+{
+"id": "m10",
+"date": "26 Oct",
+"area": "Universities",
+"measure": "Student grants to rise with inflation from the 2027 academic year",
+"type": "Indexation",
+"horizon": "Long term, partial",
+"why": "Protects grants from inflation but does not raise them."
+},
+{
+"id": "m11",
+"date": "9 Nov",
+"area": "Wages",
+"measure": "Minimum wage up 1.6% from 1 December (about €24 net a month)",
+"type": "Pay rise",
+"horizon": "Short term",
+"why": "Mostly the automatic January rise brought forward one month, plus 0.6 points."
+},
+{
+"id": "m12",
+"date": "9 Nov",
+"area": "Wages",
+"measure": "Tax-free overtime ceiling raised to €10,000; value-sharing bonus extended; 75% cover of transport passes kept for 2027",
+"type": "Tax and bonus measures",
+"horizon": "Short term",
+"why": "Helps people already in work who do overtime; no general pay rise."
+},
+{
+"id": "m13",
+"date": "9 Nov",
+"area": "Wages",
+"measure": "69 sectors with pay scales below the minimum wage told to renegotiate; employer contribution relief tied to compliance",
+"type": "Bargaining rules",
+"horizon": "Long term, partial",
+"why": "Could lift low pay scales lastingly if the decree is enforced."
+},
+{
+"id": "m14",
+"date": "13 Nov",
+"area": "Wages",
+"measure": "Public-sector pay talks postponed to 11 December",
+"type": "Delay",
+"horizon": "Deferral",
+"why": "Unions called it stalling; the CFDT joined the 17 November strike in response."
+},
+{
+"id": "m15",
+"date": "Since Oct",
+"area": "Public order",
+"measure": "Up to 70,000 police deployed per protest day; fast-track trials; bill making protesters liable for damage",
+"type": "Policing",
+"horizon": "Short term",
+"why": "Contains unrest without addressing its causes."
+},
+{
+"id": "m16",
+"date": "Oct-Dec",
+"area": "Public finances",
+"measure": "2027 budget: €43 billion of savings to cut the deficit to 5.0% of GDP",
+"type": "Fiscal consolidation",
+"horizon": "Long term, blocked",
+"why": "The only long-run plan, rejected 458 to 0 in the Assembly on 4 November."
+},
+{
+"id": "m17",
+"date": "2025-27",
+"area": "Pensions",
+"measure": "2023 pension reform (retirement at 64) suspended; pensions above €1,260 a month to rise by less than inflation",
+"type": "Suspension and savings",
+"horizon": "Deferral",
+"why": "Postpones the decision past the 2027 election; reversing the reform would cost about €10 billion a year."
+}
+]

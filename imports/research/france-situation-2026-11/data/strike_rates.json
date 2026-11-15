@@ -1,0 +1,22 @@
+[
+{
+"sector": "Teachers",
+"rate": 15.81,
+"counted_by": "Education Ministry"
+},
+{
+"sector": "State civil servants",
+"rate": 9.89,
+"counted_by": "Government"
+},
+{
+"sector": "Local government staff",
+"rate": 4.6,
+"counted_by": "Government"
+},
+{
+"sector": "Public hospital staff",
+"rate": 3.93,
+"counted_by": "Government"
+}
+]

@@ -1,0 +1,58 @@
+[
+{
+"date": "2026-10-08",
+"day": "8 Oct",
+"interior_thousand": 71.5,
+"organisers_thousand": null,
+"note": "Marches only; a further 55,000 outside schools"
+},
+{
+"date": "2026-10-13",
+"day": "13 Oct",
+"interior_thousand": 161.5,
+"organisers_thousand": 480,
+"note": "Fifth national day of action; organiser figure from the youth inter-union"
+},
+{
+"date": "2026-10-17",
+"day": "17 Oct",
+"interior_thousand": 550,
+"organisers_thousand": 800,
+"note": "Largest Saturday; widespread looting and arson"
+},
+{
+"date": "2026-10-24",
+"day": "24 Oct",
+"interior_thousand": 410,
+"organisers_thousand": 800,
+"note": "Organiser figure from the CGT"
+},
+{
+"date": "2026-10-31",
+"day": "31 Oct",
+"interior_thousand": 320,
+"organisers_thousand": null,
+"note": "About 150 demonstrations"
+},
+{
+"date": "2026-11-05",
+"day": "5 Nov",
+"interior_thousand": 575,
+"organisers_thousand": 1570,
+"note": "Inter-union strike day; organiser figure from the CGT"
+},
+{
+"date": "2026-11-07",
+"day": "7 Nov",
+"interior_thousand": 146,
+"organisers_thousand": 250,
+"note": "Weekend of 6-7 November; organiser figure from student unions"
+},
+{
+"date": "2026-11-14",
+"day": "14 Nov",
+"interior_thousand": 106,
+"organisers_thousand": null,
+"note": "Fourth Saturday of falling turnout"
+}
+]
